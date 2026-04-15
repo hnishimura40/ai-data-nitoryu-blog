@@ -101,45 +101,64 @@ nav.breadcrumb li a:hover {
   opacity: 1;
 }
 
-/* ── 5. アートヒーロー & OGPサムネイル ───────────────────── */
+/* ── 5. アートヒーロー ───────────────────────────────────── */
+/* インライン <style> で flex 定義されている記事のヒーロー section。
+   flex item の ogp-hero / art-thumb-img / art-hero-body が
+   コンテナ幅を超えないよう !important で制約する */
 .art-hero {
-  background: #0a1628; /* 上下余白がある場合も暗い背景 */
+  background: #0a1628;
+  overflow: hidden;          /* flex children のはみ出しをクリップ */
+  box-sizing: border-box;
+  max-width: 100% !important;
+  width: 100% !important;
 }
-/* OGPコンテナが最大幅を超えないように */
+/* OGP カード: インラインで max-width:600px 指定されるが
+   !important で 100% に抑える（container-query も再解決される） */
 .ogp-hero {
-  max-width: min(600px, 100%);
+  max-width: min(600px, 100%) !important;
+  width: 100% !important;
+  box-sizing: border-box;
+  flex-shrink: 1 !important;
+  min-width: 0 !important;
 }
 
 /* ── 5b. 記事ヒーロー内サムネイル（OGP カード置き換え） ───── */
 .art-thumb-img {
   display: block;
-  width: 100%;
+  width: 100% !important;
   max-width: 560px;
-  height: auto;          /* 画像の縦横比をそのまま保つ（クロップなし） */
+  height: auto;
   margin: 20px auto 0;
   border-radius: 10px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.45);
 }
 
 /* ── 6. メインコンテンツ・記事グリッド ──────────────────── */
-/* art-layout は記事インライン <style> で grid 定義されている。
-   グリッドアイテムに min-width:0 がないと 1fr トラックを超えて溢れるので
-   article.css からまとめて指定する（インラインより後に読み込まれるので有効） */
+.main-content {
+  overflow: hidden;
+  box-sizing: border-box;
+  max-width: 100% !important;
+  width: 100%;
+}
 .art-layout {
-  overflow: hidden;        /* グリッド全体のはみ出しをクリップ */
+  overflow: hidden;
+  box-sizing: border-box;
+  max-width: 100% !important;
 }
 .art-body,
 article.art-body {
   min-width: 0 !important;
   max-width: 100% !important;
+  overflow-x: hidden;
   overflow-wrap: break-word;
   word-break: break-word;
   box-sizing: border-box;
 }
 .sidebar {
-  min-width: 0;
-  max-width: 100%;
+  min-width: 0 !important;
+  max-width: 100% !important;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* ── 7. テーブルのスクロール対応 ─────────────────────────── */
@@ -240,22 +259,42 @@ article.art-body {
 /* ── SP: メインコンテンツ padding ────────────────────────── */
 @media (max-width: 660px) {
   /* インラインスタイルを上書きするため !important */
+  .art-hero {
+    /* インライン flex art-hero のスタック化 */
+    flex-direction: column !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    gap: 1rem !important;
+    overflow: hidden !important;
+  }
+  .art-hero-body {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .ogp-hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex-shrink: 1 !important;
+  }
   .main-content {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
     overflow-x: hidden !important;
-    max-width: 100vw !important;
+    max-width: 100% !important;
     box-sizing: border-box !important;
   }
   .art-layout {
     grid-template-columns: 1fr !important;
-    overflow: hidden;
+    overflow: hidden !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   .art-body,
   article.art-body {
     min-width: 0 !important;
     max-width: 100% !important;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
   }
 }
 

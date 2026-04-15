@@ -47,6 +47,8 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   max-width: 100%;
+  position: relative; /* iOS Safari: overflow-x:hidden が効くための必須指定 */
+  width: 100%;
 }
 
 a {
