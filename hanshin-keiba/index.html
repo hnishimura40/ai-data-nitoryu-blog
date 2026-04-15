@@ -5,9 +5,316 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="/assets/img/logo.png">
   <link rel="apple-touch-icon" href="/assets/img/logo.png">
-  <meta name="description" content="阪神タイガースを中心とした試合・選手分析と、競馬レース回顧・予想の考え方を掲載。データで読む野球・競馬メディア。">
+  <meta name="description" content="阪神タイガースを中心とした試合分析・選手成績・戦力整理と競馬データ分析を発信。最新記事を順に掲載。">
   <title>野球・競馬データ分析 | AIデータ二刀流ブログ</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* =============================================
+       BLOG INDEX — 2カラムレイアウト
+    ============================================= */
+
+    /* ─ カテゴリフィルターバー ─ */
+    .cat-filter-bar {
+      background: #fff;
+      border-bottom: 1px solid #e0e6f0;
+      position: sticky;
+      top: 64px;
+      z-index: 90;
+    }
+    .cat-filter-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .cat-filter-inner::-webkit-scrollbar { display: none; }
+    .cat-btn {
+      padding: 10px 18px;
+      font-size: .82rem;
+      font-weight: 700;
+      white-space: nowrap;
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: #64748b;
+      border-bottom: 3px solid transparent;
+      transition: color .15s, border-color .15s;
+      letter-spacing: .04em;
+    }
+    .cat-btn:hover  { color: #c0392b; }
+    .cat-btn.active { color: #c0392b; border-bottom-color: #c0392b; }
+
+    /* ─ メインラッパー 2カラム ─ */
+    .blog-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .blog-wrap {
+        grid-template-columns: 1fr;
+        padding: 20px 16px 48px;
+        gap: 32px;
+      }
+    }
+
+    /* ─ 記事カード ─ */
+    .post-list { display: flex; flex-direction: column; gap: 20px; }
+
+    .post-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.07);
+      overflow: hidden;
+      display: flex;
+      transition: transform .18s, box-shadow .18s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .post-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,.12);
+    }
+    .post-card.hidden { display: none; }
+
+    /* サムネイル */
+    .post-thumb {
+      width: 180px;
+      flex-shrink: 0;
+      background: #e8eef4;
+      overflow: hidden;
+    }
+    .post-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .post-thumb-ph {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      background: linear-gradient(135deg, rgba(192,57,43,.08), rgba(192,57,43,.16));
+    }
+
+    /* テキスト */
+    .post-body {
+      padding: 14px 18px 16px;
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .post-cat {
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 2px;
+      background: var(--color-accent-sports);
+      color: #fff;
+    }
+    .post-cat.cat-analysis { background: #1a6fa8; }
+    .post-cat.cat-roster   { background: #7c3aed; }
+    .post-cat.cat-summary  { background: #d97706; }
+    .post-date {
+      font-size: .75rem;
+      color: #94a3b8;
+    }
+    .post-title {
+      font-size: .97rem;
+      font-weight: 800;
+      color: #1a2744;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .post-card:hover .post-title { color: #c0392b; }
+    .post-excerpt {
+      font-size: .8rem;
+      color: #64748b;
+      line-height: 1.7;
+      margin: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* ─ SP: カードを縦積み ─ */
+    @media (max-width: 560px) {
+      .post-card { flex-direction: column; }
+      .post-thumb {
+        width: 100%;
+        height: 0;
+        padding-bottom: 52%;
+        position: relative;
+      }
+      .post-thumb img,
+      .post-thumb-ph {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .post-body { padding: 12px 14px 14px; }
+      .post-title { font-size: .9rem; }
+    }
+
+    /* ─ ページネーション ─ */
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 32px;
+    }
+    .page-link, .page-current, .page-dots {
+      width: 38px; height: 38px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 6px;
+      font-size: .85rem;
+      font-weight: 700;
+    }
+    .page-current {
+      background: #c0392b;
+      color: #fff;
+    }
+    .page-link {
+      background: #fff;
+      color: #1a2744;
+      border: 1px solid #dde3ec;
+      text-decoration: none;
+      transition: background .15s;
+    }
+    .page-link:hover { background: #f1f5f9; }
+    .page-prev, .page-next {
+      padding: 0 16px;
+      width: auto;
+      font-size: .82rem;
+    }
+
+    /* ─ サイドバー ─ */
+    .blog-sidebar { display: flex; flex-direction: column; gap: 24px; }
+
+    .widget {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.07);
+      overflow: hidden;
+    }
+    .widget-title {
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 12px 16px;
+      background: #1a2744;
+      color: #facc15;
+      margin: 0;
+    }
+    .widget-body { padding: 16px; }
+
+    /* カテゴリリスト */
+    .cat-list { list-style: none; padding: 0; margin: 0; }
+    .cat-list li {
+      border-bottom: 1px solid #f0f3f8;
+    }
+    .cat-list li:last-child { border-bottom: none; }
+    .cat-list a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 4px;
+      font-size: .84rem;
+      color: #1a2744;
+      text-decoration: none;
+      transition: color .15s;
+      gap: 8px;
+    }
+    .cat-list a:hover { color: #c0392b; }
+    .cat-list a span {
+      background: #f0f3f8;
+      color: #64748b;
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+    .cat-list a::before {
+      content: '▸';
+      color: #c0392b;
+      font-size: .7rem;
+      flex-shrink: 0;
+    }
+
+    /* 月別アーカイブ */
+    .archive-list { list-style: none; padding: 0; margin: 0; }
+    .archive-list li { border-bottom: 1px solid #f0f3f8; }
+    .archive-list li:last-child { border-bottom: none; }
+    .archive-list a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 4px;
+      font-size: .83rem;
+      color: #1a2744;
+      text-decoration: none;
+      transition: color .15s;
+    }
+    .archive-list a:hover { color: #c0392b; }
+    .archive-list a span {
+      font-size: .72rem;
+      color: #94a3b8;
+    }
+
+    /* 関連チャンネル */
+    .side-channel {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 4px;
+      text-decoration: none;
+      color: #1a2744;
+      font-size: .83rem;
+      font-weight: 700;
+      border-bottom: 1px solid #f0f3f8;
+      transition: color .15s;
+    }
+    .side-channel:last-child { border-bottom: none; }
+    .side-channel:hover { color: #c0392b; }
+    .side-ch-icon {
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .9rem;
+      flex-shrink: 0;
+    }
+    .yt-icon { background: #ff0000; color: #fff; }
+    .x-icon  { background: #000;    color: #fff; font-weight: 900; font-size: .85rem; }
+
+    /* ─ ページヒーロー内ロゴ非表示（大きすぎ防止） ─ */
+    .page-hero img { display: none; }
+  </style>
 </head>
 <body>
 
@@ -47,470 +354,319 @@
   <!-- PAGE HERO -->
   <div class="page-hero page-hero-sports">
     <div class="page-hero-tag">SPORTS ANALYTICS</div>
-    <h1>⚾ 野球・競馬データ分析</h1>
-    <p>
-      阪神タイガースを中心とした試合分析・選手成績・采配の整理と、
-      競馬のレース回顧・予想の考え方をデータで発信します。
-    </p>
+    <h1>野球・競馬データ分析</h1>
+    <p>阪神タイガース試合レビュー・戦力分析・競馬データを発信。最新記事から順にご覧いただけます。</p>
   </div>
 
-  <!-- MAIN -->
-  <main class="main-content">
-    <div class="container">
-
-      <!-- 注目ポイント -->
-      <section class="section">
-        <div class="section-header sports">
-          <h2 class="section-title">このカテゴリで扱うテーマ</h2>
-        </div>
-        <div class="feature-list">
-          <div class="feature-item">
-            <div class="feature-icon">📊</div>
-            <div class="feature-text">
-              <h3>試合データ分析</h3>
-              <p>得点圏打率、球数管理、継投パターンなど、試合の流れをデータで整理。采配の背景を読み解きます。</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon">👤</div>
-            <div class="feature-text">
-              <h3>選手成績の深掘り</h3>
-              <p>打撃・投球のセイバーメトリクス指標を活用し、個人成績の本質的な強み・課題を可視化します。</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon">🐎</div>
-            <div class="feature-text">
-              <h3>競馬レース回顧</h3>
-              <p>ラップ・上がり3F・ペース分析から各馬の真の実力を評価。次走への見通しを整理します。</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon">🔍</div>
-            <div class="feature-text">
-              <h3>予想の考え方</h3>
-              <p>予想の答えではなく「考え方の軸」を提供。自分で判断できるための視点と材料を発信します。</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- アフィリエイト導線エリア (今後活用) -->
-      <!-- <div class="affiliate-area">PR・おすすめ情報エリア（準備中）</div> -->
-
-      <!-- セ・リーグ分析 -->
-      <section class="section">
-        <div class="section-header sports">
-          <h2 class="section-title">セ・リーグ戦力分析</h2>
-          <span class="section-badge badge-sports">Analysis</span>
-        </div>
-        <div class="article-list">
-
-          <a href="2026-central-league-analysis/index.html" class="article-list-item">
-            <div class="article-list-thumb sports-thumb">📊</div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">戦力分析</span>
-                <span class="article-date">2026.03（開幕前）</span>
-              </div>
-              <div class="article-list-title">開幕直前のセ・リーグ戦力図　pWAR advで見る阪神優位と巨人・DeNA再編の現在地</div>
-            </div>
-          </a>
-
-          <a href="hanshin-opening-roster-2026/index.html" class="article-list-item">
-            <div class="article-list-thumb sports-thumb">⚾</div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">ロースター分析</span>
-                <span class="article-date">2026.03（開幕前）</span>
-              </div>
-              <div class="article-list-title">2026年阪神タイガース開幕ロースター分析 — pWAR × 現在地で読み解く投打の全貌</div>
-            </div>
-          </a>
-
-        </div>
-      </section>
-
-      <!-- 阪神タイガース記事 -->
-      <section class="section">
-        <div class="section-header sports">
-          <h2 class="section-title">阪神タイガース 2026年 試合レビュー</h2>
-          <span class="section-badge badge-sports">Tigers</span>
-        </div>
-        <div class="article-list">
-
-          <a href="2026-04-14-giants-loss/index.html" class="article-list-item">
-            <div class="article-list-thumb"><img src="2026-04-14-giants-loss/illust.png" alt="サムネイル" loading="lazy"></div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">試合レビュー</span>
-                <span class="article-date">2026.04.14</span>
-              </div>
-              <div class="article-list-title">阪神3-4巨人　逆転したのに守り切れず　守備と中継ぎの課題が出た一敗</div>
-            </div>
-          </a>
-
-          <a href="2026-04-12-haruto-chunichi/index.html" class="article-list-item">
-            <div class="article-list-thumb"><img src="2026-04-12-haruto-chunichi/illust.png" alt="サムネイル" loading="lazy"></div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">試合レビュー</span>
-                <span class="article-date">2026.04.12</span>
-              </div>
-              <div class="article-list-title">阪神 vs 中日 4月12日レビュー　春秋の好投を読む</div>
-            </div>
-          </a>
-
-          <a href="2026-04-11-sato-chunichi/index.html" class="article-list-item">
-            <div class="article-list-thumb"><img src="2026-04-11-sato-chunichi/illust.png" alt="サムネイル" loading="lazy"></div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">試合レビュー</span>
-                <span class="article-date">2026.04.11</span>
-              </div>
-              <div class="article-list-title">阪神 vs 中日 4月11日レビュー　佐藤輝の一打と中継ぎの安定感</div>
-            </div>
-          </a>
-
-          <a href="2026-04-10-maekawa-chunichi/index.html" class="article-list-item">
-            <div class="article-list-thumb"><img src="2026-04-10-maekawa-chunichi/illust.png" alt="サムネイル" loading="lazy"></div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">試合レビュー</span>
-                <span class="article-date">2026.04.10</span>
-              </div>
-              <div class="article-list-title">阪神 vs 中日 4月10日レビュー　前川の仕事と中日打線の特徴</div>
-            </div>
-          </a>
-
-          <a href="2026-04-09-ibaraki-yakult/index.html" class="article-list-item">
-            <div class="article-list-thumb"><img src="2026-04-09-ibaraki-yakult/illust.png" alt="サムネイル" loading="lazy"></div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">試合レビュー</span>
-                <span class="article-date">2026.04.09</span>
-              </div>
-              <div class="article-list-title">茨木秀俊の初勝利は偶然ではない　奥川恭伸との投手戦で見えた阪神の強さ（7回降雨コールド2-0）</div>
-            </div>
-          </a>
-
-          <a href="2026-04-08-yakult-loss/index.html" class="article-list-item">
-            <div class="article-list-thumb"><img src="2026-04-08-yakult-loss/illust.png" alt="サムネイル" loading="lazy"></div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">試合レビュー</span>
-                <span class="article-date">2026.04.08</span>
-              </div>
-              <div class="article-list-title">阪神2-3ヤクルト　ルーカスを5回で下げた継投と終盤采配の是非を徹底整理</div>
-            </div>
-          </a>
-
-          <a href="2026-04-07-saiki-yakult/index.html" class="article-list-item">
-            <div class="article-list-thumb"><img src="2026-04-07-saiki-yakult/illust.png" alt="サムネイル" loading="lazy"></div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">試合レビュー</span>
-                <span class="article-date">2026.04.07</span>
-              </div>
-              <div class="article-list-title">才木浩人 ヤクルト戦登板レビュー　開幕ローテの柱としての存在感</div>
-            </div>
-          </a>
-
-          <a href="2026-04-05-hiroshima-loss/index.html" class="article-list-item">
-            <div class="article-list-thumb"><img src="2026-04-05-hiroshima-loss/illust.png" alt="サムネイル" loading="lazy"></div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">試合レビュー</span>
-                <span class="article-date">2026.04.05</span>
-              </div>
-              <div class="article-list-title">阪神 vs 広島 4月5日 惜敗レビュー　流れを読む接戦の分岐点</div>
-            </div>
-          </a>
-
-          <a href="2026-04-04-kimura-carp/index.html" class="article-list-item">
-            <div class="article-list-thumb"><img src="2026-04-04-kimura-carp/illust.png" alt="サムネイル" loading="lazy"></div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">試合レビュー</span>
-                <span class="article-date">2026.04.04</span>
-              </div>
-              <div class="article-list-title">木浪決勝2ランで阪神7-5広島（延長10回）　9回表の執念と泥沼を制した理由</div>
-            </div>
-          </a>
-
-          <a href="2026-04-03-murakami-hiroshima/index.html" class="article-list-item">
-            <div class="article-list-thumb"><img src="2026-04-03-murakami-hiroshima/illust.png" alt="サムネイル" loading="lazy"></div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">試合レビュー</span>
-                <span class="article-date">2026.04.03</span>
-              </div>
-              <div class="article-list-title">村上頌樹 7回1失点　本来の姿を取り戻した阪神4-2広島を徹底分析</div>
-            </div>
-          </a>
-
-          <a href="2026-04-02-kimura-dena/index.html" class="article-list-item">
-            <div class="article-list-thumb"><img src="2026-04-02-kimura-dena/illust.png" alt="サムネイル" loading="lazy"></div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">試合レビュー</span>
-                <span class="article-date">2026.04.02</span>
-              </div>
-              <div class="article-list-title">阪神 vs DeNA 4月2日レビュー　木浪の打撃と打線のつながり</div>
-            </div>
-          </a>
-
-          <a href="2026-04-01-lucas-dena/index.html" class="article-list-item">
-            <div class="article-list-thumb"><img src="2026-04-01-lucas-dena/illust.png" alt="サムネイル" loading="lazy"></div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">試合レビュー</span>
-                <span class="article-date">2026.04.01</span>
-              </div>
-              <div class="article-list-title">ルーカス初登板 阪神vsDeNA　ホーム開幕シリーズの試合を深掘り解説</div>
-            </div>
-          </a>
-
-          <a href="2026-03-31-saiki-dena/index.html" class="article-list-item">
-            <div class="article-list-thumb"><img src="2026-03-31-saiki-dena/illust.png" alt="サムネイル" loading="lazy"></div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">試合レビュー</span>
-                <span class="article-date">2026.03.31</span>
-              </div>
-              <div class="article-list-title">才木浩人 6回1失点　打てない相手に勝つ阪神4-1DeNA ホーム開幕戦分析</div>
-            </div>
-          </a>
-
-          <a href="2026-03-29-12-6-giants/index.html" class="article-list-item">
-            <div class="article-list-thumb"><img src="2026-03-29-12-6-giants/illust.png" alt="サムネイル" loading="lazy"></div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">試合レビュー</span>
-                <span class="article-date">2026.03.29</span>
-              </div>
-              <div class="article-list-title">阪神12-6巨人　大量得点の分析と開幕3連戦の締め括り方</div>
-            </div>
-          </a>
-
-          <a href="2026-kaimaku-card-summary/index.html" class="article-list-item">
-            <div class="article-list-thumb sports-thumb">⚾</div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">カードまとめ</span>
-                <span class="article-date">2026.03.27〜29</span>
-              </div>
-              <div class="article-list-title">開幕3連戦まとめ　阪神2勝1敗で巨人に勝ち越し　安心できない勝利の意味</div>
-            </div>
-          </a>
-
-          <a href="2026-03-27-kaisaku-hansen/index.html" class="article-list-item">
-            <div class="article-list-thumb sports-thumb">⚾</div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-sports">試合レビュー</span>
-                <span class="article-date">2026.03.27</span>
-              </div>
-              <div class="article-list-title">2026年阪神開幕戦レビュー　開幕投手・試合の流れと課題を徹底整理</div>
-            </div>
-          </a>
-
-        </div>
-      </section>
-
-      <!-- 競馬記事 -->
-      <section class="section">
-        <div class="section-header sports">
-          <h2 class="section-title">競馬 レース回顧・予想の考え方</h2>
-          <span class="section-badge" style="background:#7b5ea7;">Horse Racing</span>
-        </div>
-        <div class="article-list">
-
-          <a href="#" class="article-list-item">
-            <div class="article-list-thumb" style="background:rgba(123,94,167,0.1); color:#7b5ea7;">🐎</div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-horse">レース回顧</span>
-                <span class="article-date">2026.04.12</span>
-              </div>
-              <div class="article-list-title">桜花賞レース回顧 — 展開と上がり3F、各馬の次走見通し</div>
-            </div>
-          </a>
-
-          <a href="#" class="article-list-item">
-            <div class="article-list-thumb" style="background:rgba(123,94,167,0.1); color:#7b5ea7;">🐎</div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-horse">予想の考え方</span>
-                <span class="article-date">2026.04.05</span>
-              </div>
-              <div class="article-list-title">前走ペース比較から「消し」を絞る — クラシック前哨戦の活用法</div>
-            </div>
-          </a>
-
-          <a href="#" class="article-list-item">
-            <div class="article-list-thumb" style="background:rgba(123,94,167,0.1); color:#7b5ea7;">🐎</div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-horse">データ分析</span>
-                <span class="article-date">2026.03.30</span>
-              </div>
-              <div class="article-list-title">阪神芝コース適性データ — 血統・枠順・上がりタイムの傾向まとめ</div>
-            </div>
-          </a>
-
-          <a href="#" class="article-list-item">
-            <div class="article-list-thumb" style="background:rgba(123,94,167,0.1); color:#7b5ea7;">🐎</div>
-            <div class="article-list-body">
-              <div class="article-meta">
-                <span class="article-category cat-horse">レース回顧</span>
-                <span class="article-date">2026.03.22</span>
-              </div>
-              <div class="article-list-title">阪神大賞典回顧 — スローペース下の上がり勝負と各馬の評価</div>
-            </div>
-          </a>
-
-        </div>
-      </section>
-
-      <!-- YouTubeチャンネル埋め込みウィジェット -->
-      <section class="section">
-        <div class="section-header sports">
-          <h2 class="section-title">YouTube動画でも解説中</h2>
-          <span class="section-badge badge-sports">AI二刀流</span>
-        </div>
-
-        <style>
-          .yt-widget { background:#fff; border:1px solid #e0e6f0; border-radius:12px; overflow:hidden; margin-bottom:20px; }
-          .yt-widget-head {
-            background:linear-gradient(135deg,#0b1525,#1a2744);
-            padding:16px 20px;
-            display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
-          }
-          .yt-widget-chname { font-size:0.92rem; font-weight:800; color:#fff; }
-          .yt-widget-chdesc { font-size:0.75rem; color:rgba(255,255,255,0.6); margin-top:2px; }
-          .yt-widget-btns { display:flex; gap:8px; flex-shrink:0; }
-          .yt-sub-btn {
-            display:inline-flex; align-items:center; gap:6px;
-            background:#ff0000; color:#fff; font-size:0.76rem; font-weight:800;
-            padding:7px 14px; border-radius:4px; text-decoration:none;
-            transition:background .18s;
-          }
-          .yt-sub-btn:hover { background:#cc0000; }
-          .yt-more-btn {
-            display:inline-flex; align-items:center; gap:4px;
-            border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.8);
-            font-size:0.76rem; font-weight:700; padding:6px 12px; border-radius:4px;
-            text-decoration:none; transition:border-color .18s, color .18s;
-          }
-          .yt-more-btn:hover { border-color:#fff; color:#fff; }
-          .yt-mini-grid {
-            display:grid; grid-template-columns:repeat(3,1fr); gap:0;
-          }
-          @media(max-width:640px){ .yt-mini-grid{ grid-template-columns:1fr; } }
-          .yt-mini-card {
-            position:relative; cursor:pointer;
-            border-right:1px solid #e0e6f0;
-          }
-          .yt-mini-card:last-child { border-right:none; }
-          @media(max-width:640px){
-            .yt-mini-card { border-right:none; border-bottom:1px solid #e0e6f0; }
-            .yt-mini-card:last-child { border-bottom:none; }
-          }
-          .yt-mini-thumb-wrap { position:relative; padding-bottom:56.25%; background:#0b1525; overflow:hidden; }
-          .yt-mini-thumb { position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .3s; }
-          .yt-mini-card:hover .yt-mini-thumb { transform:scale(1.05); }
-          .yt-mini-overlay {
-            position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-            background:rgba(0,0,0,0.28);transition:background .2s;
-          }
-          .yt-mini-card:hover .yt-mini-overlay { background:rgba(0,0,0,0.12); }
-          .yt-mini-play {
-            width:44px;height:32px;background:#ff0000;border-radius:8px;
-            display:flex;align-items:center;justify-content:center;transition:transform .2s;
-          }
-          .yt-mini-card:hover .yt-mini-play { transform:scale(1.15); }
-          .yt-mini-play svg { width:16px;height:16px;fill:#fff; }
-          .yt-mini-body { padding:10px 12px 12px; }
-          .yt-mini-title {
-            font-size:0.8rem;font-weight:700;color:#1a2744;line-height:1.4;
-            display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
-          }
-          .yt-mini-meta { font-size:0.7rem;color:#8898b0;margin-top:4px; }
-          .yt-iframe-replace { border-radius:0; }
-          .yt-iframe-replace iframe { width:100%;aspect-ratio:16/9;display:block;border:none; }
-        </style>
-
-        <div class="yt-widget">
-          <div class="yt-widget-head">
-            <div>
-              <div class="yt-widget-chname">AI二刀流チャンネル</div>
-              <div class="yt-widget-chdesc">野球・競馬をデータとAIで徹底分析</div>
-            </div>
-            <div class="yt-widget-btns">
-              <a href="https://www.youtube.com/@AI-Baseball-Horse" target="_blank" rel="noopener" class="yt-sub-btn">
-                <svg viewBox="0 0 24 24" fill="currentColor" style="width:13px;height:13px;"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-                チャンネル登録
-              </a>
-              <a href="../channels/#sports" class="yt-more-btn">もっと見る →</a>
-            </div>
-          </div>
-          <div class="yt-mini-grid" id="sports-mini-grid">
-            <div class="yt-mini-card" data-video-id="mjZYS7MCBb0" data-title="阪神2026開幕ロースター総整理 — pWAR × 現在地 で読み解く">
-              <div class="yt-mini-thumb-wrap">
-                <img class="yt-mini-thumb" src="" alt="">
-                <div class="yt-mini-overlay"><div class="yt-mini-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-              </div>
-              <div class="yt-mini-body"><div class="yt-mini-title">動画1</div><div class="yt-mini-meta">AI二刀流</div></div>
-            </div>
-            <div class="yt-mini-card" data-video-id="★VIDEO_ID_2★" data-title="動画2">
-              <div class="yt-mini-thumb-wrap">
-                <img class="yt-mini-thumb" src="" alt="">
-                <div class="yt-mini-overlay"><div class="yt-mini-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-              </div>
-              <div class="yt-mini-body"><div class="yt-mini-title">動画2</div><div class="yt-mini-meta">AI二刀流</div></div>
-            </div>
-            <div class="yt-mini-card" data-video-id="★VIDEO_ID_3★" data-title="動画3">
-              <div class="yt-mini-thumb-wrap">
-                <img class="yt-mini-thumb" src="" alt="">
-                <div class="yt-mini-overlay"><div class="yt-mini-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-              </div>
-              <div class="yt-mini-body"><div class="yt-mini-title">動画3</div><div class="yt-mini-meta">AI二刀流</div></div>
-            </div>
-          </div>
-        </div>
-
-        <div style="text-align:center;">
-          <a href="https://x.com/AI_yakyu_Keiba" target="_blank" rel="noopener" class="social-btn social-x">𝕏 速報はXでフォロー</a>
-        </div>
-
-        <script>
-          document.querySelectorAll('#sports-mini-grid .yt-mini-card').forEach(card => {
-            const vid = card.dataset.videoId;
-            const title = card.dataset.title || '';
-            if (!vid || vid.startsWith('★')) {
-              card.querySelector('.yt-mini-thumb').src = 'https://i.ytimg.com/vi/default/mqdefault.jpg';
-              card.querySelector('.yt-mini-title').textContent = '動画準備中…';
-              card.style.opacity = '0.45';
-              card.style.pointerEvents = 'none';
-              return;
-            }
-            const thumb = card.querySelector('.yt-mini-thumb');
-            thumb.src = `https://i.ytimg.com/vi/${vid}/mqdefault.jpg`;
-            thumb.onerror = () => { thumb.src = `https://i.ytimg.com/vi/${vid}/hqdefault.jpg`; };
-            card.querySelector('.yt-mini-title').textContent = title;
-            card.addEventListener('click', () => {
-              const wrap = document.createElement('div');
-              wrap.className = 'yt-iframe-replace';
-              wrap.innerHTML = `<iframe src="https://www.youtube.com/embed/${vid}?autoplay=1&rel=0" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-              card.replaceWith(wrap);
-            });
-          });
-        </script>
-      </section>
-
+  <!-- CATEGORY FILTER BAR -->
+  <div class="cat-filter-bar">
+    <div class="cat-filter-inner">
+      <button class="cat-btn active" data-filter="all">すべての記事</button>
+      <button class="cat-btn" data-filter="review">試合レビュー</button>
+      <button class="cat-btn" data-filter="analysis">戦力・分析</button>
+      <button class="cat-btn" data-filter="summary">カードまとめ</button>
     </div>
-  </main>
+  </div>
+
+  <!-- BLOG WRAP: 2カラム -->
+  <div class="blog-wrap">
+
+    <!-- ===== MAIN: 記事一覧 ===== -->
+    <main class="blog-main">
+      <div class="post-list" id="post-list">
+
+        <!-- 1. 4/14 巨人戦 -->
+        <a href="2026-04-14-giants-loss/" class="post-card" data-cat="review">
+          <div class="post-thumb">
+            <img src="2026-04-14-giants-loss/illust.png" alt="阪神3-4巨人" loading="lazy">
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat">試合レビュー</span>
+              <time class="post-date">2026.04.14</time>
+            </div>
+            <h2 class="post-title">阪神、逆転したのに勝ち切れず — 巨人戦で見えた守備と中継ぎの重い課題</h2>
+            <p class="post-excerpt">7回に高寺・前川で3-2逆転も、8回モレッタ被弾・9回岩崎失点で3-4逆転負け。才木の粘投と中継ぎ再編の背景まで徹底分析。</p>
+          </div>
+        </a>
+
+        <!-- 2. 4/12 高橋遥人完封 -->
+        <a href="2026-04-12-haruto-chunichi/" class="post-card" data-cat="review">
+          <div class="post-thumb">
+            <img src="2026-04-12-haruto-chunichi/illust.png" alt="阪神3-0中日" loading="lazy">
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat">試合レビュー</span>
+              <time class="post-date">2026.04.12</time>
+            </div>
+            <h2 class="post-title">高橋遥人完封・中日3連戦3タテ達成 — 阪神3-0中日</h2>
+            <p class="post-excerpt">高橋遥人が9回完封。5回に中野・森下の連続適時打で3点をもぎ取り、3連戦3連勝で11勝4敗の現在地を分析。</p>
+          </div>
+        </a>
+
+        <!-- 3. 4/11 サトテル2発 -->
+        <a href="2026-04-11-sato-chunichi/" class="post-card" data-cat="review">
+          <div class="post-thumb">
+            <img src="2026-04-11-sato-chunichi/illust.png" alt="阪神9-3中日" loading="lazy">
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat">試合レビュー</span>
+              <time class="post-date">2026.04.11</time>
+            </div>
+            <h2 class="post-title">サトテル2発・136m弾の衝撃 — 阪神9-3中日 快勝の中身を読む</h2>
+            <p class="post-excerpt">佐藤輝明が2本塁打・136m超の特大弾。伊原の安定投球と打線爆発の分岐点、選手評価まで徹底整理。</p>
+          </div>
+        </a>
+
+        <!-- 4. 4/10 前川逆転打 -->
+        <a href="2026-04-10-maekawa-chunichi/" class="post-card" data-cat="review">
+          <div class="post-thumb">
+            <img src="2026-04-10-maekawa-chunichi/illust.png" alt="中日3-5阪神" loading="lazy">
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat">試合レビュー</span>
+              <time class="post-date">2026.04.10</time>
+            </div>
+            <h2 class="post-title">9回逆転劇！前川右京が決めた阪神の意地 — 中日3→5阪神</h2>
+            <p class="post-excerpt">村上の粘投、森下の一発、高寺と前川の食らいつきで試合をひっくり返した一戦を分岐点から整理。</p>
+          </div>
+        </a>
+
+        <!-- 5. 4/9 茨木初勝利 -->
+        <a href="2026-04-09-ibaraki-yakult/" class="post-card" data-cat="review">
+          <div class="post-thumb">
+            <img src="2026-04-09-ibaraki-yakult/illust.png" alt="阪神2-0ヤクルト" loading="lazy">
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat">試合レビュー</span>
+              <time class="post-date">2026.04.09</time>
+            </div>
+            <h2 class="post-title">茨木秀俊の初勝利は偶然ではない — 奥川恭伸との投手戦（降雨コールド 2-0）</h2>
+            <p class="post-excerpt">7回2-0で降雨コールド。奥川との好投合戦で見えた阪神投手陣の厚みと茨木の制球力を分析。</p>
+          </div>
+        </a>
+
+        <!-- 6. 4/8 ヤクルト惜敗 -->
+        <a href="2026-04-08-yakult-loss/" class="post-card" data-cat="review">
+          <div class="post-thumb">
+            <img src="2026-04-08-yakult-loss/illust.png" alt="阪神2-3ヤクルト" loading="lazy">
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat">試合レビュー</span>
+              <time class="post-date">2026.04.08</time>
+            </div>
+            <h2 class="post-title">阪神2-3ヤクルト惜敗 — ルーカスを5回で下げた継投と終盤采配の是非</h2>
+            <p class="post-excerpt">ルーカスを5回で降板させた継投判断から試合を読み解く。終盤の采配の是非と今後の中継ぎ起用を整理。</p>
+          </div>
+        </a>
+
+        <!-- 7. 4/7 才木16K -->
+        <a href="2026-04-07-saiki-yakult/" class="post-card" data-cat="review">
+          <div class="post-thumb">
+            <img src="2026-04-07-saiki-yakult/illust.png" alt="阪神9-3ヤクルト" loading="lazy">
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat">試合レビュー</span>
+              <time class="post-date">2026.04.07</time>
+            </div>
+            <h2 class="post-title">才木16奪三振 甲子園開幕戦制圧 — 阪神9-3ヤクルト</h2>
+            <p class="post-excerpt">才木浩人が16奪三振の圧巻投球。森下・佐藤のアベック弾も飛び出し甲子園ホーム開幕戦を完全制圧。</p>
+          </div>
+        </a>
+
+        <!-- 8. 4/5 広島惜敗 -->
+        <a href="2026-04-05-hiroshima-loss/" class="post-card" data-cat="review">
+          <div class="post-thumb">
+            <img src="2026-04-05-hiroshima-loss/illust.png" alt="阪神1-2広島" loading="lazy">
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat">試合レビュー</span>
+              <time class="post-date">2026.04.05</time>
+            </div>
+            <h2 class="post-title">負けたのに強さが見えた阪神 — 広島サヨナラ負けを読む</h2>
+            <p class="post-excerpt">1-2のサヨナラ負けでも高橋遥人の好投、8回の同点劇など収穫多数。広島目線で見える阪神の真の地力。</p>
+          </div>
+        </a>
+
+        <!-- 9. 4/4 木浪延長2ラン -->
+        <a href="2026-04-04-kimura-carp/" class="post-card" data-cat="review">
+          <div class="post-thumb">
+            <img src="2026-04-04-kimura-carp/illust.png" alt="阪神7-5広島延長" loading="lazy">
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat">試合レビュー</span>
+              <time class="post-date">2026.04.04</time>
+            </div>
+            <h2 class="post-title">木浪決勝2ランで阪神7-5広島（延長10回）— 9回表の執念と泥沼を制した理由</h2>
+            <p class="post-excerpt">9回表の執念が広島の勝ち試合をひっくり返した。木浪聖也の決勝2ランと延長10回の全軌跡を徹底分析。</p>
+          </div>
+        </a>
+
+        <!-- 10. 4/3 村上復活 -->
+        <a href="2026-04-03-murakami-hiroshima/" class="post-card" data-cat="review">
+          <div class="post-thumb">
+            <img src="2026-04-03-murakami-hiroshima/illust.png" alt="阪神4-2広島" loading="lazy">
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat">試合レビュー</span>
+              <time class="post-date">2026.04.03</time>
+            </div>
+            <h2 class="post-title">村上頌樹7回1失点 — 本来の姿を取り戻した阪神4-2広島を徹底分析</h2>
+            <p class="post-excerpt">村上頌樹が7回1失点の好投。昨年の不振から復活の兆しが鮮明になった一戦の投球内容を詳細分析。</p>
+          </div>
+        </a>
+
+        <!-- 11. 4/2 木浪打点 -->
+        <a href="2026-04-02-kimura-dena/" class="post-card" data-cat="review">
+          <div class="post-thumb">
+            <img src="2026-04-02-kimura-dena/illust.png" alt="阪神4-3DeNA" loading="lazy">
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat">試合レビュー</span>
+              <time class="post-date">2026.04.02</time>
+            </div>
+            <h2 class="post-title">木浪が決めた4-3でDeNA撃破 — 16年ぶり開幕2カード連続勝ち越し</h2>
+            <p class="post-excerpt">木浪聖也の初回2点タイムリー、伊原陵人の初勝利、福島圭音の初打席。勝因と課題を全方位から整理。</p>
+          </div>
+        </a>
+
+        <!-- 12. 4/1 ルーカス -->
+        <a href="2026-04-01-lucas-dena/" class="post-card" data-cat="review">
+          <div class="post-thumb">
+            <img src="2026-04-01-lucas-dena/illust.png" alt="阪神1-4DeNA" loading="lazy">
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat">試合レビュー</span>
+              <time class="post-date">2026.04.01</time>
+            </div>
+            <h2 class="post-title">ルーカス黒星でも収穫あり — 阪神1-4敗戦に見えた課題と中継ぎの光</h2>
+            <p class="post-excerpt">ルーカス初先発4失点でも中継ぎ陣が8奪三振の収穫。8安打1点止まりの打線課題も含め分析。</p>
+          </div>
+        </a>
+
+        <!-- 13. 3/31 才木ホーム開幕 -->
+        <a href="2026-03-31-saiki-dena/" class="post-card" data-cat="review">
+          <div class="post-thumb">
+            <img src="2026-03-31-saiki-dena/illust.png" alt="阪神4-1DeNA" loading="lazy">
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat">試合レビュー</span>
+              <time class="post-date">2026.03.31</time>
+            </div>
+            <h2 class="post-title">才木浩人6回1失点 — 打てない相手に勝つ阪神4-1DeNA ホーム開幕戦分析</h2>
+            <p class="post-excerpt">才木浩人がDeNA打線を抑え込んでホーム開幕戦を制す。今季の阪神の強さの軸がはっきり見えた一戦。</p>
+          </div>
+        </a>
+
+        <!-- 14. 3/29 巨人12-6 -->
+        <a href="2026-03-29-12-6-giants/" class="post-card" data-cat="review">
+          <div class="post-thumb">
+            <img src="2026-03-29-12-6-giants/illust.png" alt="阪神12-6巨人" loading="lazy">
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat">試合レビュー</span>
+              <time class="post-date">2026.03.29</time>
+            </div>
+            <h2 class="post-title">12-6快勝でも紙一重 — 阪神vs巨人 開幕3連戦の締め括りを読む</h2>
+            <p class="post-excerpt">大量点快勝に見えて中身は紙一重。データで読む開幕3連戦最終戦の本質と今後への伏線。</p>
+          </div>
+        </a>
+
+        <!-- 15. 開幕カードまとめ -->
+        <a href="2026-kaimaku-card-summary/" class="post-card" data-cat="summary">
+          <div class="post-thumb">
+            <div class="post-thumb-ph">⚾</div>
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat cat-summary">カードまとめ</span>
+              <time class="post-date">2026.03.27-29</time>
+            </div>
+            <h2 class="post-title">阪神開幕カード総括 — 巨人3連戦2勝1敗の中身を読む</h2>
+            <p class="post-excerpt">高橋遥人の完封、乱打戦逆転勝ち、森下・佐藤の活躍と残った課題まで開幕3連戦を総括。</p>
+          </div>
+        </a>
+
+      </div><!-- /post-list -->
+
+      <!-- PAGINATION -->
+      <nav class="pagination" aria-label="ページナビゲーション">
+        <span class="page-current" aria-current="page">1</span>
+        <a href="page2/" class="page-link">2</a>
+        <a href="page2/" class="page-link page-next">次へ →</a>
+      </nav>
+
+    </main><!-- /blog-main -->
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="blog-sidebar">
+
+      <!-- カテゴリ -->
+      <div class="widget">
+        <h3 class="widget-title">カテゴリ</h3>
+        <div class="widget-body">
+          <ul class="cat-list">
+            <li><a href="#" data-side-filter="all">すべての記事 <span>18</span></a></li>
+            <li><a href="#" data-side-filter="review">試合レビュー <span>14</span></a></li>
+            <li><a href="#" data-side-filter="analysis">戦力・ロースター分析 <span>2</span></a></li>
+            <li><a href="#" data-side-filter="summary">カードまとめ <span>2</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 月別アーカイブ -->
+      <div class="widget">
+        <h3 class="widget-title">月別アーカイブ</h3>
+        <div class="widget-body">
+          <ul class="archive-list">
+            <li><a href="#">2026年4月 <span>12記事</span></a></li>
+            <li><a href="#">2026年3月 <span>6記事</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 関連チャンネル -->
+      <div class="widget">
+        <h3 class="widget-title">関連チャンネル</h3>
+        <div class="widget-body">
+          <a href="https://www.youtube.com/@AI-Baseball-Horse" target="_blank" rel="noopener" class="side-channel">
+            <div class="side-ch-icon yt-icon">▶</div>
+            AI二刀流（野球・競馬）
+          </a>
+          <a href="https://x.com/AI_yakyu_Keiba" target="_blank" rel="noopener" class="side-channel">
+            <div class="side-ch-icon x-icon">𝕏</div>
+            X（速報・短評）
+          </a>
+        </div>
+      </div>
+
+      <!-- このブログについて -->
+      <div class="widget">
+        <h3 class="widget-title">このブログについて</h3>
+        <div class="widget-body">
+          <p style="font-size:.82rem;color:#475569;line-height:1.75;margin:0;">
+            阪神タイガースの試合を中心に、データとAIを活用した分析コンテンツを発信。
+            感情ではなく数字と根拠で野球を読む視点を提供します。
+          </p>
+        </div>
+      </div>
+
+    </aside><!-- /blog-sidebar -->
+
+  </div><!-- /blog-wrap -->
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -519,6 +675,7 @@
         <div class="brand-name">AIデータ二刀流ブログ</div>
         <p>野球・競馬と経済・株式の2軸で、データとAIを活用した分析コンテンツを発信するメディアブログ。</p>
         <div class="footer-social">
+          <a href="https://www.youtube.com/@AI-economy-radio" target="_blank" rel="noopener" class="social-btn social-yt">▶ 経済ラジオ</a>
           <a href="https://www.youtube.com/@AI-Baseball-Horse" target="_blank" rel="noopener" class="social-btn social-yt">▶ AI二刀流</a>
           <a href="https://x.com/AI_yakyu_Keiba" target="_blank" rel="noopener" class="social-btn social-x">𝕏 フォロー</a>
         </div>
@@ -546,5 +703,31 @@
   </footer>
 
   <script src="../assets/js/main.js"></script>
+  <script>
+    /* ── カテゴリフィルター（タブ + サイドバー連動） ── */
+    const cards   = document.querySelectorAll('.post-card[data-cat]');
+    const topBtns = document.querySelectorAll('.cat-btn');
+    const sideBtns= document.querySelectorAll('[data-side-filter]');
+
+    function applyFilter(filter) {
+      cards.forEach(c => {
+        c.classList.toggle('hidden',
+          filter !== 'all' && c.dataset.cat !== filter
+        );
+      });
+      topBtns.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+    }
+
+    topBtns.forEach(btn =>
+      btn.addEventListener('click', () => applyFilter(btn.dataset.filter))
+    );
+    sideBtns.forEach(a =>
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        applyFilter(a.dataset.sideFilter);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+    );
+  </script>
 </body>
 </html>

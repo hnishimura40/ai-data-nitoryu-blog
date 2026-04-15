@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/img/logo.png">
+  <link rel="apple-touch-icon" href="/assets/img/logo.png">
+  <meta name="description" content="野球・競馬データ分析 記事一覧 2ページ目 — 阪神開幕戦・セ・リーグ戦力分析・ロースター分析など。">
+  <title>野球・競馬データ分析 — 2ページ目 | AIデータ二刀流ブログ</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <style>
+    /* ─ 同じブログスタイル ─ */
+    .cat-filter-bar {
+      background: #fff;
+      border-bottom: 1px solid #e0e6f0;
+      position: sticky;
+      top: 64px;
+      z-index: 90;
+    }
+    .cat-filter-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .cat-filter-inner::-webkit-scrollbar { display: none; }
+    .cat-btn {
+      padding: 10px 18px;
+      font-size: .82rem;
+      font-weight: 700;
+      white-space: nowrap;
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: #64748b;
+      border-bottom: 3px solid transparent;
+      transition: color .15s, border-color .15s;
+    }
+    .cat-btn:hover  { color: #c0392b; }
+    .cat-btn.active { color: #c0392b; border-bottom-color: #c0392b; }
+
+    .blog-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .blog-wrap { grid-template-columns: 1fr; padding: 20px 16px 48px; gap: 32px; }
+    }
+
+    .post-list { display: flex; flex-direction: column; gap: 20px; }
+    .post-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.07);
+      overflow: hidden;
+      display: flex;
+      transition: transform .18s, box-shadow .18s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .post-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+    .post-card.hidden { display: none; }
+
+    .post-thumb {
+      width: 180px;
+      flex-shrink: 0;
+      background: #e8eef4;
+      overflow: hidden;
+    }
+    .post-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .post-thumb-ph {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem;
+      background: linear-gradient(135deg, rgba(192,57,43,.08), rgba(192,57,43,.16));
+    }
+
+    .post-body { padding: 14px 18px 16px; flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 7px; }
+    .post-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .post-cat {
+      font-size: .68rem; font-weight: 800; letter-spacing: .1em;
+      padding: 2px 8px; border-radius: 2px;
+      background: var(--color-accent-sports); color: #fff;
+    }
+    .post-cat.cat-analysis { background: #1a6fa8; }
+    .post-cat.cat-roster   { background: #7c3aed; }
+    .post-date { font-size: .75rem; color: #94a3b8; }
+    .post-title { font-size: .97rem; font-weight: 800; color: #1a2744; line-height: 1.5; margin: 0; }
+    .post-card:hover .post-title { color: #c0392b; }
+    .post-excerpt {
+      font-size: .8rem; color: #64748b; line-height: 1.7; margin: 0;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+
+    @media (max-width: 560px) {
+      .post-card { flex-direction: column; }
+      .post-thumb { width: 100%; height: 0; padding-bottom: 52%; position: relative; }
+      .post-thumb img, .post-thumb-ph { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .post-body { padding: 12px 14px 14px; }
+      .post-title { font-size: .9rem; }
+    }
+
+    .pagination {
+      display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 32px;
+    }
+    .page-link, .page-current {
+      width: 38px; height: 38px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 6px; font-size: .85rem; font-weight: 700;
+    }
+    .page-current { background: #c0392b; color: #fff; }
+    .page-link {
+      background: #fff; color: #1a2744;
+      border: 1px solid #dde3ec; text-decoration: none; transition: background .15s;
+    }
+    .page-link:hover { background: #f1f5f9; }
+    .page-prev, .page-next { padding: 0 16px; width: auto; font-size: .82rem; }
+
+    .blog-sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .widget { background: #fff; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,.07); overflow: hidden; }
+    .widget-title {
+      font-size: .78rem; font-weight: 900; letter-spacing: .1em;
+      padding: 12px 16px; background: #1a2744; color: #facc15; margin: 0;
+    }
+    .widget-body { padding: 16px; }
+    .cat-list { list-style: none; padding: 0; margin: 0; }
+    .cat-list li { border-bottom: 1px solid #f0f3f8; }
+    .cat-list li:last-child { border-bottom: none; }
+    .cat-list a {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 9px 4px; font-size: .84rem; color: #1a2744; text-decoration: none; transition: color .15s; gap: 8px;
+    }
+    .cat-list a:hover { color: #c0392b; }
+    .cat-list a span { background: #f0f3f8; color: #64748b; font-size: .72rem; font-weight: 700; padding: 1px 7px; border-radius: 10px; flex-shrink: 0; }
+    .cat-list a::before { content: '▸'; color: #c0392b; font-size: .7rem; flex-shrink: 0; }
+    .side-channel {
+      display: flex; align-items: center; gap: 10px; padding: 9px 4px;
+      text-decoration: none; color: #1a2744; font-size: .83rem; font-weight: 700;
+      border-bottom: 1px solid #f0f3f8; transition: color .15s;
+    }
+    .side-channel:last-child { border-bottom: none; }
+    .side-channel:hover { color: #c0392b; }
+    .side-ch-icon { width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: .9rem; flex-shrink: 0; }
+    .yt-icon { background: #ff0000; color: #fff; }
+    .x-icon  { background: #000; color: #fff; font-weight: 900; font-size: .85rem; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../" class="site-logo">
+        <img src="/assets/img/logo.png" alt="AIデータ二刀流" class="logo-img" width="40" height="40">
+        <div>
+          <span class="logo-main">AIデータ二刀流ブログ</span>
+          <span class="logo-sub">野球・競馬 × 経済・株式</span>
+        </div>
+      </a>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="../../">TOP</a>
+        <a href="../" class="active">野球・競馬</a>
+        <a href="../../economy-stocks/">経済・株式</a>
+        <a href="../../channels/">チャンネル</a>
+        <a href="../../profile/">運営について</a>
+        <a href="../../contact/">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="../../">TOP</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../">野球・競馬データ分析</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>2ページ目</span>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero page-hero-sports">
+    <div class="page-hero-tag">SPORTS ANALYTICS — PAGE 2</div>
+    <h1>野球・競馬データ分析</h1>
+    <p>開幕前分析・戦力分析・ロースター整理など過去記事を掲載。</p>
+  </div>
+
+  <!-- CATEGORY FILTER BAR -->
+  <div class="cat-filter-bar">
+    <div class="cat-filter-inner">
+      <button class="cat-btn active" data-filter="all">すべての記事</button>
+      <button class="cat-btn" data-filter="review">試合レビュー</button>
+      <button class="cat-btn" data-filter="analysis">戦力・分析</button>
+    </div>
+  </div>
+
+  <!-- BLOG WRAP -->
+  <div class="blog-wrap">
+
+    <main class="blog-main">
+      <div class="post-list" id="post-list">
+
+        <!-- 16. 開幕戦 3/27 -->
+        <a href="../2026-03-27-kaisaku-hansen/" class="post-card" data-cat="review">
+          <div class="post-thumb">
+            <div class="post-thumb-ph">⚾</div>
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat">試合レビュー</span>
+              <time class="post-date">2026.03.27</time>
+            </div>
+            <h2 class="post-title">開幕黒星 — 竹丸のチェンジアップに沈む阪神 巨人3-1</h2>
+            <p class="post-excerpt">竹丸俊介の変化球に開幕投手が苦しんだ1戦目。試合の流れと打線の課題、今後への見方を整理。</p>
+          </div>
+        </a>
+
+        <!-- 17. 開幕ロースター分析 -->
+        <a href="../hanshin-opening-roster-2026/" class="post-card" data-cat="analysis">
+          <div class="post-thumb">
+            <div class="post-thumb-ph">📋</div>
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat cat-roster">ロースター分析</span>
+              <time class="post-date">2026.03（開幕前）</time>
+            </div>
+            <h2 class="post-title">阪神開幕1軍ロースター総整理 — 先発の厚み、ブルペン再編、立石待望論まで</h2>
+            <p class="post-excerpt">pWARで読む開幕時点の戦力配置と弱点。立石・伊原等の期待値と先発ローテーションの真の姿を分析。</p>
+          </div>
+        </a>
+
+        <!-- 18. セ・リーグ戦力分析 -->
+        <a href="../2026-central-league-analysis/" class="post-card" data-cat="analysis">
+          <div class="post-thumb">
+            <div class="post-thumb-ph">📊</div>
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat cat-analysis">戦力分析</span>
+              <time class="post-date">2026.03（開幕前）</time>
+            </div>
+            <h2 class="post-title">セ・リーグ開幕直前戦力図 — pWAR advで見る阪神優位と巨人・DeNA再編の現在地</h2>
+            <p class="post-excerpt">開幕直前のpWAR advデータで読む6球団の実力差。阪神優位の根拠と競合3球団の逆転条件を整理。</p>
+          </div>
+        </a>
+
+      </div><!-- /post-list -->
+
+      <!-- PAGINATION -->
+      <nav class="pagination" aria-label="ページナビゲーション">
+        <a href="../" class="page-link page-prev">← 前へ</a>
+        <a href="../" class="page-link">1</a>
+        <span class="page-current" aria-current="page">2</span>
+      </nav>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="blog-sidebar">
+
+      <div class="widget">
+        <h3 class="widget-title">カテゴリ</h3>
+        <div class="widget-body">
+          <ul class="cat-list">
+            <li><a href="../">すべての記事 <span>18</span></a></li>
+            <li><a href="../">試合レビュー <span>14</span></a></li>
+            <li><a href="#">戦力・ロースター分析 <span>2</span></a></li>
+            <li><a href="#">カードまとめ <span>2</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="widget">
+        <h3 class="widget-title">月別アーカイブ</h3>
+        <div class="widget-body">
+          <ul class="cat-list">
+            <li><a href="../">2026年4月 <span>12記事</span></a></li>
+            <li><a href="#">2026年3月 <span>6記事</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="widget">
+        <h3 class="widget-title">関連チャンネル</h3>
+        <div class="widget-body">
+          <a href="https://www.youtube.com/@AI-Baseball-Horse" target="_blank" rel="noopener" class="side-channel">
+            <div class="side-ch-icon yt-icon">▶</div>
+            AI二刀流（野球・競馬）
+          </a>
+          <a href="https://x.com/AI_yakyu_Keiba" target="_blank" rel="noopener" class="side-channel">
+            <div class="side-ch-icon x-icon">𝕏</div>
+            X（速報・短評）
+          </a>
+        </div>
+      </div>
+
+    </aside>
+
+  </div><!-- /blog-wrap -->
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-name">AIデータ二刀流ブログ</div>
+        <p>野球・競馬と経済・株式の2軸で、データとAIを活用した分析コンテンツを発信するメディアブログ。</p>
+        <div class="footer-social">
+          <a href="https://www.youtube.com/@AI-economy-radio" target="_blank" rel="noopener" class="social-btn social-yt">▶ 経済ラジオ</a>
+          <a href="https://www.youtube.com/@AI-Baseball-Horse" target="_blank" rel="noopener" class="social-btn social-yt">▶ AI二刀流</a>
+          <a href="https://x.com/AI_yakyu_Keiba" target="_blank" rel="noopener" class="social-btn social-x">𝕏 フォロー</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>コンテンツ</h4>
+        <nav class="footer-nav">
+          <a href="../../hanshin-keiba/">野球・競馬データ分析</a>
+          <a href="../../economy-stocks/">経済・時事・株式分析</a>
+          <a href="../../channels/">YouTubeチャンネル</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>サイト情報</h4>
+        <nav class="footer-nav">
+          <a href="../../profile/">運営について</a>
+          <a href="../../privacy-policy/">プライバシーポリシー</a>
+          <a href="../../contact/">お問い合わせ</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 AIデータ二刀流ブログ. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script>
+    const cards = document.querySelectorAll('.post-card[data-cat]');
+    const btns  = document.querySelectorAll('.cat-btn');
+    btns.forEach(btn =>
+      btn.addEventListener('click', () => {
+        const f = btn.dataset.filter;
+        cards.forEach(c => c.classList.toggle('hidden', f !== 'all' && c.dataset.cat !== f));
+        btns.forEach(b => b.classList.toggle('active', b === btn));
+      })
+    );
+  </script>
+</body>
+</html>
