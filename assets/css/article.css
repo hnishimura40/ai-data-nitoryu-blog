@@ -1,0 +1,340 @@
+/* ============================================================
+   article.css — 記事ページ共通スタイル
+   Dark theme base + Mobile responsive
+   ============================================================ */
+
+/* ── 1. ダーク背景ベース ──────────────────────────────────── */
+body {
+  background: #0a1628;
+  color: #cbd5e1;
+}
+
+/* ── 2. ヘッダー内ロゴ（記事ページ版） ───────────────────── */
+.site-logo {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: .04em;
+  line-height: 1.2;
+}
+.site-logo span {
+  color: #facc15;
+}
+
+/* ── 3. グローバルナビ（記事ページ版 .global-nav） ─────────── */
+.global-nav ul {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+.global-nav ul li a {
+  color: rgba(255,255,255,.85);
+  font-size: .82rem;
+  padding: 6px 10px;
+  border-radius: 4px;
+  display: block;
+  white-space: nowrap;
+  transition: background .18s;
+}
+.global-nav ul li a:hover {
+  background: rgba(255,255,255,.15);
+  opacity: 1;
+}
+
+/* ── 4. ダークパンくずリスト（<nav class="breadcrumb">） ───── */
+nav.breadcrumb {
+  background: #0d1e35;
+  border-bottom: 1px solid #1e3a5f;
+}
+nav.breadcrumb ol {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: .55rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .2rem .5rem;
+  list-style: none;
+  font-size: .78rem;
+  align-items: center;
+}
+nav.breadcrumb li {
+  color: #64748b;
+}
+nav.breadcrumb li + li::before {
+  content: '›';
+  margin-right: .5rem;
+  color: #334155;
+}
+nav.breadcrumb li a {
+  color: #60a5fa;
+  text-decoration: none;
+  transition: color .18s;
+}
+nav.breadcrumb li a:hover {
+  color: #93c5fd;
+  opacity: 1;
+}
+
+/* ── 5. アートヒーロー & OGPサムネイル ───────────────────── */
+.art-hero {
+  background: #0a1628; /* 上下余白がある場合も暗い背景 */
+}
+/* OGPコンテナが最大幅を超えないように */
+.ogp-hero {
+  max-width: min(600px, 100%);
+}
+
+/* ── 6. メインコンテンツ ─────────────────────────────────── */
+/* style.css の .main-content は padding: 40px 0 60px なので上書き */
+/* ただし各記事のインラインスタイルが優先されるので、ここは不要な場合も */
+/* body.art-page .main-content は記事インラインに任せる */
+
+/* ── 7. テーブルのスクロール対応 ─────────────────────────── */
+/* テーブルを囲む .data-table-wrap があれば自動スクロール */
+.data-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1rem 0 1.5rem;
+}
+/* art-body 内の全テーブルをモバイルでスクロール可能に */
+.art-body table {
+  min-width: 400px; /* 最小幅を保証してスクロール領域を作る */
+}
+
+/* ── 8. フッター（記事ページ版） ────────────────────────── */
+.site-footer {
+  background: #0d1e35;
+  border-top: 1px solid #1e3a5f;
+  margin-top: 0;
+}
+.site-footer p {
+  color: rgba(255,255,255,.45);
+  font-size: .78rem;
+  padding: 1.4rem 1.5rem;
+  text-align: center;
+  margin: 0;
+}
+
+/* ============================================================
+   モバイル レスポンシブ
+   ============================================================ */
+
+/* ── SP: ヘッダー nav 折り返し ──────────────────────────── */
+@media (max-width: 600px) {
+  .header-inner {
+    padding: 0 12px;
+    height: 52px;
+  }
+  .global-nav ul {
+    gap: 2px;
+  }
+  .global-nav ul li a {
+    font-size: .72rem;
+    padding: 5px 7px;
+  }
+  .site-logo {
+    font-size: .88rem;
+  }
+}
+
+/* ── SP: パンくずリスト ───────────────────────────────────── */
+@media (max-width: 480px) {
+  nav.breadcrumb ol {
+    padding: .45rem 1rem;
+    font-size: .72rem;
+  }
+}
+
+/* ── SP: アートヒーロー ─────────────────────────────────── */
+@media (max-width: 660px) {
+  .art-hero {
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem auto;
+    padding: 0 1rem;
+  }
+  .ogp-hero {
+    max-width: 100%;
+    width: 100%;
+  }
+  .art-hero-body {
+    min-width: unset !important;
+    width: 100%;
+  }
+  .art-title {
+    font-size: 1.2rem !important;
+  }
+}
+
+/* ── SP: メインコンテンツ padding ────────────────────────── */
+@media (max-width: 660px) {
+  /* インラインスタイルを上書きするため !important */
+  .main-content {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* ── SP: 記事本文グリッド ────────────────────────────────── */
+@media (max-width: 860px) {
+  /* サイドバーを2列に整える */
+  .sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+@media (max-width: 560px) {
+  .sidebar {
+    display: block;
+  }
+}
+
+/* ── SP: セクション見出し ────────────────────────────────── */
+@media (max-width: 480px) {
+  .sec-head {
+    font-size: 1.05rem !important;
+    padding: .35rem .7rem;
+  }
+  .sec-sub {
+    font-size: .9rem !important;
+  }
+}
+
+/* ── SP: サマリーボックス ────────────────────────────────── */
+@media (max-width: 480px) {
+  .summary-box {
+    padding: .9rem 1rem;
+  }
+  .summary-box ul {
+    font-size: .86rem;
+    line-height: 1.75;
+  }
+}
+
+/* ── SP: ハイライトボックス ─────────────────────────────── */
+@media (max-width: 480px) {
+  .hlbox,
+  .hlbox-red {
+    font-size: .86rem;
+    padding: .65rem .9rem;
+  }
+}
+
+/* ── SP: データテーブル ──────────────────────────────────── */
+@media (max-width: 660px) {
+  /* テーブルをブロック表示にしてスクロールさせる */
+  .art-body .data-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: .82rem;
+  }
+  .art-body .data-table th,
+  .art-body .data-table td {
+    padding: .4rem .6rem;
+    white-space: nowrap;
+  }
+}
+
+/* ── SP: フロータイムライン ─────────────────────────────── */
+@media (max-width: 480px) {
+  .flow-list li {
+    flex-direction: column;
+    gap: .4rem;
+    padding: .6rem 0;
+  }
+  .flow-inning {
+    align-self: flex-start;
+    font-size: .72rem;
+  }
+  .flow-desc {
+    font-size: .85rem;
+  }
+}
+
+/* ── SP: バーチャート ────────────────────────────────────── */
+@media (max-width: 480px) {
+  .bar-row {
+    gap: .5rem;
+  }
+  .bar-label {
+    min-width: 44px;
+    font-size: .74rem;
+  }
+  .bar-val {
+    min-width: 36px;
+    font-size: .78rem;
+  }
+  .bar-fill {
+    font-size: .72rem;
+  }
+}
+
+/* ── SP: チームカード ────────────────────────────────────── */
+@media (max-width: 480px) {
+  .team-cards {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── SP: インパクトバッジ ────────────────────────────────── */
+@media (max-width: 480px) {
+  .impact-badge {
+    font-size: .65rem;
+  }
+}
+
+/* ── SP: 段落文字サイズ ─────────────────────────────────── */
+@media (max-width: 480px) {
+  .art-body p {
+    font-size: .9rem;
+    line-height: 1.8;
+  }
+  .art-body li {
+    font-size: .88rem;
+  }
+}
+
+/* ── SP: サイドボックス ──────────────────────────────────── */
+@media (max-width: 480px) {
+  .side-box {
+    padding: .8rem 1rem;
+  }
+  .side-box h3 {
+    font-size: .85rem;
+  }
+  .side-box ul li {
+    font-size: .8rem;
+  }
+}
+
+/* ── SP: OGP左パネルのスコア文字 ────────────────────────── */
+/* cqw単位なので自動スケールするが、念のため最小値を確保 */
+@media (max-width: 360px) {
+  .ogp-hero {
+    border-radius: 6px;
+  }
+}
+
+/* ============================================================
+   ダークモード（システム設定に合わせた微調整）
+   記事自体はすでに暗いが、共有コンポーネントを整える
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #0a1628;
+    color: #cbd5e1;
+  }
+  nav.breadcrumb {
+    background: #0d1e35;
+    border-bottom-color: #1e3a5f;
+  }
+  .site-footer {
+    background: #0d1e35;
+    border-top-color: #1e3a5f;
+  }
+}

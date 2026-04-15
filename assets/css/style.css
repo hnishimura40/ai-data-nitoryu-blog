@@ -1033,6 +1033,99 @@ ul { list-style: none; }
 }
 
 /* ========================================
+   DARK MODE — システムダークモード対応
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0d1a2d;
+    --color-bg-white: #0a1628;
+    --color-text: #e2e8f0;
+    --color-text-light: #94a3b8;
+    --color-text-lighter: #64748b;
+    --color-border: #1e3a5f;
+    --shadow-card: 0 2px 12px rgba(0,0,0,0.3);
+    --shadow-card-hover: 0 6px 24px rgba(0,0,0,0.4);
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  /* Cards & boxes */
+  .gate-card,
+  .article-card,
+  .channel-card,
+  .feature-item,
+  .article-list-item,
+  .form-wrap,
+  .profile-card,
+  .policy-section {
+    background: var(--color-bg-white);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Article list items */
+  .article-list-item {
+    border: 1px solid var(--color-border);
+  }
+  .article-list-title { color: var(--color-text); }
+  .section-title { color: #93c5fd; }
+
+  /* Breadcrumb (light pages use <div class="breadcrumb">) */
+  div.breadcrumb {
+    background: var(--color-bg-white);
+    border-bottom-color: var(--color-border);
+  }
+  .breadcrumb-inner { color: var(--color-text-lighter); }
+  .breadcrumb-inner a { color: #60a5fa; }
+
+  /* Form inputs */
+  .form-input,
+  .form-textarea,
+  .form-select {
+    background: #0d1a2d;
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+
+  /* Notice box */
+  .notice-box {
+    background: rgba(232,160,32,.04);
+    border-color: rgba(232,160,32,.2);
+    color: var(--color-text-light);
+  }
+  .notice-box strong { color: var(--color-text); }
+
+  /* Affiliate area */
+  .affiliate-area {
+    background: var(--color-bg-white);
+    border-color: var(--color-border);
+    color: var(--color-text-lighter);
+  }
+
+  /* Tags */
+  .tag {
+    border-color: var(--color-border);
+    color: var(--color-text-light);
+  }
+
+  /* Section headers */
+  .section-header { border-bottom-color: var(--color-border); }
+
+  /* Profile */
+  .profile-section h3 { color: #93c5fd; }
+  .profile-section p { color: var(--color-text-light); }
+  .policy-section h2 { color: #93c5fd; border-bottom-color: var(--color-border); }
+  .policy-section p,
+  .policy-section li { color: var(--color-text-light); }
+
+  /* Form */
+  .form-label { color: var(--color-text); }
+}
+
+/* ========================================
    UTILITY
    ======================================== */
 
