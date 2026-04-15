@@ -9,6 +9,67 @@ html, body {
   max-width: 100%;
 }
 
+/* ── 0b. 記事目次（TOC）スタイル ─────────────────────────── */
+.art-toc {
+  background: #0d1a2d;
+  border: 1px solid #1e3a5f;
+  border-left: 3px solid #facc15;
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0 2rem;
+  font-size: .88rem;
+}
+.art-toc-title {
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #facc15;
+  margin-bottom: .75rem;
+}
+.art-toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: toc-counter;
+}
+.art-toc-item {
+  counter-increment: toc-counter;
+  padding: .3rem 0;
+  border-bottom: 1px solid rgba(30,58,95,.5);
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+}
+.art-toc-item:last-child { border-bottom: none; }
+.art-toc-item::before {
+  content: counter(toc-counter);
+  flex-shrink: 0;
+  font-size: .72rem;
+  font-weight: 900;
+  color: #475569;
+  width: 1.2rem;
+  text-align: right;
+}
+.art-toc-item.art-toc-sub {
+  padding-left: 1.5rem;
+  counter-increment: none;
+}
+.art-toc-item.art-toc-sub::before { content: '–'; color: #1e3a5f; }
+.art-toc-item a {
+  color: #93c5fd;
+  text-decoration: none;
+  line-height: 1.5;
+  transition: color .15s;
+  flex: 1;
+}
+.art-toc-item a:hover { color: #facc15; opacity: 1; }
+
+@media (max-width: 480px) {
+  .art-toc { font-size: .82rem; padding: .8rem 1rem; }
+  .art-toc-title { font-size: .72rem; }
+}
+
 /* ── 1. ダーク背景ベース ──────────────────────────────────── */
 body {
   background: #0a1628;

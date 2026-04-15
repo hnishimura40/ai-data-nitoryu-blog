@@ -36,6 +36,64 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // =====================
+  // 記事ページ 目次（TOC）自動生成
+  // =====================
+  (function buildToc() {
+    const artBody = document.querySelector('.art-body, article.art-body');
+    if (!artBody) return;
+
+    // h2・h3 を収集（summary-box の中の見出しは除外）
+    const headings = Array.from(
+      artBody.querySelectorAll('h2, h3')
+    ).filter(function(h) {
+      // サマリーボックス・インライン style 直書きの「わかること」は除外
+      return !h.closest('.summary-box') &&
+             !h.closest('.side-box') &&
+             h.textContent.trim().length > 0;
+    });
+
+    if (headings.length < 2) return; // 見出し2個未満なら生成しない
+
+    // 見出しに ID を自動付与（既存 ID 優先）
+    const slugs = {};
+    headings.forEach(function(h, i) {
+      if (!h.id) {
+        let base = 'h-' + i;
+        h.id = base;
+      }
+      slugs[i] = h.id;
+    });
+
+    // TOC HTML を組み立て
+    let tocHtml = '<nav class="art-toc" aria-label="目次"><div class="art-toc-title">目次</div><ol class="art-toc-list">';
+    headings.forEach(function(h, i) {
+      const isH3 = h.tagName === 'H3';
+      const text = h.textContent.replace(/^[\d０-９]+[.．\s]+/, '').trim(); // 先頭の番号除去
+      tocHtml += '<li class="art-toc-item' + (isH3 ? ' art-toc-sub' : '') + '">'
+               + '<a href="#' + slugs[i] + '">' + text + '</a>'
+               + '</li>';
+    });
+    tocHtml += '</ol></nav>';
+
+    // 挿入位置: summary-box の直後、なければ最初の <p> の前
+    const summaryBox = artBody.querySelector('.summary-box');
+    const tocEl = document.createElement('div');
+    tocEl.innerHTML = tocHtml;
+    const toc = tocEl.firstChild;
+
+    if (summaryBox && summaryBox.nextSibling) {
+      artBody.insertBefore(toc, summaryBox.nextSibling);
+    } else {
+      const firstP = artBody.querySelector('p');
+      if (firstP) {
+        artBody.insertBefore(toc, firstP);
+      } else {
+        artBody.prepend(toc);
+      }
+    }
+  })();
+
+  // =====================
   // お問い合わせフォーム (フロント確認のみ)
   // =====================
   const contactForm = document.getElementById('contactForm');
