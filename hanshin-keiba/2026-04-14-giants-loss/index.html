@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="2026年4月14日 阪神vs巨人（甲子園）。7回に高寺・前川の活躍で3-2逆転も、8回モレッタの被弾・9回岩崎の失点で3-4逆転負け。才木の粘投と中継ぎの課題を徹底分析。">
+  <title>阪神、逆転したのに勝ち切れず　巨人戦で見えた守備と中継ぎの重い課題 | AIデータ二刀流ブログ</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================
+       OGP Hero – loss color scheme (grey/blue)
+       ========================================= */
+    .ogp-hero {
+      container-type: inline-size;
+      width: 100%;
+      aspect-ratio: 1200 / 630;
+      max-width: 600px;
+      background: #0b1525;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      font-family: 'Noto Sans JP', sans-serif;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .ogp-left-panel {
+      width: 42%;
+      background: linear-gradient(135deg, #475569 0%, #334155 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 8cqw 4cqw;
+      gap: 3cqw;
+      clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+    }
+    .ogp-team-name {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 900;
+      font-size: 5cqw;
+      color: #e2e8f0;
+      letter-spacing: 0.1em;
+    }
+    .ogp-score {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: 9cqw;
+      color: #e2e8f0;
+      line-height: 1;
+    }
+    .ogp-right-panel {
+      flex: 1;
+      padding: 5cqw 6cqw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2.5cqw;
+    }
+    .ogp-main-text {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 900;
+      font-size: 4.5cqw;
+      color: #f1f5f9;
+      line-height: 1.35;
+    }
+    .ogp-sub-text {
+      font-size: 2.8cqw;
+      color: #94a3b8;
+      font-weight: 700;
+    }
+    .ogp-topics {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5cqw;
+    }
+    .ogp-topic {
+      font-size: 2.2cqw;
+      color: #cbd5e1;
+      padding-left: 2cqw;
+      border-left: 0.5cqw solid #facc15;
+    }
+    .ogp-topic.t-red   { border-left-color: #ef4444; }
+    .ogp-topic.t-blue  { border-left-color: #38bdf8; }
+    .ogp-topic.t-grey  { border-left-color: #94a3b8; }
+    .ogp-badge {
+      background: rgba(255,255,255,0.08);
+      border-radius: 4px;
+      padding: 1.5cqw 2.5cqw;
+      font-size: 2cqw;
+      color: #94a3b8;
+      font-weight: 700;
+      align-self: flex-start;
+    }
+
+    /* =========================================
+       Article hero area
+       ========================================= */
+    .art-hero {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      background: transparent;
+    }
+    .art-hero-body {
+      flex: 1;
+      min-width: 280px;
+    }
+    .art-cats {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-bottom: .75rem;
+    }
+    .cat-badge {
+      background: #1e3a5f;
+      color: #93c5fd;
+      font-size: .75rem;
+      padding: .25rem .6rem;
+      border-radius: 3px;
+      font-weight: 700;
+    }
+    .cat-badge.loss {
+      background: #3b1f1f;
+      color: #fca5a5;
+    }
+    .art-title {
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      font-weight: 900;
+      color: #f1f5f9;
+      line-height: 1.3;
+      margin-bottom: .5rem;
+    }
+    .art-meta {
+      font-size: .85rem;
+      color: #64748b;
+    }
+
+    /* =========================================
+       Main layout
+       ========================================= */
+    .main-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+    .art-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 2.5rem;
+    }
+    @media (max-width: 860px) {
+      .art-layout { grid-template-columns: 1fr; }
+    }
+
+    /* =========================================
+       Article body elements
+       ========================================= */
+    .sec-head {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #f1f5f9;
+      border-left: 4px solid #facc15;
+      padding: .4rem .8rem;
+      background: rgba(250,204,21,.05);
+      margin: 2rem 0 .8rem;
+    }
+    .sec-sub {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #93c5fd;
+      margin: 1.5rem 0 .5rem;
+      border-bottom: 1px solid #1e3a5f;
+      padding-bottom: .3rem;
+    }
+    .summary-box {
+      background: #0f2040;
+      border: 1px solid #1e3a5f;
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .summary-box-title {
+      font-size: .75rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      color: #facc15;
+      margin-bottom: .75rem;
+    }
+    .summary-box ul {
+      padding-left: 1.2rem;
+      color: #cbd5e1;
+      line-height: 1.9;
+      margin: 0;
+    }
+    .summary-box li {
+      font-size: .9rem;
+      margin-bottom: .2rem;
+    }
+    .hlbox {
+      background: rgba(250,204,21,.07);
+      border-left: 3px solid #facc15;
+      padding: .8rem 1.2rem;
+      border-radius: 0 6px 6px 0;
+      margin: 1rem 0;
+      color: #e2e8f0;
+    }
+    .hlbox.red {
+      background: rgba(239,68,68,.06);
+      border-left-color: #ef4444;
+    }
+    .hlbox.blue {
+      background: rgba(56,189,248,.06);
+      border-left-color: #38bdf8;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .9rem;
+      margin: 1rem 0 1.5rem;
+    }
+    .data-table th {
+      background: #1e3a5f;
+      color: #93c5fd;
+      padding: .5rem .75rem;
+      text-align: left;
+      font-weight: 700;
+    }
+    .data-table td {
+      padding: .45rem .75rem;
+      border-bottom: 1px solid #1e3a5f;
+      color: #cbd5e1;
+    }
+    .data-table tr:nth-child(even) td {
+      background: rgba(30,58,95,.3);
+    }
+    .grade-s  { color: #facc15; font-weight: 900; }
+    .grade-a  { color: #4ade80; font-weight: 700; }
+    .grade-b  { color: #60a5fa; font-weight: 700; }
+    .grade-bp { color: #7dd3fc; font-weight: 700; }
+    .grade-c  { color: #94a3b8; }
+    .p { color: #cbd5e1; line-height: 1.85; margin-bottom: .9rem; font-size: .95rem; }
+
+    /* =========================================
+       Sidebar
+       ========================================= */
+    .sidebar {}
+    .side-box {
+      background: #0f2040;
+      border: 1px solid #1e3a5f;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .side-box h3 {
+      font-size: .9rem;
+      font-weight: 700;
+      color: #facc15;
+      margin-bottom: .75rem;
+      padding-bottom: .4rem;
+      border-bottom: 1px solid #1e3a5f;
+    }
+    .side-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .side-box ul li {
+      padding: .35rem 0;
+      border-bottom: 1px solid #0d1f3c;
+      font-size: .85rem;
+      color: #94a3b8;
+    }
+    .side-box ul li:last-child {
+      border-bottom: none;
+    }
+    .side-box ul li a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+    .side-box ul li a:hover {
+      color: #93c5fd;
+      text-decoration: underline;
+    }
+    .side-tag {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+    }
+    .side-tag span {
+      background: #1e3a5f;
+      color: #93c5fd;
+      font-size: .75rem;
+      padding: .2rem .5rem;
+      border-radius: 3px;
+    }
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .4rem 0;
+      border-bottom: 1px solid #0d1f3c;
+      font-size: .85rem;
+      color: #cbd5e1;
+    }
+    .result-row:last-child { border-bottom: none; }
+    .result-label { color: #64748b; }
+    .result-val   { font-weight: 700; }
+    .loss-badge {
+      background: #3b1f1f;
+      color: #fca5a5;
+      font-size: .7rem;
+      font-weight: 700;
+      padding: .15rem .45rem;
+      border-radius: 3px;
+    }
+    .win-badge {
+      background: #14312a;
+      color: #6ee7b7;
+      font-size: .7rem;
+      font-weight: 700;
+      padding: .15rem .45rem;
+      border-radius: 3px;
+    }
+
+    /* article body paragraph default */
+    article p {
+      color: #cbd5e1;
+      line-height: 1.85;
+      margin-bottom: .9rem;
+      font-size: .95rem;
+    }
+    article ul, article ol {
+      color: #cbd5e1;
+      line-height: 1.9;
+      padding-left: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    article li {
+      font-size: .9rem;
+      margin-bottom: .3rem;
+    }
+    article strong {
+      color: #e2e8f0;
+      font-weight: 700;
+    }
+
+    /* score innings table */
+    .innings-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .82rem;
+      margin: 1rem 0 1.5rem;
+      overflow-x: auto;
+      display: block;
+    }
+    .innings-table th {
+      background: #1e3a5f;
+      color: #93c5fd;
+      padding: .45rem .55rem;
+      text-align: center;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .innings-table td {
+      padding: .4rem .55rem;
+      border-bottom: 1px solid #1e3a5f;
+      color: #cbd5e1;
+      text-align: center;
+    }
+    .innings-table tr:nth-child(even) td { background: rgba(30,58,95,.3); }
+    .innings-table td.team-name { text-align: left; font-weight: 700; color: #e2e8f0; white-space: nowrap; }
+    .innings-table td.total { font-weight: 900; color: #facc15; }
+    .innings-table td.score-event { color: #fca5a5; font-weight: 700; }
+    .innings-table td.score-good  { color: #4ade80; font-weight: 700; }
+
+    /* turning point numbered list */
+    .tp-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .9rem;
+    }
+    .tp-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: #0f2040;
+      border: 1px solid #1e3a5f;
+      border-radius: 8px;
+      padding: .9rem 1.1rem;
+    }
+    .tp-num {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: #facc15;
+      line-height: 1;
+      flex-shrink: 0;
+      width: 2rem;
+      text-align: center;
+    }
+    .tp-num.red  { color: #ef4444; }
+    .tp-num.blue { color: #38bdf8; }
+    .tp-body {}
+    .tp-title {
+      font-weight: 700;
+      color: #e2e8f0;
+      font-size: .95rem;
+      margin-bottom: .3rem;
+    }
+    .tp-desc {
+      font-size: .85rem;
+      color: #94a3b8;
+      line-height: 1.75;
+    }
+
+    /* breadcrumb override for dark bg */
+    .breadcrumb, .breadcrumb-inner, .breadcrumb a { color: #64748b; }
+    .breadcrumb a:hover { color: #93c5fd; }
+
+    /* footer */
+    .site-footer p { color: #64748b; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../" class="site-logo">
+        <span class="logo-main">AIデータ二刀流ブログ</span>
+        <span class="logo-sub">野球・競馬 × 経済・株式</span>
+      </a>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="../../">TOP</a>
+        <a href="../../hanshin-keiba/" class="active">野球・競馬</a>
+        <a href="../../economy-stocks/">経済・株式</a>
+        <a href="../../channels/">チャンネル</a>
+        <a href="../../profile/">運営について</a>
+        <a href="../../contact/">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="../../">TOP</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../hanshin-keiba/">野球・競馬</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>阪神3-4巨人 逆転したのに守れず</span>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="art-hero">
+
+    <!-- OGP thumbnail -->
+    <div class="ogp-hero">
+      <div class="ogp-left-panel">
+        <div class="ogp-team-name">阪 神</div>
+        <div class="ogp-score">3-4</div>
+        <div class="ogp-team-name" style="color:#94a3b8;font-size:3.5cqw;">vs 巨人</div>
+      </div>
+      <div class="ogp-right-panel">
+        <div class="ogp-main-text">逆転したのに<br>守り切れず</div>
+        <div class="ogp-sub-text">守備と中継ぎの課題が出た一敗</div>
+        <div class="ogp-topics">
+          <div class="ogp-topic">才木6回2失点の粘投</div>
+          <div class="ogp-topic t-red">モレッタ・岩崎の失点が痛すぎた</div>
+          <div class="ogp-topic t-blue">高寺・前川で7回逆転劇</div>
+          <div class="ogp-topic t-grey">守備のミスが先制点につながった</div>
+        </div>
+        <div class="ogp-badge">阪神 3-4 巨人 2026.04.14</div>
+      </div>
+    </div>
+
+    <!-- Article title block -->
+    <div class="art-hero-body">
+      <div class="art-cats">
+        <span class="cat-badge">阪神タイガース</span>
+        <span class="cat-badge loss">敗戦</span>
+        <span class="cat-badge">試合レポート</span>
+        <span class="cat-badge">2026シーズン</span>
+      </div>
+      <h1 class="art-title">阪神、逆転したのに勝ち切れず　巨人戦で見えた守備と中継ぎの重い課題</h1>
+      <div class="art-meta">
+        2026年4月14日（火）&nbsp;|&nbsp; 甲子園球場&nbsp;|&nbsp; 阪神 <strong style="color:#fca5a5;">3 – 4</strong> 巨人&nbsp;|&nbsp; 記者：AIデータ分析
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <div class="main-content">
+    <div class="art-layout">
+
+      <!-- ========= ARTICLE BODY ========= -->
+      <article class="art-body">
+
+        <!-- 1. 導入文 -->
+        <p>
+          4月14日、甲子園球場で行われた阪神タイガース対読売ジャイアンツの一戦。7回裏に高寺望夢の2点適時打で3-2と逆転に成功しながら、8回に中継ぎ・モレッタが同点ホームランを浴び、9回には抑えを務めていた岩崎優が松本剛に勝ち越し適時打を許す最悪の展開。最終スコアは3-4で阪神は逆転負けを喫した。
+        </p>
+        <p>
+          先発・才木浩人は6回2失点と十分に試合を作ったが、打線の援護が遅く、守備のミスが先制点を呼び込む展開となった。逆転したあとに守り切れないという、阪神が今季繰り返してきた課題が再び浮き彫りになった一敗だった。
+        </p>
+
+        <div class="summary-box">
+          <div class="summary-box-title">この記事でわかること</div>
+          <ul>
+            <li>木浪の失策が呼んだ2回の先制2失点の経緯</li>
+            <li>才木浩人が5回の大ピンチをしのいだ粘りの詳細</li>
+            <li>7回逆転劇—佐藤輝・前川・熊谷・高寺の連鎖</li>
+            <li>8回モレッタ被弾・9回岩崎失点で逆転された痛い経緯</li>
+            <li>高橋遥人・早川太貴抹消と中継ぎ再編の背景</li>
+            <li>選手別の試合内容評価（グレード付き）</li>
+          </ul>
+        </div>
+
+        <!-- 2. 試合結果 -->
+        <h2 class="sec-head" id="result">試合結果・スコア</h2>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>項目</th>
+              <th>内容</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>日時・球場</td><td>2026年4月14日（火）甲子園球場</td></tr>
+            <tr><td>スコア</td><td><strong style="color:#fca5a5;">阪神 3 – 4 巨人</strong></td></tr>
+            <tr><td>先発（阪神）</td><td>才木浩人（6回2失点）</td></tr>
+            <tr><td>先発（巨人）</td><td>則本昂大（6回無失点）</td></tr>
+            <tr><td>勝利投手</td><td>大勢</td></tr>
+            <tr><td>敗戦投手</td><td>岩崎優</td></tr>
+            <tr><td>セーブ</td><td>ライデル・マルティネス</td></tr>
+          </tbody>
+        </table>
+
+        <p>イニング別得点経過は以下の通り。</p>
+
+        <table class="innings-table">
+          <thead>
+            <tr>
+              <th>チーム</th>
+              <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th>
+              <th class="total">計</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="team-name">巨人</td>
+              <td>0</td>
+              <td class="score-event">2</td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+              <td class="score-event">1</td>
+              <td class="score-event">1</td>
+              <td class="total">4</td>
+            </tr>
+            <tr>
+              <td class="team-name">阪神</td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+              <td class="score-good">3</td>
+              <td>0</td><td>0</td>
+              <td class="total">3</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="hlbox red">
+          <strong>敗因の核心：</strong>7回の逆転後、8回・9回の2イニングで連続失点。逆転した直後に突き放された最悪の流れだった。中継ぎのワンポイントの失敗が試合を決定づけた。
+        </div>
+
+        <!-- 3. 試合の流れ -->
+        <h2 class="sec-head" id="flow">試合の流れ</h2>
+
+        <h3 class="sec-sub" id="flow-2nd">2回表：木浪の失策が呼んだ先制2失点</h3>
+        <p>
+          2回表、巨人の攻撃。先頭打者への対応こそ才木が抑えたが、試合が動いたのは木浪聖也の失策だった。内野ゴロを処理しきれず出塁を許すと、その後の流れは一気に変わった。大城卓三に適時打を浴び、続く増田陸に適時二塁打を打たれ計2失点。木浪の一度のミスが先制点2点につながる典型的な「守備崩れ」の展開となった。
+        </p>
+        <p>
+          則本昂大が立ち上がりからテンポよく阪神打線を翻弄していた中、守備のミスで自ら苦しい展開を作り出してしまった。この2点は試合全体の流れに大きな影を落とした。
+        </p>
+
+        <div class="hlbox">
+          <strong>2回表の失点まとめ：</strong>木浪失策 → 大城卓三適時打（1失点）→ 増田陸適時二塁打（1失点）= 計2失点先制
+        </div>
+
+        <h3 class="sec-sub" id="flow-saiki">序盤〜中盤：則本の好投と才木の粘り</h3>
+        <p>
+          先制を許した阪神だったが、先発・才木浩人は崩れなかった。2回以降、巨人打線に得点圏のランナーを何度も背負いながらも、要所で三振や打ち取るボールを選択。特に5回の1死一三塁というビッグピンチでは、ダルベックを三振に打ち取り、続くキャベッジも仕留めてスリーアウト。この場面の才木の集中力は特筆に値する。
+        </p>
+        <p>
+          一方の則本は終始安定したピッチングを見せた。テンポの良い投球で阪神打線に的を絞らせず、6回を無失点で終えた。才木が踏ん張る中、阪神打線が則本に抑えられ続けるという、見ている側には歯がゆい展開が続いた。
+        </p>
+
+        <div class="hlbox blue">
+          <strong>才木5回の粘り：</strong>1死一三塁→ダルベック三振→キャベッジを打ち取りピンチ脱出。3回以降も何度かのピンチを零封で切り抜け、6回2失点という合格点の内容だった。
+        </div>
+
+        <h3 class="sec-sub" id="flow-7th">7回裏：逆転劇—高寺・前川・熊谷が爆発</h3>
+        <p>
+          6回まで0点に抑えられていた阪神打線がついに爆発したのが7回裏だった。先頭の佐藤輝明が二塁打を放ち、無死二塁の好機を作ると、大山悠輔がつなぎの打席で四球を選んで無死一二塁と広げた。ここで前川右京が右前適時打を放ち1点差の2-3に迫ると、熊谷が盗塁を決めてプレッシャーをかけ、最後は高寺望夢が2点適時打を右中間に弾き返した。
+        </p>
+        <p>
+          3-2と逆転！　甲子園のスタンドは一気に沸き上がった。則本を降板させた後の巨人継投陣を攻略し、7回1イニングだけで3点を奪う集中力を見せた。若手の高寺と前川が決定的な仕事をしたことは、今後の戦力としての期待感を高めるポジティブな要素だった。
+        </p>
+
+        <div class="hlbox">
+          <strong>7回裏の逆転劇：</strong>佐藤輝二塁打 → 大山四球（無死一二塁）→ 前川右京右前適時打（2-3）→ 熊谷盗塁 → 高寺望夢2点適時打（3-2 逆転！）
+        </div>
+
+        <h3 class="sec-sub" id="flow-8th">8回表：モレッタが大城に同点ソロを被弾</h3>
+        <p>
+          7回裏に逆転して迎えた8回表、阪神はモレッタをマウンドへ。しかし先頭打者の大城卓三にいきなりソロホームランを被弾。この1本で3-3の同点に追いつかれた。
+        </p>
+        <p>
+          2回にも適時打を打たれていた大城卓三に、今度はホームランまで打たれるという展開は痛すぎた。モレッタはこの試合、大城に徹底的に攻略される形となった。甲子園のスタンドの空気が一気に引いた瞬間だった。
+        </p>
+        <div class="hlbox red">
+          <strong>8回の失点：</strong>モレッタ → 大城卓三にソロホームラン被弾 = 3-3同点
+        </div>
+
+        <h3 class="sec-sub" id="flow-9th">9回表：岩崎優が松本剛に勝ち越し打</h3>
+        <p>
+          同点で迎えた9回表、今度は岩崎優がマウンドへ。このイニングが試合を決定づけた。松本剛に対し、岩崎は粘りきれず適時打を許してしまう。この1本で4-3と巨人に勝ち越しを許した。
+        </p>
+        <p>
+          岩崎優はここ数試合、経験値からすれば安定しているはずの投手だが、この試合に限っては粘り切れなかった。クローザーとして起用されていた時期の岩崎を知っているファンには、複雑な気持ちの1イニングとなった。
+        </p>
+
+        <h3 class="sec-sub" id="flow-close">9回裏：ライデル・マルティネスに封じられ試合終了</h3>
+        <p>
+          1点差を追う9回裏、阪神打線はライデル・マルティネスに対し反撃を試みた。しかし球威・コントロールともに安定していたライデルを前に、阪神打線は無得点に終わり試合終了。最終スコア3-4で、阪神はせっかくの逆転がすべて水泡に帰す悔しい一敗となった。
+        </p>
+
+        <!-- 4. 勝負の分岐点 -->
+        <h2 class="sec-head" id="turning">勝負の分岐点（5点）</h2>
+
+        <ol class="tp-list">
+          <li class="tp-item">
+            <div class="tp-num red">1</div>
+            <div class="tp-body">
+              <div class="tp-title">2回表・木浪の失策——先制を許す起点</div>
+              <div class="tp-desc">内野ゴロを処理しきれなかった木浪の失策が、大城・増田の連続適時打を呼んだ。守備のミスは投手に大きな心理的負担を与え、流れを変えた最初の分岐点。才木が崩れなかったことがせめてもの救いだった。</div>
+            </div>
+          </li>
+          <li class="tp-item">
+            <div class="tp-num">2</div>
+            <div class="tp-body">
+              <div class="tp-title">5回1死一三塁——才木がピンチをしのぐ</div>
+              <div class="tp-desc">ダルベックへの三振、キャベッジへの打ち取りで最大のピンチを脱出した場面。ここで追加点を許していれば、7回の逆転劇も届かなかった可能性が高い。才木の集中力が試合を生かした分岐点。</div>
+            </div>
+          </li>
+          <li class="tp-item">
+            <div class="tp-num blue">3</div>
+            <div class="tp-body">
+              <div class="tp-title">7回裏・高寺の2点適時打——逆転成功</div>
+              <div class="tp-desc">前川の適時打で1点差に詰め寄った後、熊谷の盗塁でプレッシャーをかけ、高寺がダメ押しの2点打。若手が次々つないだ流れは、今季の阪神の攻撃力の潜在能力を示した最高の場面だった。</div>
+            </div>
+          </li>
+          <li class="tp-item">
+            <div class="tp-num red">4</div>
+            <div class="tp-body">
+              <div class="tp-title">8回表・モレッタが大城にソロ被弾——同点に追いつかれる</div>
+              <div class="tp-desc">逆転直後の8回先頭打者に一発を浴びたことで、甲子園の流れが一瞬にして変わった。2回にも適時打を打たれていた大城への対策不足、あるいはモレッタのコンディションの問題が問われる場面。</div>
+            </div>
+          </li>
+          <li class="tp-item">
+            <div class="tp-num red">5</div>
+            <div class="tp-body">
+              <div class="tp-title">9回表・岩崎が松本剛に勝ち越し打——試合決定</div>
+              <div class="tp-desc">同点で踏みとどまれるチャンスを岩崎が生かせなかった。ワンプレーが全てを決した場面。結果的にこれが試合の最終分岐点となり、3-4の逆転負けを確定させた。</div>
+            </div>
+          </li>
+        </ol>
+
+        <!-- 5. 選手評価 -->
+        <h2 class="sec-head" id="grades">選手評価</h2>
+
+        <p>今試合の主要選手を内容・結果の両面から評価する。</p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>選手名</th>
+              <th>グレード</th>
+              <th>評価コメント</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>才木浩人</strong></td>
+              <td><span class="grade-a">A</span></td>
+              <td>6回2失点。5回の1死一三塁を無失点で切り抜けるなど、粘り強い投球で試合を作った。失点は木浪の失策絡みが起点で、投球内容そのものは合格点以上。</td>
+            </tr>
+            <tr>
+              <td><strong>前川右京</strong></td>
+              <td><span class="grade-a">A</span></td>
+              <td>7回裏の逆転劇の先鞭をつける適時打。チームが硬直していた打線を動かした。若手としての存在感を改めて示した。</td>
+            </tr>
+            <tr>
+              <td><strong>高寺望夢</strong></td>
+              <td><span class="grade-a">A</span></td>
+              <td>7回裏に2点適時打を放ち逆転を決定づけた。チームの中で最もインパクトのあるヒットを放った選手。今後の起用増に期待できる内容。</td>
+            </tr>
+            <tr>
+              <td><strong>佐藤輝明</strong></td>
+              <td><span class="grade-bp">B+</span></td>
+              <td>7回裏の二塁打で逆転劇の口火を切った。ここ数試合長打がなかっただけに、タイミングとしても価値ある一打だった。</td>
+            </tr>
+            <tr>
+              <td><strong>大山悠輔</strong></td>
+              <td><span class="grade-b">B</span></td>
+              <td>7回裏に四球を選び、無死一二塁の好機を広げた。つなぎ役として確実に機能した。結果としての出塁は十分な仕事。</td>
+            </tr>
+            <tr>
+              <td><strong>モレッタ</strong></td>
+              <td><span class="grade-c">C</span></td>
+              <td>8回先頭の大城卓三にソロホームランを被弾し同点に追いつかれた。逆転直後の失点は精神的ダメージも大きく、投手としてのゲーム管理が問われた。</td>
+            </tr>
+            <tr>
+              <td><strong>岩崎優</strong></td>
+              <td><span class="grade-c">C</span></td>
+              <td>9回表に松本剛に勝ち越し適時打を許し試合を決められた。経験値の高い投手だけに、同点でもったいない失点となった。</td>
+            </tr>
+            <tr>
+              <td><strong>木浪聖也</strong></td>
+              <td><span class="grade-c">C</span></td>
+              <td>2回の失策が先制2失点の起点に。一つのミスが試合の流れを変えた典型例。守備力は売りの選手だけに、悔やまれる場面となった。</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 6. 中継ぎ再編の背景 -->
+        <h2 class="sec-head" id="bullpen">中継ぎ再編の背景——高橋遥人・早川太貴抹消、岩貞登録</h2>
+
+        <p>
+          この試合の直前、4月13日から14日にかけて阪神は大きな選手の動きを行った。高橋遥人と早川太貴が登録抹消され、代わりに岩貞祐太が一軍登録された。
+        </p>
+        <p>
+          <strong>高橋遥人の抹消</strong>については、前戦（4月12日対中日）で完封勝利を収めたばかりだっただけに、ファンには驚きをもって受け止められた。詳細なコンディション情報は明かされていないが、先発ローテーションに何らかの変化が生じる可能性がある。
+        </p>
+        <p>
+          <strong>早川太貴の抹消</strong>は中継ぎ陣の整理という側面が強い。課題となっているブルペンの再編という文脈で読むべき動きだ。一方で<strong>岩貞祐太の登録</strong>は、左腕リリーバーの枚数を確保するための措置と見られる。
+        </p>
+
+        <div class="hlbox">
+          <strong>登録変更（4/13〜14）：</strong>登録抹消 → 高橋遥人、早川太貴 ／ 一軍登録 → 岩貞祐太
+        </div>
+
+        <p>
+          しかしこの試合でも中継ぎのモレッタ・岩崎が連続失点を喫した。一軍のブルペン陣は依然として不安定さを抱えており、岩貞の加入だけで問題が解決するわけではない。ベンチがどのような役割分担でこの課題に対処するかが、今後の上位進出を左右する重要な鍵となる。
+        </p>
+
+        <!-- 7. まとめ -->
+        <h2 class="sec-head" id="summary">良かった点・課題・今後の見方</h2>
+
+        <h3 class="sec-sub">良かった点</h3>
+        <ul>
+          <li><strong>才木浩人の粘投：</strong>2失点で先発の役割を果たし、5回のピンチもしのいだ。エース候補としての信頼感を維持。</li>
+          <li><strong>7回裏の集中打：</strong>佐藤輝・大山・前川・熊谷・高寺と繋いで3得点の逆転。打線のつながりが機能した理想的なイニング。</li>
+          <li><strong>高寺・前川の活躍：</strong>若い選手が決定的な場面で結果を出した。今後のスタメン起用・打順変更の議論に値する活躍だった。</li>
+        </ul>
+
+        <h3 class="sec-sub">課題</h3>
+        <ul>
+          <li><strong>守備のミス：</strong>木浪の失策が先制点の起点になった。守備力が売りのショートストップがミスをしてしまうと、試合の流れが一気に変わる。</li>
+          <li><strong>中継ぎの安定性：</strong>モレッタと岩崎が8・9回に連続失点。逆転後に守り切れないパターンが繰り返されており、ブルペン再建は急務。</li>
+          <li><strong>則本への対策：</strong>6回無失点に抑えられた阪神打線。則本のテンポある投球に翻弄され、攻略に6回を要した。配球への対応力向上が求められる。</li>
+        </ul>
+
+        <h3 class="sec-sub">今後の見方</h3>
+        <p>
+          今季の阪神の課題は「逆転したあとに守り切れない」という点に集約されつつある。先発陣が試合を作っても、中継ぎがひっくり返すケースが続いている。岩貞の加入がひとつの刺激材料になるかどうかを注視したい。
+        </p>
+        <p>
+          一方で、高寺望夢・前川右京という若い野手が重要な場面で活躍したことは明るい材料だ。佐藤輝明の長打も戻りつつあり、打線は厚みを増している。問題が守備・中継ぎに絞られているとすれば、修正の方向性は見えており、あとは実行できるかどうかだ。
+        </p>
+        <p>
+          次戦以降、高橋遥人の状態・抹消理由の詳細、そして中継ぎ陣の運用方針がどう変わるかが注目ポイントとなる。甲子園での巨人戦という大舞台で見せた攻撃力を活かすためにも、守備と中継ぎの安定が不可欠だ。
+        </p>
+
+        <div class="hlbox">
+          <strong>総評：</strong>才木の粘投・7回の逆転劇は「今季の阪神の良い面」を凝縮した内容だった。しかし勝ちきれなかったのは守備と中継ぎという「今季の阪神の悪い面」が出たから。この課題を克服できるかどうかが、2026年の阪神タイガースの行方を決める。
+        </div>
+
+      </article>
+
+      <!-- ========= SIDEBAR ========= -->
+      <aside class="sidebar">
+
+        <!-- 試合結果 -->
+        <div class="side-box">
+          <h3>試合結果</h3>
+          <div class="result-row">
+            <span class="result-label">日付</span>
+            <span class="result-val">2026.04.14</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">スコア</span>
+            <span class="result-val" style="color:#fca5a5;">阪神 3 – 4 巨人</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">結果</span>
+            <span class="loss-badge">敗</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">球場</span>
+            <span class="result-val">甲子園</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">先発</span>
+            <span class="result-val">才木浩人</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">勝利投手</span>
+            <span class="result-val">大勢</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">敗戦投手</span>
+            <span class="result-val">岩崎優</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">セーブ</span>
+            <span class="result-val">R・マルティネス</span>
+          </div>
+        </div>
+
+        <!-- 目次 -->
+        <div class="side-box">
+          <h3>目次</h3>
+          <ul>
+            <li><a href="#result">試合結果・スコア</a></li>
+            <li><a href="#flow">試合の流れ</a></li>
+            <li><a href="#flow-2nd">2回：木浪失策と先制2失点</a></li>
+            <li><a href="#flow-saiki">才木の粘りと則本の好投</a></li>
+            <li><a href="#flow-7th">7回裏：逆転劇</a></li>
+            <li><a href="#flow-8th">8回：モレッタ被弾</a></li>
+            <li><a href="#flow-9th">9回：岩崎失点で勝ち越し許す</a></li>
+            <li><a href="#turning">勝負の分岐点</a></li>
+            <li><a href="#grades">選手評価</a></li>
+            <li><a href="#bullpen">中継ぎ再編の背景</a></li>
+            <li><a href="#summary">まとめ・今後の見方</a></li>
+          </ul>
+        </div>
+
+        <!-- 関連記事 -->
+        <div class="side-box">
+          <h3>関連記事</h3>
+          <ul>
+            <li><a href="../2026-04-12-haruto-chunichi/">高橋遥人完封・中日3タテ達成（4/12）</a></li>
+            <li><a href="../2026-04-11-sato-chunichi/">佐藤輝の一発・中日に快勝（4/11）</a></li>
+            <li><a href="../2026-04-10-maekawa-chunichi/">前川右京が決勝打・中日戦初戦（4/10）</a></li>
+            <li><a href="../2026-04-09-ibaraki-yakult/">才木好投・ヤクルト3連戦締め（4/9）</a></li>
+            <li><a href="../2026-04-08-yakult-loss/">ヤクルト戦逆転負け・課題振り返り（4/8）</a></li>
+            <li><a href="../2026-04-07-saiki-yakult/">才木勝利・ヤクルト連戦初戦（4/7）</a></li>
+          </ul>
+        </div>
+
+        <!-- タグ -->
+        <div class="side-box">
+          <h3>タグ</h3>
+          <div class="side-tag">
+            <span>才木浩人</span>
+            <span>前川右京</span>
+            <span>高寺望夢</span>
+            <span>岩崎優</span>
+            <span>モレッタ</span>
+            <span>佐藤輝明</span>
+            <span>大山悠輔</span>
+            <span>木浪聖也</span>
+            <span>巨人</span>
+            <span>甲子園</span>
+            <span>2026シーズン</span>
+            <span>中継ぎ問題</span>
+            <span>則本昂大</span>
+            <span>大城卓三</span>
+          </div>
+        </div>
+
+        <!-- 最近の試合 -->
+        <div class="side-box">
+          <h3>最近の試合結果</h3>
+          <ul>
+            <li>
+              <span style="color:#4ade80;font-weight:700;">○</span>
+              <a href="../2026-04-12-haruto-chunichi/">4/12 阪神 3-0 中日</a>
+            </li>
+            <li>
+              <span style="color:#4ade80;font-weight:700;">○</span>
+              <a href="../2026-04-11-sato-chunichi/">4/11 阪神 5-2 中日</a>
+            </li>
+            <li>
+              <span style="color:#4ade80;font-weight:700;">○</span>
+              <a href="../2026-04-10-maekawa-chunichi/">4/10 阪神 2-1 中日</a>
+            </li>
+            <li>
+              <span style="color:#fca5a5;font-weight:700;">●</span>
+              4/14 阪神 3-4 巨人（本記事）
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>© 2026 AIデータ二刀流ブログ</p>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

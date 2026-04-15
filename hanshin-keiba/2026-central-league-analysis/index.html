@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="開幕直前のセ・リーグ6球団をpWAR advで比較。2025年実績、2026年現有戦力、移籍・退団・故障離脱を整理し、阪神優位の理由と巨人・DeNA再編、中日・広島の不気味さを徹底分析します。">
+  <title>開幕前セ・リーグ戦力図 pWARで見る阪神優位と6球団の現在地 | AIデータ二刀流ブログ</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    /* ── OGP Hero ── */
+    .ogp-hero {
+      container-type: inline-size;
+      width: 100%; aspect-ratio: 1200/630; max-width: 600px;
+      background: #0b1525; border-radius: 8px; overflow: hidden;
+      position: relative; display: flex;
+    }
+    .ogp-left-panel {
+      width: 42%;
+      background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
+      display: flex; flex-direction: column; justify-content: center;
+      align-items: center; padding: 8cqw 4cqw; gap: 3cqw;
+      clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+    }
+    .ogp-team-name {
+      font-family: 'Noto Sans JP', sans-serif; font-weight: 900;
+      font-size: 4cqw; color: #e0f2fe; letter-spacing: .05em; text-align: center;
+    }
+    .ogp-score {
+      font-family: 'Poppins', sans-serif; font-weight: 900;
+      font-size: 7cqw; color: #facc15; line-height: 1;
+    }
+    .ogp-right-panel {
+      flex: 1; padding: 5cqw 6cqw; display: flex;
+      flex-direction: column; justify-content: center; gap: 2.5cqw;
+    }
+    .ogp-main-text {
+      font-family: 'Noto Sans JP', sans-serif; font-weight: 900;
+      font-size: 4.5cqw; color: #f1f5f9; line-height: 1.35;
+    }
+    .ogp-sub-text { font-size: 2.8cqw; color: #94a3b8; font-weight: 700; }
+    .ogp-topics { display: flex; flex-direction: column; gap: 1.5cqw; }
+    .ogp-topic {
+      font-size: 2.2cqw; color: #cbd5e1;
+      padding-left: 2cqw; border-left: 0.5cqw solid;
+    }
+    .ogp-badge {
+      background: rgba(255,255,255,0.08); border-radius: 4px;
+      padding: 1.5cqw 2.5cqw; font-size: 2cqw; color: #94a3b8;
+    }
+
+    /* ── Article Layout ── */
+    .art-hero {
+      max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem;
+      display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;
+    }
+    .art-hero-body { flex: 1; min-width: 280px; }
+    .art-cats { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: .75rem; }
+    .cat-badge {
+      background: #1e3a5f; color: #93c5fd; font-size: .75rem;
+      padding: .25rem .6rem; border-radius: 3px; font-weight: 700;
+    }
+    .art-title {
+      font-size: clamp(1.3rem, 3vw, 1.9rem); font-weight: 900;
+      color: #f1f5f9; line-height: 1.3; margin-bottom: .5rem;
+    }
+    .art-meta { font-size: .85rem; color: #64748b; }
+    .main-content { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+    .art-layout { display: grid; grid-template-columns: 1fr 300px; gap: 2.5rem; }
+    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; } }
+
+    .sec-head {
+      font-size: 1.25rem; font-weight: 900; color: #f1f5f9;
+      border-left: 4px solid #facc15; padding: .4rem .8rem;
+      background: rgba(250,204,21,.05); margin: 2rem 0 .8rem;
+    }
+    .sec-sub {
+      font-size: 1rem; font-weight: 700; color: #93c5fd;
+      margin: 1.5rem 0 .5rem;
+      border-bottom: 1px solid #1e3a5f; padding-bottom: .3rem;
+    }
+    .summary-box {
+      background: #0f2040; border: 1px solid #1e3a5f;
+      border-radius: 8px; padding: 1.2rem 1.5rem; margin-bottom: 1.5rem;
+    }
+    .summary-box ul { padding-left: 1.2rem; color: #cbd5e1; line-height: 1.9; }
+    .hlbox {
+      background: rgba(250,204,21,.07); border-left: 3px solid #facc15;
+      padding: .8rem 1.2rem; border-radius: 0 6px 6px 0;
+      margin: 1rem 0; color: #e2e8f0;
+    }
+    .data-table {
+      width: 100%; border-collapse: collapse; font-size: .9rem;
+      margin: 1rem 0 1.5rem;
+    }
+    .data-table th {
+      background: #1e3a5f; color: #93c5fd;
+      padding: .5rem .75rem; text-align: left; font-weight: 700;
+    }
+    .data-table td { padding: .45rem .75rem; border-bottom: 1px solid #1e3a5f; color: #cbd5e1; }
+    .data-table tr:nth-child(even) td { background: rgba(30,58,95,.3); }
+    .data-table .text-right { text-align: right; }
+    .data-table .text-center { text-align: center; }
+    .val-plus { color: #4ade80; font-weight: 700; }
+    .val-minus-sm { color: #94a3b8; }
+    .val-minus-lg { color: #ef4444; font-weight: 700; }
+    .team-hanshin { color: #facc15; font-weight: 700; }
+    .team-giants { color: #f97316; font-weight: 700; }
+    .team-dena { color: #38bdf8; font-weight: 700; }
+    .team-chunichi { color: #60a5fa; font-weight: 700; }
+    .team-carp { color: #f87171; font-weight: 700; }
+    .team-yakult { color: #a78bfa; font-weight: 700; }
+
+    /* ── Bar Chart ── */
+    .bar-chart { margin: 1rem 0 1.5rem; }
+    .bar-row { display: flex; align-items: center; gap: .75rem; margin-bottom: .5rem; }
+    .bar-label { min-width: 60px; font-size: .82rem; color: #94a3b8; font-weight: 700; }
+    .bar-track { flex: 1; background: #0f2040; border-radius: 4px; height: 24px; overflow: hidden; position: relative; }
+    .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: .5rem; font-size: .8rem; font-weight: 700; color: #0b1525; transition: width .3s; }
+    .bar-val { min-width: 48px; font-size: .85rem; font-weight: 700; color: #e2e8f0; text-align: right; }
+
+    /* ── Team Cards ── */
+    .team-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0 1.5rem; }
+    @media (max-width: 640px) { .team-cards { grid-template-columns: 1fr; } }
+    .team-card { background: #0f2040; border: 1px solid #1e3a5f; border-radius: 8px; padding: 1rem; }
+    .team-card-head { display: flex; align-items: center; gap: .5rem; margin-bottom: .6rem; }
+    .team-icon { width: 36px; height: 36px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+    .team-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .team-card-name { font-weight: 900; font-size: .95rem; }
+    .team-card-pwar { font-size: .82rem; color: #94a3b8; margin-top: .1rem; }
+    .team-card p { font-size: .82rem; color: #94a3b8; line-height: 1.65; margin: 0; }
+
+    /* ── Grade / Tag ── */
+    .grade-s { color: #facc15; font-weight: 900; }
+    .grade-a { color: #4ade80; font-weight: 700; }
+    .grade-b { color: #60a5fa; font-weight: 700; }
+    .grade-c { color: #94a3b8; }
+
+    .side-box {
+      background: #0f2040; border: 1px solid #1e3a5f;
+      border-radius: 8px; padding: 1rem 1.2rem; margin-bottom: 1.5rem;
+    }
+    .side-box h3 {
+      font-size: .9rem; font-weight: 700; color: #facc15;
+      margin-bottom: .75rem; padding-bottom: .4rem;
+      border-bottom: 1px solid #1e3a5f;
+    }
+    .side-box ul { list-style: none; padding: 0; }
+    .side-box ul li {
+      padding: .35rem 0; border-bottom: 1px solid #0d1f3c;
+      font-size: .85rem; color: #94a3b8;
+    }
+    .side-box ul li a { color: #60a5fa; text-decoration: none; }
+    .side-tag { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .side-tag span {
+      background: #1e3a5f; color: #93c5fd;
+      font-size: .75rem; padding: .2rem .5rem; border-radius: 3px;
+    }
+    p { color: #cbd5e1; line-height: 1.85; margin-bottom: .9rem; }
+
+    /* ── Injury Table ── */
+    .impact-badge {
+      display: inline-block; font-size: .72rem; font-weight: 700;
+      padding: .15rem .4rem; border-radius: 3px; min-width: 32px; text-align: center;
+    }
+    .impact-high { background: #450a0a; color: #fca5a5; }
+    .impact-mid { background: #422006; color: #fde68a; }
+    .impact-low { background: #0f2040; color: #64748b; border: 1px solid #1e3a5f; }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-logo" href="../../index.html">AI<span>データ</span>二刀流</a>
+    <nav class="global-nav">
+      <ul>
+        <li><a href="../../index.html">TOP</a></li>
+        <li><a href="../index.html">野球・競馬</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <ol>
+    <li><a href="../../index.html">TOP</a></li>
+    <li><a href="../index.html">野球・競馬</a></li>
+    <li>2026セ・リーグ開幕前戦力分析</li>
+  </ol>
+</nav>
+
+<section class="art-hero">
+  <div class="ogp-hero" role="img" aria-label="2026セ・リーグ開幕前戦力分析">
+    <div class="ogp-left-panel">
+      <span class="ogp-team-name">セ・リーグ<br>戦力図</span>
+      <span class="ogp-score">2026</span>
+      <span class="ogp-team-name">開幕前分析</span>
+    </div>
+    <div class="ogp-right-panel">
+      <div class="ogp-main-text">阪神は<br>なぜ崩れないのか</div>
+      <div class="ogp-sub-text">pWAR advで見る6球団の現在地</div>
+      <div class="ogp-topics">
+        <div class="ogp-topic" style="border-color:#facc15;">阪神：2025比-0.9 土台ほぼ維持</div>
+        <div class="ogp-topic" style="border-color:#ef4444;">巨人・DeNA：-7点超の大幅再編</div>
+        <div class="ogp-topic" style="border-color:#38bdf8;">中日・広島：不気味な安定感</div>
+        <div class="ogp-topic" style="border-color:#a78bfa;">ヤクルト：村上移籍で苦しい土台</div>
+      </div>
+      <div class="ogp-badge">2026年開幕前 セ・リーグ戦力比較</div>
+    </div>
+  </div>
+  <div class="art-hero-body">
+    <div class="art-cats">
+      <span class="cat-badge">セ・リーグ分析</span>
+      <span class="cat-badge">開幕前展望</span>
+      <span class="cat-badge">プロ野球</span>
+      <span class="cat-badge">戦力比較</span>
+    </div>
+    <h1 class="art-title">開幕直前のセ・リーグ戦力図　pWAR advで見る阪神優位と巨人・DeNA再編の現在地</h1>
+    <div class="art-meta"><time datetime="2026-03-01">2026年3月（開幕前）</time></div>
+  </div>
+</section>
+
+<div class="main-content">
+  <div class="art-layout">
+    <article class="art-body">
+
+      <!-- 導入 -->
+      <div class="summary-box">
+        <h2 style="font-size:1rem;font-weight:700;color:#facc15;margin-bottom:.6rem;">📋 この記事でわかること</h2>
+        <ul>
+          <li>2025年実績と2026年現有戦力の差分から見える、セ・リーグ6球団の現在地</li>
+          <li>阪神が開幕前の時点で大きく崩れていない理由</li>
+          <li>巨人とDeNAが「去年の延長線上」ではなく再編チームに見える理由</li>
+          <li>中日と広島が数字以上に不気味に見えるポイント</li>
+          <li>故障者・移籍組・新戦力の影響をどう重ねて見ればいいか</li>
+          <li>ヤクルトが苦しい中でも「見え方が変わる余地」を持っている理由</li>
+        </ul>
+      </div>
+
+      <p>開幕直前になると、どうしても順位予想や雰囲気論が先に立つ。ただ、実際の勢力図を考えるうえでは、去年の成績だけでも足りないし、新戦力への期待だけでも足りない。大事なのは、<strong>昨年の実績から、移籍・退団・離脱を経て、今年の既存戦力がどこに着地しているのか</strong>を一度冷静に整理することだ。</p>
+
+      <p>今回は、その土台を見るために pWAR adv を使ってセ・リーグ6球団の現在地を確認した。ポイントは、今見えている数字を「完成形」として見るのではなく、<strong>あくまで今年のベース戦力</strong>として見ることにある。ここに新外国人、若手の台頭、故障者の復帰が乗ってきて、ようやく各球団の完成形が見えてくる。</p>
+
+      <p>その前提で見ると、阪神はやはり強い。一方で、巨人とDeNAはかなり再編色が強い。中日と広島は派手さこそないが、土台を大きく崩しておらず、むしろ不気味さがある。ヤクルトは苦しいが、それでも若手が伸びれば一気に見え方が変わる余地を残している。</p>
+
+      <!-- pWAR比較 -->
+      <h2 class="sec-head">pWAR adv 比較：2025年実績 vs 2026年現有戦力</h2>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>球団</th>
+            <th class="text-right">2025年実績</th>
+            <th class="text-right">2026年現有</th>
+            <th class="text-right">差分</th>
+            <th>評価</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="team-hanshin">阪神</span></td>
+            <td class="text-right">51.6</td>
+            <td class="text-right">50.7</td>
+            <td class="text-right"><span class="val-minus-sm">-0.9</span></td>
+            <td>土台ほぼ維持</td>
+          </tr>
+          <tr>
+            <td><span class="team-giants">巨人</span></td>
+            <td class="text-right">35.0</td>
+            <td class="text-right">27.7</td>
+            <td class="text-right"><span class="val-minus-lg">-7.3</span></td>
+            <td>大幅再編</td>
+          </tr>
+          <tr>
+            <td><span class="team-dena">DeNA</span></td>
+            <td class="text-right">32.0</td>
+            <td class="text-right">25.2</td>
+            <td class="text-right"><span class="val-minus-lg">-6.8</span></td>
+            <td>大幅再編</td>
+          </tr>
+          <tr>
+            <td><span class="team-chunichi">中日</span></td>
+            <td class="text-right">21.7</td>
+            <td class="text-right">21.3</td>
+            <td class="text-right"><span class="val-minus-sm">-0.4</span></td>
+            <td>安定維持</td>
+          </tr>
+          <tr>
+            <td><span class="team-carp">広島</span></td>
+            <td class="text-right">20.5</td>
+            <td class="text-right">21.0</td>
+            <td class="text-right"><span class="val-plus">+0.5</span></td>
+            <td>微増</td>
+          </tr>
+          <tr>
+            <td><span class="team-yakult">ヤクルト</span></td>
+            <td class="text-right">11.2</td>
+            <td class="text-right">8.9</td>
+            <td class="text-right"><span class="val-minus-sm">-2.3</span></td>
+            <td>苦しい土台</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="hlbox">
+        <strong>この数字をどう読むか</strong><br>
+        これは「今年の完成形」ではなく、移籍・退団・離脱を反映した「ベース戦力の現在地」だ。ここに新戦力、故障復帰が乗って最終形になる。だから今見えている数字は、「今年のスタートライン」として見るのが正しい。
+      </div>
+
+      <!-- バーチャート -->
+      <h2 class="sec-head">現有戦力ビジュアル比較</h2>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <span class="bar-label team-hanshin">阪神</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:98%;background:#facc15;">50.7</div>
+          </div>
+          <span class="bar-val">50.7</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label team-giants">巨人</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:54%;background:#f97316;">27.7</div>
+          </div>
+          <span class="bar-val">27.7</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label team-dena">DeNA</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:49%;background:#38bdf8;">25.2</div>
+          </div>
+          <span class="bar-val">25.2</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label team-chunichi">中日</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:41%;background:#60a5fa;">21.3</div>
+          </div>
+          <span class="bar-val">21.3</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label team-carp">広島</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:41%;background:#f87171;">21.0</div>
+          </div>
+          <span class="bar-val">21.0</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label team-yakult">ヤクルト</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:17%;background:#a78bfa;">8.9</div>
+          </div>
+          <span class="bar-val">8.9</span>
+        </div>
+      </div>
+
+      <!-- 野手・投手内訳 -->
+      <h2 class="sec-head">野手・投手別の内訳</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>球団</th>
+            <th class="text-right">2025野手</th>
+            <th class="text-right">2026野手</th>
+            <th class="text-right">2025投手</th>
+            <th class="text-right">2026投手</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="team-hanshin">阪神</span></td>
+            <td class="text-right">32.1</td>
+            <td class="text-right val-plus">34.1</td>
+            <td class="text-right">19.5</td>
+            <td class="text-right val-minus-sm">16.6</td>
+          </tr>
+          <tr>
+            <td><span class="team-giants">巨人</span></td>
+            <td class="text-right">23.1</td>
+            <td class="text-right val-minus-lg">18.2</td>
+            <td class="text-right">11.9</td>
+            <td class="text-right val-minus-sm">9.5</td>
+          </tr>
+          <tr>
+            <td><span class="team-dena">DeNA</span></td>
+            <td class="text-right">20.9</td>
+            <td class="text-right val-minus-lg">17.1</td>
+            <td class="text-right">11.1</td>
+            <td class="text-right val-minus-sm">8.1</td>
+          </tr>
+          <tr>
+            <td><span class="team-chunichi">中日</span></td>
+            <td class="text-right">14.4</td>
+            <td class="text-right val-minus-sm">12.8</td>
+            <td class="text-right">7.3</td>
+            <td class="text-right val-plus">8.5</td>
+          </tr>
+          <tr>
+            <td><span class="team-carp">広島</span></td>
+            <td class="text-right">10.3</td>
+            <td class="text-right val-plus">10.8</td>
+            <td class="text-right">10.2</td>
+            <td class="text-right">10.2</td>
+          </tr>
+          <tr>
+            <td><span class="team-yakult">ヤクルト</span></td>
+            <td class="text-right">3.8</td>
+            <td class="text-right val-minus-sm">2.2</td>
+            <td class="text-right">7.4</td>
+            <td class="text-right val-minus-sm">6.7</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>阪神は<strong>野手が32.1→34.1と上昇</strong>し、投手の目減り（-2.9）を補っている。打線の土台が強い間は、投手陣の多少の入れ替わりを吸収できる構造だ。中日は投手がむしろ上昇（7.3→8.5）しており、数字以上に先発陣が安定してきている可能性がある。</p>
+
+      <!-- 主な移籍・退団 -->
+      <h2 class="sec-head">主な移籍・退団インパクト</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>選手名</th><th>移籍元→先</th><th>pWAR</th><th>インパクト評価</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>岡本和真</td>
+            <td><span class="team-giants">巨人</span>→移籍</td>
+            <td class="text-right">5.4</td>
+            <td><span class="impact-badge impact-high">大</span> 打線の柱そのもの</td>
+          </tr>
+          <tr>
+            <td>桑原将志</td>
+            <td><span class="team-dena">DeNA</span>→移籍</td>
+            <td class="text-right">3.0</td>
+            <td><span class="impact-badge impact-high">大</span> 外野守備とつなぎ役</td>
+          </tr>
+          <tr>
+            <td>デュプランティエ</td>
+            <td><span class="team-hanshin">阪神</span>→<span class="team-dena">DeNA</span></td>
+            <td class="text-right">3.0</td>
+            <td><span class="impact-badge impact-high">大</span> DeNA先発再編の軸</td>
+          </tr>
+          <tr>
+            <td>ケイ</td>
+            <td><span class="team-dena">DeNA</span>→移籍</td>
+            <td class="text-right">2.9</td>
+            <td><span class="impact-badge impact-high">大</span> DeNA先発の穴</td>
+          </tr>
+          <tr>
+            <td>グリフィン</td>
+            <td><span class="team-giants">巨人</span>→退団</td>
+            <td class="text-right">2.7</td>
+            <td><span class="impact-badge impact-mid">中</span> 巨人投手陣の厚みに影響</td>
+          </tr>
+          <tr>
+            <td>村上宗隆</td>
+            <td><span class="team-yakult">ヤクルト</span>→移籍</td>
+            <td class="text-right">2.3</td>
+            <td><span class="impact-badge impact-high">大</span> 数字以上に打線の圧が変わる</td>
+          </tr>
+          <tr>
+            <td>オースティン</td>
+            <td><span class="team-dena">DeNA</span>→移籍</td>
+            <td class="text-right">1.8</td>
+            <td><span class="impact-badge impact-mid">中</span> 長打力の低下に直結</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 故障・離脱 -->
+      <h2 class="sec-head">主な故障・離脱と影響度</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>選手名</th><th>球団</th><th>内容</th><th>pWAR</th><th>影響度</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>吉川尚輝</td>
+            <td><span class="team-giants">巨人</span></td>
+            <td>長期リハビリ</td>
+            <td class="text-right">4.5</td>
+            <td><span class="impact-badge impact-high">大</span></td>
+          </tr>
+          <tr>
+            <td>山﨑伊織</td>
+            <td><span class="team-giants">巨人</span></td>
+            <td>右肩コンディション不良</td>
+            <td class="text-right">3.2</td>
+            <td><span class="impact-badge impact-high">大</span></td>
+          </tr>
+          <tr>
+            <td>上林誠知</td>
+            <td><span class="team-chunichi">中日</span></td>
+            <td>右足負傷</td>
+            <td class="text-right">2.6</td>
+            <td><span class="impact-badge impact-mid">中</span></td>
+          </tr>
+          <tr>
+            <td>ボスラー</td>
+            <td><span class="team-chunichi">中日</span></td>
+            <td>左ふくらはぎ肉離れ</td>
+            <td class="text-right">2.5</td>
+            <td><span class="impact-badge impact-mid">中</span></td>
+          </tr>
+          <tr>
+            <td>玉村昇悟</td>
+            <td><span class="team-carp">広島</span></td>
+            <td>背中の痛み</td>
+            <td class="text-right">2.0</td>
+            <td><span class="impact-badge impact-mid">中</span></td>
+          </tr>
+          <tr>
+            <td>筒香嘉智</td>
+            <td><span class="team-dena">DeNA</span></td>
+            <td>離脱</td>
+            <td class="text-right">1.7</td>
+            <td><span class="impact-badge impact-mid">中</span></td>
+          </tr>
+          <tr>
+            <td>松山晋也</td>
+            <td><span class="team-chunichi">中日</span></td>
+            <td>左脇腹の筋損傷</td>
+            <td class="text-right">1.6</td>
+            <td><span class="impact-badge impact-mid">中</span></td>
+          </tr>
+          <tr>
+            <td>石井大智</td>
+            <td><span class="team-hanshin">阪神</span></td>
+            <td>左アキレス腱断裂</td>
+            <td class="text-right">1.2</td>
+            <td><span class="impact-badge impact-mid">中</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 6球団分析 -->
+      <h2 class="sec-head">6球団それぞれの現在地</h2>
+
+      <h3 class="sec-sub">🐯 阪神タイガース：崩れない理由</h3>
+      <p>阪神は2025年の51.6から2026年現有戦力で50.7。変化量はわずか-0.9で、6球団の中で最も安定した土台を維持している。しかも注目すべきは、<strong>野手が32.1→34.1と上昇している</strong>点だ。投手はデュプランティエの移籍や石井大智の長期離脱で目減りしているが、野手陣の底上げがそれを補っている。</p>
+      <div class="hlbox">
+        阪神が崩れない理由は「近本、佐藤輝、大山、木浪を軸とした野手の厚み」にある。誰か一人が不調でも別の選手が埋められる構造が、pWARの安定に直結している。
+      </div>
+
+      <h3 class="sec-sub">🟠 読売ジャイアンツ：再編の本質</h3>
+      <p>巨人は-7.3という最大の差分を抱えて開幕を迎える。岡本和真の移籍（pWAR 5.4）と吉川尚輝の長期リハビリ（4.5）だけで計10近くの戦力が想定より動いた。これを「弱くなった」とだけ見るのは少し違う。<strong>巨人は去年型を捨て、新しいチームを作ろうとしている</strong>段階だ。新外国人や若手が当たれば一気に見え方は変わる。</p>
+
+      <h3 class="sec-sub">🔵 横浜DeNAベイスターズ：最大の振れ幅</h3>
+      <p>DeNAは-6.8。桑原・オースティン・ケイが揃って離れ、DeNA打線と先発陣は大きく変わった。ただし、デュプランティエの獲得は先発再編のセンターピースとして大きい。<strong>新戦力が噛み合えばAクラス争いに戻れるが、合わない場合のリスクも大きい</strong>。6球団で最も振れ幅が大きいチームだ。</p>
+
+      <h3 class="sec-sub">🔷 中日ドラゴンズ：不気味な安定</h3>
+      <p>中日は-0.4という極めて小さな変化量。しかも<strong>投手はむしろ7.3→8.5と上昇している</strong>。これは地味に大きい。土台が崩れておらず、先発陣に安定感が増してきているなら、ロースコアゲームで競り勝つ回数が増える可能性がある。故障者（上林・ボスラー・松山）の戻りが揃えば、シーズン中盤以降に化ける候補だ。</p>
+
+      <h3 class="sec-sub">🔴 広島東洋カープ：全体維持の強み</h3>
+      <p>広島は唯一+0.5と微増している。派手な補強はないが、小園海斗の成長など野手が小さく上向き、投手も10.2を維持。<strong>大崩れしないチームは長いシーズンで勝率が想定より高くなりやすい</strong>。玉村昇悟が戻れば先発陣はさらに厚くなる。開幕前の印象より、実際の勝率の方が高くなる可能性がある球団だ。</p>
+
+      <h3 class="sec-sub">🟣 東京ヤクルトスワローズ：若手待ちの構図</h3>
+      <p>ヤクルトは-2.3。村上宗隆の移籍（2.3）が直撃し、野手は3.8→2.2まで落ちた。数字だけを見ると厳しいが、<strong>若手が伸びたときの振れ幅はどの球団よりも大きい</strong>。開幕前に苦しく見えるチームほど、シーズン中の変化量が大きくなりやすい。若手の台頭を待ちながら見るのが正しいスタンスだ。</p>
+
+      <!-- 6球団カード -->
+      <h2 class="sec-head">各球団の「ここを見よ」ポイント</h2>
+      <div class="team-cards">
+        <div class="team-card">
+          <div class="team-card-head">
+            <div class="team-icon"><img src="hanshin.png" alt="阪神" loading="lazy"></div>
+            <div>
+              <div class="team-card-name team-hanshin">阪神タイガース</div>
+              <div class="team-card-pwar">2026現有：50.7（-0.9）</div>
+            </div>
+          </div>
+          <p>新戦力の溶け込み方と石井大智不在のブルペン維持。野手は上向き、投手のベース維持が鍵。</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card-head">
+            <div class="team-icon"><img src="yomiuri.png" alt="巨人" loading="lazy"></div>
+            <div>
+              <div class="team-card-name team-giants">読売ジャイアンツ</div>
+              <div class="team-card-pwar">2026現有：27.7（-7.3）</div>
+            </div>
+          </div>
+          <p>岡本和真不在・吉川長期離脱の中でどう勝ちパターンを構築するか。新外国人の当否次第。</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card-head">
+            <div class="team-icon"><img src="dena.png" alt="DeNA" loading="lazy"></div>
+            <div>
+              <div class="team-card-name team-dena">横浜DeNA</div>
+              <div class="team-card-pwar">2026現有：25.2（-6.8）</div>
+            </div>
+          </div>
+          <p>デュプランティエを軸とした先発再編が機能するかどうかが全て。開幕直後の先発陣の出来に注目。</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card-head">
+            <div class="team-icon"><img src="chuniti.png" alt="中日" loading="lazy"></div>
+            <div>
+              <div class="team-card-name team-chunichi">中日ドラゴンズ</div>
+              <div class="team-card-pwar">2026現有：21.3（-0.4）</div>
+            </div>
+          </div>
+          <p>投手陣は上昇傾向。上林・ボスラーが戻れば打線の迫力も増す。Aクラス最有力の「不気味枠」。</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card-head">
+            <div class="team-icon"><img src="carp.png" alt="広島" loading="lazy"></div>
+            <div>
+              <div class="team-card-name team-carp">広島東洋カープ</div>
+              <div class="team-card-pwar">2026現有：21.0（+0.5）</div>
+            </div>
+          </div>
+          <p>全体維持が強み。玉村昇悟の復帰時期と小園の伸びが最大の焦点。じわじわ勝つ展開が得意。</p>
+        </div>
+        <div class="team-card">
+          <div class="team-card-head">
+            <div class="team-icon"><img src="yakuruto.png" alt="ヤクルト" loading="lazy"></div>
+            <div>
+              <div class="team-card-name team-yakult">東京ヤクルト</div>
+              <div class="team-card-pwar">2026現有：8.9（-2.3）</div>
+            </div>
+          </div>
+          <p>村上不在で打線の圧は大幅減。若手の台頭速度次第で見え方は大きく変わる。固定観念で見ない方がいい。</p>
+        </div>
+      </div>
+
+      <!-- 今後の見方 -->
+      <h2 class="sec-head">開幕後、何を見るべきか</h2>
+      <p>この分析はあくまでベース戦力のスナップショットだ。シーズンが始まれば、新外国人の稼働状況、ドラフト組の台頭、故障者の復帰タイミングで景色は大きく変わる。</p>
+
+      <p><strong>阪神ファン目線で見る最大のポイント</strong>は、「勝ち続けながら投手陣をどう整えるか」だ。野手の土台は強い。問題は、石井大智不在のブルペンを序盤どう補うかと、ルーカスら先発陣が期待通りイニングを食えるかどうかだ。</p>
+
+      <p><strong>最も警戒すべき相手</strong>は中日と広島だろう。数字上は阪神より大幅に劣るが、実際のロースコア戦での強さはデータに出にくい。特に中日は投手陣の安定感が増していると見ると、今年は何度かアリーナを作る場面が出てくるはずだ。</p>
+
+      <div class="hlbox">
+        <strong>3行まとめ</strong><br>
+        開幕前ベース戦力で見ると、阪神はほぼ崩れておらず、セ・リーグの本命であることは動かない。<br>
+        巨人とDeNAは再編色が濃く、中日と広島は相対的に不気味な立ち位置にいる。<br>
+        今見えている数字は完成形ではなく、ここに新戦力と故障者復帰がどう乗るかが本当の勝負になる。
+      </div>
+
+    </article>
+
+    <!-- サイドバー -->
+    <aside class="sidebar">
+      <div class="side-box">
+        <h3>📊 pWAR adv 現有戦力</h3>
+        <ul>
+          <li><span class="team-hanshin">阪神</span>：50.7（-0.9）</li>
+          <li><span class="team-giants">巨人</span>：27.7（-7.3）</li>
+          <li><span class="team-dena">DeNA</span>：25.2（-6.8）</li>
+          <li><span class="team-chunichi">中日</span>：21.3（-0.4）</li>
+          <li><span class="team-carp">広島</span>：21.0（+0.5）</li>
+          <li><span class="team-yakult">ヤクルト</span>：8.9（-2.3）</li>
+        </ul>
+      </div>
+
+      <div class="side-box">
+        <h3>⚠️ 主な離脱選手</h3>
+        <ul>
+          <li>吉川尚輝（巨人）4.5</li>
+          <li>山﨑伊織（巨人）3.2</li>
+          <li>上林誠知（中日）2.6</li>
+          <li>玉村昇悟（広島）2.0</li>
+          <li>石井大智（阪神）1.2</li>
+        </ul>
+      </div>
+
+      <div class="side-box">
+        <h3>📰 関連記事</h3>
+        <ul>
+          <li><a href="../2026-kaimaku-card-summary/index.html">開幕3連戦 2勝1敗の振り返り</a></li>
+          <li><a href="../hanshin-opening-roster-2026/index.html">2026阪神開幕ロースター分析</a></li>
+          <li><a href="../2026-03-27-kaisaku-hansen/index.html">開幕戦レビュー</a></li>
+        </ul>
+      </div>
+
+      <div class="side-box">
+        <h3>🏷️ タグ</h3>
+        <div class="side-tag">
+          <span>阪神タイガース</span>
+          <span>セ・リーグ分析</span>
+          <span>pWAR</span>
+          <span>戦力比較</span>
+          <span>巨人</span>
+          <span>DeNA</span>
+          <span>中日</span>
+          <span>広島</span>
+          <span>ヤクルト</span>
+          <span>開幕前展望</span>
+          <span>移籍情報</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>© 2026 AIデータ二刀流ブログ</p>
+</footer>
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

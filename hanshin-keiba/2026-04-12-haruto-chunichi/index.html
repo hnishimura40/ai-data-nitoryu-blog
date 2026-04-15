@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="阪神が中日に3対0で勝利。高橋遥人の完封、5回の中野・森下の連続適時打、佐藤輝明の安定感まで深掘り。3連戦3連勝と11勝4敗の現在地を分析する。">
+  <title>高橋遥人完封・中日3連戦3タテ達成｜阪神3-0中日 2026.04.12 | AIデータ二刀流ブログ</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
+  <style>
+    .art-hero { background: #1a2744; }
+
+    .ogp-hero {
+      container-type: inline-size;
+      width: 100%; max-width: 400px;
+      margin: 20px auto 0;
+      border-radius: 10px;
+      aspect-ratio: 1200 / 630;
+      position: relative; overflow: hidden;
+      background: #1a2744;
+      display: flex;
+      font-family: 'Noto Sans JP', sans-serif;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    }
+    .ogp-bg-dots { position: absolute; inset: 0; background-image: radial-gradient(#1e293b 2px, transparent 2px); background-size: 1.67cqw 1.67cqw; z-index: 0; }
+    .ogp-yellow { position: absolute; top: -10%; left: -15%; width: 68%; height: 120%; background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%); transform: skewX(-15deg); z-index: 1; box-shadow: 1.25cqw 0 3.33cqw rgba(0,0,0,0.6); border-right: 1cqw solid #fff; }
+    .ogp-dark { position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: linear-gradient(135deg, #1a2744 0%, #0d1a36 100%); z-index: 0; }
+    .ogp-texture { position: absolute; inset: 0; background-image: radial-gradient(rgba(0,0,0,0.15) 2px, transparent 2px); background-size: 0.5cqw 0.5cqw; z-index: 2; pointer-events: none; }
+    .ogp-left { position: relative; z-index: 10; width: 52%; height: 100%; padding: 3.33cqw 0 3.33cqw 3.33cqw; display: flex; flex-direction: column; justify-content: center; }
+    .ogp-right { position: relative; z-index: 10; width: 48%; height: 100%; padding: 4.17cqw 3.33cqw 4.17cqw 1.67cqw; display: flex; flex-direction: column; justify-content: center; gap: 1.5cqw; }
+    .ogp-year-badge { display: inline-block; background: #0d1a36; color: #facc15; font-size: 2.67cqw; font-weight: 900; padding: 0.5cqw 1.67cqw; border-radius: 0.5cqw; margin-bottom: 1cqw; align-self: flex-start; transform: skewX(-10deg); box-shadow: 0.42cqw 0.42cqw 0 rgba(0,0,0,0.3); border: 0.25cqw solid #0d1a36; }
+    .ogp-year-badge span { display: inline-block; transform: skewX(10deg); }
+    .ogp-main-title { font-size: 7.33cqw; font-weight: 900; color: #111827; line-height: 1.05; letter-spacing: -0.17cqw; text-shadow: 0.33cqw 0.33cqw 0px #fff; margin-bottom: 0.42cqw; }
+    .ogp-sub-title { font-size: 7cqw; font-weight: 900; color: #fff; line-height: 1.05; text-shadow: 0.5cqw 0.5cqw 0px #111827, 0.67cqw 0.67cqw 1.25cqw rgba(0,0,0,0.5); -webkit-text-stroke: 0.25cqw #111827; }
+    .ogp-method-badge { margin-top: 2.08cqw; background: #ef4444; color: #fff; font-size: 2.17cqw; font-weight: 900; padding: 0.83cqw 2.08cqw; display: inline-block; align-self: flex-start; transform: skewX(-15deg); box-shadow: 0.5cqw 0.5cqw 0 #111827; }
+    .ogp-method-badge span { display: inline-block; transform: skewX(15deg); }
+    .ogp-topic-box { background: rgba(30,41,59,0.95); border-left: 0.67cqw solid #facc15; padding: 1.25cqw 1.67cqw; border-radius: 0 0.83cqw 0.83cqw 0; box-shadow: 0 0.5cqw 1.25cqw rgba(0,0,0,0.5); }
+    .ogp-topic-box:nth-child(2) { border-left-color: #ef4444; }
+    .ogp-topic-box:nth-child(3) { border-left-color: #38bdf8; }
+    .ogp-topic-box:nth-child(4) { border-left-color: #10b981; }
+    .ogp-topic-header { display: flex; align-items: center; gap: 1cqw; margin-bottom: 0.17cqw; }
+    .ogp-topic-num { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 2cqw; font-weight: 900; color: #94a3b8; line-height: 1; }
+    .ogp-topic-title { font-size: 2.17cqw; font-weight: 900; color: #f8fafc; line-height: 1; }
+    .ogp-topic-desc { font-size: 1.5cqw; font-weight: 900; color: #facc15; padding-left: 3cqw; }
+    .ogp-topic-box:nth-child(2) .ogp-topic-desc { color: #fca5a5; }
+    .ogp-topic-box:nth-child(3) .ogp-topic-desc { color: #7dd3fc; }
+    .ogp-topic-box:nth-child(4) .ogp-topic-desc { color: #6ee7b7; }
+
+    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; padding: 22px 24px 18px; }
+    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
+    .art-cat-sports { background: var(--color-accent-sports); color: #fff; }
+    .art-cat-gold   { background: var(--color-accent-gold);   color: #1a2744; }
+    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.75; }
+    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.45); display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
+    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
+
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
+    .art-body strong { color: #1a2744; }
+    .art-body ul { padding-left: 1.4em; margin-bottom: 18px; }
+    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
+
+    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
+    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: var(--color-accent-sports); background: #fff0f0; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
+    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
+    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
+    @media (max-width: 560px) { .sec-head-en { display: none; } }
+    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid var(--color-accent-economy, #1a6fa8); }
+
+    .summary-box { background: linear-gradient(135deg, #f0f5ff, #eef3fb); border: 1px solid #c8d8ef; border-left: 4px solid #1a6fa8; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
+    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #1a6fa8; margin-bottom: 12px; }
+    .summary-box ul { margin: 0; }
+    .summary-box li { font-size: 0.87rem; }
+
+    .hlbox { background: linear-gradient(135deg, #fffbf0, #fff8e6); border: 1px solid #e6c96a; border-left: 4px solid var(--color-accent-gold); border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 24px 0; }
+    .hlbox p { margin: 0; font-size: 0.94rem; }
+
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; }
+    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
+    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: #f8fafd; }
+
+    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
+    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: var(--color-accent-gold); margin-bottom: 14px; }
+    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
+    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
+
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: var(--color-accent-sports); color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
+    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
+
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
+    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
+    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e8ecf4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: var(--color-accent-sports); }
+    .toc-n { font-size: 0.62rem; font-weight: 900; color: var(--color-accent-sports); flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
+    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
+    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
+
+    .series-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0 28px; }
+    @media (max-width: 560px) { .series-box { grid-template-columns: 1fr; } }
+    .series-card { background: #fff; border: 1px solid #e0e6f0; border-radius: 10px; padding: 14px 16px; text-align: center; }
+    .series-date { font-size: 0.65rem; font-weight: 800; color: #8898b0; letter-spacing: .1em; margin-bottom: 6px; }
+    .series-score { font-size: 1.1rem; font-weight: 900; color: var(--color-primary); margin-bottom: 4px; }
+    .series-win { font-size: 0.72rem; font-weight: 800; color: #10b981; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../" class="site-logo">
+        <span class="logo-main">AIデータ二刀流ブログ</span>
+        <span class="logo-sub">野球・競馬 × 経済・株式</span>
+      </a>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="../../">TOP</a>
+        <a href="../../hanshin-keiba/" class="active">野球・競馬</a>
+        <a href="../../economy-stocks/">経済・株式</a>
+        <a href="../../channels/">チャンネル</a>
+        <a href="../../profile/">運営について</a>
+        <a href="../../contact/">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="../../">TOP</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../hanshin-keiba/">野球・競馬</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>高橋遥人完封・中日3連戦3タテ達成 阪神3-0中日 2026.04.12</span>
+    </div>
+  </div>
+
+  <div class="art-hero">
+    <div class="ogp-hero">
+      <div class="ogp-bg-dots"></div>
+      <div class="ogp-yellow"></div>
+      <div class="ogp-dark"></div>
+      <div class="ogp-texture"></div>
+      <div class="ogp-left">
+        <div class="ogp-year-badge"><span>2026.04.12 阪神 3-0 中日</span></div>
+        <div class="ogp-main-title">遥人 完封</div>
+        <div class="ogp-sub-title">中日3連戦3タテ</div>
+        <div class="ogp-method-badge"><span>バンテリンドーム 完封勝利</span></div>
+      </div>
+      <div class="ogp-right">
+        <div class="ogp-topic-box">
+          <div class="ogp-topic-header"><span class="ogp-topic-num">01</span><span class="ogp-topic-title">高橋遥人9回完投</span></div>
+          <div class="ogp-topic-desc">123球・10奪三振・無失点</div>
+        </div>
+        <div class="ogp-topic-box">
+          <div class="ogp-topic-header"><span class="ogp-topic-num">02</span><span class="ogp-topic-title">高橋宏斗との投手戦</span></div>
+          <div class="ogp-topic-desc">球速では宏斗、支配は遥人</div>
+        </div>
+        <div class="ogp-topic-box">
+          <div class="ogp-topic-header"><span class="ogp-topic-num">03</span><span class="ogp-topic-title">5回の3点</span></div>
+          <div class="ogp-topic-desc">2死から連続適時打で決めた</div>
+        </div>
+        <div class="ogp-topic-box">
+          <div class="ogp-topic-header"><span class="ogp-topic-num">04</span><span class="ogp-topic-title">11勝4敗の説得力</span></div>
+          <div class="ogp-topic-desc">逆転・打ち勝ち・完封の3連勝</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="art-hero-title-block">
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-sports">阪神タイガース</span>
+        <span class="art-cat-badge art-cat-gold">試合分析</span>
+        <span class="art-cat-badge art-cat-sports">高橋遥人</span>
+      </div>
+      <h1 class="art-hero-h1">
+        高橋遥人完封・中日3連戦3タテ達成　3対0以上に濃い一戦と11勝4敗の現在地
+      </h1>
+      <div class="art-hero-meta">
+        <span>2026年4月12日</span>
+        <span>AIデータ二刀流ブログ</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="art-layout">
+    <main class="art-body">
+
+      <div class="summary-box">
+        <div class="summary-box-title">この記事でわかること</div>
+        <ul>
+          <li>4月12日・中日戦で阪神が3対0で勝ち切った理由</li>
+          <li>勝負を決めた5回表に何が起きていたのか</li>
+          <li>高橋遥人と高橋宏斗の「同じ高橋でも違った部分」</li>
+          <li>森下翔太と佐藤輝明が速球にどう対応したのか</li>
+          <li>3連戦全体を通して見えた阪神の強さと今後の課題</li>
+        </ul>
+      </div>
+
+      <img src="thumb.png" alt="2026年4月12日 高橋遥人完封 阪神vs中日" style="width:100%;border-radius:8px;margin:16px 0;">
+
+      <p>
+        阪神がまたひとつ、強い勝ち方を見せた。2026年4月12日の中日戦は、スコアだけを見れば3対0。しかし中身は、単なる完封勝利では片付けにくい。高橋遥人が9回を一人で投げ切り、打線は中盤のわずかなほころびを逃さず一気に3点を奪った。まさに「投手戦を投手戦のまま勝ち切った」試合だった。
+      </p>
+      <p>
+        このゲームが面白いのは、相手先発が高橋宏斗だったことだ。球威だけを比べれば、むしろ宏斗のほうが派手だった。それでも阪神は、5回に中野拓夢の先制二塁打、森下翔太の2点適時打で試合を動かした。
+      </p>
+      <div class="hlbox">
+        <p><strong>さらに、この勝利で阪神はバンテリンドーム3連戦を3連勝で締めた。4月10日は9回逆転勝ち、11日は長打で打ち勝ち、12日は完封勝ち。同じ3連勝でも、勝ち筋が全部違う。</strong>カード一巡を終えて11勝4敗。まだ4月とはいえ、「今年も優勝候補筆頭」と感じさせるだけの中身がある。</p>
+      </div>
+
+      <!-- 3連戦総括 -->
+      <div class="sec-head" id="sec-series">
+        <span class="sec-num">01</span>
+        <h2>バンテリン3連戦の結果</h2>
+        <span class="sec-head-en">3-GAME SERIES</span>
+      </div>
+
+      <div class="series-box">
+        <div class="series-card">
+          <div class="series-date">4月10日</div>
+          <div class="series-score">中日 3 - 5 阪神</div>
+          <div class="series-win">9回逆転勝ち</div>
+        </div>
+        <div class="series-card">
+          <div class="series-date">4月11日</div>
+          <div class="series-score">阪神 9 - 3 中日</div>
+          <div class="series-win">打ち勝ち快勝</div>
+        </div>
+        <div class="series-card">
+          <div class="series-date">4月12日</div>
+          <div class="series-score">阪神 3 - 0 中日</div>
+          <div class="series-win">完封勝ち（3タテ）</div>
+        </div>
+      </div>
+
+      <!-- 試合結果 -->
+      <div class="sec-head" id="sec-result">
+        <span class="sec-num">02</span>
+        <h2>試合結果</h2>
+        <span class="sec-head-en">GAME RESULT</span>
+      </div>
+
+      <table class="data-table">
+        <thead><tr><th>項目</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td>日付</td><td>2026年4月12日（日）</td></tr>
+          <tr><td>対戦カード</td><td>中日ドラゴンズ vs 阪神タイガース（3回戦）</td></tr>
+          <tr><td>球場</td><td>バンテリンドーム</td></tr>
+          <tr><td>スコア</td><td><strong>阪神 3 - 0 中日</strong>（阪神勝利）</td></tr>
+          <tr><td>勝投手</td><td>高橋遥人（2勝0敗）</td></tr>
+          <tr><td>敗投手</td><td>高橋宏斗（0勝2敗）</td></tr>
+          <tr><td>阪神先発</td><td>高橋遥人（9回123球、5安打2四球10奪三振、無失点）</td></tr>
+          <tr><td>中日先発</td><td>高橋宏斗（5回3失点、4回までは無失点）</td></tr>
+          <tr><td>チーム状況</td><td>4連勝、<strong>11勝4敗</strong>、貯金7、バンテリン初の同一カード3連勝</td></tr>
+        </tbody>
+      </table>
+
+      <!-- 試合の流れ -->
+      <div class="sec-head" id="sec-flow">
+        <span class="sec-num">03</span>
+        <h2>試合の流れ</h2>
+        <span class="sec-head-en">GAME FLOW</span>
+      </div>
+
+      <p class="sec-sub">序盤：0対0でも、完全な押され気味ではなかった</p>
+      <p>
+        序盤は完全に投手戦の空気だった。高橋宏斗は初回、2回を三者凡退に抑え、球威の高さを見せつけた。一方の高橋遥人も、初回に得点圏のピンチを背負いながら中日の中軸を抑え、立ち上がりから試合の主導権を渡さなかった。
+      </p>
+      <p>
+        4回まで阪神が無得点だったからといって、打線が沈黙していたわけではない。2回に佐藤輝明が安打、3回に前川右京が二塁打、4回には佐藤と大山悠輔が連続四球。阪神はじわじわと球数とプレッシャーを積み上げていた。
+      </p>
+
+      <p class="sec-sub">5回表：試合を決めたのは2死からの連続打</p>
+      <div class="hlbox">
+        <p>試合が動いたのは5回表。先頭の前川が右翼前打で出塁。高橋遥人が犠打をきっちり決めて二塁へ進めた。近本光司が四球を選び一・二塁。<strong>中野拓夢が左中間へ先制の適時二塁打を放ち、森下翔太がセンターへ2点適時打。2死から一気に3点を奪った。</strong></p>
+      </div>
+      <p>
+        この回の重要なポイントは、全員が同じ打席をしていないことだ。近本は待って四球を取った。一方で中野と森下は初球から仕留めた。阪神は「待つべき打席」と「行くべき打席」をはっきり分けており、その判断の良さが宏斗を苦しめた。
+      </p>
+
+      <p class="sec-sub">5回裏以降：3点で十分だと思わせた高橋遥人</p>
+      <p>
+        5回に3点入った時点で、試合の流れは大きく阪神へ傾いた。それは中日打線が弱かったからではない。高橋遥人が「この3点で足りる」と思わせる投球を続けていたからだ。高橋は9回を5安打無失点、10奪三振。最後まで試合の空気を変えさせなかった。
+      </p>
+
+      <!-- 勝負の分岐点 -->
+      <div class="sec-head" id="sec-turning">
+        <span class="sec-num">04</span>
+        <h2>勝負の分岐点</h2>
+        <span class="sec-head-en">TURNING POINTS</span>
+      </div>
+
+      <p class="sec-sub">1. 初回の得点圏をゼロで抜けた高橋遥人</p>
+      <p>初回に先制を許していれば、試合の構図はかなり変わっていた。しかし高橋遥人は、立ち上がりのピンチで崩れず、序盤に「今日は簡単には点が取れない」と相手に思わせた意味は大きい。</p>
+
+      <p class="sec-sub">2. 近本の四球で"あと一人"を消したこと</p>
+      <p>2死二塁からの近本の四球は、この試合の隠れた分岐点だ。宏斗にとっては「あと一人で終わる」場面だった。その出口を消され、一・二塁に広がった瞬間、投手側の心理的負担は一気に増した。そこから中野の先制打、森下の追撃打につながった。</p>
+
+      <p class="sec-sub">3. 156キロ級を打ち返した森下の2点適時打</p>
+      <p>この試合の象徴は、森下の一打だ。156キロ級の真っすぐを中前へ運び、試合を決める2点適時打にした。球威が落ちたから打たれたのではなく、一級品の球を真正面から打ち返されたことが、中日には重かった。</p>
+
+      <!-- 選手評価 -->
+      <div class="sec-head" id="sec-players">
+        <span class="sec-num">05</span>
+        <h2>選手ごとの評価</h2>
+        <span class="sec-head-en">PLAYER RATINGS</span>
+      </div>
+
+      <table class="data-table">
+        <thead><tr><th>選手名</th><th>良かった点</th><th>評価</th><th>次戦への見方</th></tr></thead>
+        <tbody>
+          <tr><td><strong>高橋遥人</strong></td><td>9回123球完封。初回・中盤のピンチでも崩れず、最後まで球質が落ちなかった</td><td>S</td><td>「日曜日にいる価値」が非常に大きい。中6日運用が鍵</td></tr>
+          <tr><td><strong>中野拓夢</strong></td><td>5回2死から先制の適時二塁打。試合の空気を変える一打だった</td><td>A</td><td>二番が「つなぐ」だけでなく「返せる」状態なら打線はさらに厚くなる</td></tr>
+          <tr><td><strong>森下翔太</strong></td><td>2点適時打。156キロ級の真っすぐを打ち返し、試合を決めた</td><td>A+</td><td>いまの阪神打線で最も「試合を決める打者」の空気がある</td></tr>
+          <tr><td><strong>佐藤輝明</strong></td><td>3安打1四球、全4打席出塁。長打だけでなく出塁と安定感が目立つ</td><td>A+</td><td>「怖さを残したまま安定している」今年の4番像を維持できるか注目</td></tr>
+          <tr><td><strong>前川右京</strong></td><td>3回二塁打、5回先頭打。下位からチャンスを始めた</td><td>A</td><td>打席内容は明らかに上向き</td></tr>
+          <tr><td><strong>近本光司</strong></td><td>5回2死から四球で流れを広げた。目立たないが重い仕事</td><td>A-</td><td>打席の質が引き続き重要</td></tr>
+        </tbody>
+      </table>
+
+      <!-- データ -->
+      <div class="sec-head" id="sec-data">
+        <span class="sec-num">06</span>
+        <h2>データで見るポイント</h2>
+        <span class="sec-head-en">DATA ANALYSIS</span>
+      </div>
+
+      <table class="data-table">
+        <thead><tr><th>分類</th><th>数字・事実</th><th>何を意味するか</th></tr></thead>
+        <tbody>
+          <tr><td>チームスコア</td><td>阪神3-0中日、阪神7安打、中日5安打</td><td>打ちまくった試合ではなく、少ない好機を阪神が取り切った試合</td></tr>
+          <tr><td>高橋遥人</td><td>9回123球、5安打、2四球、10奪三振、無失点</td><td>支配力と完投能力の高さ</td></tr>
+          <tr><td>高橋宏斗</td><td>5回3失点、4回までは無失点</td><td>球威は十分だったが阪神打線の打席内容に中盤で押し返された</td></tr>
+          <tr><td>5回表</td><td>前川安打→高橋犠打→近本四球→中野適時打→森下2点適時打</td><td>この試合最大の分岐点。2死から点を取り切った</td></tr>
+          <tr><td>佐藤輝明</td><td>3安打1四球、全4打席出塁</td><td>ホームランだけでなく、出塁と長打を両立する4番になっている</td></tr>
+        </tbody>
+      </table>
+
+      <!-- まとめ -->
+      <div class="art-summary">
+        <div class="art-summary-label">3行まとめ</div>
+        <ol>
+          <li>阪神は5回の2死から中野・森下の連続適時打で3点を奪い、中日を3対0で下した。</li>
+          <li>高橋遥人は9回123球の完封。球速の派手さより、試合支配力で高橋宏斗を上回った。</li>
+          <li>3連戦は逆転勝ち、打ち勝ち、完封勝ち。カード一巡11勝4敗は内容面でもかなり強い。</li>
+        </ol>
+      </div>
+
+      <hr class="art-hr">
+
+      <div class="related-head">RELATED ARTICLES</div>
+      <div class="related-list">
+        <a href="../2026-04-10-maekawa-chunichi/" class="related-item">
+          <span class="related-tag">試合分析</span>
+          <span class="related-title">9回逆転劇！前川右京が決めた阪神の意地　中日3-5阪神 2026.04.10</span>
+        </a>
+        <a href="../2026-04-11-sato-chunichi/" class="related-item">
+          <span class="related-tag">試合分析</span>
+          <span class="related-title">サトテル2発・136m弾の衝撃　阪神9-3中日 快勝の中身 2026.04.11</span>
+        </a>
+        <a href="../2026-04-14-giants-loss/" class="related-item">
+          <span class="related-tag">試合分析</span>
+          <span class="related-title">逆転したのに勝ち切れず　阪神3-4巨人 守備と中継ぎの課題 2026.04.14</span>
+        </a>
+      </div>
+
+    </main>
+
+    <aside class="art-sidebar">
+      <div class="sidebar-toc">
+        <div class="sidebar-toc-label">目次</div>
+        <ul class="toc-list">
+          <li><a href="#sec-series"><span class="toc-n">01</span>3連戦結果</a></li>
+          <li><a href="#sec-result"><span class="toc-n">02</span>試合結果</a></li>
+          <li><a href="#sec-flow"><span class="toc-n">03</span>試合の流れ</a></li>
+          <li><a href="#sec-turning"><span class="toc-n">04</span>勝負の分岐点</a></li>
+          <li><a href="#sec-players"><span class="toc-n">05</span>選手評価</a></li>
+          <li><a href="#sec-data"><span class="toc-n">06</span>データ分析</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-meta">
+        <div class="sidebar-meta-label">TAGS</div>
+        <div class="tag-cloud">
+          <span class="tag-pill">阪神タイガース</span>
+          <span class="tag-pill">中日ドラゴンズ</span>
+          <span class="tag-pill">高橋遥人</span>
+          <span class="tag-pill">高橋宏斗</span>
+          <span class="tag-pill">森下翔太</span>
+          <span class="tag-pill">佐藤輝明</span>
+          <span class="tag-pill">中野拓夢</span>
+          <span class="tag-pill">バンテリンドーム</span>
+          <span class="tag-pill">2026シーズン</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; 2026 AIデータ二刀流ブログ</p>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const siteNav = document.querySelector('.site-nav');
+    if (navToggle && siteNav) {
+      navToggle.addEventListener('click', function() {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !expanded);
+        siteNav.classList.toggle('open');
+      });
+    }
+  </script>
+</body>
+</html>

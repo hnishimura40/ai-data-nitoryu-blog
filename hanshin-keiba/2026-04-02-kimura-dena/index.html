@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="阪神がDeNAに4-3で勝利し、16年ぶりの開幕2カード連続勝ち越し。木浪聖也の初回2点タイムリー、中野拓夢の守備、伊原陵人の初勝利、福島圭音の初打席まで、勝因と課題を整理します。">
+  <title>木浪が決めた 4-3でDeNA撃破｜阪神4月2日試合分析 2026 | AIデータ二刀流ブログ</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
+  <style>
+    .art-hero { background: #0b1525; }
+    .ogp-hero {
+      container-type: inline-size;
+      width: 100%; max-width: 400px; margin: 20px auto 0;
+      border-radius: 10px; aspect-ratio: 1200 / 630;
+      position: relative; overflow: hidden; background: #0b1525;
+      display: flex; font-family: 'Noto Sans JP', sans-serif;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    }
+    .ogp-bg-dots {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(#1e293b 2px, transparent 2px);
+      background-size: 1.67cqw 1.67cqw; z-index: 0;
+    }
+    .ogp-yellow {
+      position: absolute; top: -10%; left: -15%; width: 68%; height: 120%;
+      background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%);
+      transform: skewX(-15deg); z-index: 1;
+      box-shadow: 1.25cqw 0 3.33cqw rgba(0,0,0,0.6);
+      border-right: 1cqw solid #fff;
+    }
+    .ogp-dark {
+      position: absolute; top: 0; right: 0; width: 50%; height: 100%;
+      background: linear-gradient(135deg, #0b1525 0%, #020617 100%); z-index: 0;
+    }
+    .ogp-texture {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(0,0,0,0.15) 2px, transparent 2px);
+      background-size: 0.5cqw 0.5cqw; z-index: 2; pointer-events: none;
+    }
+    .ogp-left {
+      position: relative; z-index: 10; width: 52%; height: 100%;
+      padding: 3.33cqw 0 3.33cqw 3.33cqw;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .ogp-right {
+      position: relative; z-index: 10; width: 48%; height: 100%;
+      padding: 4.17cqw 3.33cqw 4.17cqw 1.67cqw;
+      display: flex; flex-direction: column; justify-content: center; gap: 1.5cqw;
+    }
+    .ogp-year-badge {
+      display: inline-block; background: #111827; color: #facc15;
+      font-size: 2.67cqw; font-weight: 900;
+      padding: 0.5cqw 1.67cqw; border-radius: 0.5cqw; margin-bottom: 1cqw;
+      align-self: flex-start; transform: skewX(-10deg);
+      box-shadow: 0.42cqw 0.42cqw 0 rgba(0,0,0,0.3);
+      border: 0.25cqw solid #111827;
+    }
+    .ogp-year-badge span { display: inline-block; transform: skewX(10deg); }
+    .ogp-main-title {
+      font-size: 7.33cqw; font-weight: 900; color: #111827;
+      line-height: 1.05; letter-spacing: -0.17cqw;
+      text-shadow: 0.33cqw 0.33cqw 0px #fff; margin-bottom: 0.42cqw;
+    }
+    .ogp-sub-title {
+      font-size: 5.5cqw; font-weight: 900; color: #fff; line-height: 1.05;
+      text-shadow: 0.5cqw 0.5cqw 0px #111827, 0.67cqw 0.67cqw 1.25cqw rgba(0,0,0,0.5);
+      -webkit-text-stroke: 0.25cqw #111827;
+    }
+    .ogp-method-badge {
+      margin-top: 2.08cqw; background: #15803d; color: #fff;
+      font-size: 2.17cqw; font-weight: 900; padding: 0.83cqw 2.08cqw;
+      display: inline-block; align-self: flex-start; transform: skewX(-15deg);
+      box-shadow: 0.5cqw 0.5cqw 0 #111827;
+    }
+    .ogp-method-badge span { display: inline-block; transform: skewX(15deg); }
+    .ogp-topic-box {
+      background: rgba(30,41,59,0.95); border-left: 0.67cqw solid #facc15;
+      padding: 1.25cqw 1.67cqw; border-radius: 0 0.83cqw 0.83cqw 0;
+      box-shadow: 0 0.5cqw 1.25cqw rgba(0,0,0,0.5);
+    }
+    .ogp-topic-box:nth-child(2) { border-left-color: #ef4444; }
+    .ogp-topic-box:nth-child(3) { border-left-color: #38bdf8; }
+    .ogp-topic-box:nth-child(4) { border-left-color: #10b981; }
+    .ogp-topic-header { display: flex; align-items: center; gap: 1cqw; margin-bottom: 0.17cqw; }
+    .ogp-topic-num { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 2cqw; font-weight: 900; color: #94a3b8; line-height: 1; }
+    .ogp-topic-title { font-size: 2.17cqw; font-weight: 900; color: #f8fafc; line-height: 1; }
+    .ogp-topic-desc { font-size: 1.5cqw; font-weight: 900; color: #facc15; padding-left: 3cqw; }
+    .ogp-topic-box:nth-child(2) .ogp-topic-desc { color: #fca5a5; }
+    .ogp-topic-box:nth-child(3) .ogp-topic-desc { color: #7dd3fc; }
+    .ogp-topic-box:nth-child(4) .ogp-topic-desc { color: #6ee7b7; }
+
+    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; padding: 22px 24px 18px; }
+    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
+    .art-cat-sports { background: var(--color-accent-sports); color: #fff; }
+    .art-cat-gold   { background: var(--color-accent-gold);   color: #1a2744; }
+    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.75; }
+    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.45); display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .art-layout {
+      display: grid; grid-template-columns: 1fr 292px; gap: 40px;
+      max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start;
+    }
+    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
+    .art-body strong { color: #1a2744; }
+    .art-body ul { padding-left: 1.4em; margin-bottom: 18px; }
+    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
+
+    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
+    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: var(--color-accent-sports); background: #fff0f0; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
+    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
+    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
+    @media (max-width: 560px) { .sec-head-en { display: none; } }
+    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid var(--color-accent-economy, #1a6fa8); }
+
+    .summary-box { background: linear-gradient(135deg, #f0f5ff, #eef3fb); border: 1px solid #c8d8ef; border-left: 4px solid #1a6fa8; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
+    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #1a6fa8; margin-bottom: 12px; }
+    .summary-box ul { margin: 0; }
+    .summary-box li { font-size: 0.87rem; }
+
+    .hlbox { background: linear-gradient(135deg, #fffbf0, #fff8e6); border: 1px solid #e6c96a; border-left: 4px solid var(--color-accent-gold); border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 24px 0; }
+    .hlbox p { margin: 0; font-size: 0.94rem; }
+
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; margin: 0 0 28px; }
+    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
+    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: #f8fafd; }
+    .data-table td:first-child { font-weight: 700; color: #1a2744; }
+
+    .score-box { background: #0b1525; border-radius: 10px; padding: 20px 24px; margin: 0 0 28px; display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .score-team { text-align: center; }
+    .score-team-name { font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.6); margin-bottom: 4px; }
+    .score-num { font-size: 3rem; font-weight: 900; line-height: 1; }
+    .score-tigers { color: #facc15; }
+    .score-vs { font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.3); }
+    .score-win { color: #4ade80; }
+    .score-lose { color: #94a3b8; }
+    .score-meta { font-size: 0.74rem; color: rgba(255,255,255,0.45); text-align: center; margin-top: 8px; width: 100%; }
+
+    .grade-badge { font-size: 0.76rem; font-weight: 900; padding: 2px 8px; border-radius: 4px; }
+    .gb-s  { background: #c0392b; color: #fff; }
+    .gb-a  { background: #2a75c7; color: #fff; }
+    .gb-am { background: #1a4fa0; color: #fff; }
+    .gb-bp { background: #27ae60; color: #fff; }
+    .gb-b  { background: #718096; color: #fff; }
+    .gb-cp { background: #a0aec0; color: #fff; }
+    .gb-c  { background: #e0e6f0; color: #666; }
+
+    .kp-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid #e0e6f0; border-radius: 10px; overflow: hidden; margin: 20px 0 28px; }
+    @media (max-width: 560px) { .kp-strip { grid-template-columns: 1fr; } }
+    .kp-cell { padding: 18px 18px 16px; background: #fff; border-right: 1px solid #e0e6f0; display: flex; flex-direction: column; gap: 6px; }
+    .kp-cell:last-child { border-right: none; }
+    @media (max-width: 560px) { .kp-cell { border-right: none; border-bottom: 1px solid #e0e6f0; } .kp-cell:last-child { border-bottom: none; } }
+    .kp-n { font-size: 0.62rem; font-weight: 900; letter-spacing: .12em; color: var(--color-accent-sports); }
+    .kp-title { font-size: 0.9rem; font-weight: 800; color: var(--color-primary); line-height: 1.4; }
+    .kp-body { font-size: 0.78rem; color: #555; line-height: 1.65; }
+
+    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
+    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: var(--color-accent-gold); margin-bottom: 14px; }
+    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
+    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
+
+    .channel-cta { background: linear-gradient(135deg, #0f1e38, #1a3460); border-radius: 12px; padding: 24px 26px; margin: 28px 0; text-align: center; }
+    .channel-cta p { font-size: 0.88rem; color: rgba(255,255,255,0.8); margin-bottom: 16px; }
+    .cta-btn-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: var(--color-accent-sports); color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
+    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
+
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
+    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
+    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e8ecf4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: var(--color-accent-sports); }
+    .toc-n { font-size: 0.62rem; font-weight: 900; color: var(--color-accent-sports); flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
+    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
+    .sidebar-profile { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; text-align: center; }
+    .sidebar-profile-name { font-size: 0.9rem; font-weight: 800; color: var(--color-primary); margin-bottom: 6px; }
+    .sidebar-profile p { font-size: 0.78rem; color: #666; line-height: 1.7; margin: 0 0 14px; }
+    .sp-btn-col { display: flex; flex-direction: column; gap: 8px; }
+    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../" class="site-logo">
+        <span class="logo-main">AIデータ二刀流ブログ</span>
+        <span class="logo-sub">野球・競馬 × 経済・株式</span>
+      </a>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="../../">TOP</a>
+        <a href="../../hanshin-keiba/" class="active">野球・競馬</a>
+        <a href="../../economy-stocks/">経済・株式</a>
+        <a href="../../channels/">チャンネル</a>
+        <a href="../../profile/">運営について</a>
+        <a href="../../contact/">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="../../">TOP</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../hanshin-keiba/">野球・競馬</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>木浪が決めた 4-3でDeNA撃破｜阪神4月2日</span>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <div class="art-hero">
+
+    <div class="ogp-hero">
+      <div class="ogp-bg-dots"></div>
+      <div class="ogp-yellow"></div>
+      <div class="ogp-dark"></div>
+      <div class="ogp-texture"></div>
+
+      <div class="ogp-left">
+        <div class="ogp-year-badge"><span>2026.04.02 阪神 4-3 DeNA</span></div>
+        <div class="ogp-main-title">木浪が<br>決めた</div>
+        <div class="ogp-sub-title">4-3でDeNA撃破</div>
+        <div class="ogp-method-badge"><span>試合分析</span></div>
+      </div>
+
+      <div class="ogp-right">
+        <div class="ogp-topic-box">
+          <div class="ogp-topic-header">
+            <span class="ogp-topic-num">01</span>
+            <span class="ogp-topic-title">初回木浪2点打</span>
+          </div>
+          <div class="ogp-topic-desc">主導権を固定</div>
+        </div>
+        <div class="ogp-topic-box">
+          <div class="ogp-topic-header">
+            <span class="ogp-topic-num">02</span>
+            <span class="ogp-topic-title">伊原初勝利</span>
+          </div>
+          <div class="ogp-topic-desc">5回1失点で試合を作る</div>
+        </div>
+        <div class="ogp-topic-box">
+          <div class="ogp-topic-header">
+            <span class="ogp-topic-num">03</span>
+            <span class="ogp-topic-title">8回無死満塁</span>
+          </div>
+          <div class="ogp-topic-desc">中野守備で切り抜け</div>
+        </div>
+        <div class="ogp-topic-box">
+          <div class="ogp-topic-header">
+            <span class="ogp-topic-num">04</span>
+            <span class="ogp-topic-title">中野の好守</span>
+          </div>
+          <div class="ogp-topic-desc">攻守で試合を左右</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="art-hero-title-block">
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-sports">阪神タイガース</span>
+        <span class="art-cat-badge art-cat-sports">試合分析</span>
+        <span class="art-cat-badge art-cat-gold">2026シーズン</span>
+      </div>
+      <h1 class="art-hero-h1">
+        木浪の初回2点が試合を決めた｜阪神4-3DeNA「勝因と課題」で読む 開幕2カード連続勝ち越し【4月2日】
+      </h1>
+      <div class="art-hero-meta">
+        <span>2026年4月2日</span>
+        <span>AIデータ二刀流ブログ</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== LAYOUT ===== -->
+  <div class="art-layout">
+
+    <main class="art-body">
+
+      <div class="summary-box">
+        <div class="summary-box-title">THIS ARTICLE COVERS</div>
+        <ul>
+          <li>阪神がDeNA戦を4対3で<strong>勝ち切れた最大の理由</strong></li>
+          <li>初回の木浪聖也の2点タイムリーが<strong>「ただの追加点ではなかった」理由</strong></li>
+          <li>伊原陵人の初勝利を<strong>どう評価すべきか</strong></li>
+          <li>中野拓夢の守備が終盤の勝敗を<strong>どう左右したか</strong></li>
+          <li>勝った試合なのに<strong>課題として残った</strong>打線とベンチワーク</li>
+        </ul>
+      </div>
+
+      <img src="thumb.png" alt="阪神4-3DeNA 2026年4月2日 試合サムネイル" style="width:100%;border-radius:8px;margin:16px 0;">
+
+      <p>
+        阪神は4月2日のDeNA戦に4対3で勝ち、2010年以来16年ぶりとなる開幕2カード連続勝ち越しを決めた。結果だけ見れば上々だが、内容を追うとこの試合は単純な快勝ではない。序盤に奪った4点を、先発と中継ぎ、そして内野守備で何とか守り切った一戦だった。
+      </p>
+      <p>
+        特に大きかったのは初回だ。佐藤輝明の先制二塁打ももちろん価値が高い。しかし、この試合の主導権を本当に阪神側へ引き寄せたのは、その後の木浪聖也の2点タイムリーだった。もし1点止まりなら、DeNA打線の圧力を考えれば試合の景色はかなり違っていたはずだ。
+      </p>
+
+      <div class="hlbox">
+        <p>この試合は<strong>「よく勝った」で終わらせるより、「なぜ勝てたのか」「どこが危なかったのか」まで掘るほうが面白い</strong>。勝因は確かにあったが、同時に課題もはっきり残った試合でもある。</p>
+      </div>
+
+      <!-- SECTION 1 -->
+      <div class="sec-head" id="sec-result">
+        <span class="sec-num">01</span>
+        <h2>試合結果</h2>
+        <span class="sec-head-en">GAME RESULT</span>
+      </div>
+
+      <div class="score-box">
+        <div class="score-team">
+          <div class="score-team-name">阪神タイガース</div>
+          <div class="score-num score-tigers score-win">4</div>
+        </div>
+        <div class="score-vs">vs</div>
+        <div class="score-team">
+          <div class="score-team-name">DeNA</div>
+          <div class="score-num score-lose">3</div>
+        </div>
+        <div class="score-meta">2026年4月2日（木）｜京セラD大阪｜勝：伊原陵人 / 敗：竹田祐 / S：岩崎優</div>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>項目</th><th>阪神</th><th>DeNA</th><th>ポイント</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>得点</td><td>4</td><td>3</td><td>序盤の4点を守り切った</td></tr>
+          <tr><td>安打</td><td>9</td><td>6</td><td>安打は多いが、2回以降は得点に結びつけ切れず</td></tr>
+          <tr><td>失策</td><td>0</td><td>2</td><td>阪神は相手ミスを得点に変えた</td></tr>
+          <tr><td>盗塁</td><td>1</td><td>0</td><td>2回の得点に直結</td></tr>
+          <tr><td>木浪聖也</td><td>4打数3安打2打点</td><td>—</td><td>試合最大のキーマン</td></tr>
+          <tr><td>中野拓夢</td><td>3打数2安打1四球</td><td>—</td><td>攻守両面で試合を動かした</td></tr>
+          <tr><td>伊原陵人</td><td>5回1安打1失点</td><td>—</td><td>先発として最低限以上の仕事</td></tr>
+          <tr><td>中継ぎ4投手</td><td>4回5安打2失点</td><td>—</td><td>逆転までは許さなかった</td></tr>
+        </tbody>
+      </table>
+
+      <!-- SECTION 2 -->
+      <div class="sec-head" id="sec-flow">
+        <span class="sec-num">02</span>
+        <h2>試合の流れ</h2>
+        <span class="sec-head-en">GAME FLOW</span>
+      </div>
+
+      <div class="sec-sub">1回裏｜阪神が一気に主導権を握る</div>
+      <p>
+        中野拓夢が安打で出ると、森下翔太が四球でつなぎ、佐藤輝明が左中間フェンス直撃の先制二塁打。ここでまず1点を奪った。さらに二死二、三塁から木浪聖也が左前へ2点タイムリー。阪神は初回に3点を先制した。
+      </p>
+      <p>
+        この回のポイントは、単なる先制ではなく「1点で止まらなかった」ことだ。DeNAの上位打線の破壊力を考えれば、1点先制だけではまだ流れは不安定だった。木浪の2点で、阪神は"先に行く側"に立てた。
+      </p>
+
+      <div class="sec-sub">2回裏｜4点目で試合の形を作る</div>
+      <p>
+        坂本誠志郎の安打、伊原の犠打で一死二塁。近本光司が中前打でつなぎ、一死一、三塁を作る。ここで近本がスタートを切り、相手捕手の悪送球を誘って4点目。最終スコアが1点差だからこそ、2回の4点目は単なる"おまけ"ではなく、逃げ切りの前提になった。
+      </p>
+
+      <div class="sec-sub">4回表｜伊原が初失点も踏みとどまる</div>
+      <p>
+        伊原は4回二死まで無安打投球。そこから筒香嘉智に四球を与え、宮﨑敏郎に中越え適時二塁打を浴びて1点を失った。だが大崩れはせず、5回まで1失点でまとめた。
+      </p>
+
+      <div class="sec-sub">6回表｜ドリスが最少失点でしのぐ</div>
+      <p>
+        6回からドリスが登板。二死から四球と連打で1点を返されたが、それ以上は許さず4対2。完全な安心感とは言えなかったが、試合を壊さなかった意味は大きい。
+      </p>
+
+      <div class="sec-sub">7回表｜モレッタがテンポよく三者凡退</div>
+      <p>
+        7回はモレッタがわずか8球で三者凡退。試合のテンポを戻し、阪神にとってはかなり大きな1イニングになった。
+      </p>
+
+      <div class="sec-sub">7回裏｜福島圭音がプロ初打席で存在感</div>
+      <p>
+        七回の代打で福島圭音が一軍初打席。結果は二ゴロだったが、ファウルで粘って計13球を投げさせた。一軍の打席で簡単に終わらない存在感を示した打席だった。
+      </p>
+
+      <div class="sec-sub">8回表｜無死満塁を中野の守備で最少失点に</div>
+      <p>
+        8回は及川雅貴が無死満塁の大ピンチを招く。ここで宮﨑の打球を中野がさばいて二塁封殺。さらに佐野併殺打で、この回は1失点止まり。試合の流れがひっくり返りかねない場面で、阪神は守備で踏みとどまった。
+      </p>
+
+      <div class="hlbox">
+        <p>8回無死満塁からの<strong>中野の守備は、この試合の象徴</strong>だ。打撃戦でも投手戦でもなく、「序盤の得点を守り切るゲーム」にしたのは守備だった。阪神の強みが最も出た場面と言っていい。</p>
+      </div>
+
+      <div class="sec-sub">9回表｜岩崎が最後まで冷や汗の締め</div>
+      <p>
+        9回は岩崎優が登板し、1安打を許しながらも無失点で締めた。見ている側には重い最終回だったが、結果としてはきっちり2セーブ目。阪神は4対3で逃げ切った。
+      </p>
+
+      <!-- SECTION 3 -->
+      <div class="sec-head" id="sec-turning">
+        <span class="sec-num">03</span>
+        <h2>勝負の分岐点</h2>
+        <span class="sec-head-en">TURNING POINTS</span>
+      </div>
+
+      <div class="kp-strip">
+        <div class="kp-cell">
+          <div class="kp-n">分岐点 01</div>
+          <div class="kp-title">初回・木浪の2点タイムリー</div>
+          <div class="kp-body">阪神は「先制したチーム」から「試合を先に進めるチーム」に変わった。佐藤の先制打で1点は取れたが、そこで止まっていたらDeNAの上位打線相手に主導権は握りにくかった。</div>
+        </div>
+        <div class="kp-cell">
+          <div class="kp-n">分岐点 02</div>
+          <div class="kp-title">2回の4点目</div>
+          <div class="kp-body">最終スコアから逆算すると極めて重い。4対3で終わった以上、この1点がなければ同点だった。走塁と相手の隙を得点に変えた意味は大きい。</div>
+        </div>
+        <div class="kp-cell">
+          <div class="kp-n">分岐点 03</div>
+          <div class="kp-title">8回無死満塁・中野の守備</div>
+          <div class="kp-body">ここが抜けていれば逆転まで見えた。中野の処理で二塁封殺を取り、さらに併殺で1点止まり。試合を決定づけたのは打撃だけではなく、守備だった。</div>
+        </div>
+      </div>
+
+      <!-- SECTION 4 -->
+      <div class="sec-head" id="sec-players">
+        <span class="sec-num">04</span>
+        <h2>選手ごとの評価</h2>
+        <span class="sec-head-en">PLAYER EVALUATION</span>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>選手名</th><th>評価</th><th>良かった点</th><th>課題・次戦の見方</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>木浪聖也</td>
+            <td><span class="grade-badge gb-s">S</span></td>
+            <td>4打数3安打2打点。初回の2点が試合の性格を決めた</td>
+            <td>外しにくい。ショート争いを超えて打線のキーマン</td>
+          </tr>
+          <tr>
+            <td>伊原陵人</td>
+            <td><span class="grade-badge gb-a">A</span></td>
+            <td>5回1安打1失点で今季初勝利。先発として試合を作った</td>
+            <td>四死球3で球数増。次はイニングの伸びがテーマ</td>
+          </tr>
+          <tr>
+            <td>中野拓夢</td>
+            <td><span class="grade-badge gb-s">S</span></td>
+            <td>2安打1四球に加え、8回の守備が極めて大きい</td>
+            <td>打つ・守る両面で中心。守備安定感は今後も武器</td>
+          </tr>
+          <tr>
+            <td>佐藤輝明</td>
+            <td><span class="grade-badge gb-a">A</span></td>
+            <td>先制二塁打で流れを作った。5試合連続安打</td>
+            <td>長打の怖さは十分。中押し場面での一打に期待</td>
+          </tr>
+          <tr>
+            <td>岩崎優</td>
+            <td><span class="grade-badge gb-am">A−</span></td>
+            <td>1点差の9回を無失点で締めた。2セーブ目</td>
+            <td>結果を出す限り抑え続投。内容よりゼロが最優先</td>
+          </tr>
+          <tr>
+            <td>モレッタ</td>
+            <td><span class="grade-badge gb-am">B+</span></td>
+            <td>7回を8球で三者凡退。テンポを戻した</td>
+            <td>勝ちパターンでの起用が続く</td>
+          </tr>
+          <tr>
+            <td>ドリス</td>
+            <td><span class="grade-badge gb-b">B</span></td>
+            <td>失点しながらも1点で止めた</td>
+            <td>二死からの四球と連打は不安材料</td>
+          </tr>
+          <tr>
+            <td>及川雅貴</td>
+            <td><span class="grade-badge gb-cp">C</span></td>
+            <td>最少失点で切り抜けた</td>
+            <td>無死満塁はかなり危険。内容は苦しく再評価が必要</td>
+          </tr>
+          <tr>
+            <td>福島圭音</td>
+            <td><span class="grade-badge gb-bp">B+</span></td>
+            <td>一軍初打席で13球粘り、簡単に終わらない打席を見せた</td>
+            <td>少ない機会でも序列を動かす余地がある</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- SECTION 5 -->
+      <div class="sec-head" id="sec-data">
+        <span class="sec-num">05</span>
+        <h2>データで見るポイント</h2>
+        <span class="sec-head-en">DATA ANALYSIS</span>
+      </div>
+
+      <p>
+        木浪はこの試合で3安打2打点。数字のインパクトも大きいが、さらに重要なのは"どこで打ったか"だ。初回二死二、三塁での2点がなければ、阪神は1点先制止まり。DeNAの攻撃力を考えれば、それではまだ主導権を握ったとは言い切れなかった。<strong>木浪の一打は、得点以上に試合展開を変えた</strong>。
+      </p>
+
+      <p>
+        また、9安打4得点という数字も、4点すべてが2回までに集中している点に注目すべきだ。以降は走者を出しても追加点を取れなかったからこそ、終盤の1点差が重くなった。<strong>勝ちながら修正する</strong>姿勢が今後の阪神には欠かせない。
+      </p>
+
+      <!-- SECTION 6 -->
+      <div class="sec-head" id="sec-outlook">
+        <span class="sec-num">06</span>
+        <h2>今後どう見るか</h2>
+        <span class="sec-head-en">OUTLOOK</span>
+      </div>
+
+      <div class="sec-sub">木浪を「好調」で終わらせない見方が必要</div>
+      <p>
+        今の木浪は、単に当たっているだけではない。打席の質が高い。粘れる、逆方向に運べる、必要な場面で役割を果たせる。この質が続くなら、ショート争いの話を超えて打線全体のキーマンになる。
+      </p>
+
+      <div class="sec-sub">伊原は「勝った」より「作った」を評価したい</div>
+      <p>
+        5回1失点は大きい。ただし、四死球や球数の課題も残った。次の注目は、同じように試合を作りながら6回、7回へ伸ばせるかどうかだ。
+      </p>
+
+      <div class="sec-sub">中野の守備力は今後の接戦でさらに効く</div>
+      <p>
+        阪神は守りで勝つチーム色が強い。その中で二塁の守備範囲が広い中野の存在は、数字以上に勝敗へ響く。今後も接戦になればなるほど価値は高まる。
+      </p>
+
+      <div class="sec-sub">福島・二軍・立石まで含めて競争が進む</div>
+      <p>
+        二軍では同日、中日相手に6対0で完封勝ちし、門別が5回無失点、前川右京が先制二塁打を放った。立石正広は屋外で全体ノックをこなし、三塁でノックも受けた。<strong>勝ちながら下の競争も進んでいるのは、今の阪神にとってかなり大きい材料</strong>だ。
+      </p>
+
+      <hr class="art-hr">
+
+      <div class="art-summary">
+        <div class="art-summary-label">3 POINT SUMMARY</div>
+        <ol>
+          <li>阪神4-3DeNAの本質は、初回の木浪聖也の2点で主導権を固定したことにある。</li>
+          <li>伊原陵人は5回1失点で初勝利、中野拓夢は守備で試合を救った。</li>
+          <li>勝ったが完勝ではない。だからこそ、課題と競争の両方が見えた価値ある一勝だった。</li>
+        </ol>
+      </div>
+
+      <div class="channel-cta">
+        <p>動画でも阪神のデータ分析を配信中。チャンネル登録でシーズン最新情報をチェック！</p>
+        <div class="cta-btn-row">
+          <a href="https://www.youtube.com/@AI-Baseball-Horse" target="_blank" rel="noopener" class="social-btn social-yt">▶ AI二刀流チャンネル</a>
+          <a href="https://x.com/AI_yakyu_Keiba" target="_blank" rel="noopener" class="social-btn social-x">𝕏 最新情報をフォロー</a>
+        </div>
+      </div>
+
+      <div class="related-head">RELATED ARTICLES</div>
+      <div class="related-list">
+        <a href="../2026-04-01-lucas-dena/" class="related-item">
+          <span class="related-tag">野球</span>
+          <span class="related-title">ルーカス黒星でも収穫あり｜阪神1-4DeNA 4月1日試合分析</span>
+        </a>
+        <a href="../2026-04-03-murakami-hiroshima/" class="related-item">
+          <span class="related-tag">野球</span>
+          <span class="related-title">村上7回1失点 森下4安打3打点｜阪神4-2広島 4月3日試合分析</span>
+        </a>
+      </div>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="art-sidebar">
+
+      <div class="sidebar-toc">
+        <div class="sidebar-toc-label">CONTENTS</div>
+        <ul class="toc-list">
+          <li><a href="#sec-result"><span class="toc-n">01</span>試合結果</a></li>
+          <li><a href="#sec-flow"><span class="toc-n">02</span>試合の流れ</a></li>
+          <li><a href="#sec-turning"><span class="toc-n">03</span>勝負の分岐点</a></li>
+          <li><a href="#sec-players"><span class="toc-n">04</span>選手ごとの評価</a></li>
+          <li><a href="#sec-data"><span class="toc-n">05</span>データ分析</a></li>
+          <li><a href="#sec-outlook"><span class="toc-n">06</span>今後どう見るか</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-meta">
+        <div class="sidebar-meta-label">TAGS</div>
+        <div class="tag-cloud">
+          <span class="tag-pill">阪神タイガース</span>
+          <span class="tag-pill">DeNAベイスターズ</span>
+          <span class="tag-pill">木浪聖也</span>
+          <span class="tag-pill">伊原陵人</span>
+          <span class="tag-pill">中野拓夢</span>
+          <span class="tag-pill">佐藤輝明</span>
+          <span class="tag-pill">岩崎優</span>
+          <span class="tag-pill">福島圭音</span>
+          <span class="tag-pill">試合分析</span>
+          <span class="tag-pill">2026シーズン</span>
+        </div>
+      </div>
+
+      <div class="sidebar-profile">
+        <div class="sidebar-profile-name">AIデータ二刀流ブログ</div>
+        <p>野球・競馬と経済・株式の2軸で、データとAIを活用した分析コンテンツを発信。</p>
+        <div class="sp-btn-col">
+          <a href="https://www.youtube.com/@AI-Baseball-Horse" target="_blank" rel="noopener" class="social-btn social-yt" style="font-size:0.78rem;">▶ AI二刀流チャンネル</a>
+          <a href="https://www.youtube.com/@AI-economy-radio" target="_blank" rel="noopener" class="social-btn social-yt" style="font-size:0.78rem;">▶ 経済ラジオ</a>
+          <a href="https://x.com/AI_yakyu_Keiba" target="_blank" rel="noopener" class="social-btn social-x" style="font-size:0.78rem;">𝕏 フォロー</a>
+        </div>
+      </div>
+
+    </aside>
+
+  </div><!-- /art-layout -->
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-name">AIデータ二刀流ブログ</div>
+        <p>野球・競馬と経済・株式の2軸で、データとAIを活用した分析コンテンツを発信するメディアブログ。</p>
+        <div class="footer-social">
+          <a href="https://www.youtube.com/@AI-economy-radio" target="_blank" rel="noopener" class="social-btn social-yt">▶ 経済ラジオ</a>
+          <a href="https://www.youtube.com/@AI-Baseball-Horse" target="_blank" rel="noopener" class="social-btn social-yt">▶ AI二刀流</a>
+          <a href="https://x.com/AI_yakyu_Keiba" target="_blank" rel="noopener" class="social-btn social-x">𝕏 フォロー</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>コンテンツ</h4>
+        <nav class="footer-nav">
+          <a href="../../hanshin-keiba/">野球・競馬データ分析</a>
+          <a href="../../economy-stocks/">経済・時事・株式分析</a>
+          <a href="../../channels/">YouTubeチャンネル</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>サイト情報</h4>
+        <nav class="footer-nav">
+          <a href="../../profile/">運営について</a>
+          <a href="../../privacy-policy/">プライバシーポリシー</a>
+          <a href="../../contact/">お問い合わせ</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 AIデータ二刀流ブログ. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

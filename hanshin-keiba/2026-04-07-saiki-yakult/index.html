@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="阪神が甲子園開幕戦でヤクルトに9-3快勝。才木浩人の16奪三振、森下翔太と佐藤輝明のアベック弾、ヤクルト守乱の影響、小川泰弘の内容まで、試合の流れと分岐点を詳しく分析します。">
+  <title>才木16奪三振 甲子園開幕戦制圧｜阪神9-3ヤクルト 2026.04.07 | AIデータ二刀流ブログ</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
+  <style>
+    .art-hero { background: #0b1525; }
+
+    .ogp-hero {
+      container-type: inline-size;
+      width: 100%; max-width: 400px; margin: 20px auto 0;
+      border-radius: 10px; aspect-ratio: 1200 / 630;
+      position: relative; overflow: hidden; background: #0b1525;
+      display: flex; font-family: 'Noto Sans JP', sans-serif;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    }
+    .ogp-bg-dots {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(#1e293b 2px, transparent 2px);
+      background-size: 1.67cqw 1.67cqw; z-index: 0;
+    }
+    .ogp-yellow {
+      position: absolute; top: -10%; left: -15%; width: 68%; height: 120%;
+      background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%);
+      transform: skewX(-15deg); z-index: 1;
+      box-shadow: 1.25cqw 0 3.33cqw rgba(0,0,0,0.6);
+      border-right: 1cqw solid #fff;
+    }
+    .ogp-dark {
+      position: absolute; top: 0; right: 0; width: 50%; height: 100%;
+      background: linear-gradient(135deg, #0b1525 0%, #020617 100%); z-index: 0;
+    }
+    .ogp-texture {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(0,0,0,0.15) 2px, transparent 2px);
+      background-size: 0.5cqw 0.5cqw; z-index: 2; pointer-events: none;
+    }
+    .ogp-left {
+      position: relative; z-index: 10; width: 52%; height: 100%;
+      padding: 3.33cqw 0 3.33cqw 3.33cqw;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .ogp-right {
+      position: relative; z-index: 10; width: 48%; height: 100%;
+      padding: 4.17cqw 3.33cqw 4.17cqw 1.67cqw;
+      display: flex; flex-direction: column; justify-content: center; gap: 1.5cqw;
+    }
+    .ogp-year-badge {
+      display: inline-block; background: #111827; color: #facc15;
+      font-size: 2.67cqw; font-weight: 900; padding: 0.5cqw 1.67cqw;
+      border-radius: 0.5cqw; margin-bottom: 1cqw; align-self: flex-start;
+      transform: skewX(-10deg); box-shadow: 0.42cqw 0.42cqw 0 rgba(0,0,0,0.3);
+      border: 0.25cqw solid #111827;
+    }
+    .ogp-year-badge span { display: inline-block; transform: skewX(10deg); }
+    .ogp-main-title {
+      font-size: 7.33cqw; font-weight: 900; color: #111827;
+      line-height: 1.05; letter-spacing: -0.17cqw;
+      text-shadow: 0.33cqw 0.33cqw 0px #fff; margin-bottom: 0.42cqw;
+    }
+    .ogp-sub-title {
+      font-size: 5.5cqw; font-weight: 900; color: #fff; line-height: 1.05;
+      text-shadow: 0.5cqw 0.5cqw 0px #111827, 0.67cqw 0.67cqw 1.25cqw rgba(0,0,0,0.5);
+      -webkit-text-stroke: 0.25cqw #111827;
+    }
+    .ogp-method-badge {
+      margin-top: 2.08cqw; background: #ef4444; color: #fff;
+      font-size: 2.17cqw; font-weight: 900; padding: 0.83cqw 2.08cqw;
+      display: inline-block; align-self: flex-start; transform: skewX(-15deg);
+      box-shadow: 0.5cqw 0.5cqw 0 #111827;
+    }
+    .ogp-method-badge span { display: inline-block; transform: skewX(15deg); }
+    .ogp-topic-box {
+      background: rgba(30,41,59,0.95); border-left: 0.67cqw solid #facc15;
+      padding: 1.25cqw 1.67cqw; border-radius: 0 0.83cqw 0.83cqw 0;
+      box-shadow: 0 0.5cqw 1.25cqw rgba(0,0,0,0.5);
+    }
+    .ogp-topic-box:nth-child(2) { border-left-color: #ef4444; }
+    .ogp-topic-box:nth-child(3) { border-left-color: #38bdf8; }
+    .ogp-topic-box:nth-child(4) { border-left-color: #10b981; }
+    .ogp-topic-header { display: flex; align-items: center; gap: 1cqw; margin-bottom: 0.17cqw; }
+    .ogp-topic-num {
+      font-family: 'Poppins', sans-serif; font-style: italic;
+      font-size: 2cqw; font-weight: 900; color: #94a3b8; line-height: 1;
+    }
+    .ogp-topic-title { font-size: 2.17cqw; font-weight: 900; color: #f8fafc; line-height: 1; }
+    .ogp-topic-desc { font-size: 1.5cqw; font-weight: 900; color: #facc15; padding-left: 3cqw; }
+    .ogp-topic-box:nth-child(2) .ogp-topic-desc { color: #fca5a5; }
+    .ogp-topic-box:nth-child(3) .ogp-topic-desc { color: #7dd3fc; }
+    .ogp-topic-box:nth-child(4) .ogp-topic-desc { color: #6ee7b7; }
+
+    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; padding: 22px 24px 18px; }
+    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; padding: 3px 10px; border-radius: 2px; }
+    .art-cat-sports { background: var(--color-accent-sports); color: #fff; }
+    .art-cat-gold   { background: var(--color-accent-gold); color: #1a2744; }
+    .art-hero-h1 { font-size: clamp(1rem,2.5vw,1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.75; }
+    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.45); display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .art-layout {
+      display: grid; grid-template-columns: 1fr 292px; gap: 40px;
+      max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start;
+    }
+    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
+
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
+    .art-body strong { color: #1a2744; }
+    .art-body ul { padding-left: 1.4em; margin-bottom: 18px; }
+    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
+
+    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
+    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: var(--color-accent-sports); background: #fff0f0; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
+    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
+    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
+    @media (max-width: 560px) { .sec-head-en { display: none; } }
+
+    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid var(--color-accent-economy, #1a6fa8); }
+
+    .summary-box { background: linear-gradient(135deg,#f0f5ff,#eef3fb); border: 1px solid #c8d8ef; border-left: 4px solid #1a6fa8; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
+    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #1a6fa8; margin-bottom: 12px; }
+    .summary-box ul { margin: 0; }
+    .summary-box li { font-size: 0.87rem; }
+
+    .hlbox { background: linear-gradient(135deg,#fffbf0,#fff8e6); border: 1px solid #e6c96a; border-left: 4px solid var(--color-accent-gold); border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 24px 0; }
+    .hlbox p { margin: 0; font-size: 0.94rem; }
+
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; margin: 0 0 28px; }
+    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
+    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: #f8fafd; }
+    .data-table .team-hanshin { color: #c0392b; font-weight: 800; }
+    .data-table .team-yakult  { color: #006233; font-weight: 800; }
+
+    .score-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin: 0 0 28px; overflow-x: auto; display: block; }
+    .score-table th, .score-table td { padding: 8px 10px; text-align: center; border: 1px solid #e0e6f0; white-space: nowrap; }
+    .score-table th { background: #1a2744; color: #fff; font-weight: 700; }
+    .score-table .score-team { text-align: left; font-weight: 800; padding-left: 12px; }
+    .score-table .score-total { font-weight: 900; background: #f0f4ff; }
+    .score-table .score-hanshin { color: #c0392b; }
+    .score-table .score-yakult  { color: #006233; }
+
+    .pitcher-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin: 0 0 28px; }
+    .pitcher-table th { background: #374151; color: #fff; padding: 8px 10px; text-align: center; font-weight: 700; white-space: nowrap; }
+    .pitcher-table td { padding: 7px 10px; border-bottom: 1px solid #e8ebf0; text-align: center; color: #2a2a2a; }
+    .pitcher-table tr:last-child td { border-bottom: none; }
+    .pitcher-table .p-name { text-align: left; font-weight: 700; }
+
+    .grade-badge { font-size: 0.76rem; font-weight: 900; padding: 2px 8px; border-radius: 4px; }
+    .gb-s  { background: #c0392b; color: #fff; }
+    .gb-ap { background: #1a4fa0; color: #fff; }
+    .gb-a  { background: #2a75c7; color: #fff; }
+    .gb-am { background: #5b8fa8; color: #fff; }
+    .gb-bp { background: #27ae60; color: #fff; }
+    .gb-b  { background: #718096; color: #fff; }
+    .gb-c  { background: #9e9e9e; color: #fff; }
+
+    .kp-strip { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border: 1px solid #e0e6f0; border-radius: 10px; overflow: hidden; margin: 20px 0 28px; }
+    @media (max-width: 560px) { .kp-strip { grid-template-columns: 1fr; } }
+    .kp-cell { padding: 18px 18px 16px; background: #fff; border-right: 1px solid #e0e6f0; display: flex; flex-direction: column; gap: 6px; }
+    .kp-cell:last-child { border-right: none; }
+    @media (max-width: 560px) { .kp-cell { border-right: none; border-bottom: 1px solid #e0e6f0; } .kp-cell:last-child { border-bottom: none; } }
+    .kp-n { font-size: 0.62rem; font-weight: 900; letter-spacing: .12em; color: var(--color-accent-sports); }
+    .kp-title { font-size: 0.9rem; font-weight: 800; color: var(--color-primary); line-height: 1.4; }
+    .kp-body { font-size: 0.78rem; color: #555; line-height: 1.65; }
+
+    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
+    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: var(--color-accent-gold); margin-bottom: 14px; }
+    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
+    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
+
+    .channel-cta { background: linear-gradient(135deg,#0f1e38,#1a3460); border-radius: 12px; padding: 24px 26px; margin: 28px 0; text-align: center; }
+    .channel-cta p { font-size: 0.88rem; color: rgba(255,255,255,0.8); margin-bottom: 16px; }
+    .cta-btn-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: var(--color-accent-sports); color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
+    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
+
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
+    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
+    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e8ecf4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: var(--color-accent-sports); }
+    .toc-n { font-size: 0.62rem; font-weight: 900; color: var(--color-accent-sports); flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
+    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
+    .sidebar-profile { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; text-align: center; }
+    .sidebar-profile-name { font-size: 0.9rem; font-weight: 800; color: var(--color-primary); margin-bottom: 6px; }
+    .sidebar-profile p { font-size: 0.78rem; color: #666; line-height: 1.7; margin: 0 0 14px; }
+    .sp-btn-col { display: flex; flex-direction: column; gap: 8px; }
+    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
+
+    .eval-table-compact { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin: 0 0 28px; }
+    .eval-table-compact th { background: #1a2744; color: #fff; padding: 8px 10px; text-align: left; font-weight: 700; white-space: nowrap; }
+    .eval-table-compact td { padding: 7px 10px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
+    .eval-table-compact tr:last-child td { border-bottom: none; }
+    .eval-table-compact tr:nth-child(even) td { background: #f8fafd; }
+
+    /* Strikeout highlight */
+    .k-badge { display: inline-block; background: #c0392b; color: #fff; font-size: 0.78rem; font-weight: 900; padding: 2px 9px; border-radius: 4px; margin-left: 4px; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../" class="site-logo">
+        <span class="logo-main">AIデータ二刀流ブログ</span>
+        <span class="logo-sub">野球・競馬 × 経済・株式</span>
+      </a>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="../../">TOP</a>
+        <a href="../../hanshin-keiba/" class="active">野球・競馬</a>
+        <a href="../../economy-stocks/">経済・株式</a>
+        <a href="../../channels/">チャンネル</a>
+        <a href="../../profile/">運営について</a>
+        <a href="../../contact/">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="../../">TOP</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../hanshin-keiba/">野球・競馬</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>才木16奪三振 甲子園開幕戦制圧 2026.04.07</span>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <div class="art-hero">
+
+    <div class="ogp-hero">
+      <div class="ogp-bg-dots"></div>
+      <div class="ogp-yellow"></div>
+      <div class="ogp-dark"></div>
+      <div class="ogp-texture"></div>
+
+      <div class="ogp-left">
+        <div class="ogp-year-badge"><span>2026.04.07 阪神 9-3 ヤクルト</span></div>
+        <div class="ogp-main-title">才木 16奪三振</div>
+        <div class="ogp-sub-title">甲子園開幕戦制圧</div>
+        <div class="ogp-method-badge"><span>甲子園開幕戦</span></div>
+      </div>
+
+      <div class="ogp-right">
+        <div class="ogp-topic-box">
+          <div class="ogp-topic-header">
+            <span class="ogp-topic-num">01</span>
+            <span class="ogp-topic-title">異次元の16K</span>
+          </div>
+          <div class="ogp-topic-desc">8回105球で歴史的内容</div>
+        </div>
+        <div class="ogp-topic-box">
+          <div class="ogp-topic-header">
+            <span class="ogp-topic-num">02</span>
+            <span class="ogp-topic-title">ジェット風船復活</span>
+          </div>
+          <div class="ogp-topic-desc">7年ぶりの甲子園名物</div>
+        </div>
+        <div class="ogp-topic-box">
+          <div class="ogp-topic-header">
+            <span class="ogp-topic-num">03</span>
+            <span class="ogp-topic-title">森下・佐藤アベック弾</span>
+          </div>
+          <div class="ogp-topic-desc">打線の理想形が見えた</div>
+        </div>
+        <div class="ogp-topic-box">
+          <div class="ogp-topic-header">
+            <span class="ogp-topic-num">04</span>
+            <span class="ogp-topic-title">ヤクルト守乱</span>
+          </div>
+          <div class="ogp-topic-desc">4失策が大量失点に直結</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="art-hero-title-block">
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-sports">阪神タイガース</span>
+        <span class="art-cat-badge art-cat-sports">試合振り返り</span>
+        <span class="art-cat-badge art-cat-gold">甲子園開幕戦</span>
+      </div>
+      <h1 class="art-hero-h1">
+        才木浩人16奪三振の衝撃　ヤクルト守乱を逃さなかった阪神の強さ【2026.04.07 阪神9-3ヤクルト】
+      </h1>
+      <div class="art-hero-meta">
+        <span>2026年4月7日</span>
+        <span>AIデータ二刀流ブログ</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== LAYOUT ===== -->
+  <div class="art-layout">
+
+    <main class="art-body">
+
+      <img src="thumb.png" alt="2026年4月7日 阪神vsヤクルト 甲子園開幕戦" style="width:100%;border-radius:8px;margin:16px 0;">
+
+      <div class="summary-box">
+        <div class="summary-box-title">THIS ARTICLE COVERS</div>
+        <ul>
+          <li>才木浩人の16奪三振が、なぜ数字以上に圧倒的だったのか</li>
+          <li>ヤクルトの守備ミスが、試合の流れをどう変えたのか</li>
+          <li><strong>小川泰弘は本当に崩れていたのか</strong>、それとも不運だったのか</li>
+          <li>森下翔太と佐藤輝明の一発が、なぜ今後の阪神打線の希望になるのか</li>
+          <li>甲子園開幕戦を通して見えた、阪神の強みと今後の課題</li>
+        </ul>
+      </div>
+
+      <p>
+        甲子園開幕戦は、結果だけ見れば阪神の快勝だった。ヤクルト相手に9対3。森下翔太と佐藤輝明にホームランが飛び出し、先発の才木浩人は8回16奪三振という圧巻の内容で試合を支配した。まさに「強い阪神」を印象づける一戦だった。
+      </p>
+      <p>
+        ただ、この試合は単なる圧勝で片づけるには惜しい。ヤクルトは守備の乱れが大量失点に直結し、小川泰弘は失点の数字ほど内容が悪かったわけではなかった。それでもなお、最終的に阪神が勝っただろうと思わせるだけの材料があった。その中心にいたのが才木だった。
+      </p>
+
+      <div class="hlbox">
+        <p>そして7年ぶりに戻ってきた<strong>ジェット風船</strong>も含めて、この夜は「甲子園が帰ってきた」と感じさせる特別な一戦でもあった。</p>
+      </div>
+
+      <!-- SECTION 1 -->
+      <div class="sec-head" id="sec-result">
+        <span class="sec-num">01</span>
+        <h2>試合結果と主要スタッツ</h2>
+        <span class="sec-head-en">GAME RESULT</span>
+      </div>
+
+      <table class="score-table">
+        <thead>
+          <tr>
+            <th class="score-team">チーム</th>
+            <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th>
+            <th class="score-total">計</th><th>安</th><th>失</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="score-team score-yakult">ヤクルト</td>
+            <td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td>
+            <td class="score-total">3</td><td>5</td><td>4</td>
+          </tr>
+          <tr>
+            <td class="score-team score-hanshin">阪神</td>
+            <td>0</td><td>0</td><td>0</td><td>1</td><td>4</td><td>2</td><td>0</td><td>2</td><td>0</td>
+            <td class="score-total">9</td><td>11</td><td>1</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>スタッツ</th><th class="team-hanshin">阪神</th><th class="team-yakult">ヤクルト</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>得点</td><td>9</td><td>3</td></tr>
+          <tr><td>安打</td><td>11</td><td>5</td></tr>
+          <tr><td>本塁打</td><td>2（森下・佐藤）</td><td>1</td></tr>
+          <tr><td>失策</td><td>1</td><td>4</td></tr>
+          <tr><td>チーム奪三振</td><td>18</td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <!-- SECTION 2 -->
+      <div class="sec-head" id="sec-flow">
+        <span class="sec-num">02</span>
+        <h2>試合の流れ — 分岐点ごとに読む</h2>
+        <span class="sec-head-en">GAME FLOW</span>
+      </div>
+
+      <p class="sec-sub">序盤：寒さの中で始まった、緊張感のある立ち上がり</p>
+      <p>
+        この日はとにかく寒かった。サンタナが顔を覆うほどの防寒をしていたことからも、コンディションの厳しさは伝わってきた。序盤は小川もすんなりとは崩れず、才木は立ち上がりから明らかに球が走っていた。3回終了時点で5者連続を含む6奪三振。早い段階から「今日は普通ではない」という雰囲気が出ていた。
+      </p>
+
+      <p class="sec-sub">4回裏：まずはヤクルトのミスで阪神が追いつく</p>
+      <p>
+        阪神は2アウトから佐藤輝明が内野安打で出塁し、大山悠輔もヒット。木浪聖也の打球が二ゴロになったが、ヤクルト二塁手が後逸。これで阪神は同点に追いついた。2アウトから主軸がつないだことで、守備側にプレッシャーをかけた結果でもあった。
+      </p>
+
+      <div class="hlbox">
+        <p><strong>5回裏のサンタナ落球が試合最大の分岐点。</strong>先頭の福島圭音がヒット、才木が送りバント。ここで近本光司のレフトフライをサンタナが落球。中野拓夢が犠牲フライで勝ち越し、続けて<strong>森下翔太が甲子園今季初の勝ち越し2ランを放った</strong>。試合は一気に阪神ペースになった。</p>
+      </div>
+
+      <p class="sec-sub">6回裏：主軸が完全に仕留める</p>
+      <p>
+        6回もヤクルトのミスが絡む。2アウト無走者から四球とエラー、さらに四球で満塁。ここで佐藤輝明がセンターへ2点タイムリーを放った。大振りではなく、状況に応じた軽打で仕事をしたことが印象的だった。四番としての成長を感じさせる打席だった。
+      </p>
+
+      <p class="sec-sub">8回裏：佐藤輝明が甲子園で今季1号</p>
+      <p>
+        中野が出塁し、佐藤に5打席目。センターバックスクリーンへの今季第1号。しかも森下に続くアベック弾だった。佐藤はこの日5打数4安打4打点。数字でも内容でも、主役級の存在感だった。
+      </p>
+
+      <p class="sec-sub">才木が16奪三振で降板</p>
+      <p>
+        才木は8回を投げ切って105球、16奪三振。セ・リーグ記録級の内容でマウンドを降りた。9回に行かせるべきだったのではないか、という声もあった。球数的には見たかったが、シーズン序盤の管理判断にも理はある。それでも9回を見たかったと思わせる、この日の才木がどれだけ圧倒的だったかが分かる。
+      </p>
+
+      <!-- SECTION 3 -->
+      <div class="sec-head" id="sec-pitchers">
+        <span class="sec-num">03</span>
+        <h2>投手成績</h2>
+        <span class="sec-head-en">PITCHING STATS</span>
+      </div>
+
+      <p class="sec-sub">阪神投手陣</p>
+      <table class="pitcher-table">
+        <thead>
+          <tr><th class="p-name">投手</th><th>回</th><th>球数</th><th>被安打</th><th>奪三振</th><th>失点</th><th>自責</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="p-name">才木浩人 <span class="k-badge">16K</span></td>
+            <td>8.0</td><td>105</td><td>5</td><td>16</td><td>3</td><td>2</td>
+          </tr>
+          <tr>
+            <td class="p-name">岩崎優</td>
+            <td>1.0</td><td>—</td><td>0</td><td>2</td><td>0</td><td>0</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="hlbox">
+        <p><strong>才木の凄さは16奪三振という数字だけではない。</strong>三振を量産しながら、球数が破綻していないことが大きい。フォークは「空振りを取る球」と「ゾーンに残しても空振りを取れる球」の2種類が機能していた。8回105球という密度は異常値と言っていい。</p>
+      </div>
+
+      <!-- SECTION 4 -->
+      <div class="sec-head" id="sec-pivot">
+        <span class="sec-num">04</span>
+        <h2>勝負の分岐点 5選</h2>
+        <span class="sec-head-en">TURNING POINTS</span>
+      </div>
+
+      <div class="kp-strip">
+        <div class="kp-cell">
+          <div class="kp-n">分岐 01</div>
+          <div class="kp-title">4回裏の同点劇</div>
+          <div class="kp-body">2アウトから佐藤・大山がつなぎ、木浪の二ゴロでヤクルトに失策が出た。本来なら無失点で終われる場面で追いつかれ、小川に精神的負荷がかかった。</div>
+        </div>
+        <div class="kp-cell">
+          <div class="kp-n">分岐 02</div>
+          <div class="kp-title">5回サンタナ落球</div>
+          <div class="kp-body">外野の落球が致命傷に近い。ここから中野の犠飛、森下の2ランへとつながり、試合の緊張感は一気に崩れた。</div>
+        </div>
+        <div class="kp-cell">
+          <div class="kp-n">分岐 03</div>
+          <div class="kp-title">森下の勝ち越し2ラン</div>
+          <div class="kp-body">流れが阪神に来たところで森下が一発で持っていった。長打で一気に差を広げたことで、ヤクルト側は立て直す時間を失った。</div>
+        </div>
+      </div>
+
+      <div class="kp-strip">
+        <div class="kp-cell">
+          <div class="kp-n">分岐 04</div>
+          <div class="kp-title">6回佐藤の2点タイムリー</div>
+          <div class="kp-body">阪神が相手のミスを逃さず、四番が強振ではなく状況対応で返した。今の佐藤がホームランだけの打者ではなくなりつつあることを示す打席。</div>
+        </div>
+        <div class="kp-cell">
+          <div class="kp-n">分岐 05</div>
+          <div class="kp-title">8回佐藤の今季1号</div>
+          <div class="kp-body">甲子園開幕戦の象徴的な一発。森下とのアベック弾で、今後の阪神打線の理想形を見せた。</div>
+        </div>
+        <div class="kp-cell" style="background:#f7f9fc;">
+          <div class="kp-n">補足</div>
+          <div class="kp-title">小川の"不運"</div>
+          <div class="kp-body">ヤクルトの大量失点は守備の乱れが大きく、小川の内容は失点数字ほど崩壊ではなかった。ここはきちんと切り分けておきたい。</div>
+        </div>
+      </div>
+
+      <!-- SECTION 5 -->
+      <div class="sec-head" id="sec-eval">
+        <span class="sec-num">05</span>
+        <h2>選手ごとの評価</h2>
+        <span class="sec-head-en">PLAYER RATINGS</span>
+      </div>
+
+      <table class="eval-table-compact">
+        <thead>
+          <tr><th>選手名</th><th>評価</th><th>良かった点</th><th>課題・次戦への見方</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>才木浩人</strong></td>
+            <td><span class="grade-badge gb-s">S</span></td>
+            <td>8回16奪三振。ストレートとフォークが圧巻</td>
+            <td>この内容を継続できればエース格として存在感が急上昇</td>
+          </tr>
+          <tr>
+            <td><strong>佐藤輝明</strong></td>
+            <td><span class="grade-badge gb-s">S</span></td>
+            <td>5打数4安打4打点。軽打と1号で四番の幅を示す</td>
+            <td>長打だけでなく対応力も増している。今年の軸への期待大</td>
+          </tr>
+          <tr>
+            <td><strong>森下翔太</strong></td>
+            <td><span class="grade-badge gb-ap">A+</span></td>
+            <td>勝ち越し2ラン。流れを完全に阪神へ引き寄せた</td>
+            <td>クリーンアップの中心として勝負所を任される存在</td>
+          </tr>
+          <tr>
+            <td><strong>大山悠輔</strong></td>
+            <td><span class="grade-badge gb-bp">B+</span></td>
+            <td>エラー後にヒットで取り返し、今季初マルチ</td>
+            <td>打撃が戻れば打線の隙がさらに減る</td>
+          </tr>
+          <tr>
+            <td><strong>中野拓夢</strong></td>
+            <td><span class="grade-badge gb-am">A−</span></td>
+            <td>勝ち越し犠飛で最低限をきっちり実行</td>
+            <td>こうした地味に大きい仕事が今後も重要</td>
+          </tr>
+          <tr>
+            <td><strong>福島圭音</strong></td>
+            <td><span class="grade-badge gb-am">A−</span></td>
+            <td>甲子園チーム初ヒット。存在感を示した</td>
+            <td>若手枠を超えた戦力感を出せるか注目</td>
+          </tr>
+          <tr>
+            <td><strong>岩崎優</strong></td>
+            <td><span class="grade-badge gb-a">A</span></td>
+            <td>2奪三振で3者凡退。終盤の安心感を維持</td>
+            <td>引き続き終盤の柱として重要</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- SECTION 6 -->
+      <div class="sec-head" id="sec-outlook">
+        <span class="sec-num">06</span>
+        <h2>今後どう見るか</h2>
+        <span class="sec-head-en">OUTLOOK</span>
+      </div>
+
+      <p>
+        最も大きいのは、<strong>才木が本当に一段上がれるのかという点</strong>だ。この日の投球は、単に「調子が良かった」で終わらせるには惜しい内容だった。フォーク改良の手応えまで見えているなら、今後は相手や球場を問わず、エース級の安定感を期待したくなる。
+      </p>
+      <p>
+        打線では、<strong>森下・佐藤・大山の並びがどこまで本物になるか</strong>が大きい。森下は勝負所で一発を打てる。佐藤は軽打もできる。大山に当たりが戻れば、相手投手にとって逃げ道がかなり減る。この3人が並んで働く形は、今年の阪神打線の理想そのものだ。
+      </p>
+      <p>
+        上位打線については、近本と中野がもっと出れば、得点期待値はさらに上がる。今回も中野の犠飛のような地味に大きい仕事はあったが、ここが本格的に機能すると、阪神はもっと手をつけにくくなる。
+      </p>
+
+      <hr class="art-hr">
+
+      <div class="art-summary">
+        <div class="art-summary-label">3 POINT SUMMARY</div>
+        <ol>
+          <li>才木浩人が16奪三振の圧巻投球で、甲子園開幕戦を完全に支配した。</li>
+          <li>ヤクルト守備の乱れで試合は大きく傾いたが、阪神はそのチャンスを逃さず主軸が仕留めた。</li>
+          <li>森下と佐藤のアベック弾、大山の復調気配まで含めて、阪神打線の理想形が少し見えた一戦だった。</li>
+        </ol>
+      </div>
+
+      <div class="channel-cta">
+        <p>動画でも阪神のデータ分析を配信中。チャンネル登録でシーズン最新情報をチェック！</p>
+        <div class="cta-btn-row">
+          <a href="https://www.youtube.com/@AI-Baseball-Horse" target="_blank" rel="noopener" class="social-btn social-yt">▶ AI二刀流チャンネル</a>
+          <a href="https://x.com/AI_yakyu_Keiba" target="_blank" rel="noopener" class="social-btn social-x">𝕏 最新情報をフォロー</a>
+        </div>
+      </div>
+
+      <div class="related-head">RELATED ARTICLES</div>
+      <div class="related-list">
+        <a href="../2026-04-05-hiroshima-loss/" class="related-item">
+          <span class="related-tag">野球</span>
+          <span class="related-title">負けたのに強さが見えた阪神 — 広島サヨナラ負け分析 2026.04.05</span>
+        </a>
+        <a href="../2026-04-08-yakult-loss/" class="related-item">
+          <span class="related-tag">野球</span>
+          <span class="related-title">ヤクルト中継ぎ壁 終盤で逆転許す — 阪神2-3ヤクルト 2026.04.08</span>
+        </a>
+      </div>
+
+    </main>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="art-sidebar">
+
+      <div class="sidebar-toc">
+        <div class="sidebar-toc-label">CONTENTS</div>
+        <ul class="toc-list">
+          <li><a href="#sec-result"><span class="toc-n">01</span>試合結果・スタッツ</a></li>
+          <li><a href="#sec-flow"><span class="toc-n">02</span>試合の流れ</a></li>
+          <li><a href="#sec-pitchers"><span class="toc-n">03</span>投手成績</a></li>
+          <li><a href="#sec-pivot"><span class="toc-n">04</span>勝負の分岐点</a></li>
+          <li><a href="#sec-eval"><span class="toc-n">05</span>選手ごとの評価</a></li>
+          <li><a href="#sec-outlook"><span class="toc-n">06</span>今後どう見るか</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-meta">
+        <div class="sidebar-meta-label">TAGS</div>
+        <div class="tag-cloud">
+          <span class="tag-pill">阪神タイガース</span>
+          <span class="tag-pill">才木浩人</span>
+          <span class="tag-pill">佐藤輝明</span>
+          <span class="tag-pill">森下翔太</span>
+          <span class="tag-pill">大山悠輔</span>
+          <span class="tag-pill">中野拓夢</span>
+          <span class="tag-pill">近本光司</span>
+          <span class="tag-pill">ヤクルトスワローズ</span>
+          <span class="tag-pill">甲子園</span>
+          <span class="tag-pill">ジェット風船</span>
+          <span class="tag-pill">試合分析</span>
+        </div>
+      </div>
+
+      <div class="sidebar-profile">
+        <div class="sidebar-profile-name">AIデータ二刀流ブログ</div>
+        <p>野球・競馬と経済・株式の2軸で、データとAIを活用した分析コンテンツを発信。</p>
+        <div class="sp-btn-col">
+          <a href="https://www.youtube.com/@AI-Baseball-Horse" target="_blank" rel="noopener" class="social-btn social-yt" style="font-size:0.78rem;">▶ AI二刀流チャンネル</a>
+          <a href="https://www.youtube.com/@AI-economy-radio" target="_blank" rel="noopener" class="social-btn social-yt" style="font-size:0.78rem;">▶ 経済ラジオ</a>
+          <a href="https://x.com/AI_yakyu_Keiba" target="_blank" rel="noopener" class="social-btn social-x" style="font-size:0.78rem;">𝕏 フォロー</a>
+        </div>
+      </div>
+
+    </aside>
+
+  </div><!-- /art-layout -->
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-name">AIデータ二刀流ブログ</div>
+        <p>野球・競馬と経済・株式の2軸で、データとAIを活用した分析コンテンツを発信するメディアブログ。</p>
+        <div class="footer-social">
+          <a href="https://www.youtube.com/@AI-economy-radio" target="_blank" rel="noopener" class="social-btn social-yt">▶ 経済ラジオ</a>
+          <a href="https://www.youtube.com/@AI-Baseball-Horse" target="_blank" rel="noopener" class="social-btn social-yt">▶ AI二刀流</a>
+          <a href="https://x.com/AI_yakyu_Keiba" target="_blank" rel="noopener" class="social-btn social-x">𝕏 フォロー</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>コンテンツ</h4>
+        <nav class="footer-nav">
+          <a href="../../hanshin-keiba/">野球・競馬データ分析</a>
+          <a href="../../economy-stocks/">経済・時事・株式分析</a>
+          <a href="../../channels/">YouTubeチャンネル</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>サイト情報</h4>
+        <nav class="footer-nav">
+          <a href="../../profile/">運営について</a>
+          <a href="../../privacy-policy/">プライバシーポリシー</a>
+          <a href="../../contact/">お問い合わせ</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 AIデータ二刀流ブログ. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>
