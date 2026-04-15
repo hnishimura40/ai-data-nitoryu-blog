@@ -121,10 +121,26 @@ nav.breadcrumb li a:hover {
   box-shadow: 0 8px 32px rgba(0,0,0,0.45);
 }
 
-/* ── 6. メインコンテンツ ─────────────────────────────────── */
-/* style.css の .main-content は padding: 40px 0 60px なので上書き */
-/* ただし各記事のインラインスタイルが優先されるので、ここは不要な場合も */
-/* body.art-page .main-content は記事インラインに任せる */
+/* ── 6. メインコンテンツ・記事グリッド ──────────────────── */
+/* art-layout は記事インライン <style> で grid 定義されている。
+   グリッドアイテムに min-width:0 がないと 1fr トラックを超えて溢れるので
+   article.css からまとめて指定する（インラインより後に読み込まれるので有効） */
+.art-layout {
+  overflow: hidden;        /* グリッド全体のはみ出しをクリップ */
+}
+.art-body,
+article.art-body {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+.sidebar {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
 
 /* ── 7. テーブルのスクロール対応 ─────────────────────────── */
 /* テーブルを囲む .data-table-wrap があれば自動スクロール */
@@ -227,6 +243,19 @@ nav.breadcrumb li a:hover {
   .main-content {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+  .art-layout {
+    grid-template-columns: 1fr !important;
+    overflow: hidden;
+  }
+  .art-body,
+  article.art-body {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-x: hidden;
   }
 }
 
