@@ -101,12 +101,21 @@
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
 
-    @media (max-width: 560px) {
+    /* 横スクロール禁止 */
+    html, body { overflow-x: hidden; max-width: 100%; }
+
+    @media (max-width: 640px) {
+      .post-thumb { width: 120px; }
+      .post-title { font-size: .88rem; }
+      .post-excerpt { display: none; }
+    }
+    @media (max-width: 480px) {
       .post-card { flex-direction: column; }
       .post-thumb { width: 100%; height: 0; padding-bottom: 52%; position: relative; }
       .post-thumb img, .post-thumb-ph { position: absolute; inset: 0; width: 100%; height: 100%; }
       .post-body { padding: 12px 14px 14px; }
       .post-title { font-size: .9rem; }
+      .post-excerpt { display: -webkit-box; }
     }
 
     .pagination {

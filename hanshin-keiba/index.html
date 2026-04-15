@@ -159,8 +159,17 @@
       overflow: hidden;
     }
 
+    /* ─ 横スクロール禁止 ─ */
+    html, body { overflow-x: hidden; max-width: 100%; }
+
+    /* ─ SP中間: サムネイル幅を縮める ─ */
+    @media (max-width: 640px) {
+      .post-thumb { width: 120px; }
+      .post-title { font-size: .88rem; }
+      .post-excerpt { display: none; }   /* 狭い幅では抜粋を非表示 */
+    }
     /* ─ SP: カードを縦積み ─ */
-    @media (max-width: 560px) {
+    @media (max-width: 480px) {
       .post-card { flex-direction: column; }
       .post-thumb {
         width: 100%;
@@ -177,6 +186,7 @@
       }
       .post-body { padding: 12px 14px 14px; }
       .post-title { font-size: .9rem; }
+      .post-excerpt { display: -webkit-box; } /* 縦積み時は抜粋を復活 */
     }
 
     /* ─ ページネーション ─ */
