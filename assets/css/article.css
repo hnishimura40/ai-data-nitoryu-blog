@@ -11,11 +11,28 @@ body {
 
 /* ── 2. ヘッダー内ロゴ（記事ページ版） ───────────────────── */
 .site-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
   font-size: 1rem;
   font-weight: 800;
   color: #fff;
   letter-spacing: .04em;
   line-height: 1.2;
+}
+.logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
+}
+/* logo-main/logo-sub を持つ場合のラッパー */
+.site-logo > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
 .site-logo span {
   color: #facc15;
