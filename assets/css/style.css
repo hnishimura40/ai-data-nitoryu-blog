@@ -35,6 +35,8 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -43,6 +45,8 @@ body {
   color: var(--color-text);
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 a {
@@ -1650,4 +1654,60 @@ ul { list-style: none; }
   .page-hero {
     padding: 32px 20px 28px;
   }
+}
+
+/* ============================================================
+   ブログ一覧 ダークモード（BLOG LISTING CSS より後ろに配置）
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  /* ─ カテゴリフィルターバー ─ */
+  .cat-filter-bar {
+    background: #0a1628;
+    border-bottom-color: #1e3a5f;
+  }
+  .cat-btn { color: #94a3b8; }
+  .cat-btn:hover  { color: #f87171; }
+  .cat-btn.active { color: #f87171; border-bottom-color: #f87171; }
+
+  /* ─ 記事カード ─ */
+  .post-card {
+    background: #0d1a2d;
+    box-shadow: 0 2px 12px rgba(0,0,0,.3);
+  }
+  .post-card:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,.4);
+  }
+  .post-thumb { background: #0a1628; }
+  .post-thumb-ph { background: rgba(192,57,43,.12); }
+  .post-title   { color: #e2e8f0; }
+  .post-excerpt { color: #64748b; }
+  .post-date    { color: #475569; }
+  .post-card:hover .post-title { color: #f87171; }
+
+  /* ─ ページネーション ─ */
+  .page-link {
+    background: #0d1a2d;
+    color: #e2e8f0;
+    border-color: #1e3a5f;
+  }
+  .page-link:hover { background: #0a1628; }
+
+  /* ─ サイドバー ─ */
+  .widget {
+    background: #0d1a2d;
+    box-shadow: 0 2px 12px rgba(0,0,0,.3);
+  }
+  .widget-title { background: #060f1e; }
+  .cat-list li  { border-bottom-color: #1e3a5f; }
+  .cat-list li:last-child { border-bottom: none; }
+  .cat-list a   { color: #cbd5e1; }
+  .cat-list a:hover { color: #f87171; }
+  .cat-list a span  { background: #0a1628; color: #64748b; }
+  .archive-list li  { border-bottom-color: #1e3a5f; }
+  .archive-list a   { color: #cbd5e1; }
+  .archive-list a:hover { color: #f87171; }
+  .archive-list a span  { color: #475569; }
+  .side-channel { color: #cbd5e1; border-bottom-color: #1e3a5f; }
+  .side-channel:hover { color: #f87171; }
+  .x-icon { background: #1e2936; }
 }

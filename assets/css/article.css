@@ -389,4 +389,80 @@ nav.breadcrumb li a:hover {
     background: #0d1e35;
     border-top-color: #1e3a5f;
   }
+
+  /* ── 記事本文テキスト（旧スタイル記事対応 !important 必須） ─ */
+  .art-body p      { color: #cbd5e1 !important; }
+  .art-body li     { color: #cbd5e1 !important; }
+  .art-body strong { color: #e2e8f0 !important; }
+  article p        { color: #cbd5e1 !important; }
+  article li       { color: #cbd5e1 !important; }
+  article strong   { color: #e2e8f0 !important; }
+
+  /* ── セクション見出し ─────────────────────────────────────── */
+  .sec-head        { border-bottom-color: #1e3a5f !important; }
+  .sec-head h2,
+  .sec-head h3     { color: #e2e8f0 !important; }
+  .sec-num         { background: rgba(192,57,43,.18) !important; color: #f87171 !important; }
+  .sec-sub         { color: #93c5fd !important; border-left-color: #1e3a5f !important; }
+
+  /* ── サマリーボックス ─────────────────────────────────────── */
+  .summary-box {
+    background: #0d1a2d !important;
+    border-color: #1e3a5f !important;
+    border-left-color: #3b82f6 !important;
+  }
+  .summary-box li  { color: #cbd5e1 !important; }
+  .summary-box p   { color: #cbd5e1 !important; }
+
+  /* ── ハイライトボックス ───────────────────────────────────── */
+  .hlbox {
+    background: rgba(250,204,21,.06) !important;
+    border-color: rgba(250,204,21,.25) !important;
+    border-left-color: #facc15 !important;
+  }
+  .hlbox p, .hlbox-red p { color: #e2e8f0 !important; }
+  .hlbox.red, .hlbox-red {
+    background: rgba(239,68,68,.07) !important;
+    border-left-color: #ef4444 !important;
+  }
+
+  /* ── データテーブル ───────────────────────────────────────── */
+  .data-table td,
+  .score-table td,
+  .eval-table td,
+  .eval-table-compact td {
+    color: #cbd5e1 !important;
+    border-bottom-color: #1e3a5f !important;
+  }
+  .data-table tr:nth-child(even) td,
+  .score-table tr:nth-child(even) td,
+  .eval-table tr:nth-child(even) td,
+  .eval-table-compact tr:nth-child(even) td {
+    background: rgba(30,58,95,.2) !important;
+  }
+  .score-table .highlight-score { color: #e2e8f0 !important; }
+  .score-table .score-total { background: rgba(30,58,95,.3) !important; }
+
+  /* ── TOC（目次）サイドバー ────────────────────────────────── */
+  .sidebar-toc { background: #0d1a2d !important; border-color: #1e3a5f !important; }
+  .toc-list li { border-bottom-color: #1e3a5f !important; }
+  .toc-list a  { color: #94a3b8 !important; }
+
+  /* ── 関連記事 ─────────────────────────────────────────────── */
+  .related-head  { color: #64748b !important; border-bottom-color: #1e3a5f !important; }
+  .related-item  { background: #0d1a2d !important; border-color: #1e3a5f !important; }
+  .related-title { color: #e2e8f0 !important; }
+
+  /* ── サイドバー メタ・プロフィール ───────────────────────── */
+  .sidebar-meta    { background: #0d1a2d !important; border-color: #1e3a5f !important; }
+  .sidebar-profile { background: #0d1a2d !important; border-color: #1e3a5f !important; }
+  .sidebar-meta h3,
+  .sidebar-profile h3 { color: #e2e8f0 !important; }
+  .sidebar-meta p,
+  .sidebar-profile p  { color: #94a3b8 !important; }
+
+  /* ── サイドボックス（共通） ───────────────────────────────── */
+  .side-box            { background: #0d1a2d !important; border-color: #1e3a5f !important; }
+  .side-box h3         { color: #facc15 !important; border-bottom-color: #1e3a5f !important; }
+  .side-box ul li      { color: #94a3b8 !important; border-bottom-color: #0d1f3c !important; }
 }
