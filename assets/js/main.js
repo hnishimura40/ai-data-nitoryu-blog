@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
   (function buildToc() {
     const artBody = document.querySelector('.art-body, article.art-body');
     if (!artBody) return;
+    if (artBody.querySelector('.art-toc')) return; // 既存の目次があればスキップ
 
     // h2・h3 を収集（summary-box の中の見出しは除外）
     const headings = Array.from(
