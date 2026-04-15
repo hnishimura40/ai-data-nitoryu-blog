@@ -104,6 +104,20 @@ nav.breadcrumb li a:hover {
   max-width: min(600px, 100%);
 }
 
+/* ── 5b. 記事イラスト（入り口ビジュアル） ────────────────── */
+.art-illust-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 20px 4px;
+  background: #0a1628;
+}
+.art-illust {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 6px 28px rgba(0,0,0,0.45);
+}
+
 /* ── 6. メインコンテンツ ─────────────────────────────────── */
 /* style.css の .main-content は padding: 40px 0 60px なので上書き */
 /* ただし各記事のインラインスタイルが優先されるので、ここは不要な場合も */
@@ -183,6 +197,16 @@ nav.breadcrumb li a:hover {
   }
   .art-title {
     font-size: 1.2rem !important;
+  }
+}
+
+/* ── SP: 記事イラスト ────────────────────────────────────── */
+@media (max-width: 660px) {
+  .art-illust-wrap {
+    padding: 0 12px 4px;
+  }
+  .art-illust {
+    border-radius: 7px;
   }
 }
 
