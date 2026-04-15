@@ -358,16 +358,6 @@
     </div>
   </footer>
 
-  <script>
-    const navToggle = document.querySelector('.nav-toggle');
-    const siteNav = document.querySelector('.site-nav');
-    if (navToggle && siteNav) {
-      navToggle.addEventListener('click', function() {
-        const expanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', !expanded);
-        siteNav.classList.toggle('open');
-      });
-    }
-  </script>
+  <script src="../../assets/js/main.js"></script>
 </body>
 </html>
