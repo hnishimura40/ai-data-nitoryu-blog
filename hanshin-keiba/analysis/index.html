@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="/assets/img/logo.png">
   <link rel="apple-touch-icon" href="/assets/img/logo.png">
-  <meta name="description" content="野球・競馬データ分析 記事一覧 2ページ目 — 阪神開幕戦・セ・リーグ戦力分析・ロースター分析など。">
-  <title>野球・競馬データ分析 — 2ページ目 | AIデータ二刀流ブログ</title>
+  <meta name="description" content="セ・リーグ戦力分析・阪神ロースター分析・開幕カードまとめを掲載。pWARデータで読む2026年の阪神と各球団の実力。">
+  <title>戦力・ロースター分析 | AIデータ二刀流ブログ</title>
   <link rel="stylesheet" href="../../assets/css/style.css?v=5">
   <style>
     .page-hero img { display: none; }
@@ -45,24 +45,15 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../">野球・競馬データ分析</a>
       <span class="breadcrumb-sep">›</span>
-      <span>2ページ目</span>
+      <span>戦力・ロースター分析</span>
     </div>
   </div>
 
   <!-- PAGE HERO -->
   <div class="page-hero page-hero-sports">
-    <div class="page-hero-tag">SPORTS ANALYTICS — PAGE 2</div>
-    <h1>野球・競馬データ分析</h1>
-    <p>開幕前分析・戦力分析・ロースター整理など過去記事を掲載。</p>
-  </div>
-
-  <!-- CATEGORY FILTER BAR -->
-  <div class="cat-filter-bar">
-    <div class="cat-filter-inner">
-      <button class="cat-btn active" data-filter="all">すべての記事</button>
-      <button class="cat-btn" data-filter="review">試合レビュー</button>
-      <a href="../analysis/" class="cat-btn">戦力・分析</a>
-    </div>
+    <div class="page-hero-tag">ANALYSIS & ROSTER</div>
+    <h1>戦力・ロースター分析</h1>
+    <p>セ・リーグ戦力分析・阪神ロースター分析・開幕カードまとめを掲載。</p>
   </div>
 
   <!-- BLOG WRAP -->
@@ -71,22 +62,7 @@
     <main class="blog-main">
       <div class="post-list" id="post-list">
 
-        <!-- 16. 開幕戦 3/27 -->
-        <a href="../2026-03-27-kaisaku-hansen/" class="post-card" data-cat="review">
-          <div class="post-thumb">
-            <div class="post-thumb-ph">⚾</div>
-          </div>
-          <div class="post-body">
-            <div class="post-meta">
-              <span class="post-cat">試合レビュー</span>
-              <time class="post-date">2026.03.27</time>
-            </div>
-            <h2 class="post-title">開幕黒星 — 竹丸のチェンジアップに沈む阪神 巨人3-1</h2>
-            <p class="post-excerpt">竹丸俊介の変化球に開幕投手が苦しんだ1戦目。試合の流れと打線の課題、今後への見方を整理。</p>
-          </div>
-        </a>
-
-        <!-- 17. 開幕ロースター分析 -->
+        <!-- 1. 開幕ロースター分析 -->
         <a href="../hanshin-opening-roster-2026/" class="post-card" data-cat="analysis">
           <div class="post-thumb">
             <div class="post-thumb-ph">📋</div>
@@ -101,7 +77,7 @@
           </div>
         </a>
 
-        <!-- 18. セ・リーグ戦力分析 -->
+        <!-- 2. セ・リーグ戦力分析 -->
         <a href="../2026-central-league-analysis/" class="post-card" data-cat="analysis">
           <div class="post-thumb">
             <div class="post-thumb-ph">📊</div>
@@ -116,14 +92,22 @@
           </div>
         </a>
 
-      </div><!-- /post-list -->
+        <!-- 3. 開幕カードまとめ -->
+        <a href="../2026-kaimaku-card-summary/" class="post-card" data-cat="analysis">
+          <div class="post-thumb">
+            <div class="post-thumb-ph">⚾</div>
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-cat cat-summary">カードまとめ</span>
+              <time class="post-date">2026.03（開幕前）</time>
+            </div>
+            <h2 class="post-title">阪神はなぜ開幕カードを勝ち越せたのか — 巨人3連戦で見えた強さと不安を整理</h2>
+            <p class="post-excerpt">開幕3連戦の流れと分岐点を整理。才木・高橋遥人の投球と打線の課題を総まとめ。</p>
+          </div>
+        </a>
 
-      <!-- PAGINATION -->
-      <nav class="pagination" aria-label="ページナビゲーション">
-        <a href="../" class="page-link page-prev">← 前へ</a>
-        <a href="../" class="page-link">1</a>
-        <span class="page-current" aria-current="page">2</span>
-      </nav>
+      </div><!-- /post-list -->
 
     </main>
 
@@ -205,16 +189,6 @@
   </footer>
 
   <script src="../../assets/js/main.js"></script>
-  <script>
-    const cards = document.querySelectorAll('.post-card[data-cat]');
-    const btns  = document.querySelectorAll('.cat-btn');
-    btns.forEach(btn =>
-      btn.addEventListener('click', () => {
-        const f = btn.dataset.filter;
-        cards.forEach(c => c.classList.toggle('hidden', f !== 'all' && c.dataset.cat !== f));
-        btns.forEach(b => b.classList.toggle('active', b === btn));
-      })
-    );
-  </script>
+
 </body>
 </html>
