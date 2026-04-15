@@ -104,18 +104,16 @@ nav.breadcrumb li a:hover {
   max-width: min(600px, 100%);
 }
 
-/* ── 5b. 記事イラスト（入り口ビジュアル） ────────────────── */
-.art-illust-wrap {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 0 20px 4px;
-  background: #0a1628;
-}
-.art-illust {
-  width: 100%;
+/* ── 5b. 記事ヒーロー内サムネイル（OGP カード置き換え） ───── */
+.art-thumb-img {
   display: block;
+  width: 100%;
+  max-width: 560px;
+  margin: 20px auto 0;
   border-radius: 10px;
-  box-shadow: 0 6px 28px rgba(0,0,0,0.45);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+  aspect-ratio: 16/9;
+  object-fit: cover;
 }
 
 /* ── 6. メインコンテンツ ─────────────────────────────────── */
@@ -200,12 +198,11 @@ nav.breadcrumb li a:hover {
   }
 }
 
-/* ── SP: 記事イラスト ────────────────────────────────────── */
+/* ── SP: 記事ヒーロー内サムネイル ───────────────────────── */
 @media (max-width: 660px) {
-  .art-illust-wrap {
-    padding: 0 12px 4px;
-  }
-  .art-illust {
+  .art-thumb-img {
+    max-width: 100%;
+    margin: 12px auto 0;
     border-radius: 7px;
   }
 }
