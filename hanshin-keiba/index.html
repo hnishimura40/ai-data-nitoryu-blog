@@ -415,9 +415,10 @@
       topBtns.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
     }
 
-    topBtns.forEach(btn =>
-      btn.addEventListener('click', () => applyFilter(btn.dataset.filter))
-    );
+    topBtns.forEach(btn => {
+      if (!btn.dataset.filter) return; // <a>リンク系はスキップ
+      btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+    });
     sideBtns.forEach(a =>
       a.addEventListener('click', e => {
         e.preventDefault();

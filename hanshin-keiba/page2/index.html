@@ -208,13 +208,14 @@
   <script>
     const cards = document.querySelectorAll('.post-card[data-cat]');
     const btns  = document.querySelectorAll('.cat-btn');
-    btns.forEach(btn =>
+    btns.forEach(btn => {
+      if (!btn.dataset.filter) return; // <a>リンク系はスキップ
       btn.addEventListener('click', () => {
         const f = btn.dataset.filter;
         cards.forEach(c => c.classList.toggle('hidden', f !== 'all' && c.dataset.cat !== f));
         btns.forEach(b => b.classList.toggle('active', b === btn));
-      })
-    );
+      });
+    });
   </script>
 </body>
 </html>
