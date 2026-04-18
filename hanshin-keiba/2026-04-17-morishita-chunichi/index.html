@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/img/logo.png">
+  <link rel="apple-touch-icon" href="/assets/img/logo.png">
+  <meta name="description" content="阪神が中日に2-1で逆転勝ち。森下翔太の決勝弾だけでなく、6回の同点劇、7回表のモレッタ、柳と根尾の明暗まで、試合の分岐点を整理して深掘りする。">
+  <title>森下の一発で終わらせるな　阪神2-1中日、本当の分岐点は6回の綻びと7回のモレッタだった | AIデータ二刀流ブログ</title>
+  <link rel="stylesheet" href="../../assets/css/style.css?v=5">
+  <link rel="stylesheet" href="../../assets/css/article.css?v=7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
+  <style>
+    .art-hero { background: linear-gradient(135deg, #1a1a00 0%, #2a2000 100%); }
+
+    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; padding: 22px 24px 18px; }
+    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
+    .art-cat-sports { background: var(--color-accent-sports); color: #fff; }
+    .art-cat-gold   { background: var(--color-accent-gold);   color: #1a2744; }
+    .art-cat-win    { background: #d97706; color: #fff; }
+    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.85; }
+    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.45); display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
+    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
+
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
+    .art-body strong { color: #1a2744; }
+    .art-body ul { padding-left: 1.4em; margin-bottom: 18px; }
+    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
+
+    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
+    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: var(--color-accent-sports); background: #fff0f0; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
+    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
+    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
+    @media (max-width: 560px) { .sec-head-en { display: none; } }
+    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #d97706; }
+
+    .summary-box { background: linear-gradient(135deg, #fffbf0, #fff8e6); border: 1px solid #e6c96a; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
+    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #d97706; margin-bottom: 12px; }
+    .summary-box ul { margin: 0; }
+    .summary-box li { font-size: 0.87rem; }
+
+    .hlbox { background: linear-gradient(135deg, #fffbf0, #fff8e6); border: 1px solid #e6c96a; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 24px 0; }
+    .hlbox p { margin: 0; font-size: 0.94rem; }
+
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; }
+    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
+    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: #f8fafd; }
+
+    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
+    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
+    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
+    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
+
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: var(--color-accent-sports); color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
+    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
+
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
+    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
+    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e8ecf4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: var(--color-accent-sports); }
+    .toc-n { font-size: 0.62rem; font-weight: 900; color: var(--color-accent-sports); flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
+    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
+    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
+
+    .good-list li { color: #166534; }
+    .bad-list li { color: #7f1d1d; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../" class="site-logo">
+        <img src="/assets/img/logo.png" alt="AIデータ二刀流" class="logo-img" width="40" height="40">
+        <div>
+          <span class="logo-main">AIデータ二刀流ブログ</span>
+          <span class="logo-sub">野球・競馬 × 経済・株式</span>
+        </div>
+      </a>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="../../">TOP</a>
+        <a href="../../hanshin-keiba/" class="active">野球・競馬</a>
+        <a href="../../economy-stocks/">経済・株式</a>
+        <a href="../../channels/">チャンネル</a>
+        <a href="../../profile/">運営について</a>
+        <a href="../../contact/">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="../../">TOP</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../hanshin-keiba/">野球・競馬</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>森下の一発で終わらせるな 阪神2-1中日</span>
+    </div>
+  </div>
+
+  <div class="art-hero">
+    <img src="thumb.png" alt="阪神2-1中日 森下決勝弾" class="art-thumb-img">
+
+    <div class="art-hero-title-block">
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-sports">阪神タイガース</span>
+        <span class="art-cat-badge art-cat-gold">試合分析</span>
+        <span class="art-cat-badge art-cat-win">勝利</span>
+      </div>
+      <h1 class="art-hero-h1">
+        森下の一発で終わらせるな　阪神2-1中日、本当の分岐点は6回の綻びと7回のモレッタだった
+      </h1>
+      <div class="art-hero-meta">
+        <span>2026年4月17日</span>
+        <span>AIデータ二刀流ブログ</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="art-layout">
+    <main class="art-body">
+
+      <div class="summary-box">
+        <div class="summary-box-title">この記事でわかること</div>
+        <ul>
+          <li>6回の左中間交錯が試合をどう動かしたか</li>
+          <li>7回表モレッタの14球制圧（スライダー78.6%）の意味</li>
+          <li>根尾昂の初球150キロを森下翔太が仕留めた決勝弾の詳細</li>
+          <li>村上→モレッタ→ドリス→岩崎リレーの完成度</li>
+          <li>柳裕也と根尾昂の明暗と今後の見方</li>
+        </ul>
+      </div>
+
+      <!-- 試合結果 -->
+      <div class="sec-head" id="sec-result">
+        <span class="sec-num">01</span>
+        <h2>試合結果</h2>
+        <span class="sec-head-en">GAME RESULT</span>
+      </div>
+
+      <table class="data-table">
+        <thead><tr><th>項目</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td>日付</td><td>2026年4月17日（金）甲子園</td></tr>
+          <tr><td>対戦カード</td><td>阪神タイガース vs 中日ドラゴンズ</td></tr>
+          <tr><td>スコア</td><td><strong>阪神 2 - 1 中日</strong>（阪神勝利）</td></tr>
+          <tr><td>勝投手</td><td>村上頌樹（4勝0敗）</td></tr>
+          <tr><td>敗投手</td><td>柳裕也</td></tr>
+          <tr><td>セーブ</td><td>岩崎優（5セーブ）</td></tr>
+          <tr><td>阪神先発</td><td>村上頌樹（6回1失点）</td></tr>
+          <tr><td>中日先発</td><td>柳裕也（6回1失点）</td></tr>
+          <tr><td>本塁打</td><td>森下翔太 7号ソロ（7回）</td></tr>
+          <tr><td>チーム状況</td><td>連敗2で止め、貯金維持</td></tr>
+        </tbody>
+      </table>
+
+      <!-- 試合の流れ -->
+      <div class="sec-head" id="sec-flow">
+        <span class="sec-num">02</span>
+        <h2>試合の流れ</h2>
+        <span class="sec-head-en">GAME FLOW</span>
+      </div>
+
+      <p class="sec-sub">初回：中日が先制、村上は立ち上がりで1点を失う</p>
+      <p>
+        中日は初回2死一、二塁から高橋周平がレフト前へ先制タイムリー。阪神先発・村上頌樹は先に1点を失ったが、大崩れせずゲームメイクを続けた。
+      </p>
+
+      <p class="sec-sub">2〜5回：阪神は形をつくるが、柳を崩し切れない</p>
+      <p>
+        阪神は走者を出しながらも、決定打が出ない。4回には坂本誠志郎の二塁打で好機を広げたが得点にはつながらなかった。柳裕也は球数を要しながらも6回1失点でしのいだ。
+      </p>
+
+      <div class="hlbox">
+        <p>この試合は0-1のまま終盤まで流れた静かな投手戦だった。転機は6回裏に訪れる。</p>
+      </div>
+
+      <p class="sec-sub">6回裏：左中間の交錯が試合を動かす</p>
+      <p>
+        佐藤輝明の打球を追った中堅・花田旭と左翼・細川成也が左中間で交錯。花田のグラブからボールがこぼれ、佐藤輝は一気に三塁へ。続く大山悠輔がレフト前へ適時打を放ち1-1の同点。公式記録上は失策なし。スコアだけ見ると大山のタイムリーだが、守備の綻びがこの回の核心だった。
+      </p>
+
+      <p class="sec-sub">7回表：モレッタが同点の場面をゼロに抑える</p>
+      <p>
+        同点の7回表、阪神はモレッタを投入。14球中11球がスライダー、スライダー割合78.6%。結果は1回1安打無失点2奪三振。次の1点を取りにいける空気を阪神が保った。
+      </p>
+
+      <p class="sec-sub">7回裏：森下翔太が試合を決める一振り</p>
+      <div class="hlbox">
+        <p>1死走者なし。根尾昂の初球150キロストレートを森下翔太が左中間スタンドへ。打球速度174キロ、打球角度25度、飛距離129メートル——阪神2-1と逆転。</p>
+      </div>
+      <p>
+        根尾は初球が甘く入った。打席内容の疑問が残る一方で、その1球を完璧に仕留めた森下の価値は極めて大きい。
+      </p>
+
+      <p class="sec-sub">8・9回：ドリス・岩崎で締める</p>
+      <p>
+        8回はドリス、9回は岩崎優が無失点で逃げ切り。村上→モレッタ→ドリス→岩崎のリレーで中日を1点に封じた。
+      </p>
+
+      <!-- データ -->
+      <div class="sec-head" id="sec-data">
+        <span class="sec-num">03</span>
+        <h2>データで見るポイント</h2>
+        <span class="sec-head-en">DATA ANALYSIS</span>
+      </div>
+
+      <p><strong>チームスタッツ</strong></p>
+      <table class="data-table">
+        <thead><tr><th>項目</th><th>阪神</th><th>中日</th></tr></thead>
+        <tbody>
+          <tr><td>得点</td><td>2</td><td>1</td></tr>
+          <tr><td>安打</td><td>9</td><td>6</td></tr>
+          <tr><td>失策</td><td>0</td><td>0</td></tr>
+          <tr><td>先発</td><td>村上頌樹 6回1失点</td><td>柳裕也 6回1失点</td></tr>
+          <tr><td>本塁打</td><td>森下 7号</td><td>なし</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>森下翔太 決勝弾データ</strong></p>
+      <table class="data-table">
+        <thead><tr><th>項目</th><th>数値</th></tr></thead>
+        <tbody>
+          <tr><td>打球速度</td><td>174〜175キロ</td></tr>
+          <tr><td>打球角度</td><td>25〜26度</td></tr>
+          <tr><td>飛距離</td><td>129メートル</td></tr>
+          <tr><td>球種</td><td>初球ストレート（150キロ）</td></tr>
+          <tr><td>結果</td><td>左中間 決勝7号ソロ</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>モレッタの1イニング</strong></p>
+      <table class="data-table">
+        <thead><tr><th>項目</th><th>数値</th></tr></thead>
+        <tbody>
+          <tr><td>投球数</td><td>14球</td></tr>
+          <tr><td>スライダー</td><td>11球（78.6%）</td></tr>
+          <tr><td>フォーシーム</td><td>3球</td></tr>
+          <tr><td>奪三振</td><td>2</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>根尾昂データ</strong></p>
+      <table class="data-table">
+        <thead><tr><th>項目</th><th>数値</th></tr></thead>
+        <tbody>
+          <tr><td>K/9</td><td>10.13</td></tr>
+          <tr><td>空振り率</td><td>13.0%</td></tr>
+          <tr><td>WHIP</td><td>0.75</td></tr>
+          <tr><td>被ハードヒット率</td><td>41.7%</td></tr>
+        </tbody>
+      </table>
+
+      <figure style="margin: 24px 0;">
+        <img src="img-data.png" alt="阪神2-1中日 試合分析" style="width:100%; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.12);">
+        <figcaption style="font-size:0.75rem; color:#888; text-align:center; margin-top:8px;">試合分析インフォグラフィック（4/17 阪神2-1中日）</figcaption>
+      </figure>
+
+      <!-- 選手評価 -->
+      <div class="sec-head" id="sec-players">
+        <span class="sec-num">04</span>
+        <h2>選手評価</h2>
+        <span class="sec-head-en">PLAYER RATINGS</span>
+      </div>
+
+      <table class="data-table">
+        <thead><tr><th>選手名</th><th>良かった点</th><th>評価</th><th>次戦への見方</th></tr></thead>
+        <tbody>
+          <tr><td><strong>森下翔太</strong></td><td>7回の決勝7号ソロ。場面・内容・打球質すべてが強烈</td><td>A+</td><td>1打席で試合を決められる中軸としての格がさらに上がった</td></tr>
+          <tr><td><strong>モレッタ</strong></td><td>同点の7回を2奪三振無失点。流れを一切渡さなかった</td><td>A</td><td>勝ちを呼び込む中継ぎとして起用の幅が広がる</td></tr>
+          <tr><td><strong>村上頌樹</strong></td><td>6回1失点で試合を残した。悪いなりにまとめた</td><td>A-</td><td>完璧でなくても試合を作れる先発として信頼度は高い</td></tr>
+          <tr><td><strong>大山悠輔</strong></td><td>6回の同点タイムリー。重い空気を変える一打</td><td>A-</td><td>打線のつなぎ役と返す役の両方を担える存在</td></tr>
+          <tr><td><strong>柳裕也</strong></td><td>6回1失点。阪神打線に押し切られず粘った</td><td>A-</td><td>内容は十分。次戦も厄介な相手</td></tr>
+          <tr><td><strong>根尾昂</strong></td><td>中野から三振を奪うなど球威は見せた</td><td>C+</td><td>初球の甘さが被弾を招いた。打たれ方の管理が焦点</td></tr>
+          <tr><td><strong>岩崎優</strong></td><td>9回無失点、5セーブ目</td><td>A-</td><td>終盤の最終ラインとして安定感を保ちたい</td></tr>
+        </tbody>
+      </table>
+
+      <!-- 勝負の分岐点 -->
+      <div class="sec-head" id="sec-turning">
+        <span class="sec-num">05</span>
+        <h2>勝負の分岐点</h2>
+        <span class="sec-head-en">TURNING POINTS</span>
+      </div>
+
+      <p class="sec-sub">1. 初回の先制点を1点で止めた村上頌樹</p>
+      <p>初回に先制を許しながらも1点で踏みとどまった村上の投球が、この試合の粘りの起点となった。大崩れしないことがゲームメイクの根幹だった。</p>
+
+      <p class="sec-sub">2. 6回の左中間交錯—公式記録ゼロでも試合を動かした</p>
+      <p>花田と細川の交錯は公式記録に残らない。それでも試合を1-1の同点に動かした実質的な要因がここにある。スコアシートに映らない綻びが試合を変えた典型だった。</p>
+
+      <p class="sec-sub">3. 7回表のモレッタ1イニング制圧</p>
+      <p>同点で迎えた7回表を2奪三振無失点で抑えたことで、阪神は攻撃に入るまでの心理的余裕を保った。14球中11球スライダーの徹底ぶりが機能した。</p>
+
+      <p class="sec-sub">4. 根尾の初球と森下の一振り</p>
+      <p>根尾の初球150キロが甘く入った。しかしその1球を逃さず左中間スタンドへ運んだ森下の決断と技術が、試合を決定づけた。失投と好打が重なった一瞬だった。</p>
+
+      <p class="sec-sub">5. 重たい1点差ゲームを拾えたこと</p>
+      <p>1点差ゲームを終盤に拾える力は、シーズンを通じた順位を大きく左右する。連敗を2で止めたこの1勝は、数字以上に意味が重い。</p>
+
+      <!-- まとめ -->
+      <div class="sec-head" id="sec-summary">
+        <span class="sec-num">06</span>
+        <h2>まとめ・今後の見方</h2>
+        <span class="sec-head-en">SUMMARY</span>
+      </div>
+
+      <p><strong>良かった点</strong></p>
+      <ul class="good-list">
+        <li>村上頌樹が6回1失点で試合を壊さなかった</li>
+        <li>6回に相手の綻びを確実に同点へ結びつけた</li>
+        <li>モレッタが同点の7回を制圧</li>
+        <li>森下翔太が重い試合を一振りで決めた</li>
+        <li>村上→モレッタ→ドリス→岩崎のリレーが完璧にハマった</li>
+        <li>連敗を2で止める勝ち方として内容がかなり良かった</li>
+      </ul>
+
+      <p><strong>課題</strong></p>
+      <ul class="bad-list">
+        <li>序盤の好機をもっと早く得点につなげたかった</li>
+        <li>1点差ゲームが続くと終盤の負担はどうしても大きい</li>
+        <li>勝ったとはいえ相手の守備の綻びに助けられた面はある</li>
+      </ul>
+
+      <div class="art-summary">
+        <div class="art-summary-label">3行まとめ</div>
+        <ol>
+          <li>阪神の2-1勝利は、森下翔太の決勝弾だけでなく、6回の同点と7回表のモレッタまで含めて完成した勝ち方だった。</li>
+          <li>柳裕也は好投したが、6回の守備の綻びと7回の被弾で中日は勝ち切れなかった。</li>
+          <li>阪神は重たい試合を終盤で拾えるチームになりつつあり、この1勝は数字以上に中身が濃い。</li>
+        </ol>
+      </div>
+
+      <hr class="art-hr">
+
+      <div class="related-head">RELATED ARTICLES</div>
+      <div class="related-list">
+        <a href="../2026-04-14-giants-loss/" class="related-item">
+          <span class="related-tag">試合分析</span>
+          <span class="related-title">逆転したのに勝ち切れず　阪神3-4巨人 守備と中継ぎの課題 2026.04.14</span>
+        </a>
+        <a href="../2026-04-12-haruto-chunichi/" class="related-item">
+          <span class="related-tag">試合分析</span>
+          <span class="related-title">高橋遥人完封・中日3連戦3タテ達成 阪神3-0中日 2026.04.12</span>
+        </a>
+        <a href="../2026-04-16-lucas-giants/" class="related-item">
+          <span class="related-tag">試合分析</span>
+          <span class="related-title">ルーカスの立ち上がりと投手運用の不安　阪神3-4巨人 2026.04.16</span>
+        </a>
+      </div>
+
+    </main>
+
+    <aside class="art-sidebar">
+      <div class="sidebar-toc">
+        <div class="sidebar-toc-label">目次</div>
+        <ul class="toc-list">
+          <li><a href="#sec-result"><span class="toc-n">01</span>試合結果</a></li>
+          <li><a href="#sec-flow"><span class="toc-n">02</span>試合の流れ</a></li>
+          <li><a href="#sec-data"><span class="toc-n">03</span>データ分析</a></li>
+          <li><a href="#sec-players"><span class="toc-n">04</span>選手評価</a></li>
+          <li><a href="#sec-turning"><span class="toc-n">05</span>勝負の分岐点</a></li>
+          <li><a href="#sec-summary"><span class="toc-n">06</span>まとめ・今後</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-meta">
+        <div class="sidebar-meta-label">TAGS</div>
+        <div class="tag-cloud">
+          <span class="tag-pill">阪神タイガース</span>
+          <span class="tag-pill">中日ドラゴンズ</span>
+          <span class="tag-pill">森下翔太</span>
+          <span class="tag-pill">モレッタ</span>
+          <span class="tag-pill">村上頌樹</span>
+          <span class="tag-pill">大山悠輔</span>
+          <span class="tag-pill">柳裕也</span>
+          <span class="tag-pill">根尾昂</span>
+          <span class="tag-pill">甲子園</span>
+          <span class="tag-pill">2026シーズン</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; 2026 AIデータ二刀流ブログ</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>
