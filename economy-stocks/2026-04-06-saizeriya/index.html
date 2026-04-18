@@ -15,91 +15,309 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
-    .art-hero { background: linear-gradient(135deg, #0d1e38 0%, #d97706 100%); padding: 44px 24px; }
-    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; }
-    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
-    .art-cat-main { background: #d97706; color: #fff; }
-    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.95; }
-    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.55); display: flex; gap: 16px; flex-wrap: wrap; }
-    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
-    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
-    .art-body { min-width: 0; }
-    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
-    .art-body strong { color: #1a2744; }
-    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
-    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
-    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
-    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #d97706; background: #f0f4fb; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
-    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
-    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
-    @media (max-width: 560px) { .sec-head-en { display: none; } }
-    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #d97706; }
-    .summary-box { background: linear-gradient(135deg, #f0f6ff, #e6eefb); border: 1px solid #b5cdf0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
-    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #d97706; margin-bottom: 12px; }
-    .summary-box ul { margin: 0; }
-    .summary-box li { font-size: 0.87rem; }
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; display: block; overflow-x: auto; }
-    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
-    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:nth-child(even) td { background: #f8fafd; }
-    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
-    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
-    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
-    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
-    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px;  max-width: 640px; margin-left: auto !important; margin-right: auto !important; }
-    .video-box-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 10px; }
-    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
-    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
-    .related-list { display: flex; flex-direction: column; gap: 10px; }
-    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
-    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
-    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #d97706; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
-    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
-    .art-sidebar { font-size: 0.88rem; }
-    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
-    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
-    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
-    .toc-list { list-style: none; padding: 0; margin: 0; }
-    .toc-list li { border-bottom: 1px solid #e8ecf4; }
-    .toc-list li:last-child { border-bottom: none; }
-    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
-    .toc-list a:hover { color: #d97706; }
-    .toc-n { font-size: 0.62rem; font-weight: 900; color: #d97706; flex-shrink: 0; width: 22px; }
-    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
-    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
-    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
-    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
-  
-    .art-hero { padding: 24px 0 0 0 !important; }
-    .art-hero-thumb { width: 100%; max-width: 1100px; max-height: 360px; object-fit: cover; display: block; margin: 0 auto; }
-    .art-hero-title-block { max-width: var(--max-width, 1100px); margin: 0 auto; padding: 22px 24px 18px !important; }
-
-    .art-body > main .sec-head + p,
-    .art-body .sec-head + p {
-      background: linear-gradient(135deg, #f7f9fc, #eef3fb);
-      border-left: 4px solid #1a4fa0;
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      font-weight: 500;
-      margin-top: 0;
+    :root {
+      --q-accent:#7c3aed;
+      --q-accent2:#06b6d4;
+      color-scheme: light dark;
     }
-    .data-table th { font-size: 0.82rem; letter-spacing: 0.04em; }
-    .data-table { border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-    .data-table strong { color: #1a4fa0; font-weight: 900; }
-    .art-body p strong { color: #1a4fa0; font-weight: 800; background: linear-gradient(transparent 62%, #ffe58a 62%, #ffe58a 92%, transparent 92%); padding: 0 2px; }
-    .art-body p { text-align: justify; text-justify: inter-ideograph; }
-    .art-body h2 + p, .art-body .sec-sub + p { margin-top: 14px; }
+    html, body { background-color: #ffffff; color: #2a2e3c; }
 
-    /* article-body-enhanced */
+    /* ===== ダークモード：暗い配色 + 視認性重視 ===== */
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0b1020 !important; color: #d8dfef !important; }
+
+      /* 本文テキスト */
+      .art-body p, .art-body li { color: #d8dfef !important; }
+
+      /* strong は黄色マーカー（白文字と被る問題）をやめ、明るい紫文字＋薄い下地 */
+      .art-body p strong, .art-body li strong {
+        color: #c4b5fd !important;
+        background: rgba(139,92,246,0.15) !important;
+        padding: 0 4px !important;
+        border-radius: 3px !important;
+      }
+
+      /* カード類：暗い濃紺系 */
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #a78bfa !important; }
+      .stat-card-number { color: #f5f7ff !important; }
+      .stat-card-sub { color: #9aa3bf !important; }
+
+      .layer-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 6px 24px -8px rgba(0,0,0,0.4) !important; }
+      .layer-card h3 { color: #f5f7ff !important; }
+      .layer-card p { color: #c9d0e5 !important; }
+      .layer-card.tech .layer-card-tag { background: rgba(6,182,212,0.2) !important; color: #7dd3fc !important; }
+      .layer-card.market .layer-card-tag { background: rgba(245,158,11,0.18) !important; color: #fcd34d !important; }
+
+      /* セクション見出し */
+      .q-section-head { border-bottom-color: #2a3150 !important; }
+      .q-section-head h2 { color: #f5f7ff !important; }
+      .q-section-head-en { color: #5a6488 !important; }
+
+      /* 2本柱 */
+      .pillar { background: linear-gradient(180deg, #181c2e 0%, #141828 100%) !important; border-color: #2a3150 !important; }
+      .pillar-title { color: #f5f7ff !important; }
+      .pillar-desc { color: #b9c1d9 !important; }
+      .pillar-example { background: #0b1020 !important; border-color: #2a3150 !important; color: #a5adc8 !important; }
+      .pillar.target { background: linear-gradient(180deg, #2a1111 0%, #1a0a0a 100%) !important; border-color: #ef4444 !important; }
+      .pillar.target .pillar-desc, .pillar.target .pillar-title { color: #fecaca !important; }
+
+      /* リスクカード */
+      .risk-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .risk-title { color: #f5f7ff !important; }
+      .risk-body { color: #b9c1d9 !important; }
+      .risk-example { background: rgba(252,211,77,0.12) !important; color: #fcd34d !important; }
+
+      /* FAQ */
+      .faq-item { background: #141828 !important; border-color: #2a3150 !important; border-left-color: #a78bfa !important; }
+      .faq-q { color: #f5f7ff !important; }
+      .faq-a { color: #c9d0e5 !important; }
+
+      /* 銘柄カード */
+      .stock-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .stock-ticker { color: #f5f7ff !important; }
+      .stock-desc { color: #b9c1d9 !important; }
+      .stock-metric { background: #0f1322 !important; }
+      .stock-metric-label { color: #8a93ac !important; }
+      .stock-metric-value { color: #f5f7ff !important; }
+
+      /* タグは色を落としすぎないように */
+      .tag-defense { background: rgba(34,197,94,0.2) !important; color: #86efac !important; }
+      .tag-stable  { background: rgba(59,130,246,0.2) !important; color: #93c5fd !important; }
+      .tag-dream   { background: rgba(236,72,153,0.2) !important; color: #f9a8d4 !important; }
+      .tag-specu   { background: rgba(239,68,68,0.2) !important; color: #fca5a5 !important; }
+
+      /* 銘柄ラベル */
+      .stock-label { color: #f5f7ff !important; }
+
+      /* 強材料・弱材料 */
+      .pro-box { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.05)) !important; border-color: rgba(16,185,129,0.4) !important; color: #86efac !important; }
+      .con-box { background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(239,68,68,0.05)) !important; border-color: rgba(239,68,68,0.4) !important; color: #fca5a5 !important; }
+
+      /* テーブル */
+      .data-table { box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5) !important; }
+      .data-table td { background-color: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+      .data-table strong { color: #c4b5fd !important; background: none !important; }
+
+      /* サイドバー */
+      .sidebar-toc { background: linear-gradient(145deg, #141828, #0f1322) !important; border-color: #2a3150 !important; }
+      .sidebar-toc-label { color: #a78bfa !important; }
+      .toc-list a { color: #b9c1d9 !important; }
+      .toc-list a:hover { color: #c4b5fd !important; }
+      .toc-list li { border-bottom-color: #2a3150 !important; }
+      .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+      .sidebar-meta-label { color: #a78bfa !important; }
+      .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+
+      /* 関連記事 */
+      .related-item { background: #141828 !important; border-color: #2a3150 !important; }
+      .related-title { color: #f5f7ff !important; }
+      .related-head { color: #a78bfa !important; border-bottom-color: #2a3150 !important; }
+
+      /* disclaimer */
+      .disclaimer { background: rgba(217,119,6,0.1) !important; color: #fcd34d !important; border-color: rgba(217,119,6,0.4) !important; }
+
+      /* ヘッダー・ブレッドクラム */
+      .site-header { background: #0b1020 !important; border-bottom: 1px solid #2a3150 !important; }
+      .breadcrumb { background: #0f1322 !important; }
+      .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
+    }
+    .art-hero { background: radial-gradient(circle at 20% 0%, #1e0b4a 0%, #0a0a2a 40%, #050514 80%); padding: 0; position: relative; overflow: hidden; }
+    .art-hero-thumb { width: 100%; max-width: 1200px; max-height: 420px; object-fit: cover; display: block; margin: 0 auto; filter: saturate(1.1); }
+    .art-hero-title-block { max-width: 1100px; margin: 0 auto; padding: 26px 28px 22px; position: relative; z-index: 2; }
+    .art-hero-cats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; }
+    .art-cat-tech { background: linear-gradient(90deg, #7c3aed, #06b6d4); color: #fff; }
+    .art-cat-warn { background: #ef4444; color: #fff; }
+    .art-cat-stock { background: #10b981; color: #fff; }
+    .art-hero-h1 { font-size: clamp(1.2rem, 2.8vw, 1.8rem); font-weight: 900; color: #fff; line-height: 1.4; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .art-hero-meta { font-size: 0.78rem; color: rgba(255,255,255,0.65); display: flex; gap: 18px; }
+
+    .art-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 44px 24px 80px; align-items: flex-start; }
+    @media (max-width: 900px) { .art-layout { grid-template-columns: 1fr; padding: 28px 16px 60px; gap: 0; } }
+
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.96rem; line-height: 2; color: #2a2e3c; margin-bottom: 18px; }
+    .art-body strong { color: #7c3aed; font-weight: 800; }
+
+    /* HERO SUMMARY */
+    .hero-summary {
+      background: linear-gradient(135deg, #0f0a2e 0%, #1a0a4e 60%, #061733 100%);
+      border-radius: 20px; padding: 32px 36px; color: #fff;
+      margin-bottom: 40px; position: relative; overflow: hidden;
+    }
+    .hero-summary::before {
+      content: ""; position: absolute; top: -40%; right: -10%;
+      width: 60%; height: 180%;
+      background: radial-gradient(ellipse, rgba(124,58,237,.35), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-summary-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 14px; }
+    .hero-summary h2 { font-size: 1.35rem; font-weight: 900; color: #fff; margin: 0 0 14px; line-height: 1.5; }
+    .hero-summary p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.95; margin: 0; }
+
+    /* STAT CARDS */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0 36px; }
+    .stat-card {
+      background: linear-gradient(145deg, #fff, #f5f7ff);
+      border: 1px solid #e4e8f4; border-radius: 16px; padding: 22px 24px;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before { content: ""; position: absolute; inset: 0 auto auto 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--q-accent), var(--q-accent2)); }
+    .stat-card-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; text-transform: uppercase; margin-bottom: 10px; }
+    .stat-card-number { font-family: 'Poppins', sans-serif; font-size: 2.4rem; font-weight: 900; color: #0f0a2e; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; font-style: italic; }
+    .stat-card-sub { font-size: 0.82rem; color: #5a6380; line-height: 1.6; }
+    @media (max-width:560px) { .stat-card-number { font-size: 1.8rem; } }
+
+    /* 2レイヤー */
+    .layer-split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 28px 0 36px; }
+    @media (max-width: 720px) { .layer-split { grid-template-columns: 1fr; } }
+    .layer-card { background: #fff; border-radius: 16px; padding: 24px 26px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 6px 24px -8px rgba(20, 30, 80, 0.12); }
+    .layer-card.tech { border-top: 5px solid #06b6d4; }
+    .layer-card.market { border-top: 5px solid #f59e0b; }
+    .layer-card-tag { display: inline-block; font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; }
+    .layer-card.tech .layer-card-tag { background: #e0f7fd; color: #0891b2; }
+    .layer-card.market .layer-card-tag { background: #fef3c7; color: #b45309; }
+    .layer-card h3 { font-size: 1.1rem; font-weight: 900; color: #0f0a2e; margin: 0 0 10px; }
+    .layer-card p { margin: 0; font-size: 0.92rem; line-height: 1.85; color: #2a2e3c; }
+
+    /* セクション見出し */
+    .q-section { margin: 56px 0 0; }
+    .q-section-head { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 3px solid #e4e8f4; }
+    .q-section-num { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 900; font-style: italic; background: linear-gradient(135deg, var(--q-accent), var(--q-accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; flex-shrink: 0; }
+    .q-section-head h2 { font-size: 1.3rem; font-weight: 900; color: #0f0a2e; margin: 0; line-height: 1.4; }
+    .q-section-head-en { margin-left: auto; font-size: 0.7rem; font-weight: 800; letter-spacing: .2em; color: #a3adc7; flex-shrink: 0; }
+    @media (max-width: 560px) { .q-section-head-en { display: none; } }
+
+    /* 2本柱 */
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar { background: linear-gradient(180deg, #fafbff 0%, #f0f3fa 100%); border-radius: 14px; padding: 22px 24px; border: 1px solid #dbe2f0; position: relative; }
+    .pillar-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .pillar-title { font-size: 1rem; font-weight: 900; color: #0f0a2e; margin-bottom: 8px; }
+    .pillar-desc { font-size: 0.88rem; color: #4a5270; line-height: 1.7; margin-bottom: 10px; }
+    .pillar-example { background: #fff; border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: #5a6380; border: 1px solid #e4e8f4; }
+    .pillar.target { border: 2px solid #ef4444; background: linear-gradient(180deg, #fff5f5 0%, #ffe4e4 100%); }
+    .pillar.target::after { content: "核心"; position: absolute; top: -10px; right: 14px; background: #ef4444; color: #fff; font-size: 0.68rem; font-weight: 900; letter-spacing: .1em; padding: 3px 10px; border-radius: 3px; }
+
+    /* リスク3パターン */
+    .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .risk-grid { grid-template-columns: 1fr; } }
+    .risk-card { background: #fff; border-radius: 14px; padding: 20px; border: 1px solid #e4e8f4; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .risk-card-head { display: flex; align-items: center; gap: 10px; }
+    .risk-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #ef4444, #f59e0b); color: #fff; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; }
+    .risk-title { font-size: 0.95rem; font-weight: 900; color: #0f0a2e; line-height: 1.4; }
+    .risk-body { font-size: 0.86rem; color: #4a5270; line-height: 1.75; }
+    .risk-example { margin-top: auto; padding: 10px 14px; background: #fef3c7; border-radius: 8px; font-size: 0.8rem; color: #7c2d12; font-weight: 500; }
+
+    /* 銘柄スタットカード */
+    .stock-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 20px 0 30px; }
+    .stock-card { background: #fff; border-radius: 16px; padding: 22px 24px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .stock-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .stock-ticker { font-family: 'Poppins', sans-serif; font-size: 1.6rem; font-weight: 900; font-style: italic; color: #0f0a2e; line-height: 1; }
+    .stock-tag { font-size: 0.64rem; font-weight: 900; letter-spacing: .14em; padding: 3px 9px; border-radius: 3px; text-transform: uppercase; white-space: nowrap; }
+    .tag-defense { background: #dcfce7; color: #166534; }
+    .tag-stable  { background: #dbeafe; color: #1e40af; }
+    .tag-dream   { background: #fce7f3; color: #9d174d; }
+    .tag-specu   { background: #fee2e2; color: #991b1b; }
+    .stock-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 4px 0; }
+    .stock-metric { background: #f7f9fc; border-radius: 8px; padding: 8px 10px; }
+    .stock-metric-label { font-size: 0.62rem; font-weight: 800; letter-spacing: .1em; color: #7b86a6; text-transform: uppercase; margin-bottom: 2px; }
+    .stock-metric-value { font-size: 0.9rem; font-weight: 800; color: #0f0a2e; }
+    .stock-desc { font-size: 0.83rem; color: #4a5270; line-height: 1.7; }
+
+    /* 投資地図マトリクス */
+    .matrix { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 50%, #061733 100%); border-radius: 20px; padding: 32px 30px; color: #fff; margin: 28px 0 36px; }
+    .matrix-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 18px; }
+    .matrix h3 { font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0 0 20px; }
+    .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 560px) { .matrix-grid { grid-template-columns: 1fr; grid-template-rows: auto; } .matrix { padding: 22px 18px; } .matrix h3 { font-size: 1.05rem; } }
+    .matrix-cell { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 18px 20px; backdrop-filter: blur(8px); }
+    .matrix-cell-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; gap: 10px; }
+    .matrix-cell-type { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #a78bfa; }
+    .matrix-cell-ticker { font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 900; font-style: italic; color: #fff; }
+    .matrix-cell-desc { font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 30px; }
+    .faq-item { background: #fff; border-left: 4px solid var(--q-accent); border-radius: 0 12px 12px 0; padding: 18px 22px; border-top: 1px solid #e4e8f4; border-right: 1px solid #e4e8f4; border-bottom: 1px solid #e4e8f4; }
+    .faq-q, .faq-a { position: relative; padding-left: 34px; min-height: 24px; display: block; }
+    .faq-q { font-size: 0.95rem; font-weight: 800; color: #0f0a2e; margin-bottom: 12px; line-height: 1.6; }
+    .faq-a { font-size: 0.88rem; color: #4a5270; line-height: 1.85; }
+    .faq-q::before, .faq-a::before {
+      position: absolute; left: 0; top: 2px;
+      width: 24px; height: 24px; border-radius: 50%;
+      font-size: 0.7rem; font-weight: 900; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+    }
+    .faq-q::before { content: "Q"; background: #7c3aed; }
+    .faq-a::before { content: "A"; background: #06b6d4; }
+    @media (max-width: 560px) {
+      .faq-item { padding: 16px 16px 14px; }
+      .faq-q, .faq-a { padding-left: 30px; }
+      .faq-q::before, .faq-a::before { width: 22px; height: 22px; font-size: 0.65rem; }
+    }
+
+    /* 強材料・弱材料 */
+    .pros-cons-stock { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 720px) { .pros-cons-stock { grid-template-columns: 1fr; } }
+    .pro-box, .con-box { padding: 16px 18px; border-radius: 12px; font-size: 0.85rem; line-height: 1.75; }
+    .pro-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #86efac; color: #065f46; }
+    .con-box { background: linear-gradient(135deg, #fef2f2, #fee2e2); border: 1px solid #fca5a5; color: #991b1b; }
+    .pro-box-label, .con-box-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; margin-bottom: 8px; text-transform: uppercase; }
+    .stock-label { font-size: 1rem; font-weight: 800; color: #0f0a2e; margin: 24px 0 10px; padding-left: 12px; border-left: 4px solid #7c3aed; }
+
+    /* 3行まとめ */
+    .q-summary { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 100%); border-radius: 16px; padding: 28px 30px; margin: 36px 0 28px; }
+    .q-summary-label { font-size: 0.7rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 14px; }
+    .q-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 12px; }
+    .q-summary li { font-size: 0.92rem; color: rgba(255,255,255,0.92); line-height: 1.8; }
+    .q-summary li::marker { color: #facc15; font-weight: 900; }
+
+    /* 動画 */
+    .video-box { background: linear-gradient(135deg, #0f0a2e, #1e0b4a); border-radius: 16px; padding: 20px; margin: 28px auto 40px; max-width: 700px; }
+    .video-box-label { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 12px; }
+    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; }
+    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    /* テーブル */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 18px 0 28px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px -4px rgba(20,30,80,0.08); }
+    .data-table th { background: linear-gradient(135deg, #0f0a2e, #2a1065); color: #fff; padding: 12px 14px; text-align: left; font-weight: 800; letter-spacing: .04em; font-size: 0.8rem; }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid #edf0f7; color: #2a2e3c; vertical-align: middle; }
+    .data-table tr:nth-child(even) td { background: #fafbff; }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .disclaimer { background: linear-gradient(135deg, #fff9f0, #fef3c7); border-left: 4px solid #d97706; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #7c2d12; }
+
+    /* サイドバー */
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 900px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; position: static !important; max-height: none !important; overflow: visible !important; top: auto !important; } }
+    .sidebar-toc { background: linear-gradient(145deg, #fafbff, #f0f3fa); border: 1px solid #dbe2f0; border-radius: 14px; padding: 20px 22px; position: sticky; top: 80px; margin-bottom: 24px; max-height: calc(100vh - 100px); overflow-y: auto; }
+    .sidebar-toc-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .18em; color: #7c3aed; margin-bottom: 14px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e4e8f4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 10px; padding: 9px 4px; color: #4a5270; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #7c3aed; }
+    .toc-n { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 0.7rem; font-weight: 900; color: #7c3aed; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dbe2f0; border-radius: 14px; padding: 18px 20px; }
+    .sidebar-meta-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #7c3aed; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #4a5270; background: #f0f3fa; border: 1px solid #dbe2f0; padding: 3px 9px; border-radius: 20px; }
+
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; border-bottom: 2px solid #e4e8f4; padding-bottom: 10px; margin: 48px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: #fff; border: 1px solid #e4e8f4; border-radius: 10px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 900; background: #7c3aed; color: #fff; padding: 3px 8px; border-radius: 3px; margin-top: 2px; letter-spacing: .08em; }
+    .related-title { font-size: 0.85rem; font-weight: 600; color: #0f0a2e; line-height: 1.5; }
   </style>
   <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <a href="../../" class="site-logo">
@@ -109,9 +327,7 @@
           <span class="logo-sub">野球・競馬 × 経済・株式</span>
         </div>
       </a>
-      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="../../">TOP</a>
         <a href="../../hanshin-keiba/">野球・競馬</a>
@@ -129,17 +345,21 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../../economy-stocks/">経済・株式</a>
       <span class="breadcrumb-sep">›</span>
-      <span>サイゼリヤの食べ放題、なぜ1300円で成立するのか　安さの裏側を徹底分析</span>
+      <span>サイゼリヤの食べ放題、なぜ1300円で成立するのか</span>
     </div>
   </div>
 
   <div class="art-hero">
-    <img src="thumb.png?v=20260418c" alt="記事サムネイル" class="art-hero-thumb">
+    <img src="thumb.png?v=20260418c" alt="サイゼリヤの食べ放題" class="art-hero-thumb">
     <div class="art-hero-title-block">
-      <div class="art-hero-cats"><span class="art-cat-badge art-cat-main">企業分析</span></div>
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-tech">企業分析</span>
+        <span class="art-cat-badge art-cat-warn">外食・ビジネスモデル</span>
+        <span class="art-cat-badge art-cat-stock">株式分析</span>
+      </div>
       <h1 class="art-hero-h1">サイゼリヤの食べ放題、なぜ1300円で成立するのか　安さの裏側を徹底分析</h1>
       <div class="art-hero-meta">
-        <span>2026.04.06</span>
+        <span>2026年4月6日</span>
         <span>AIデータ二刀流ブログ</span>
       </div>
     </div>
@@ -148,238 +368,324 @@
   <div class="art-layout">
     <main class="art-body">
 
-
       <div class="hero-summary">
         <div class="hero-summary-label">この記事のコア</div>
-        <h2>先に結論をまとめると、ポイントは5つです。</h2>
-        <p>第一に、今回話題のサイゼリヤの食べ放題は、全国の通常店舗で誰でも使える常設モデルではありません。 舞浜のホテル併設店という特殊立地で、朝の短時間に絞ったモデルです。 第二に、1300円という価格は、利用者目線ではかなり安く見えますが、店側から見ると「何も考えずに安売りしている価格」ではありません。 宿泊者向け料金と一般利用向け料金が分かれ、さらに60分制が付いている点が重要です。</p>
+        <h2>「安すぎて危ない食べ放題」ではなく、「安く見えても壊れない仕組み」の話。</h2>
+        <p>話題のサイゼリヤ<strong>1300円</strong>食べ放題は、全国店舗の常設モデルではなく、舞浜のホテル併設店で朝の短時間に絞ったモデルです。宿泊者向け<strong>1050円</strong>と一般向け<strong>1300円</strong>・60分制を組み合わせ、朝の弱い時間帯を売上化しつつ回転率とロスを管理する設計。サイゼリヤの強みは「安さ」ではなく「安くても壊れにくい仕組みを作れること」で、これは株分析にもそのままつながります。</p>
       </div>
-<p>サイゼリヤの食べ放題が話題になると、多くの人はまずこう感じます。</p>
-      <p>「ただでさえ安いのに、食べ放題なんて店は大丈夫なのか」と。</p>
-<p>実際、ミラノ風ドリア<strong>300円</strong>、辛味チキン<strong>300円</strong>、小エビのサラダ<strong>350円</strong>、マルゲリータピザ<strong>400円</strong>という価格を知っていれば、「<strong>1300円</strong>ならすぐ元が取れそうだ」と思うのは自然です。</p>
-<p>ただ、このテーマの面白さは、単に「安いのに大丈夫か」という話ではありません。</p>
-      <p>本当に重要なのは、どういう条件がそろえば、一見危なそうな食べ放題が成立するのか、という点です。</p>
-<p>さらにこの話を突き詰めると、サイゼリヤは「安い店」ではなく、「安くても壊れにくい仕組みを作れる会社」として見えてきます。すると次に気になるのは、会社としての強さだけでなく、株として見たときにどう評価すべきか、という論点です。</p>
-<p>この記事では、前半でサイゼリヤの朝ビュッフェの採算構造を整理し、後半でサイゼリヤ株をどう見るべきかまで、初心者向けに噛み砕いて解説します。</p>
 
-      <div class="video-box" style="max-width:640px;margin-left:auto;margin-right:auto;">
+      <div class="video-box">
         <div class="video-box-label">▶ 動画でも解説しています</div>
         <div class="video-embed-wrap">
           <iframe src="https://www.youtube.com/embed/KIPxZ-ifWP8" title="サイゼリヤの食べ放題、なぜ1300円で成立するのか　安さの裏側を徹底分析" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+
       <div class="q-summary">
         <div class="q-summary-label">3行まとめ</div>
         <ol>
-      <li>サイゼリヤの1300円食べ放題は、無茶な安売りではなく、舞浜・朝・60分制・ロス管理という条件を積み上げたモデルと考えると理解しやすい。</li>
-      <li>会社としての強みは、低価格そのものではなく、安くても壊れにくい仕組みを作れることにある。</li>
-      <li>株としては、事業は強いが、利益率と株価水準のバランスを見ながら冷静に判断したい局面だ。</li>
+          <li>サイゼリヤの<strong>1300円</strong>食べ放題は、無茶な安売りではなく、舞浜・朝・60分制・ロス管理という条件を積み上げたモデルと考えると理解しやすい。</li>
+          <li>会社としての強みは、<strong>低価格そのものではなく、安くても壊れにくい仕組みを作れること</strong>にある。</li>
+          <li>株としては、事業は強いが、<strong>利益率と株価水準のバランス</strong>を見ながら冷静に判断したい局面だ。</li>
         </ol>
       </div>
 
-      
-
-      <div class="sec-head" id="sec-conclusion">
-        <span class="sec-num">00</span>
-        <h2>先に結論</h2>
-        <span class="sec-head-en">CONCLUSION</span>
-      </div>
-<p>先に結論をまとめると、ポイントは5つです。</p>
-<p>第一に、今回話題のサイゼリヤの食べ放題は、全国の通常店舗で誰でも使える常設モデルではありません。舞浜のホテル併設店という特殊立地で、朝の短時間に絞ったモデルです。</p>
-<p>第二に、<strong>1300円</strong>という価格は、利用者目線ではかなり安く見えますが、店側から見ると「何も考えずに安売りしている価格」ではありません。宿泊者向け料金と一般利用向け料金が分かれ、さらに60分制が付いている点が重要です。</p>
-<p>第三に、このモデルの本質は「たくさん食べられても平気」ではなく、「朝の弱い時間帯を売上化しつつ、回転率とロスを管理する設計」にあります。食べ放題の敵は、大食い客だけではなく、むしろ作りすぎによる廃棄や長居による回転率悪化です。</p>
-<p>第四に、サイゼリヤという会社の強みは、安いことそのものではなく、安くても回る仕組みを作れることにあります。ここは株分析にもそのままつながります。</p>
-<p>第五に、サイゼリヤ株は「買ってもいい会社」ではあっても、「何も考えずに飛びつくほど割安な株」とは言いにくい局面です。4月8日の第2四半期決算後、株価は調整しており、今後は既存店の強さ、コスト吸収力、海外展開、そして今の株価水準とのバランスを見る必要があります。</p>
-
-<div class="sec-head" id="sec-01"><span class="sec-num">01</span><h2>テーマの全体像</h2><span class="sec-head-en">SECTION 01</span></div>
-<p>サイゼリヤの食べ放題は何が話題なのか</p>
-<p>まず全体像を整理します。</p>
-      <p>今回話題になっている「サイゼリヤの食べ放題」は、普通の意味での“全国チェーンの食べ放題開始”ではありません。</p>
-<p>ホテルドリームゲート舞浜本館の公式サイトでは、本館1階のサイゼリヤ朝食を「本館ご宿泊者さま限定料金」として案内しており、朝食時間は6時30分から10時、大人<strong>1050円</strong>、3歳から6歳<strong>500円</strong>、席数176席です。</p>
-      <p>一方、<strong>2026年4月1日</strong>から一般利用向けのモーニングビュッフェが始まったと報じられており、こちらは大人<strong>1300円</strong>、3歳から6歳<strong>800円</strong>、60分制、7時から10時、ラストオーダー9時30分という条件で話題になりました。</p>
-<p>つまり、「サイゼの食べ放題はいくらなのか」という問いには、実は条件が2つあります。</p>
-      <p><strong>1050円</strong>は宿泊者向け、<strong>1300円</strong>は一般利用向けとして報じられている条件です。</p>
-<p>--------------------------------------------------</p>
-      <p>表1　今回の食べ放題の条件整理</p>
-      <p>--------------------------------------------------</p>
-      <p>項目                  宿泊者向け朝食ビュッフェ         一般利用向けとして報道された条件</p>
-      <p>場所                  ホテルドリームゲート舞浜本館1F   同じく舞浜駅前店ベース</p>
-      <p>料金（大人）          <strong>1050円</strong>                           <strong>1300円</strong></p>
-      <p>料金（3〜6歳）        <strong>500円</strong>                            <strong>800円</strong></p>
-      <p>時間                  6:30〜10:00                      7:00〜10:00</p>
-      <p>ラストオーダー        9:30                              9:30</p>
-      <p>時間制限              明記なし                          60分制</p>
-      <p>備考                  本館宿泊者限定料金                一般利用開始として報道</p>
-      <p>--------------------------------------------------</p>
-<p>この時点で、よくある誤解を一つ片付けておきましょう。</p>
-      <p>「前に見た<strong>1050円</strong>は間違いだった」という話ではありません。</p>
-      <p>正確には、宿泊者向けの条件と、一般利用向けの条件が混ざって見えていただけです。</p>
-<div class="sec-head" id="sec-02"><span class="sec-num">02</span><h2>論点整理</h2><span class="sec-head-en">SECTION 02</span></div>
-<p>このテーマをどう見るべきか</p>
-<p>このテーマを理解するには、論点を4つに分けるとわかりやすくなります。</p>
-<p>(1) <strong>1300円</strong>は本当に安すぎるのか</p>
-      <p>(2) 食べ放題の採算は何で決まるのか</p>
-      <p>(3) なぜ舞浜で、しかも朝だけなのか</p>
-      <p>(4) この話は株や企業分析とどうつながるのか</p>
-<p>この4つを順番に見ていきます。</p>
-<div class="sec-head" id="sec-03"><span class="sec-num">03</span><h2>初心者向けの噛み砕き説明</h2><span class="sec-head-en">SECTION 03</span></div>
-<p>「元が取れた」と「店が赤字」は別の話</p>
-<p>食べ放題の話で一番誤解しやすいのはここです。</p>
-      <p>利用者は、自分が食べた皿数で損得を考えます。</p>
-      <p>しかし店側は、皿の値段ではなく、食材原価、人件費、光熱費、家賃、回転率、ロスで採算を見ています。</p>
-<p>たとえば、ドリア<strong>300円</strong>、チキン<strong>300円</strong>、サラダ<strong>350円</strong>、ピザ<strong>400円</strong>を食べれば、利用者は「<strong>1350円</strong>分食べた、勝った」と感じます。</p>
-      <p>でも店側にとって重要なのは、その<strong>300円</strong>や<strong>400円</strong>という販売価格そのものではなく、実際にどれだけコストがかかり、何人がどれくらい食べ、どれだけ回転したかです。</p>
-<p>言い換えると、食べ放題は「一人の大食い客との勝負」ではありません。</p>
-      <p>少食の人、飲み物中心の人、短時間で出る人、家族連れなど、さまざまな客層を混ぜた“全体の平均”で見ている商売です。</p>
-<p>ここを見誤ると、「元が取れそうだから店は赤字」という雑な結論に飛びやすくなります。</p>
-<div class="sec-head" id="sec-04"><span class="sec-num">04</span><h2>重要な数字の整理</h2><span class="sec-head-en">SECTION 04</span></div>
-<p>なぜ<strong>1300円</strong>でも“激安”とは言い切れないのか</p>
-<p>サイゼリヤの<strong>2026年8月</strong>期第1四半期決算説明資料では、国内客単価は<strong>853円</strong>でした。</p>
-      <p>この数字を基準に見ると、一般利用向け<strong>1300円</strong>は、通常の平均会計よりかなり高い価格帯です。</p>
-      <p>ざっくり言えば、普段の平均より5割前後高い水準です。</p>
-<p>もちろん、利用者は「単品価格の足し算」で安く感じます。</p>
-      <p>ただ、会社側から見ると、<strong>1300円</strong>は必ずしも“投げ売り価格”ではありません。</p>
-      <p>しかも、時間制限を組み合わせることで、回転率も管理しやすくなっています。</p>
-<p>--------------------------------------------------</p>
-      <p>表2　価格感をつかむための比較</p>
-      <p>--------------------------------------------------</p>
-      <p>項目                              数字・内容</p>
-      <p>国内客単価（<strong>2026年8月</strong>期1Q）      <strong>853円</strong></p>
-      <p>一般利用向けビュッフェ料金        <strong>1300円</strong></p>
-      <p>差額                              <strong>447円</strong></p>
-      <p>差の大きさ                        平均客単価よりかなり高い</p>
-      <p>--------------------------------------------------</p>
-<p>この比較で重要なのは、「利用者には安く見えるが、会社全体から見ると必ずしも激安ではない」という二重構造です。</p>
-<div class="sec-head" id="sec-05"><span class="sec-num">05</span><h2>テーマの核心</h2><span class="sec-head-en">SECTION 05</span></div>
-<p>この食べ放題の本当の勝負は「朝」にある</p>
-<p>今回の食べ放題の本質は、何皿食べられるかではなく、朝という時間帯にあります。</p>
-<p>飲食店にとって、昼と夜はもともと売りやすい時間です。</p>
-      <p>この時間に食べ放題を入れると、本来単品で取れたはずの売上を、自分で食いつぶす可能性があります。いわゆるカニバリゼーションです。</p>
-<p>一方、朝は外食チェーンにとって弱い時間帯になりやすい。</p>
-      <p>だからこそ、朝に限定してビュッフェを入れる意味が出てきます。</p>
-      <p>本来は空いてしまいがちな時間帯を、売上が立つ時間に変えられるからです。</p>
-<p>この視点に立つと、「ドリアを何皿食べられるか」という話はむしろ副次的です。</p>
-      <p>本当のテーマは、「朝のデッドタイムをどう売上化するか」なのです。</p>
-<div class="sec-head" id="sec-06"><span class="sec-num">06</span><h2>舞浜という特殊条件</h2><span class="sec-head-en">SECTION 06</span></div>
-<p>全国展開ではなく、なぜ舞浜なのか</p>
-<p>ここもかなり重要です。</p>
-      <p>今回のモデルは舞浜という立地だから成立しやすい面があります。</p>
-<p>舞浜駅前店はホテルドリームゲート舞浜1階にあり、通常の郊外店やロードサイド店とは前提条件が違います。</p>
-      <p>もともと宿泊者向け朝食需要という土台があり、一般店よりも朝の需要を読みやすい可能性があります。</p>
-      <p>さらに、舞浜という場所柄、朝の時間帯に一定の人流が集まりやすいことも強みです。</p>
-<p>ここで大事なのは、今回のビュッフェが「どの店舗でも再現できる万能モデル」ではない、ということです。</p>
-      <p>普通の店舗で朝から食べ放題を始めても、そもそも人が集まらず、ロスと回転率の問題だけが残る可能性があります。</p>
-<p>この点で、通常店舗に用意されている「朝サイゼ」はむしろ合理的です。</p>
-      <p>サイゼリヤは通常店では、フォッカチオやパニーニのセット販売という、より読みやすく回しやすい朝営業モデルを広げています。</p>
-<div class="sec-head" id="sec-07"><span class="sec-num">07</span><h2>60分制の意味</h2><span class="sec-head-en">SECTION 07</span></div>
-<p>食べ放題の敵は大食い客だけではない</p>
-<p>一般利用向け条件で特に重要なのが60分制です。</p>
-      <p>これは単に「大食い対策」ではありません。</p>
-      <p>もっと本質的には、長居による回転率悪化を防ぐためのルールです。</p>
-<p>朝7時から10時までの短い時間帯で、もしお客さんが長く居座れば、席が回らず、時間あたり売上が下がります。</p>
-      <p>食べ放題は、たくさん食べられることよりも、「席が回らないこと」のほうがむしろ厄介です。</p>
-<p>つまり、60分制は“防御”です。</p>
-      <p>安く見せつつ、時間でしっかり囲っている。</p>
-      <p>ここに経営設計の匂いがあります。</p>
-<div class="sec-head" id="sec-08"><span class="sec-num">08</span><h2>本当に怖いのは何か</h2><span class="sec-head-en">SECTION 08</span></div>
-<p>大食い客より、食品ロスのほうが怖い</p>
-<p>食べ放題で本当に怖いのは何か。</p>
-      <p>多くの人は「大食い客」と答えるでしょう。</p>
-      <p>でも、店側からすると、もっと怖いのは作りすぎによる廃棄です。</p>
-<p>大食い客は、その瞬間の原価を押し上げます。</p>
-      <p>しかし、食べてもらえている以上、少なくとも顧客満足にはつながっています。</p>
-      <p>一方、作りすぎて余った料理は、そのまま利益を捨てることになります。</p>
-<p>このため、ビュッフェは派手に見えて、実際にはかなり地味な管理の商売です。</p>
-      <p>需要予測、補充タイミング、ロス管理、回転率。</p>
-      <p>これらがきれいに回って初めて成立します。</p>
-<p>舞浜のように一定の朝需要を見込みやすい場所は、このロス管理の面でも有利です。</p>
-      <p>逆に、需要が読みにくい通常店では、同じモデルをそのまま持ち込むのは危険です。</p>
-<div class="sec-head" id="sec-09"><span class="sec-num">09</span><h2>メリット・デメリット整理</h2><span class="sec-head-en">SECTION 09</span></div>
-<p>このモデルの強材料・弱材料</p>
-<p>--------------------------------------------------</p>
-      <p>表3　サイゼリヤ朝ビュッフェモデルの強材料と弱材料</p>
-      <p>--------------------------------------------------</p>
-      <p>強材料</p>
-      <p>・朝の弱い時間帯を売上化できる</p>
-      <p>・舞浜という特殊立地で人流を集めやすい</p>
-      <p>・宿泊者向け朝食需要という土台がある</p>
-      <p>・<strong>1300円</strong>＋60分制で回転率を管理しやすい</p>
-      <p>・人気メニューをフックにしつつ、ビュッフェ向け構成にできる</p>
-<p>弱材料・注意点</p>
-      <p>・全国の通常店でそのまま再現しにくい</p>
-      <p>・米、野菜、チーズ、物流費、光熱費の上昇が重い</p>
-      <p>・ロス管理に失敗すると利益を削りやすい</p>
-      <p>・「サイゼで食べ放題」という話題先行で誤解されやすい</p>
-      <p>--------------------------------------------------</p>
-<p>この表から見えてくるのは、今回の食べ放題が「夢の万能モデル」ではなく、かなり条件依存のモデルだということです。</p>
-<div class="sec-head" id="sec-10"><span class="sec-num">10</span><h2>株式分析パート</h2><span class="sec-head-en">SECTION 10</span></div>
-<p>食べ放題の話は、なぜ株につながるのか</p>
-<p>ここまでの話を聞くと、サイゼリヤは単なる激安チェーンではなく、安くても壊れにくい仕組みを作れる会社に見えてきます。</p>
-      <p>この視点は、そのまま株分析につながります。</p>
-<p>株を考えるうえで大事なのは、「良い店」と「良い株」は同じではない、ということです。</p>
-      <p>会社として強くても、株価にすでに期待が織り込まれていれば、投資妙味は別問題になります。</p>
-<p>ここでは、サイゼリヤ株を6つの軸で整理します。</p>
-<p>(1) 事業の強さ</p>
-      <p>(2) 成長性</p>
-      <p>(3) 収益性</p>
-      <p>(4) 財務健全性</p>
-      <p>(5) 株主還元</p>
-      <p>(6) 割安度</p>
-<div class="sec-head" id="sec-11"><span class="sec-num">11</span><h2>まずは数字</h2><span class="sec-head-en">SECTION 11</span></div>
-<p>足元の業績はどうか</p>
-<p><strong>2025年8月</strong>期の実績は、売上高<strong><strong>2567.14億</strong>円</strong>、営業利益<strong><strong>154.99億</strong>円</strong>、純利益<strong><strong>111.64億</strong>円</strong>でした。</p>
-      <p>その後、<strong>2026年8月</strong>期第2四半期累計では、売上高<strong><strong>1428.54億</strong>円</strong>、営業利益<strong><strong>86.54億</strong>円</strong>、純利益<strong><strong>56.35億</strong>円</strong>と増収増益です。</p>
-<p>一方で、4月8日に会社は通期予想を修正しました。</p>
-      <p>売上高は<strong><strong>2763億</strong>円</strong>から<strong><strong>2970億</strong>円</strong>へ上方修正された一方、営業利益は<strong><strong>190億</strong>円</strong>から<strong><strong>182億</strong>円</strong>へ、純利益は<strong><strong>124億</strong>円</strong>から<strong><strong>118億</strong>円</strong>へ引き下げています。</p>
-<p>--------------------------------------------------</p>
-      <p>表4　業績推移の整理</p>
-      <p>--------------------------------------------------</p>
-      <p>項目                         売上高         営業利益       純利益</p>
-      <p><strong>2025年8月</strong>期実績             <strong><strong>2567.14億</strong>円</strong>    <strong><strong>154.99億</strong>円</strong>    <strong><strong>111.64億</strong>円</strong></p>
-      <p><strong>2026年8月</strong>期1Q               <strong><strong>702.85億</strong>円</strong>     <strong><strong>46.60億</strong>円</strong>     <strong><strong>30.91億</strong>円</strong></p>
-      <p><strong>2026年8月</strong>期2Q累計           <strong><strong>1428.54億</strong>円</strong>    <strong><strong>86.54億</strong>円</strong>     <strong><strong>56.35億</strong>円</strong></p>
-      <p><strong>2026年8月</strong>期通期修正予想     <strong><strong>2970億</strong>円</strong>       <strong><strong>182億</strong>円</strong>       <strong><strong>118億</strong>円</strong></p>
-      <p>--------------------------------------------------</p>
-<p>ここで重要なのは、「売上はかなり強いが、利益は以前の想定ほど伸びない」という点です。</p>
-      <p>つまり、客は来ている。売れてもいる。</p>
-      <p>しかし、コスト上昇や利益率の圧迫が無視できない。</p>
-      <p>市場はこのズレを嫌いやすいです。</p>
-<div class="sec-head" id="sec-12"><span class="sec-num">12</span><h2>6本柱で見るサイゼリヤ株</h2><span class="sec-head-en">SECTION 12</span></div>
-
-
-      <div class="sec-head" id="sec-summary">
-        <span class="sec-num">99</span>
-        <h2>まとめ</h2>
-        <span class="sec-head-en">SUMMARY</span>
-      </div>
-<p>今回のテーマは、一見すると「サイゼリヤの食べ放題は安すぎて危ないのでは」という話に見えます。</p>
-      <p>しかし実際には、かなり逆です。</p>
-<p>このモデルは、舞浜という立地、朝という時間帯、宿泊者向け需要という土台、一般利用では<strong>1300円</strong>と60分制を組み合わせる工夫、そしてメニュー構成とロス管理という条件が重なって、初めて成立しやすくなっています。</p>
-<p>言い換えると、サイゼリヤの強みは、安いことそのものではありません。</p>
-      <p>安く見えるサービスを、きちんと壊れない形で成立させる設計力です。</p>
-<p>その強みは株分析にもつながります。</p>
-      <p>ただし、良い会社であることと、今の株価が魅力的かどうかは別問題です。</p>
-      <p>足元では売上の強さが確認される一方、利益率と通期見通しには慎重さも必要です。</p>
-<p>結局どう見るべきか。</p>
-<p>サイゼリヤは、外食チェーンとしてかなり面白い会社です。</p>
-      <p>そして、企業分析の題材としても優秀です。</p>
-      <p>ただ、投資判断まで踏み込むなら、「好きな店だから買う」ではなく、利益の伸び、コスト、海外展開、そして今の株価とのバランスを冷静に見る必要があります。</p>
-<p>外食のニュースを、単なる「お得」か「高い」かで終わらせず、「なぜその価格で成立するのか」まで見ると、経済も企業もずっと面白くなります。</p>
-<p>なお、株式に関する記述は公開情報をもとにした分析であり、特定銘柄の売買を推奨するものではありません。最終的な投資判断はご自身で行ってください。</p>
-
-
-      <div class="disclaimer">
-        <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+      <!-- 主要数値 -->
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-card-label">一般利用ビュッフェ</div><div class="stat-card-number">1,300<span style="font-size:1rem;">円</span></div><div class="stat-card-sub">60分制・7:00〜10:00・舞浜駅前店。</div></div>
+        <div class="stat-card"><div class="stat-card-label">宿泊者朝食</div><div class="stat-card-number">1,050<span style="font-size:1rem;">円</span></div><div class="stat-card-sub">ホテルドリームゲート舞浜本館1F限定。</div></div>
+        <div class="stat-card"><div class="stat-card-label">国内客単価(1Q)</div><div class="stat-card-number">853<span style="font-size:1rem;">円</span></div><div class="stat-card-sub">2026年8月期1Q。ビュッフェ料金より約5割低い。</div></div>
+        <div class="stat-card"><div class="stat-card-label">26年8月期 売上(修正)</div><div class="stat-card-number">2,970<span style="font-size:1rem;">億円</span></div><div class="stat-card-sub">2,763億円から上方修正。</div></div>
+        <div class="stat-card"><div class="stat-card-label">26年8月期 営利(修正)</div><div class="stat-card-number">182<span style="font-size:1rem;">億円</span></div><div class="stat-card-sub">190億円から下方修正。利益率が圧迫。</div></div>
+        <div class="stat-card"><div class="stat-card-label">主な単品価格</div><div class="stat-card-number">300<span style="font-size:1rem;">円〜</span></div><div class="stat-card-sub">ミラノ風ドリア300円・ピザ400円など。</div></div>
       </div>
 
-      <hr class="art-hr">
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">01</span>
+          <h2>テーマの全体像｜2つのレイヤーで見る</h2>
+          <span class="q-section-head-en">OVERVIEW</span>
+        </div>
+        <p>サイゼリヤの食べ放題が話題になると、多くの人はまずこう感じます。「ただでさえ安いのに、食べ放題なんて店は大丈夫なのか」と。実際、ミラノ風ドリア<strong>300円</strong>、辛味チキン<strong>300円</strong>、小エビのサラダ<strong>350円</strong>、マルゲリータピザ<strong>400円</strong>という価格を知っていれば、「<strong>1300円</strong>ならすぐ元が取れそうだ」と思うのは自然です。</p>
+        <p>ただ、このテーマの面白さは、単に「安いのに大丈夫か」という話ではありません。本当に重要なのは、<strong>どういう条件がそろえば、一見危なそうな食べ放題が成立するのか</strong>という点です。さらにこの話を突き詰めると、サイゼリヤは「安い店」ではなく、「安くても壊れにくい仕組みを作れる会社」として見えてきます。</p>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">Layer 1 — 事業モデル</span>
+            <h3>朝ビュッフェの採算構造</h3>
+            <p>舞浜という立地、朝の時間帯、60分制、宿泊者需要、ロス管理。条件を積み重ねて初めて成立するモデル。「どこでも再現できる万能モデル」ではない。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">Layer 2 — 株式評価</span>
+            <h3>良い会社と良い株は別</h3>
+            <p>会社として強くても、株価にすでに期待が織り込まれていれば投資妙味は別問題。利益率・コスト吸収力・海外展開・現在の株価水準のバランスを冷静に見る必要がある。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">02</span>
+          <h2>先に結論｜5つのポイント</h2>
+          <span class="q-section-head-en">CONCLUSION</span>
+        </div>
+        <p>先に結論をまとめると、ポイントは5つです。</p>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">① 全国展開の常設モデルではない</div>
+            <div class="faq-a">今回話題の食べ放題は、全国の通常店舗で誰でも使える常設モデルではありません。<strong>舞浜のホテル併設店</strong>という特殊立地で、朝の短時間に絞ったモデルです。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">② 1300円は「何も考えない安売り」ではない</div>
+            <div class="faq-a">利用者目線ではかなり安く見えますが、店側から見ると「何も考えずに安売りしている価格」ではありません。<strong>宿泊者向け料金と一般利用向け料金が分かれ、さらに60分制が付いている</strong>点が重要です。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">③ 本質は「朝のデッドタイムの売上化」</div>
+            <div class="faq-a">このモデルの本質は「たくさん食べられても平気」ではなく、<strong>「朝の弱い時間帯を売上化しつつ、回転率とロスを管理する設計」</strong>。食べ放題の敵は大食い客だけではなく、むしろ作りすぎによる廃棄や長居による回転率悪化です。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">④ サイゼリヤの強みは「壊れない仕組み」</div>
+            <div class="faq-a">サイゼリヤという会社の強みは、<strong>安いことそのものではなく、安くても回る仕組みを作れること</strong>にあります。ここは株分析にもそのままつながります。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">⑤ 株としては割安とは言いにくい局面</div>
+            <div class="faq-a">サイゼリヤ株は「買ってもいい会社」ではあっても、<strong>「何も考えずに飛びつくほど割安な株」とは言いにくい局面</strong>です。4月8日の第2四半期決算後、株価は調整しており、既存店の強さ、コスト吸収力、海外展開、今の株価水準とのバランスを見る必要があります。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">03</span>
+          <h2>食べ放題の条件整理｜宿泊者向けと一般向けは別</h2>
+          <span class="q-section-head-en">CONDITIONS</span>
+        </div>
+        <p>今回話題になっている「サイゼリヤの食べ放題」は、普通の意味での“全国チェーンの食べ放題開始”ではありません。ホテルドリームゲート舞浜本館の公式サイトでは、本館1階のサイゼリヤ朝食を<strong>「本館ご宿泊者さま限定料金」</strong>として案内しており、一方<strong>2026年4月1日</strong>から一般利用向けのモーニングビュッフェが始まったと報じられています。</p>
+
+        <table class="data-table">
+          <thead><tr><th>項目</th><th>宿泊者向け朝食ビュッフェ</th><th>一般利用向けとして報道された条件</th></tr></thead>
+          <tbody>
+            <tr><td>場所</td><td>ホテルドリームゲート舞浜本館1F</td><td>同じく舞浜駅前店ベース</td></tr>
+            <tr><td>料金（大人）</td><td><strong>1,050円</strong></td><td><strong>1,300円</strong></td></tr>
+            <tr><td>料金（3〜6歳）</td><td><strong>500円</strong></td><td><strong>800円</strong></td></tr>
+            <tr><td>時間</td><td>6:30〜10:00</td><td>7:00〜10:00</td></tr>
+            <tr><td>ラストオーダー</td><td>9:30</td><td>9:30</td></tr>
+            <tr><td>時間制限</td><td>明記なし</td><td><strong>60分制</strong></td></tr>
+            <tr><td>備考</td><td>本館宿泊者限定料金（176席）</td><td>一般利用開始として報道</td></tr>
+          </tbody>
+        </table>
+
+        <p>この時点で、よくある誤解を一つ片付けておきましょう。「前に見た<strong>1050円</strong>は間違いだった」という話ではありません。正確には、<strong>宿泊者向けの条件と、一般利用向けの条件が混ざって見えていただけ</strong>です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">04</span>
+          <h2>「元が取れた」と「店が赤字」は別の話</h2>
+          <span class="q-section-head-en">COST STRUCTURE</span>
+        </div>
+        <p>食べ放題の話で一番誤解しやすいのはここです。利用者は自分が食べた皿数で損得を考えます。しかし店側は、皿の値段ではなく、<strong>食材原価、人件費、光熱費、家賃、回転率、ロス</strong>で採算を見ています。</p>
+        <p>たとえば、ドリア<strong>300円</strong>、チキン<strong>300円</strong>、サラダ<strong>350円</strong>、ピザ<strong>400円</strong>を食べれば、利用者は「<strong>1350円</strong>分食べた、勝った」と感じます。でも店側にとって重要なのは、その<strong>300円</strong>や<strong>400円</strong>という販売価格そのものではなく、実際にどれだけコストがかかり、何人がどれくらい食べ、どれだけ回転したかです。</p>
+        <p>言い換えると、食べ放題は「一人の大食い客との勝負」ではありません。少食の人、飲み物中心の人、短時間で出る人、家族連れなど、<strong>さまざまな客層を混ぜた“全体の平均”</strong>で見ている商売です。</p>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">👤</div>
+            <div class="pillar-title">利用者視点</div>
+            <div class="pillar-desc">単品価格の足し算で「元が取れた」と感じる。ドリア＋ピザ＋サラダで<strong>1300円</strong>の元を取るのは簡単に見える。</div>
+            <div class="pillar-example">💡 1人の皿数で損得を考える</div>
+          </div>
+          <div class="pillar target">
+            <div class="pillar-icon">🏪</div>
+            <div class="pillar-title">店側視点</div>
+            <div class="pillar-desc">原価・人件費・ロス・回転率で見る。客層ミックスと平均で成立を設計。<strong>個別客の勝ち負けではなく、全体の帳尻</strong>を取る。</div>
+            <div class="pillar-example">💡 「元が取れそう」＝「店は赤字」ではない</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">05</span>
+          <h2>なぜ舞浜で、朝だけなのか｜3つの条件</h2>
+          <span class="q-section-head-en">WHY HERE</span>
+        </div>
+        <p>今回のビュッフェが成立しやすい理由は、単品的な「安さ」ではなく、<strong>複数の条件の重なり</strong>にあります。飲食店にとって昼と夜はもともと売りやすい時間で、ここに食べ放題を入れると本来単品で取れたはずの売上を自分で食いつぶす（カニバリゼーション）可能性があります。<strong>朝は外食チェーンにとって弱い時間帯</strong>だからこそ、朝限定ビュッフェに意味が出ます。</p>
+
+        <div class="risk-grid">
+          <div class="risk-card">
+            <div class="risk-card-head"><span class="risk-badge">1</span><span class="risk-title">朝のデッドタイム売上化</span></div>
+            <div class="risk-body">本来空きがちな時間帯を売上に変える。昼夜の単品売上を食わない設計。</div>
+            <div class="risk-example">🌅 弱い時間を売上時間に変換</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head"><span class="risk-badge">2</span><span class="risk-title">舞浜という特殊立地</span></div>
+            <div class="risk-body">ホテルドリームゲート舞浜1階。宿泊者向け朝食需要が土台にあり、朝の人流を読みやすい。</div>
+            <div class="risk-example">🏨 宿泊需要＋観光人流</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head"><span class="risk-badge">3</span><span class="risk-title">60分制による回転管理</span></div>
+            <div class="risk-body">長居による回転率悪化を防ぐ“防御”。大食い対策ではなく、時間あたり売上を守るルール。</div>
+            <div class="risk-example">⏱ 安く見せつつ時間で囲う</div>
+          </div>
+        </div>
+
+        <p>この点で、通常店舗に用意されている<strong>「朝サイゼ」</strong>はむしろ合理的です。サイゼリヤは通常店では、フォッカチオやパニーニのセット販売という、より読みやすく回しやすい朝営業モデルを広げています。普通の店舗で朝から食べ放題を始めても、そもそも人が集まらず、ロスと回転率の問題だけが残る可能性があります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">06</span>
+          <h2>本当に怖いのは「大食い」ではなく「食品ロス」</h2>
+          <span class="q-section-head-en">REAL RISK</span>
+        </div>
+        <p>食べ放題で本当に怖いのは何か。多くの人は「大食い客」と答えるでしょう。でも、<strong>店側からすると、もっと怖いのは作りすぎによる廃棄</strong>です。大食い客はその瞬間の原価を押し上げますが、食べてもらえている以上、少なくとも顧客満足にはつながっています。一方、作りすぎて余った料理は、そのまま利益を捨てることになります。</p>
+        <p>このため、ビュッフェは派手に見えて、実際にはかなり地味な管理の商売です。<strong>需要予測、補充タイミング、ロス管理、回転率</strong>。これらがきれいに回って初めて成立します。舞浜のように一定の朝需要を見込みやすい場所は、このロス管理の面でも有利です。逆に、需要が読みにくい通常店では、同じモデルをそのまま持ち込むのは危険です。</p>
+
+        <div class="pros-cons-stock">
+          <div class="pro-box">
+            <div class="pro-box-label">✓ 強材料</div>
+            朝の弱い時間帯を売上化／舞浜の特殊立地で人流を集めやすい／宿泊者向け朝食需要という土台／<strong>1300円＋60分制</strong>で回転率を管理／人気メニューをフックにしたビュッフェ構成
+          </div>
+          <div class="con-box">
+            <div class="con-box-label">✗ 弱材料・注意点</div>
+            全国の通常店でそのまま再現しにくい／米・野菜・チーズ・物流費・光熱費の上昇が重い／ロス管理に失敗すると利益を削りやすい／「サイゼで食べ放題」という話題先行で誤解されやすい
+          </div>
+        </div>
+        <p>この表から見えてくるのは、今回の食べ放題が「夢の万能モデル」ではなく、<strong>かなり条件依存のモデル</strong>だということです。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">07</span>
+          <h2>価格感の整理｜1300円は本当に安すぎるのか</h2>
+          <span class="q-section-head-en">PRICE ANALYSIS</span>
+        </div>
+        <p>サイゼリヤの<strong>2026年8月期第1四半期</strong>決算説明資料では、国内客単価は<strong>853円</strong>でした。この数字を基準に見ると、一般利用向け<strong>1300円</strong>は、通常の平均会計よりかなり高い価格帯。ざっくり言えば、<strong>普段の平均より5割前後高い水準</strong>です。</p>
+
+        <table class="data-table">
+          <thead><tr><th>項目</th><th>数字・内容</th></tr></thead>
+          <tbody>
+            <tr><td>国内客単価（2026年8月期1Q）</td><td><strong>853円</strong></td></tr>
+            <tr><td>一般利用向けビュッフェ料金</td><td><strong>1,300円</strong></td></tr>
+            <tr><td>差額</td><td><strong>447円</strong></td></tr>
+            <tr><td>差の大きさ</td><td>平均客単価よりかなり高い</td></tr>
+          </tbody>
+        </table>
+
+        <p>もちろん、利用者は「単品価格の足し算」で安く感じます。ただ、会社側から見ると、<strong>1300円は必ずしも“投げ売り価格”ではありません</strong>。しかも時間制限を組み合わせることで、回転率も管理しやすくなっています。この比較で重要なのは、<strong>「利用者には安く見えるが、会社全体から見ると必ずしも激安ではない」という二重構造</strong>です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">08</span>
+          <h2>株式分析｜足元の業績と通期修正</h2>
+          <span class="q-section-head-en">STOCK REVIEW</span>
+        </div>
+        <p>ここまでの話を聞くと、サイゼリヤは単なる激安チェーンではなく、安くても壊れにくい仕組みを作れる会社に見えてきます。この視点はそのまま株分析につながります。ただし<strong>「良い店」と「良い株」は同じではない</strong>——会社として強くても、株価にすでに期待が織り込まれていれば投資妙味は別問題です。</p>
+
+        <table class="data-table">
+          <thead><tr><th>項目</th><th>売上高</th><th>営業利益</th><th>純利益</th></tr></thead>
+          <tbody>
+            <tr><td>2025年8月期 実績</td><td><strong>2,567.14億円</strong></td><td><strong>154.99億円</strong></td><td><strong>111.64億円</strong></td></tr>
+            <tr><td>2026年8月期 1Q</td><td><strong>702.85億円</strong></td><td><strong>46.60億円</strong></td><td><strong>30.91億円</strong></td></tr>
+            <tr><td>2026年8月期 2Q累計</td><td><strong>1,428.54億円</strong></td><td><strong>86.54億円</strong></td><td><strong>56.35億円</strong></td></tr>
+            <tr><td>通期予想（修正前）</td><td>2,763億円</td><td>190億円</td><td>124億円</td></tr>
+            <tr><td>通期予想（修正後）</td><td><strong>2,970億円</strong></td><td><strong>182億円</strong></td><td><strong>118億円</strong></td></tr>
+          </tbody>
+        </table>
+
+        <p>4月8日に会社は通期予想を修正しました。<strong>売上高は上方修正、営業利益・純利益は下方修正</strong>。ここで重要なのは、<strong>「売上はかなり強いが、利益は以前の想定ほど伸びない」</strong>という点です。客は来ている。売れてもいる。しかし、コスト上昇や利益率の圧迫が無視できない。<strong>市場はこのズレを嫌いやすい</strong>です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">09</span>
+          <h2>6本柱で見るサイゼリヤ株</h2>
+          <span class="q-section-head-en">SIX PILLARS</span>
+        </div>
+        <p>株を考えるうえで大事なのは、「良い店」と「良い株」は同じではないということ。ここでは、サイゼリヤ株を6つの軸で整理します。</p>
+
+        <div class="stock-grid">
+          <div class="stock-card">
+            <div class="stock-card-head"><div class="stock-ticker">①</div><span class="stock-tag tag-stable">事業</span></div>
+            <div class="stock-metric-label" style="font-weight:800;color:#0f0a2e;font-size:0.85rem;">事業の強さ</div>
+            <div class="stock-desc">低価格を支えるSPA型オペレーションと標準化。安くても壊れない仕組みが最大の武器。</div>
+          </div>
+          <div class="stock-card">
+            <div class="stock-card-head"><div class="stock-ticker">②</div><span class="stock-tag tag-dream">成長</span></div>
+            <div class="stock-metric-label" style="font-weight:800;color:#0f0a2e;font-size:0.85rem;">成長性</div>
+            <div class="stock-desc">アジア中心の海外展開が伸び代。国内は既存店の底堅さで支える構図。</div>
+          </div>
+          <div class="stock-card">
+            <div class="stock-card-head"><div class="stock-ticker">③</div><span class="stock-tag tag-specu">収益</span></div>
+            <div class="stock-metric-label" style="font-weight:800;color:#0f0a2e;font-size:0.85rem;">収益性</div>
+            <div class="stock-desc">米・野菜・チーズ・物流費の上昇で利益率は圧迫気味。営業利益は<strong>190億円→182億円</strong>へ下方修正。</div>
+          </div>
+          <div class="stock-card">
+            <div class="stock-card-head"><div class="stock-ticker">④</div><span class="stock-tag tag-defense">財務</span></div>
+            <div class="stock-metric-label" style="font-weight:800;color:#0f0a2e;font-size:0.85rem;">財務健全性</div>
+            <div class="stock-desc">無借金経営基調で耐久力は高い。コスト環境が厳しくても本体は崩れにくい。</div>
+          </div>
+          <div class="stock-card">
+            <div class="stock-card-head"><div class="stock-ticker">⑤</div><span class="stock-tag tag-stable">還元</span></div>
+            <div class="stock-metric-label" style="font-weight:800;color:#0f0a2e;font-size:0.85rem;">株主還元</div>
+            <div class="stock-desc">配当は安定的だが利回りは高くない。積極還元よりは成長投資優先のバランス。</div>
+          </div>
+          <div class="stock-card">
+            <div class="stock-card-head"><div class="stock-ticker">⑥</div><span class="stock-tag tag-specu">割安</span></div>
+            <div class="stock-metric-label" style="font-weight:800;color:#0f0a2e;font-size:0.85rem;">割安度</div>
+            <div class="stock-desc">良い会社ではあるが、現在株価は利益水準から見て割安とは言い切れない。<strong>慎重ゾーン</strong>。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">10</span>
+          <h2>投資マップ｜サイゼリヤ株の位置づけ</h2>
+          <span class="q-section-head-en">INVESTMENT MAP</span>
+        </div>
+
+        <div class="matrix">
+          <div class="matrix-label">SAIZERIYA POSITIONING</div>
+          <h3>事業は強い。だが「買いやすい株」かは別問題。</h3>
+          <div class="matrix-grid">
+            <div class="matrix-cell">
+              <div class="matrix-cell-head"><span class="matrix-cell-type">事業</span><span class="matrix-cell-ticker">◎ 強い</span></div>
+              <div class="matrix-cell-desc">低価格＋壊れない仕組み。外食チェーンとしてかなり優秀。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head"><span class="matrix-cell-type">成長</span><span class="matrix-cell-ticker">○ 海外</span></div>
+              <div class="matrix-cell-desc">アジア展開が伸び代。国内は既存店の底堅さが支え。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head"><span class="matrix-cell-type">収益性</span><span class="matrix-cell-ticker">△ 圧迫</span></div>
+              <div class="matrix-cell-desc">コスト上昇・利益率低下。通期営利は下方修正。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head"><span class="matrix-cell-type">株価</span><span class="matrix-cell-ticker">△ 慎重</span></div>
+              <div class="matrix-cell-desc">好決算後も調整局面。割安と断言しにくい水準。</div>
+            </div>
+          </div>
+        </div>
+
+        <p>今回のテーマは、一見すると「サイゼリヤの食べ放題は安すぎて危ないのでは」という話に見えます。しかし実際には、かなり逆です。このモデルは<strong>舞浜という立地、朝という時間帯、宿泊者向け需要という土台、1300円と60分制の組み合わせ、メニュー構成とロス管理</strong>という条件が重なって、初めて成立しやすくなっています。</p>
+        <p>言い換えると、サイゼリヤの強みは、安いことそのものではありません。<strong>安く見えるサービスを、きちんと壊れない形で成立させる設計力</strong>です。その強みは株分析にもつながります。ただし、良い会社であることと、今の株価が魅力的かどうかは別問題。投資判断まで踏み込むなら、「好きな店だから買う」ではなく、<strong>利益の伸び、コスト、海外展開、そして今の株価とのバランス</strong>を冷静に見る必要があります。</p>
+        <p>外食のニュースを、単なる「お得」か「高い」かで終わらせず、<strong>「なぜその価格で成立するのか」</strong>まで見ると、経済も企業もずっと面白くなります。</p>
+
+        <div class="disclaimer">
+          <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資を推奨するものではありません。株式に関する記述は公開情報をもとにした分析であり、最終的な投資判断はご自身の責任で行ってください。
+        </div>
+      </div>
 
       <div class="related-head">RELATED ARTICLES</div>
       <div class="related-list">
-        <a href="../" class="related-item">
-          <span class="related-tag">一覧</span>
-          <span class="related-title">経済・株式の記事一覧へ</span>
-        </a>
+        <a href="../2026-04-12-boj-banks-stocks/" class="related-item"><span class="related-tag">株式</span><span class="related-title">日銀利上げで銀行株は買いか　3メガ・地銀・ネット銀の整理 2026.04.12</span></a>
+        <a href="../2026-04-11-trump-tariffs/" class="related-item"><span class="related-tag">経済</span><span class="related-title">トランプ関税と日本経済　3層で読み解く影響 2026.04.11</span></a>
+        <a href="../2026-04-11-hitorioya/" class="related-item"><span class="related-tag">社会</span><span class="related-title">ひとり親家庭はなぜ苦しいのか　働いているのに楽にならない本当の理由 2026.04.11</span></a>
+        <a href="../" class="related-item"><span class="related-tag">一覧</span><span class="related-title">経済・株式の記事一覧へ</span></a>
       </div>
 
     </main>
@@ -388,25 +694,32 @@
       <div class="sidebar-toc">
         <div class="sidebar-toc-label">目次</div>
         <ul class="toc-list">
-          <li><a href="#sec-conclusion"><span class="toc-n">00</span>先に結論</a></li>
-<li><a href="#sec-01"><span class="toc-n">01</span>テーマの全体像</a></li>
-<li><a href="#sec-02"><span class="toc-n">02</span>論点整理</a></li>
-<li><a href="#sec-03"><span class="toc-n">03</span>初心者向けの噛み砕き説明</a></li>
-<li><a href="#sec-04"><span class="toc-n">04</span>重要な数字の整理</a></li>
-<li><a href="#sec-05"><span class="toc-n">05</span>テーマの核心</a></li>
-<li><a href="#sec-06"><span class="toc-n">06</span>舞浜という特殊条件</a></li>
-<li><a href="#sec-07"><span class="toc-n">07</span>60分制の意味</a></li>
-<li><a href="#sec-08"><span class="toc-n">08</span>本当に怖いのは何か</a></li>
-<li><a href="#sec-09"><span class="toc-n">09</span>メリット・デメリット整理</a></li>
-<li><a href="#sec-10"><span class="toc-n">10</span>株式分析パート</a></li>
-<li><a href="#sec-11"><span class="toc-n">11</span>まずは数字</a></li>
-<li><a href="#sec-12"><span class="toc-n">12</span>6本柱で見るサイゼリヤ株</a></li>
-          <li><a href="#sec-summary"><span class="toc-n">99</span>まとめ</a></li>
+          <li><a href="#"><span class="toc-n">01</span>全体像｜2レイヤー</a></li>
+          <li><a href="#"><span class="toc-n">02</span>先に結論5点</a></li>
+          <li><a href="#"><span class="toc-n">03</span>食べ放題の条件整理</a></li>
+          <li><a href="#"><span class="toc-n">04</span>元が取れた と 赤字</a></li>
+          <li><a href="#"><span class="toc-n">05</span>なぜ舞浜・朝なのか</a></li>
+          <li><a href="#"><span class="toc-n">06</span>本当に怖いのはロス</a></li>
+          <li><a href="#"><span class="toc-n">07</span>価格感の整理</a></li>
+          <li><a href="#"><span class="toc-n">08</span>業績と通期修正</a></li>
+          <li><a href="#"><span class="toc-n">09</span>6本柱で見る株</a></li>
+          <li><a href="#"><span class="toc-n">10</span>投資マップ</a></li>
         </ul>
       </div>
       <div class="sidebar-meta">
         <div class="sidebar-meta-label">TAGS</div>
-        <div class="tag-cloud"><span class="tag-pill">サイゼリヤ</span><span class="tag-pill">飲食</span><span class="tag-pill">外食</span><span class="tag-pill">原価</span><span class="tag-pill">ビジネスモデル</span></div>
+        <div class="tag-cloud">
+          <span class="tag-pill">サイゼリヤ</span>
+          <span class="tag-pill">外食</span>
+          <span class="tag-pill">食べ放題</span>
+          <span class="tag-pill">舞浜</span>
+          <span class="tag-pill">ビジネスモデル</span>
+          <span class="tag-pill">原価</span>
+          <span class="tag-pill">ロス管理</span>
+          <span class="tag-pill">企業分析</span>
+          <span class="tag-pill">株式</span>
+          <span class="tag-pill">決算</span>
+        </div>
       </div>
     </aside>
   </div>

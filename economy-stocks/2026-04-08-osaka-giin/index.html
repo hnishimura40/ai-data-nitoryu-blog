@@ -15,91 +15,316 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
-    .art-hero { background: linear-gradient(135deg, #0d1e38 0%, #475569 100%); padding: 44px 24px; }
-    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; }
-    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
-    .art-cat-main { background: #475569; color: #fff; }
-    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.95; }
-    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.55); display: flex; gap: 16px; flex-wrap: wrap; }
-    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
-    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
-    .art-body { min-width: 0; }
-    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
-    .art-body strong { color: #1a2744; }
-    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
-    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
-    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
-    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #475569; background: #f0f4fb; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
-    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
-    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
-    @media (max-width: 560px) { .sec-head-en { display: none; } }
-    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #475569; }
-    .summary-box { background: linear-gradient(135deg, #f0f6ff, #e6eefb); border: 1px solid #b5cdf0; border-left: 4px solid #475569; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
-    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #475569; margin-bottom: 12px; }
-    .summary-box ul { margin: 0; }
-    .summary-box li { font-size: 0.87rem; }
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; display: block; overflow-x: auto; }
-    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
-    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:nth-child(even) td { background: #f8fafd; }
-    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
-    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
-    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
-    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
-    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px;  max-width: 640px; margin-left: auto !important; margin-right: auto !important; }
-    .video-box-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 10px; }
-    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
-    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
-    .related-list { display: flex; flex-direction: column; gap: 10px; }
-    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
-    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
-    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #475569; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
-    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
-    .art-sidebar { font-size: 0.88rem; }
-    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
-    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
-    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
-    .toc-list { list-style: none; padding: 0; margin: 0; }
-    .toc-list li { border-bottom: 1px solid #e8ecf4; }
-    .toc-list li:last-child { border-bottom: none; }
-    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
-    .toc-list a:hover { color: #475569; }
-    .toc-n { font-size: 0.62rem; font-weight: 900; color: #475569; flex-shrink: 0; width: 22px; }
-    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
-    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
-    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
-    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
-  
-    .art-hero { padding: 24px 0 0 0 !important; }
-    .art-hero-thumb { width: 100%; max-width: 1100px; max-height: 360px; object-fit: cover; display: block; margin: 0 auto; }
-    .art-hero-title-block { max-width: var(--max-width, 1100px); margin: 0 auto; padding: 22px 24px 18px !important; }
-
-    .art-body > main .sec-head + p,
-    .art-body .sec-head + p {
-      background: linear-gradient(135deg, #f7f9fc, #eef3fb);
-      border-left: 4px solid #1a4fa0;
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      font-weight: 500;
-      margin-top: 0;
+    :root {
+      --q-accent:#7c3aed;
+      --q-accent2:#06b6d4;
+      color-scheme: light dark;
     }
-    .data-table th { font-size: 0.82rem; letter-spacing: 0.04em; }
-    .data-table { border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-    .data-table strong { color: #1a4fa0; font-weight: 900; }
-    .art-body p strong { color: #1a4fa0; font-weight: 800; background: linear-gradient(transparent 62%, #ffe58a 62%, #ffe58a 92%, transparent 92%); padding: 0 2px; }
-    .art-body p { text-align: justify; text-justify: inter-ideograph; }
-    .art-body h2 + p, .art-body .sec-sub + p { margin-top: 14px; }
+    html, body { background-color: #ffffff; color: #2a2e3c; }
 
-    /* article-body-enhanced */
+    /* ===== ダークモード：暗い配色 + 視認性重視 ===== */
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0b1020 !important; color: #d8dfef !important; }
+
+      /* 本文テキスト */
+      .art-body p, .art-body li { color: #d8dfef !important; }
+
+      /* strong は黄色マーカー（白文字と被る問題）をやめ、明るい紫文字＋薄い下地 */
+      .art-body p strong, .art-body li strong {
+        color: #c4b5fd !important;
+        background: rgba(139,92,246,0.15) !important;
+        padding: 0 4px !important;
+        border-radius: 3px !important;
+      }
+
+      /* カード類：暗い濃紺系 */
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #a78bfa !important; }
+      .stat-card-number { color: #f5f7ff !important; }
+      .stat-card-sub { color: #9aa3bf !important; }
+
+      .layer-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 6px 24px -8px rgba(0,0,0,0.4) !important; }
+      .layer-card h3 { color: #f5f7ff !important; }
+      .layer-card p { color: #c9d0e5 !important; }
+      .layer-card.tech .layer-card-tag { background: rgba(6,182,212,0.2) !important; color: #7dd3fc !important; }
+      .layer-card.market .layer-card-tag { background: rgba(245,158,11,0.18) !important; color: #fcd34d !important; }
+
+      /* セクション見出し */
+      .q-section-head { border-bottom-color: #2a3150 !important; }
+      .q-section-head h2 { color: #f5f7ff !important; }
+      .q-section-head-en { color: #5a6488 !important; }
+
+      /* 2本柱 */
+      .pillar { background: linear-gradient(180deg, #181c2e 0%, #141828 100%) !important; border-color: #2a3150 !important; }
+      .pillar-title { color: #f5f7ff !important; }
+      .pillar-desc { color: #b9c1d9 !important; }
+      .pillar-example { background: #0b1020 !important; border-color: #2a3150 !important; color: #a5adc8 !important; }
+      .pillar.target { background: linear-gradient(180deg, #2a1111 0%, #1a0a0a 100%) !important; border-color: #ef4444 !important; }
+      .pillar.target .pillar-desc, .pillar.target .pillar-title { color: #fecaca !important; }
+
+      /* リスクカード */
+      .risk-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .risk-title { color: #f5f7ff !important; }
+      .risk-body { color: #b9c1d9 !important; }
+      .risk-example { background: rgba(252,211,77,0.12) !important; color: #fcd34d !important; }
+
+      /* FAQ */
+      .faq-item { background: #141828 !important; border-color: #2a3150 !important; border-left-color: #a78bfa !important; }
+      .faq-q { color: #f5f7ff !important; }
+      .faq-a { color: #c9d0e5 !important; }
+
+      /* 銘柄カード */
+      .stock-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .stock-ticker { color: #f5f7ff !important; }
+      .stock-desc { color: #b9c1d9 !important; }
+      .stock-metric { background: #0f1322 !important; }
+      .stock-metric-label { color: #8a93ac !important; }
+      .stock-metric-value { color: #f5f7ff !important; }
+
+      /* タグは色を落としすぎないように */
+      .tag-defense { background: rgba(34,197,94,0.2) !important; color: #86efac !important; }
+      .tag-stable  { background: rgba(59,130,246,0.2) !important; color: #93c5fd !important; }
+      .tag-dream   { background: rgba(236,72,153,0.2) !important; color: #f9a8d4 !important; }
+      .tag-specu   { background: rgba(239,68,68,0.2) !important; color: #fca5a5 !important; }
+
+      /* 銘柄ラベル */
+      .stock-label { color: #f5f7ff !important; }
+
+      /* 強材料・弱材料 */
+      .pro-box { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.05)) !important; border-color: rgba(16,185,129,0.4) !important; color: #86efac !important; }
+      .con-box { background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(239,68,68,0.05)) !important; border-color: rgba(239,68,68,0.4) !important; color: #fca5a5 !important; }
+
+      /* テーブル */
+      .data-table { box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5) !important; }
+      .data-table td { background-color: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+      .data-table strong { color: #c4b5fd !important; background: none !important; }
+
+      /* サイドバー */
+      .sidebar-toc { background: linear-gradient(145deg, #141828, #0f1322) !important; border-color: #2a3150 !important; }
+      .sidebar-toc-label { color: #a78bfa !important; }
+      .toc-list a { color: #b9c1d9 !important; }
+      .toc-list a:hover { color: #c4b5fd !important; }
+      .toc-list li { border-bottom-color: #2a3150 !important; }
+      .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+      .sidebar-meta-label { color: #a78bfa !important; }
+      .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+
+      /* 関連記事 */
+      .related-item { background: #141828 !important; border-color: #2a3150 !important; }
+      .related-title { color: #f5f7ff !important; }
+      .related-head { color: #a78bfa !important; border-bottom-color: #2a3150 !important; }
+
+      /* disclaimer */
+      .disclaimer { background: rgba(217,119,6,0.1) !important; color: #fcd34d !important; border-color: rgba(217,119,6,0.4) !important; }
+
+      /* ヘッダー・ブレッドクラム */
+      .site-header { background: #0b1020 !important; border-bottom: 1px solid #2a3150 !important; }
+      .breadcrumb { background: #0f1322 !important; }
+      .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
+    }
+    .art-hero { background: radial-gradient(circle at 20% 0%, #1e0b4a 0%, #0a0a2a 40%, #050514 80%); padding: 0; position: relative; overflow: hidden; }
+    .art-hero-thumb { width: 100%; max-width: 1200px; max-height: 420px; object-fit: cover; display: block; margin: 0 auto; filter: saturate(1.1); }
+    .art-hero-title-block { max-width: 1100px; margin: 0 auto; padding: 26px 28px 22px; position: relative; z-index: 2; }
+    .art-hero-cats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; }
+    .art-cat-tech { background: linear-gradient(90deg, #7c3aed, #06b6d4); color: #fff; }
+    .art-cat-warn { background: #ef4444; color: #fff; }
+    .art-cat-stock { background: #10b981; color: #fff; }
+    .art-hero-h1 { font-size: clamp(1.2rem, 2.8vw, 1.8rem); font-weight: 900; color: #fff; line-height: 1.4; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .art-hero-meta { font-size: 0.78rem; color: rgba(255,255,255,0.65); display: flex; gap: 18px; }
+
+    .art-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 44px 24px 80px; align-items: flex-start; }
+    @media (max-width: 900px) { .art-layout { grid-template-columns: 1fr; padding: 28px 16px 60px; gap: 0; } }
+
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.96rem; line-height: 2; color: #2a2e3c; margin-bottom: 18px; }
+    .art-body strong { color: #7c3aed; font-weight: 800; }
+
+    /* HERO SUMMARY */
+    .hero-summary {
+      background: linear-gradient(135deg, #0f0a2e 0%, #1a0a4e 60%, #061733 100%);
+      border-radius: 20px; padding: 32px 36px; color: #fff;
+      margin-bottom: 40px; position: relative; overflow: hidden;
+    }
+    .hero-summary::before {
+      content: ""; position: absolute; top: -40%; right: -10%;
+      width: 60%; height: 180%;
+      background: radial-gradient(ellipse, rgba(124,58,237,.35), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-summary-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 14px; }
+    .hero-summary h2 { font-size: 1.35rem; font-weight: 900; color: #fff; margin: 0 0 14px; line-height: 1.5; }
+    .hero-summary p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.95; margin: 0; }
+
+    /* STAT CARDS */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0 36px; }
+    .stat-card {
+      background: linear-gradient(145deg, #fff, #f5f7ff);
+      border: 1px solid #e4e8f4; border-radius: 16px; padding: 22px 24px;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before { content: ""; position: absolute; inset: 0 auto auto 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--q-accent), var(--q-accent2)); }
+    .stat-card-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; text-transform: uppercase; margin-bottom: 10px; }
+    .stat-card-number { font-family: 'Poppins', sans-serif; font-size: 2.4rem; font-weight: 900; color: #0f0a2e; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; font-style: italic; }
+    .stat-card-sub { font-size: 0.82rem; color: #5a6380; line-height: 1.6; }
+
+    /* 2レイヤー */
+    .layer-split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 28px 0 36px; }
+    @media (max-width: 720px) { .layer-split { grid-template-columns: 1fr; } }
+    .layer-card { background: #fff; border-radius: 16px; padding: 24px 26px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 6px 24px -8px rgba(20, 30, 80, 0.12); }
+    .layer-card.tech { border-top: 5px solid #06b6d4; }
+    .layer-card.market { border-top: 5px solid #f59e0b; }
+    .layer-card-tag { display: inline-block; font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; }
+    .layer-card.tech .layer-card-tag { background: #e0f7fd; color: #0891b2; }
+    .layer-card.market .layer-card-tag { background: #fef3c7; color: #b45309; }
+    .layer-card h3 { font-size: 1.1rem; font-weight: 900; color: #0f0a2e; margin: 0 0 10px; }
+    .layer-card p { margin: 0; font-size: 0.92rem; line-height: 1.85; color: #2a2e3c; }
+
+    /* セクション見出し */
+    .q-section { margin: 56px 0 0; }
+    .q-section-head { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 3px solid #e4e8f4; }
+    .q-section-num { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 900; font-style: italic; background: linear-gradient(135deg, var(--q-accent), var(--q-accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; flex-shrink: 0; }
+    .q-section-head h2 { font-size: 1.3rem; font-weight: 900; color: #0f0a2e; margin: 0; line-height: 1.4; }
+    .q-section-head-en { margin-left: auto; font-size: 0.7rem; font-weight: 800; letter-spacing: .2em; color: #a3adc7; flex-shrink: 0; }
+    @media (max-width: 560px) { .q-section-head-en { display: none; } }
+
+    /* 2本柱 */
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar { background: linear-gradient(180deg, #fafbff 0%, #f0f3fa 100%); border-radius: 14px; padding: 22px 24px; border: 1px solid #dbe2f0; position: relative; }
+    .pillar-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .pillar-title { font-size: 1rem; font-weight: 900; color: #0f0a2e; margin-bottom: 8px; }
+    .pillar-desc { font-size: 0.88rem; color: #4a5270; line-height: 1.7; margin-bottom: 10px; }
+    .pillar-example { background: #fff; border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: #5a6380; border: 1px solid #e4e8f4; }
+    .pillar.target { border: 2px solid #ef4444; background: linear-gradient(180deg, #fff5f5 0%, #ffe4e4 100%); }
+    .pillar.target::after { content: "論点"; position: absolute; top: -10px; right: 14px; background: #ef4444; color: #fff; font-size: 0.68rem; font-weight: 900; letter-spacing: .1em; padding: 3px 10px; border-radius: 3px; }
+
+    /* リスク3パターン */
+    .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .risk-grid { grid-template-columns: 1fr; } }
+    .risk-card { background: #fff; border-radius: 14px; padding: 20px; border: 1px solid #e4e8f4; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .risk-card-head { display: flex; align-items: center; gap: 10px; }
+    .risk-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #ef4444, #f59e0b); color: #fff; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; }
+    .risk-title { font-size: 0.95rem; font-weight: 900; color: #0f0a2e; line-height: 1.4; }
+    .risk-body { font-size: 0.86rem; color: #4a5270; line-height: 1.75; }
+    .risk-example { margin-top: auto; padding: 10px 14px; background: #fef3c7; border-radius: 8px; font-size: 0.8rem; color: #7c2d12; font-weight: 500; }
+
+    /* 銘柄スタットカード */
+    .stock-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 20px 0 30px; }
+    .stock-card { background: #fff; border-radius: 16px; padding: 22px 24px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .stock-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .stock-ticker { font-family: 'Poppins', sans-serif; font-size: 1.6rem; font-weight: 900; font-style: italic; color: #0f0a2e; line-height: 1; }
+    .stock-tag { font-size: 0.64rem; font-weight: 900; letter-spacing: .14em; padding: 3px 9px; border-radius: 3px; text-transform: uppercase; white-space: nowrap; }
+    .tag-defense { background: #dcfce7; color: #166534; }
+    .tag-stable  { background: #dbeafe; color: #1e40af; }
+    .tag-dream   { background: #fce7f3; color: #9d174d; }
+    .tag-specu   { background: #fee2e2; color: #991b1b; }
+    .stock-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 4px 0; }
+    .stock-metric { background: #f7f9fc; border-radius: 8px; padding: 8px 10px; }
+    .stock-metric-label { font-size: 0.62rem; font-weight: 800; letter-spacing: .1em; color: #7b86a6; text-transform: uppercase; margin-bottom: 2px; }
+    .stock-metric-value { font-size: 0.9rem; font-weight: 800; color: #0f0a2e; }
+    .stock-desc { font-size: 0.83rem; color: #4a5270; line-height: 1.7; }
+
+    /* 投資地図マトリクス */
+    .matrix { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 50%, #061733 100%); border-radius: 20px; padding: 32px 30px; color: #fff; margin: 28px 0 36px; }
+    .matrix-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 18px; }
+    .matrix h3 { font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0 0 20px; }
+    .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 560px) { .matrix-grid { grid-template-columns: 1fr; grid-template-rows: auto; } }
+    .matrix-cell { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 18px 20px; backdrop-filter: blur(8px); }
+    .matrix-cell-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .matrix-cell-type { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #a78bfa; }
+    .matrix-cell-ticker { font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 900; font-style: italic; color: #fff; }
+    .matrix-cell-desc { font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
+
+    /* FAQ（position:absolute でバッジを固定し、本文は padding-left で避ける） */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 30px; }
+    .faq-item { background: #fff; border-left: 4px solid var(--q-accent); border-radius: 0 12px 12px 0; padding: 18px 22px; border-top: 1px solid #e4e8f4; border-right: 1px solid #e4e8f4; border-bottom: 1px solid #e4e8f4; }
+    .faq-q, .faq-a { position: relative; padding-left: 34px; min-height: 24px; display: block; }
+    .faq-q { font-size: 0.95rem; font-weight: 800; color: #0f0a2e; margin-bottom: 12px; line-height: 1.6; }
+    .faq-a { font-size: 0.88rem; color: #4a5270; line-height: 1.85; }
+    .faq-q::before, .faq-a::before {
+      position: absolute; left: 0; top: 2px;
+      width: 24px; height: 24px; border-radius: 50%;
+      font-size: 0.7rem; font-weight: 900; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+    }
+    .faq-q::before { content: "Q"; background: #7c3aed; }
+    .faq-a::before { content: "A"; background: #06b6d4; }
+    @media (max-width: 560px) {
+      .faq-item { padding: 16px 16px 14px; }
+      .faq-q, .faq-a { padding-left: 30px; }
+      .faq-q::before, .faq-a::before { width: 22px; height: 22px; font-size: 0.65rem; }
+    }
+
+    /* 強材料・弱材料 */
+    .pros-cons-stock { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 720px) { .pros-cons-stock { grid-template-columns: 1fr; } }
+    .pro-box, .con-box { padding: 16px 18px; border-radius: 12px; font-size: 0.85rem; line-height: 1.75; }
+    .pro-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #86efac; color: #065f46; }
+    .con-box { background: linear-gradient(135deg, #fef2f2, #fee2e2); border: 1px solid #fca5a5; color: #991b1b; }
+    .pro-box-label, .con-box-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; margin-bottom: 8px; text-transform: uppercase; }
+    .stock-label { font-size: 1rem; font-weight: 800; color: #0f0a2e; margin: 24px 0 10px; padding-left: 12px; border-left: 4px solid #7c3aed; }
+
+    /* 3行まとめ */
+    .q-summary { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 100%); border-radius: 16px; padding: 28px 30px; margin: 36px 0 28px; }
+    .q-summary-label { font-size: 0.7rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 14px; }
+    .q-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 12px; }
+    .q-summary li { font-size: 0.92rem; color: rgba(255,255,255,0.92); line-height: 1.8; }
+    .q-summary li::marker { color: #facc15; font-weight: 900; }
+
+    /* タイムライン */
+    .timeline { display: flex; justify-content: space-between; margin: 28px 0 36px; position: relative; padding: 0 20px; }
+    .timeline::before { content: ""; position: absolute; top: 32px; left: 40px; right: 40px; height: 3px; background: linear-gradient(90deg, #10b981, #06b6d4, #f59e0b, #ef4444); border-radius: 2px; }
+    .tl-stop { text-align: center; flex: 1; position: relative; }
+    .tl-dot { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 3px solid var(--q-accent); margin: 22px auto 10px; position: relative; z-index: 2; }
+    .tl-year { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1rem; font-style: italic; color: #0f0a2e; margin-bottom: 4px; }
+    .tl-label { font-size: 0.76rem; color: #5a6380; line-height: 1.5; padding: 0 4px; }
+
+    /* 動画 */
+    .video-box { background: linear-gradient(135deg, #0f0a2e, #1e0b4a); border-radius: 16px; padding: 20px; margin: 28px auto 40px; max-width: 700px; }
+    .video-box-label { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 12px; }
+    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; }
+    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    /* テーブル */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 18px 0 28px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px -4px rgba(20,30,80,0.08); }
+    .data-table th { background: linear-gradient(135deg, #0f0a2e, #2a1065); color: #fff; padding: 12px 14px; text-align: left; font-weight: 800; letter-spacing: .04em; font-size: 0.8rem; }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid #edf0f7; color: #2a2e3c; vertical-align: middle; }
+    .data-table tr:nth-child(even) td { background: #fafbff; }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .disclaimer { background: linear-gradient(135deg, #fff9f0, #fef3c7); border-left: 4px solid #d97706; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #7c2d12; }
+
+    /* サイドバー */
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 900px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; position: static !important; max-height: none !important; overflow: visible !important; top: auto !important; } }
+    .sidebar-toc { background: linear-gradient(145deg, #fafbff, #f0f3fa); border: 1px solid #dbe2f0; border-radius: 14px; padding: 20px 22px; position: sticky; top: 80px; margin-bottom: 24px; max-height: calc(100vh - 100px); overflow-y: auto; }
+    .sidebar-toc-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .18em; color: #7c3aed; margin-bottom: 14px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e4e8f4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 10px; padding: 9px 4px; color: #4a5270; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #7c3aed; }
+    .toc-n { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 0.7rem; font-weight: 900; color: #7c3aed; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dbe2f0; border-radius: 14px; padding: 18px 20px; }
+    .sidebar-meta-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #7c3aed; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #4a5270; background: #f0f3fa; border: 1px solid #dbe2f0; padding: 3px 9px; border-radius: 20px; }
+
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; border-bottom: 2px solid #e4e8f4; padding-bottom: 10px; margin: 48px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: #fff; border: 1px solid #e4e8f4; border-radius: 10px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 900; background: #7c3aed; color: #fff; padding: 3px 8px; border-radius: 3px; margin-top: 2px; letter-spacing: .08em; }
+    .related-title { font-size: 0.85rem; font-weight: 600; color: #0f0a2e; line-height: 1.5; }
   </style>
   <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <a href="../../" class="site-logo">
@@ -109,9 +334,7 @@
           <span class="logo-sub">野球・競馬 × 経済・株式</span>
         </div>
       </a>
-      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="../../">TOP</a>
         <a href="../../hanshin-keiba/">野球・競馬</a>
@@ -129,14 +352,18 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../../economy-stocks/">経済・株式</a>
       <span class="breadcrumb-sep">›</span>
-      <span>大阪府議会79人→29人案は本当に改革か　議員削減の前に必要な制度設計を考える</span>
+      <span>大阪府議会79人→29人案は本当に改革か</span>
     </div>
   </div>
 
   <div class="art-hero">
-    <img src="thumb.png?v=20260418c" alt="記事サムネイル" class="art-hero-thumb">
+    <img src="thumb.png?v=20260418c" alt="大阪府議会定数削減" class="art-hero-thumb">
     <div class="art-hero-title-block">
-      <div class="art-hero-cats"><span class="art-cat-badge art-cat-main">政治</span></div>
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-tech">政治</span>
+        <span class="art-cat-badge art-cat-warn">議員削減</span>
+        <span class="art-cat-badge art-cat-stock">制度設計</span>
+      </div>
       <h1 class="art-hero-h1">大阪府議会79人→29人案は本当に改革か　議員削減の前に必要な制度設計を考える</h1>
       <div class="art-hero-meta">
         <span>2026.04.08</span>
@@ -148,159 +375,277 @@
   <div class="art-layout">
     <main class="art-body">
 
-
       <div class="hero-summary">
         <div class="hero-summary-label">この記事のコア</div>
         <h2>ただし、今の仕事を今のまま抱えたまま、人数だけを一気に減らす議論には強い慎重さが必要だ。</h2>
-        <p>大阪府議会79人→29人案も、国会の議員削減論も、見た目はわかりやすい。 しかし本当に重要なのは、「その議会に何をやらせるのか」「国と地方で何を分担するのか」「その仕事に見合う財源をどう配るのか」という制度設計の順番である。 特に、子育てや少子化のように地域差が大きい分野は、国が最低基準と財源の土台を持ちつつ、実装は地方に近い単位へ厚く任せるほうが筋がよい。 その再設計なしに人数だけ減らせば、改革ではなく、代表機能と監視機能の切り売りになりやすい。</p>
+        <p>大阪府議会<strong>79人→29人</strong>案も、国会の議員削減論も、見た目はわかりやすい。しかし本当に重要なのは、「その議会に何をやらせるのか」「国と地方で何を分担するのか」「その仕事に見合う財源をどう配るのか」という制度設計の順番である。特に、子育てや少子化のように地域差が大きい分野は、国が最低基準と財源の土台を持ちつつ、実装は地方に近い単位へ厚く任せるほうが筋がよい。その再設計なしに人数だけ減らせば、改革ではなく、代表機能と監視機能の切り売りになりやすい。</p>
       </div>
-<p>大阪府議会の定数を<strong>79人</strong>から<strong>29人</strong>に減らす案が浮上した。</p>
-      <p>数字だけを見ると「身を切る改革」に見える。議員も減らす、コストも下がる、意思決定も速くなる。そう聞くと、つい「それでいいのでは」と思ってしまうかもしれない。</p>
-<p>ただ、この問題は単純な節約話ではない。</p>
-      <p>議員を減らすということは、地域の声を拾う人を減らすことであり、行政を監視する目を減らすことでもある。しかも今回の論点は、大阪府議会だけに閉じた話ではない。国会で繰り返し出てくる「議員削減論」ともつながっており、最終的には「日本の政治は、国と地方で何をどこまで担うべきか」という統治の設計図にまで話が広がっていく。</p>
-<p>本記事では、大阪府議会<strong>29人</strong>案を入り口に、</p>
-      <p>「議員を減らす前に、先に何を整理すべきか」</p>
-      <p>「国会議員は本当に多すぎるのか」</p>
-      <p>「子育てや少子化対策は、国と地方のどちらが担うべきか」</p>
-      <p>を、初心者にも追いやすい形で整理する。</p>
 
-      <div class="video-box" style="max-width:640px;margin-left:auto;margin-right:auto;">
+      <p>大阪府議会の定数を<strong>79人</strong>から<strong>29人</strong>に減らす案が浮上した。</p>
+      <p>数字だけを見ると「身を切る改革」に見える。議員も減らす、コストも下がる、意思決定も速くなる。そう聞くと、つい「それでいいのでは」と思ってしまうかもしれない。</p>
+      <p>ただ、この問題は単純な節約話ではない。議員を減らすということは、地域の声を拾う人を減らすことであり、行政を監視する目を減らすことでもある。しかも今回の論点は、大阪府議会だけに閉じた話ではない。国会で繰り返し出てくる「議員削減論」ともつながっており、最終的には「日本の政治は、国と地方で何をどこまで担うべきか」という統治の設計図にまで話が広がっていく。</p>
+      <p>本記事では、大阪府議会<strong>29人</strong>案を入り口に、「議員を減らす前に、先に何を整理すべきか」「国会議員は本当に多すぎるのか」「子育てや少子化対策は、国と地方のどちらが担うべきか」を、初心者にも追いやすい形で整理する。</p>
+
+      <div class="video-box">
         <div class="video-box-label">▶ 動画でも解説しています</div>
         <div class="video-embed-wrap">
           <iframe src="https://www.youtube.com/embed/tnJWxxWEU9o" title="大阪府議会79人→29人案は本当に改革か　議員削減の前に必要な制度設計を考える" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+
       <div class="q-summary">
         <div class="q-summary-label">3行まとめ</div>
         <ol>
-      <li>大阪府議会79人→29人案は、コスト削減よりも代表性と監視機能の低下が重い可能性がある。</li>
-      <li>国会議員も「多すぎるから削る」とは単純に言えず、先に国と地方の役割分担を直す必要がある。</li>
-      <li>子育てのような重要政策ほど、国は土台、地方は実装という整理が重要で、地方への財源移譲も欠かせない。</li>
+          <li>大阪府議会<strong>79人→29人</strong>案は、コスト削減よりも<strong>代表性と監視機能の低下</strong>が重い可能性がある。</li>
+          <li>国会議員も「多すぎるから削る」とは単純に言えず、先に<strong>国と地方の役割分担</strong>を直す必要がある。</li>
+          <li>子育てのような重要政策ほど、<strong>国は土台、地方は実装</strong>という整理が重要で、地方への財源移譲も欠かせない。</li>
         </ol>
       </div>
 
-      
-
-      <div class="sec-head" id="sec-conclusion">
-        <span class="sec-num">00</span>
-        <h2>先に結論</h2>
-        <span class="sec-head-en">CONCLUSION</span>
-      </div>
-<p>結論から言えば、議員定数の見直し自体をタブー視する必要はない。</p>
-      <p>ただし、今の仕事を今のまま抱えたまま、人数だけを一気に減らす議論には強い慎重さが必要だ。</p>
-<p>大阪府議会<strong>79人</strong>→<strong>29人</strong>案も、国会の議員削減論も、見た目はわかりやすい。</p>
-      <p>しかし本当に重要なのは、「その議会に何をやらせるのか」「国と地方で何を分担するのか」「その仕事に見合う財源をどう配るのか」という制度設計の順番である。</p>
-<p>特に、子育てや少子化のように地域差が大きい分野は、国が最低基準と財源の土台を持ちつつ、実装は地方に近い単位へ厚く任せるほうが筋がよい。</p>
-      <p>その再設計なしに人数だけ減らせば、改革ではなく、代表機能と監視機能の切り売りになりやすい。</p>
-
-<div class="sec-head" id="sec-01"><span class="sec-num">01</span><h2>テーマの全体像</h2><span class="sec-head-en">SECTION 01</span></div>
-<p>大阪府議会<strong>79人</strong>→<strong>29人</strong>案は、なぜここまで議論を呼ぶのか</p>
-<p>大阪府議会は現在、定数<strong>79人</strong>、選挙区53で構成されている。</p>
-      <p>しかも、これは以前から<strong>79人</strong>だったわけではない。<strong>2019年</strong>の一般選挙時点では<strong>88人</strong>で、<strong>2023年</strong>選挙から<strong>79人</strong>へとすでに削減されている。そこからさらに<strong>29人</strong>まで減らすというのが今回の案だ。</p>
-<p>数字だけ見れば、非常に強い。</p>
-      <p><strong>79人</strong>から<strong>29人</strong>へ。<strong>50人</strong>減。ほぼ三分の一規模まで圧縮する話である。</p>
-<p>一見すると、</p>
-      <p>「議員も減らす」</p>
-      <p>「無駄を削る」</p>
-      <p>「身を切る改革」</p>
-      <p>という分かりやすいメッセージになる。</p>
-<p>ただ、この問題を単なる人件費削減として捉えると、本質を見失いやすい。</p>
-      <p>議会は、条例や予算を決めるだけの場ではない。知事や執行部の政策を監視し、地域の声を吸い上げ、少数意見も含めて議論の場に載せる役割がある。つまり議員を減らすことは、「人件費の削減」と同時に、「代表の厚み」と「監視の厚み」を減らすことでもある。</p>
-<p>ここが、今回の問題の出発点だ。</p>
-<div class="sec-head" id="sec-02"><span class="sec-num">02</span><h2>重要な数字を整理</h2><span class="sec-head-en">SECTION 02</span></div>
-<p>まずは事実関係を表で確認する</p>
-<div class="sec-head" id="sec-03"><span class="sec-num">03</span><h2>大阪府議会の基本データ</h2><span class="sec-head-en">SECTION 03</span></div>
-<table class="data-table">
-<thead><tr>
-<th>項目</th>
-<th>数値・内容</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>現行定数</td>
-<td><strong>79人</strong></td>
-</tr>
-<tr>
-<td>過去定数</td>
-<td><strong>88人</strong>（<strong>2019年</strong>選挙時）</td>
-</tr>
-<tr>
-<td>選挙区数</td>
-<td>53</td>
-</tr>
-<tr>
-<td>大阪府人口</td>
-<td><strong>8,764,462人</strong>（<strong>2026年3月1日</strong>時点）</td>
-</tr>
-<tr>
-<td>現行の議員<strong>1人</strong>あたり人口</td>
-<td>約11.1万人</td>
-</tr>
-<tr>
-<td><strong>29人</strong>案での議員<strong>1人</strong>あたり人口</td>
-<td>約30.2万人</td>
-</tr>
-<tr>
-<td>常任委員会数</td>
-<td>7</td>
-</tr>
-</tbody></table>
-<p>ここで特に重いのは、「議員<strong>1人</strong>あたり人口」の変化だ。</p>
-      <p><strong>79人</strong>なら約11.1万人。これでも軽くはない。</p>
-      <p>しかし<strong>29人</strong>になると約30.2万人。単純計算でも、<strong>1人</strong>の議員が背負う人口は一気に重くなる。</p>
-<p>初心者向けに噛み砕くと、</p>
-      <p>「相談先が遠くなる」</p>
-      <p>「細かい地域課題が拾われにくくなる」</p>
-      <p>「大きな声、目立つ声が優先されやすくなる」</p>
-      <p>というイメージに近い。</p>
-<div class="sec-head" id="sec-04"><span class="sec-num">04</span><h2>論点整理</h2><span class="sec-head-en">SECTION 04</span></div>
-<p>このテーマで見るべき論点は3つある</p>
-<p>今回のテーマは、感情的に賛成・反対を決めるより、論点を分けて考えたほうがわかりやすい。</p>
-<div class="sec-head" id="sec-05"><span class="sec-num">05</span><h2>論点1　コスト削減は本当に主目的なのか</h2><span class="sec-head-en">SECTION 05</span></div>
-<p>議員が減れば、議会コストは当然下がる。</p>
-      <p>ここは否定しなくてよい。</p>
-      <p>ただし、コスト削減で失うものが何かを同時に見ないと、制度としての評価を誤る。</p>
-<div class="sec-head" id="sec-06"><span class="sec-num">06</span><h2>論点2　代表性と監視機能は保てるのか</h2><span class="sec-head-en">SECTION 06</span></div>
-<p>議員数が減れば、地域の声を拾う力は落ちやすい。</p>
-      <p>また、知事や執行部をチェックする側の人数も減る。</p>
-      <p>大阪府議会は近年、定例会を年<strong>4回</strong>に増やし、一般質問機会も広げるなど、むしろ議会機能を強める方向で改革してきた。その流れの中で一気に<strong>29人</strong>へ縮小するのは、かなりちぐはぐに見える。</p>
-<div class="sec-head" id="sec-07"><span class="sec-num">07</span><h2>論点3　大阪だけでなく国会の削減論ともつながるか</h2><span class="sec-head-en">SECTION 07</span></div>
-<p>答えは、かなりつながる。</p>
-      <p>「議員を減らす」「政治家を減らす」という分かりやすい訴えは、国会でも何度も繰り返されてきた。</p>
-      <p>ただし、国会も同じで、本来は人数より先に「何を国が担い、何を地方が担うか」を整理する必要がある。</p>
-<div class="sec-head" id="sec-08"><span class="sec-num">08</span><h2>メリット・デメリット</h2><span class="sec-head-en">SECTION 08</span></div>
-<p>大阪府議会<strong>29人</strong>案の強材料・弱材料</p>
-<div class="sec-head" id="sec-09"><span class="sec-num">09</span><h2>メリット・強材料</h2><span class="sec-head-en">SECTION 09</span></div>
-
-
-      <div class="sec-head" id="sec-summary">
-        <span class="sec-num">99</span>
-        <h2>まとめ</h2>
-        <span class="sec-head-en">SUMMARY</span>
-      </div>
-<p>大阪府議会<strong>29人</strong>案は、単なる地方政治の話ではない。</p>
-      <p>国会の議員削減論、地方分権、子育て政策、参議院改革までつながる大きな論点を含んでいる。</p>
-<p>この記事で一番伝えたかったのは、「議員を減らすな」という単純な反対ではない。</p>
-      <p>そうではなく、「役割も財源もそのままで人数だけ減らすな」という順番論だ。</p>
-<p>子育てのような大事なテーマを、感情だけで叫ぶのではなく、国家全体の設計と地域の実装の両方から語れる政治であってほしい。</p>
-      <p>そして制度改革を語るなら、見た目のインパクトではなく、機能が残るかどうかを基準に考えるべきだ。</p>
-<p>それが、このテーマを見ていく上での、いちばん大事な視点だと思う。</p>
-
-
-      <div class="disclaimer">
-        <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">00</span>
+          <h2>先に結論｜制度設計の順番を変えない改革は機能の切り売り</h2>
+          <span class="q-section-head-en">CONCLUSION</span>
+        </div>
+        <p>結論から言えば、<strong>議員定数の見直し自体をタブー視する必要はない</strong>。ただし、今の仕事を今のまま抱えたまま、人数だけを一気に減らす議論には強い慎重さが必要だ。</p>
+        <p>大阪府議会<strong>79人→29人</strong>案も、国会の議員削減論も、見た目はわかりやすい。しかし本当に重要なのは、「その議会に何をやらせるのか」「国と地方で何を分担するのか」「その仕事に見合う財源をどう配るのか」という<strong>制度設計の順番</strong>である。</p>
+        <p>特に、子育てや少子化のように地域差が大きい分野は、国が最低基準と財源の土台を持ちつつ、実装は地方に近い単位へ厚く任せるほうが筋がよい。その再設計なしに人数だけ減らせば、改革ではなく、<strong>代表機能と監視機能の切り売り</strong>になりやすい。</p>
       </div>
 
-      <hr class="art-hr">
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">01</span>
+          <h2>テーマの全体像｜なぜここまで議論を呼ぶのか</h2>
+          <span class="q-section-head-en">OVERVIEW</span>
+        </div>
+        <p>大阪府議会は現在、定数<strong>79人</strong>、選挙区<strong>53</strong>で構成されている。しかも、これは以前から79人だったわけではない。<strong>2019年</strong>の一般選挙時点では<strong>88人</strong>で、<strong>2023年</strong>選挙から<strong>79人</strong>へとすでに削減されている。そこからさらに<strong>29人</strong>まで減らすというのが今回の案だ。</p>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-card-label">現行定数</div>
+            <div class="stat-card-number">79</div>
+            <div class="stat-card-sub">2023年選挙から（88人→79人へ削減済）</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">新提案</div>
+            <div class="stat-card-number">29</div>
+            <div class="stat-card-sub">ほぼ三分の一規模まで圧縮</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">削減数</div>
+            <div class="stat-card-number">−50</div>
+            <div class="stat-card-sub">一気に50人減らす強い案</div>
+          </div>
+        </div>
+
+        <p>数字だけ見れば、非常に強い。<strong>79人から29人へ、50人減</strong>。一見すると、「議員も減らす」「無駄を削る」「身を切る改革」という分かりやすいメッセージになる。</p>
+        <p>ただ、この問題を単なる人件費削減として捉えると、本質を見失いやすい。議会は、条例や予算を決めるだけの場ではない。知事や執行部の政策を監視し、地域の声を吸い上げ、少数意見も含めて議論の場に載せる役割がある。つまり議員を減らすことは、<strong>「人件費の削減」と同時に、「代表の厚み」と「監視の厚み」を減らすこと</strong>でもある。ここが、今回の問題の出発点だ。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">02</span>
+          <h2>重要な数字を整理｜大阪府議会の基本データ</h2>
+          <span class="q-section-head-en">KEY NUMBERS</span>
+        </div>
+        <p>まずは事実関係を表で確認する。</p>
+
+        <table class="data-table">
+          <thead><tr><th>項目</th><th>数値・内容</th></tr></thead>
+          <tbody>
+            <tr><td>現行定数</td><td><strong>79人</strong></td></tr>
+            <tr><td>過去定数</td><td><strong>88人</strong>（2019年選挙時）</td></tr>
+            <tr><td>選挙区数</td><td>53</td></tr>
+            <tr><td>大阪府人口</td><td><strong>8,764,462人</strong>（2026年3月1日時点）</td></tr>
+            <tr><td>現行の議員1人あたり人口</td><td>約<strong>11.1万人</strong></td></tr>
+            <tr><td>29人案での議員1人あたり人口</td><td>約<strong>30.2万人</strong></td></tr>
+            <tr><td>常任委員会数</td><td>7</td></tr>
+          </tbody>
+        </table>
+
+        <p>ここで特に重いのは、<strong>「議員1人あたり人口」の変化</strong>だ。79人なら約11.1万人。これでも軽くはない。しかし<strong>29人</strong>になると約<strong>30.2万人</strong>。単純計算でも、1人の議員が背負う人口は一気に重くなる。</p>
+        <p>初心者向けに噛み砕くと、「相談先が遠くなる」「細かい地域課題が拾われにくくなる」「大きな声、目立つ声が優先されやすくなる」というイメージに近い。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">03</span>
+          <h2>議会の2本柱｜人数を減らす前に何を守るか</h2>
+          <span class="q-section-head-en">FOUNDATIONS</span>
+        </div>
+        <p>議会の機能は大きく<strong>2本の柱</strong>で支えられている。人数を削るとき、この2本に何が起きるかを先に見る必要がある。</p>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🗳</div>
+            <div class="pillar-title">柱1：代表機能</div>
+            <div class="pillar-desc">地域の声、少数派の声を議論の場に載せる機能。議員1人あたり人口が増えるほど、細かな声は拾いにくくなる。</div>
+            <div class="pillar-example">💡 たとえ：住民と行政をつなぐ窓口の数</div>
+          </div>
+          <div class="pillar target">
+            <div class="pillar-icon">👁</div>
+            <div class="pillar-title">柱2：監視機能</div>
+            <div class="pillar-desc">知事や執行部の政策・予算をチェックする機能。<strong>人数が減れば委員会のチェックの目も減る</strong>。</div>
+            <div class="pillar-example">💡 たとえ：会社の取締役会が行う経営監視</div>
+          </div>
+        </div>
+
+        <p>大阪府議会は近年、定例会を年<strong>4回</strong>に増やし、一般質問機会も広げるなど、<strong>むしろ議会機能を強める方向で改革</strong>してきた。その流れの中で一気に29人へ縮小するのは、かなりちぐはぐに見える。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">04</span>
+          <h2>論点整理｜3つの視点で分けて考える</h2>
+          <span class="q-section-head-en">KEY ISSUES</span>
+        </div>
+        <p>このテーマは、感情的に賛成・反対を決めるより、<strong>論点を分けて考えたほうがわかりやすい</strong>。見るべき論点は3つある。</p>
+
+        <div class="risk-grid">
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">1</span>
+              <span class="risk-title">コスト削減は本当に主目的なのか</span>
+            </div>
+            <div class="risk-body">議員が減れば、議会コストは当然下がる。ここは否定しなくてよい。ただし、<strong>コスト削減で失うもの</strong>を同時に見ないと、制度としての評価を誤る。</div>
+            <div class="risk-example">💰 節約の裏で機能まで削っていないか</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">2</span>
+              <span class="risk-title">代表性と監視機能は保てるのか</span>
+            </div>
+            <div class="risk-body">議員数が減れば、地域の声を拾う力は落ちやすい。また、<strong>知事や執行部をチェックする側の人数も減る</strong>。議会機能強化の流れと逆行しかねない。</div>
+            <div class="risk-example">👥 1人あたり11.1万人 → 30.2万人</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">3</span>
+              <span class="risk-title">国会の削減論ともつながるか</span>
+            </div>
+            <div class="risk-body">答えは、かなりつながる。「議員を減らす」は国会でも何度も出てきた訴えだ。ただし本来は、<strong>人数より先に国と地方の役割分担</strong>を整理する必要がある。</div>
+            <div class="risk-example">🏛 大阪だけの問題ではない</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">05</span>
+          <h2>メリット・デメリット｜29人案の強材料・弱材料</h2>
+          <span class="q-section-head-en">PROS &amp; CONS</span>
+        </div>
+
+        <div class="stock-label">大阪府議会29人案</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box">
+            <div class="pro-box-label">✓ 強材料（メリット）</div>
+            議会コストの明確な削減／「身を切る改革」としての分かりやすさ／意思決定の高速化／既に88人→79人の削減実績がある流れ
+          </div>
+          <div class="con-box">
+            <div class="con-box-label">✗ 弱材料（デメリット）</div>
+            代表機能の低下（1人30.2万人負担）／監視機能の低下／細かな地域課題の取りこぼし／近年の議会機能強化の流れと逆行／少数意見が議論の場に載りにくくなる
+          </div>
+        </div>
+
+        <p>メリットは分かりやすい一方、デメリットは<strong>制度が壊れてから気づく類</strong>のものが多い。そこが今回の議論で最も慎重になるべき点だ。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">06</span>
+          <h2>よくある疑問への答え</h2>
+          <span class="q-section-head-en">FAQ</span>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">議員定数の見直しは、そもそもタブーなのか？</div>
+            <div class="faq-a">いいえ、<strong>見直し自体をタブー視する必要はない</strong>。ただし「今の仕事を今のまま抱えたまま、人数だけを一気に減らす」議論には強い慎重さが必要、というのが本稿の立場です。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">国会議員は本当に多すぎるのか？</div>
+            <div class="faq-a">「多すぎるから削る」と単純には言えません。国会も同じで、<strong>本来は人数より先に「何を国が担い、何を地方が担うか」</strong>を整理する必要があります。役割整理なしの人数削減は、機能の切り売りになりやすい。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">子育てや少子化対策は、国と地方のどちらが担うべき？</div>
+            <div class="faq-a">地域差が大きい分野なので、<strong>国が最低基準と財源の土台を持ちつつ、実装は地方に近い単位へ厚く任せる</strong>のが筋がよい。ただしそれには、<strong>地方への財源移譲</strong>が不可欠です。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">29人案が通ると、住民にはどんな変化が？</div>
+            <div class="faq-a">「相談先が遠くなる」「細かい地域課題が拾われにくくなる」「大きな声、目立つ声が優先されやすくなる」といった変化が起きやすくなります。議員1人あたりの住民数が<strong>約11.1万人から約30.2万人へ</strong>跳ね上がるためです。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">07</span>
+          <h2>制度改革の順番マップ｜見た目ではなく機能で考える</h2>
+          <span class="q-section-head-en">DESIGN MAP</span>
+        </div>
+
+        <div class="matrix">
+          <div class="matrix-label">REFORM SEQUENCE MAP</div>
+          <h3>「人数を減らす」より先にやるべき順番がある</h3>
+          <div class="matrix-grid">
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">STEP 1</span>
+                <span class="matrix-cell-ticker">役割</span>
+              </div>
+              <div class="matrix-cell-desc">その議会に何をやらせるのか。条例・予算・監視・代表、どこを重視するかを先に決める。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">STEP 2</span>
+                <span class="matrix-cell-ticker">分担</span>
+              </div>
+              <div class="matrix-cell-desc">国と地方で何を分担するのか。子育て等は国が土台、地方が実装という整理が筋。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">STEP 3</span>
+                <span class="matrix-cell-ticker">財源</span>
+              </div>
+              <div class="matrix-cell-desc">その仕事に見合う財源をどう配るか。地方への財源移譲なしで役割だけ渡してはダメ。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">STEP 4</span>
+                <span class="matrix-cell-ticker">定数</span>
+              </div>
+              <div class="matrix-cell-desc">1〜3を固めた上で、必要な人数を逆算する。<strong>ここが最後</strong>。先に削るのは順番が逆。</div>
+            </div>
+          </div>
+        </div>
+
+        <p>見た目のインパクトで定数から切り込むのではなく、<strong>役割 → 分担 → 財源 → 定数</strong>の順番で設計する。それが「改革」と「機能の切り売り」を分ける境界線になる。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">99</span>
+          <h2>まとめ｜順番論として読んでほしい</h2>
+          <span class="q-section-head-en">SUMMARY</span>
+        </div>
+        <p>大阪府議会<strong>29人</strong>案は、単なる地方政治の話ではない。<strong>国会の議員削減論、地方分権、子育て政策、参議院改革</strong>までつながる大きな論点を含んでいる。</p>
+        <p>この記事で一番伝えたかったのは、「議員を減らすな」という単純な反対ではない。そうではなく、<strong>「役割も財源もそのままで人数だけ減らすな」という順番論</strong>だ。</p>
+        <p>子育てのような大事なテーマを、感情だけで叫ぶのではなく、国家全体の設計と地域の実装の両方から語れる政治であってほしい。そして制度改革を語るなら、<strong>見た目のインパクトではなく、機能が残るかどうか</strong>を基準に考えるべきだ。それが、このテーマを見ていく上での、いちばん大事な視点だと思う。</p>
+
+        <div class="disclaimer">
+          <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+        </div>
+      </div>
 
       <div class="related-head">RELATED ARTICLES</div>
       <div class="related-list">
-        <a href="../" class="related-item">
-          <span class="related-tag">一覧</span>
-          <span class="related-title">経済・株式の記事一覧へ</span>
-        </a>
+        <a href="../2026-04-18-oda/" class="related-item"><span class="related-tag">政治</span><span class="related-title">ODAをどう考えるか　国際協力と国益のバランスを読み解く 2026.04.18</span></a>
+        <a href="../2026-04-11-hitorioya/" class="related-item"><span class="related-tag">社会</span><span class="related-title">ひとり親支援をどう設計するか　制度の穴と現場のリアル 2026.04.11</span></a>
+        <a href="../2026-04-11-trump-tariffs/" class="related-item"><span class="related-tag">政治</span><span class="related-title">トランプ関税をどう読むか　国内産業と外交のトレードオフ 2026.04.11</span></a>
+        <a href="../" class="related-item"><span class="related-tag">一覧</span><span class="related-title">経済・株式の記事一覧へ</span></a>
       </div>
-
     </main>
 
     <aside class="art-sidebar">
@@ -308,21 +653,29 @@
         <div class="sidebar-toc-label">目次</div>
         <ul class="toc-list">
           <li><a href="#sec-conclusion"><span class="toc-n">00</span>先に結論</a></li>
-<li><a href="#sec-01"><span class="toc-n">01</span>テーマの全体像</a></li>
-<li><a href="#sec-02"><span class="toc-n">02</span>重要な数字を整理</a></li>
-<li><a href="#sec-03"><span class="toc-n">03</span>大阪府議会の基本データ</a></li>
-<li><a href="#sec-04"><span class="toc-n">04</span>論点整理</a></li>
-<li><a href="#sec-05"><span class="toc-n">05</span>論点1　コスト削減は本当に主目的なのか</a></li>
-<li><a href="#sec-06"><span class="toc-n">06</span>論点2　代表性と監視機能は保てるのか</a></li>
-<li><a href="#sec-07"><span class="toc-n">07</span>論点3　大阪だけでなく国会の削減論ともつなが</a></li>
-<li><a href="#sec-08"><span class="toc-n">08</span>メリット・デメリット</a></li>
-<li><a href="#sec-09"><span class="toc-n">09</span>メリット・強材料</a></li>
+          <li><a href="#sec-01"><span class="toc-n">01</span>テーマの全体像</a></li>
+          <li><a href="#sec-02"><span class="toc-n">02</span>重要な数字を整理</a></li>
+          <li><a href="#sec-03"><span class="toc-n">03</span>議会の2本柱</a></li>
+          <li><a href="#sec-04"><span class="toc-n">04</span>論点整理</a></li>
+          <li><a href="#sec-05"><span class="toc-n">05</span>メリット・デメリット</a></li>
+          <li><a href="#sec-06"><span class="toc-n">06</span>FAQ</a></li>
+          <li><a href="#sec-07"><span class="toc-n">07</span>制度改革の順番</a></li>
           <li><a href="#sec-summary"><span class="toc-n">99</span>まとめ</a></li>
         </ul>
       </div>
       <div class="sidebar-meta">
         <div class="sidebar-meta-label">TAGS</div>
-        <div class="tag-cloud"><span class="tag-pill">大阪府議会</span><span class="tag-pill">議員削減</span><span class="tag-pill">政治改革</span><span class="tag-pill">制度設計</span><span class="tag-pill">地方自治</span></div>
+        <div class="tag-cloud">
+          <span class="tag-pill">大阪府議会</span>
+          <span class="tag-pill">議員削減</span>
+          <span class="tag-pill">政治改革</span>
+          <span class="tag-pill">制度設計</span>
+          <span class="tag-pill">地方自治</span>
+          <span class="tag-pill">地方分権</span>
+          <span class="tag-pill">国会改革</span>
+          <span class="tag-pill">財源移譲</span>
+          <span class="tag-pill">子育て政策</span>
+        </div>
       </div>
     </aside>
   </div>
@@ -334,6 +687,5 @@
   </footer>
 
   <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/article-enhance.js?v=20260418e" defer></script>
 </body>
 </html>

@@ -15,91 +15,316 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
-    .art-hero { background: linear-gradient(135deg, #0d1e38 0%, #0d9488 100%); padding: 44px 24px; }
-    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; }
-    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
-    .art-cat-main { background: #0d9488; color: #fff; }
-    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.95; }
-    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.55); display: flex; gap: 16px; flex-wrap: wrap; }
-    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
-    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
-    .art-body { min-width: 0; }
-    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
-    .art-body strong { color: #1a2744; }
-    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
-    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
-    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
-    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #0d9488; background: #f0f4fb; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
-    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
-    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
-    @media (max-width: 560px) { .sec-head-en { display: none; } }
-    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #0d9488; }
-    .summary-box { background: linear-gradient(135deg, #f0f6ff, #e6eefb); border: 1px solid #b5cdf0; border-left: 4px solid #0d9488; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
-    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #0d9488; margin-bottom: 12px; }
-    .summary-box ul { margin: 0; }
-    .summary-box li { font-size: 0.87rem; }
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; display: block; overflow-x: auto; }
-    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
-    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:nth-child(even) td { background: #f8fafd; }
-    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
-    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
-    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
-    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
-    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px;  max-width: 640px; margin-left: auto !important; margin-right: auto !important; }
-    .video-box-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 10px; }
-    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
-    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
-    .related-list { display: flex; flex-direction: column; gap: 10px; }
-    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
-    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
-    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #0d9488; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
-    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
-    .art-sidebar { font-size: 0.88rem; }
-    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
-    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
-    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
-    .toc-list { list-style: none; padding: 0; margin: 0; }
-    .toc-list li { border-bottom: 1px solid #e8ecf4; }
-    .toc-list li:last-child { border-bottom: none; }
-    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
-    .toc-list a:hover { color: #0d9488; }
-    .toc-n { font-size: 0.62rem; font-weight: 900; color: #0d9488; flex-shrink: 0; width: 22px; }
-    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
-    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
-    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
-    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
-  
-    .art-hero { padding: 24px 0 0 0 !important; }
-    .art-hero-thumb { width: 100%; max-width: 1100px; max-height: 360px; object-fit: cover; display: block; margin: 0 auto; }
-    .art-hero-title-block { max-width: var(--max-width, 1100px); margin: 0 auto; padding: 22px 24px 18px !important; }
-
-    .art-body > main .sec-head + p,
-    .art-body .sec-head + p {
-      background: linear-gradient(135deg, #f7f9fc, #eef3fb);
-      border-left: 4px solid #1a4fa0;
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      font-weight: 500;
-      margin-top: 0;
+    :root {
+      --q-accent:#7c3aed;
+      --q-accent2:#06b6d4;
+      color-scheme: light dark;
     }
-    .data-table th { font-size: 0.82rem; letter-spacing: 0.04em; }
-    .data-table { border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-    .data-table strong { color: #1a4fa0; font-weight: 900; }
-    .art-body p strong { color: #1a4fa0; font-weight: 800; background: linear-gradient(transparent 62%, #ffe58a 62%, #ffe58a 92%, transparent 92%); padding: 0 2px; }
-    .art-body p { text-align: justify; text-justify: inter-ideograph; }
-    .art-body h2 + p, .art-body .sec-sub + p { margin-top: 14px; }
+    html, body { background-color: #ffffff; color: #2a2e3c; }
 
-    /* article-body-enhanced */
+    /* ===== ダークモード：暗い配色 + 視認性重視 ===== */
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0b1020 !important; color: #d8dfef !important; }
+
+      /* 本文テキスト */
+      .art-body p, .art-body li { color: #d8dfef !important; }
+
+      /* strong は黄色マーカー（白文字と被る問題）をやめ、明るい紫文字＋薄い下地 */
+      .art-body p strong, .art-body li strong {
+        color: #c4b5fd !important;
+        background: rgba(139,92,246,0.15) !important;
+        padding: 0 4px !important;
+        border-radius: 3px !important;
+      }
+
+      /* カード類：暗い濃紺系 */
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #a78bfa !important; }
+      .stat-card-number { color: #f5f7ff !important; }
+      .stat-card-sub { color: #9aa3bf !important; }
+
+      .layer-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 6px 24px -8px rgba(0,0,0,0.4) !important; }
+      .layer-card h3 { color: #f5f7ff !important; }
+      .layer-card p { color: #c9d0e5 !important; }
+      .layer-card.tech .layer-card-tag { background: rgba(6,182,212,0.2) !important; color: #7dd3fc !important; }
+      .layer-card.market .layer-card-tag { background: rgba(245,158,11,0.18) !important; color: #fcd34d !important; }
+
+      /* セクション見出し */
+      .q-section-head { border-bottom-color: #2a3150 !important; }
+      .q-section-head h2 { color: #f5f7ff !important; }
+      .q-section-head-en { color: #5a6488 !important; }
+
+      /* 2本柱 */
+      .pillar { background: linear-gradient(180deg, #181c2e 0%, #141828 100%) !important; border-color: #2a3150 !important; }
+      .pillar-title { color: #f5f7ff !important; }
+      .pillar-desc { color: #b9c1d9 !important; }
+      .pillar-example { background: #0b1020 !important; border-color: #2a3150 !important; color: #a5adc8 !important; }
+      .pillar.target { background: linear-gradient(180deg, #2a1111 0%, #1a0a0a 100%) !important; border-color: #ef4444 !important; }
+      .pillar.target .pillar-desc, .pillar.target .pillar-title { color: #fecaca !important; }
+
+      /* リスクカード */
+      .risk-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .risk-title { color: #f5f7ff !important; }
+      .risk-body { color: #b9c1d9 !important; }
+      .risk-example { background: rgba(252,211,77,0.12) !important; color: #fcd34d !important; }
+
+      /* FAQ */
+      .faq-item { background: #141828 !important; border-color: #2a3150 !important; border-left-color: #a78bfa !important; }
+      .faq-q { color: #f5f7ff !important; }
+      .faq-a { color: #c9d0e5 !important; }
+
+      /* 銘柄カード */
+      .stock-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .stock-ticker { color: #f5f7ff !important; }
+      .stock-desc { color: #b9c1d9 !important; }
+      .stock-metric { background: #0f1322 !important; }
+      .stock-metric-label { color: #8a93ac !important; }
+      .stock-metric-value { color: #f5f7ff !important; }
+
+      /* タグは色を落としすぎないように */
+      .tag-defense { background: rgba(34,197,94,0.2) !important; color: #86efac !important; }
+      .tag-stable  { background: rgba(59,130,246,0.2) !important; color: #93c5fd !important; }
+      .tag-dream   { background: rgba(236,72,153,0.2) !important; color: #f9a8d4 !important; }
+      .tag-specu   { background: rgba(239,68,68,0.2) !important; color: #fca5a5 !important; }
+
+      /* 銘柄ラベル */
+      .stock-label { color: #f5f7ff !important; }
+
+      /* 強材料・弱材料 */
+      .pro-box { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.05)) !important; border-color: rgba(16,185,129,0.4) !important; color: #86efac !important; }
+      .con-box { background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(239,68,68,0.05)) !important; border-color: rgba(239,68,68,0.4) !important; color: #fca5a5 !important; }
+
+      /* テーブル */
+      .data-table { box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5) !important; }
+      .data-table td { background-color: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+      .data-table strong { color: #c4b5fd !important; background: none !important; }
+
+      /* サイドバー */
+      .sidebar-toc { background: linear-gradient(145deg, #141828, #0f1322) !important; border-color: #2a3150 !important; }
+      .sidebar-toc-label { color: #a78bfa !important; }
+      .toc-list a { color: #b9c1d9 !important; }
+      .toc-list a:hover { color: #c4b5fd !important; }
+      .toc-list li { border-bottom-color: #2a3150 !important; }
+      .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+      .sidebar-meta-label { color: #a78bfa !important; }
+      .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+
+      /* 関連記事 */
+      .related-item { background: #141828 !important; border-color: #2a3150 !important; }
+      .related-title { color: #f5f7ff !important; }
+      .related-head { color: #a78bfa !important; border-bottom-color: #2a3150 !important; }
+
+      /* disclaimer */
+      .disclaimer { background: rgba(217,119,6,0.1) !important; color: #fcd34d !important; border-color: rgba(217,119,6,0.4) !important; }
+
+      /* ヘッダー・ブレッドクラム */
+      .site-header { background: #0b1020 !important; border-bottom: 1px solid #2a3150 !important; }
+      .breadcrumb { background: #0f1322 !important; }
+      .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
+    }
+    .art-hero { background: radial-gradient(circle at 20% 0%, #1e0b4a 0%, #0a0a2a 40%, #050514 80%); padding: 0; position: relative; overflow: hidden; }
+    .art-hero-thumb { width: 100%; max-width: 1200px; max-height: 420px; object-fit: cover; display: block; margin: 0 auto; filter: saturate(1.1); }
+    .art-hero-title-block { max-width: 1100px; margin: 0 auto; padding: 26px 28px 22px; position: relative; z-index: 2; }
+    .art-hero-cats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; }
+    .art-cat-tech { background: linear-gradient(90deg, #7c3aed, #06b6d4); color: #fff; }
+    .art-cat-warn { background: #ef4444; color: #fff; }
+    .art-cat-stock { background: #10b981; color: #fff; }
+    .art-hero-h1 { font-size: clamp(1.2rem, 2.8vw, 1.8rem); font-weight: 900; color: #fff; line-height: 1.4; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .art-hero-meta { font-size: 0.78rem; color: rgba(255,255,255,0.65); display: flex; gap: 18px; }
+
+    .art-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 44px 24px 80px; align-items: flex-start; }
+    @media (max-width: 900px) { .art-layout { grid-template-columns: 1fr; padding: 28px 16px 60px; gap: 0; } }
+
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.96rem; line-height: 2; color: #2a2e3c; margin-bottom: 18px; }
+    .art-body strong { color: #7c3aed; font-weight: 800; }
+
+    /* HERO SUMMARY */
+    .hero-summary {
+      background: linear-gradient(135deg, #0f0a2e 0%, #1a0a4e 60%, #061733 100%);
+      border-radius: 20px; padding: 32px 36px; color: #fff;
+      margin-bottom: 40px; position: relative; overflow: hidden;
+    }
+    .hero-summary::before {
+      content: ""; position: absolute; top: -40%; right: -10%;
+      width: 60%; height: 180%;
+      background: radial-gradient(ellipse, rgba(124,58,237,.35), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-summary-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 14px; }
+    .hero-summary h2 { font-size: 1.35rem; font-weight: 900; color: #fff; margin: 0 0 14px; line-height: 1.5; }
+    .hero-summary p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.95; margin: 0; }
+
+    /* STAT CARDS */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0 36px; }
+    .stat-card {
+      background: linear-gradient(145deg, #fff, #f5f7ff);
+      border: 1px solid #e4e8f4; border-radius: 16px; padding: 22px 24px;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before { content: ""; position: absolute; inset: 0 auto auto 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--q-accent), var(--q-accent2)); }
+    .stat-card-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; text-transform: uppercase; margin-bottom: 10px; }
+    .stat-card-number { font-family: 'Poppins', sans-serif; font-size: 2.4rem; font-weight: 900; color: #0f0a2e; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; font-style: italic; }
+    .stat-card-sub { font-size: 0.82rem; color: #5a6380; line-height: 1.6; }
+
+    /* 2レイヤー */
+    .layer-split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 28px 0 36px; }
+    @media (max-width: 720px) { .layer-split { grid-template-columns: 1fr; } }
+    .layer-card { background: #fff; border-radius: 16px; padding: 24px 26px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 6px 24px -8px rgba(20, 30, 80, 0.12); }
+    .layer-card.tech { border-top: 5px solid #06b6d4; }
+    .layer-card.market { border-top: 5px solid #f59e0b; }
+    .layer-card-tag { display: inline-block; font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; }
+    .layer-card.tech .layer-card-tag { background: #e0f7fd; color: #0891b2; }
+    .layer-card.market .layer-card-tag { background: #fef3c7; color: #b45309; }
+    .layer-card h3 { font-size: 1.1rem; font-weight: 900; color: #0f0a2e; margin: 0 0 10px; }
+    .layer-card p { margin: 0; font-size: 0.92rem; line-height: 1.85; color: #2a2e3c; }
+
+    /* セクション見出し */
+    .q-section { margin: 56px 0 0; }
+    .q-section-head { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 3px solid #e4e8f4; }
+    .q-section-num { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 900; font-style: italic; background: linear-gradient(135deg, var(--q-accent), var(--q-accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; flex-shrink: 0; }
+    .q-section-head h2 { font-size: 1.3rem; font-weight: 900; color: #0f0a2e; margin: 0; line-height: 1.4; }
+    .q-section-head-en { margin-left: auto; font-size: 0.7rem; font-weight: 800; letter-spacing: .2em; color: #a3adc7; flex-shrink: 0; }
+    @media (max-width: 560px) { .q-section-head-en { display: none; } }
+
+    /* 2本柱 */
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar { background: linear-gradient(180deg, #fafbff 0%, #f0f3fa 100%); border-radius: 14px; padding: 22px 24px; border: 1px solid #dbe2f0; position: relative; }
+    .pillar-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .pillar-title { font-size: 1rem; font-weight: 900; color: #0f0a2e; margin-bottom: 8px; }
+    .pillar-desc { font-size: 0.88rem; color: #4a5270; line-height: 1.7; margin-bottom: 10px; }
+    .pillar-example { background: #fff; border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: #5a6380; border: 1px solid #e4e8f4; }
+    .pillar.target { border: 2px solid #ef4444; background: linear-gradient(180deg, #fff5f5 0%, #ffe4e4 100%); }
+    .pillar.target::after { content: "量子が狙う"; position: absolute; top: -10px; right: 14px; background: #ef4444; color: #fff; font-size: 0.68rem; font-weight: 900; letter-spacing: .1em; padding: 3px 10px; border-radius: 3px; }
+
+    /* リスク3パターン */
+    .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .risk-grid { grid-template-columns: 1fr; } }
+    .risk-card { background: #fff; border-radius: 14px; padding: 20px; border: 1px solid #e4e8f4; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .risk-card-head { display: flex; align-items: center; gap: 10px; }
+    .risk-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #ef4444, #f59e0b); color: #fff; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; }
+    .risk-title { font-size: 0.95rem; font-weight: 900; color: #0f0a2e; line-height: 1.4; }
+    .risk-body { font-size: 0.86rem; color: #4a5270; line-height: 1.75; }
+    .risk-example { margin-top: auto; padding: 10px 14px; background: #fef3c7; border-radius: 8px; font-size: 0.8rem; color: #7c2d12; font-weight: 500; }
+
+    /* 銘柄スタットカード */
+    .stock-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 20px 0 30px; }
+    .stock-card { background: #fff; border-radius: 16px; padding: 22px 24px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .stock-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .stock-ticker { font-family: 'Poppins', sans-serif; font-size: 1.6rem; font-weight: 900; font-style: italic; color: #0f0a2e; line-height: 1; }
+    .stock-tag { font-size: 0.64rem; font-weight: 900; letter-spacing: .14em; padding: 3px 9px; border-radius: 3px; text-transform: uppercase; white-space: nowrap; }
+    .tag-defense { background: #dcfce7; color: #166534; }
+    .tag-stable  { background: #dbeafe; color: #1e40af; }
+    .tag-dream   { background: #fce7f3; color: #9d174d; }
+    .tag-specu   { background: #fee2e2; color: #991b1b; }
+    .stock-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 4px 0; }
+    .stock-metric { background: #f7f9fc; border-radius: 8px; padding: 8px 10px; }
+    .stock-metric-label { font-size: 0.62rem; font-weight: 800; letter-spacing: .1em; color: #7b86a6; text-transform: uppercase; margin-bottom: 2px; }
+    .stock-metric-value { font-size: 0.9rem; font-weight: 800; color: #0f0a2e; }
+    .stock-desc { font-size: 0.83rem; color: #4a5270; line-height: 1.7; }
+
+    /* 投資地図マトリクス */
+    .matrix { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 50%, #061733 100%); border-radius: 20px; padding: 32px 30px; color: #fff; margin: 28px 0 36px; }
+    .matrix-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 18px; }
+    .matrix h3 { font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0 0 20px; }
+    .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 560px) { .matrix-grid { grid-template-columns: 1fr; grid-template-rows: auto; } }
+    .matrix-cell { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 18px 20px; backdrop-filter: blur(8px); }
+    .matrix-cell-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .matrix-cell-type { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #a78bfa; }
+    .matrix-cell-ticker { font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 900; font-style: italic; color: #fff; }
+    .matrix-cell-desc { font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 30px; }
+    .faq-item { background: #fff; border-left: 4px solid var(--q-accent); border-radius: 0 12px 12px 0; padding: 18px 22px; border-top: 1px solid #e4e8f4; border-right: 1px solid #e4e8f4; border-bottom: 1px solid #e4e8f4; }
+    .faq-q, .faq-a { position: relative; padding-left: 34px; min-height: 24px; display: block; }
+    .faq-q { font-size: 0.95rem; font-weight: 800; color: #0f0a2e; margin-bottom: 12px; line-height: 1.6; }
+    .faq-a { font-size: 0.88rem; color: #4a5270; line-height: 1.85; }
+    .faq-q::before, .faq-a::before {
+      position: absolute; left: 0; top: 2px;
+      width: 24px; height: 24px; border-radius: 50%;
+      font-size: 0.7rem; font-weight: 900; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+    }
+    .faq-q::before { content: "Q"; background: #7c3aed; }
+    .faq-a::before { content: "A"; background: #06b6d4; }
+    @media (max-width: 560px) {
+      .faq-item { padding: 16px 16px 14px; }
+      .faq-q, .faq-a { padding-left: 30px; }
+      .faq-q::before, .faq-a::before { width: 22px; height: 22px; font-size: 0.65rem; }
+    }
+
+    /* 強材料・弱材料 */
+    .pros-cons-stock { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 720px) { .pros-cons-stock { grid-template-columns: 1fr; } }
+    .pro-box, .con-box { padding: 16px 18px; border-radius: 12px; font-size: 0.85rem; line-height: 1.75; }
+    .pro-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #86efac; color: #065f46; }
+    .con-box { background: linear-gradient(135deg, #fef2f2, #fee2e2); border: 1px solid #fca5a5; color: #991b1b; }
+    .pro-box-label, .con-box-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; margin-bottom: 8px; text-transform: uppercase; }
+    .stock-label { font-size: 1rem; font-weight: 800; color: #0f0a2e; margin: 24px 0 10px; padding-left: 12px; border-left: 4px solid #7c3aed; }
+
+    /* 3行まとめ */
+    .q-summary { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 100%); border-radius: 16px; padding: 28px 30px; margin: 36px 0 28px; }
+    .q-summary-label { font-size: 0.7rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 14px; }
+    .q-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 12px; }
+    .q-summary li { font-size: 0.92rem; color: rgba(255,255,255,0.92); line-height: 1.8; }
+    .q-summary li::marker { color: #facc15; font-weight: 900; }
+
+    /* タイムライン */
+    .timeline { display: flex; justify-content: space-between; margin: 28px 0 36px; position: relative; padding: 0 20px; }
+    .timeline::before { content: ""; position: absolute; top: 32px; left: 40px; right: 40px; height: 3px; background: linear-gradient(90deg, #10b981, #06b6d4, #f59e0b, #ef4444); border-radius: 2px; }
+    .tl-stop { text-align: center; flex: 1; position: relative; }
+    .tl-dot { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 3px solid var(--q-accent); margin: 22px auto 10px; position: relative; z-index: 2; }
+    .tl-year { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1rem; font-style: italic; color: #0f0a2e; margin-bottom: 4px; }
+    .tl-label { font-size: 0.76rem; color: #5a6380; line-height: 1.5; padding: 0 4px; }
+
+    /* 動画 */
+    .video-box { background: linear-gradient(135deg, #0f0a2e, #1e0b4a); border-radius: 16px; padding: 20px; margin: 28px auto 40px; max-width: 700px; }
+    .video-box-label { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 12px; }
+    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; }
+    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    /* テーブル */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 18px 0 28px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px -4px rgba(20,30,80,0.08); }
+    .data-table th { background: linear-gradient(135deg, #0f0a2e, #2a1065); color: #fff; padding: 12px 14px; text-align: left; font-weight: 800; letter-spacing: .04em; font-size: 0.8rem; }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid #edf0f7; color: #2a2e3c; vertical-align: middle; }
+    .data-table tr:nth-child(even) td { background: #fafbff; }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .disclaimer { background: linear-gradient(135deg, #fff9f0, #fef3c7); border-left: 4px solid #d97706; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #7c2d12; }
+
+    /* サイドバー */
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 900px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; position: static !important; max-height: none !important; overflow: visible !important; top: auto !important; } }
+    .sidebar-toc { background: linear-gradient(145deg, #fafbff, #f0f3fa); border: 1px solid #dbe2f0; border-radius: 14px; padding: 20px 22px; position: sticky; top: 80px; margin-bottom: 24px; max-height: calc(100vh - 100px); overflow-y: auto; }
+    .sidebar-toc-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .18em; color: #7c3aed; margin-bottom: 14px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e4e8f4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 10px; padding: 9px 4px; color: #4a5270; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #7c3aed; }
+    .toc-n { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 0.7rem; font-weight: 900; color: #7c3aed; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dbe2f0; border-radius: 14px; padding: 18px 20px; }
+    .sidebar-meta-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #7c3aed; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #4a5270; background: #f0f3fa; border: 1px solid #dbe2f0; padding: 3px 9px; border-radius: 20px; }
+
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; border-bottom: 2px solid #e4e8f4; padding-bottom: 10px; margin: 48px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: #fff; border: 1px solid #e4e8f4; border-radius: 10px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 900; background: #7c3aed; color: #fff; padding: 3px 8px; border-radius: 3px; margin-top: 2px; letter-spacing: .08em; }
+    .related-title { font-size: 0.85rem; font-weight: 600; color: #0f0a2e; line-height: 1.5; }
   </style>
   <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <a href="../../" class="site-logo">
@@ -109,9 +334,7 @@
           <span class="logo-sub">野球・競馬 × 経済・株式</span>
         </div>
       </a>
-      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="../../">TOP</a>
         <a href="../../hanshin-keiba/">野球・競馬</a>
@@ -129,14 +352,18 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../../economy-stocks/">経済・株式</a>
       <span class="breadcrumb-sep">›</span>
-      <span>MacBook Neoは本当に買いか？Windows・Air・Pro・Mac m</span>
+      <span>MacBook Neoは本当に買いか</span>
     </div>
   </div>
 
   <div class="art-hero">
-    <img src="thumb.png?v=20260418c" alt="記事サムネイル" class="art-hero-thumb">
+    <img src="thumb.png?v=20260418c" alt="MacBook Neoは本当に買いか" class="art-hero-thumb">
     <div class="art-hero-title-block">
-      <div class="art-hero-cats"><span class="art-cat-badge art-cat-main">テクノロジー</span></div>
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-tech">テクノロジー</span>
+        <span class="art-cat-badge art-cat-stock">Apple vs Microsoft</span>
+        <span class="art-cat-badge art-cat-warn">製品比較</span>
+      </div>
       <h1 class="art-hero-h1">MacBook Neoは本当に買いか？Windows・Air・Pro・Mac mini・iPadと比較＋おまけでApple vs Microsoft</h1>
       <div class="art-hero-meta">
         <span>2026.04.07</span>
@@ -148,134 +375,327 @@
   <div class="art-layout">
     <main class="art-body">
 
-
       <div class="hero-summary">
         <div class="hero-summary-label">この記事のコア</div>
-        <h2>ですが、条件が合う人にはかなり魅力的です。</h2>
-        <p>一言でまとめるなら、MacBook Neoは「軽い作業を気持ちよくこなすために、重い作業の余裕と拡張性を削って価格を落とした、持ち運べる入口Mac」です。 - Windows前提の人にはNeoは向きにくい- 長く快適に使う主力機ならAirが強い- 重い制作や仕事道具ならProが必要- 机固定ならMac miniが有力- タブレットが主役ならiPadのほうが自然- そのうえで「安くMacのノート環境に入りたい人」にはNeoがちゃんと刺さる - Appleは「超強い消費者エコ…</p>
+        <h2>「安いから買い」ではなく「条件が合えばかなり賢い入口Mac」。</h2>
+        <p>一言でまとめるなら、MacBook Neoは<strong>「軽い作業を気持ちよくこなすために、重い作業の余裕と拡張性を削って価格を落とした、持ち運べる入口Mac」</strong>です。Windows前提ならNeoは向かず、主力機ならAir、重い制作ならPro、机固定ならMac mini、タブレット主役ならiPadが自然。そのうえで「安くMacのノート環境に入りたい人」にはNeoがちゃんと刺さります。投資面では、<strong>Appleは消費者エコシステムの王、Microsoftは法人基盤とAI主役性の本命</strong>で、強さの質が違います。</p>
       </div>
-<p>「MacBook Neoは安いから買いなのか」。</p>
-      <p>この問いは、単なるガジェット比較で終わりません。</p>
-<p>本当に大事なのは、Neoが速いか遅いかではなく、</p>
-      <p>「どんな人にとってはちょうどいい入口で、どんな人には向かないのか」を見極めることです。</p>
-<p>さらに視点を一段引くと、MacBook Neoの登場はAppleの戦略そのものを映しています。</p>
-      <p>Appleは、Macの入口を広げて、iPhone・iCloud・App Store・Servicesへ続く生活圏をさらに厚くしたい。</p>
-      <p>一方でMicrosoftは、Surface単体で勝つというより、Windows、Office、Teams、Azure、Copilotを通じて“仕事の基盤”を押さえ続けています。</p>
-<p>つまり今回のテーマは、</p>
-      <p>「安いMacは買いか」でもあり、</p>
-      <p>「AppleとMicrosoftは何が違うのか」でもあり、</p>
-      <p>「株として今どう見るべきか」でもあります。</p>
-<p>この記事では、MacBook Neoの製品比較を入り口にしながら、AppleとMicrosoftの戦略、そして株式の見方まで、初心者向けに噛み砕いて整理します。</p>
 
-      <div class="video-box" style="max-width:640px;margin-left:auto;margin-right:auto;">
+      <div class="video-box">
         <div class="video-box-label">▶ 動画でも解説しています</div>
         <div class="video-embed-wrap">
           <iframe src="https://www.youtube.com/embed/qvsHPl5Z-Bw" title="MacBook Neoは本当に買いか？Windows・Air・Pro・Mac mini・iPadと比較＋おまけでApple vs Microsoft" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+
       <div class="q-summary">
         <div class="q-summary-label">3行まとめ</div>
         <ol>
-      <li>MacBook Neoは、軽い作業中心ならかなり魅力的な「入口Mac」</li>
-      <li>ただし、長く使う主力機・重い仕事・机固定・タブレット用途では他の選択肢が強い</li>
-      <li>Neoは万能機ではないが、条件が合う人にはかなり賢い買い物になりうる</li>
+          <li><strong>MacBook Neoは、軽い作業中心ならかなり魅力的な「持ち運べる入口Mac」</strong>。</li>
+          <li>ただし、長く使う主力機・重い仕事・机固定・タブレット用途では<strong>他の選択肢が強い</strong>。</li>
+          <li>株式としては、<strong>Appleは完成した帝国、Microsoftは今も拡張している帝国</strong>。配当本線ではないが総合リターン狙いなら両社有力、ややMicrosoft寄り。</li>
         </ol>
       </div>
 
-      
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">01</span>
+          <h2>テーマの全体像｜製品比較と戦略を2レイヤーで見る</h2>
+          <span class="q-section-head-en">OVERVIEW</span>
+        </div>
+        <p>「MacBook Neoは安いから買いなのか」。この問いは、単なるガジェット比較で終わりません。本当に大事なのは、Neoが速いか遅いかではなく、<strong>「どんな人にとってはちょうどいい入口で、どんな人には向かないのか」</strong>を見極めることです。さらに視点を一段引くと、MacBook Neoの登場は<strong>Appleの戦略そのもの</strong>を映しています。</p>
 
-      <div class="sec-head" id="sec-conclusion">
-        <span class="sec-num">00</span>
-        <h2>先に結論</h2>
-        <span class="sec-head-en">CONCLUSION</span>
-      </div>
-<p>結論から言うと、MacBook Neoは「全部に勝つ機械」ではありません。</p>
-      <p>ですが、条件が合う人にはかなり魅力的です。</p>
-<p>一言でまとめるなら、MacBook Neoは</p>
-      <p>「軽い作業を気持ちよくこなすために、重い作業の余裕と拡張性を削って価格を落とした、持ち運べる入口Mac」</p>
-      <p>です。</p>
-<p>製品選びの整理はこうです。</p>
-<ul>
-<li>Windows前提の人にはNeoは向きにくい</li>
-<li>長く快適に使う主力機ならAirが強い</li>
-<li>重い制作や仕事道具ならProが必要</li>
-<li>机固定ならMac miniが有力</li>
-<li>タブレットが主役ならiPadのほうが自然</li>
-<li>そのうえで「安くMacのノート環境に入りたい人」にはNeoがちゃんと刺さる</li>
-</ul>
-<p>株式の整理はこうです。</p>
-<ul>
-<li>Appleは「超強い消費者エコシステム」と「自社株買い」の王様</li>
-<li>Microsoftは「超強い法人基盤」と「AI主役性」の本命</li>
-<li>配当目的なら、どちらも本線とは言いにくい</li>
-<li>ただし総合リターン狙いなら、どちらも超有力</li>
-<li>今の市場テーマとの相性まで含めると、ややMicrosoft寄りで見るのが自然</li>
-</ul>
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">Layer 1 — 製品</span>
+            <h3>Macの入口を広げる</h3>
+            <p>Appleは、Macの入口を広げて、iPhone・iCloud・App Store・Servicesへ続く<strong>生活圏をさらに厚く</strong>したい。Neoは安い入り口として、iPhoneユーザーや学生、ライトユーザーをMacの世界に引き込む役割を担う。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">Layer 2 — 戦略</span>
+            <h3>Microsoftは仕事の基盤</h3>
+            <p>一方でMicrosoftは、Surface単体で勝つというより、<strong>Windows、Office、Teams、Azure、Copilot</strong>を通じて"仕事の基盤"を押さえ続けている。製品の見方だけでなく、株の見方にも直結する違い。</p>
+          </div>
+        </div>
 
-<p># テーマの全体像</p>
-<p>今回の全体像を一言でいえば、</p>
-      <p>「MacBook Neoは製品比較の話に見えて、実はAppleという会社の戦略を映している」</p>
-      <p>ということです。</p>
-<p>Neoを単独で見れば、注目点はシンプルです。</p>
-<ul>
-<li>価格がかなり安い</li>
-<li>それでもMacとしての使いやすさは残っている</li>
-<li>ただし、重い作業や長期の余裕は削っている</li>
-</ul>
-<p>ここで終わると、単なる買い物ガイドです。</p>
-      <p>でももう一歩踏み込むと、AppleはNeoで「Macの入口」を広げています。</p>
-      <p>安い入り口を作ることで、iPhoneユーザーや学生、ライトユーザーをMacの世界に引き込みやすくなるからです。</p>
-<p>一方でMicrosoftは、Surfaceだけで勝負しているわけではありません。</p>
-      <p>Windows PC全体、Office、Teams、Azure、Copilotを含めた“仕事の基盤”で勝っています。</p>
-<p>この違いが、製品の見方だけでなく、株の見方にも直結します。</p>
-<p># 論点整理</p>
-<p>最初に、この記事の論点を整理します。</p>
-<ol>
-<li>MacBook Neoは製品としてどこに立っているのか</li>
-<li>Neoは他の選択肢と比べてどこで有利・不利なのか</li>
-</ol>
-
-      <div class="sec-head" id="sec-summary">
-        <span class="sec-num">99</span>
-        <h2>まとめ</h2>
-        <span class="sec-head-en">SUMMARY</span>
-      </div>
-<p>## 3行まとめ</p>
-<ul>
-<li>MacBook Neoは、軽い作業中心ならかなり魅力的な「持ち運べる入口Mac」</li>
-<li>Appleは生活圏の帝国、Microsoftは仕事の帝国で、株の強さの種類が違う</li>
-<li>配当目的なら本線ではないが、総合リターン狙いなら両社とも有力で、今はややMicrosoft寄り</li>
-</ul>
-<p>## 最後のまとめ</p>
-<p>MacBook Neoをどう見るかは、単なるガジェット選びではありません。</p>
-<p>それは、</p>
-      <p>- 自分が何を使う人なのか</p>
-      <p>- Appleのエコシステムをどう見るか</p>
-      <p>- MicrosoftのAI主役性をどう評価するか</p>
-<p>を整理することでもあります。</p>
-<p>Neoは、安物扱いもしない、万能機扱いもしない。</p>
-      <p>この中間にある「条件が合えばかなり賢い入口」として見るのが、いちばんしっくりきます。</p>
-<p>また、AppleとMicrosoftは、どちらが絶対に上というより、強さの質が違います。</p>
-<ul>
-<li>Appleは完成された帝国</li>
-<li>Microsoftは今も拡張している帝国</li>
-</ul>
-<p>この違いを理解すると、製品の見え方も、株の見え方も、かなり変わってきます。</p>
-<p>※ 本記事は公開情報をもとにした一般的な考察であり、特定銘柄の売買を推奨するものではありません。投資判断はご自身の責任でお願いします。</p>
-
-
-      <div class="disclaimer">
-        <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+        <p>つまり今回のテーマは、「安いMacは買いか」でもあり、「AppleとMicrosoftは何が違うのか」でもあり、<strong>「株として今どう見るべきか」</strong>でもあります。この記事では、MacBook Neoの製品比較を入り口にしながら、AppleとMicrosoftの戦略、そして株式の見方まで、初心者向けに噛み砕いて整理します。</p>
       </div>
 
-      <hr class="art-hr">
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">02</span>
+          <h2>先に結論｜Neoの立ち位置と株の整理</h2>
+          <span class="q-section-head-en">CONCLUSION</span>
+        </div>
+        <p>結論から言うと、MacBook Neoは<strong>「全部に勝つ機械」ではありません</strong>。ですが、条件が合う人にはかなり魅力的です。一言でまとめるなら、MacBook Neoは<strong>「軽い作業を気持ちよくこなすために、重い作業の余裕と拡張性を削って価格を落とした、持ち運べる入口Mac」</strong>です。</p>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-card-label">Positioning</div>
+            <div class="stat-card-number">入口</div>
+            <div class="stat-card-sub">Macノート環境へ安く入る窓口。主力機ではない。</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">Strength</div>
+            <div class="stat-card-number">軽作業</div>
+            <div class="stat-card-sub">ブラウザ・書類・学習など日常用途で気持ちよく動く。</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">Weakness</div>
+            <div class="stat-card-number">拡張性</div>
+            <div class="stat-card-sub">重い作業の余裕と拡張性は削って価格を落とした設計。</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">Best For</div>
+            <div class="stat-card-number">初Mac</div>
+            <div class="stat-card-sub">iPhoneユーザー・学生・ライトユーザーに刺さる。</div>
+          </div>
+        </div>
+
+        <div class="stock-label">製品選びの整理</div>
+        <ul>
+          <li><strong>Windows前提</strong>の人にはNeoは向きにくい</li>
+          <li>長く快適に使う<strong>主力機ならAir</strong>が強い</li>
+          <li>重い制作や仕事道具なら<strong>Proが必要</strong></li>
+          <li>机固定なら<strong>Mac miniが有力</strong></li>
+          <li>タブレットが主役なら<strong>iPadのほうが自然</strong></li>
+          <li>そのうえで「安くMacのノート環境に入りたい人」にはNeoがちゃんと刺さる</li>
+        </ul>
+
+        <div class="stock-label">株式の整理</div>
+        <ul>
+          <li><strong>Apple</strong>は「超強い消費者エコシステム」と「自社株買い」の王様</li>
+          <li><strong>Microsoft</strong>は「超強い法人基盤」と「AI主役性」の本命</li>
+          <li>配当目的なら、どちらも本線とは言いにくい</li>
+          <li>ただし総合リターン狙いなら、どちらも超有力</li>
+          <li>今の市場テーマとの相性まで含めると、<strong>ややMicrosoft寄り</strong>で見るのが自然</li>
+        </ul>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">03</span>
+          <h2>MacBook Neoの立ち位置｜製品としてどこにいるか</h2>
+          <span class="q-section-head-en">PRODUCT POSITION</span>
+        </div>
+        <p>Neoを単独で見れば、注目点はシンプルです。<strong>価格がかなり安く、それでもMacとしての使いやすさは残っていて、ただし重い作業や長期の余裕は削っている</strong>。ここで終わると、単なる買い物ガイドです。でももう一歩踏み込むと、AppleはNeoで「Macの入口」を広げています。</p>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">💰</div>
+            <div class="pillar-title">柱1：安い価格</div>
+            <div class="pillar-desc">Macノート環境の<strong>入口を広げる</strong>価格設定。iPhoneユーザーや学生を引き込みやすい。</div>
+            <div class="pillar-example">💡 たとえ：Macワールドの玄関</div>
+          </div>
+          <div class="pillar target">
+            <div class="pillar-icon">⚙️</div>
+            <div class="pillar-title">柱2：削ったもの</div>
+            <div class="pillar-desc">重い作業の余裕・拡張性・長期の余裕は<strong>価格と引き換えに削減</strong>。万能機ではない。</div>
+            <div class="pillar-example">💡 たとえ：軽量車は荷室が小さい</div>
+          </div>
+        </div>
+
+        <p>安い入り口を作ることで、iPhoneユーザーや学生、ライトユーザーをMacの世界に引き込みやすくなるからです。一方でMicrosoftは、Surfaceだけで勝負しているわけではありません。Windows PC全体、Office、Teams、Azure、Copilotを含めた<strong>"仕事の基盤"</strong>で勝っています。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">04</span>
+          <h2>他の選択肢と比較｜5タイプのユーザー像</h2>
+          <span class="q-section-head-en">COMPARISON</span>
+        </div>
+        <p>Neoは他の選択肢と比べてどこで有利・不利なのか。<strong>ユーザーのタイプ別</strong>に整理すると、選ぶべき1台が見えてきます。</p>
+
+        <div class="risk-grid">
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">W</span>
+              <span class="risk-title">Windows前提の人</span>
+            </div>
+            <div class="risk-body">業務ソフトや周辺機器がWindows依存なら、Neoに移るコストが重い。<strong>向きにくい</strong>。</div>
+            <div class="risk-example">🪟 Windows PCのほうが自然</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">A</span>
+              <span class="risk-title">長く使う主力機が欲しい人</span>
+            </div>
+            <div class="risk-body">毎日長時間使って何年も戦わせるなら、余裕のある<strong>Airのほうが快適</strong>。</div>
+            <div class="risk-example">💻 MacBook Air</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">P</span>
+              <span class="risk-title">重い制作・仕事道具の人</span>
+            </div>
+            <div class="risk-body">動画・3D・開発などプロ用途は<strong>Proが必要</strong>。Neoでは余裕が足りない。</div>
+            <div class="risk-example">🎬 MacBook Pro</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">M</span>
+              <span class="risk-title">机固定でOKの人</span>
+            </div>
+            <div class="risk-body">持ち運ばないなら、同じ予算で性能が伸びる<strong>Mac miniが有力</strong>。</div>
+            <div class="risk-example">🖥 Mac mini</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">i</span>
+              <span class="risk-title">タブレット主役の人</span>
+            </div>
+            <div class="risk-body">読む・観る・手書きが中心なら<strong>iPadのほうが自然</strong>。Neoは不要。</div>
+            <div class="risk-example">📱 iPad</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">N</span>
+              <span class="risk-title">安くMacに入りたい人</span>
+            </div>
+            <div class="risk-body">軽い作業中心でMacノート環境に入りたい層に、<strong>Neoがちゃんと刺さる</strong>。</div>
+            <div class="risk-example">✨ MacBook Neo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">05</span>
+          <h2>Apple vs Microsoft｜強さの種類が違う</h2>
+          <span class="q-section-head-en">APPLE vs MICROSOFT</span>
+        </div>
+        <p>AppleとMicrosoftは、どちらが絶対に上というより、<strong>強さの質が違います</strong>。製品の見え方も、株の見え方も、この違いを理解するとかなり変わってきます。</p>
+
+        <div class="pros-cons-stock">
+          <div class="pro-box">
+            <div class="pro-box-label">✓ Apple｜完成された帝国</div>
+            超強い消費者エコシステム／iPhone・iCloud・App Store・Services／自社株買いの王様／生活圏の支配。Neoで入口を広げて生活圏をさらに厚くする戦略。
+          </div>
+          <div class="con-box" style="background: linear-gradient(135deg, #eff6ff, #dbeafe); border: 1px solid #93c5fd; color: #1e3a8a;">
+            <div class="con-box-label" style="color:#1e3a8a;">◆ Microsoft｜拡張している帝国</div>
+            超強い法人基盤／Windows・Office・Teams・Azure・Copilot／AI主役性／仕事の基盤を押さえ続ける。Surface単体で勝つのではなく、基盤全体で勝つ。
+          </div>
+        </div>
+
+        <div class="stock-label">株の整理：配当・総合リターン・テーマ相性</div>
+        <ul>
+          <li>配当目的なら、どちらも<strong>本線とは言いにくい</strong></li>
+          <li>総合リターン狙いなら、<strong>どちらも超有力</strong></li>
+          <li>今の市場テーマとの相性まで含めると、<strong>ややMicrosoft寄り</strong>で見るのが自然</li>
+          <li>Appleは完成された帝国 / Microsoftは今も拡張している帝国</li>
+        </ul>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">06</span>
+          <h2>よくある誤解への答え</h2>
+          <span class="q-section-head-en">FAQ</span>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">MacBook Neoは「安物」なのか？</div>
+            <div class="faq-a">安物扱いも万能機扱いもしないのが正確です。<strong>「条件が合えばかなり賢い入口」</strong>として見るのがいちばんしっくりきます。軽い作業中心ならかなり魅力的な持ち運べる入口Macです。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Windowsユーザーでも乗り換えるべき？</div>
+            <div class="faq-a">Windows前提の人にはNeoは<strong>向きにくい</strong>です。業務ソフトや周辺機器の互換性、学習コストを考えると、Windows PCのほうが自然なケースが多いです。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">主力機として長く使える？</div>
+            <div class="faq-a">長く快適に使う主力機なら<strong>Airのほうが強い</strong>です。Neoは余裕と拡張性を削って価格を落としているため、長期の主力機には向きません。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Apple株とMicrosoft株、どちらを買うべき？</div>
+            <div class="faq-a">強さの質が違います。<strong>Appleは消費者エコシステムの王、Microsoftは法人基盤とAI主役性の本命</strong>。総合リターン狙いならどちらも有力で、今の市場テーマとの相性まで含めるとややMicrosoft寄りで見るのが自然です。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">配当目的ならどちらが良い？</div>
+            <div class="faq-a">配当目的なら<strong>どちらも本線とは言いにくい</strong>です。Appleは自社株買い中心、Microsoftも利回りは派手ではありません。配当主力で組みたい人には別枠を。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">07</span>
+          <h2>投資地図｜4タイプで整理する</h2>
+          <span class="q-section-head-en">INVESTMENT MAP</span>
+        </div>
+
+        <div class="matrix">
+          <div class="matrix-label">APPLE vs MICROSOFT MAP</div>
+          <h3>「どちらがすごいか」ではなく「自分はどこを買うか」</h3>
+          <div class="matrix-grid">
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">消費者エコの王</span>
+                <span class="matrix-cell-ticker">AAPL</span>
+              </div>
+              <div class="matrix-cell-desc">iPhone・iCloud・App Store・Servicesの帝国。自社株買い王。Neoで入口拡大。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">仕事の基盤</span>
+                <span class="matrix-cell-ticker">MSFT</span>
+              </div>
+              <div class="matrix-cell-desc">Windows・Office・Teams・Azure・Copilot。AI主役性を持つ現代の本命。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">入口Mac</span>
+                <span class="matrix-cell-ticker">Neo</span>
+              </div>
+              <div class="matrix-cell-desc">軽作業向けの持ち運べる入口。主力機ではないが、条件が合えば賢い買い物。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">主力機候補</span>
+                <span class="matrix-cell-ticker">Air / Pro</span>
+              </div>
+              <div class="matrix-cell-desc">長期主力ならAir、重い制作ならPro。Neoでは届かない層をカバー。</div>
+            </div>
+          </div>
+        </div>
+
+        <p>MacBook Neoをどう見るかは、単なるガジェット選びではありません。それは、<strong>自分が何を使う人なのか・Appleのエコシステムをどう見るか・MicrosoftのAI主役性をどう評価するか</strong>を整理することでもあります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">08</span>
+          <h2>まとめ｜製品も株も「質の違い」で選ぶ</h2>
+          <span class="q-section-head-en">SUMMARY</span>
+        </div>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">製品まとめ</span>
+            <h3>3つのキーポイント</h3>
+            <p>① <strong>MacBook Neoは軽い作業中心ならかなり魅力的な「持ち運べる入口Mac」</strong>　② 長く使う主力機・重い仕事・机固定・タブレット用途では他の選択肢が強い　③ <strong>Neoは万能機ではないが、条件が合う人にはかなり賢い買い物</strong>になりうる。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">株式まとめ</span>
+            <h3>3つのキーポイント</h3>
+            <p>① <strong>Appleは生活圏の帝国、Microsoftは仕事の帝国</strong>で、強さの種類が違う　② 配当目的なら本線ではないが、総合リターン狙いなら両社とも有力　③ <strong>今はややMicrosoft寄り</strong>で見るのが自然。</p>
+          </div>
+        </div>
+
+        <p>Neoは、安物扱いもしない、万能機扱いもしない。この中間にある<strong>「条件が合えばかなり賢い入口」</strong>として見るのが、いちばんしっくりきます。また、AppleとMicrosoftは、どちらが絶対に上というより、強さの質が違います。Appleは完成された帝国、Microsoftは今も拡張している帝国。この違いを理解すると、製品の見え方も、株の見え方も、かなり変わってきます。</p>
+
+        <div class="disclaimer">
+          <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。また本記事は公開情報をもとにした一般的な考察であり、特定銘柄の売買を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+        </div>
+      </div>
 
       <div class="related-head">RELATED ARTICLES</div>
       <div class="related-list">
-        <a href="../" class="related-item">
-          <span class="related-tag">一覧</span>
-          <span class="related-title">経済・株式の記事一覧へ</span>
-        </a>
+        <a href="../2026-04-18-app-future/" class="related-item"><span class="related-tag">テック</span><span class="related-title">アプリの未来と関連テーマを整理 2026.04.18</span></a>
+        <a href="../2026-04-09-microsoft-japan-ai/" class="related-item"><span class="related-tag">株式</span><span class="related-title">Microsoft × 日本AI：法人基盤とAzureの主役性 2026.04.09</span></a>
+        <a href="../2026-04-09-japan-ai-semi/" class="related-item"><span class="related-tag">株式</span><span class="related-title">日本のAI関連株5銘柄を格付け　東京エレクトロン・アドバンテスト・富士通など 2026.04.09</span></a>
+        <a href="../2026-04-14-ai-mythos/" class="related-item"><span class="related-tag">テック</span><span class="related-title">AI神話の正体　過剰期待と実需のあいだ 2026.04.14</span></a>
+        <a href="../" class="related-item"><span class="related-tag">一覧</span><span class="related-title">経済・株式の記事一覧へ</span></a>
       </div>
 
     </main>
@@ -284,14 +704,31 @@
       <div class="sidebar-toc">
         <div class="sidebar-toc-label">目次</div>
         <ul class="toc-list">
-          <li><a href="#sec-conclusion"><span class="toc-n">00</span>先に結論</a></li>
-
-          <li><a href="#sec-summary"><span class="toc-n">99</span>まとめ</a></li>
+          <li><a href="#sec-01"><span class="toc-n">01</span>全体像</a></li>
+          <li><a href="#sec-02"><span class="toc-n">02</span>先に結論</a></li>
+          <li><a href="#sec-03"><span class="toc-n">03</span>Neoの立ち位置</a></li>
+          <li><a href="#sec-04"><span class="toc-n">04</span>他の選択肢と比較</a></li>
+          <li><a href="#sec-05"><span class="toc-n">05</span>Apple vs Microsoft</a></li>
+          <li><a href="#sec-06"><span class="toc-n">06</span>FAQ</a></li>
+          <li><a href="#sec-07"><span class="toc-n">07</span>投資地図</a></li>
+          <li><a href="#sec-08"><span class="toc-n">08</span>まとめ</a></li>
         </ul>
       </div>
       <div class="sidebar-meta">
         <div class="sidebar-meta-label">TAGS</div>
-        <div class="tag-cloud"><span class="tag-pill">MacBook Neo</span><span class="tag-pill">Apple</span><span class="tag-pill">Microsoft</span><span class="tag-pill">ガジェット</span><span class="tag-pill">比較</span></div>
+        <div class="tag-cloud">
+          <span class="tag-pill">MacBook Neo</span>
+          <span class="tag-pill">MacBook Air</span>
+          <span class="tag-pill">MacBook Pro</span>
+          <span class="tag-pill">Mac mini</span>
+          <span class="tag-pill">iPad</span>
+          <span class="tag-pill">Windows</span>
+          <span class="tag-pill">Apple</span>
+          <span class="tag-pill">Microsoft</span>
+          <span class="tag-pill">ガジェット</span>
+          <span class="tag-pill">比較</span>
+          <span class="tag-pill">米国株</span>
+        </div>
       </div>
     </aside>
   </div>

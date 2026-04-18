@@ -15,91 +15,316 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
-    .art-hero { background: linear-gradient(135deg, #0d1e38 0%, #0d9488 100%); padding: 44px 24px; }
-    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; }
-    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
-    .art-cat-main { background: #0d9488; color: #fff; }
-    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.95; }
-    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.55); display: flex; gap: 16px; flex-wrap: wrap; }
-    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
-    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
-    .art-body { min-width: 0; }
-    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
-    .art-body strong { color: #1a2744; }
-    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
-    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
-    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
-    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #0d9488; background: #f0f4fb; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
-    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
-    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
-    @media (max-width: 560px) { .sec-head-en { display: none; } }
-    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #0d9488; }
-    .summary-box { background: linear-gradient(135deg, #f0f6ff, #e6eefb); border: 1px solid #b5cdf0; border-left: 4px solid #0d9488; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
-    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #0d9488; margin-bottom: 12px; }
-    .summary-box ul { margin: 0; }
-    .summary-box li { font-size: 0.87rem; }
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; display: block; overflow-x: auto; }
-    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
-    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:nth-child(even) td { background: #f8fafd; }
-    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
-    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
-    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
-    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
-    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px;  max-width: 640px; margin-left: auto !important; margin-right: auto !important; }
-    .video-box-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 10px; }
-    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
-    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
-    .related-list { display: flex; flex-direction: column; gap: 10px; }
-    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
-    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
-    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #0d9488; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
-    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
-    .art-sidebar { font-size: 0.88rem; }
-    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
-    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
-    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
-    .toc-list { list-style: none; padding: 0; margin: 0; }
-    .toc-list li { border-bottom: 1px solid #e8ecf4; }
-    .toc-list li:last-child { border-bottom: none; }
-    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
-    .toc-list a:hover { color: #0d9488; }
-    .toc-n { font-size: 0.62rem; font-weight: 900; color: #0d9488; flex-shrink: 0; width: 22px; }
-    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
-    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
-    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
-    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
-  
-    .art-hero { padding: 24px 0 0 0 !important; }
-    .art-hero-thumb { width: 100%; max-width: 1100px; max-height: 360px; object-fit: cover; display: block; margin: 0 auto; }
-    .art-hero-title-block { max-width: var(--max-width, 1100px); margin: 0 auto; padding: 22px 24px 18px !important; }
-
-    .art-body > main .sec-head + p,
-    .art-body .sec-head + p {
-      background: linear-gradient(135deg, #f7f9fc, #eef3fb);
-      border-left: 4px solid #1a4fa0;
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      font-weight: 500;
-      margin-top: 0;
+    :root {
+      --q-accent:#7c3aed;
+      --q-accent2:#06b6d4;
+      color-scheme: light dark;
     }
-    .data-table th { font-size: 0.82rem; letter-spacing: 0.04em; }
-    .data-table { border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-    .data-table strong { color: #1a4fa0; font-weight: 900; }
-    .art-body p strong { color: #1a4fa0; font-weight: 800; background: linear-gradient(transparent 62%, #ffe58a 62%, #ffe58a 92%, transparent 92%); padding: 0 2px; }
-    .art-body p { text-align: justify; text-justify: inter-ideograph; }
-    .art-body h2 + p, .art-body .sec-sub + p { margin-top: 14px; }
+    html, body { background-color: #ffffff; color: #2a2e3c; }
 
-    /* article-body-enhanced */
+    /* ===== ダークモード：暗い配色 + 視認性重視 ===== */
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0b1020 !important; color: #d8dfef !important; }
+
+      /* 本文テキスト */
+      .art-body p, .art-body li { color: #d8dfef !important; }
+
+      /* strong は黄色マーカー（白文字と被る問題）をやめ、明るい紫文字＋薄い下地 */
+      .art-body p strong, .art-body li strong {
+        color: #c4b5fd !important;
+        background: rgba(139,92,246,0.15) !important;
+        padding: 0 4px !important;
+        border-radius: 3px !important;
+      }
+
+      /* カード類：暗い濃紺系 */
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #a78bfa !important; }
+      .stat-card-number { color: #f5f7ff !important; }
+      .stat-card-sub { color: #9aa3bf !important; }
+
+      .layer-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 6px 24px -8px rgba(0,0,0,0.4) !important; }
+      .layer-card h3 { color: #f5f7ff !important; }
+      .layer-card p { color: #c9d0e5 !important; }
+      .layer-card.tech .layer-card-tag { background: rgba(6,182,212,0.2) !important; color: #7dd3fc !important; }
+      .layer-card.market .layer-card-tag { background: rgba(245,158,11,0.18) !important; color: #fcd34d !important; }
+
+      /* セクション見出し */
+      .q-section-head { border-bottom-color: #2a3150 !important; }
+      .q-section-head h2 { color: #f5f7ff !important; }
+      .q-section-head-en { color: #5a6488 !important; }
+
+      /* 2本柱 */
+      .pillar { background: linear-gradient(180deg, #181c2e 0%, #141828 100%) !important; border-color: #2a3150 !important; }
+      .pillar-title { color: #f5f7ff !important; }
+      .pillar-desc { color: #b9c1d9 !important; }
+      .pillar-example { background: #0b1020 !important; border-color: #2a3150 !important; color: #a5adc8 !important; }
+      .pillar.target { background: linear-gradient(180deg, #2a1111 0%, #1a0a0a 100%) !important; border-color: #ef4444 !important; }
+      .pillar.target .pillar-desc, .pillar.target .pillar-title { color: #fecaca !important; }
+
+      /* リスクカード */
+      .risk-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .risk-title { color: #f5f7ff !important; }
+      .risk-body { color: #b9c1d9 !important; }
+      .risk-example { background: rgba(252,211,77,0.12) !important; color: #fcd34d !important; }
+
+      /* FAQ */
+      .faq-item { background: #141828 !important; border-color: #2a3150 !important; border-left-color: #a78bfa !important; }
+      .faq-q { color: #f5f7ff !important; }
+      .faq-a { color: #c9d0e5 !important; }
+
+      /* 銘柄カード */
+      .stock-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .stock-ticker { color: #f5f7ff !important; }
+      .stock-desc { color: #b9c1d9 !important; }
+      .stock-metric { background: #0f1322 !important; }
+      .stock-metric-label { color: #8a93ac !important; }
+      .stock-metric-value { color: #f5f7ff !important; }
+
+      /* タグは色を落としすぎないように */
+      .tag-defense { background: rgba(34,197,94,0.2) !important; color: #86efac !important; }
+      .tag-stable  { background: rgba(59,130,246,0.2) !important; color: #93c5fd !important; }
+      .tag-dream   { background: rgba(236,72,153,0.2) !important; color: #f9a8d4 !important; }
+      .tag-specu   { background: rgba(239,68,68,0.2) !important; color: #fca5a5 !important; }
+
+      /* 銘柄ラベル */
+      .stock-label { color: #f5f7ff !important; }
+
+      /* 強材料・弱材料 */
+      .pro-box { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.05)) !important; border-color: rgba(16,185,129,0.4) !important; color: #86efac !important; }
+      .con-box { background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(239,68,68,0.05)) !important; border-color: rgba(239,68,68,0.4) !important; color: #fca5a5 !important; }
+
+      /* テーブル */
+      .data-table { box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5) !important; }
+      .data-table td { background-color: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+      .data-table strong { color: #c4b5fd !important; background: none !important; }
+
+      /* サイドバー */
+      .sidebar-toc { background: linear-gradient(145deg, #141828, #0f1322) !important; border-color: #2a3150 !important; }
+      .sidebar-toc-label { color: #a78bfa !important; }
+      .toc-list a { color: #b9c1d9 !important; }
+      .toc-list a:hover { color: #c4b5fd !important; }
+      .toc-list li { border-bottom-color: #2a3150 !important; }
+      .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+      .sidebar-meta-label { color: #a78bfa !important; }
+      .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+
+      /* 関連記事 */
+      .related-item { background: #141828 !important; border-color: #2a3150 !important; }
+      .related-title { color: #f5f7ff !important; }
+      .related-head { color: #a78bfa !important; border-bottom-color: #2a3150 !important; }
+
+      /* disclaimer */
+      .disclaimer { background: rgba(217,119,6,0.1) !important; color: #fcd34d !important; border-color: rgba(217,119,6,0.4) !important; }
+
+      /* ヘッダー・ブレッドクラム */
+      .site-header { background: #0b1020 !important; border-bottom: 1px solid #2a3150 !important; }
+      .breadcrumb { background: #0f1322 !important; }
+      .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
+    }
+    .art-hero { background: radial-gradient(circle at 20% 0%, #1e0b4a 0%, #0a0a2a 40%, #050514 80%); padding: 0; position: relative; overflow: hidden; }
+    .art-hero-thumb { width: 100%; max-width: 1200px; max-height: 420px; object-fit: cover; display: block; margin: 0 auto; filter: saturate(1.1); }
+    .art-hero-title-block { max-width: 1100px; margin: 0 auto; padding: 26px 28px 22px; position: relative; z-index: 2; }
+    .art-hero-cats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; }
+    .art-cat-tech { background: linear-gradient(90deg, #7c3aed, #06b6d4); color: #fff; }
+    .art-cat-warn { background: #ef4444; color: #fff; }
+    .art-cat-stock { background: #10b981; color: #fff; }
+    .art-hero-h1 { font-size: clamp(1.2rem, 2.8vw, 1.8rem); font-weight: 900; color: #fff; line-height: 1.4; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .art-hero-meta { font-size: 0.78rem; color: rgba(255,255,255,0.65); display: flex; gap: 18px; }
+
+    .art-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 44px 24px 80px; align-items: flex-start; }
+    @media (max-width: 900px) { .art-layout { grid-template-columns: 1fr; padding: 28px 16px 60px; gap: 0; } }
+
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.96rem; line-height: 2; color: #2a2e3c; margin-bottom: 18px; }
+    .art-body strong { color: #7c3aed; font-weight: 800; }
+
+    /* HERO SUMMARY */
+    .hero-summary {
+      background: linear-gradient(135deg, #0f0a2e 0%, #1a0a4e 60%, #061733 100%);
+      border-radius: 20px; padding: 32px 36px; color: #fff;
+      margin-bottom: 40px; position: relative; overflow: hidden;
+    }
+    .hero-summary::before {
+      content: ""; position: absolute; top: -40%; right: -10%;
+      width: 60%; height: 180%;
+      background: radial-gradient(ellipse, rgba(124,58,237,.35), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-summary-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 14px; }
+    .hero-summary h2 { font-size: 1.35rem; font-weight: 900; color: #fff; margin: 0 0 14px; line-height: 1.5; }
+    .hero-summary p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.95; margin: 0; }
+
+    /* STAT CARDS */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0 36px; }
+    .stat-card {
+      background: linear-gradient(145deg, #fff, #f5f7ff);
+      border: 1px solid #e4e8f4; border-radius: 16px; padding: 22px 24px;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before { content: ""; position: absolute; inset: 0 auto auto 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--q-accent), var(--q-accent2)); }
+    .stat-card-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; text-transform: uppercase; margin-bottom: 10px; }
+    .stat-card-number { font-family: 'Poppins', sans-serif; font-size: 2.4rem; font-weight: 900; color: #0f0a2e; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; font-style: italic; }
+    .stat-card-sub { font-size: 0.82rem; color: #5a6380; line-height: 1.6; }
+
+    /* 2レイヤー */
+    .layer-split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 28px 0 36px; }
+    @media (max-width: 720px) { .layer-split { grid-template-columns: 1fr; } }
+    .layer-card { background: #fff; border-radius: 16px; padding: 24px 26px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 6px 24px -8px rgba(20, 30, 80, 0.12); }
+    .layer-card.tech { border-top: 5px solid #06b6d4; }
+    .layer-card.market { border-top: 5px solid #f59e0b; }
+    .layer-card-tag { display: inline-block; font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; }
+    .layer-card.tech .layer-card-tag { background: #e0f7fd; color: #0891b2; }
+    .layer-card.market .layer-card-tag { background: #fef3c7; color: #b45309; }
+    .layer-card h3 { font-size: 1.1rem; font-weight: 900; color: #0f0a2e; margin: 0 0 10px; }
+    .layer-card p { margin: 0; font-size: 0.92rem; line-height: 1.85; color: #2a2e3c; }
+
+    /* セクション見出し */
+    .q-section { margin: 56px 0 0; }
+    .q-section-head { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 3px solid #e4e8f4; }
+    .q-section-num { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 900; font-style: italic; background: linear-gradient(135deg, var(--q-accent), var(--q-accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; flex-shrink: 0; }
+    .q-section-head h2 { font-size: 1.3rem; font-weight: 900; color: #0f0a2e; margin: 0; line-height: 1.4; }
+    .q-section-head-en { margin-left: auto; font-size: 0.7rem; font-weight: 800; letter-spacing: .2em; color: #a3adc7; flex-shrink: 0; }
+    @media (max-width: 560px) { .q-section-head-en { display: none; } }
+
+    /* 2本柱 */
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar { background: linear-gradient(180deg, #fafbff 0%, #f0f3fa 100%); border-radius: 14px; padding: 22px 24px; border: 1px solid #dbe2f0; position: relative; }
+    .pillar-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .pillar-title { font-size: 1rem; font-weight: 900; color: #0f0a2e; margin-bottom: 8px; }
+    .pillar-desc { font-size: 0.88rem; color: #4a5270; line-height: 1.7; margin-bottom: 10px; }
+    .pillar-example { background: #fff; border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: #5a6380; border: 1px solid #e4e8f4; }
+    .pillar.target { border: 2px solid #ef4444; background: linear-gradient(180deg, #fff5f5 0%, #ffe4e4 100%); }
+    .pillar.target::after { content: "量子が狙う"; position: absolute; top: -10px; right: 14px; background: #ef4444; color: #fff; font-size: 0.68rem; font-weight: 900; letter-spacing: .1em; padding: 3px 10px; border-radius: 3px; }
+
+    /* リスク3パターン */
+    .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .risk-grid { grid-template-columns: 1fr; } }
+    .risk-card { background: #fff; border-radius: 14px; padding: 20px; border: 1px solid #e4e8f4; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .risk-card-head { display: flex; align-items: center; gap: 10px; }
+    .risk-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #ef4444, #f59e0b); color: #fff; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; }
+    .risk-title { font-size: 0.95rem; font-weight: 900; color: #0f0a2e; line-height: 1.4; }
+    .risk-body { font-size: 0.86rem; color: #4a5270; line-height: 1.75; }
+    .risk-example { margin-top: auto; padding: 10px 14px; background: #fef3c7; border-radius: 8px; font-size: 0.8rem; color: #7c2d12; font-weight: 500; }
+
+    /* 銘柄スタットカード */
+    .stock-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 20px 0 30px; }
+    .stock-card { background: #fff; border-radius: 16px; padding: 22px 24px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .stock-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .stock-ticker { font-family: 'Poppins', sans-serif; font-size: 1.6rem; font-weight: 900; font-style: italic; color: #0f0a2e; line-height: 1; }
+    .stock-tag { font-size: 0.64rem; font-weight: 900; letter-spacing: .14em; padding: 3px 9px; border-radius: 3px; text-transform: uppercase; white-space: nowrap; }
+    .tag-defense { background: #dcfce7; color: #166534; }
+    .tag-stable  { background: #dbeafe; color: #1e40af; }
+    .tag-dream   { background: #fce7f3; color: #9d174d; }
+    .tag-specu   { background: #fee2e2; color: #991b1b; }
+    .stock-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 4px 0; }
+    .stock-metric { background: #f7f9fc; border-radius: 8px; padding: 8px 10px; }
+    .stock-metric-label { font-size: 0.62rem; font-weight: 800; letter-spacing: .1em; color: #7b86a6; text-transform: uppercase; margin-bottom: 2px; }
+    .stock-metric-value { font-size: 0.9rem; font-weight: 800; color: #0f0a2e; }
+    .stock-desc { font-size: 0.83rem; color: #4a5270; line-height: 1.7; }
+
+    /* 投資地図マトリクス */
+    .matrix { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 50%, #061733 100%); border-radius: 20px; padding: 32px 30px; color: #fff; margin: 28px 0 36px; }
+    .matrix-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 18px; }
+    .matrix h3 { font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0 0 20px; }
+    .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 560px) { .matrix-grid { grid-template-columns: 1fr; grid-template-rows: auto; } }
+    .matrix-cell { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 18px 20px; backdrop-filter: blur(8px); }
+    .matrix-cell-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .matrix-cell-type { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #a78bfa; }
+    .matrix-cell-ticker { font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 900; font-style: italic; color: #fff; }
+    .matrix-cell-desc { font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 30px; }
+    .faq-item { background: #fff; border-left: 4px solid var(--q-accent); border-radius: 0 12px 12px 0; padding: 18px 22px; border-top: 1px solid #e4e8f4; border-right: 1px solid #e4e8f4; border-bottom: 1px solid #e4e8f4; }
+    .faq-q, .faq-a { position: relative; padding-left: 34px; min-height: 24px; display: block; }
+    .faq-q { font-size: 0.95rem; font-weight: 800; color: #0f0a2e; margin-bottom: 12px; line-height: 1.6; }
+    .faq-a { font-size: 0.88rem; color: #4a5270; line-height: 1.85; }
+    .faq-q::before, .faq-a::before {
+      position: absolute; left: 0; top: 2px;
+      width: 24px; height: 24px; border-radius: 50%;
+      font-size: 0.7rem; font-weight: 900; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+    }
+    .faq-q::before { content: "Q"; background: #7c3aed; }
+    .faq-a::before { content: "A"; background: #06b6d4; }
+    @media (max-width: 560px) {
+      .faq-item { padding: 16px 16px 14px; }
+      .faq-q, .faq-a { padding-left: 30px; }
+      .faq-q::before, .faq-a::before { width: 22px; height: 22px; font-size: 0.65rem; }
+    }
+
+    /* 強材料・弱材料 */
+    .pros-cons-stock { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 720px) { .pros-cons-stock { grid-template-columns: 1fr; } }
+    .pro-box, .con-box { padding: 16px 18px; border-radius: 12px; font-size: 0.85rem; line-height: 1.75; }
+    .pro-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #86efac; color: #065f46; }
+    .con-box { background: linear-gradient(135deg, #fef2f2, #fee2e2); border: 1px solid #fca5a5; color: #991b1b; }
+    .pro-box-label, .con-box-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; margin-bottom: 8px; text-transform: uppercase; }
+    .stock-label { font-size: 1rem; font-weight: 800; color: #0f0a2e; margin: 24px 0 10px; padding-left: 12px; border-left: 4px solid #7c3aed; }
+
+    /* 3行まとめ */
+    .q-summary { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 100%); border-radius: 16px; padding: 28px 30px; margin: 36px 0 28px; }
+    .q-summary-label { font-size: 0.7rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 14px; }
+    .q-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 12px; }
+    .q-summary li { font-size: 0.92rem; color: rgba(255,255,255,0.92); line-height: 1.8; }
+    .q-summary li::marker { color: #facc15; font-weight: 900; }
+
+    /* タイムライン */
+    .timeline { display: flex; justify-content: space-between; margin: 28px 0 36px; position: relative; padding: 0 20px; }
+    .timeline::before { content: ""; position: absolute; top: 32px; left: 40px; right: 40px; height: 3px; background: linear-gradient(90deg, #10b981, #06b6d4, #f59e0b, #ef4444); border-radius: 2px; }
+    .tl-stop { text-align: center; flex: 1; position: relative; }
+    .tl-dot { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 3px solid var(--q-accent); margin: 22px auto 10px; position: relative; z-index: 2; }
+    .tl-year { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1rem; font-style: italic; color: #0f0a2e; margin-bottom: 4px; }
+    .tl-label { font-size: 0.76rem; color: #5a6380; line-height: 1.5; padding: 0 4px; }
+
+    /* 動画 */
+    .video-box { background: linear-gradient(135deg, #0f0a2e, #1e0b4a); border-radius: 16px; padding: 20px; margin: 28px auto 40px; max-width: 700px; }
+    .video-box-label { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 12px; }
+    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; }
+    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    /* テーブル */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 18px 0 28px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px -4px rgba(20,30,80,0.08); }
+    .data-table th { background: linear-gradient(135deg, #0f0a2e, #2a1065); color: #fff; padding: 12px 14px; text-align: left; font-weight: 800; letter-spacing: .04em; font-size: 0.8rem; }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid #edf0f7; color: #2a2e3c; vertical-align: middle; }
+    .data-table tr:nth-child(even) td { background: #fafbff; }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .disclaimer { background: linear-gradient(135deg, #fff9f0, #fef3c7); border-left: 4px solid #d97706; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #7c2d12; }
+
+    /* サイドバー */
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 900px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; position: static !important; max-height: none !important; overflow: visible !important; top: auto !important; } }
+    .sidebar-toc { background: linear-gradient(145deg, #fafbff, #f0f3fa); border: 1px solid #dbe2f0; border-radius: 14px; padding: 20px 22px; position: sticky; top: 80px; margin-bottom: 24px; max-height: calc(100vh - 100px); overflow-y: auto; }
+    .sidebar-toc-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .18em; color: #7c3aed; margin-bottom: 14px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e4e8f4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 10px; padding: 9px 4px; color: #4a5270; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #7c3aed; }
+    .toc-n { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 0.7rem; font-weight: 900; color: #7c3aed; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dbe2f0; border-radius: 14px; padding: 18px 20px; }
+    .sidebar-meta-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #7c3aed; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #4a5270; background: #f0f3fa; border: 1px solid #dbe2f0; padding: 3px 9px; border-radius: 20px; }
+
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; border-bottom: 2px solid #e4e8f4; padding-bottom: 10px; margin: 48px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: #fff; border: 1px solid #e4e8f4; border-radius: 10px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 900; background: #7c3aed; color: #fff; padding: 3px 8px; border-radius: 3px; margin-top: 2px; letter-spacing: .08em; }
+    .related-title { font-size: 0.85rem; font-weight: 600; color: #0f0a2e; line-height: 1.5; }
   </style>
   <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <a href="../../" class="site-logo">
@@ -109,9 +334,7 @@
           <span class="logo-sub">野球・競馬 × 経済・株式</span>
         </div>
       </a>
-      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="../../">TOP</a>
         <a href="../../hanshin-keiba/">野球・競馬</a>
@@ -129,17 +352,21 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../../economy-stocks/">経済・株式</a>
       <span class="breadcrumb-sep">›</span>
-      <span>Microsoftの1.6兆円AI投資、日本はなぜ選ばれたのか　結局カギは電力だ</span>
+      <span>Microsoftの1.6兆円AI投資、日本はなぜ選ばれたのか</span>
     </div>
   </div>
 
   <div class="art-hero">
-    <img src="thumb.png?v=20260418c" alt="記事サムネイル" class="art-hero-thumb">
+    <img src="thumb.png?v=20260418c" alt="Microsoft 1.6兆円AI投資 日本はなぜ選ばれたのか" class="art-hero-thumb">
     <div class="art-hero-title-block">
-      <div class="art-hero-cats"><span class="art-cat-badge art-cat-main">テクノロジー</span></div>
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-tech">テクノロジー × 投資</span>
+        <span class="art-cat-badge art-cat-warn">電力・エネルギー</span>
+        <span class="art-cat-badge art-cat-stock">5銘柄比較</span>
+      </div>
       <h1 class="art-hero-h1">Microsoftの1.6兆円AI投資、日本はなぜ選ばれたのか　結局カギは電力だった</h1>
       <div class="art-hero-meta">
-        <span>2026.04.09</span>
+        <span>2026年4月9日</span>
         <span>AIデータ二刀流ブログ</span>
       </div>
     </div>
@@ -148,324 +375,475 @@
   <div class="art-layout">
     <main class="art-body">
 
-
       <div class="hero-summary">
         <div class="hero-summary-label">この記事のコア</div>
-        <h2>- Microsoftの日本投資は、単なる景気のいいニュースではなく、日本をAI拠点として押さえに来る戦略投資として見るほうが自然です。</h2>
-        <p>- その勝負の本丸は、クラウドやGPUだけでなく、電力、冷却、データ主権、インフラの話でもあります。 - 日本は企業・公共・製造業の厚み、セキュリティ要求の高さ、更新需要の大きさという意味で、外資から見て非常に魅力的な市場です。 - ただし、日本はエネルギー自給率の低さ、火力依存、中東依存という弱点を抱えており、AI戦略は電力戦略でもあります。 - 日本のAI関連株は一枚岩ではありません。</p>
+        <h2>Microsoftの日本投資は「景気の良いニュース」ではなく、日本をAI拠点として押さえに来る戦略投資。勝負の本丸は電力とデータ主権。</h2>
+        <p>日本は企業・公共・製造業の厚み、セキュリティ要求の高さ、更新需要の大きさで外資から見て非常に魅力的な市場です。ただし、エネルギー自給率<strong>15.2%</strong>・火力依存<strong>68.6%</strong>・中東依存9割超という弱点を抱え、AI戦略は電力戦略でもあります。日本のAI関連株は一枚岩ではなく、<strong>王道・爆発力・勝ちやすさ・守り・夢</strong>で性格を分けて見ることが大事です。</p>
       </div>
-<p>Microsoftが日本に巨額のAI投資を行う。こう聞くと、景気のいいニュース、外資が日本を評価してくれたニュースとして受け取りたくなります。もちろんそれ自体は間違いではありません。ただ、この話をそこで終わらせると、本当に大事なところを見落とします。</p>
-<p>今回のテーマは、単なる「AIの明るい話」ではありません。日本がAI時代の重要拠点として見られていること、その一方でAIデータセンターの勝負が結局は電力・エネルギー・データ主権の話に行き着くこと、そしてその構造変化の中で実際にどの日本企業へ恩恵が落ちやすいのか、という話です。</p>
-<p>しかも株式市場の視点で見ると、さらにややこしくなります。なぜなら、一番良い会社と、一番儲かりそうな株は同じではないからです。この記事では、そのズレも含めて、初心者にもわかる形で整理します。</p>
 
-      <div class="video-box" style="max-width:640px;margin-left:auto;margin-right:auto;">
+      <p>Microsoftが日本に巨額のAI投資を行う。こう聞くと、景気のいいニュース、外資が日本を評価してくれたニュースとして受け取りたくなります。もちろんそれ自体は間違いではありません。ただ、この話をそこで終わらせると、本当に大事なところを見落とします。</p>
+      <p>今回のテーマは、単なる「AIの明るい話」ではありません。日本がAI時代の重要拠点として見られていること、その一方でAIデータセンターの勝負が結局は電力・エネルギー・データ主権の話に行き着くこと、そしてその構造変化の中で実際にどの日本企業へ恩恵が落ちやすいのか、という話です。</p>
+      <p>しかも株式市場の視点で見ると、さらにややこしくなります。なぜなら、<strong>一番良い会社と、一番儲かりそうな株は同じではない</strong>からです。この記事では、そのズレも含めて、初心者にもわかる形で整理します。</p>
+
+      <div class="video-box">
         <div class="video-box-label">▶ 動画でも解説しています</div>
         <div class="video-embed-wrap">
           <iframe src="https://www.youtube.com/embed/x5rLNhz8C1c" title="Microsoftの1.6兆円AI投資、日本はなぜ選ばれたのか　結局カギは電力だった" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+
       <div class="q-summary">
         <div class="q-summary-label">3行まとめ</div>
         <ol>
-      <li>Microsoftの日本投資は、日本をAI拠点として押さえに来る戦略投資と見るほうが自然です。</li>
-      <li>AI競争の本丸は、クラウドや半導体だけでなく、電力・インフラ・データ主権の話でもあります。</li>
-      <li>日本のAI関連株は、一番良い会社と一番儲かりそうな株が違うので、性格を分けて見ることが大事です。</li>
+          <li>Microsoftの日本投資は、日本を<strong>AI拠点として押さえに来る戦略投資</strong>と見るほうが自然です。</li>
+          <li>AI競争の本丸は、クラウドや半導体だけでなく、<strong>電力・インフラ・データ主権</strong>の話でもあります。</li>
+          <li>日本のAI関連株は、<strong>一番良い会社と一番儲かりそうな株が違う</strong>ので、性格を分けて見ることが大事です。</li>
         </ol>
       </div>
 
-      
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">01</span>
+          <h2>先に結論｜6つのポイント</h2>
+          <span class="q-section-head-en">CONCLUSION</span>
+        </div>
+        <p>先に結論を書くと、ポイントは<strong>6つ</strong>です。</p>
 
-      <div class="sec-head" id="sec-conclusion">
-        <span class="sec-num">00</span>
-        <h2>先に結論</h2>
-        <span class="sec-head-en">CONCLUSION</span>
-      </div>
-<p>先に結論を書くと、ポイントは6つです。</p>
-<ul>
-<li>Microsoftの日本投資は、単なる景気のいいニュースではなく、日本をAI拠点として押さえに来る戦略投資として見るほうが自然です。</li>
-<li>その勝負の本丸は、クラウドやGPUだけでなく、電力、冷却、データ主権、インフラの話でもあります。</li>
-<li>日本は企業・公共・製造業の厚み、セキュリティ要求の高さ、更新需要の大きさという意味で、外資から見て非常に魅力的な市場です。</li>
-<li>ただし、日本はエネルギー自給率の低さ、火力依存、中東依存という弱点を抱えており、AI戦略は電力戦略でもあります。</li>
-<li>日本のAI関連株は一枚岩ではありません。設備投資の王道、爆発力、勝ちやすさ、守り、夢、で性格が大きく違います。</li>
-<li>投資で大事なのは、「会社の質」だけではなく、「その良さがいくら株価に織り込まれているか」です。</li>
-</ul>
-
-<p># テーマの全体像</p>
-      <p>## Microsoftの日本投資は、何がそんなに重要なのか</p>
-<p><strong>2026年4月</strong>、Microsoftは日本に対して<strong>2026年</strong>から<strong>2029年</strong>にかけて<strong><strong>100億</strong>ドル</strong>、約<strong><strong>1.6兆</strong>円</strong>を投じる方針を示しました。柱は大きく3つで、技術、信頼、人材です。データセンターなどのAI基盤を増強し、日本政府とのサイバー連携を深め、<strong>2030年</strong>までに100万人のエンジニア・開発者育成も進める構えです。</p>
-<p>しかもこれは、突然思いついた一発ネタではありません。<strong>2024年</strong>にも<strong><strong>29億</strong>ドル</strong>規模の投資方針を打ち出しており、今回の<strong><strong>1.6兆</strong>円</strong>はその延長線上にある「第2段階」と見るほうが自然です。</p>
-<p>### 重要数字の整理</p>
-<table class="data-table">
-<thead><tr>
-<th>項目</th>
-<th>内容</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>Microsoftの日本投資</td>
-<td><strong><strong>100億</strong>ドル</strong>（約<strong><strong>1.6兆</strong>円</strong>）</td>
-</tr>
-<tr>
-<td>対象期間</td>
-<td><strong>2026年</strong>〜<strong>2029年</strong></td>
-</tr>
-<tr>
-<td>人材育成目標</td>
-<td><strong>2030年</strong>までに100万人</td>
-</tr>
-<tr>
-<td><strong>2024年</strong>時点の前段投資</td>
-<td><strong><strong>29億</strong>ドル</strong></td>
-</tr>
-<tr>
-<td>日本の生成AI市場見通し</td>
-<td><strong>2023年</strong><strong><strong>1188億</strong>円</strong> → <strong>2030年</strong><strong>1兆</strong><strong><strong>7774億</strong>円</strong></td>
-</tr>
-<tr>
-<td>年平均成長率</td>
-<td><strong>47.2%</strong></td>
-</tr>
-</tbody></table>
-<p>ここで大事なのは、Microsoftが日本を「遅れた市場」と見ていないことです。むしろ、これから一気に更新需要が出る巨大市場と見ている可能性が高い。日本は大企業が多く、製造業が厚く、公共需要もあり、一度システムが入れば長く使われやすい。導入は重いが、入れば強い。外資から見れば、かなり魅力的な市場です。</p>
-<p>## 初心者向けに噛み砕くと、なぜ日本なのか</p>
-<p>「AIならアメリカやインドのほうが伸びるのでは」と思う人も多いはずです。それは半分正しいです。ただ、Microsoftが見ているのは人口増やネットユーザー数だけではありません。企業向け市場、公共市場、製造業の現場、セキュリティ要求の厳しさ、更新需要の厚さです。</p>
-<p>日本はIT化が遅いと言われがちですが、見方を変えると、これから本格的な入れ替え需要が出る市場とも言えます。しかも、企業や官公庁がAIを本番運用するには、セキュリティ、監査、機密データ管理まで含めた信頼が必要です。この「面倒さ」を突破できれば、長く使われやすい。Microsoftはそこを狙っていると考えると、かなり筋が通ります。</p>
-<p># 論点整理</p>
-      <p>## 論点1　AIの話なのに、なぜ電力の話になるのか</p>
-<p>ここが今回いちばん重要なポイントかもしれません。AIと聞くと、多くの人はソフトウェアやアプリ、チャットボットの話を想像します。ですが、実際に生成AIを支えているのは、巨大なデータセンターと、そこに並ぶGPU、そしてそれを24時間365日動かし続ける電力です。</p>
-<p>つまり、AI競争は「頭の良いソフト」の競争であると同時に、「膨大な電気を安く安定して供給できるか」の競争でもあります。</p>
-<p>### イメージで理解する</p>
-      <p>生成AIは、図書館から本を探してくるだけの検索ではありません。質問のたびに膨大な計算をして、新しい文章や画像をその場で作ります。その裏では、サーバーが熱を出しながら動き続けています。AIを増やすとは、コンピューターを増やすことでもあり、電気代と冷却コストを増やすことでもあります。</p>
-<p>### 電力面の重要数字</p>
-<table class="data-table">
-<thead><tr>
-<th>項目</th>
-<th>内容</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>世界のデータセンター電力需要</td>
-<td><strong>2030年</strong>までに約945TWhへ増加見通し</td>
-</tr>
-<tr>
-<td>日本のエネルギー自給率</td>
-<td><strong>15.2%</strong></td>
-</tr>
-<tr>
-<td>日本の電源構成（FY2023速報）</td>
-<td>火力<strong>68.6%</strong>、再エネ<strong>22.9%</strong>、原子力<strong>8.5%</strong></td>
-</tr>
-<tr>
-<td>日本の原油中東依存</td>
-<td>9割超</td>
-</tr>
-</tbody></table>
-<p>この数字を見ると、日本のAI戦略がいかに電力と地政学に縛られるかが見えてきます。中東情勢が荒れれば燃料価格が上がる。火力依存が高い以上、電気代がデータセンターのコストに直撃する。つまり、日本のAI戦略は、半導体やクラウドの話である前に、エネルギー安全保障の話でもあるわけです。</p>
-<p>## 論点2　データ主権とは何か</p>
-<p>データ主権とは、簡単に言えば「大事なデータをどこの国のどんなルールの下で扱うのか」という話です。政府の機密情報、製造業の設計情報、金融や医療データを、海外の都合だけで扱われるのは怖い。日本の企業や政府がそう考えるのは自然です。</p>
-<p>だからこそ、国内にデータセンターを置く意味が出てきます。しかも今回の動きでは、Microsoftがさくらインターネットやソフトバンクのような国内企業と組む方向を示しています。これは、日本側から見れば「国内基盤が使えるなら安心」と見えやすく、Microsoft側から見れば「Azure経済圏へ取り込みやすい」構図です。</p>
-<p>善意か悪意かの単純な話ではなく、社会的に役立つことと、自社経済圏を広げることが両立している。大企業の戦略としては非常に合理的です。</p>
-<p>## 論点3　メリット・デメリットをどう見るか</p>
-<p>### メリット</p>
-      <p>- 日本国内で安心して使えるAI基盤の選択肢が増える</p>
-      <p>- 製造業、行政、企業の現場でAI実装が進みやすくなる</p>
-      <p>- 人手不足の中で、生産性向上の余地が大きい</p>
-      <p>- ソブリンAIや国内クラウドの議論が進みやすくなる</p>
-<p>### デメリット・注意点</p>
-      <p>- 外資プラットフォームへの依存が深まる可能性がある</p>
-      <p>- 利益の高い部分を海外に持っていかれる恐れがある</p>
-      <p>- 電力コスト上昇が国民負担にも跳ね返りうる</p>
-      <p>- 日本企業側がPoC止まりで終われば、土台があっても果実を取り切れない</p>
-<p>ここで誤解しやすいのは、「投資が来た＝日本にとって全部プラス」ではないことです。便利になることと、主導権を持つことは別です。歓迎しつつ、依存しすぎない。このバランス感覚が重要です。</p>
-<p># 株式分析パート</p>
-      <p>## 一番良い会社と、一番儲かりそうな株は同じではない</p>
-<p>ここからが株式の話です。今回のAI関連株を見る上で、一番大事な前提はこれです。</p>
-<p><strong>一番良い会社と、一番儲かりそうな株は同じではない。</strong></p>
-<p>良い会社は、もう市場から高く評価されているかもしれません。逆に、会社としては課題があっても、テーマ性や期待で株価が大きく動くこともあります。だから、会社の質だけでなく、株価がどこまで未来を織り込んでいるかを見る必要があります。</p>
-<p>今回の<strong>5銘柄</strong>は、キャラクターで分けると理解しやすいです。</p>
-<ul>
-<li>東京エレクトロン：品質の王道</li>
-<li>アドバンテスト：爆発力</li>
-<li>富士通：勝ちやすさ</li>
-<li>ソフトバンク：守り</li>
-<li>さくらインターネット：夢</li>
-</ul>
-<p>## <strong>5銘柄</strong>比較表（4月上旬時点の整理）</p>
-<table class="data-table">
-<thead><tr>
-<th>銘柄</th>
-<th>キャラ</th>
-<th>事業の質</th>
-<th>総合おすすめ</th>
-<th>ざっくり評価</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>東京エレクトロン</td>
-<td>品質の王道</td>
-<td>Base 85.8 / Option 91.5</td>
-<td>Base 75 / Option 82</td>
-<td>会社は超優良、弱点は値段</td>
-</tr>
-<tr>
-<td>アドバンテスト</td>
-<td>爆発力</td>
-<td>Base 79.6 / Option 85.5</td>
-<td>Base 74 / Option 83</td>
-<td>会社は超一流、株価は期待込み</td>
-</tr>
-<tr>
-<td>富士通</td>
-<td>勝ちやすさ</td>
-<td>Base 79.9 / Option 84.9</td>
-<td>Base 77 / Option 84</td>
-<td>大型品質株としてかなり勝ちやすい</td>
-</tr>
-<tr>
-<td>ソフトバンク</td>
-<td>守り</td>
-<td>Base 70 / Option 80</td>
-<td>Base 71 / Option 79</td>
-<td>高配当の土台にAI上振れを乗せる</td>
-</tr>
-<tr>
-<td>さくらインターネット</td>
-<td>夢</td>
-<td>Base 60 / Option 76</td>
-<td>総評66</td>
-<td>テーマは強いが利益確認待ち</td>
-</tr>
-</tbody></table>
-<p>## 東京エレクトロン</p>
-      <p>### 強材料</p>
-      <p>- 半導体製造装置で複数工程のNo.1/No.2級</p>
-      <p>- installed base 約9.6万台</p>
-      <p>- FY2025売上<strong><strong>2.4315兆</strong>円</strong>、営業利益<strong><strong>6973億</strong>円</strong></p>
-      <p>- 営業利益率<strong>28.7%</strong>、ROE<strong>30.3%</strong></p>
-      <p>- 事業の質は<strong>5銘柄</strong>で最上位</p>
-<p>### 弱材料</p>
-      <p>- 株価に期待がかなり乗っている</p>
-      <p>- 調整後実質PERは約<strong>36倍</strong></p>
-      <p>- 事業が崩れなくても、マルチプル縮小で株価が重くなりうる</p>
-<p>### どう見るべきか</p>
-      <p>東京エレクトロンは、「買う会社」としては超一流です。ただし「今すぐ全力で買う価格か」は別問題です。王道本命でありながら、最大の弱点は事業ではなく値段。この整理がいちばんしっくりきます。</p>
-<p>## アドバンテスト</p>
-      <p>### 強材料</p>
-      <p>- テスター市場シェア<strong>58%</strong></p>
-      <p>- AI、HPC、HBMの追い風を強く受ける</p>
-      <p>- FY2025予想売上<strong><strong>1.07兆</strong>円</strong>、営業利益<strong><strong>4540億</strong>円</strong></p>
-      <p>- Q3営業利益率<strong>41.5%</strong>、粗利率<strong>62.0%</strong></p>
-      <p>- AI相場の熱量が乗りやすい</p>
-<p>### 弱材料</p>
-      <p>- PER約<strong>47.7倍</strong>と期待がかなり先行</p>
-      <p>- 上振れ余地は大きいが、失望時の下振れも大きい</p>
-      <p>- 高い成長期待が続く前提の株価になりやすい</p>
-<p>### どう見るべきか</p>
-      <p>アドバンテストは、会社は超一流、でも株価はそれ以上に期待込み、という整理がわかりやすいです。AI相場の爆発力を取りに行くなら有力ですが、安全域は薄い。リスク許容度が高い人向けです。</p>
-<p>## 富士通</p>
-      <p>### 強材料</p>
-      <p>- 国内大企業、公共、金融の基幹系に深く入り込んでいる</p>
-      <p>- モダナイゼーション、ソブリンAI、行政AIと相性が良い</p>
-      <p>- 9カ月累計で売上<strong>2兆</strong><strong><strong>4511億</strong>円</strong>、調整後営業利益<strong><strong>2291億</strong>円</strong></p>
-      <p>- 通期計画は売上<strong>3兆</strong><strong><strong>5300億</strong>円</strong>、調整後営業利益<strong><strong>3800億</strong>円</strong>、調整後EPS<strong>156.48円</strong></p>
-      <p>- 利益率改善が見え始めた大型品質株</p>
-<p>### 弱材料</p>
-      <p>- 海外の利益率がまだ盤石とは言い切れない</p>
-      <p>- AI内製化が進むと、SIの付加価値が圧迫される可能性</p>
-      <p>- 爆発力では東京エレクトロンやアドバンテストに劣る</p>
-<p>### どう見るべきか</p>
-      <p>富士通は、派手ではないですが、かなり勝ちやすい銘柄です。会社の質と株価のバランスが比較的良く、国内AI実装の現実的な本命として見やすい。5年で<strong>10倍</strong>を狙う株ではない一方、5年で<strong>1.3倍</strong>〜<strong>2倍</strong>超を現実的に狙う大型変革株という見方がしっくりきます。</p>
-<p>## ソフトバンク</p>
-      <p>### 強材料</p>
-      <p>- 通信の安定CFと配当が土台にある</p>
-      <p>- モバイル4100万件、PayPay 6800万人、LINE 9800万人、Yahoo! JAPAN 8300万人</p>
-      <p>- 通期予想は売上<strong><strong>6.95兆</strong>円</strong>、営業利益<strong><strong>1.02兆</strong>円</strong></p>
-      <p>- AIデータセンター、法人DX、PayPay・LYの上振れ余地</p>
-      <p>- 守りを残したAI関連株として見やすい</p>
-<p>### 弱材料</p>
-      <p>- 爆発力はさほど大きくない</p>
-      <p>- 借入は大きく、金利・調達環境には注意が必要</p>
-      <p>- AIオプションが数字に変わるまで市場評価は限定されやすい</p>
-<p>### どう見るべきか</p>
-      <p>ソフトバンクは、5年で<strong>10倍</strong>を狙う株ではありません。ただし、大崩れしにくさを残しつつ、AIデータセンターや法人AIの上振れを待てる中間型としては魅力があります。配当利回りの見やすさもあり、「守り」のキャラがいちばん自然です。</p>
-<p>## さくらインターネット</p>
-      <p>### 強材料</p>
-      <p>- 国産クラウド、石狩DC、データ主権の象徴性</p>
-      <p>- ガバメントクラウド正式採択</p>
-      <p>- AI計算基盤への先行投資</p>
-      <p>- Microsoft連携という大きな外部材料</p>
-<p>### 弱材料</p>
-      <p>- 足元は営業赤字</p>
-      <p>- 通期予想は下方修正済み</p>
-      <p>- 先行投資のため固定資産、借入、リース負担が重い</p>
-      <p>- 株価はテーマに強く反応しやすく、期待先行になりやすい</p>
-<p>### どう見るべきか</p>
-      <p>さくらインターネットは、テーマは非常に強いです。ただし、利益の再現性がまだ確認途上です。つまり、数字より先に夢が走りやすい銘柄。コアで持つというより、確認しながら付き合うロマン枠という整理が自然です。</p>
-<p># 今後の注目点</p>
-      <p>今後見るべきポイントは、次の5つです。</p>
-<ol>
-<li>Microsoftの日本投資が、実際の受注や設備稼働にどうつながるか</li>
-<li>AIデータセンターの建設・稼働率・GPU活用がどう数字に出るか</li>
-<li>日本の電力政策、再エネ・原子力・火力の組み合わせがどう進むか</li>
-<li>ガバメントクラウド・国内AI基盤・ソブリンAIが本当に案件になるか</li>
-<li>AI関連株の評価が「夢」から「利益」へ移るタイミングがいつか</li>
-</ol>
-<p># 反対意見や注意点</p>
-      <p>ここで反対意見や慎重論も整理しておきます。</p>
-<ul>
-<li>AI需要が想定ほど続かず、設備投資が平準化する可能性はあります。</li>
-<li>生成AIの利用は増えても、企業の本番運用は思ったほど進まない可能性があります。</li>
-<li>日本はエネルギーコストの高さという根本問題を抱えており、AI拡大に制約がかかるかもしれません。</li>
-<li>株価はテーマで先に動くことが多く、「良い話」そのものより、「その良さがすでに株価に入っているか」が重要です。</li>
-</ul>
-<p>このあたりを無視して「AIだから全部強い」と考えるのは危険です。</p>
-<p># 3行まとめ</p>
-<ul>
-<li>Microsoftの日本投資は、日本をAI拠点として押さえに来る戦略投資と見るほうが自然です。</li>
-<li>AI競争の本丸は、クラウドや半導体だけでなく、電力・インフラ・データ主権の話でもあります。</li>
-<li>日本のAI関連株は、一番良い会社と一番儲かりそうな株が違うので、性格を分けて見ることが大事です。</li>
-</ul>
-
-      <div class="sec-head" id="sec-summary">
-        <span class="sec-num">99</span>
-        <h2>まとめ</h2>
-        <span class="sec-head-en">SUMMARY</span>
-      </div>
-<p>このテーマをどう見るべきか。私は、次のように整理するのがいちばん自然だと思います。</p>
-<p>まず、Microsoftの日本投資は前向きな材料です。ただし、それは「日本にお金が落ちるから全部よし」という単純な話ではありません。むしろ、AI時代の主導権争いの中で、日本が重要な拠点として位置づけられていること、その一方で電力・データ主権・インフラの弱さも同時に浮き彫りになること、この両面で見るべきです。</p>
-<p>株式で見るなら、王道の東京エレクトロン、爆発力のアドバンテスト、勝ちやすさの富士通、守りのソフトバンク、夢のさくらインターネット、という分け方がかなり使いやすいです。どれが優れているかは、投資家が何を重視するかで変わります。品質か、値幅か、安定か、テーマ性か。そこを分けて考えるだけで、AI相場の見え方はかなりクリアになります。</p>
-<p>最後に大事なのは、AI相場では特に「会社の良さ」と「株の買いやすさ」を分けて考えることです。ニュースの勢いだけで飛びつくのではなく、何が重要か、どこに利益が落ちるのか、どの数字を見るべきかを整理して見る。そこから先に、ようやく自分の判断が始まるのだと思います。</p>
-<p>なお、株価や評価は日々動きます。この記事の株式部分は4月上旬時点の整理が中心であり、投資判断は必ず最新情報を確認したうえで自己責任で行ってください。</p>
-
-
-      <div class="disclaimer">
-        <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+        <div class="pros-cons-stock">
+          <div class="pro-box">
+            <div class="pro-box-label">✓ 構造の読み方</div>
+            ① Microsoftの日本投資は<strong>戦略投資</strong>として見るべき／② 勝負の本丸は<strong>電力・冷却・データ主権・インフラ</strong>／③ 日本は企業・公共・製造業の厚みで外資に魅力的。
+          </div>
+          <div class="con-box">
+            <div class="con-box-label">✗ 注意点・株の見方</div>
+            ④ 日本はエネルギー自給率低・火力依存・中東依存の弱点／⑤ AI関連株は<strong>王道/爆発力/勝ちやすさ/守り/夢</strong>で性格が違う／⑥ 「会社の質」と「株価に織り込まれた期待」は別物。
+          </div>
+        </div>
       </div>
 
-      <hr class="art-hr">
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">02</span>
+          <h2>Microsoftの日本投資は何がそんなに重要なのか</h2>
+          <span class="q-section-head-en">OVERVIEW</span>
+        </div>
+        <p><strong>2026年4月</strong>、Microsoftは日本に対して<strong>2026年</strong>から<strong>2029年</strong>にかけて<strong>100億ドル</strong>、約<strong>1.6兆円</strong>を投じる方針を示しました。柱は大きく3つで、<strong>技術・信頼・人材</strong>です。データセンターなどのAI基盤を増強し、日本政府とのサイバー連携を深め、<strong>2030年</strong>までに100万人のエンジニア・開発者育成も進める構えです。</p>
+        <p>しかもこれは、突然思いついた一発ネタではありません。<strong>2024年</strong>にも<strong>29億ドル</strong>規模の投資方針を打ち出しており、今回の<strong>1.6兆円</strong>はその延長線上にある「<strong>第2段階</strong>」と見るほうが自然です。</p>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-card-label">TOTAL INVESTMENT</div>
+            <div class="stat-card-number">¥1.6T</div>
+            <div class="stat-card-sub">Microsoftの日本投資（約100億ドル）／2026〜2029年</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">PHASE 1</div>
+            <div class="stat-card-number">$2.9B</div>
+            <div class="stat-card-sub">2024年時点の前段投資 29億ドル</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">HUMAN CAPITAL</div>
+            <div class="stat-card-number">1M</div>
+            <div class="stat-card-sub">2030年までのエンジニア・開発者育成目標</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">MARKET CAGR</div>
+            <div class="stat-card-number">47.2%</div>
+            <div class="stat-card-sub">日本の生成AI市場　年平均成長率</div>
+          </div>
+        </div>
+
+        <table class="data-table">
+          <thead><tr><th>項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>Microsoftの日本投資</td><td><strong>100億ドル</strong>（約<strong>1.6兆円</strong>）</td></tr>
+            <tr><td>対象期間</td><td><strong>2026年</strong>〜<strong>2029年</strong></td></tr>
+            <tr><td>人材育成目標</td><td><strong>2030年</strong>までに100万人</td></tr>
+            <tr><td>2024年時点の前段投資</td><td><strong>29億ドル</strong></td></tr>
+            <tr><td>日本の生成AI市場見通し</td><td><strong>2023年 1188億円</strong> → <strong>2030年 1兆7774億円</strong></td></tr>
+            <tr><td>年平均成長率</td><td><strong>47.2%</strong></td></tr>
+          </tbody>
+        </table>
+
+        <p>ここで大事なのは、Microsoftが日本を「遅れた市場」と見ていないことです。むしろ、これから一気に更新需要が出る巨大市場と見ている可能性が高い。日本は大企業が多く、製造業が厚く、公共需要もあり、一度システムが入れば長く使われやすい。<strong>導入は重いが、入れば強い</strong>。外資から見れば、かなり魅力的な市場です。</p>
+
+        <p>「AIならアメリカやインドのほうが伸びるのでは」と思う人も多いはずです。それは半分正しい。ただ、Microsoftが見ているのは人口増やネットユーザー数だけではありません。企業向け市場、公共市場、製造業の現場、セキュリティ要求の厳しさ、更新需要の厚さです。日本はIT化が遅いと言われがちですが、見方を変えると、これから本格的な入れ替え需要が出る市場とも言えます。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">03</span>
+          <h2>AIの話なのに、なぜ電力の話になるのか</h2>
+          <span class="q-section-head-en">POWER &amp; DATA</span>
+        </div>
+        <p>ここが今回いちばん重要なポイントかもしれません。AIと聞くと、多くの人はソフトウェアやアプリ、チャットボットの話を想像します。ですが、実際に生成AIを支えているのは、<strong>巨大なデータセンターと、そこに並ぶGPU、それを24時間365日動かし続ける電力</strong>です。</p>
+        <p>つまり、AI競争は「頭の良いソフト」の競争であると同時に、「<strong>膨大な電気を安く安定して供給できるか</strong>」の競争でもあります。</p>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">Layer 1 — 技術</span>
+            <h3>AI＝電力の塊</h3>
+            <p>生成AIは質問のたびに膨大な計算をして、新しい文章や画像をその場で作ります。裏ではサーバーが熱を出しながら動き続け、AIを増やすとは<strong>電気代と冷却コストを増やすこと</strong>でもあります。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">Layer 2 — 地政学</span>
+            <h3>エネルギー安全保障の話</h3>
+            <p>中東情勢が荒れれば燃料価格が上がる。火力依存が高い以上、電気代がデータセンターのコストに直撃。日本のAI戦略は半導体やクラウドの話である前に、<strong>エネルギー安全保障</strong>の話でもあります。</p>
+          </div>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-card-label">GLOBAL DC POWER</div>
+            <div class="stat-card-number">945<span style="font-size:1.2rem;">TWh</span></div>
+            <div class="stat-card-sub">世界のデータセンター電力需要　2030年までに増加見通し</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">JAPAN SELF-SUFFICIENCY</div>
+            <div class="stat-card-number">15.2%</div>
+            <div class="stat-card-sub">日本のエネルギー自給率</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">THERMAL SHARE</div>
+            <div class="stat-card-number">68.6%</div>
+            <div class="stat-card-sub">日本の火力電源比率（FY2023速報）／再エネ22.9%・原子力8.5%</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">MIDDLE EAST OIL</div>
+            <div class="stat-card-number">90%+</div>
+            <div class="stat-card-sub">日本の原油中東依存度</div>
+          </div>
+        </div>
+
+        <p>この数字を見ると、日本のAI戦略がいかに<strong>電力と地政学に縛られる</strong>かが見えてきます。</p>
+
+        <p><strong>データ主権</strong>とは、簡単に言えば「大事なデータをどこの国のどんなルールの下で扱うのか」という話です。政府の機密情報、製造業の設計情報、金融や医療データを海外の都合だけで扱われるのは怖い。だからこそ、国内にデータセンターを置く意味が出てきます。今回の動きでは、Microsoftが<strong>さくらインターネットやソフトバンク</strong>のような国内企業と組む方向を示しています。日本側から見れば「国内基盤が使えるなら安心」、Microsoft側から見れば「Azure経済圏へ取り込みやすい」構図です。善意か悪意かの単純な話ではなく、<strong>社会的に役立つことと、自社経済圏を広げることが両立している</strong>、大企業の戦略としては非常に合理的な動きです。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">04</span>
+          <h2>メリット・デメリットをどう見るか</h2>
+          <span class="q-section-head-en">PROS &amp; CONS</span>
+        </div>
+
+        <div class="pros-cons-stock">
+          <div class="pro-box">
+            <div class="pro-box-label">✓ MERITS</div>
+            ・日本国内で安心して使えるAI基盤の選択肢が増える<br>
+            ・製造業、行政、企業の現場でAI実装が進みやすくなる<br>
+            ・人手不足の中で、生産性向上の余地が大きい<br>
+            ・ソブリンAIや国内クラウドの議論が進みやすくなる
+          </div>
+          <div class="con-box">
+            <div class="con-box-label">✗ DEMERITS</div>
+            ・外資プラットフォームへの依存が深まる可能性<br>
+            ・利益の高い部分を海外に持っていかれる恐れ<br>
+            ・電力コスト上昇が国民負担にも跳ね返りうる<br>
+            ・日本企業側がPoC止まりなら土台があっても果実を取り切れない
+          </div>
+        </div>
+
+        <p>ここで誤解しやすいのは、「投資が来た＝日本にとって全部プラス」ではないことです。<strong>便利になることと、主導権を持つことは別</strong>です。歓迎しつつ、依存しすぎない。このバランス感覚が重要です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">05</span>
+          <h2>株式分析｜一番良い会社と一番儲かりそうな株は別</h2>
+          <span class="q-section-head-en">STOCK DEEP DIVE</span>
+        </div>
+        <p>ここからが株式の話です。今回のAI関連株を見る上で、一番大事な前提はこれです。<strong>一番良い会社と、一番儲かりそうな株は同じではない</strong>。良い会社は、もう市場から高く評価されているかもしれません。逆に、会社としては課題があっても、テーマ性や期待で株価が大きく動くこともあります。</p>
+        <p>今回の<strong>5銘柄</strong>は、キャラクターで分けると理解しやすいです。</p>
+
+        <div class="stock-grid">
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">8035</div>
+              <span class="stock-tag tag-stable">王道</span>
+            </div>
+            <div class="stock-metrics">
+              <div class="stock-metric"><div class="stock-metric-label">FY25売上</div><div class="stock-metric-value">2.43兆円</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">営業利益</div><div class="stock-metric-value">6,973億円</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">営業利益率</div><div class="stock-metric-value">28.7%</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">ROE</div><div class="stock-metric-value">30.3%</div></div>
+            </div>
+            <div class="stock-desc"><strong>東京エレクトロン</strong>｜半導体製造装置で複数工程のNo.1/No.2級。installed base 約9.6万台。事業の質は5銘柄で最上位だが、調整後実質PERは約36倍と値段が高い。</div>
+          </div>
+
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">6857</div>
+              <span class="stock-tag tag-specu">爆発力</span>
+            </div>
+            <div class="stock-metrics">
+              <div class="stock-metric"><div class="stock-metric-label">FY25予想売上</div><div class="stock-metric-value">1.07兆円</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">営業利益</div><div class="stock-metric-value">4,540億円</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">Q3営利率</div><div class="stock-metric-value">41.5%</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">テスターシェア</div><div class="stock-metric-value">58%</div></div>
+            </div>
+            <div class="stock-desc"><strong>アドバンテスト</strong>｜AI・HPC・HBMの追い風を強く受ける。粗利率62.0%。ただしPER約47.7倍と期待先行、失望時の下振れも大きい。</div>
+          </div>
+
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">6702</div>
+              <span class="stock-tag tag-defense">勝ちやすさ</span>
+            </div>
+            <div class="stock-metrics">
+              <div class="stock-metric"><div class="stock-metric-label">9ヶ月累計売上</div><div class="stock-metric-value">2.45兆円</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">通期計画売上</div><div class="stock-metric-value">3.53兆円</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">調整後営業益</div><div class="stock-metric-value">3,800億円</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">調整後EPS</div><div class="stock-metric-value">156.48円</div></div>
+            </div>
+            <div class="stock-desc"><strong>富士通</strong>｜国内大企業・公共・金融の基幹系に深く入り込む。モダナイゼーション／ソブリンAI／行政AIと相性が良い大型品質株。</div>
+          </div>
+
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">9434</div>
+              <span class="stock-tag tag-stable">守り</span>
+            </div>
+            <div class="stock-metrics">
+              <div class="stock-metric"><div class="stock-metric-label">通期予想売上</div><div class="stock-metric-value">6.95兆円</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">営業利益</div><div class="stock-metric-value">1.02兆円</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">モバイル</div><div class="stock-metric-value">4,100万件</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">PayPay</div><div class="stock-metric-value">6,800万人</div></div>
+            </div>
+            <div class="stock-desc"><strong>ソフトバンク</strong>｜通信の安定CF・配当が土台。LINE 9,800万人／Yahoo! 8,300万人。AIデータセンター・法人DXの上振れ余地を残す中間型。</div>
+          </div>
+
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">3778</div>
+              <span class="stock-tag tag-dream">夢</span>
+            </div>
+            <div class="stock-metrics">
+              <div class="stock-metric"><div class="stock-metric-label">足元損益</div><div class="stock-metric-value">営業赤字</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">通期予想</div><div class="stock-metric-value">下方修正済</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">テーマ性</div><div class="stock-metric-value">国産クラウド</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">採択</div><div class="stock-metric-value">ガバクラ正式</div></div>
+            </div>
+            <div class="stock-desc"><strong>さくらインターネット</strong>｜石狩DC／データ主権の象徴性／Microsoft連携。先行投資で固定資産・借入・リース負担が重く、期待先行になりやすい。</div>
+          </div>
+        </div>
+
+        <table class="data-table">
+          <thead><tr><th>銘柄</th><th>キャラ</th><th>事業の質</th><th>総合おすすめ</th><th>ざっくり評価</th></tr></thead>
+          <tbody>
+            <tr><td>東京エレクトロン</td><td>品質の王道</td><td>Base 85.8 / Option 91.5</td><td>Base 75 / Option 82</td><td>会社は超優良、弱点は値段</td></tr>
+            <tr><td>アドバンテスト</td><td>爆発力</td><td>Base 79.6 / Option 85.5</td><td>Base 74 / Option 83</td><td>会社は超一流、株価は期待込み</td></tr>
+            <tr><td>富士通</td><td>勝ちやすさ</td><td>Base 79.9 / Option 84.9</td><td>Base 77 / Option 84</td><td>大型品質株としてかなり勝ちやすい</td></tr>
+            <tr><td>ソフトバンク</td><td>守り</td><td>Base 70 / Option 80</td><td>Base 71 / Option 79</td><td>高配当の土台にAI上振れを乗せる</td></tr>
+            <tr><td>さくらインターネット</td><td>夢</td><td>Base 60 / Option 76</td><td>総評66</td><td>テーマは強いが利益確認待ち</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">06</span>
+          <h2>銘柄ごとの強材料・弱材料</h2>
+          <span class="q-section-head-en">PROS &amp; CONS</span>
+        </div>
+
+        <div class="stock-label">東京エレクトロン｜品質の王道</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ PROS</div>半導体製造装置で複数工程No.1/2級／installed base 約9.6万台／FY25売上2.43兆円・営利6,973億円／営利率28.7%・ROE30.3%／事業の質は5銘柄で最上位</div>
+          <div class="con-box"><div class="con-box-label">✗ CONS</div>株価に期待がかなり乗る／調整後実質PER約36倍／事業が崩れなくてもマルチプル縮小で株価が重くなりうる</div>
+        </div>
+        <p>東京エレクトロンは、「買う会社」としては超一流です。ただし「今すぐ全力で買う価格か」は別問題。<strong>王道本命でありながら、最大の弱点は事業ではなく値段</strong>。</p>
+
+        <div class="stock-label">アドバンテスト｜爆発力</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ PROS</div>テスター市場シェア58%／AI・HPC・HBMの追い風／FY25予想売上1.07兆円・営利4,540億円／Q3営利率41.5%・粗利率62.0%／AI相場の熱量が乗る</div>
+          <div class="con-box"><div class="con-box-label">✗ CONS</div>PER約47.7倍と期待が先行／失望時の下振れも大きい／高い成長期待が続く前提の株価</div>
+        </div>
+        <p>会社は超一流、でも株価はそれ以上に期待込み。AI相場の<strong>爆発力を取りに行く</strong>なら有力だが、安全域は薄く、リスク許容度が高い人向け。</p>
+
+        <div class="stock-label">富士通｜勝ちやすさ</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ PROS</div>国内大企業・公共・金融の基幹系に深く入り込む／モダナイゼーション・ソブリンAI・行政AIと相性が良い／9ヶ月累計売上2.4511兆円・調整後営利2,291億円／通期計画 売上3.53兆円・調整後営利3,800億円・調整後EPS156.48円／利益率改善が見え始めた大型品質株</div>
+          <div class="con-box"><div class="con-box-label">✗ CONS</div>海外の利益率がまだ盤石とは言い切れない／AI内製化が進むとSIの付加価値が圧迫される可能性／爆発力では東エレ・アドバンテストに劣る</div>
+        </div>
+        <p>派手ではないが<strong>かなり勝ちやすい</strong>銘柄。5年で10倍を狙う株ではない一方、<strong>5年で1.3倍〜2倍超を現実的に狙う大型変革株</strong>。</p>
+
+        <div class="stock-label">ソフトバンク｜守り</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ PROS</div>通信の安定CFと配当の土台／モバイル4,100万件・PayPay 6,800万人・LINE 9,800万人・Yahoo! JAPAN 8,300万人／通期予想 売上6.95兆円・営利1.02兆円／AIデータセンター・法人DX・PayPay/LYの上振れ余地</div>
+          <div class="con-box"><div class="con-box-label">✗ CONS</div>爆発力はさほど大きくない／借入は大きく金利・調達環境に注意／AIオプションが数字に変わるまで市場評価は限定的</div>
+        </div>
+        <p>5年で10倍を狙う株ではない。ただし大崩れしにくさを残しつつ、<strong>AIオプションを待てる中間型</strong>として魅力があり、「守り」のキャラが自然。</p>
+
+        <div class="stock-label">さくらインターネット｜夢</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ PROS</div>国産クラウド・石狩DC・データ主権の象徴性／ガバメントクラウド正式採択／AI計算基盤への先行投資／Microsoft連携という大きな外部材料</div>
+          <div class="con-box"><div class="con-box-label">✗ CONS</div>足元は営業赤字／通期予想は下方修正済み／先行投資で固定資産・借入・リース負担が重い／株価はテーマに強く反応、期待先行になりやすい</div>
+        </div>
+        <p>テーマは非常に強いが、<strong>数字より先に夢が走りやすい銘柄</strong>。コアで持つというより、確認しながら付き合うロマン枠という整理が自然。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">07</span>
+          <h2>投資地図｜5キャラで整理する</h2>
+          <span class="q-section-head-en">INVESTMENT MAP</span>
+        </div>
+
+        <div class="matrix">
+          <div class="matrix-label">YOUR POSITIONING MAP</div>
+          <h3>「どれが一番良いか」ではなく「自分はどの性格を買うか」</h3>
+          <div class="matrix-grid">
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">品質の王道</span>
+                <span class="matrix-cell-ticker">東エレ</span>
+              </div>
+              <div class="matrix-cell-desc">会社は超優良、弱点は値段。本命だがマルチプル縮小リスク。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">爆発力</span>
+                <span class="matrix-cell-ticker">アドテスト</span>
+              </div>
+              <div class="matrix-cell-desc">AI相場の熱量が乗る。上振れも下振れも大きい、攻めの一枚。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">勝ちやすさ</span>
+                <span class="matrix-cell-ticker">富士通</span>
+              </div>
+              <div class="matrix-cell-desc">国内AI実装の現実的な本命。質と価格のバランスが良好。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">守り / 夢</span>
+                <span class="matrix-cell-ticker">SB / さくら</span>
+              </div>
+              <div class="matrix-cell-desc">配当で守るソフトバンク、利益確認待ちのさくら。性格は対照的。</div>
+            </div>
+          </div>
+        </div>
+
+        <p>品質か、値幅か、安定か、テーマ性か。<strong>そこを分けて考えるだけで、AI相場の見え方はかなりクリア</strong>になります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">08</span>
+          <h2>よくある誤解｜FAQ</h2>
+          <span class="q-section-head-en">FAQ</span>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">AI需要が想定ほど続かないリスクは？</div>
+            <div class="faq-a">AI需要が想定ほど続かず、<strong>設備投資が平準化する可能性</strong>はあります。生成AIの利用が増えても、企業の本番運用は思ったほど進まない可能性も含めて、「AIだから全部強い」と考えるのは危険です。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">日本のエネルギー制約でAI拡大は止まらない？</div>
+            <div class="faq-a">日本は<strong>エネルギーコストの高さという根本問題</strong>を抱えており、AI拡大に制約がかかる可能性があります。だからこそ、電力政策・再エネ・原子力・火力の組み合わせが今後の重要論点になります。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">「良い会社」を買えば勝てる？</div>
+            <div class="faq-a">半分イエス、半分ノー。株価はテーマで先に動くことが多く、<strong>「良い話」そのものより、「その良さがすでに株価に入っているか」が重要</strong>です。会社の質と株価の織り込み度は別物として見る必要があります。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">日本はなぜ外資から見て魅力的なのか？</div>
+            <div class="faq-a">企業・公共・製造業の厚み、セキュリティ要求の高さ、<strong>更新需要の大きさ</strong>。一度システムが入れば長く使われやすく、「導入は重いが入れば強い」市場です。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">09</span>
+          <h2>今後の注目点｜5つのチェックリスト</h2>
+          <span class="q-section-head-en">WHAT TO WATCH</span>
+        </div>
+
+        <table class="data-table">
+          <thead><tr><th style="width:40px;">#</th><th>観測ポイント</th><th>見るべき指標</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1</strong></td><td>Microsoft日本投資の実績化</td><td>実際の受注／設備稼働への接続</td></tr>
+            <tr><td><strong>2</strong></td><td>AIデータセンターの稼働状況</td><td>建設・稼働率・GPU活用の数字</td></tr>
+            <tr><td><strong>3</strong></td><td>日本の電力政策</td><td>再エネ・原子力・火力の組合わせ進捗</td></tr>
+            <tr><td><strong>4</strong></td><td>ソブリンAI・国内AI基盤</td><td>ガバメントクラウド等が本当に案件化するか</td></tr>
+            <tr><td><strong>5</strong></td><td>AI関連株の評価シフト</td><td>「夢」から「利益」へ移るタイミング</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">10</span>
+          <h2>結論｜どう見るべきか</h2>
+          <span class="q-section-head-en">CONCLUSION</span>
+        </div>
+        <p>Microsoftの日本投資は前向きな材料です。ただし、それは「日本にお金が落ちるから全部よし」という単純な話ではありません。むしろ、<strong>AI時代の主導権争いの中で日本が重要な拠点として位置づけられていること</strong>、その一方で<strong>電力・データ主権・インフラの弱さも同時に浮き彫りになること</strong>、この両面で見るべきです。</p>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">構造まとめ</span>
+            <h3>3つのキーポイント</h3>
+            <p>① <strong>戦略投資として読む</strong>　② 本丸は<strong>電力・データ主権・インフラ</strong>　③ 日本は<strong>更新需要が厚い魅力市場</strong>、ただし依存と主導権は別問題。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">投資まとめ</span>
+            <h3>3つのキーポイント</h3>
+            <p>① AI関連株は<strong>性格で分けて見る</strong>　② <strong>王道・爆発力・勝ちやすさ・守り・夢</strong>　③ <strong>「会社の良さ」と「株の買いやすさ」は別</strong>。</p>
+          </div>
+        </div>
+
+        <p>株式で見るなら、<strong>王道の東京エレクトロン、爆発力のアドバンテスト、勝ちやすさの富士通、守りのソフトバンク、夢のさくらインターネット</strong>、という分け方が使いやすいです。どれが優れているかは、投資家が何を重視するかで変わる。品質か、値幅か、安定か、テーマ性か。そこを分けて考えるだけで、AI相場の見え方はかなりクリアになります。</p>
+        <p>AI相場では特に、「会社の良さ」と「株の買いやすさ」を分けて考えること。<strong>ニュースの勢いだけで飛びつくのではなく、何が重要か、どこに利益が落ちるのか、どの数字を見るべきか</strong>を整理してから、自分の判断が始まるのだと思います。</p>
+
+        <div class="disclaimer">
+          <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。株価や評価は日々動き、この記事の株式部分は4月上旬時点の整理が中心です。最終的な判断は必ず最新情報を確認したうえで自己責任で行ってください。
+        </div>
+      </div>
 
       <div class="related-head">RELATED ARTICLES</div>
       <div class="related-list">
-        <a href="../" class="related-item">
-          <span class="related-tag">一覧</span>
-          <span class="related-title">経済・株式の記事一覧へ</span>
-        </a>
+        <a href="../2026-04-09-japan-ai-semi/" class="related-item"><span class="related-tag">株式</span><span class="related-title">日本のAI関連株5銘柄を格付け　東京エレクトロン・アドバンテスト・富士通など 2026.04.09</span></a>
+        <a href="../2026-04-06-quantum-btc/" class="related-item"><span class="related-tag">株式</span><span class="related-title">2029年ビットコイン危機は本当か　量子脅威の正体と量子関連株5銘柄を徹底比較 2026.04.06</span></a>
+        <a href="../2026-04-13-fusion-stocks/" class="related-item"><span class="related-tag">株式</span><span class="related-title">【夢の電源】核融合関連株おすすめ5選　本命・安全株・夢株を一気に整理 2026.04.13</span></a>
+        <a href="../2026-04-13-oil-boj/" class="related-item"><span class="related-tag">経済</span><span class="related-title">原油と日銀政策　エネルギーコストが金融政策に与える影響 2026.04.13</span></a>
+        <a href="../" class="related-item"><span class="related-tag">一覧</span><span class="related-title">経済・株式の記事一覧へ</span></a>
       </div>
-
     </main>
 
     <aside class="art-sidebar">
       <div class="sidebar-toc">
         <div class="sidebar-toc-label">目次</div>
         <ul class="toc-list">
-          <li><a href="#sec-conclusion"><span class="toc-n">00</span>先に結論</a></li>
-
-          <li><a href="#sec-summary"><span class="toc-n">99</span>まとめ</a></li>
+          <li><a href="#"><span class="toc-n">01</span>先に結論</a></li>
+          <li><a href="#"><span class="toc-n">02</span>Microsoft投資の重要性</a></li>
+          <li><a href="#"><span class="toc-n">03</span>AI＝電力の話</a></li>
+          <li><a href="#"><span class="toc-n">04</span>メリット・デメリット</a></li>
+          <li><a href="#"><span class="toc-n">05</span>5銘柄比較</a></li>
+          <li><a href="#"><span class="toc-n">06</span>強材料・弱材料</a></li>
+          <li><a href="#"><span class="toc-n">07</span>投資地図</a></li>
+          <li><a href="#"><span class="toc-n">08</span>FAQ</a></li>
+          <li><a href="#"><span class="toc-n">09</span>注目点</a></li>
+          <li><a href="#"><span class="toc-n">10</span>結論</a></li>
         </ul>
       </div>
       <div class="sidebar-meta">
         <div class="sidebar-meta-label">TAGS</div>
-        <div class="tag-cloud"><span class="tag-pill">Microsoft</span><span class="tag-pill">AI投資</span><span class="tag-pill">日本</span><span class="tag-pill">電力</span><span class="tag-pill">データセンター</span></div>
+        <div class="tag-cloud">
+          <span class="tag-pill">Microsoft</span>
+          <span class="tag-pill">AI投資</span>
+          <span class="tag-pill">日本</span>
+          <span class="tag-pill">電力</span>
+          <span class="tag-pill">データセンター</span>
+          <span class="tag-pill">データ主権</span>
+          <span class="tag-pill">東京エレクトロン</span>
+          <span class="tag-pill">アドバンテスト</span>
+          <span class="tag-pill">富士通</span>
+          <span class="tag-pill">ソフトバンク</span>
+          <span class="tag-pill">さくらインターネット</span>
+        </div>
       </div>
     </aside>
   </div>
@@ -477,6 +855,5 @@
   </footer>
 
   <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/article-enhance.js?v=20260418e" defer></script>
 </body>
 </html>
