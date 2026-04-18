@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/img/logo.png">
+  <link rel="apple-touch-icon" href="/assets/img/logo.png">
+  <meta name="description" content="日本は産油国になれるのか　14円の人工石油に夢を見ていいのか | ">
+  <title>日本は産油国になれるのか　14円の人工石油に夢を見ていいのか | AIデータ二刀流ブログ</title>
+  <link rel="stylesheet" href="../../assets/css/style.css?v=5">
+  <link rel="stylesheet" href="../../assets/css/article.css?v=7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
+  <style>
+    .art-hero { background: linear-gradient(135deg, #0d1e38 0%, #d97706 100%); padding: 44px 24px; }
+    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; }
+    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
+    .art-cat-main { background: #d97706; color: #fff; }
+    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.95; }
+    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.55); display: flex; gap: 16px; flex-wrap: wrap; }
+    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
+    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
+    .art-body strong { color: #1a2744; }
+    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
+    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
+    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
+    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #d97706; background: #f0f4fb; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
+    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
+    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
+    @media (max-width: 560px) { .sec-head-en { display: none; } }
+    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #d97706; }
+    .summary-box { background: linear-gradient(135deg, #f0f6ff, #e6eefb); border: 1px solid #b5cdf0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
+    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #d97706; margin-bottom: 12px; }
+    .summary-box ul { margin: 0; }
+    .summary-box li { font-size: 0.87rem; }
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; display: block; overflow-x: auto; }
+    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
+    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: #f8fafd; }
+    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
+    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
+    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
+    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
+    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px; }
+    .video-box-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 10px; }
+    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
+    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #d97706; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
+    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
+    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
+    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e8ecf4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #d97706; }
+    .toc-n { font-size: 0.62rem; font-weight: 900; color: #d97706; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
+    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
+    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
+    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../" class="site-logo">
+        <img src="/assets/img/logo.png" alt="AIデータ二刀流" class="logo-img" width="40" height="40">
+        <div>
+          <span class="logo-main">AIデータ二刀流ブログ</span>
+          <span class="logo-sub">野球・競馬 × 経済・株式</span>
+        </div>
+      </a>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="../../">TOP</a>
+        <a href="../../hanshin-keiba/">野球・競馬</a>
+        <a href="../../economy-stocks/" class="active">経済・株式</a>
+        <a href="../../channels/">チャンネル</a>
+        <a href="../../profile/">運営について</a>
+        <a href="../../contact/">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="../../">TOP</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../economy-stocks/">経済・株式</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>日本は産油国になれるのか　14円の人工石油に夢を見ていいのか</span>
+    </div>
+  </div>
+
+  <div class="art-hero">
+    <div class="art-hero-title-block">
+      <div class="art-hero-cats"><span class="art-cat-badge art-cat-main">エネルギー</span></div>
+      <h1 class="art-hero-h1">日本は産油国になれるのか　14円の人工石油に夢を見ていいのか</h1>
+      <div class="art-hero-meta">
+        <span>2026.04.15</span>
+        <span>AIデータ二刀流ブログ</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="art-layout">
+    <main class="art-body">
+
+
+
+      <div class="video-box">
+        <div class="video-box-label">▶ 動画でも解説しています</div>
+        <div class="video-embed-wrap">
+          <iframe src="https://www.youtube.com/embed/y50eDd86UHM" title="日本は産油国になれるのか　14円の人工石油に夢を見ていいのか" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="summary-box">
+        <div class="summary-box-title">この記事でわかること</div>
+        <ul></ul>
+      </div>
+
+      <div class="sec-head" id="sec-conclusion">
+        <span class="sec-num">00</span>
+        <h2>先に結論</h2>
+        <span class="sec-head-en">CONCLUSION</span>
+      </div>
+
+
+<ol>
+<li>長時間の連続運転データが出るか</li>
+<li>燃料品質の安定性が第三者も含めて確認されるか</li>
+</ol>
+<ol>
+<li>設備込みの実コストが具体化するか</li>
+</ol>
+<ol>
+<li>導入先、販売形態、制度対応が見えてくるか</li>
+</ol>
+<p>企業サイトには比較データがあり、大阪の実証資料にも安定性検証の記述があります。ただ、ここから先は「実証できた」から「社会に乗る」までのギャップを埋める作業です。</p>
+<p>e-fuel については、国の方針として2030年代前半までの商用化が掲げられています。バイオ燃料は移行期の重要な燃料とされ、商業化は段階的に進んでいます。今回の人工石油は、その中間というより、まだ個別技術の将来性を見極める段階と見るのが妥当でしょう。</p>
+<p># 株式テーマとして見るなら<br>## いまは「夢の大きさ」より「検証の厚さ」</p>
+<p>今回のテーマは、株式市場で言えば典型的な“物語先行になりやすいテーマ”です。<br>ここで大事なのは、夢の大きさだけで関連銘柄を追うのではなく、次の順番で見ることです。</p>
+<table class="data-table">
+<thead><tr>
+<th>見るポイント</th>
+<th>なぜ大事か</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>技術の一次情報</td>
+<td>企業説明だけでなく、公的実証や第三者評価を確認するため</td>
+</tr>
+<tr>
+<td>商業化の時間軸</td>
+<td>1年の話なのか、5年〜10年の話なのかで見方が変わるため</td>
+</tr>
+<tr>
+<td>コストの中身</td>
+<td>ランニングだけか、設備込みかで期待値が変わるため</td>
+</tr>
+<tr>
+<td>導入先の現実性</td>
+<td>発電、物流、非常用、船舶など、どこから入りやすいかを見るため</td>
+</tr>
+</tbody></table>
+<p>投資の観点で言えば、いまは「すぐ利益が乗るテーマ」より、将来の選択肢になり得るテーマを、検証の進み具合で追う段階です。<br>特に今回の人工石油は、公的な全国ロードマップが整った王道テーマというより、実証・装置展開から次の壁を越えられるかが試される段階です。ここを飛ばして“関連株買い”の話に直結させるのは、少し早いと見た方が安全です。</p>
+<p>## 3行まとめ</p>
+<ul>
+<li>14円という数字だけを見ると革命に見えるが、まずは何を含んだ価格かを分けて見るべき。</li>
+<li>e-fuel、今回の人工石油、バイオ燃料は、材料も作り方も商業化の現在地も違う。</li>
+<li>本当の勝負は、量産、長期運転、品質、制度、供給網まで含めた社会実装にある。</li>
+</ul>
+<p>## 6. まとめ</p>
+<p>今回のテーマでいちばん重要なのは、<br>「14円は本当か？」だけで話を終わらせないことです。</p>
+<p>本当に見るべきなのは、</p>
+<ul>
+<li>それが e-fuel の話なのか</li>
+<li>今回の個別技術の話なのか</li>
+<li>バイオ燃料の話なのか</li>
+<li>どんな前提のコストなのか</li>
+<li>いつごろ社会実装が見えてくるのか</li>
+</ul>
+<p>この整理です。</p>
+<p>夢はあります。<br>実際、液体燃料のカーボンニュートラル化は、日本のエネルギー政策でも重視されていますし、今回の人工石油も、少なくとも実証支援や企業データの提示までは進んでいます。</p>
+<p>ただ、夢が大きいほど、冷静さが要ります。<br>「どうせ怪しい」で切るのではなく、<br>「だからこそ、どこまで検証が積み上がったかを見る」。<br>この姿勢が、いちばん強い見方だと思います。</p>
+<p>なお、本記事は情報整理と考察を目的としたもので、特定企業や銘柄への投資を推奨するものではありません。投資判断は、ご自身で一次情報をご確認のうえ行ってください。</p>
+<p>## 7. ブログ用補助情報</p>
+<p>### メタディスクリプション<br>軽油1リットル14円の人工石油ニュースを、e-fuel・バイオ燃料との違いから初心者向けに整理。種油、n-アルカン、14円と50円と300〜700円の違い、今後の注目点までわかりやすく解説。</p>
+<p>### スラッグ案<br>- artificial-fuel-14yen-efuel-biofuel<br>- dream-fuel-14yen-explained<br>- next-generation-fuel-japan-14yen</p>
+<p>### カテゴリー案<br>- 経済・時事<br>- エネルギー<br>- テクノロジー<br>- 脱炭素<br>- テーマ投資</p>
+<p>### タグ案<br>- 人工石油<br>- e-fuel<br>- 合成燃料<br>- バイオ燃料<br>- ミドリムシ燃料<br>- エネルギー安全保障<br>- 脱炭素<br>- 次世代燃料<br>- 技術ニュース<br>- 日本経済</p>
+<p>### アイキャッチ文言案<br>- 14円の人工石油は本物か<br>- 夢の燃料、その前提を疑え<br>- e-fuelとの違いを知らないと危ない<br>- “産油国化”は夢か、現実か</p>
+<p>### 表や図解に向く箇所の提案<br>- e-fuel／今回の人工石油／バイオ燃料の比較表<br>- 14円／50円／300〜700円の数字の意味比較表<br>- 「研究室で作れる」と「社会実装できる」の違いを示すフロー図<br>- 今後の時間軸<br>  - e-fuel：2030年代前半商用化目標<br>  - バイオ燃料：2028年後半以降の商業プラント節目<br>  - 今回の人工石油：大規模普及時期は不確実<br>- 種油と鋳型のイメージ図<br>- n-アルカンの炭素鎖イメージと、ガソリン・灯油・軽油のざっくり対応図</p>
+
+      <div class="sec-head" id="sec-summary">
+        <span class="sec-num">99</span>
+        <h2>まとめ</h2>
+        <span class="sec-head-en">SUMMARY</span>
+      </div>
+
+
+
+      <div class="disclaimer">
+        <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+      </div>
+
+      <hr class="art-hr">
+
+      <div class="related-head">RELATED ARTICLES</div>
+      <div class="related-list">
+        <a href="../" class="related-item">
+          <span class="related-tag">一覧</span>
+          <span class="related-title">経済・株式の記事一覧へ</span>
+        </a>
+      </div>
+
+    </main>
+
+    <aside class="art-sidebar">
+      <div class="sidebar-toc">
+        <div class="sidebar-toc-label">目次</div>
+        <ul class="toc-list">
+          <li><a href="#sec-conclusion"><span class="toc-n">00</span>先に結論</a></li>
+
+          <li><a href="#sec-summary"><span class="toc-n">99</span>まとめ</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-meta">
+        <div class="sidebar-meta-label">TAGS</div>
+        <div class="tag-cloud"><span class="tag-pill">人工石油</span><span class="tag-pill">エネルギー</span><span class="tag-pill">脱炭素</span><span class="tag-pill">資源</span><span class="tag-pill">日本経済</span></div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; 2026 AIデータ二刀流ブログ</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

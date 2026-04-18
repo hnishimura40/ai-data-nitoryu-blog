@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/img/logo.png">
+  <link rel="apple-touch-icon" href="/assets/img/logo.png">
+  <meta name="description" content="MacBook Neoは本当に買いか？Windows・Air・Pro・Mac mini・iPadと比較＋おまけでApple vs Microsoft | 「MacBook Neoは安いから買いなのか」。 この問いは、単なるガジェット比較で終わりません。 本当に大事なのは、Neoが速いか遅いかではなく">
+  <title>MacBook Neoは本当に買いか？Windows・Air・Pro・Mac mini・iPadと比較＋おまけでApple vs Microsoft | AIデータ二刀流ブログ</title>
+  <link rel="stylesheet" href="../../assets/css/style.css?v=5">
+  <link rel="stylesheet" href="../../assets/css/article.css?v=7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
+  <style>
+    .art-hero { background: linear-gradient(135deg, #0d1e38 0%, #0d9488 100%); padding: 44px 24px; }
+    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; }
+    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
+    .art-cat-main { background: #0d9488; color: #fff; }
+    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.95; }
+    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.55); display: flex; gap: 16px; flex-wrap: wrap; }
+    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
+    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
+    .art-body strong { color: #1a2744; }
+    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
+    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
+    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
+    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #0d9488; background: #f0f4fb; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
+    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
+    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
+    @media (max-width: 560px) { .sec-head-en { display: none; } }
+    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #0d9488; }
+    .summary-box { background: linear-gradient(135deg, #f0f6ff, #e6eefb); border: 1px solid #b5cdf0; border-left: 4px solid #0d9488; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
+    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #0d9488; margin-bottom: 12px; }
+    .summary-box ul { margin: 0; }
+    .summary-box li { font-size: 0.87rem; }
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; display: block; overflow-x: auto; }
+    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
+    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: #f8fafd; }
+    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
+    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
+    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
+    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
+    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px; }
+    .video-box-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 10px; }
+    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
+    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #0d9488; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
+    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
+    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
+    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e8ecf4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #0d9488; }
+    .toc-n { font-size: 0.62rem; font-weight: 900; color: #0d9488; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
+    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
+    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
+    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../" class="site-logo">
+        <img src="/assets/img/logo.png" alt="AIデータ二刀流" class="logo-img" width="40" height="40">
+        <div>
+          <span class="logo-main">AIデータ二刀流ブログ</span>
+          <span class="logo-sub">野球・競馬 × 経済・株式</span>
+        </div>
+      </a>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="../../">TOP</a>
+        <a href="../../hanshin-keiba/">野球・競馬</a>
+        <a href="../../economy-stocks/" class="active">経済・株式</a>
+        <a href="../../channels/">チャンネル</a>
+        <a href="../../profile/">運営について</a>
+        <a href="../../contact/">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="../../">TOP</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../economy-stocks/">経済・株式</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>MacBook Neoは本当に買いか？Windows・Air・Pro・Mac m</span>
+    </div>
+  </div>
+
+  <div class="art-hero">
+    <div class="art-hero-title-block">
+      <div class="art-hero-cats"><span class="art-cat-badge art-cat-main">テクノロジー</span></div>
+      <h1 class="art-hero-h1">MacBook Neoは本当に買いか？Windows・Air・Pro・Mac mini・iPadと比較＋おまけでApple vs Microsoft</h1>
+      <div class="art-hero-meta">
+        <span>2026.04.07</span>
+        <span>AIデータ二刀流ブログ</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="art-layout">
+    <main class="art-body">
+
+<p>「MacBook Neoは安いから買いなのか」。<br>この問いは、単なるガジェット比較で終わりません。</p>
+<p>本当に大事なのは、Neoが速いか遅いかではなく、<br>「どんな人にとってはちょうどいい入口で、どんな人には向かないのか」を見極めることです。</p>
+<p>さらに視点を一段引くと、MacBook Neoの登場はAppleの戦略そのものを映しています。<br>Appleは、Macの入口を広げて、iPhone・iCloud・App Store・Servicesへ続く生活圏をさらに厚くしたい。<br>一方でMicrosoftは、Surface単体で勝つというより、Windows、Office、Teams、Azure、Copilotを通じて“仕事の基盤”を押さえ続けています。</p>
+<p>つまり今回のテーマは、<br>「安いMacは買いか」でもあり、<br>「AppleとMicrosoftは何が違うのか」でもあり、<br>「株として今どう見るべきか」でもあります。</p>
+<p>この記事では、MacBook Neoの製品比較を入り口にしながら、AppleとMicrosoftの戦略、そして株式の見方まで、初心者向けに噛み砕いて整理します。</p>
+
+      <div class="video-box">
+        <div class="video-box-label">▶ 動画でも解説しています</div>
+        <div class="video-embed-wrap">
+          <iframe src="https://www.youtube.com/embed/qvsHPl5Z-Bw" title="MacBook Neoは本当に買いか？Windows・Air・Pro・Mac mini・iPadと比較＋おまけでApple vs Microsoft" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="summary-box">
+        <div class="summary-box-title">この記事でわかること</div>
+        <ul><li>MacBook Neoはどんな人に向くのか</li><li>Windowsノート、MacBook Air、MacBook Pro、Mac mini、iPadと比べたときのNeoの立ち位置</li><li>AppleがMacBook Neoを出す意味</li><li>AppleとMicrosoftの「堀」の違い</li><li>Apple株とMicrosoft株をどう見分けるべきか</li><li>配当目的と総合リターン目的で、見方がどう変わるか</li><li>初心者が誤解しやすいポイントと、その避け方</li></ul>
+      </div>
+
+      <div class="sec-head" id="sec-conclusion">
+        <span class="sec-num">00</span>
+        <h2>先に結論</h2>
+        <span class="sec-head-en">CONCLUSION</span>
+      </div>
+<p>結論から言うと、MacBook Neoは「全部に勝つ機械」ではありません。<br>ですが、条件が合う人にはかなり魅力的です。</p>
+<p>一言でまとめるなら、MacBook Neoは<br>「軽い作業を気持ちよくこなすために、重い作業の余裕と拡張性を削って価格を落とした、持ち運べる入口Mac」<br>です。</p>
+<p>製品選びの整理はこうです。</p>
+<ul>
+<li>Windows前提の人にはNeoは向きにくい</li>
+<li>長く快適に使う主力機ならAirが強い</li>
+<li>重い制作や仕事道具ならProが必要</li>
+<li>机固定ならMac miniが有力</li>
+<li>タブレットが主役ならiPadのほうが自然</li>
+<li>そのうえで「安くMacのノート環境に入りたい人」にはNeoがちゃんと刺さる</li>
+</ul>
+<p>株式の整理はこうです。</p>
+<ul>
+<li>Appleは「超強い消費者エコシステム」と「自社株買い」の王様</li>
+<li>Microsoftは「超強い法人基盤」と「AI主役性」の本命</li>
+<li>配当目的なら、どちらも本線とは言いにくい</li>
+<li>ただし総合リターン狙いなら、どちらも超有力</li>
+<li>今の市場テーマとの相性まで含めると、ややMicrosoft寄りで見るのが自然</li>
+</ul>
+
+<p># テーマの全体像</p>
+<p>今回の全体像を一言でいえば、<br>「MacBook Neoは製品比較の話に見えて、実はAppleという会社の戦略を映している」<br>ということです。</p>
+<p>Neoを単独で見れば、注目点はシンプルです。</p>
+<ul>
+<li>価格がかなり安い</li>
+<li>それでもMacとしての使いやすさは残っている</li>
+<li>ただし、重い作業や長期の余裕は削っている</li>
+</ul>
+<p>ここで終わると、単なる買い物ガイドです。<br>でももう一歩踏み込むと、AppleはNeoで「Macの入口」を広げています。<br>安い入り口を作ることで、iPhoneユーザーや学生、ライトユーザーをMacの世界に引き込みやすくなるからです。</p>
+<p>一方でMicrosoftは、Surfaceだけで勝負しているわけではありません。<br>Windows PC全体、Office、Teams、Azure、Copilotを含めた“仕事の基盤”で勝っています。</p>
+<p>この違いが、製品の見方だけでなく、株の見方にも直結します。</p>
+<p># 論点整理</p>
+<p>最初に、この記事の論点を整理します。</p>
+<ol>
+<li>MacBook Neoは製品としてどこに立っているのか</li>
+<li>Neoは他の選択肢と比べてどこで有利・不利なのか</li>
+</ol>
+
+      <div class="sec-head" id="sec-summary">
+        <span class="sec-num">99</span>
+        <h2>まとめ</h2>
+        <span class="sec-head-en">SUMMARY</span>
+      </div>
+<p>## 3行まとめ</p>
+<ul>
+<li>MacBook Neoは、軽い作業中心ならかなり魅力的な「持ち運べる入口Mac」</li>
+<li>Appleは生活圏の帝国、Microsoftは仕事の帝国で、株の強さの種類が違う</li>
+<li>配当目的なら本線ではないが、総合リターン狙いなら両社とも有力で、今はややMicrosoft寄り</li>
+</ul>
+<p>## 最後のまとめ</p>
+<p>MacBook Neoをどう見るかは、単なるガジェット選びではありません。</p>
+<p>それは、<br>- 自分が何を使う人なのか<br>- Appleのエコシステムをどう見るか<br>- MicrosoftのAI主役性をどう評価するか</p>
+<p>を整理することでもあります。</p>
+<p>Neoは、安物扱いもしない、万能機扱いもしない。<br>この中間にある「条件が合えばかなり賢い入口」として見るのが、いちばんしっくりきます。</p>
+<p>また、AppleとMicrosoftは、どちらが絶対に上というより、強さの質が違います。</p>
+<ul>
+<li>Appleは完成された帝国</li>
+<li>Microsoftは今も拡張している帝国</li>
+</ul>
+<p>この違いを理解すると、製品の見え方も、株の見え方も、かなり変わってきます。</p>
+<p>※ 本記事は公開情報をもとにした一般的な考察であり、特定銘柄の売買を推奨するものではありません。投資判断はご自身の責任でお願いします。</p>
+
+
+      <div class="disclaimer">
+        <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+      </div>
+
+      <hr class="art-hr">
+
+      <div class="related-head">RELATED ARTICLES</div>
+      <div class="related-list">
+        <a href="../" class="related-item">
+          <span class="related-tag">一覧</span>
+          <span class="related-title">経済・株式の記事一覧へ</span>
+        </a>
+      </div>
+
+    </main>
+
+    <aside class="art-sidebar">
+      <div class="sidebar-toc">
+        <div class="sidebar-toc-label">目次</div>
+        <ul class="toc-list">
+          <li><a href="#sec-conclusion"><span class="toc-n">00</span>先に結論</a></li>
+
+          <li><a href="#sec-summary"><span class="toc-n">99</span>まとめ</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-meta">
+        <div class="sidebar-meta-label">TAGS</div>
+        <div class="tag-cloud"><span class="tag-pill">MacBook Neo</span><span class="tag-pill">Apple</span><span class="tag-pill">Microsoft</span><span class="tag-pill">ガジェット</span><span class="tag-pill">比較</span></div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; 2026 AIデータ二刀流ブログ</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>
