@@ -10,122 +10,248 @@
   <title>サトテル2発・136m弾の衝撃｜阪神9-3中日 快勝の中身を読む 2026.04.11 | AIデータ二刀流ブログ</title>
   <link rel="stylesheet" href="../../assets/css/style.css?v=5">
   <link rel="stylesheet" href="../../assets/css/article.css?v=7">
+  <link rel="stylesheet" href="../../assets/css/article-enhance.css?v=20260418e">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
-    .art-hero { background: #0b1525; }
-
-    .ogp-hero {
-      container-type: inline-size;
-      width: 100%; max-width: 400px;
-      margin: 20px auto 0;
-      border-radius: 10px;
-      aspect-ratio: 1200 / 630;
-      position: relative; overflow: hidden;
-      background: #0b1525;
-      display: flex;
-      font-family: 'Noto Sans JP', sans-serif;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    :root {
+      --q-accent:#7c3aed;
+      --q-accent2:#06b6d4;
+      color-scheme: light dark;
     }
-    .ogp-bg-dots { position: absolute; inset: 0; background-image: radial-gradient(#1e293b 2px, transparent 2px); background-size: 1.67cqw 1.67cqw; z-index: 0; }
-    .ogp-yellow { position: absolute; top: -10%; left: -15%; width: 68%; height: 120%; background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%); transform: skewX(-15deg); z-index: 1; box-shadow: 1.25cqw 0 3.33cqw rgba(0,0,0,0.6); border-right: 1cqw solid #fff; }
-    .ogp-dark { position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: linear-gradient(135deg, #111827 0%, #0b1525 100%); z-index: 0; }
-    .ogp-texture { position: absolute; inset: 0; background-image: radial-gradient(rgba(0,0,0,0.15) 2px, transparent 2px); background-size: 0.5cqw 0.5cqw; z-index: 2; pointer-events: none; }
-    .ogp-left { position: relative; z-index: 10; width: 52%; height: 100%; padding: 3.33cqw 0 3.33cqw 3.33cqw; display: flex; flex-direction: column; justify-content: center; }
-    .ogp-right { position: relative; z-index: 10; width: 48%; height: 100%; padding: 4.17cqw 3.33cqw 4.17cqw 1.67cqw; display: flex; flex-direction: column; justify-content: center; gap: 1.5cqw; }
-    .ogp-year-badge { display: inline-block; background: #111827; color: #facc15; font-size: 2.67cqw; font-weight: 900; padding: 0.5cqw 1.67cqw; border-radius: 0.5cqw; margin-bottom: 1cqw; align-self: flex-start; transform: skewX(-10deg); box-shadow: 0.42cqw 0.42cqw 0 rgba(0,0,0,0.3); border: 0.25cqw solid #111827; }
-    .ogp-year-badge span { display: inline-block; transform: skewX(10deg); }
-    .ogp-main-title { font-size: 7.33cqw; font-weight: 900; color: #111827; line-height: 1.05; letter-spacing: -0.17cqw; text-shadow: 0.33cqw 0.33cqw 0px #fff; margin-bottom: 0.42cqw; }
-    .ogp-sub-title { font-size: 7cqw; font-weight: 900; color: #fff; line-height: 1.05; text-shadow: 0.5cqw 0.5cqw 0px #111827, 0.67cqw 0.67cqw 1.25cqw rgba(0,0,0,0.5); -webkit-text-stroke: 0.25cqw #111827; }
-    .ogp-method-badge { margin-top: 2.08cqw; background: #ef4444; color: #fff; font-size: 2.17cqw; font-weight: 900; padding: 0.83cqw 2.08cqw; display: inline-block; align-self: flex-start; transform: skewX(-15deg); box-shadow: 0.5cqw 0.5cqw 0 #111827; }
-    .ogp-method-badge span { display: inline-block; transform: skewX(15deg); }
-    .ogp-topic-box { background: rgba(30,41,59,0.95); border-left: 0.67cqw solid #facc15; padding: 1.25cqw 1.67cqw; border-radius: 0 0.83cqw 0.83cqw 0; box-shadow: 0 0.5cqw 1.25cqw rgba(0,0,0,0.5); }
-    .ogp-topic-box:nth-child(2) { border-left-color: #ef4444; }
-    .ogp-topic-box:nth-child(3) { border-left-color: #38bdf8; }
-    .ogp-topic-box:nth-child(4) { border-left-color: #10b981; }
-    .ogp-topic-header { display: flex; align-items: center; gap: 1cqw; margin-bottom: 0.17cqw; }
-    .ogp-topic-num { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 2cqw; font-weight: 900; color: #94a3b8; line-height: 1; }
-    .ogp-topic-title { font-size: 2.17cqw; font-weight: 900; color: #f8fafc; line-height: 1; }
-    .ogp-topic-desc { font-size: 1.5cqw; font-weight: 900; color: #facc15; padding-left: 3cqw; }
-    .ogp-topic-box:nth-child(2) .ogp-topic-desc { color: #fca5a5; }
-    .ogp-topic-box:nth-child(3) .ogp-topic-desc { color: #7dd3fc; }
-    .ogp-topic-box:nth-child(4) .ogp-topic-desc { color: #6ee7b7; }
+    html, body { background-color: #ffffff; color: #2a2e3c; }
 
-    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; padding: 22px 24px 18px; }
-    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
-    .art-cat-sports { background: var(--color-accent-sports); color: #fff; }
-    .art-cat-gold   { background: var(--color-accent-gold);   color: #1a2744; }
-    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.75; }
-    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.45); display: flex; gap: 16px; flex-wrap: wrap; }
+    /* ===== ダークモード ===== */
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0b1020 !important; color: #d8dfef !important; }
+      .art-body p, .art-body li { color: #d8dfef !important; }
+      .art-body p strong, .art-body li strong {
+        color: #c4b5fd !important;
+        background: rgba(139,92,246,0.15) !important;
+        padding: 0 4px !important;
+        border-radius: 3px !important;
+      }
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #a78bfa !important; }
+      .stat-card-number { color: #f5f7ff !important; }
+      .stat-card-sub { color: #9aa3bf !important; }
 
-    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
-    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
+      .layer-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 6px 24px -8px rgba(0,0,0,0.4) !important; }
+      .layer-card h3 { color: #f5f7ff !important; }
+      .layer-card p { color: #c9d0e5 !important; }
+      .layer-card.tech .layer-card-tag { background: rgba(6,182,212,0.2) !important; color: #7dd3fc !important; }
+      .layer-card.market .layer-card-tag { background: rgba(245,158,11,0.18) !important; color: #fcd34d !important; }
+
+      .q-section-head { border-bottom-color: #2a3150 !important; }
+      .q-section-head h2 { color: #f5f7ff !important; }
+      .q-section-head-en { color: #5a6488 !important; }
+
+      .pillar { background: linear-gradient(180deg, #181c2e 0%, #141828 100%) !important; border-color: #2a3150 !important; }
+      .pillar-title { color: #f5f7ff !important; }
+      .pillar-desc { color: #b9c1d9 !important; }
+      .pillar-example { background: #0b1020 !important; border-color: #2a3150 !important; color: #a5adc8 !important; }
+      .pillar.target { background: linear-gradient(180deg, #2a1111 0%, #1a0a0a 100%) !important; border-color: #ef4444 !important; }
+      .pillar.target .pillar-desc, .pillar.target .pillar-title { color: #fecaca !important; }
+
+      .risk-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .risk-title { color: #f5f7ff !important; }
+      .risk-body { color: #b9c1d9 !important; }
+      .risk-example { background: rgba(252,211,77,0.12) !important; color: #fcd34d !important; }
+
+      .faq-item { background: #141828 !important; border-color: #2a3150 !important; border-left-color: #a78bfa !important; }
+      .faq-q { color: #f5f7ff !important; }
+      .faq-a { color: #c9d0e5 !important; }
+
+      .pro-box { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.05)) !important; border-color: rgba(16,185,129,0.4) !important; color: #86efac !important; }
+      .con-box { background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(239,68,68,0.05)) !important; border-color: rgba(239,68,68,0.4) !important; color: #fca5a5 !important; }
+
+      .data-table { box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5) !important; }
+      .data-table td { background-color: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+      .data-table strong { color: #c4b5fd !important; background: none !important; }
+
+      .sidebar-toc { background: linear-gradient(145deg, #141828, #0f1322) !important; border-color: #2a3150 !important; }
+      .sidebar-toc-label { color: #a78bfa !important; }
+      .toc-list a { color: #b9c1d9 !important; }
+      .toc-list a:hover { color: #c4b5fd !important; }
+      .toc-list li { border-bottom-color: #2a3150 !important; }
+      .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+      .sidebar-meta-label { color: #a78bfa !important; }
+      .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+
+      .related-item { background: #141828 !important; border-color: #2a3150 !important; }
+      .related-title { color: #f5f7ff !important; }
+      .related-head { color: #a78bfa !important; border-bottom-color: #2a3150 !important; }
+
+      .disclaimer { background: rgba(217,119,6,0.1) !important; color: #fcd34d !important; border-color: rgba(217,119,6,0.4) !important; }
+
+      .site-header { background: #0b1020 !important; border-bottom: 1px solid #2a3150 !important; }
+      .breadcrumb { background: #0f1322 !important; }
+      .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
+    }
+    .art-hero { background: radial-gradient(circle at 20% 0%, #1a1a00 0%, #2a2000 40%, #0a0a0a 80%); padding: 0; position: relative; overflow: hidden; }
+    .art-hero-thumb { width: 100%; max-width: 1200px; max-height: 420px; object-fit: cover; display: block; margin: 0 auto; filter: saturate(1.1); }
+    .art-hero-title-block { max-width: 1100px; margin: 0 auto; padding: 26px 28px 22px; position: relative; z-index: 2; }
+    .art-hero-cats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; }
+    .art-cat-baseball { background: linear-gradient(90deg, #eab308, #1a1a1a); color: #fff; }
+    .art-cat-game { background: linear-gradient(90deg, #f59e0b, #b45309); color: #fff; }
+    .art-cat-hit { background: #dc2626; color: #fff; }
+    .art-hero-h1 { font-size: clamp(1.2rem, 2.8vw, 1.8rem); font-weight: 900; color: #fff; line-height: 1.4; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .art-hero-meta { font-size: 0.78rem; color: rgba(255,255,255,0.65); display: flex; gap: 18px; }
+
+    .art-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 44px 24px 80px; align-items: flex-start; }
+    @media (max-width: 900px) { .art-layout { grid-template-columns: 1fr; padding: 28px 16px 60px; gap: 0; } }
 
     .art-body { min-width: 0; }
-    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
-    .art-body strong { color: #1a2744; }
-    .art-body ul { padding-left: 1.4em; margin-bottom: 18px; }
-    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
+    .art-body p { font-size: 0.96rem; line-height: 2; color: #2a2e3c; margin-bottom: 18px; }
+    .art-body strong { color: #7c3aed; font-weight: 800; }
 
-    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
-    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: var(--color-accent-sports); background: #fff0f0; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
-    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
-    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
-    @media (max-width: 560px) { .sec-head-en { display: none; } }
-    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid var(--color-accent-economy, #1a6fa8); }
+    .hero-summary {
+      background: linear-gradient(135deg, #1a1400 0%, #3a2a00 60%, #0a0a0a 100%);
+      border-radius: 20px; padding: 32px 36px; color: #fff;
+      margin-bottom: 40px; position: relative; overflow: hidden;
+    }
+    .hero-summary::before {
+      content: ""; position: absolute; top: -40%; right: -10%;
+      width: 60%; height: 180%;
+      background: radial-gradient(ellipse, rgba(234,179,8,.35), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-summary-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 14px; }
+    .hero-summary h2 { font-size: 1.35rem; font-weight: 900; color: #fff; margin: 0 0 14px; line-height: 1.5; }
+    .hero-summary p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.95; margin: 0; }
 
-    .summary-box { background: linear-gradient(135deg, #f0f5ff, #eef3fb); border: 1px solid #c8d8ef; border-left: 4px solid #1a6fa8; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
-    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #1a6fa8; margin-bottom: 12px; }
-    .summary-box ul { margin: 0; }
-    .summary-box li { font-size: 0.87rem; }
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0 36px; }
+    .stat-card {
+      background: linear-gradient(145deg, #fff, #f5f7ff);
+      border: 1px solid #e4e8f4; border-radius: 16px; padding: 22px 24px;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before { content: ""; position: absolute; inset: 0 auto auto 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--q-accent), var(--q-accent2)); }
+    .stat-card-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; text-transform: uppercase; margin-bottom: 10px; }
+    .stat-card-number { font-family: 'Poppins', sans-serif; font-size: 2.4rem; font-weight: 900; color: #0f0a2e; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; font-style: italic; }
+    .stat-card-sub { font-size: 0.82rem; color: #5a6380; line-height: 1.6; }
 
-    .hlbox { background: linear-gradient(135deg, #fffbf0, #fff8e6); border: 1px solid #e6c96a; border-left: 4px solid var(--color-accent-gold); border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 24px 0; }
-    .hlbox p { margin: 0; font-size: 0.94rem; }
+    .layer-split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 28px 0 36px; }
+    @media (max-width: 720px) { .layer-split { grid-template-columns: 1fr; } }
+    .layer-card { background: #fff; border-radius: 16px; padding: 24px 26px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 6px 24px -8px rgba(20, 30, 80, 0.12); }
+    .layer-card.tech { border-top: 5px solid #06b6d4; }
+    .layer-card.market { border-top: 5px solid #f59e0b; }
+    .layer-card-tag { display: inline-block; font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; }
+    .layer-card.tech .layer-card-tag { background: #e0f7fd; color: #0891b2; }
+    .layer-card.market .layer-card-tag { background: #fef3c7; color: #b45309; }
+    .layer-card h3 { font-size: 1.1rem; font-weight: 900; color: #0f0a2e; margin: 0 0 10px; }
+    .layer-card p { margin: 0; font-size: 0.92rem; line-height: 1.85; color: #2a2e3c; }
 
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; }
-    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
-    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
+    .q-section { margin: 56px 0 0; }
+    .q-section-head { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 3px solid #e4e8f4; }
+    .q-section-num { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 900; font-style: italic; background: linear-gradient(135deg, var(--q-accent), var(--q-accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; flex-shrink: 0; }
+    .q-section-head h2 { font-size: 1.3rem; font-weight: 900; color: #0f0a2e; margin: 0; line-height: 1.4; }
+    .q-section-head-en { margin-left: auto; font-size: 0.7rem; font-weight: 800; letter-spacing: .2em; color: #a3adc7; flex-shrink: 0; }
+    @media (max-width: 560px) { .q-section-head-en { display: none; } }
+
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar { background: linear-gradient(180deg, #fafbff 0%, #f0f3fa 100%); border-radius: 14px; padding: 22px 24px; border: 1px solid #dbe2f0; position: relative; }
+    .pillar-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .pillar-title { font-size: 1rem; font-weight: 900; color: #0f0a2e; margin-bottom: 8px; }
+    .pillar-desc { font-size: 0.88rem; color: #4a5270; line-height: 1.7; margin-bottom: 10px; }
+    .pillar-example { background: #fff; border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: #5a6380; border: 1px solid #e4e8f4; }
+    .pillar.target { border: 2px solid #ef4444; background: linear-gradient(180deg, #fff5f5 0%, #ffe4e4 100%); }
+    .pillar.target::after { content: "KEY"; position: absolute; top: -10px; right: 14px; background: #ef4444; color: #fff; font-size: 0.68rem; font-weight: 900; letter-spacing: .1em; padding: 3px 10px; border-radius: 3px; }
+
+    .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .risk-grid { grid-template-columns: 1fr; } }
+    .risk-card { background: #fff; border-radius: 14px; padding: 20px; border: 1px solid #e4e8f4; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .risk-card-head { display: flex; align-items: center; gap: 10px; }
+    .risk-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #ef4444, #f59e0b); color: #fff; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; }
+    .risk-title { font-size: 0.95rem; font-weight: 900; color: #0f0a2e; line-height: 1.4; }
+    .risk-body { font-size: 0.86rem; color: #4a5270; line-height: 1.75; }
+    .risk-example { margin-top: auto; padding: 10px 14px; background: #fef3c7; border-radius: 8px; font-size: 0.8rem; color: #7c2d12; font-weight: 500; }
+
+    .matrix { background: linear-gradient(135deg, #1a1400 0%, #3a2a00 50%, #0a0a0a 100%); border-radius: 20px; padding: 32px 30px; color: #fff; margin: 28px 0 36px; }
+    .matrix-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 18px; }
+    .matrix h3 { font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0 0 20px; }
+    .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 560px) { .matrix-grid { grid-template-columns: 1fr; grid-template-rows: auto; } }
+    .matrix-cell { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 18px 20px; backdrop-filter: blur(8px); }
+    .matrix-cell-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .matrix-cell-type { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #facc15; }
+    .matrix-cell-ticker { font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 900; font-style: italic; color: #fff; }
+    .matrix-cell-desc { font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
+
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 30px; }
+    .faq-item { background: #fff; border-left: 4px solid var(--q-accent); border-radius: 0 12px 12px 0; padding: 18px 22px; border-top: 1px solid #e4e8f4; border-right: 1px solid #e4e8f4; border-bottom: 1px solid #e4e8f4; }
+    .faq-q, .faq-a { position: relative; padding-left: 34px; min-height: 24px; display: block; }
+    .faq-q { font-size: 0.95rem; font-weight: 800; color: #0f0a2e; margin-bottom: 12px; line-height: 1.6; }
+    .faq-a { font-size: 0.88rem; color: #4a5270; line-height: 1.85; }
+    .faq-q::before, .faq-a::before {
+      position: absolute; left: 0; top: 2px;
+      width: 24px; height: 24px; border-radius: 50%;
+      font-size: 0.7rem; font-weight: 900; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+    }
+    .faq-q::before { content: "Q"; background: #7c3aed; }
+    .faq-a::before { content: "A"; background: #06b6d4; }
+    @media (max-width: 560px) {
+      .faq-item { padding: 16px 16px 14px; }
+      .faq-q, .faq-a { padding-left: 30px; }
+      .faq-q::before, .faq-a::before { width: 22px; height: 22px; font-size: 0.65rem; }
+    }
+
+    .pros-cons-stock { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 720px) { .pros-cons-stock { grid-template-columns: 1fr; } }
+    .pro-box, .con-box { padding: 16px 18px; border-radius: 12px; font-size: 0.85rem; line-height: 1.75; }
+    .pro-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #86efac; color: #065f46; }
+    .con-box { background: linear-gradient(135deg, #fef2f2, #fee2e2); border: 1px solid #fca5a5; color: #991b1b; }
+    .pro-box-label, .con-box-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; margin-bottom: 8px; text-transform: uppercase; }
+    .stock-label { font-size: 1rem; font-weight: 800; color: #0f0a2e; margin: 24px 0 10px; padding-left: 12px; border-left: 4px solid #7c3aed; }
+
+    .q-summary { background: linear-gradient(135deg, #1a1400 0%, #3a2a00 100%); border-radius: 16px; padding: 28px 30px; margin: 36px 0 28px; }
+    .q-summary-label { font-size: 0.7rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 14px; }
+    .q-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 12px; }
+    .q-summary li { font-size: 0.92rem; color: rgba(255,255,255,0.92); line-height: 1.8; }
+    .q-summary li::marker { color: #facc15; font-weight: 900; }
+
+    .timeline { display: flex; justify-content: space-between; margin: 28px 0 36px; position: relative; padding: 0 20px; flex-wrap: wrap; gap: 8px 0; }
+    .timeline::before { content: ""; position: absolute; top: 32px; left: 40px; right: 40px; height: 3px; background: linear-gradient(90deg, #10b981, #06b6d4, #f59e0b, #ef4444, #eab308); border-radius: 2px; }
+    .tl-stop { text-align: center; flex: 1; min-width: 90px; position: relative; }
+    .tl-dot { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 3px solid var(--q-accent); margin: 22px auto 10px; position: relative; z-index: 2; }
+    .tl-year { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1rem; font-style: italic; color: #0f0a2e; margin-bottom: 4px; }
+    .tl-label { font-size: 0.76rem; color: #5a6380; line-height: 1.5; padding: 0 4px; }
+
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 18px 0 28px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px -4px rgba(20,30,80,0.08); }
+    .data-table th { background: linear-gradient(135deg, #1a1400, #3a2a00); color: #fff; padding: 12px 14px; text-align: left; font-weight: 800; letter-spacing: .04em; font-size: 0.8rem; }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid #edf0f7; color: #2a2e3c; vertical-align: middle; }
+    .data-table tr:nth-child(even) td { background: #fafbff; }
     .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:nth-child(even) td { background: #f8fafd; }
 
-    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
-    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: var(--color-accent-gold); margin-bottom: 14px; }
-    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
-    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
-
-    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
-    .related-list { display: flex; flex-direction: column; gap: 10px; }
-    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
-    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
-    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: var(--color-accent-sports); color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
-    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
+    .disclaimer { background: linear-gradient(135deg, #fff9f0, #fef3c7); border-left: 4px solid #d97706; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #7c2d12; }
 
     .art-sidebar { font-size: 0.88rem; }
-    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
-    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
-    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
+    @media (max-width: 900px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; position: static !important; max-height: none !important; overflow: visible !important; top: auto !important; } }
+    .sidebar-toc { background: linear-gradient(145deg, #fafbff, #f0f3fa); border: 1px solid #dbe2f0; border-radius: 14px; padding: 20px 22px; position: sticky; top: 80px; margin-bottom: 24px; max-height: calc(100vh - 100px); overflow-y: auto; }
+    .sidebar-toc-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .18em; color: #7c3aed; margin-bottom: 14px; }
     .toc-list { list-style: none; padding: 0; margin: 0; }
-    .toc-list li { border-bottom: 1px solid #e8ecf4; }
+    .toc-list li { border-bottom: 1px solid #e4e8f4; }
     .toc-list li:last-child { border-bottom: none; }
-    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
-    .toc-list a:hover { color: var(--color-accent-sports); }
-    .toc-n { font-size: 0.62rem; font-weight: 900; color: var(--color-accent-sports); flex-shrink: 0; width: 22px; }
-    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
-    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
+    .toc-list a { display: flex; align-items: center; gap: 10px; padding: 9px 4px; color: #4a5270; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #7c3aed; }
+    .toc-n { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 0.7rem; font-weight: 900; color: #7c3aed; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dbe2f0; border-radius: 14px; padding: 18px 20px; }
+    .sidebar-meta-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #7c3aed; margin-bottom: 10px; }
     .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
-    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
+    .tag-pill { font-size: 0.72rem; color: #4a5270; background: #f0f3fa; border: 1px solid #dbe2f0; padding: 3px 9px; border-radius: 20px; }
 
-    /* Sato stats box */
-    .stats-highlight { background: #f0f5ff; border: 1px solid #c8d8ef; border-radius: 10px; padding: 20px 22px; margin: 20px 0 28px; }
-    .stats-highlight-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #1a6fa8; margin-bottom: 14px; }
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
-    .stat-item { background: #fff; border: 1px solid #dde3ef; border-radius: 8px; padding: 10px 12px; text-align: center; }
-    .stat-label { font-size: 0.68rem; color: #8898b0; font-weight: 600; margin-bottom: 4px; }
-    .stat-value { font-size: 1.2rem; font-weight: 900; color: var(--color-primary); }
-    .stat-value.highlight { color: var(--color-accent-sports); }
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; border-bottom: 2px solid #e4e8f4; padding-bottom: 10px; margin: 48px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: #fff; border: 1px solid #e4e8f4; border-radius: 10px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 900; background: #eab308; color: #1a1a1a; padding: 3px 8px; border-radius: 3px; margin-top: 2px; letter-spacing: .08em; }
+    .related-title { font-size: 0.85rem; font-weight: 600; color: #0f0a2e; line-height: 1.5; }
   </style>
   <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
 </head>
@@ -140,9 +266,7 @@
           <span class="logo-sub">野球・競馬 × 経済・株式</span>
         </div>
       </a>
-      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="../../">TOP</a>
         <a href="../../hanshin-keiba/" class="active">野球・競馬</a>
@@ -165,18 +289,14 @@
   </div>
 
   <div class="art-hero">
-        <img src="illust.png" alt="サムネイル" class="art-thumb-img" loading="lazy">
-
-
+    <img src="illust.png" alt="サトテル2発・136m弾の衝撃 阪神9-3中日" class="art-hero-thumb" loading="lazy">
     <div class="art-hero-title-block">
       <div class="art-hero-cats">
-        <span class="art-cat-badge art-cat-sports">阪神タイガース</span>
-        <span class="art-cat-badge art-cat-gold">試合分析</span>
-        <span class="art-cat-badge art-cat-sports">佐藤輝明</span>
+        <span class="art-cat-badge art-cat-baseball">阪神タイガース</span>
+        <span class="art-cat-badge art-cat-game">試合分析</span>
+        <span class="art-cat-badge art-cat-hit">佐藤輝明</span>
       </div>
-      <h1 class="art-hero-h1">
-        サトテル2発・136m弾の衝撃　ただの大勝ではない阪神9-3中日 快勝の中身と佐藤輝明の打撃変化
-      </h1>
+      <h1 class="art-hero-h1">サトテル2発・136m弾の衝撃　ただの大勝ではない阪神9-3中日 快勝の中身と佐藤輝明の打撃変化</h1>
       <div class="art-hero-meta">
         <span>2026年4月11日</span>
         <span>AIデータ二刀流ブログ</span>
@@ -184,147 +304,311 @@
     </div>
   </div>
 
-
   <div class="art-layout">
     <main class="art-body">
 
-      <div class="summary-box">
-        <div class="summary-box-title">この記事でわかること</div>
-        <ul>
-          <li>阪神が9対3で快勝した試合の流れと勝負の分岐点</li>
-          <li>森下翔太の先制弾と伊原の投球がなぜ大きかったのか</li>
-          <li>クリーンアップ3発が試合に与えた意味</li>
-          <li>佐藤輝明の2本塁打をどう見るべきか</li>
-          <li>ホームランウイング付きの新バンテリンドームで何が起きたのか</li>
-          <li>佐藤輝明の今季の打撃を数字で見ると、何が変わっているのか</li>
-        </ul>
+      <div class="hero-summary">
+        <div class="hero-summary-label">この試合のコア</div>
+        <h2>9-3という大差以上に、「ホームランウイング付きバンテリンを先に使いこなした阪神」と「佐藤輝明の打撃の質の変化」が濃く出た一戦。</h2>
+        <p>森下翔太の先制弾と伊原陵人の安定投球で主導権を握り、終盤はクリーンアップ3発で突き放す快勝。中心にいたのは<strong>佐藤輝明の2本塁打</strong>――7回の3ランは新球場環境を生かした一発、9回は打球速度180km/h・飛距離136mの球場条件を超える一発だった。</p>
       </div>
 
-      <p>
-        阪神が中日に9対3で快勝した。この試合は、スコアだけ見れば「打って勝った試合」に見える。ただ、中身を追っていくと、それだけでは片付けられない濃さがあった。
-      </p>
-      <p>
-        まず大きかったのは、森下翔太の先制弾と伊原の安定した立ち上がりだ。打線が早い段階で主導権を握り、先発が試合を壊さない。この土台があったからこそ、終盤のクリーンアップ3発がより強く効いた。
-      </p>
-      <div class="hlbox">
-        <p>そして、やはりこの試合の中心にいたのは佐藤輝明だ。<strong>7回の3ランで試合を大きく動かし、9回には打球速度180km/h、飛距離136mの完璧弾。1本目は新しい球場環境を使いこなした一発、2本目は球場条件すら関係ない一発だった。</strong></p>
-      </div>
-
-      <!-- 試合結果 -->
-      <div class="sec-head" id="sec-result">
-        <span class="sec-num">01</span>
-        <h2>試合結果</h2>
-        <span class="sec-head-en">GAME RESULT</span>
-      </div>
-
-      <table class="data-table">
-        <thead><tr><th>項目</th><th>内容</th></tr></thead>
-        <tbody>
-          <tr><td>日付</td><td>2026年4月11日</td></tr>
-          <tr><td>対戦カード</td><td>中日ドラゴンズ vs 阪神タイガース</td></tr>
-          <tr><td>球場</td><td>バンテリンドーム</td></tr>
-          <tr><td>スコア</td><td><strong>阪神 9 - 3 中日</strong>（阪神勝利）</td></tr>
-          <tr><td>阪神先発</td><td>伊原陵人</td></tr>
-          <tr><td>試合総括</td><td>森下の先制弾、伊原の安定投球、クリーンアップ3発で主導権を握り続けた快勝。佐藤輝明の2本塁打は阪神打線の進化と球場対応力を象徴。</td></tr>
-        </tbody>
-      </table>
-
-      <!-- 試合の流れ -->
-      <div class="sec-head" id="sec-flow">
-        <span class="sec-num">02</span>
-        <h2>試合の流れ</h2>
-        <span class="sec-head-en">GAME FLOW</span>
-      </div>
-
-      <p class="sec-sub">初回：森下翔太が先に殴る</p>
-      <p>この日の阪神は、まず入り方が良かった。森下翔太が大野から先制ホームラン。バンテリンドームで先に一発を入れる意味は大きい。相手先発に「今日は楽に投げられない」と思わせ、阪神ベンチに落ち着きを与える一打だった。</p>
-
-      <p class="sec-sub">序盤：伊原が試合を整える</p>
-      <p>伊原は立ち上がりから制球が安定していた。派手に押し込むタイプではなくても、相手の打ちづらいところへ丁寧に投げ込み、テンポ良くアウトを積み重ねた。阪神打線が攻める土台を崩さなかった点が大きい。</p>
-
-      <p class="sec-sub">7回：仲地のロングリリーフを阪神が仕留める</p>
-      <p>この試合の大きな山場は7回だ。ロングリリーフで引っ張ってきた仲地に疲れが見え始める。阪神は中野拓夢、森下翔太の連打で一、二塁。</p>
-      <div class="hlbox">
-        <p><strong>ここで佐藤輝明が高めイン寄りのストレートをコンパクトに振り切り、3ラン。</strong>この一発が面白いのは、「ホームランウイングがあるから入った」で終わらせにくい点だ。その打球を作れる打者だからこそ、新環境を先に利用できる。</p>
-      </div>
-
-      <p class="sec-sub">9回：佐藤輝明が球場条件を超える</p>
-      <p>そして最後に、佐藤がもう一本。相手投手・牧野の144km/hフォーシームを捉え、センター方向へ完璧な2ラン。打球速度180km/h、飛距離136m、打球角度25度。これはもうホームランウイングの話ではない。純粋な打者の破壊力で持っていった一発だった。</p>
-
-      <!-- データ：佐藤輝明 -->
-      <div class="sec-head" id="sec-sato">
-        <span class="sec-num">03</span>
-        <h2>佐藤輝明の打撃データ（試合前時点）</h2>
-        <span class="sec-head-en">SATO STATS</span>
-      </div>
-
-      <div class="stats-highlight">
-        <div class="stats-highlight-title">2026シーズン開幕〜試合前時点 成績指標</div>
-        <div class="stats-grid">
-          <div class="stat-item"><div class="stat-label">打率</div><div class="stat-value highlight">.377</div></div>
-          <div class="stat-item"><div class="stat-label">OPS</div><div class="stat-value highlight">.960</div></div>
-          <div class="stat-item"><div class="stat-label">本塁打</div><div class="stat-value">3</div></div>
-          <div class="stat-item"><div class="stat-label">打点</div><div class="stat-value">14</div></div>
-          <div class="stat-item"><div class="stat-label">最高打球速度</div><div class="stat-value">181.2km</div></div>
-          <div class="stat-item"><div class="stat-label">平均打球速度</div><div class="stat-value">151.8km</div></div>
-          <div class="stat-item"><div class="stat-label">最長飛距離</div><div class="stat-value">124.0m</div></div>
-          <div class="stat-item"><div class="stat-label">ハードヒット率</div><div class="stat-value highlight">52.8%</div></div>
-          <div class="stat-item"><div class="stat-label">バレル率</div><div class="stat-value">11.1%</div></div>
-          <div class="stat-item"><div class="stat-label">平均打球角度</div><div class="stat-value">14.9度</div></div>
-          <div class="stat-item"><div class="stat-label">三振率</div><div class="stat-value">27.3%</div></div>
-          <div class="stat-item"><div class="stat-label">Oスイング率</div><div class="stat-value">36.7%</div></div>
-        </div>
-      </div>
-
-      <p>
-        この数字で面白いのは、コンパクトに振っているように見えるのに、打球の強さが全く死んでいない点だ。平均打球速度151.8km/h、ハードヒット率52.8%という数字を見ると、「短く振ったことで芯に当たる総量が増えている」と読める。
-      </p>
-      <p>
-        平均打球角度14.9度も興味深い。むやみに上げにいくのではなく、まずは強く前へ飛ばす。その中で角度がついた時に長打になる形だ。7回の3ランと9回の136m弾は、まさにその答えだった。
-      </p>
-
-      <!-- 選手評価 -->
-      <div class="sec-head" id="sec-players">
-        <span class="sec-num">04</span>
-        <h2>選手ごとの評価</h2>
-        <span class="sec-head-en">PLAYER RATINGS</span>
-      </div>
-
-      <table class="data-table">
-        <thead><tr><th>選手名</th><th>良かった点</th><th>評価</th><th>次戦への見方</th></tr></thead>
-        <tbody>
-          <tr><td><strong>森下翔太</strong></td><td>初回の先制弾で空気を作った。終盤もチャンスメイクで機能。</td><td>A</td><td>中軸の起点として相手に最も嫌がられる存在になりそう</td></tr>
-          <tr><td><strong>伊原陵人</strong></td><td>制球が安定。テンポ良く試合を整え、打線が乗る土台を作った。</td><td>A</td><td>「試合を壊さない先発」として価値が高い</td></tr>
-          <tr><td><strong>佐藤輝明</strong></td><td>2本塁打。7回の3ランも9回の136m弾もコンパクトなのに打球が強い。</td><td>S</td><td>今年は"ただの好調"ではなく、打撃の質そのものが変わった可能性がある</td></tr>
-          <tr><td><strong>大山悠輔</strong></td><td>クリーンアップ3発の一角。打線全体の厚みを示した。</td><td>B+</td><td>中軸全体がつながると阪神打線の圧は一段増す</td></tr>
-          <tr><td><strong>中野拓夢</strong></td><td>7回のチャンス拡大。つなぎ役として試合の要所で効いた。</td><td>A-</td><td>上位打線の潤滑油として主軸の得点力を引き出す役割が大きい</td></tr>
-        </tbody>
-      </table>
-
-      <!-- まとめ -->
-      <div class="art-summary">
-        <div class="art-summary-label">3行まとめ</div>
+      <div class="q-summary">
+        <div class="q-summary-label">3行まとめ</div>
         <ol>
-          <li>阪神の9対3快勝は、「先制」「先発の安定」「中軸の破壊力」がきれいにつながった勝利だった。</li>
-          <li>ホームランウイング付きの新バンテリンを、阪神打線が先に使いこなしたような内容でもあった。</li>
-          <li>佐藤輝明はコンパクト化と規格外のパワーを両立し、"打撃の質が変わった"ことを2本塁打で証明した。</li>
+          <li>阪神の9対3快勝は、<strong>「先制」「先発の安定」「中軸の破壊力」</strong>がきれいにつながった勝利だった。</li>
+          <li>ホームランウイング付きの新バンテリンを、<strong>阪神打線が先に使いこなした</strong>ような内容でもあった。</li>
+          <li>佐藤輝明は<strong>コンパクト化と規格外のパワーを両立</strong>し、"打撃の質が変わった"ことを2本塁打で証明した。</li>
         </ol>
       </div>
 
-      <hr class="art-hr">
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">01</span>
+          <h2>試合結果｜数字で見る9-3</h2>
+          <span class="q-section-head-en">GAME RESULT</span>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-card-label">FINAL SCORE</div>
+            <div class="stat-card-number">9-3</div>
+            <div class="stat-card-sub">阪神タイガース快勝（2026.04.11）</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">SATO HR</div>
+            <div class="stat-card-number">2</div>
+            <div class="stat-card-sub">7回3ラン／9回2ラン（136m弾）</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">EXIT VELO</div>
+            <div class="stat-card-number">180</div>
+            <div class="stat-card-sub">9回2ラン 打球速度km/h・飛距離136m・角度25度</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">CLEANUP HR</div>
+            <div class="stat-card-number">3</div>
+            <div class="stat-card-sub">クリーンアップ3発で終盤を突き放した</div>
+          </div>
+        </div>
+
+        <table class="data-table">
+          <thead><tr><th>項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>日付</td><td>2026年4月11日</td></tr>
+            <tr><td>対戦カード</td><td>中日ドラゴンズ vs 阪神タイガース</td></tr>
+            <tr><td>球場</td><td>バンテリンドーム</td></tr>
+            <tr><td>スコア</td><td><strong>阪神 9 - 3 中日</strong>（阪神勝利）</td></tr>
+            <tr><td>阪神先発</td><td>伊原陵人</td></tr>
+            <tr><td>試合総括</td><td>森下の先制弾、伊原の安定投球、クリーンアップ3発で主導権を握り続けた快勝。佐藤輝明の2本塁打は阪神打線の進化と球場対応力を象徴。</td></tr>
+          </tbody>
+        </table>
+
+        <p>阪神が中日に9対3で快勝した。この試合は、スコアだけ見れば「打って勝った試合」に見える。ただ、中身を追っていくと、それだけでは片付けられない濃さがあった。</p>
+        <p>まず大きかったのは、森下翔太の先制弾と伊原の安定した立ち上がりだ。打線が早い段階で主導権を握り、先発が試合を壊さない。この土台があったからこそ、終盤のクリーンアップ3発がより強く効いた。</p>
+        <p>そして、やはりこの試合の中心にいたのは佐藤輝明だ。<strong>7回の3ランで試合を大きく動かし、9回には打球速度180km/h、飛距離136mの完璧弾。1本目は新しい球場環境を使いこなした一発、2本目は球場条件すら関係ない一発</strong>だった。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">02</span>
+          <h2>試合の流れ｜初回から9回までのタイムライン</h2>
+          <span class="q-section-head-en">GAME FLOW</span>
+        </div>
+        <p>阪神が入り方から主導権を握り、7回と9回で勝負を決めた展開。全体の流れを簡潔に見る。</p>
+
+        <div class="timeline">
+          <div class="tl-stop"><div class="tl-dot" style="border-color:#10b981;"></div><div class="tl-year">初回</div><div class="tl-label">森下<br>先制HR</div></div>
+          <div class="tl-stop"><div class="tl-dot" style="border-color:#06b6d4;"></div><div class="tl-year">序盤</div><div class="tl-label">伊原<br>安定投球</div></div>
+          <div class="tl-stop"><div class="tl-dot" style="border-color:#f59e0b;"></div><div class="tl-year">7回</div><div class="tl-label"><strong>サトテル<br>3ラン</strong></div></div>
+          <div class="tl-stop"><div class="tl-dot" style="border-color:#ef4444;"></div><div class="tl-year">9回</div><div class="tl-label"><strong>サトテル<br>136m弾</strong></div></div>
+        </div>
+
+        <p><strong>初回：森下翔太が先に殴る</strong></p>
+        <p>この日の阪神は、まず入り方が良かった。森下翔太が大野から先制ホームラン。バンテリンドームで先に一発を入れる意味は大きい。相手先発に「今日は楽に投げられない」と思わせ、阪神ベンチに落ち着きを与える一打だった。</p>
+
+        <p><strong>序盤：伊原が試合を整える</strong></p>
+        <p>伊原は立ち上がりから制球が安定していた。派手に押し込むタイプではなくても、相手の打ちづらいところへ丁寧に投げ込み、テンポ良くアウトを積み重ねた。阪神打線が攻める土台を崩さなかった点が大きい。</p>
+
+        <p><strong>7回：仲地のロングリリーフを阪神が仕留める</strong></p>
+        <p>この試合の大きな山場は7回だ。ロングリリーフで引っ張ってきた仲地に疲れが見え始める。阪神は中野拓夢、森下翔太の連打で一、二塁。ここで<strong>佐藤輝明が高めイン寄りのストレートをコンパクトに振り切り、3ラン</strong>。この一発が面白いのは、「ホームランウイングがあるから入った」で終わらせにくい点だ。その打球を作れる打者だからこそ、新環境を先に利用できる。</p>
+
+        <p><strong>9回：佐藤輝明が球場条件を超える</strong></p>
+        <p>そして最後に、佐藤がもう一本。相手投手・牧野の144km/hフォーシームを捉え、センター方向へ完璧な2ラン。打球速度180km/h、飛距離136m、打球角度25度。これはもうホームランウイングの話ではない。純粋な打者の破壊力で持っていった一発だった。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">03</span>
+          <h2>快勝を支えた2本の柱｜先制と中軸</h2>
+          <span class="q-section-head-en">TWIN PILLARS</span>
+        </div>
+        <p>阪神がこの大勝を作れた理由は、大きく<strong>2本の柱</strong>に整理できる。先に試合の空気を取る一打と、終盤に畳みかける中軸の破壊力だ。</p>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">⚾</div>
+            <div class="pillar-title">柱1：森下＋伊原の先制と土台</div>
+            <div class="pillar-desc">森下翔太の初回先制ホームランで空気を作り、伊原陵人がテンポ良くアウトを積む。試合を壊さない先発と先に入る1点が、終盤の爆発力を引き出した。</div>
+            <div class="pillar-example">💡 キー：「先に入れる・試合を整える」土台</div>
+          </div>
+          <div class="pillar target">
+            <div class="pillar-icon">💥</div>
+            <div class="pillar-title">柱2：佐藤輝明のコンパクト化＋規格外パワー</div>
+            <div class="pillar-desc">7回3ランはコンパクトに振り切った球場対応型、9回2ランは<strong>打球速度180km/h・136m</strong>の純パワー。短く振っているのに打球が死んでいない。</div>
+            <div class="pillar-example">💡 キー：静かに進む"打撃の質の変化"</div>
+          </div>
+        </div>
+
+        <p>森下の先制弾だけでも、佐藤輝明の2本塁打だけでも、9-3にはなりにくい。<strong>土台が整って中軸が爆ぜる</strong>流れが揃ったことが、この試合の本質だ。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">04</span>
+          <h2>佐藤輝明の打撃データ｜試合前時点の成績</h2>
+          <span class="q-section-head-en">SATO STATS</span>
+        </div>
+        <p>この試合を「たまたまの2発」で終わらせないため、試合前時点の数字も押さえておく。<strong>2026シーズン開幕〜試合前時点</strong>の成績指標は以下の通り。</p>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-card-label">打率</div>
+            <div class="stat-card-number">.377</div>
+            <div class="stat-card-sub">開幕〜試合前時点</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">OPS</div>
+            <div class="stat-card-number">.960</div>
+            <div class="stat-card-sub">出塁＋長打 合算指標</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">本塁打 / 打点</div>
+            <div class="stat-card-number">3 / 14</div>
+            <div class="stat-card-sub">本塁打3本・打点14</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">最高打球速度</div>
+            <div class="stat-card-number">181.2</div>
+            <div class="stat-card-sub">km/h（平均151.8km/h）</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">最長飛距離</div>
+            <div class="stat-card-number">124.0</div>
+            <div class="stat-card-sub">m（この試合で136mへ更新）</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">ハードヒット率</div>
+            <div class="stat-card-number">52.8%</div>
+            <div class="stat-card-sub">バレル率11.1%</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">平均打球角度</div>
+            <div class="stat-card-number">14.9°</div>
+            <div class="stat-card-sub">まず強く前に飛ばす形</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">三振率 / Oスイング率</div>
+            <div class="stat-card-number">27.3%</div>
+            <div class="stat-card-sub">Oスイング率36.7%</div>
+          </div>
+        </div>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">Layer 1 — コンパクト化</span>
+            <h3>短く振っても打球が死なない</h3>
+            <p>平均打球速度<strong>151.8km/h</strong>、ハードヒット率<strong>52.8%</strong>。コンパクトに振っているように見えるのに打球の強さが全く死んでいない。「短く振ったことで芯に当たる総量が増えている」と読める。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">Layer 2 — 打球角度</span>
+            <h3>強く前に→角度がついた時に長打</h3>
+            <p>平均打球角度<strong>14.9度</strong>も興味深い。むやみに上げにいくのではなく、まずは強く前へ飛ばす。その中で角度がついた時に長打になる形。7回の3ランと9回の136m弾は、まさにその答えだった。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">05</span>
+          <h2>ファンQ&A｜この快勝をどう読むか</h2>
+          <span class="q-section-head-en">FAQ</span>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">9-3の大差は「打ち勝っただけ」では？</div>
+            <div class="faq-a">スコアだけ見るとそう見えますが、実際には<strong>先制・先発の安定・中軸の爆発</strong>が順序良くつながった結果。土台がなければクリーンアップ3発も同じ価値にはなりません。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">サトテルの2発は「ホームランウイングのおかげ」？</div>
+            <div class="faq-a">7回3ランは新環境を使いこなした一発ですが、9回は<strong>打球速度180km/h・飛距離136m・角度25度</strong>。これはホームランウイングの有無に関係なくスタンドインする打球で、純粋な打者の破壊力です。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">佐藤輝明は今年だけの"好調"ではないのか？</div>
+            <div class="faq-a">打率.377・OPS.960だけでなく、<strong>ハードヒット率52.8%・平均打球速度151.8km/h</strong>という質の数字が伴っています。コンパクト化でコンタクト精度が上がり、それでも打球の強さが落ちていないので、"打撃の質そのものが変わった"可能性が高い内容です。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">伊原の投球は地味では？</div>
+            <div class="faq-a">派手に押し込むタイプではありませんが、<strong>「試合を壊さない先発」</strong>として価値が高い内容でした。テンポ良くアウトを積み、打線が攻める土台を崩さない。こういう先発がいるとクリーンアップの破壊力が生きます。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">06</span>
+          <h2>光った点・課題点｜阪神の快勝を分解する</h2>
+          <span class="q-section-head-en">PROS &amp; CONS</span>
+        </div>
+
+        <div class="stock-label">阪神タイガース｜9-3で主導権を握り続けた勝者</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ 光った点</div>森下翔太の初回先制弾／伊原陵人の安定投球／クリーンアップ3発／佐藤輝明の2本塁打（7回3ラン＋9回136m弾）／新バンテリン環境への対応力</div>
+          <div class="con-box"><div class="con-box-label">✗ 課題点</div>大勝で全体の課題が見えにくい／個別には接戦時の継投や守備連携など、今後の試合で確認したい論点は残る</div>
+        </div>
+
+        <div class="stock-label">主要選手の個別評価</div>
+        <table class="data-table">
+          <thead><tr><th>選手名</th><th>良かった点</th><th>評価</th><th>次戦への見方</th></tr></thead>
+          <tbody>
+            <tr><td><strong>森下翔太</strong></td><td>初回の先制弾で空気を作った。終盤もチャンスメイクで機能。</td><td>A</td><td>中軸の起点として相手に最も嫌がられる存在になりそう</td></tr>
+            <tr><td><strong>伊原陵人</strong></td><td>制球が安定。テンポ良く試合を整え、打線が乗る土台を作った。</td><td>A</td><td>「試合を壊さない先発」として価値が高い</td></tr>
+            <tr><td><strong>佐藤輝明</strong></td><td>2本塁打。7回の3ランも9回の136m弾もコンパクトなのに打球が強い。</td><td>S</td><td>今年は"ただの好調"ではなく、打撃の質そのものが変わった可能性がある</td></tr>
+            <tr><td><strong>大山悠輔</strong></td><td>クリーンアップ3発の一角。打線全体の厚みを示した。</td><td>B+</td><td>中軸全体がつながると阪神打線の圧は一段増す</td></tr>
+            <tr><td><strong>中野拓夢</strong></td><td>7回のチャンス拡大。つなぎ役として試合の要所で効いた。</td><td>A-</td><td>上位打線の潤滑油として主軸の得点力を引き出す役割が大きい</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">07</span>
+          <h2>次戦に向けて｜4象限で整理する</h2>
+          <span class="q-section-head-en">NEXT GAME MAP</span>
+        </div>
+
+        <div class="matrix">
+          <div class="matrix-label">WHAT TO WATCH NEXT</div>
+          <h3>「誰が目立ったか」ではなく「どこが続くか」を先に見る</h3>
+          <div class="matrix-grid">
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">継続確認</span>
+                <span class="matrix-cell-ticker">佐藤輝明</span>
+              </div>
+              <div class="matrix-cell-desc">コンパクト化×規格外パワーの両立が次戦以降も再現されるか。136m弾は偶然ではない。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">中軸の厚み</span>
+                <span class="matrix-cell-ticker">クリーンアップ</span>
+              </div>
+              <div class="matrix-cell-desc">大山ら中軸がつながると、打線全体の圧が一段増す。3発が出た日の内容を継続できるか。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">起点役</span>
+                <span class="matrix-cell-ticker">森下/中野</span>
+              </div>
+              <div class="matrix-cell-desc">森下の先制弾、中野のチャンス拡大。上位打線の潤滑油がうまく回るか。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">先発運用</span>
+                <span class="matrix-cell-ticker">伊原</span>
+              </div>
+              <div class="matrix-cell-desc">「試合を壊さない」タイプとしての価値が継続するか。接戦での同種の安定感を見たい。</div>
+            </div>
+          </div>
+        </div>
+
+        <p>阪神ファン目線では「土台と中軸が揃った理想的な大勝」。これが偶然ではないなら、<strong>佐藤輝明の打撃の質の変化が今季全体を決める</strong>可能性もある。次戦以降、コンパクト化と規格外パワーの両立が続くかに注目したい。</p>
+
+        <div class="disclaimer">
+          <strong>ご注意</strong>：本記事は試合内容の個人的な分析であり、チーム公式見解とは無関係です。選手評価・数値はあくまで当日の観戦と公開データに基づくものであり、シーズン全体の評価を固定するものではありません。
+        </div>
+      </div>
 
       <div class="related-head">RELATED ARTICLES</div>
       <div class="related-list">
-        <a href="../2026-04-10-maekawa-chunichi/" class="related-item">
+        <a href="../2026-04-18-hanshin-chunichi/" class="related-item">
           <span class="related-tag">試合分析</span>
-          <span class="related-title">9回逆転劇！前川右京が決めた阪神の意地　中日3-5阪神 2026.04.10</span>
+          <span class="related-title">森下翔太の"修正力"が試合を決めた　阪神4-3中日をデータと流れで深掘り 2026.04.18</span>
         </a>
         <a href="../2026-04-12-haruto-chunichi/" class="related-item">
           <span class="related-tag">試合分析</span>
           <span class="related-title">高橋遥人完封・中日3連戦3タテ達成　阪神3-0中日 2026.04.12</span>
         </a>
+        <a href="../2026-04-10-maekawa-chunichi/" class="related-item">
+          <span class="related-tag">試合分析</span>
+          <span class="related-title">9回逆転劇！前川右京が決めた阪神の意地　中日3-5阪神 2026.04.10</span>
+        </a>
+        <a href="../2026-04-17-morishita-chunichi/" class="related-item">
+          <span class="related-tag">試合分析</span>
+          <span class="related-title">森下の一発で終わらせるな 阪神2-1中日 本当の分岐点は6回の綻びと7回のモレッタだった 2026.04.17</span>
+        </a>
       </div>
-
     </main>
 
     <aside class="art-sidebar">
@@ -333,22 +617,26 @@
         <ul class="toc-list">
           <li><a href="#sec-result"><span class="toc-n">01</span>試合結果</a></li>
           <li><a href="#sec-flow"><span class="toc-n">02</span>試合の流れ</a></li>
-          <li><a href="#sec-sato"><span class="toc-n">03</span>佐藤輝明データ</a></li>
-          <li><a href="#sec-players"><span class="toc-n">04</span>選手評価</a></li>
+          <li><a href="#sec-pillars"><span class="toc-n">03</span>快勝を支えた2本の柱</a></li>
+          <li><a href="#sec-sato"><span class="toc-n">04</span>佐藤輝明データ</a></li>
+          <li><a href="#sec-faq"><span class="toc-n">05</span>ファンQ&amp;A</a></li>
+          <li><a href="#sec-proscons"><span class="toc-n">06</span>光った点・課題点</a></li>
+          <li><a href="#sec-next"><span class="toc-n">07</span>次戦に向けて</a></li>
         </ul>
       </div>
       <div class="sidebar-meta">
         <div class="sidebar-meta-label">TAGS</div>
         <div class="tag-cloud">
-          <span class="tag-pill">阪神タイガース</span>
-          <span class="tag-pill">中日ドラゴンズ</span>
-          <span class="tag-pill">佐藤輝明</span>
-          <span class="tag-pill">森下翔太</span>
-          <span class="tag-pill">伊原陵人</span>
-          <span class="tag-pill">大山悠輔</span>
-          <span class="tag-pill">ホームランウイング</span>
-          <span class="tag-pill">バンテリンドーム</span>
-          <span class="tag-pill">2026シーズン</span>
+          <span class="tag-pill">#阪神タイガース</span>
+          <span class="tag-pill">#中日ドラゴンズ</span>
+          <span class="tag-pill">#佐藤輝明</span>
+          <span class="tag-pill">#森下翔太</span>
+          <span class="tag-pill">#伊原陵人</span>
+          <span class="tag-pill">#大山悠輔</span>
+          <span class="tag-pill">#中野拓夢</span>
+          <span class="tag-pill">#ホームランウイング</span>
+          <span class="tag-pill">#バンテリンドーム</span>
+          <span class="tag-pill">#2026シーズン</span>
         </div>
       </div>
     </aside>
