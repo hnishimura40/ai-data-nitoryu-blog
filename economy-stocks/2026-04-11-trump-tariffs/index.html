@@ -6,112 +6,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="/assets/img/logo.png">
   <link rel="apple-touch-icon" href="/assets/img/logo.png">
-  <meta name="description" content="トランプ関税は成功だったのか？貿易赤字が増えた矛盾と日本の本当の損得 | トランプ関税をめぐる議論は、どうしても極端になりやすい。 「アメリカ第一を貫いた強い政策だった」という見方もあれば、 「家計も企業も痛めた粗い失敗策だった」という見方もある。 ただ、このテーマを丁寧に追うほど分かるのは、 トラ">
-  <title>トランプ関税は成功だったのか？貿易赤字が増えた矛盾と日本の本当の損得 | AIデータ二刀流ブログ</title>
+  <meta name="description" content="トランプ関税を、経済・政治・法律・日本株・NISAの視点から総点検。なぜ貿易赤字は減らず、なぜ日本は「勝利」ではなく「最悪回避」と言えるのかを、初心者向けにわかりやすく整理します。">
+  <title>トランプ関税は成功だったのか？貿易赤字・家計・日本企業で総点検 | AIデータ二刀流ブログ</title>
   <link rel="stylesheet" href="../../assets/css/style.css?v=5">
   <link rel="stylesheet" href="../../assets/css/article.css?v=7">
-  <link rel="stylesheet" href="../../assets/css/article-enhance.css?v=20260418e">
+  <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418m">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
-    .art-hero { background: linear-gradient(135deg, #0d1e38 0%, #b91c1c 100%); padding: 44px 24px; }
-    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; }
-    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
-    .art-cat-main { background: #b91c1c; color: #fff; }
-    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.95; }
-    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.55); display: flex; gap: 16px; flex-wrap: wrap; }
-    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
-    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
-    .art-body { min-width: 0; }
-    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
-    .art-body strong { color: #1a2744; }
-    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
-    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
-    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
-    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #b91c1c; background: #f0f4fb; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
-    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
-    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
-    @media (max-width: 560px) { .sec-head-en { display: none; } }
-    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #b91c1c; }
-    .summary-box { background: linear-gradient(135deg, #f0f6ff, #e6eefb); border: 1px solid #b5cdf0; border-left: 4px solid #b91c1c; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
-    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #b91c1c; margin-bottom: 12px; }
-    .summary-box ul { margin: 0; }
-    .summary-box li { font-size: 0.87rem; }
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; display: block; overflow-x: auto; }
-    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
-    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:nth-child(even) td { background: #f8fafd; }
-    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
-    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
-    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
-    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
-    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px;  max-width: 640px; margin-left: auto !important; margin-right: auto !important; }
-    .video-box-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 10px; }
-    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
-    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
-    .related-list { display: flex; flex-direction: column; gap: 10px; }
-    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
-    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
-    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #b91c1c; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
-    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
-    .art-sidebar { font-size: 0.88rem; }
-    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
-    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
-    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
-    .toc-list { list-style: none; padding: 0; margin: 0; }
-    .toc-list li { border-bottom: 1px solid #e8ecf4; }
-    .toc-list li:last-child { border-bottom: none; }
-    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
-    .toc-list a:hover { color: #b91c1c; }
-    .toc-n { font-size: 0.62rem; font-weight: 900; color: #b91c1c; flex-shrink: 0; width: 22px; }
-    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
-    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
-    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
-    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
-  
-    .art-hero { padding: 24px 0 0 0 !important; }
-    .art-hero-thumb { width: 100%; max-width: 1100px; max-height: 360px; object-fit: cover; display: block; margin: 0 auto; }
-    .art-hero-title-block { max-width: var(--max-width, 1100px); margin: 0 auto; padding: 22px 24px 18px !important; }
-
-    .art-body > main .sec-head + p,
-    .art-body .sec-head + p {
-      background: linear-gradient(135deg, #f7f9fc, #eef3fb);
-      border-left: 4px solid #1a4fa0;
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      font-weight: 500;
-      margin-top: 0;
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0 36px; }
+    .stat-card { background: linear-gradient(145deg, #fff, #f5f7ff); border: 1px solid #e4e8f4; border-radius: 16px; padding: 22px 24px; position: relative; overflow: hidden; }
+    .stat-card::before { content: ""; position: absolute; inset: 0 auto auto 0; width: 4px; height: 100%; background: linear-gradient(180deg, #ef4444, #f59e0b); }
+    .stat-card-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; color: #ef4444; text-transform: uppercase; margin-bottom: 10px; }
+    .stat-card-number { font-family: 'Poppins', sans-serif; font-size: 2.2rem; font-weight: 900; color: #0f0a2e; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; font-style: italic; }
+    .stat-card-sub { font-size: 0.82rem; color: #5a6380; line-height: 1.6; }
+    @media (max-width:560px) { .stat-card-number { font-size: 1.8rem; } }
+    @media (prefers-color-scheme: dark) {
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #fca5a5 !important; } .stat-card-number { color: #f5f7ff !important; } .stat-card-sub { color: #9aa3bf !important; }
     }
-    .data-table th { font-size: 0.82rem; letter-spacing: 0.04em; }
-    .data-table { border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-    .data-table strong { color: #1a4fa0; font-weight: 900; }
-    .art-body p strong { color: #1a4fa0; font-weight: 800; background: linear-gradient(transparent 62%, #ffe58a 62%, #ffe58a 92%, transparent 92%); padding: 0 2px; }
-    .art-body p { text-align: justify; text-justify: inter-ideograph; }
-    .art-body h2 + p, .art-body .sec-sub + p { margin-top: 14px; }
 
-    /* article-body-enhanced */
+    /* 3レイヤー */
+    .layer3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 24px 0 36px; }
+    @media (max-width:720px) { .layer3 { grid-template-columns: 1fr; } }
+    .layer3-card { background: #fff; border-radius: 16px; padding: 22px 24px; border: 1px solid #e4e8f4; box-shadow: 0 6px 24px -8px rgba(20, 30, 80, 0.12); border-top: 5px solid; }
+    .layer3-card.politics { border-top-color: #7c3aed; }
+    .layer3-card.economy { border-top-color: #ef4444; }
+    .layer3-card.law { border-top-color: #06b6d4; }
+    .layer3-tag { display: inline-block; font-size: 0.66rem; font-weight: 900; letter-spacing: .14em; padding: 4px 10px; border-radius: 3px; margin-bottom: 10px; }
+    .politics .layer3-tag { background: rgba(124,58,237,0.15); color: #7c3aed; }
+    .economy .layer3-tag { background: rgba(239,68,68,0.15); color: #b91c1c; }
+    .law .layer3-tag { background: rgba(6,182,212,0.15); color: #0891b2; }
+    .layer3-verdict { font-size: 1rem; font-weight: 900; color: #0f0a2e; margin-bottom: 10px; }
+    .layer3-desc { font-size: 0.88rem; line-height: 1.75; color: #4a5270; }
+    @media (prefers-color-scheme: dark) {
+      .layer3-card { background: #141828 !important; border-color: #2a3150 !important; }
+      .layer3-verdict { color: #f5f7ff !important; } .layer3-desc { color: #b9c1d9 !important; }
+    }
+
+    /* 狙い4つ */
+    .aims-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 20px 0 30px; }
+    @media (max-width:560px) { .aims-grid { grid-template-columns: 1fr; } }
+    .aim-card { background: linear-gradient(145deg, #fafbff, #f0f3fa); border-radius: 12px; padding: 16px 18px; border: 1px solid #dbe2f0; }
+    .aim-badge { display: inline-block; font-family: 'Poppins', sans-serif; font-style: italic; font-size: 1.2rem; font-weight: 900; color: #7c3aed; margin-right: 8px; line-height: 1; }
+    .aim-title { font-size: 0.95rem; font-weight: 900; color: #0f0a2e; display: inline; }
+    .aim-desc { font-size: 0.85rem; color: #4a5270; line-height: 1.7; margin-top: 8px; }
+    @media (prefers-color-scheme: dark) {
+      .aim-card { background: linear-gradient(145deg, #181c2e, #141828) !important; border-color: #2a3150 !important; }
+      .aim-badge { color: #a78bfa !important; } .aim-title { color: #f5f7ff !important; } .aim-desc { color: #b9c1d9 !important; }
+    }
+
+    .matrix { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 50%, #061733 100%); border-radius: 20px; padding: 32px 30px; color: #fff; margin: 28px 0 36px; }
+    .matrix-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 18px; }
+    .matrix h3 { font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0 0 20px; }
+    .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    @media (max-width:560px) { .matrix-grid { grid-template-columns: 1fr; } .matrix { padding: 22px 18px; } .matrix h3 { font-size: 1.05rem; } }
+    .matrix-cell { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 18px 20px; }
+    .matrix-cell-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; gap: 10px; }
+    .matrix-cell-type { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #a78bfa; }
+    .matrix-cell-ticker { font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 900; font-style: italic; color: #fff; }
+    .matrix-cell-desc { font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
   </style>
-  <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <a href="../../" class="site-logo">
         <img src="/assets/img/logo.png" alt="AIデータ二刀流" class="logo-img" width="40" height="40">
-        <div>
-          <span class="logo-main">AIデータ二刀流ブログ</span>
-          <span class="logo-sub">野球・競馬 × 経済・株式</span>
-        </div>
+        <div><span class="logo-main">AIデータ二刀流ブログ</span><span class="logo-sub">野球・競馬 × 経済・株式</span></div>
       </a>
-      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="../../">TOP</a>
         <a href="../../hanshin-keiba/">野球・競馬</a>
@@ -125,217 +91,231 @@
 
   <div class="breadcrumb">
     <div class="breadcrumb-inner">
-      <a href="../../">TOP</a>
-      <span class="breadcrumb-sep">›</span>
-      <a href="../../economy-stocks/">経済・株式</a>
-      <span class="breadcrumb-sep">›</span>
-      <span>トランプ関税は成功だったのか？貿易赤字が増えた矛盾と日本の本当の損得</span>
+      <a href="../../">TOP</a><span class="breadcrumb-sep">›</span>
+      <a href="../../economy-stocks/">経済・株式</a><span class="breadcrumb-sep">›</span>
+      <span>トランプ関税は成功だったのか？</span>
     </div>
   </div>
 
   <div class="art-hero">
-    <img src="thumb.png?v=20260418c" alt="記事サムネイル" class="art-hero-thumb">
+    <img src="thumb.png?v=20260418m" alt="トランプ関税の総点検" class="art-hero-thumb">
     <div class="art-hero-title-block">
-      <div class="art-hero-cats"><span class="art-cat-badge art-cat-main">時事</span></div>
-      <h1 class="art-hero-h1">トランプ関税は成功だったのか？貿易赤字が増えた矛盾と日本の本当の損得</h1>
-      <div class="art-hero-meta">
-        <span>2026.04.11</span>
-        <span>AIデータ二刀流ブログ</span>
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-warn">時事・国際</span>
+        <span class="art-cat-badge art-cat-politics">通商政策</span>
+        <span class="art-cat-badge art-cat-stock">日本株影響</span>
       </div>
+      <h1 class="art-hero-h1">トランプ関税は成功だったのか？貿易赤字・家計・日本企業で総点検</h1>
+      <div class="art-hero-meta"><span>2026年4月11日</span><span>AIデータ二刀流ブログ</span></div>
     </div>
   </div>
 
   <div class="art-layout">
     <main class="art-body">
 
-
       <div class="hero-summary">
         <div class="hero-summary-label">この記事のコア</div>
-        <h2>トランプ関税は、「政治・交渉の武器としては強かったが、経済政策としては副作用が重く、法制度の面でも無理が出た」と整理するのがもっともしっくりくる。</h2>
-        <p>さらに日本目線で言えば、「勝った」というより「もっとひどい負け方を避けた」に近い。 自動車を中心に25％級のより重い打撃を避けられた意味は大きい。 企業の利益にはなお圧力が残り、値上げや業績への影響も無視できない。 つまり、見るべきポイントは次の3つだ。</p>
+        <h2>「成功か失敗か」の二択では片づかない。政治では強く、経済では痛く、法律では無理が出た政策。</h2>
+        <p>日本は<strong>勝ったのではなく最悪を避けた</strong>。自動車への25%級打撃は避けられたが、15%でも十分重い。関税のコストはアメリカ企業・消費者にも返り、<strong>Yale試算では1世帯平均648ドル</strong>の負担増。今後の本丸は「関税が一時例外か、次の時代の"普通"か」です。</p>
       </div>
-<p>トランプ関税をめぐる議論は、どうしても極端になりやすい。</p>
-      <p>「アメリカ第一を貫いた強い政策だった」という見方もあれば、</p>
-      <p>「家計も企業も痛めた粗い失敗策だった」という見方もある。</p>
-<p>ただ、このテーマを丁寧に追うほど分かるのは、</p>
-      <p>トランプ関税は“成功か失敗か”の二択では片づけられないということだ。</p>
-<p>相手国を揺さぶる交渉カードとしては確かに強かった。</p>
-      <p>一方で、アメリカの企業や消費者にもコストが返り、</p>
-      <p>貿易赤字の問題もきれいには片づかなかった。</p>
-      <p>さらに日本は最悪を避けたとはいえ、手放しで喜べる内容でもなかった。</p>
-<p>本記事では、トランプ関税を</p>
-      <p>「経済」「政治」「法律」「日本への影響」「株式・資産形成」</p>
-      <p>という切り口で整理する。</p>
-      <p>初心者にも分かるように、難しい言葉はできるだけ噛み砕きながら、</p>
-      <p>それでも情報量は落とさずにまとめたい。</p>
 
-      <div class="video-box" style="max-width:640px;margin-left:auto;margin-right:auto;">
+      <div class="video-box">
         <div class="video-box-label">▶ 動画でも解説しています</div>
         <div class="video-embed-wrap">
-          <iframe src="https://www.youtube.com/embed/qYT-o6Hy6Go" title="トランプ関税は成功だったのか？貿易赤字が増えた矛盾と日本の本当の損得" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/qYT-o6Hy6Go" title="トランプ関税" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+
       <div class="q-summary">
         <div class="q-summary-label">3行まとめ</div>
         <ol>
-      <li>トランプ関税は、政治・交渉の武器としては強かったが、経済政策としては副作用が重かった。</li>
-      <li>アメリカの家計や企業にもコストが返り、日本も「勝った」というより「最悪回避」に近い。</li>
-      <li>今後の本当の焦点は、関税が一時的措置で終わるのか、それとも次の時代の“普通”になるのかだ。</li>
+          <li>トランプ関税は<strong>政治・交渉の武器としては強かったが、経済政策としては副作用が重かった</strong>。</li>
+          <li>アメリカの家計や企業にもコストが返り、日本も<strong>「勝った」というより「最悪回避」</strong>に近い。</li>
+          <li>今後の本当の焦点は、<strong>関税が一時的措置で終わるのか、それとも次の時代の"普通"になるのか</strong>。</li>
         </ol>
       </div>
 
-      
-
-      <div class="sec-head" id="sec-conclusion">
-        <span class="sec-num">00</span>
-        <h2>先に結論</h2>
-        <span class="sec-head-en">CONCLUSION</span>
-      </div>
-<p>結論を先に書く。</p>
-<p>トランプ関税は、</p>
-      <p>「政治・交渉の武器としては強かったが、経済政策としては副作用が重く、法制度の面でも無理が出た」</p>
-      <p>と整理するのがもっともしっくりくる。</p>
-<p>さらに日本目線で言えば、</p>
-      <p>「勝った」というより「もっとひどい負け方を避けた」に近い。</p>
-<p>自動車を中心に25％級のより重い打撃を避けられた意味は大きい。</p>
-      <p>しかし、15％でも十分重い。</p>
-      <p>企業の利益にはなお圧力が残り、値上げや業績への影響も無視できない。</p>
-<p>つまり、見るべきポイントは次の3つだ。</p>
-
-<div class="sec-head" id="sec-01"><span class="sec-num">01</span><h2>テーマの全体像</h2><span class="sec-head-en">SECTION 01</span></div>
-<p>トランプ関税は、単なる「輸入品への税金」ではない。</p>
-      <p>もっと正確に言えば、</p>
-      <p>「関税というわかりやすい武器を使って、経済・外交・国内政治を同時に動かそうとした政策」</p>
-      <p>である。</p>
-<p>関税を初心者向けに言い換えると、</p>
-      <p>「外国から入ってくる商品にかける上乗せ料金」だ。</p>
-<p>たとえば海外から<strong>100円</strong>の商品が入ってきた時に、20％の関税がかかれば、</p>
-      <p>その商品は入ってくる時点で<strong>120円</strong>の重さを持つ。</p>
-      <p>すると、国内の商品との価格差が変わり、</p>
-      <p>海外製品は売りにくくなり、国内製品は相対的に有利になる。</p>
-<p>ここまでは分かりやすい。</p>
-      <p>だからこそ政治家は関税を好む。</p>
-<p>しかし問題は、そのコストを最終的に誰が負担するのか、</p>
-      <p>そして本当に国内産業が簡単に戻ってくるのか、という点にある。</p>
-<p>トランプ氏が関税にこだわった背景には、大きく4つの狙いがあった。</p>
-<div class="sec-head" id="sec-02"><span class="sec-num">02</span><h2>トランプ関税の狙い</h2><span class="sec-head-en">SECTION 02</span></div>
-<table class="data-table">
-<thead><tr>
-<th>狙い</th>
-<th>わかりやすい言い換え</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>貿易赤字の縮小</td>
-<td>海外から買いすぎる状態を減らしたい</td>
-</tr>
-<tr>
-<td>製造業の国内回帰</td>
-<td>工場と雇用をアメリカに戻したい</td>
-</tr>
-<tr>
-<td>供給網の安全保障</td>
-<td>大事な物を外国頼みにしすぎるのは危ない</td>
-</tr>
-<tr>
-<td>交渉カード</td>
-<td>関税を脅しに使って相手国から譲歩を引き出したい</td>
-</tr>
-</tbody></table>
-<p>この4つは、それぞれ単独でも理解できる。</p>
-      <p>そして問題は、これらの狙いが全部きれいに両立するわけではない、ということだ。</p>
-<p>----------------------------------------------------------------------</p>
-<div class="sec-head" id="sec-03"><span class="sec-num">03</span><h2>初心者向けの噛み砕き説明</h2><span class="sec-head-en">SECTION 03</span></div>
-<p>関税の議論でよく起きる誤解を、最初に3つ整理しておきたい。</p>
-<p>【誤解1】関税は外国が全部払う</p>
-      <p>→ そうではない。</p>
-      <p>実際には輸入業者、企業、消費者にかなりの部分が跳ね返る。</p>
-<p>【誤解2】関税を上げれば輸入はすぐ減る</p>
-      <p>→ そう単純ではない。</p>
-      <p>部品や素材によっては、すぐ他国や国内品に置き換えられない。</p>
-<p>【誤解3】関税はただの経済政策</p>
-      <p>→ そうでもない。</p>
-      <p>トランプ関税は政治・外交・国内支持の文脈で使われた。</p>
-<p>要するに、関税は「数字だけ見ればよい政策」ではなく、</p>
-      <p>「誰に痛みが出て、誰が政治的に得をするのか」まで見ないと全体像を見誤る。</p>
-<p>----------------------------------------------------------------------</p>
-<div class="sec-head" id="sec-04"><span class="sec-num">04</span><h2>論点整理：このテーマは3つのレイヤーで見る</h2><span class="sec-head-en">SECTION 04</span></div>
-<p>本記事では、トランプ関税を以下の3層で整理する。</p>
-<div class="sec-head" id="sec-05"><span class="sec-num">05</span><h2>3つのレイヤー</h2><span class="sec-head-en">SECTION 05</span></div>
-<table class="data-table">
-<thead><tr>
-<th>レイヤー</th>
-<th>何を見るか</th>
-<th>結論の方向感</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>経済</td>
-<td>赤字、物価、企業コスト、家計負担</td>
-<td>副作用が重い</td>
-</tr>
-<tr>
-<td>政治</td>
-<td>相手国への圧力、支持層への訴求</td>
-<td>かなり強い</td>
-</tr>
-<tr>
-<td>法律</td>
-<td>どの権限で関税を課したか、司法判断</td>
-<td>無理が出た</td>
-</tr>
-</tbody></table>
-<p>この3つがごちゃ混ぜになると、</p>
-      <p>「成功だった」「いや失敗だった」という空中戦になりやすい。</p>
-      <p>逆に分けて考えると、かなり見通しが良くなる。</p>
-
-      <div class="sec-head" id="sec-summary">
-        <span class="sec-num">99</span>
-        <h2>まとめ</h2>
-        <span class="sec-head-en">SUMMARY</span>
-      </div>
-<p>トランプ関税を一言で片づけるなら、</p>
-      <p>「強いが、粗い」政策だったと言える。</p>
-<p>相手国を揺さぶる力は確かにあった。</p>
-      <p>実際、日本もEUも、その圧力の中で交渉せざるを得なかった。</p>
-      <p>だから「政治的には半分成功」と見る余地はある。</p>
-<p>しかし同時に、</p>
-      <p>モノの貿易赤字はきれいには減らず、</p>
-      <p>米国内の企業と家計にもコストが返り、</p>
-      <p>法律の面でも無理が出た。</p>
-<p>そして日本は、より悪いシナリオを避けた意味では前進だったが、</p>
-      <p>15％でも十分重い。</p>
-      <p>ここを「勝利」とだけ表現するのは、やはり無理がある。</p>
-<p>結局どう見るべきか。</p>
-      <p>私の整理はこうだ。</p>
-<ul>
-<li>政治：強い</li>
-<li>経済：痛い</li>
-<li>法律：危うい</li>
-<li>日本：最悪回避だが無傷ではない</li>
-</ul>
-<p>この<strong>4点</strong>を分けて見ると、</p>
-      <p>トランプ関税の姿はかなり見えやすくなる。</p>
-<p>そして最後に。</p>
-      <p>この問題は、単なるニュースの一つではない。</p>
-      <p>車、物価、株、NISA、企業業績、為替、世界景気にまでつながる。</p>
-      <p>だからこそ、感情だけで賛否を決めず、</p>
-      <p>「どこで効き、どこで傷が出るのか」を整理して見ていくことが大事だ。</p>
-<p>※経済・株式・投資に関する記述は一般的な情報整理であり、特定の投資判断を勧めるものではありません。最終判断はご自身でお願いします。</p>
-
-
-      <div class="disclaimer">
-        <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+      <!-- 主要数値 -->
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-card-label">日本車関税</div><div class="stat-card-number">27.5<span style="font-size:1rem;">%</span>→15<span style="font-size:1rem;">%</span></div><div class="stat-card-sub">日米合意で引き下げ。最悪回避だが重い。</div></div>
+        <div class="stat-card"><div class="stat-card-label">家計負担(Yale試算)</div><div class="stat-card-number">648<span style="font-size:1rem;">ドル</span></div><div class="stat-card-sub">1世帯平均。延長なら1,130ドルへ。</div></div>
+        <div class="stat-card"><div class="stat-card-label">消費者負担比率</div><div class="stat-card-number">約1/3</div><div class="stat-card-sub">ECB分析。外国だけが払う政策ではない。</div></div>
+        <div class="stat-card"><div class="stat-card-label">日本企業値上げ検討</div><div class="stat-card-number">54<span style="font-size:1rem;">%</span></div><div class="stat-card-sub">Reuters 2025年8月調査。合意は前向き38%が悪影響見込み。</div></div>
       </div>
 
-      <hr class="art-hr">
+      <div class="q-section">
+        <div class="q-section-head"><span class="q-section-num">01</span><h2>3つのレイヤーで分けて見る</h2><span class="q-section-head-en">THREE LAYERS</span></div>
+        <p>トランプ関税の評価は、<strong>経済・政治・法律の3層</strong>に分けると見通しが良くなります。ここがごちゃ混ぜだと「成功か失敗か」の空中戦に。</p>
+
+        <div class="layer3">
+          <div class="layer3-card politics">
+            <span class="layer3-tag">POLITICS</span>
+            <div class="layer3-verdict">政治：強い</div>
+            <div class="layer3-desc">相手国をテーブルにつかせる交渉カードとしてはかなり有効。「強いアメリカ像」と結びつき支持層に刺さるメッセージ性。</div>
+          </div>
+          <div class="layer3-card economy">
+            <span class="layer3-tag">ECONOMY</span>
+            <div class="layer3-verdict">経済：痛い</div>
+            <div class="layer3-desc">モノの赤字は増加、家計負担は返り、企業コストが膨らむ。「相手だけを痛める便利な政策」ではない。</div>
+          </div>
+          <div class="layer3-card law">
+            <span class="layer3-tag">LAW</span>
+            <div class="layer3-verdict">法律：危うい</div>
+            <div class="layer3-desc">最高裁は<strong>IEEPAでの広範関税を否定</strong>。政権は別ルートで強行突破。企業には「読めない」不確実性。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head"><span class="q-section-num">02</span><h2>トランプ関税の4つの狙い</h2><span class="q-section-head-en">FOUR AIMS</span></div>
+        <p>トランプ氏が関税にこだわった背景には、大きく4つの狙いがあった。ただし<strong>全部が両立するわけではない</strong>のが問題。</p>
+
+        <div class="aims-grid">
+          <div class="aim-card">
+            <span class="aim-badge">01</span><span class="aim-title">貿易赤字の縮小</span>
+            <div class="aim-desc">海外から買いすぎる状態を減らしたい。→ 現実：モノの赤字は増加。</div>
+          </div>
+          <div class="aim-card">
+            <span class="aim-badge">02</span><span class="aim-title">製造業の国内回帰</span>
+            <div class="aim-desc">工場と雇用をアメリカに戻したい。→ 現実：部品・素材がすぐ置き換わらない。</div>
+          </div>
+          <div class="aim-card">
+            <span class="aim-badge">03</span><span class="aim-title">供給網の安全保障</span>
+            <div class="aim-desc">大事な物を外国頼みにするのは危ない。→ 方向性は筋は通る。</div>
+          </div>
+          <div class="aim-card">
+            <span class="aim-badge">04</span><span class="aim-title">交渉カード</span>
+            <div class="aim-desc">関税を脅しに使い相手国から譲歩を。→ ここはかなり機能した。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head"><span class="q-section-num">03</span><h2>よくある3つの誤解</h2><span class="q-section-head-en">MISCONCEPTIONS</span></div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">関税は外国が全部払う？</div>
+            <div class="faq-a">違います。<strong>実際には輸入業者・企業・消費者にかなりの部分が跳ね返る</strong>。ECB分析では消費者がすでに約1/3を負担。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">関税を上げれば輸入はすぐ減る？</div>
+            <div class="faq-a">単純ではありません。<strong>部品や素材はすぐ他国や国内品に置き換えられない</strong>。結果「輸入は減らないのにコストだけ上がる」状態に。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">関税はただの経済政策？</div>
+            <div class="faq-a">違います。トランプ関税は<strong>政治・外交・国内支持の文脈</strong>で使われた。数字だけ見ても全体像を見誤ります。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head"><span class="q-section-num">04</span><h2>なぜ赤字はきれいに減らなかったか</h2><span class="q-section-head-en">TRADE DEFICIT</span></div>
+        <p>最大の看板は「関税で赤字を減らす」だった。しかし2025年実績は<strong>きれいには決まらなかった</strong>。</p>
+
+        <table class="data-table">
+          <thead><tr><th>指標</th><th>状況</th><th>読み方</th></tr></thead>
+          <tbody>
+            <tr><td>モノの貿易赤字</td><td>⚠ 増加</td><td>看板目標には逆風</td></tr>
+            <tr><td>モノ+サービス全体</td><td>△ わずかに縮小</td><td>「全部悪化」とは言えない</td></tr>
+          </tbody>
+        </table>
+
+        <p>企業は<strong>「飛行機が飛んでいる最中にエンジンを交換」できないため、高い海外部品を買い続けるしかない</strong>。結果、輸入は減らず、コストだけが上がる。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head"><span class="q-section-num">05</span><h2>日本への影響｜勝ったのではなく、最悪回避</h2><span class="q-section-head-en">JAPAN IMPACT</span></div>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🚗</div>
+            <div class="pillar-title">自動車</div>
+            <div class="pillar-desc">27.5%→15%で最悪回避。対米輸出の中核であり、意味は大きい。</div>
+            <div class="pillar-example">💡 以前の2.5%と比べれば依然として重い</div>
+          </div>
+          <div class="pillar target">
+            <div class="pillar-icon">💼</div>
+            <div class="pillar-title">企業心理</div>
+            <div class="pillar-desc">合意は<strong>3/4が好意的</strong>。一方で<strong>38%は収益悪化を見込み、54%は値上げ余地を探る</strong>。</div>
+            <div class="pillar-example">💡 「苦い安心」が本音に近い</div>
+          </div>
+        </div>
+
+        <p>日本人にとっても他人事ではない。<strong>輸出企業の利益・日本株・NISA・為替・物価</strong>にまで波及します。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head"><span class="q-section-num">06</span><h2>投資家が見るべき5ポイント</h2><span class="q-section-head-en">INVESTMENT LENS</span></div>
+
+        <table class="data-table">
+          <thead><tr><th>#</th><th>見るポイント</th><th>なぜ重要か</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1</strong></td><td>関税率そのもの</td><td>企業コストに直結する</td></tr>
+            <tr><td><strong>2</strong></td><td>継続期間</td><td>一時的か恒常的かで影響が違う</td></tr>
+            <tr><td><strong>3</strong></td><td>為替</td><td>円換算評価額を大きく動かす</td></tr>
+            <tr><td><strong>4</strong></td><td>企業の価格転嫁力</td><td>利益を守れるかに関わる</td></tr>
+            <tr><td><strong>5</strong></td><td>サプライチェーン</td><td>代替可能性でダメージが変わる</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>NISAだから安心、ではない</strong>。非課税メリットは重要だが、企業利益・為替・関税継続性・世界景気まで総合的に見る必要があります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head"><span class="q-section-num">07</span><h2>メリット・デメリット総括</h2><span class="q-section-head-en">PROS &amp; CONS</span></div>
+
+        <div class="pros-cons">
+          <div class="pro-box">
+            <div class="pro-box-label">メリット</div>
+            <ul>
+              <li>交渉カードとしてはかなり強い</li>
+              <li>国内産業保護のメッセージが分かりやすい</li>
+              <li>支持層に「強いアメリカ」を印象づけやすい</li>
+              <li>一部の国内生産回帰を促す可能性</li>
+            </ul>
+          </div>
+          <div class="con-box">
+            <div class="con-box-label">デメリット</div>
+            <ul>
+              <li>企業コストと家計負担が増える</li>
+              <li>輸入代替がすぐには進まない</li>
+              <li>モノの貿易赤字はきれいに減らず</li>
+              <li>企業の予見可能性を損なう</li>
+              <li>報復や分断の連鎖を招くリスク</li>
+              <li>法制度の面でも無理が出た</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head"><span class="q-section-num">08</span><h2>結論｜4点で整理する</h2><span class="q-section-head-en">CONCLUSION</span></div>
+        <p>「強いが、粗い」政策だった。結局どう見るべきか、<strong>4点に分解</strong>するとクリアです。</p>
+
+        <div class="matrix">
+          <div class="matrix-label">FINAL ASSESSMENT</div>
+          <h3>トランプ関税の本当の意味は「関税が次の時代の普通になるか」</h3>
+          <div class="matrix-grid">
+            <div class="matrix-cell"><div class="matrix-cell-head"><span class="matrix-cell-type">政治</span><span class="matrix-cell-ticker">強い</span></div><div class="matrix-cell-desc">相手国を揺さぶる交渉力。支持層への訴求力。</div></div>
+            <div class="matrix-cell"><div class="matrix-cell-head"><span class="matrix-cell-type">経済</span><span class="matrix-cell-ticker">痛い</span></div><div class="matrix-cell-desc">コストは米国内にも返る。赤字はきれいに減らず。</div></div>
+            <div class="matrix-cell"><div class="matrix-cell-head"><span class="matrix-cell-type">法律</span><span class="matrix-cell-ticker">危うい</span></div><div class="matrix-cell-desc">最高裁で否定され別ルートで強行。「読めない」不確実性。</div></div>
+            <div class="matrix-cell"><div class="matrix-cell-head"><span class="matrix-cell-type">日本</span><span class="matrix-cell-ticker">最悪回避</span></div><div class="matrix-cell-desc">無傷ではない。株・NISA・家計まで波及。</div></div>
+          </div>
+        </div>
+
+        <p>本当の焦点は<strong>「関税が一度きりの例外か、次の時代の"普通"になるのか"</strong>。もし定着すれば、トランプ関税は「世界の通商ルールの書き換え」として歴史に残ります。</p>
+
+        <div class="disclaimer">
+          <strong>ご注意</strong>：経済・株式・投資に関する記述は一般的な情報整理であり、特定の投資判断を勧めるものではありません。最終判断はご自身でお願いします。
+        </div>
+      </div>
 
       <div class="related-head">RELATED ARTICLES</div>
       <div class="related-list">
-        <a href="../" class="related-item">
-          <span class="related-tag">一覧</span>
-          <span class="related-title">経済・株式の記事一覧へ</span>
-        </a>
+        <a href="../2026-04-09-japan-ai-semi/" class="related-item"><span class="related-tag">株式</span><span class="related-title">日本のAI関連株5銘柄を格付け 2026.04.09</span></a>
+        <a href="../2026-04-11-long-rates/" class="related-item"><span class="related-tag">金融政策</span><span class="related-title">長期金利と原油高の時代、日本経済はどう変わるのか 2026.04.11</span></a>
+        <a href="../" class="related-item"><span class="related-tag">一覧</span><span class="related-title">経済・株式の記事一覧へ</span></a>
       </div>
 
     </main>
@@ -344,29 +324,31 @@
       <div class="sidebar-toc">
         <div class="sidebar-toc-label">目次</div>
         <ul class="toc-list">
-          <li><a href="#sec-conclusion"><span class="toc-n">00</span>先に結論</a></li>
-<li><a href="#sec-01"><span class="toc-n">01</span>テーマの全体像</a></li>
-<li><a href="#sec-02"><span class="toc-n">02</span>トランプ関税の狙い</a></li>
-<li><a href="#sec-03"><span class="toc-n">03</span>初心者向けの噛み砕き説明</a></li>
-<li><a href="#sec-04"><span class="toc-n">04</span>論点整理：このテーマは3つのレイヤーで見る</a></li>
-<li><a href="#sec-05"><span class="toc-n">05</span>3つのレイヤー</a></li>
-          <li><a href="#sec-summary"><span class="toc-n">99</span>まとめ</a></li>
+          <li><a href="#"><span class="toc-n">01</span>3レイヤー</a></li>
+          <li><a href="#"><span class="toc-n">02</span>4つの狙い</a></li>
+          <li><a href="#"><span class="toc-n">03</span>3つの誤解</a></li>
+          <li><a href="#"><span class="toc-n">04</span>貿易赤字</a></li>
+          <li><a href="#"><span class="toc-n">05</span>日本への影響</a></li>
+          <li><a href="#"><span class="toc-n">06</span>投資目線</a></li>
+          <li><a href="#"><span class="toc-n">07</span>総括</a></li>
+          <li><a href="#"><span class="toc-n">08</span>結論</a></li>
         </ul>
       </div>
       <div class="sidebar-meta">
         <div class="sidebar-meta-label">TAGS</div>
-        <div class="tag-cloud"><span class="tag-pill">トランプ</span><span class="tag-pill">関税</span><span class="tag-pill">貿易赤字</span><span class="tag-pill">日米関係</span><span class="tag-pill">通商政策</span></div>
+        <div class="tag-cloud">
+          <span class="tag-pill">トランプ関税</span><span class="tag-pill">米国経済</span><span class="tag-pill">日本経済</span>
+          <span class="tag-pill">貿易赤字</span><span class="tag-pill">自動車産業</span><span class="tag-pill">NISA</span>
+          <span class="tag-pill">国際政治</span>
+        </div>
       </div>
     </aside>
   </div>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-      <p class="footer-copy">&copy; 2026 AIデータ二刀流ブログ</p>
-    </div>
+    <div class="footer-inner"><p class="footer-copy">&copy; 2026 AIデータ二刀流ブログ</p></div>
   </footer>
 
   <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/article-enhance.js?v=20260418e" defer></script>
 </body>
 </html>
