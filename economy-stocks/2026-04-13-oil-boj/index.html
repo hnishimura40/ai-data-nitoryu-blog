@@ -15,91 +15,318 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
-    .art-hero { background: linear-gradient(135deg, #0d1e38 0%, #d97706 100%); padding: 44px 24px; }
-    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; }
-    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
-    .art-cat-main { background: #d97706; color: #fff; }
-    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.95; }
-    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.55); display: flex; gap: 16px; flex-wrap: wrap; }
-    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
-    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
-    .art-body { min-width: 0; }
-    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
-    .art-body strong { color: #1a2744; }
-    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
-    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
-    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
-    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #d97706; background: #f0f4fb; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
-    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
-    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
-    @media (max-width: 560px) { .sec-head-en { display: none; } }
-    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #d97706; }
-    .summary-box { background: linear-gradient(135deg, #f0f6ff, #e6eefb); border: 1px solid #b5cdf0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
-    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #d97706; margin-bottom: 12px; }
-    .summary-box ul { margin: 0; }
-    .summary-box li { font-size: 0.87rem; }
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; display: block; overflow-x: auto; }
-    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
-    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:nth-child(even) td { background: #f8fafd; }
-    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
-    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
-    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
-    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
-    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px;  max-width: 640px; margin-left: auto !important; margin-right: auto !important; }
-    .video-box-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 10px; }
-    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
-    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
-    .related-list { display: flex; flex-direction: column; gap: 10px; }
-    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
-    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
-    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #d97706; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
-    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
-    .art-sidebar { font-size: 0.88rem; }
-    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
-    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
-    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
-    .toc-list { list-style: none; padding: 0; margin: 0; }
-    .toc-list li { border-bottom: 1px solid #e8ecf4; }
-    .toc-list li:last-child { border-bottom: none; }
-    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
-    .toc-list a:hover { color: #d97706; }
-    .toc-n { font-size: 0.62rem; font-weight: 900; color: #d97706; flex-shrink: 0; width: 22px; }
-    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
-    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
-    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
-    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
-  
-    .art-hero { padding: 24px 0 0 0 !important; }
-    .art-hero-thumb { width: 100%; max-width: 1100px; max-height: 360px; object-fit: cover; display: block; margin: 0 auto; }
-    .art-hero-title-block { max-width: var(--max-width, 1100px); margin: 0 auto; padding: 22px 24px 18px !important; }
-
-    .art-body > main .sec-head + p,
-    .art-body .sec-head + p {
-      background: linear-gradient(135deg, #f7f9fc, #eef3fb);
-      border-left: 4px solid #1a4fa0;
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      font-weight: 500;
-      margin-top: 0;
+    :root {
+      --q-accent:#7c3aed;
+      --q-accent2:#06b6d4;
+      color-scheme: light dark;
     }
-    .data-table th { font-size: 0.82rem; letter-spacing: 0.04em; }
-    .data-table { border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-    .data-table strong { color: #1a4fa0; font-weight: 900; }
-    .art-body p strong { color: #1a4fa0; font-weight: 800; background: linear-gradient(transparent 62%, #ffe58a 62%, #ffe58a 92%, transparent 92%); padding: 0 2px; }
-    .art-body p { text-align: justify; text-justify: inter-ideograph; }
-    .art-body h2 + p, .art-body .sec-sub + p { margin-top: 14px; }
+    html, body { background-color: #ffffff; color: #2a2e3c; }
 
-    /* article-body-enhanced */
+    /* ===== ダークモード：暗い配色 + 視認性重視 ===== */
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0b1020 !important; color: #d8dfef !important; }
+
+      /* 本文テキスト */
+      .art-body p, .art-body li { color: #d8dfef !important; }
+
+      /* strong は黄色マーカー（白文字と被る問題）をやめ、明るい紫文字＋薄い下地 */
+      .art-body p strong, .art-body li strong {
+        color: #c4b5fd !important;
+        background: rgba(139,92,246,0.15) !important;
+        padding: 0 4px !important;
+        border-radius: 3px !important;
+      }
+
+      /* カード類：暗い濃紺系 */
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #a78bfa !important; }
+      .stat-card-number { color: #f5f7ff !important; }
+      .stat-card-sub { color: #9aa3bf !important; }
+
+      .layer-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 6px 24px -8px rgba(0,0,0,0.4) !important; }
+      .layer-card h3 { color: #f5f7ff !important; }
+      .layer-card p { color: #c9d0e5 !important; }
+      .layer-card.tech .layer-card-tag { background: rgba(6,182,212,0.2) !important; color: #7dd3fc !important; }
+      .layer-card.market .layer-card-tag { background: rgba(245,158,11,0.18) !important; color: #fcd34d !important; }
+
+      /* セクション見出し */
+      .q-section-head { border-bottom-color: #2a3150 !important; }
+      .q-section-head h2 { color: #f5f7ff !important; }
+      .q-section-head-en { color: #5a6488 !important; }
+
+      /* 2本柱 */
+      .pillar { background: linear-gradient(180deg, #181c2e 0%, #141828 100%) !important; border-color: #2a3150 !important; }
+      .pillar-title { color: #f5f7ff !important; }
+      .pillar-desc { color: #b9c1d9 !important; }
+      .pillar-example { background: #0b1020 !important; border-color: #2a3150 !important; color: #a5adc8 !important; }
+      .pillar.target { background: linear-gradient(180deg, #2a1111 0%, #1a0a0a 100%) !important; border-color: #ef4444 !important; }
+      .pillar.target .pillar-desc, .pillar.target .pillar-title { color: #fecaca !important; }
+
+      /* リスクカード */
+      .risk-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .risk-title { color: #f5f7ff !important; }
+      .risk-body { color: #b9c1d9 !important; }
+      .risk-example { background: rgba(252,211,77,0.12) !important; color: #fcd34d !important; }
+
+      /* FAQ */
+      .faq-item { background: #141828 !important; border-color: #2a3150 !important; border-left-color: #a78bfa !important; }
+      .faq-q { color: #f5f7ff !important; }
+      .faq-a { color: #c9d0e5 !important; }
+
+      /* 銘柄カード */
+      .stock-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .stock-ticker { color: #f5f7ff !important; }
+      .stock-desc { color: #b9c1d9 !important; }
+      .stock-metric { background: #0f1322 !important; }
+      .stock-metric-label { color: #8a93ac !important; }
+      .stock-metric-value { color: #f5f7ff !important; }
+
+      /* タグは色を落としすぎないように */
+      .tag-defense { background: rgba(34,197,94,0.2) !important; color: #86efac !important; }
+      .tag-stable  { background: rgba(59,130,246,0.2) !important; color: #93c5fd !important; }
+      .tag-dream   { background: rgba(236,72,153,0.2) !important; color: #f9a8d4 !important; }
+      .tag-specu   { background: rgba(239,68,68,0.2) !important; color: #fca5a5 !important; }
+
+      /* 銘柄ラベル */
+      .stock-label { color: #f5f7ff !important; }
+
+      /* 強材料・弱材料 */
+      .pro-box { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.05)) !important; border-color: rgba(16,185,129,0.4) !important; color: #86efac !important; }
+      .con-box { background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(239,68,68,0.05)) !important; border-color: rgba(239,68,68,0.4) !important; color: #fca5a5 !important; }
+
+      /* テーブル */
+      .data-table { box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5) !important; }
+      .data-table td { background-color: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+      .data-table strong { color: #c4b5fd !important; background: none !important; }
+
+      /* サイドバー */
+      .sidebar-toc { background: linear-gradient(145deg, #141828, #0f1322) !important; border-color: #2a3150 !important; }
+      .sidebar-toc-label { color: #a78bfa !important; }
+      .toc-list a { color: #b9c1d9 !important; }
+      .toc-list a:hover { color: #c4b5fd !important; }
+      .toc-list li { border-bottom-color: #2a3150 !important; }
+      .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+      .sidebar-meta-label { color: #a78bfa !important; }
+      .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+
+      /* 関連記事 */
+      .related-item { background: #141828 !important; border-color: #2a3150 !important; }
+      .related-title { color: #f5f7ff !important; }
+      .related-head { color: #a78bfa !important; border-bottom-color: #2a3150 !important; }
+
+      /* disclaimer */
+      .disclaimer { background: rgba(217,119,6,0.1) !important; color: #fcd34d !important; border-color: rgba(217,119,6,0.4) !important; }
+
+      /* ヘッダー・ブレッドクラム */
+      .site-header { background: #0b1020 !important; border-bottom: 1px solid #2a3150 !important; }
+      .breadcrumb { background: #0f1322 !important; }
+      .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
+    }
+    .art-hero { background: radial-gradient(circle at 20% 0%, #1e0b4a 0%, #0a0a2a 40%, #050514 80%); padding: 0; position: relative; overflow: hidden; }
+    .art-hero-thumb { width: 100%; max-width: 1200px; max-height: 420px; object-fit: cover; display: block; margin: 0 auto; filter: saturate(1.1); }
+    .art-hero-title-block { max-width: 1100px; margin: 0 auto; padding: 26px 28px 22px; position: relative; z-index: 2; }
+    .art-hero-cats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; }
+    .art-cat-tech { background: linear-gradient(90deg, #7c3aed, #06b6d4); color: #fff; }
+    .art-cat-warn { background: #ef4444; color: #fff; }
+    .art-cat-stock { background: #10b981; color: #fff; }
+    .art-hero-h1 { font-size: clamp(1.2rem, 2.8vw, 1.8rem); font-weight: 900; color: #fff; line-height: 1.4; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .art-hero-meta { font-size: 0.78rem; color: rgba(255,255,255,0.65); display: flex; gap: 18px; }
+
+    .art-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 44px 24px 80px; align-items: flex-start; }
+    @media (max-width: 900px) { .art-layout { grid-template-columns: 1fr; padding: 28px 16px 60px; gap: 0; } }
+
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.96rem; line-height: 2; color: #2a2e3c; margin-bottom: 18px; }
+    .art-body strong { color: #7c3aed; font-weight: 800; }
+
+    /* HERO SUMMARY */
+    .hero-summary {
+      background: linear-gradient(135deg, #0f0a2e 0%, #1a0a4e 60%, #061733 100%);
+      border-radius: 20px; padding: 32px 36px; color: #fff;
+      margin-bottom: 40px; position: relative; overflow: hidden;
+    }
+    .hero-summary::before {
+      content: ""; position: absolute; top: -40%; right: -10%;
+      width: 60%; height: 180%;
+      background: radial-gradient(ellipse, rgba(124,58,237,.35), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-summary-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 14px; }
+    .hero-summary h2 { font-size: 1.35rem; font-weight: 900; color: #fff; margin: 0 0 14px; line-height: 1.5; }
+    .hero-summary p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.95; margin: 0; }
+
+    /* STAT CARDS */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0 36px; }
+    .stat-card {
+      background: linear-gradient(145deg, #fff, #f5f7ff);
+      border: 1px solid #e4e8f4; border-radius: 16px; padding: 22px 24px;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before { content: ""; position: absolute; inset: 0 auto auto 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--q-accent), var(--q-accent2)); }
+    .stat-card-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; text-transform: uppercase; margin-bottom: 10px; }
+    .stat-card-number { font-family: 'Poppins', sans-serif; font-size: 2.4rem; font-weight: 900; color: #0f0a2e; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; font-style: italic; }
+    .stat-card-sub { font-size: 0.82rem; color: #5a6380; line-height: 1.6; }
+
+    /* 2レイヤー */
+    .layer-split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 28px 0 36px; }
+    @media (max-width: 720px) { .layer-split { grid-template-columns: 1fr; } }
+    .layer-card { background: #fff; border-radius: 16px; padding: 24px 26px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 6px 24px -8px rgba(20, 30, 80, 0.12); }
+    .layer-card.tech { border-top: 5px solid #06b6d4; }
+    .layer-card.market { border-top: 5px solid #f59e0b; }
+    .layer-card-tag { display: inline-block; font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; }
+    .layer-card.tech .layer-card-tag { background: #e0f7fd; color: #0891b2; }
+    .layer-card.market .layer-card-tag { background: #fef3c7; color: #b45309; }
+    .layer-card h3 { font-size: 1.1rem; font-weight: 900; color: #0f0a2e; margin: 0 0 10px; }
+    .layer-card p { margin: 0; font-size: 0.92rem; line-height: 1.85; color: #2a2e3c; }
+
+    /* セクション見出し */
+    .q-section { margin: 56px 0 0; }
+    .q-section-head { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 3px solid #e4e8f4; }
+    .q-section-num { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 900; font-style: italic; background: linear-gradient(135deg, var(--q-accent), var(--q-accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; flex-shrink: 0; }
+    .q-section-head h2 { font-size: 1.3rem; font-weight: 900; color: #0f0a2e; margin: 0; line-height: 1.4; }
+    .q-section-head-en { margin-left: auto; font-size: 0.7rem; font-weight: 800; letter-spacing: .2em; color: #a3adc7; flex-shrink: 0; }
+    @media (max-width: 560px) { .q-section-head-en { display: none; } }
+
+    /* 2本柱 */
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar { background: linear-gradient(180deg, #fafbff 0%, #f0f3fa 100%); border-radius: 14px; padding: 22px 24px; border: 1px solid #dbe2f0; position: relative; }
+    .pillar-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .pillar-title { font-size: 1rem; font-weight: 900; color: #0f0a2e; margin-bottom: 8px; }
+    .pillar-desc { font-size: 0.88rem; color: #4a5270; line-height: 1.7; margin-bottom: 10px; }
+    .pillar-example { background: #fff; border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: #5a6380; border: 1px solid #e4e8f4; }
+    .pillar.target { border: 2px solid #ef4444; background: linear-gradient(180deg, #fff5f5 0%, #ffe4e4 100%); }
+    .pillar.target::after { content: "逼迫側"; position: absolute; top: -10px; right: 14px; background: #ef4444; color: #fff; font-size: 0.68rem; font-weight: 900; letter-spacing: .1em; padding: 3px 10px; border-radius: 3px; }
+
+    /* リスク3パターン */
+    .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .risk-grid { grid-template-columns: 1fr; } }
+    .risk-card { background: #fff; border-radius: 14px; padding: 20px; border: 1px solid #e4e8f4; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .risk-card-head { display: flex; align-items: center; gap: 10px; }
+    .risk-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #ef4444, #f59e0b); color: #fff; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; }
+    .risk-title { font-size: 0.95rem; font-weight: 900; color: #0f0a2e; line-height: 1.4; }
+    .risk-body { font-size: 0.86rem; color: #4a5270; line-height: 1.75; }
+    .risk-example { margin-top: auto; padding: 10px 14px; background: #fef3c7; border-radius: 8px; font-size: 0.8rem; color: #7c2d12; font-weight: 500; }
+
+    /* 銘柄スタットカード */
+    .stock-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 20px 0 30px; }
+    .stock-card { background: #fff; border-radius: 16px; padding: 22px 24px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .stock-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .stock-ticker { font-family: 'Poppins', sans-serif; font-size: 1.6rem; font-weight: 900; font-style: italic; color: #0f0a2e; line-height: 1; }
+    .stock-tag { font-size: 0.64rem; font-weight: 900; letter-spacing: .14em; padding: 3px 9px; border-radius: 3px; text-transform: uppercase; white-space: nowrap; }
+    .tag-defense { background: #dcfce7; color: #166534; }
+    .tag-stable  { background: #dbeafe; color: #1e40af; }
+    .tag-dream   { background: #fce7f3; color: #9d174d; }
+    .tag-specu   { background: #fee2e2; color: #991b1b; }
+    .stock-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 4px 0; }
+    .stock-metric { background: #f7f9fc; border-radius: 8px; padding: 8px 10px; }
+    .stock-metric-label { font-size: 0.62rem; font-weight: 800; letter-spacing: .1em; color: #7b86a6; text-transform: uppercase; margin-bottom: 2px; }
+    .stock-metric-value { font-size: 0.9rem; font-weight: 800; color: #0f0a2e; }
+    .stock-desc { font-size: 0.83rem; color: #4a5270; line-height: 1.7; }
+
+    /* 投資地図マトリクス */
+    .matrix { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 50%, #061733 100%); border-radius: 20px; padding: 32px 30px; color: #fff; margin: 28px 0 36px; }
+    .matrix-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 18px; }
+    .matrix h3 { font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0 0 20px; }
+    .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 560px) { .matrix-grid { grid-template-columns: 1fr; grid-template-rows: auto; } }
+    .matrix-cell { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 18px 20px; backdrop-filter: blur(8px); }
+    .matrix-cell-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .matrix-cell-type { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #a78bfa; }
+    .matrix-cell-ticker { font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 900; font-style: italic; color: #fff; }
+    .matrix-cell-desc { font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 30px; }
+    .faq-item { background: #fff; border-left: 4px solid var(--q-accent); border-radius: 0 12px 12px 0; padding: 18px 22px; border-top: 1px solid #e4e8f4; border-right: 1px solid #e4e8f4; border-bottom: 1px solid #e4e8f4; }
+    .faq-q, .faq-a { position: relative; padding-left: 34px; min-height: 24px; display: block; }
+    .faq-q { font-size: 0.95rem; font-weight: 800; color: #0f0a2e; margin-bottom: 12px; line-height: 1.6; }
+    .faq-a { font-size: 0.88rem; color: #4a5270; line-height: 1.85; }
+    .faq-q::before, .faq-a::before {
+      position: absolute; left: 0; top: 2px;
+      width: 24px; height: 24px; border-radius: 50%;
+      font-size: 0.7rem; font-weight: 900; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+    }
+    .faq-q::before { content: "Q"; background: #7c3aed; }
+    .faq-a::before { content: "A"; background: #06b6d4; }
+    @media (max-width: 560px) {
+      .faq-item { padding: 16px 16px 14px; }
+      .faq-q, .faq-a { padding-left: 30px; }
+      .faq-q::before, .faq-a::before { width: 22px; height: 22px; font-size: 0.65rem; }
+    }
+
+    /* 強材料・弱材料 */
+    .pros-cons-stock { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 720px) { .pros-cons-stock { grid-template-columns: 1fr; } }
+    .pro-box, .con-box { padding: 16px 18px; border-radius: 12px; font-size: 0.85rem; line-height: 1.75; }
+    .pro-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #86efac; color: #065f46; }
+    .con-box { background: linear-gradient(135deg, #fef2f2, #fee2e2); border: 1px solid #fca5a5; color: #991b1b; }
+    .pro-box-label, .con-box-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; margin-bottom: 8px; text-transform: uppercase; }
+    .pro-box ul, .con-box ul { margin: 4px 0 0; padding-left: 1.2em; }
+    .pro-box li, .con-box li { margin-bottom: 4px; }
+    .stock-label { font-size: 1rem; font-weight: 800; color: #0f0a2e; margin: 24px 0 10px; padding-left: 12px; border-left: 4px solid #7c3aed; }
+
+    /* 3行まとめ */
+    .q-summary { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 100%); border-radius: 16px; padding: 28px 30px; margin: 36px 0 28px; }
+    .q-summary-label { font-size: 0.7rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 14px; }
+    .q-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 12px; }
+    .q-summary li { font-size: 0.92rem; color: rgba(255,255,255,0.92); line-height: 1.8; }
+    .q-summary li::marker { color: #facc15; font-weight: 900; }
+
+    /* タイムライン */
+    .timeline { display: flex; justify-content: space-between; margin: 28px 0 36px; position: relative; padding: 0 20px; }
+    .timeline::before { content: ""; position: absolute; top: 32px; left: 40px; right: 40px; height: 3px; background: linear-gradient(90deg, #10b981, #06b6d4, #f59e0b, #ef4444); border-radius: 2px; }
+    .tl-stop { text-align: center; flex: 1; position: relative; }
+    .tl-dot { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 3px solid var(--q-accent); margin: 22px auto 10px; position: relative; z-index: 2; }
+    .tl-year { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1rem; font-style: italic; color: #0f0a2e; margin-bottom: 4px; }
+    .tl-label { font-size: 0.76rem; color: #5a6380; line-height: 1.5; padding: 0 4px; }
+
+    /* 動画 */
+    .video-box { background: linear-gradient(135deg, #0f0a2e, #1e0b4a); border-radius: 16px; padding: 20px; margin: 28px auto 40px; max-width: 700px; }
+    .video-box-label { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 12px; }
+    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; }
+    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    /* テーブル */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 18px 0 28px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px -4px rgba(20,30,80,0.08); }
+    .data-table th { background: linear-gradient(135deg, #0f0a2e, #2a1065); color: #fff; padding: 12px 14px; text-align: left; font-weight: 800; letter-spacing: .04em; font-size: 0.8rem; }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid #edf0f7; color: #2a2e3c; vertical-align: middle; }
+    .data-table tr:nth-child(even) td { background: #fafbff; }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .disclaimer { background: linear-gradient(135deg, #fff9f0, #fef3c7); border-left: 4px solid #d97706; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #7c2d12; }
+
+    /* サイドバー */
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 900px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; position: static !important; max-height: none !important; overflow: visible !important; top: auto !important; } }
+    .sidebar-toc { background: linear-gradient(145deg, #fafbff, #f0f3fa); border: 1px solid #dbe2f0; border-radius: 14px; padding: 20px 22px; position: sticky; top: 80px; margin-bottom: 24px; max-height: calc(100vh - 100px); overflow-y: auto; }
+    .sidebar-toc-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .18em; color: #7c3aed; margin-bottom: 14px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e4e8f4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 10px; padding: 9px 4px; color: #4a5270; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #7c3aed; }
+    .toc-n { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 0.7rem; font-weight: 900; color: #7c3aed; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dbe2f0; border-radius: 14px; padding: 18px 20px; }
+    .sidebar-meta-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #7c3aed; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #4a5270; background: #f0f3fa; border: 1px solid #dbe2f0; padding: 3px 9px; border-radius: 20px; }
+
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; border-bottom: 2px solid #e4e8f4; padding-bottom: 10px; margin: 48px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: #fff; border: 1px solid #e4e8f4; border-radius: 10px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 900; background: #7c3aed; color: #fff; padding: 3px 8px; border-radius: 3px; margin-top: 2px; letter-spacing: .08em; }
+    .related-title { font-size: 0.85rem; font-weight: 600; color: #0f0a2e; line-height: 1.5; }
   </style>
   <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <a href="../../" class="site-logo">
@@ -109,9 +336,7 @@
           <span class="logo-sub">野球・競馬 × 経済・株式</span>
         </div>
       </a>
-      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="../../">TOP</a>
         <a href="../../hanshin-keiba/">野球・競馬</a>
@@ -129,17 +354,21 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../../economy-stocks/">経済・株式</a>
       <span class="breadcrumb-sep">›</span>
-      <span>原油高で利上げは正解か？｜供給ショックと日銀の難題をわかりやすく解説</span>
+      <span>原油高で利上げは正解か？</span>
     </div>
   </div>
 
   <div class="art-hero">
-    <img src="thumb.png?v=20260418c" alt="記事サムネイル" class="art-hero-thumb">
+    <img src="thumb.png?v=20260418c" alt="原油高と日銀の難題" class="art-hero-thumb">
     <div class="art-hero-title-block">
-      <div class="art-hero-cats"><span class="art-cat-badge art-cat-main">金融政策</span></div>
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-tech">原油 × 金融政策</span>
+        <span class="art-cat-badge art-cat-warn">供給ショック</span>
+        <span class="art-cat-badge art-cat-stock">市場の読み方</span>
+      </div>
       <h1 class="art-hero-h1">原油高で利上げは正解か？｜供給ショックと日銀の難題をわかりやすく解説</h1>
       <div class="art-hero-meta">
-        <span>2026.04.13</span>
+        <span>2026年4月13日</span>
         <span>AIデータ二刀流ブログ</span>
       </div>
     </div>
@@ -148,333 +377,440 @@
   <div class="art-layout">
     <main class="art-body">
 
-
       <div class="hero-summary">
         <div class="hero-summary-label">この記事のコア</div>
-        <h2>第一に、原油先物は「戦争がいつ終わるか」を直接予想しているのではない。</h2>
-        <p>見ているのは、物流、保険、航路、供給正常化のスピードである。 だから近い月だけが異常に高く、半年先はそこまで高くない、という形が起きる。 第二に、海外の予測市場は「なんとなく戦闘が静かになる日」ではなく、「公式な停戦合意がいつまでに確認されるか」を値付けしている。 先物と予測市場は、似ているようで見ている未来が違う。</p>
+        <h2>「原油111ドル」の衝撃は、半年先までずっと同じ値段という意味ではない。</h2>
+        <p>原油先物は「戦争がいつ終わるか」ではなく、<strong>物流・保険・航路・供給正常化のスピード</strong>を値付けしています。だから近い月だけが異常に高く、半年先はそこまで高くない、という形が起きる。一方、海外の予測市場は「公式な停戦合意がいつまでに確認されるか」を値付けしており、<strong>先物と予測市場は見ている未来が違う</strong>。この違いを分けて考えるのが本記事のコアです。</p>
       </div>
-<p>「原油<strong>111ドル</strong>突破」と聞くと、つい「もう全部危ないのでは」と考えてしまう。</p>
-      <p>実際、中東情勢が緊迫し、原油価格が急騰した局面では、見出しだけで不安が一気に広がりやすい。</p>
-      <p>ただし、市場は見出しよりずっと複雑だ。</p>
-<p>今回のテーマは、原油先物と海外の予測市場をどう読むかである。</p>
-      <p>この2つは、どちらも未来を織り込む市場だが、見ているものが違う。</p>
-      <p>原油先物は「原油がいつ、どれだけ市場に戻るか」を値付けしている。</p>
-      <p>一方、予測市場は「米国とイランがいつまでに公式な停戦合意を確認するか」という政治イベントを値付けしている。</p>
-<p>この違いを分けて考えないと、「市場はこう言っている」と思った瞬間に読み違える。</p>
-      <p>逆に言えば、ここを整理できると、ニュースの煽りから一歩引いて、何が重要で、どこを見るべきかがかなりはっきりする。</p>
-      <p>本記事では、初心者向けに先物の基本から説明しつつ、日本経済や株式市場への示唆までつなげて整理する。</p>
 
-      <div class="video-box" style="max-width:640px;margin-left:auto;margin-right:auto;">
+      <div class="video-box">
         <div class="video-box-label">▶ 動画でも解説しています</div>
         <div class="video-embed-wrap">
           <iframe src="https://www.youtube.com/embed/KuA1aRqufpo" title="原油高で利上げは正解か？｜供給ショックと日銀の難題をわかりやすく解説" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+
       <div class="q-summary">
         <div class="q-summary-label">3行まとめ</div>
         <ol>
-      <li>原油111ドルは「今すぐの不足」の値段であって、半年先まで同じとは限らない。</li>
-      <li>先物市場と予測市場は、似て見えて、見ている未来が違う。</li>
-      <li>日本は即パニックではないが、燃料・物流・原料コストの上昇は軽く見ない方がいい。</li>
+          <li>原油<strong>111ドル</strong>は「今すぐの不足」の値段であって、半年先まで同じとは限らない。</li>
+          <li>先物市場と予測市場は、似て見えて、<strong>見ている未来が違う</strong>。</li>
+          <li>日本は即パニックではないが、<strong>燃料・物流・原料コスト</strong>の上昇は軽く見ない方がいい。</li>
         </ol>
       </div>
 
-      
-
-      <div class="sec-head" id="sec-conclusion">
-        <span class="sec-num">00</span>
-        <h2>先に結論</h2>
-        <span class="sec-head-en">CONCLUSION</span>
-      </div>
-<p>結論はシンプルだ。</p>
-<p>第一に、原油先物は「戦争がいつ終わるか」を直接予想しているのではない。</p>
-      <p>見ているのは、物流、保険、航路、供給正常化のスピードである。</p>
-      <p>だから近い月だけが異常に高く、半年先はそこまで高くない、という形が起きる。</p>
-<p>第二に、海外の予測市場は「なんとなく戦闘が静かになる日」ではなく、「公式な停戦合意がいつまでに確認されるか」を値付けしている。</p>
-      <p>先物と予測市場は、似ているようで見ている未来が違う。</p>
-<p>第三に、日本は<strong>1970年</strong>代のような石油一本足の経済ではない。</p>
-      <p>ただし、それは「無傷」という意味ではない。</p>
-      <p>日本で先に痛むのは、全面停電や即時の供給崩壊というより、ガソリン、軽油、航空燃料、ナフサ、物流費、製造コストの上昇である。</p>
-<p>要するに、「全部終わり」と見るのも雑だし、「大したことはない」と切るのも雑だ。</p>
-      <p>重要なのは、市場が何を見ているかを分けて理解し、日本にどう波及するかを順番で考えることである。</p>
-
-<div class="sec-head" id="sec-01"><span class="sec-num">01</span><h2>テーマの全体像</h2><span class="sec-head-en">SECTION 01</span></div>
-<p>今回の論点は、大きく3つある。</p>
-<p>1つ目は、原油先物の読み方だ。</p>
-      <p>ニュースでは「原油<strong>111ドル</strong>」という数字だけが大きく扱われがちだが、実務では<strong>1本</strong>の価格より、月ごとの価格の並び方、いわゆる先物カーブが重要になる。</p>
-<p>2つ目は、予測市場の読み方だ。</p>
-      <p>「市場は年内停戦を織り込んでいる」といった言い方は一見分かりやすいが、実際には何をもって停戦とみなすのか、どのルールで判定されるのかを見ないと誤読しやすい。</p>
-<p>3つ目は、日本への波及だ。</p>
-      <p>日本は石油依存度を下げ、備蓄も積み上げてきたが、燃料・原料・物流コストの上昇からは逃げにくい。</p>
-      <p>つまり、危機の形が<strong>1970年</strong>代とは違う、という理解が必要になる。</p>
-<p>ここから先は、「何が起きているか」ではなく、「市場はそれをどう値付けしているか」を軸に整理していく。</p>
-<div class="sec-head" id="sec-02"><span class="sec-num">02</span><h2>初心者向け：先物とは何か</h2><span class="sec-head-en">SECTION 02</span></div>
-<p>先物と聞くと、「来月の原油価格を当てるゲーム」のように思われがちだ。</p>
-      <p>しかし、実際にはそれだけではない。</p>
-<p>先物では、5月限、6月限、7月限、10月限のように、受け渡し時期ごとに別々の価格がついている。</p>
-      <p>つまり見るべきなのは、ひとつの点ではなく、月ごとの価格の並び方だ。</p>
-<p>ここで最低限覚えておきたい言葉は3つある。</p>
-<p>・フロント月</p>
-      <p>今から見て最も近い取引月。目先の需給が最も強く反映されやすい。</p>
-<p>・コンタンゴ</p>
-      <p>遠い月ほど高い状態。平時には保管コストや金利の分だけ、先の原油が高くなりやすい。</p>
-<p>・バックワーデーション</p>
-      <p>近い月ほど高く、遠い月ほど安い状態。今すぐ必要な原油にプレミアムがついているときに起きやすい。</p>
-<p>初心者向けに言い換えるなら、先物は「値段」ではなく「時間の値段差」を見る市場だ。</p>
-<p>たとえば、普通の宅配なら数日後に届く荷物は追加料金なしでもいい。</p>
-      <p>しかし、どうしても明日の朝に必要なら、お急ぎ便に高い追加料金を払う。</p>
-      <p>バックワーデーションは、原油市場でこの「お急ぎ便の追加料金」が極端に高くなっている状態に近い。</p>
-<div class="sec-head" id="sec-03"><span class="sec-num">03</span><h2>論点整理：今回は何が起きているのか</h2><span class="sec-head-en">SECTION 03</span></div>
-<p>4月2日時点で、ReutersはWTIの5月限が一時<strong>113.97ドル</strong>、終値<strong>111.42ドル</strong>まで上がった一方、10月限は<strong>73.64ドル</strong>前後、さらに5月限と6月限の差が最大<strong>16.70ドル</strong>まで広がったと報じた。</p>
-      <p>これは非常に強いバックワーデーションである。</p>
-<p>つまり市場は、こう見ている。</p>
-<ul>
-<li>今すぐの供給不安はかなり強い</li>
-<li>ただし、その状態が半年先まで同じ形で固定化するとは見ていない</li>
-</ul>
-<p>ここが、このテーマのいちばん重要なポイントだ。</p>
-      <p><strong>111ドル</strong>という数字だけを見ると「原油はずっと高いまま」という印象を持ちやすい。</p>
-      <p>しかし、半年先が<strong>70ドル</strong>台なら、市場は「今は危ないが、どこかでは緩む」と読んでいることになる。</p>
-<div class="sec-head" id="sec-04"><span class="sec-num">04</span><h2>重要な数字を整理する表</h2><span class="sec-head-en">SECTION 04</span></div>
-<p>＜原油先物の主要ポイント＞</p>
-<table class="data-table">
-<thead><tr>
-<th>項目</th>
-<th>内容</th>
-<th>どう読むか</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>WTI 5月限</td>
-<td><strong>111.42ドル</strong>（4月2日終値）</td>
-<td>目先の供給不安が非常に強い</td>
-</tr>
-<tr>
-<td>WTI 5月限の高値</td>
-<td><strong>113.97ドル</strong></td>
-<td>パニック局面のピーク感を示す</td>
-</tr>
-<tr>
-<td>5月限−6月限</td>
-<td>最大<strong>16.70ドル</strong></td>
-<td>「今すぐ必要」のプレミアムが極端に高い</td>
-</tr>
-<tr>
-<td>WTI 10月限</td>
-<td><strong>73.64ドル</strong>前後</td>
-<td>半年先まで同じ逼迫は想定していない</td>
-</tr>
-</tbody></table>
-<p>＜日本のエネルギー関連の数字＞</p>
-<table class="data-table">
-<thead><tr>
-<th>項目</th>
-<th>内容</th>
-<th>意味</th>
-</tr></thead>
-<tbody>
-<tr>
-<td><strong>1973年</strong>度の石油比率</td>
-<td><strong>75.5%</strong></td>
-<td>オイルショック時の高い石油依存</td>
-</tr>
-<tr>
-<td><strong>2024年</strong>度速報の石油比率</td>
-<td><strong>34.8%</strong></td>
-<td>日本は石油一本足ではなくなった</td>
-</tr>
-<tr>
-<td>石油備蓄（合計）</td>
-<td>248日分</td>
-<td>すぐに枯渇する状況ではない</td>
-</tr>
-<tr>
-<td>石油備蓄（IEA基準）</td>
-<td>210日分</td>
-<td>国際基準でも厚い備蓄を持つ</td>
-</tr>
-</tbody></table>
-<p>こうして並べると、今回のテーマは「原油高そのもの」よりも、「目先の逼迫と中期の正常化期待が同時に存在している」という構図だと分かりやすい。</p>
-<div class="sec-head" id="sec-05"><span class="sec-num">05</span><h2>なぜ111ドルと73ドルが同時に成立するのか</h2><span class="sec-head-en">SECTION 05</span></div>
-<p>ここが読者の一番混乱しやすいところだろう。</p>
-      <p>「高いのか、落ち着くのか、どっちなんだ」と思いやすい。</p>
-<p>答えは、「時間軸が違うから」である。</p>
-<p>5月限は、今すぐの物流や供給の詰まりを強く反映する。</p>
-      <p>ホルムズ海峡は世界の石油液体燃料消費の約<strong>20%</strong>が流れる要衝であり、ここで保険が止まり、船が避け、輸送が細れば、目先の原油には強いプレミアムがつく。</p>
-<p>一方で10月限は、半年後までには何らかの正常化が進むだろうという期待を反映する。</p>
-      <p>完全な平和条約でなくてもよい。</p>
-      <p>航路の部分再開、保険の復活、代替供給の立ち上がり、需要の減速、備蓄放出など、複数の要因で「今よりはマシ」になる可能性を市場は見ている。</p>
-<p>つまり先物は「平和になるか」より、「原油がどれだけ戻るか」を見ている。</p>
-      <p>ここを分けると、<strong>111ドル</strong>と<strong>73ドル</strong>は矛盾しない。</p>
-<div class="sec-head" id="sec-06"><span class="sec-num">06</span><h2>予測市場は何を見ているのか</h2><span class="sec-head-en">SECTION 06</span></div>
-<p>次に、海外の予測市場である。</p>
-<p>ここで注意したいのは、予測市場は「なんとなく戦争が静かになる日」を値付けしているわけではない、ということだ。</p>
-      <p>Polymarketの「US x Iran ceasefire by...?」のような市場では、米国とイランの双方が公式に停戦合意を確認することが条件になる。</p>
-<p>これは重要だ。</p>
-<ul>
-<li>裏で話がついた</li>
-<li>一方的に攻撃を止めた</li>
-<li>一時的に静かになった</li>
-<li>人道目的で休戦した</li>
-</ul>
-<p>こうしたものは、必ずしもそのまま「停戦成立」とは扱われない。</p>
-<p>また、4月末、5月末、6月末、年末といった数字は、「どの日が本命か」という排他的な予想というより、「その日までに起きるか」という累積的な読み方に近い。</p>
-<p>このため、予測市場の数字を見て「市場は12月31日を停戦日と予想している」と断定するのは少し雑だ。</p>
-      <p>より正確には、「年内のどこかで公式停戦合意が出る可能性を比較的高く見ている」と読む方がよい。</p>
-<div class="sec-head" id="sec-07"><span class="sec-num">07</span><h2>先物市場と予測市場の違い</h2><span class="sec-head-en">SECTION 07</span></div>
-<p>ここは本記事の核心なので、はっきり整理しておきたい。</p>
-<p>＜先物市場と予測市場の違い＞</p>
-<table class="data-table">
-<thead><tr>
-<th>市場</th>
-<th>主に見ているもの</th>
-<th>例</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>原油先物</td>
-<td>物流、保険、航路、供給正常化、需給</td>
-<td>原油がいつどれだけ市場に戻るか</td>
-</tr>
-<tr>
-<td>予測市場</td>
-<td>政治イベント、公式発表、合意条件</td>
-<td>いつまでに停戦合意が確認されるか</td>
-</tr>
-</tbody></table>
-<p>この違いを無視すると、「市場は停戦を読んでいる」と一括りに言ってしまいがちだ。</p>
-      <p>しかし、モノの市場と政治の市場では、未来の見方が違う。</p>
-<p>たとえば、停戦合意が出ても、パイプラインや積み出し施設の復旧が遅れれば原油は高止まりしうる。</p>
-      <p>逆に、停戦の公式発表がなくても、航路の安全確保や保険の復活で物流が回り始めれば、先物価格は先に落ち着きうる。</p>
-<p>この「似ているようで違う」を理解できるかどうかで、ニュースの読み方はかなり変わる。</p>
-<div class="sec-head" id="sec-08"><span class="sec-num">08</span><h2>強材料・弱材料</h2><span class="sec-head-en">SECTION 08</span></div>
-<p>ここでは、今回のテーマを「楽観材料」「警戒材料」に分けて整理する。</p>
-<p>＜強材料・安心材料＞</p>
-<ul>
-<li>原油先物の遠い月は、近い月ほど高くない</li>
-<li>日本は<strong>1970年</strong>代ほど石油依存が高くない</li>
-<li>日本の石油備蓄は厚い</li>
-<li>市場は「永続的な全面供給崩壊」まではまだ織り込んでいない</li>
-</ul>
-<p>＜弱材料・警戒材料＞</p>
-<ul>
-<li>目先のバックワーデーションは極めて強く、今の逼迫はかなり深い</li>
-<li>ホルムズ海峡まわりの保険・物流が戻らなければ、短期の痛みは長引きうる</li>
-<li>日本では物流費、燃料費、化学原料コストが家計と企業収益に波及しやすい</li>
-<li>停戦合意が出ても、供給網の復旧が遅れれば「政治の安心」と「物価の安心」がずれる可能性がある</li>
-</ul>
-<p>ここで大事なのは、「安心材料があるから無視していい」でも、「弱材料があるから全部終わり」でもないことだ。</p>
-      <p>市場が何をどこまで織り込んでいるかを、分けて考える必要がある。</p>
-<div class="sec-head" id="sec-09"><span class="sec-num">09</span><h2>日本経済・株式市場への示唆</h2><span class="sec-head-en">SECTION 09</span></div>
-<p>ここからは、経済・株式分析としての視点を整理したい。</p>
-<p>まず日本経済全体で言えば、最も分かりやすい打撃はエネルギーと物流コストの上昇だ。</p>
-      <p>ガソリン、軽油、航空燃料の上昇は輸送コストに直結する。</p>
-      <p>ナフサの上昇は化学、樹脂、包装資材などのコストを押し上げる。</p>
-      <p>つまり、「石油価格の問題」はガソリンスタンドだけの話ではない。</p>
-<p>株式市場で見た場合、短期的には次のような構図を意識しやすい。</p>
-<p>＜相対的に追い風を受けやすい分野＞</p>
-<ul>
-<li>資源・エネルギー関連</li>
-<li>原油・LNG・タンカー・海運の一部</li>
-<li>代替供給や非中東ソースに強い企業</li>
-</ul>
-<p>＜逆風を受けやすい分野＞</p>
-<ul>
-<li>輸送コストの重い業種</li>
-<li>燃料や原料価格の転嫁が難しい製造業</li>
-<li>消費者の節約志向が強まると響きやすい小売・外食の一部</li>
-</ul>
-<p>ただし、ここでも単純化は禁物だ。</p>
-      <p>原油高が一時的であれば、株価は「目先の悪材料」を織り込んだあとに戻ることもある。</p>
-      <p>逆に、停戦報道が出ても、物流や原料コストの実害が残れば企業業績にはしばらく響くことがある。</p>
-<p>つまり株式市場では、「ヘッドライン」と「実際の利益への反映」の時間差を見ることが大切になる。</p>
-<div class="sec-head" id="sec-10"><span class="sec-num">10</span><h2>読者が誤解しやすい点</h2><span class="sec-head-en">SECTION 10</span></div>
-<p>ここは丁寧に潰しておきたい。</p>
-<p>誤解1　原油<strong>111ドル</strong>なら、半年後も同じように高い</p>
-      <p>→ 先物カーブを見ると、目先と半年先はかなり違う。見出しだけでは分からない。</p>
-<p>誤解2　市場は停戦時期を正確に当てている</p>
-      <p>→ 先物と予測市場では見ている対象が違う。どちらも万能ではない。</p>
-<p>誤解3　日本はすぐオイルショック再来になる</p>
-      <p>→ 日本の石油依存度は下がっており、備蓄もある。すぐに<strong>1970年</strong>代の再現とは言いにくい。</p>
-<p>誤解4　備蓄があるなら何も心配いらない</p>
-      <p>→ そうでもない。燃料、物流、原料コストの上昇は企業収益や家計に十分効いてくる。</p>
-<p>この4つを分けて理解するだけで、ニュースの見え方はかなり変わるはずだ。</p>
-<div class="sec-head" id="sec-11"><span class="sec-num">11</span><h2>反対意見・注意点</h2><span class="sec-head-en">SECTION 11</span></div>
-<p>もちろん、今回の見方にも注意点はある。</p>
-<p>第一に、市場は賢いが万能ではない。</p>
-      <p>短期では過剰反応もするし、情報の出方によっては乱高下も起きる。</p>
-<p>第二に、予測市場の数字はリアルタイムで動く。</p>
-      <p>4月3日時点での確率が、その翌日も同じとは限らない。</p>
-<p>第三に、先物の遠い月が安いからといって、必ずしも中期が安全とは限らない。</p>
-      <p>市場は「今よりはマシ」を織り込んでいるだけで、「何も問題がない」わけではない。</p>
-<p>第四に、日本国内からオンラインで賭博を行うことは違法である。</p>
-      <p>予測市場はあくまでデータとして見るにとどめるべきだ。</p>
-<p>こうした注意点を踏まえると、「市場はこう言っているから絶対こうなる」と断定する姿勢は避けた方がよい。</p>
-<div class="sec-head" id="sec-12"><span class="sec-num">12</span><h2>今後の注目点</h2><span class="sec-head-en">SECTION 12</span></div>
-<p>今後、何を見ればよいのか。</p>
-      <p>ここは3つに絞ると分かりやすい。</p>
-
-      <div class="sec-head" id="sec-summary">
-        <span class="sec-num">99</span>
-        <h2>まとめ</h2>
-        <span class="sec-head-en">SUMMARY</span>
-      </div>
-<p>今回のテーマで一番大切なのは、「市場はひとつではない」という視点である。</p>
-<p>原油先物は、原油がいつどれだけ戻るかというモノの市場だ。</p>
-      <p>予測市場は、公式停戦合意がいつ確認されるかという政治の市場だ。</p>
-      <p>どちらも未来を織り込むが、見ている対象は違う。</p>
-<p>その違いを無視して「市場はこう言っている」と一括りにすると、分析は雑になる。</p>
-      <p>逆に、そこを分けて考えるだけで、ニュースの見出しに振り回されにくくなる。</p>
-<p>そして日本について言えば、<strong>1970年</strong>代のオイルショックをそのまま重ねるのは無理がある。</p>
-      <p>ただし、だから安心という話でもない。</p>
-      <p>家計にも企業にも、燃料・物流・原料コストの上昇は確実に効いてくる。</p>
-<p>結局どう見るべきか。</p>
-      <p>答えは、「ヘッドラインではなく、先物カーブと物流、そして公式発表を見る」である。</p>
-      <p>市場の数字を、感情ではなく構造で読む。</p>
-      <p>それが今回の一番大きな学びだろう。</p>
-<p>なお、本記事は一般的な情報整理であり、特定の投資判断を推奨するものではない。投資判断は、自身の資金状況やリスク許容度を踏まえ、最終的には自己責任で行っていただきたい。</p>
-
-
-      <div class="disclaimer">
-        <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+      <!-- 主要数値 -->
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-card-label">WTI 5月限 終値</div><div class="stat-card-number">111.42<span style="font-size:1rem;">ドル</span></div><div class="stat-card-sub">4月2日。目先の供給不安が非常に強い。</div></div>
+        <div class="stat-card"><div class="stat-card-label">WTI 5月限 高値</div><div class="stat-card-number">113.97<span style="font-size:1rem;">ドル</span></div><div class="stat-card-sub">パニック局面のピーク感を示す。</div></div>
+        <div class="stat-card"><div class="stat-card-label">5月限−6月限</div><div class="stat-card-number">16.70<span style="font-size:1rem;">ドル</span></div><div class="stat-card-sub">「今すぐ必要」のプレミアムが極端。</div></div>
+        <div class="stat-card"><div class="stat-card-label">WTI 10月限</div><div class="stat-card-number">73.64<span style="font-size:1rem;">ドル</span></div><div class="stat-card-sub">半年先まで同じ逼迫は想定していない。</div></div>
       </div>
 
-      <hr class="art-hr">
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">00</span>
+          <h2>先に結論｜市場はひとつではない</h2>
+          <span class="q-section-head-en">CONCLUSION</span>
+        </div>
+        <p>結論はシンプルです。第一に、原油先物は「戦争がいつ終わるか」を直接予想しているのではありません。見ているのは、<strong>物流、保険、航路、供給正常化のスピード</strong>。だから近い月だけが異常に高く、半年先はそこまで高くない、という形が起きる。</p>
+        <p>第二に、海外の予測市場は「なんとなく戦闘が静かになる日」ではなく、<strong>「公式な停戦合意がいつまでに確認されるか」</strong>を値付けしています。先物と予測市場は、似ているようで見ている未来が違う。</p>
+        <p>第三に、日本は<strong>1970年代のような石油一本足の経済</strong>ではありません。ただし、それは「無傷」という意味ではない。日本で先に痛むのは、全面停電や即時の供給崩壊というより、ガソリン、軽油、航空燃料、ナフサ、物流費、製造コストの上昇です。</p>
+        <p>要するに、「全部終わり」と見るのも雑だし、「大したことはない」と切るのも雑。<strong>市場が何を見ているかを分けて理解し、日本にどう波及するかを順番で考える</strong>のが重要です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">01</span>
+          <h2>テーマの全体像｜3つの論点</h2>
+          <span class="q-section-head-en">OVERVIEW</span>
+        </div>
+        <p>「原油<strong>111ドル</strong>突破」と聞くと、つい「もう全部危ないのでは」と考えてしまいます。実際、中東情勢が緊迫し、原油価格が急騰した局面では、見出しだけで不安が一気に広がりやすい。ただし、市場は見出しよりずっと複雑です。</p>
+
+        <div class="risk-grid">
+          <div class="risk-card">
+            <div class="risk-card-head"><span class="risk-badge">1</span><span class="risk-title">原油先物の読み方</span></div>
+            <div class="risk-body">ニュースでは「原油111ドル」という数字だけが大きく扱われがちだが、実務では<strong>1本の価格より月ごとの価格の並び方（先物カーブ）</strong>が重要。</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head"><span class="risk-badge">2</span><span class="risk-title">予測市場の読み方</span></div>
+            <div class="risk-body">「市場は年内停戦を織り込んでいる」は一見分かりやすいが、<strong>何をもって停戦とみなすか・どのルールで判定されるか</strong>を見ないと誤読しやすい。</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head"><span class="risk-badge">3</span><span class="risk-title">日本への波及</span></div>
+            <div class="risk-body">日本は石油依存度を下げ備蓄も積み上げてきたが、<strong>燃料・原料・物流コスト</strong>の上昇からは逃げにくい。危機の形が1970年代とは違う。</div>
+          </div>
+        </div>
+
+        <p>ここから先は、「何が起きているか」ではなく、<strong>「市場はそれをどう値付けしているか」</strong>を軸に整理していきます。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">02</span>
+          <h2>初心者向け｜先物とは「時間の値段差」</h2>
+          <span class="q-section-head-en">FUTURES 101</span>
+        </div>
+        <p>先物と聞くと、「来月の原油価格を当てるゲーム」のように思われがちですが、実際にはそれだけではありません。先物では、5月限、6月限、7月限、10月限のように、<strong>受け渡し時期ごとに別々の価格</strong>がついている。見るべきなのは、ひとつの点ではなく、月ごとの価格の並び方です。</p>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">KEYWORD 1 — フロント月</span>
+            <h3>最も近い取引月</h3>
+            <p>今から見て最も近い取引月。<strong>目先の需給が最も強く反映されやすい</strong>。ニュースの「原油111ドル」は通常この価格のこと。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">KEYWORD 2 — コンタンゴ</span>
+            <h3>遠い月ほど高い</h3>
+            <p>平時には保管コストや金利の分だけ、<strong>先の原油が高くなりやすい</strong>。普通の状態。</p>
+          </div>
+        </div>
+
+        <div class="pillars">
+          <div class="pillar target">
+            <div class="pillar-icon">🚨</div>
+            <div class="pillar-title">KEYWORD 3 — バックワーデーション</div>
+            <div class="pillar-desc">近い月ほど高く、遠い月ほど安い状態。<strong>今すぐ必要な原油にプレミアム</strong>がついているときに起きやすい。</div>
+            <div class="pillar-example">💡 「お急ぎ便の追加料金」が極端に高い状態</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">📦</div>
+            <div class="pillar-title">たとえで言うと</div>
+            <div class="pillar-desc">普通の宅配なら数日後に届く荷物は追加料金なしでもいい。どうしても明日の朝に必要なら、お急ぎ便に高い追加料金を払う。</div>
+            <div class="pillar-example">💡 先物は「値段」ではなく「時間の値段差」</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">03</span>
+          <h2>論点整理｜今回は何が起きているのか</h2>
+          <span class="q-section-head-en">WHAT HAPPENED</span>
+        </div>
+        <p>4月2日時点で、ReutersはWTIの5月限が一時<strong>113.97ドル</strong>、終値<strong>111.42ドル</strong>まで上がった一方、10月限は<strong>73.64ドル</strong>前後、さらに5月限と6月限の差が最大<strong>16.70ドル</strong>まで広がったと報じました。これは非常に強いバックワーデーションです。</p>
+
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ 市場が織り込んでいないこと</div>その状態が半年先まで同じ形で固定化する、という未来までは織り込んでいない。</div>
+          <div class="con-box"><div class="con-box-label">✗ 市場が織り込んでいること</div>今すぐの供給不安はかなり強い。目先の物流・保険・航路の詰まりは深刻。</div>
+        </div>
+
+        <p>ここが、このテーマのいちばん重要なポイント。<strong>111ドル</strong>という数字だけを見ると「原油はずっと高いまま」という印象を持ちやすい。しかし、半年先が<strong>70ドル台</strong>なら、市場は「今は危ないが、どこかでは緩む」と読んでいることになります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">04</span>
+          <h2>重要な数字を整理｜原油とエネルギー</h2>
+          <span class="q-section-head-en">KEY NUMBERS</span>
+        </div>
+
+        <div class="stock-label">原油先物の主要ポイント</div>
+        <table class="data-table">
+          <thead><tr><th>項目</th><th>内容</th><th>どう読むか</th></tr></thead>
+          <tbody>
+            <tr><td>WTI 5月限</td><td><strong>111.42ドル</strong>（4月2日終値）</td><td>目先の供給不安が非常に強い</td></tr>
+            <tr><td>WTI 5月限の高値</td><td><strong>113.97ドル</strong></td><td>パニック局面のピーク感を示す</td></tr>
+            <tr><td>5月限−6月限</td><td>最大<strong>16.70ドル</strong></td><td>「今すぐ必要」のプレミアムが極端に高い</td></tr>
+            <tr><td>WTI 10月限</td><td><strong>73.64ドル</strong>前後</td><td>半年先まで同じ逼迫は想定していない</td></tr>
+          </tbody>
+        </table>
+
+        <div class="stock-label">日本のエネルギー関連の数字</div>
+        <table class="data-table">
+          <thead><tr><th>項目</th><th>内容</th><th>意味</th></tr></thead>
+          <tbody>
+            <tr><td>1973年度の石油比率</td><td><strong>75.5%</strong></td><td>オイルショック時の高い石油依存</td></tr>
+            <tr><td>2024年度速報の石油比率</td><td><strong>34.8%</strong></td><td>日本は石油一本足ではなくなった</td></tr>
+            <tr><td>石油備蓄（合計）</td><td><strong>248日分</strong></td><td>すぐに枯渇する状況ではない</td></tr>
+            <tr><td>石油備蓄（IEA基準）</td><td><strong>210日分</strong></td><td>国際基準でも厚い備蓄を持つ</td></tr>
+          </tbody>
+        </table>
+
+        <p>こうして並べると、今回のテーマは「原油高そのもの」よりも、<strong>「目先の逼迫と中期の正常化期待が同時に存在している」</strong>という構図だと分かりやすくなります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">05</span>
+          <h2>なぜ111ドルと73ドルが同時に成立するのか</h2>
+          <span class="q-section-head-en">TIME AXIS</span>
+        </div>
+        <p>ここが読者の一番混乱しやすいところでしょう。「高いのか、落ち着くのか、どっちなんだ」と思いやすい。<strong>答えは、「時間軸が違うから」</strong>です。</p>
+
+        <div class="layer-split">
+          <div class="layer-card market">
+            <span class="layer-card-tag">近い月（5月限）</span>
+            <h3>今すぐの詰まりを反映</h3>
+            <p>ホルムズ海峡は世界の石油液体燃料消費の約<strong>20%</strong>が流れる要衝。ここで保険が止まり、船が避け、輸送が細れば、目先の原油には強いプレミアムがつく。</p>
+          </div>
+          <div class="layer-card tech">
+            <span class="layer-card-tag">遠い月（10月限）</span>
+            <h3>半年後の正常化期待</h3>
+            <p>航路の部分再開、保険の復活、代替供給の立ち上がり、需要の減速、備蓄放出など、<strong>複数の要因で「今よりはマシ」になる可能性</strong>を市場は見ている。</p>
+          </div>
+        </div>
+
+        <p>つまり先物は「平和になるか」より、<strong>「原油がどれだけ戻るか」</strong>を見ている。ここを分けると、<strong>111ドル</strong>と<strong>73ドル</strong>は矛盾しません。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">06</span>
+          <h2>予測市場は何を見ているのか</h2>
+          <span class="q-section-head-en">PREDICTION MARKET</span>
+        </div>
+        <p>次に、海外の予測市場です。ここで注意したいのは、予測市場は「なんとなく戦争が静かになる日」を値付けしているわけではない、ということ。Polymarketの「US x Iran ceasefire by...?」のような市場では、<strong>米国とイランの双方が公式に停戦合意を確認することが条件</strong>になっています。</p>
+
+        <p>次のようなものは、必ずしもそのまま「停戦成立」とは扱われません：</p>
+
+        <div class="pros-cons-stock">
+          <div class="con-box">
+            <div class="con-box-label">✗ 「停戦」に数えられないもの</div>
+            <ul>
+              <li>裏で話がついた</li>
+              <li>一方的に攻撃を止めた</li>
+              <li>一時的に静かになった</li>
+              <li>人道目的で休戦した</li>
+            </ul>
+          </div>
+          <div class="pro-box">
+            <div class="pro-box-label">✓ 正確な読み方</div>
+            4月末、5月末、6月末、年末という数字は<strong>排他的な予想ではなく累積的</strong>な読み方に近い。「年内のどこかで公式停戦合意が出る可能性を比較的高く見ている」と読むのが正確。
+          </div>
+        </div>
+
+        <p>このため、予測市場の数字を見て「市場は12月31日を停戦日と予想している」と断定するのは少し雑。見ている対象を正しく捉えることが重要です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">07</span>
+          <h2>先物市場と予測市場の違い｜本記事の核心</h2>
+          <span class="q-section-head-en">TWO MARKETS</span>
+        </div>
+        <p>ここは本記事の核心なので、はっきり整理しておきたいところ。</p>
+
+        <table class="data-table">
+          <thead><tr><th>市場</th><th>主に見ているもの</th><th>例</th></tr></thead>
+          <tbody>
+            <tr><td><strong>原油先物</strong></td><td>物流、保険、航路、供給正常化、需給</td><td>原油がいつどれだけ市場に戻るか</td></tr>
+            <tr><td><strong>予測市場</strong></td><td>政治イベント、公式発表、合意条件</td><td>いつまでに停戦合意が確認されるか</td></tr>
+          </tbody>
+        </table>
+
+        <p>この違いを無視すると、「市場は停戦を読んでいる」と一括りに言ってしまいがち。しかし、<strong>モノの市場と政治の市場では、未来の見方が違います</strong>。</p>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">政治 → モノの遅れ</span>
+            <h3>停戦でも原油高止まり</h3>
+            <p>停戦合意が出ても、<strong>パイプラインや積み出し施設の復旧が遅れれば</strong>原油は高止まりしうる。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">モノ → 政治の先行</span>
+            <h3>公式発表なくても先に落ち着く</h3>
+            <p>停戦の公式発表がなくても、<strong>航路の安全確保や保険の復活で物流が回り始めれば</strong>、先物価格は先に落ち着きうる。</p>
+          </div>
+        </div>
+
+        <p>この「似ているようで違う」を理解できるかどうかで、ニュースの読み方はかなり変わります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">08</span>
+          <h2>強材料・弱材料｜何がどこまで織り込まれているか</h2>
+          <span class="q-section-head-en">PROS &amp; CONS</span>
+        </div>
+
+        <div class="pros-cons-stock">
+          <div class="pro-box">
+            <div class="pro-box-label">✓ 強材料・安心材料</div>
+            <ul>
+              <li>原油先物の遠い月は、近い月ほど高くない</li>
+              <li>日本は1970年代ほど石油依存が高くない</li>
+              <li>日本の石油備蓄は厚い（248日分）</li>
+              <li>市場は「永続的な全面供給崩壊」まではまだ織り込んでいない</li>
+            </ul>
+          </div>
+          <div class="con-box">
+            <div class="con-box-label">✗ 弱材料・警戒材料</div>
+            <ul>
+              <li>目先のバックワーデーションは極めて強い</li>
+              <li>ホルムズ海峡まわりの保険・物流が戻らなければ痛みが長引く</li>
+              <li>物流費・燃料費・化学原料コストが家計と企業収益に波及</li>
+              <li>停戦合意が出ても、供給網復旧の遅れで「政治の安心」と「物価の安心」がずれる可能性</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>ここで大事なのは、「安心材料があるから無視していい」でも、「弱材料があるから全部終わり」でもないこと。<strong>市場が何をどこまで織り込んでいるかを、分けて考える</strong>必要があります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">09</span>
+          <h2>日本経済・株式市場への示唆</h2>
+          <span class="q-section-head-en">MARKET IMPACT</span>
+        </div>
+        <p>ここからは、経済・株式分析としての視点を整理します。日本経済全体で言えば、最も分かりやすい打撃は<strong>エネルギーと物流コストの上昇</strong>。ガソリン、軽油、航空燃料の上昇は輸送コストに直結。ナフサの上昇は化学、樹脂、包装資材などのコストを押し上げる。「石油価格の問題」はガソリンスタンドだけの話ではありません。</p>
+
+        <div class="pros-cons-stock">
+          <div class="pro-box">
+            <div class="pro-box-label">✓ 追い風を受けやすい分野</div>
+            <ul>
+              <li>資源・エネルギー関連</li>
+              <li>原油・LNG・タンカー・海運の一部</li>
+              <li>代替供給や非中東ソースに強い企業</li>
+            </ul>
+          </div>
+          <div class="con-box">
+            <div class="con-box-label">✗ 逆風を受けやすい分野</div>
+            <ul>
+              <li>輸送コストの重い業種</li>
+              <li>燃料や原料価格の転嫁が難しい製造業</li>
+              <li>消費者節約志向で響きやすい小売・外食</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>ただし、ここでも単純化は禁物。原油高が一時的であれば、株価は「目先の悪材料」を織り込んだあとに戻ることもある。逆に、停戦報道が出ても、物流や原料コストの実害が残れば企業業績にはしばらく響くことがある。つまり株式市場では、<strong>「ヘッドライン」と「実際の利益への反映」の時間差</strong>を見ることが大切です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">10</span>
+          <h2>読者が誤解しやすい点</h2>
+          <span class="q-section-head-en">FAQ</span>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">原油111ドルなら、半年後も同じように高いのでは？</div>
+            <div class="faq-a">先物カーブを見ると、目先と半年先はかなり違います。10月限は<strong>73ドル台</strong>。見出しだけでは分からない構造になっています。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">市場は停戦時期を正確に当てているの？</div>
+            <div class="faq-a">先物と予測市場では見ている対象が違います。<strong>どちらも万能ではない</strong>。先物は「モノ」、予測市場は「政治」を値付けしています。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">日本はすぐオイルショック再来になる？</div>
+            <div class="faq-a">日本の石油依存度は<strong>75.5% → 34.8%</strong>に下がっており、備蓄もあります。すぐに1970年代の再現とは言いにくい。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">備蓄があるなら何も心配いらない？</div>
+            <div class="faq-a">そうでもありません。<strong>燃料、物流、原料コストの上昇は企業収益や家計に十分効いてきます</strong>。形が違うだけで痛みはある。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">11</span>
+          <h2>反対意見・注意点</h2>
+          <span class="q-section-head-en">CAVEATS</span>
+        </div>
+        <p>もちろん、今回の見方にも注意点があります。</p>
+
+        <div class="risk-grid">
+          <div class="risk-card">
+            <div class="risk-card-head"><span class="risk-badge">1</span><span class="risk-title">市場は万能ではない</span></div>
+            <div class="risk-body">市場は賢いが短期では過剰反応もするし、情報の出方によっては乱高下も起きる。</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head"><span class="risk-badge">2</span><span class="risk-title">予測市場はリアルタイム</span></div>
+            <div class="risk-body">4月3日時点での確率が、その翌日も同じとは限らない。数字は常に動く。</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head"><span class="risk-badge">3</span><span class="risk-title">遠い月が安い ≠ 安全</span></div>
+            <div class="risk-body">市場は「今よりはマシ」を織り込んでいるだけで、「何も問題がない」わけではない。</div>
+          </div>
+        </div>
+
+        <p>なお、<strong>日本国内からオンラインで賭博を行うことは違法</strong>です。予測市場はあくまでデータとして見るにとどめるべき。「市場はこう言っているから絶対こうなる」と断定する姿勢は避けた方がよいでしょう。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">12</span>
+          <h2>結論｜ヘッドラインではなく構造で読む</h2>
+          <span class="q-section-head-en">CONCLUSION</span>
+        </div>
+        <p>今回のテーマで一番大切なのは、<strong>「市場はひとつではない」</strong>という視点です。原油先物は、原油がいつどれだけ戻るかという<strong>モノの市場</strong>。予測市場は、公式停戦合意がいつ確認されるかという<strong>政治の市場</strong>。どちらも未来を織り込むが、見ている対象は違います。</p>
+
+        <div class="matrix">
+          <div class="matrix-label">DUAL MARKETS MAP</div>
+          <h3>2つの市場を分けて、日本への波及を順番で考える</h3>
+          <div class="matrix-grid">
+            <div class="matrix-cell">
+              <div class="matrix-cell-head"><span class="matrix-cell-type">原油先物</span><span class="matrix-cell-ticker">モノ</span></div>
+              <div class="matrix-cell-desc">物流・保険・航路・需給を値付け。近い月と遠い月の差（カーブ）を見る。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head"><span class="matrix-cell-type">予測市場</span><span class="matrix-cell-ticker">政治</span></div>
+              <div class="matrix-cell-desc">公式停戦合意の確認がいつまでに出るかを値付け。累積的な読み方を。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head"><span class="matrix-cell-type">日本の構造</span><span class="matrix-cell-ticker">耐性あり</span></div>
+              <div class="matrix-cell-desc">石油比率34.8%・備蓄248日分。1970年代の再現にはならない。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head"><span class="matrix-cell-type">日本の痛み</span><span class="matrix-cell-ticker">コスト波及</span></div>
+              <div class="matrix-cell-desc">燃料・ナフサ・物流費の上昇が家計と企業収益にじわじわ効く。</div>
+            </div>
+          </div>
+        </div>
+
+        <p>その違いを無視して「市場はこう言っている」と一括りにすると、分析は雑になる。逆に、そこを分けて考えるだけで、ニュースの見出しに振り回されにくくなります。答えは、<strong>「ヘッドラインではなく、先物カーブと物流、そして公式発表を見る」</strong>。市場の数字を、感情ではなく構造で読む。それが今回の一番大きな学びでしょう。</p>
+
+        <div class="disclaimer">
+          <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+        </div>
+      </div>
 
       <div class="related-head">RELATED ARTICLES</div>
       <div class="related-list">
-        <a href="../" class="related-item">
-          <span class="related-tag">一覧</span>
-          <span class="related-title">経済・株式の記事一覧へ</span>
-        </a>
+        <a href="../2026-03-21-hormuz-energy/" class="related-item"><span class="related-tag">エネルギー</span><span class="related-title">ホルムズ海峡と日本のエネルギー安全保障 2026.03.21</span></a>
+        <a href="../2026-04-11-long-rates/" class="related-item"><span class="related-tag">金融政策</span><span class="related-title">長期金利と原油高の時代、日本経済はどう変わるのか 2026.04.11</span></a>
+        <a href="../2026-04-12-boj-banks-stocks/" class="related-item"><span class="related-tag">金融政策</span><span class="related-title">日銀の利上げで銀行は丸儲け？銀行株の本命を冷静に選ぶ 2026.04.12</span></a>
+        <a href="../2026-04-11-trump-tariffs/" class="related-item"><span class="related-tag">経済</span><span class="related-title">トランプ関税の全体像と日本株への波及 2026.04.11</span></a>
       </div>
-
     </main>
 
     <aside class="art-sidebar">
       <div class="sidebar-toc">
         <div class="sidebar-toc-label">目次</div>
         <ul class="toc-list">
-          <li><a href="#sec-conclusion"><span class="toc-n">00</span>先に結論</a></li>
-<li><a href="#sec-01"><span class="toc-n">01</span>テーマの全体像</a></li>
-<li><a href="#sec-02"><span class="toc-n">02</span>初心者向け：先物とは何か</a></li>
-<li><a href="#sec-03"><span class="toc-n">03</span>論点整理：今回は何が起きているのか</a></li>
-<li><a href="#sec-04"><span class="toc-n">04</span>重要な数字を整理する表</a></li>
-<li><a href="#sec-05"><span class="toc-n">05</span>なぜ111ドルと73ドルが同時に成立するのか</a></li>
-<li><a href="#sec-06"><span class="toc-n">06</span>予測市場は何を見ているのか</a></li>
-<li><a href="#sec-07"><span class="toc-n">07</span>先物市場と予測市場の違い</a></li>
-<li><a href="#sec-08"><span class="toc-n">08</span>強材料・弱材料</a></li>
-<li><a href="#sec-09"><span class="toc-n">09</span>日本経済・株式市場への示唆</a></li>
-<li><a href="#sec-10"><span class="toc-n">10</span>読者が誤解しやすい点</a></li>
-<li><a href="#sec-11"><span class="toc-n">11</span>反対意見・注意点</a></li>
-<li><a href="#sec-12"><span class="toc-n">12</span>今後の注目点</a></li>
-          <li><a href="#sec-summary"><span class="toc-n">99</span>まとめ</a></li>
+          <li><a href="#"><span class="toc-n">00</span>先に結論</a></li>
+          <li><a href="#"><span class="toc-n">01</span>全体像</a></li>
+          <li><a href="#"><span class="toc-n">02</span>先物とは</a></li>
+          <li><a href="#"><span class="toc-n">03</span>論点整理</a></li>
+          <li><a href="#"><span class="toc-n">04</span>重要な数字</a></li>
+          <li><a href="#"><span class="toc-n">05</span>111 vs 73ドル</a></li>
+          <li><a href="#"><span class="toc-n">06</span>予測市場</a></li>
+          <li><a href="#"><span class="toc-n">07</span>2つの市場</a></li>
+          <li><a href="#"><span class="toc-n">08</span>強材料・弱材料</a></li>
+          <li><a href="#"><span class="toc-n">09</span>株式市場への示唆</a></li>
+          <li><a href="#"><span class="toc-n">10</span>誤解しやすい点</a></li>
+          <li><a href="#"><span class="toc-n">11</span>注意点</a></li>
+          <li><a href="#"><span class="toc-n">12</span>結論</a></li>
         </ul>
       </div>
       <div class="sidebar-meta">
         <div class="sidebar-meta-label">TAGS</div>
-        <div class="tag-cloud"><span class="tag-pill">原油高</span><span class="tag-pill">利上げ</span><span class="tag-pill">日銀</span><span class="tag-pill">インフレ</span><span class="tag-pill">供給ショック</span></div>
+        <div class="tag-cloud">
+          <span class="tag-pill">原油高</span>
+          <span class="tag-pill">WTI</span>
+          <span class="tag-pill">先物市場</span>
+          <span class="tag-pill">予測市場</span>
+          <span class="tag-pill">ホルムズ海峡</span>
+          <span class="tag-pill">日銀</span>
+          <span class="tag-pill">利上げ</span>
+          <span class="tag-pill">供給ショック</span>
+          <span class="tag-pill">インフレ</span>
+          <span class="tag-pill">エネルギー</span>
+        </div>
       </div>
     </aside>
   </div>
@@ -486,6 +822,5 @@
   </footer>
 
   <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/article-enhance.js?v=20260418e" defer></script>
 </body>
 </html>

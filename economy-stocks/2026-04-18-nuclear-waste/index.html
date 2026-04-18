@@ -15,91 +15,264 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
-    .art-hero { background: linear-gradient(135deg, #0d1e38 0%, #475569 100%); padding: 44px 24px; }
-    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; }
-    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
-    .art-cat-main { background: #475569; color: #fff; }
-    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.95; }
-    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.55); display: flex; gap: 16px; flex-wrap: wrap; }
-    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
-    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
-    .art-body { min-width: 0; }
-    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
-    .art-body strong { color: #1a2744; }
-    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
-    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
-    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
-    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #475569; background: #f0f4fb; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
-    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
-    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
-    @media (max-width: 560px) { .sec-head-en { display: none; } }
-    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #475569; }
-    .summary-box { background: linear-gradient(135deg, #f0f6ff, #e6eefb); border: 1px solid #b5cdf0; border-left: 4px solid #475569; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
-    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #475569; margin-bottom: 12px; }
-    .summary-box ul { margin: 0; }
-    .summary-box li { font-size: 0.87rem; }
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; display: block; overflow-x: auto; }
-    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
-    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:nth-child(even) td { background: #f8fafd; }
-    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
-    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
-    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
-    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
-    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px;  max-width: 640px; margin-left: auto !important; margin-right: auto !important; }
-    .video-box-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 10px; }
-    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
-    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
-    .related-list { display: flex; flex-direction: column; gap: 10px; }
-    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
-    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
-    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #475569; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
-    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
-    .art-sidebar { font-size: 0.88rem; }
-    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
-    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
-    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
-    .toc-list { list-style: none; padding: 0; margin: 0; }
-    .toc-list li { border-bottom: 1px solid #e8ecf4; }
-    .toc-list li:last-child { border-bottom: none; }
-    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
-    .toc-list a:hover { color: #475569; }
-    .toc-n { font-size: 0.62rem; font-weight: 900; color: #475569; flex-shrink: 0; width: 22px; }
-    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
-    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
-    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
-    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
-  
-    .art-hero { padding: 24px 0 0 0 !important; }
-    .art-hero-thumb { width: 100%; max-width: 1100px; max-height: 360px; object-fit: cover; display: block; margin: 0 auto; }
-    .art-hero-title-block { max-width: var(--max-width, 1100px); margin: 0 auto; padding: 22px 24px 18px !important; }
-
-    .art-body > main .sec-head + p,
-    .art-body .sec-head + p {
-      background: linear-gradient(135deg, #f7f9fc, #eef3fb);
-      border-left: 4px solid #1a4fa0;
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      font-weight: 500;
-      margin-top: 0;
+    :root {
+      --q-accent:#14b8a6;
+      --q-accent2:#0ea5e9;
+      color-scheme: light dark;
     }
-    .data-table th { font-size: 0.82rem; letter-spacing: 0.04em; }
-    .data-table { border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-    .data-table strong { color: #1a4fa0; font-weight: 900; }
-    .art-body p strong { color: #1a4fa0; font-weight: 800; background: linear-gradient(transparent 62%, #ffe58a 62%, #ffe58a 92%, transparent 92%); padding: 0 2px; }
-    .art-body p { text-align: justify; text-justify: inter-ideograph; }
-    .art-body h2 + p, .art-body .sec-sub + p { margin-top: 14px; }
+    html, body { background-color: #ffffff; color: #2a2e3c; }
 
-    /* article-body-enhanced */
+    /* ===== ダークモード ===== */
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0b1020 !important; color: #d8dfef !important; }
+
+      .art-body p, .art-body li { color: #d8dfef !important; }
+
+      .art-body p strong, .art-body li strong {
+        color: #5eead4 !important;
+        background: rgba(20,184,166,0.15) !important;
+        padding: 0 4px !important;
+        border-radius: 3px !important;
+      }
+
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #5eead4 !important; }
+      .stat-card-number { color: #f5f7ff !important; }
+      .stat-card-sub { color: #9aa3bf !important; }
+
+      .layer-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 6px 24px -8px rgba(0,0,0,0.4) !important; }
+      .layer-card h3 { color: #f5f7ff !important; }
+      .layer-card p { color: #c9d0e5 !important; }
+      .layer-card.tech .layer-card-tag { background: rgba(14,165,233,0.2) !important; color: #7dd3fc !important; }
+      .layer-card.market .layer-card-tag { background: rgba(245,158,11,0.18) !important; color: #fcd34d !important; }
+
+      .q-section-head { border-bottom-color: #2a3150 !important; }
+      .q-section-head h2 { color: #f5f7ff !important; }
+      .q-section-head-en { color: #5a6488 !important; }
+
+      .pillar { background: linear-gradient(180deg, #181c2e 0%, #141828 100%) !important; border-color: #2a3150 !important; }
+      .pillar-title { color: #f5f7ff !important; }
+      .pillar-desc { color: #b9c1d9 !important; }
+      .pillar-example { background: #0b1020 !important; border-color: #2a3150 !important; color: #a5adc8 !important; }
+      .pillar.target { background: linear-gradient(180deg, #2a1f08 0%, #1a1408 100%) !important; border-color: #f59e0b !important; }
+      .pillar.target .pillar-desc, .pillar.target .pillar-title { color: #fde68a !important; }
+
+      .risk-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .risk-title { color: #f5f7ff !important; }
+      .risk-body { color: #b9c1d9 !important; }
+      .risk-example { background: rgba(252,211,77,0.12) !important; color: #fcd34d !important; }
+
+      .faq-item { background: #141828 !important; border-color: #2a3150 !important; border-left-color: #5eead4 !important; }
+      .faq-q { color: #f5f7ff !important; }
+      .faq-a { color: #c9d0e5 !important; }
+
+      .pro-box { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.05)) !important; border-color: rgba(16,185,129,0.4) !important; color: #86efac !important; }
+      .con-box { background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(239,68,68,0.05)) !important; border-color: rgba(239,68,68,0.4) !important; color: #fca5a5 !important; }
+
+      .data-table { box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5) !important; }
+      .data-table td { background-color: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+      .data-table strong { color: #5eead4 !important; background: none !important; }
+
+      .sidebar-toc { background: linear-gradient(145deg, #141828, #0f1322) !important; border-color: #2a3150 !important; }
+      .sidebar-toc-label { color: #5eead4 !important; }
+      .toc-list a { color: #b9c1d9 !important; }
+      .toc-list a:hover { color: #5eead4 !important; }
+      .toc-list li { border-bottom-color: #2a3150 !important; }
+      .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+      .sidebar-meta-label { color: #5eead4 !important; }
+      .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+
+      .related-item { background: #141828 !important; border-color: #2a3150 !important; }
+      .related-title { color: #f5f7ff !important; }
+      .related-head { color: #5eead4 !important; border-bottom-color: #2a3150 !important; }
+
+      .disclaimer { background: rgba(217,119,6,0.1) !important; color: #fcd34d !important; border-color: rgba(217,119,6,0.4) !important; }
+
+      .site-header { background: #0b1020 !important; border-bottom: 1px solid #2a3150 !important; }
+      .breadcrumb { background: #0f1322 !important; }
+      .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
+    }
+
+    .art-hero { background: radial-gradient(circle at 20% 0%, #0b3a3a 0%, #0a1f2a 40%, #050a14 80%); padding: 0; position: relative; overflow: hidden; }
+    .art-hero-thumb { width: 100%; max-width: 1200px; max-height: 420px; object-fit: cover; display: block; margin: 0 auto; filter: saturate(1.1); }
+    .art-hero-title-block { max-width: 1100px; margin: 0 auto; padding: 26px 28px 22px; position: relative; z-index: 2; }
+    .art-hero-cats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; }
+    .art-cat-energy { background: linear-gradient(90deg, #14b8a6, #0ea5e9); color: #fff; }
+    .art-cat-warn { background: #ef4444; color: #fff; }
+    .art-cat-policy { background: #6366f1; color: #fff; }
+    .art-hero-h1 { font-size: clamp(1.2rem, 2.8vw, 1.8rem); font-weight: 900; color: #fff; line-height: 1.4; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .art-hero-meta { font-size: 0.78rem; color: rgba(255,255,255,0.65); display: flex; gap: 18px; }
+
+    .art-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 44px 24px 80px; align-items: flex-start; }
+    @media (max-width: 900px) { .art-layout { grid-template-columns: 1fr; padding: 28px 16px 60px; gap: 0; } }
+
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.96rem; line-height: 2; color: #2a2e3c; margin-bottom: 18px; }
+    .art-body strong { color: #0f766e; font-weight: 800; }
+
+    /* HERO SUMMARY */
+    .hero-summary {
+      background: linear-gradient(135deg, #0a2e2e 0%, #0a4e4e 60%, #061f2a 100%);
+      border-radius: 20px; padding: 32px 36px; color: #fff;
+      margin-bottom: 40px; position: relative; overflow: hidden;
+    }
+    .hero-summary::before {
+      content: ""; position: absolute; top: -40%; right: -10%;
+      width: 60%; height: 180%;
+      background: radial-gradient(ellipse, rgba(20,184,166,.35), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-summary-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #5eead4; margin-bottom: 14px; }
+    .hero-summary h2 { font-size: 1.35rem; font-weight: 900; color: #fff; margin: 0 0 14px; line-height: 1.5; }
+    .hero-summary p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.95; margin: 0; }
+
+    /* STAT CARDS */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0 36px; }
+    .stat-card {
+      background: linear-gradient(145deg, #fff, #f0fdfa);
+      border: 1px solid #c7ece6; border-radius: 16px; padding: 22px 24px;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before { content: ""; position: absolute; inset: 0 auto auto 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--q-accent), var(--q-accent2)); }
+    .stat-card-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; color: #0f766e; text-transform: uppercase; margin-bottom: 10px; }
+    .stat-card-number { font-family: 'Poppins', sans-serif; font-size: 2.4rem; font-weight: 900; color: #082f2f; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; font-style: italic; }
+    .stat-card-sub { font-size: 0.82rem; color: #5a6380; line-height: 1.6; }
+
+    /* 2レイヤー */
+    .layer-split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 28px 0 36px; }
+    @media (max-width: 720px) { .layer-split { grid-template-columns: 1fr; } }
+    .layer-card { background: #fff; border-radius: 16px; padding: 24px 26px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 6px 24px -8px rgba(20, 30, 80, 0.12); }
+    .layer-card.tech { border-top: 5px solid #0ea5e9; }
+    .layer-card.market { border-top: 5px solid #f59e0b; }
+    .layer-card-tag { display: inline-block; font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; }
+    .layer-card.tech .layer-card-tag { background: #e0f2fe; color: #0369a1; }
+    .layer-card.market .layer-card-tag { background: #fef3c7; color: #b45309; }
+    .layer-card h3 { font-size: 1.1rem; font-weight: 900; color: #082f2f; margin: 0 0 10px; }
+    .layer-card p { margin: 0; font-size: 0.92rem; line-height: 1.85; color: #2a2e3c; }
+
+    /* セクション見出し */
+    .q-section { margin: 56px 0 0; }
+    .q-section-head { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 3px solid #e4e8f4; }
+    .q-section-num { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 900; font-style: italic; background: linear-gradient(135deg, var(--q-accent), var(--q-accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; flex-shrink: 0; }
+    .q-section-head h2 { font-size: 1.3rem; font-weight: 900; color: #082f2f; margin: 0; line-height: 1.4; }
+    .q-section-head-en { margin-left: auto; font-size: 0.7rem; font-weight: 800; letter-spacing: .2em; color: #a3adc7; flex-shrink: 0; }
+    @media (max-width: 560px) { .q-section-head-en { display: none; } }
+
+    /* 2本柱 */
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar { background: linear-gradient(180deg, #f0fdfa 0%, #e6fffb 100%); border-radius: 14px; padding: 22px 24px; border: 1px solid #c7ece6; position: relative; }
+    .pillar-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .pillar-title { font-size: 1rem; font-weight: 900; color: #082f2f; margin-bottom: 8px; }
+    .pillar-desc { font-size: 0.88rem; color: #4a5270; line-height: 1.7; margin-bottom: 10px; }
+    .pillar-example { background: #fff; border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: #5a6380; border: 1px solid #e4e8f4; }
+    .pillar.target { border: 2px solid #f59e0b; background: linear-gradient(180deg, #fffbf0 0%, #fef3c7 100%); }
+    .pillar.target::after { content: "重い論点"; position: absolute; top: -10px; right: 14px; background: #f59e0b; color: #fff; font-size: 0.68rem; font-weight: 900; letter-spacing: .1em; padding: 3px 10px; border-radius: 3px; }
+
+    /* リスクグリッド */
+    .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .risk-grid { grid-template-columns: 1fr; } }
+    .risk-card { background: #fff; border-radius: 14px; padding: 20px; border: 1px solid #e4e8f4; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .risk-card-head { display: flex; align-items: center; gap: 10px; }
+    .risk-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #14b8a6, #0ea5e9); color: #fff; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; }
+    .risk-title { font-size: 0.95rem; font-weight: 900; color: #082f2f; line-height: 1.4; }
+    .risk-body { font-size: 0.86rem; color: #4a5270; line-height: 1.75; }
+    .risk-example { margin-top: auto; padding: 10px 14px; background: #fef3c7; border-radius: 8px; font-size: 0.8rem; color: #7c2d12; font-weight: 500; }
+
+    /* マトリクス */
+    .matrix { background: linear-gradient(135deg, #082f2f 0%, #0f766e 50%, #061f2a 100%); border-radius: 20px; padding: 32px 30px; color: #fff; margin: 28px 0 36px; }
+    .matrix-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #5eead4; margin-bottom: 18px; }
+    .matrix h3 { font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0 0 20px; }
+    .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 560px) { .matrix-grid { grid-template-columns: 1fr; grid-template-rows: auto; } }
+    .matrix-cell { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 18px 20px; backdrop-filter: blur(8px); }
+    .matrix-cell-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; gap: 8px; }
+    .matrix-cell-type { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #5eead4; }
+    .matrix-cell-ticker { font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 900; font-style: italic; color: #fff; text-align: right; }
+    .matrix-cell-desc { font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 30px; }
+    .faq-item { background: #fff; border-left: 4px solid var(--q-accent); border-radius: 0 12px 12px 0; padding: 18px 22px; border-top: 1px solid #e4e8f4; border-right: 1px solid #e4e8f4; border-bottom: 1px solid #e4e8f4; }
+    .faq-q, .faq-a { position: relative; padding-left: 34px; min-height: 24px; display: block; }
+    .faq-q { font-size: 0.95rem; font-weight: 800; color: #082f2f; margin-bottom: 12px; line-height: 1.6; }
+    .faq-a { font-size: 0.88rem; color: #4a5270; line-height: 1.85; }
+    .faq-q::before, .faq-a::before {
+      position: absolute; left: 0; top: 2px;
+      width: 24px; height: 24px; border-radius: 50%;
+      font-size: 0.7rem; font-weight: 900; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+    }
+    .faq-q::before { content: "Q"; background: #14b8a6; }
+    .faq-a::before { content: "A"; background: #0ea5e9; }
+    @media (max-width: 560px) {
+      .faq-item { padding: 16px 16px 14px; }
+      .faq-q, .faq-a { padding-left: 30px; }
+      .faq-q::before, .faq-a::before { width: 22px; height: 22px; font-size: 0.65rem; }
+    }
+
+    /* Pros / Cons */
+    .pros-cons-stock { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 720px) { .pros-cons-stock { grid-template-columns: 1fr; } }
+    .pro-box, .con-box { padding: 16px 18px; border-radius: 12px; font-size: 0.85rem; line-height: 1.75; }
+    .pro-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #86efac; color: #065f46; }
+    .con-box { background: linear-gradient(135deg, #fef2f2, #fee2e2); border: 1px solid #fca5a5; color: #991b1b; }
+    .pro-box-label, .con-box-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; margin-bottom: 8px; text-transform: uppercase; }
+    .stock-label { font-size: 1rem; font-weight: 800; color: #082f2f; margin: 24px 0 10px; padding-left: 12px; border-left: 4px solid #14b8a6; }
+
+    /* 3行まとめ */
+    .q-summary { background: linear-gradient(135deg, #082f2f 0%, #0f766e 100%); border-radius: 16px; padding: 28px 30px; margin: 36px 0 28px; }
+    .q-summary-label { font-size: 0.7rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 14px; }
+    .q-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 12px; }
+    .q-summary li { font-size: 0.92rem; color: rgba(255,255,255,0.92); line-height: 1.8; }
+    .q-summary li::marker { color: #facc15; font-weight: 900; }
+
+    /* 動画 */
+    .video-box { background: linear-gradient(135deg, #082f2f, #0a4e4e); border-radius: 16px; padding: 20px; margin: 28px auto 40px; max-width: 700px; }
+    .video-box-label { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 12px; }
+    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; }
+    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    /* テーブル */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 18px 0 28px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px -4px rgba(20,30,80,0.08); }
+    .data-table th { background: linear-gradient(135deg, #082f2f, #0f766e); color: #fff; padding: 12px 14px; text-align: left; font-weight: 800; letter-spacing: .04em; font-size: 0.8rem; }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid #edf0f7; color: #2a2e3c; vertical-align: middle; }
+    .data-table tr:nth-child(even) td { background: #f0fdfa; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table strong { color: #0f766e; font-weight: 800; }
+
+    .disclaimer { background: linear-gradient(135deg, #fff9f0, #fef3c7); border-left: 4px solid #d97706; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #7c2d12; }
+
+    /* サイドバー */
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 900px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; position: static !important; max-height: none !important; overflow: visible !important; top: auto !important; } }
+    .sidebar-toc { background: linear-gradient(145deg, #f0fdfa, #e6fffb); border: 1px solid #c7ece6; border-radius: 14px; padding: 20px 22px; position: sticky; top: 80px; margin-bottom: 24px; max-height: calc(100vh - 100px); overflow-y: auto; }
+    .sidebar-toc-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .18em; color: #0f766e; margin-bottom: 14px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #c7ece6; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 10px; padding: 9px 4px; color: #4a5270; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #0f766e; }
+    .toc-n { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 0.7rem; font-weight: 900; color: #0f766e; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #c7ece6; border-radius: 14px; padding: 18px 20px; }
+    .sidebar-meta-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #0f766e; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #4a5270; background: #f0fdfa; border: 1px solid #c7ece6; padding: 3px 9px; border-radius: 20px; }
+
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #0f766e; border-bottom: 2px solid #c7ece6; padding-bottom: 10px; margin: 48px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: #fff; border: 1px solid #e4e8f4; border-radius: 10px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 900; background: #14b8a6; color: #fff; padding: 3px 8px; border-radius: 3px; margin-top: 2px; letter-spacing: .08em; }
+    .related-title { font-size: 0.85rem; font-weight: 600; color: #082f2f; line-height: 1.5; }
   </style>
   <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <a href="../../" class="site-logo">
@@ -109,9 +282,7 @@
           <span class="logo-sub">野球・競馬 × 経済・株式</span>
         </div>
       </a>
-      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="../../">TOP</a>
         <a href="../../hanshin-keiba/">野球・競馬</a>
@@ -129,17 +300,21 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../../economy-stocks/">経済・株式</a>
       <span class="breadcrumb-sep">›</span>
-      <span>AI時代に避けて通れない 核のごみ問題 南鳥島調査と最終処分の現実</span>
+      <span>核のごみ問題と南鳥島調査</span>
     </div>
   </div>
 
   <div class="art-hero">
-    <img src="thumb.png?v=20260418c" alt="記事サムネイル" class="art-hero-thumb">
+    <img src="thumb.png?v=20260418c" alt="核のごみ問題と最終処分" class="art-hero-thumb">
     <div class="art-hero-title-block">
-      <div class="art-hero-cats"><span class="art-cat-badge art-cat-main">エネルギー</span></div>
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-energy">エネルギー × AI</span>
+        <span class="art-cat-badge art-cat-warn">核廃棄物</span>
+        <span class="art-cat-badge art-cat-policy">政策論点</span>
+      </div>
       <h1 class="art-hero-h1">AI時代に避けて通れない 核のごみ問題 南鳥島調査と最終処分の現実</h1>
       <div class="art-hero-meta">
-        <span>2026.04.18</span>
+        <span>2026年4月18日</span>
         <span>AIデータ二刀流ブログ</span>
       </div>
     </div>
@@ -148,385 +323,381 @@
   <div class="art-layout">
     <main class="art-body">
 
-
       <div class="hero-summary">
         <div class="hero-summary-label">この記事のコア</div>
-        <h2>- 原発は世界的に再評価されているが、核のごみ問題の本丸はまだ解けていない- 中間保管は必要な現実対応だが、</h2>
-        <p>つまり、今後のエネルギー政策を考えるうえで重要なのは、「原発を動かすかどうか」だけではありません。 「動かしたあと、何を、どこで、どれだけ長く引き受けるのか」まで含めて見ることです。</p>
+        <h2>発電の話は未来っぽいのに、出口に回った瞬間に「数万年の後始末」にぶつかる。原発回帰と核のごみ問題は必ずセットで見る。</h2>
+        <p>AI・データセンター・半導体の電力需要で原発が再評価されるほど、<strong>使用済み燃料や高レベル廃棄物</strong>という後始末の重さは増します。南鳥島の文献調査は「最終処分場決定」ではなく入口段階ですが、中間保管・深地層処分・核変換・核融合まで含めて、<strong>「動かしたあと、何を、どこで、どれだけ長く引き受けるのか」</strong>を見ない限り、エネルギー政策は片手落ちになります。</p>
       </div>
-<p>AI、データセンター、半導体、電力不足。最近のエネルギー論は、どうしても「これから必要になる電気」の話に集中しがちです。その流れの中で、原子力発電も再び見直されています。</p>
-<p>ただ、ここでどうしても避けて通れない論点があります。原発を使うなら、最後に残る「核のごみ」をどうするのか、という問題です。</p>
-<p>今回のテーマで私がいちばん重く感じたのは、未来の産業やAIを支えるための議論が、最後には数万年単位の後始末の話に戻ってしまうことです。発電の話は未来っぽいのに、出口に回った瞬間、地層処分や中間保管という非常に地味で重いテーマにぶつかる。このねじれを見ないまま原発回帰だけを語るのは、やはり片手落ちだと思います。</p>
-<p>この記事では、南鳥島の文献調査のニュースを入口に、世界の原発稼働の現状、最終処分場の現在地、中間保管の実態、そして核変換や核融合が本当に解決策になり得るのかまで、初心者にもわかる形で整理します。</p>
 
-      <div class="video-box" style="max-width:640px;margin-left:auto;margin-right:auto;">
+      <p>AI、データセンター、半導体、電力不足。最近のエネルギー論は、どうしても「これから必要になる電気」の話に集中しがちです。その流れの中で、原子力発電も再び見直されています。ただ、ここでどうしても避けて通れない論点があります。原発を使うなら、最後に残る「核のごみ」をどうするのか、という問題です。</p>
+
+      <p>今回のテーマで私がいちばん重く感じたのは、未来の産業やAIを支えるための議論が、最後には数万年単位の後始末の話に戻ってしまうことです。発電の話は未来っぽいのに、出口に回った瞬間、地層処分や中間保管という非常に地味で重いテーマにぶつかる。このねじれを見ないまま原発回帰だけを語るのは、やはり片手落ちだと思います。</p>
+
+      <div class="video-box">
         <div class="video-box-label">▶ 動画でも解説しています</div>
         <div class="video-embed-wrap">
           <iframe src="https://www.youtube.com/embed/Ned8-pf-qY0" title="AI時代に避けて通れない 核のごみ問題 南鳥島調査と最終処分の現実" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+
       <div class="q-summary">
         <div class="q-summary-label">3行まとめ</div>
         <ol>
-      <li>原発再評価が進むほど、核のごみ問題の重さも増す</li>
-      <li>中間保管は必要だが、最終処分の代わりではない</li>
-      <li>核変換や核融合は希望だが、今の後始末を止める理由にはならない</li>
+          <li><strong>原発再評価が進むほど、核のごみ問題の重さも増す</strong>。AI・データセンター需要で電源は必要だが、後始末は置き去りにできない。</li>
+          <li><strong>中間保管は必要な現実対応だが、最終処分の代わりにはならない</strong>。出口が詰まれば「長い中間」になってしまう。</li>
+          <li><strong>核変換や核融合は希望だが、今の後始末を止める理由にはならない</strong>。将来の補助線と現在の責任は別問題。</li>
         </ol>
       </div>
 
-      
-
-      <div class="sec-head" id="sec-conclusion">
-        <span class="sec-num">00</span>
-        <h2>先に結論</h2>
-        <span class="sec-head-en">CONCLUSION</span>
-      </div>
-<p>結論を先に書くと、ポイントは3つです。</p>
-<ul>
-<li>原発は世界的に再評価されているが、核のごみ問題の本丸はまだ解けていない</li>
-<li>中間保管は必要な現実対応だが、最終処分の代わりにはならない</li>
-<li>核変換や核融合は将来の有力な補助線になり得るが、今ある後始末を先送りする理由にはならない</li>
-</ul>
-<p>つまり、今後のエネルギー政策を考えるうえで重要なのは、「原発を動かすかどうか」だけではありません。「動かしたあと、何を、どこで、どれだけ長く引き受けるのか」まで含めて見ることです。</p>
-
-<p>## 5-1. テーマの全体像――これは「原発の話」であると同時に「時間の話」でもある</p>
-<p>核廃棄物問題は、単なる技術論ではありません。むしろ本質は、「人間が数十年で得る利益」と「数万年単位で残る責任」をどうつなぐのか、という時間の問題です。</p>
-<p>原発は数十年動きます。しかし、使用済み燃料や高レベル放射性廃棄物は、それよりはるかに長く管理が必要です。ここに、他の電源にはない重さがあります。</p>
-<p>初心者向けにざっくり言うと、原発の議論には次の3層があります。</p>
-<table class="data-table">
-<thead><tr>
-<th>層</th>
-<th>何を考えるか</th>
-<th>よく語られるか</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>発電</td>
-<td>電気を安定して作れるか</td>
-<td>よく語られる</td>
-</tr>
-<tr>
-<td>安全</td>
-<td>事故リスクをどう見るか</td>
-<td>かなり語られる</td>
-</tr>
-<tr>
-<td>後始末</td>
-<td>使用済み燃料や高レベル廃棄物をどうするか</td>
-<td>相対的に語られにくい</td>
-</tr>
-</tbody></table>
-<p>最近のAI・データセンター需要の話で原発が再評価される一方、実は一番答えを出しにくいのがこの「後始末」です。今回の南鳥島ニュースが重く見えるのも、まさにここです。</p>
-<p>## 5-2. 南鳥島のニュースは何が重いのか</p>
-<p>まず誤解してはいけないのは、南鳥島の件は「最終処分場に決まった」という話ではないことです。現時点で焦点になっているのは文献調査であり、机上で地質や既存資料を確認する初期段階にすぎません。</p>
-<p>ただし、政治的・社会的な意味は決して軽くありません。</p>
-<p>なぜなら、最終処分の議論は「調べるだけ」であっても、地域に強いイメージを残すからです。制度上は初期段階でも、住民感情としては「候補地化の入口」に見える。ここに、制度と感情のズレがあります。</p>
-<p>### 初心者向けに一言でいうと</p>
-      <p>- 文献調査 = まだ建設決定ではない</p>
-      <p>- でも社会的には = かなり重い入口</p>
-<p>このズレを理解しないと、ニュースの意味を読み違えます。</p>
-<p>## 5-3. なぜ今また原発なのか――AIとデータセンターが背景にある</p>
-<p>ここ数年の原発再評価は、単に「脱炭素だから原発」という一本線ではありません。AIの普及、データセンターの増設、半導体工場の新設、産業の電化などが重なり、「常に大量の電力を安定供給できる電源」が改めて求められています。</p>
-<p>太陽光や風力には大きな役割がありますが、天候や時間帯に左右される面があります。そこで、24時間365日止めにくい負荷を抱えるデータセンター側から見ると、ベースロード電源の価値が再評価されやすいのです。</p>
-<p>### ここでの論点整理</p>
-<table class="data-table">
-<thead><tr>
-<th>論点</th>
-<th>強材料</th>
-<th>弱材料・注意点</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>AI・データセンターの電力需要</td>
-<td>安定供給の価値が高い</td>
-<td>需要見通しは変動する可能性がある</td>
-</tr>
-<tr>
-<td>原発再評価</td>
-<td>大量・安定供給が可能</td>
-<td>廃棄物処理、建設コスト、社会的合意が重い</td>
-</tr>
-<tr>
-<td>再エネ拡大</td>
-<td>脱炭素と分散化に強い</td>
-<td>出力変動への対応が必要</td>
-</tr>
-<tr>
-<td>蓄電・系統整備</td>
-<td>補完策として重要</td>
-<td>一気に全て解決するわけではない</td>
-</tr>
-</tbody></table>
-<p>つまり、原発再評価には一定の合理性があります。しかし、それは「だから後始末は後でいい」という話ではありません。むしろ原発を使う議論が強まるほど、核のごみの問題は重くなります。</p>
-<p>## 5-4. 世界の原発稼働状況――「もう終わった技術」ではない</p>
-<p>「原発はもう終わりつつある産業」という印象を持つ人もいるかもしれませんが、世界の現状はもう少し複雑です。原発は縮小一辺倒ではなく、国によっては再評価と新設・延命が進んでいます。</p>
-<p>### 世界の原発をざっくり整理すると</p>
-<table class="data-table">
-<thead><tr>
-<th>項目</th>
-<th>概要</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>世界の運転中原子炉</td>
-<td>400基超の規模</td>
-</tr>
-<tr>
-<td>建設中原子炉</td>
-<td>70基超の規模</td>
-</tr>
-<tr>
-<td>世界電力に占める原子力比率</td>
-<td>約1割弱</td>
-</tr>
-<tr>
-<td>日本の運転中原子炉</td>
-<td>再稼働で徐々に増加</td>
-</tr>
-<tr>
-<td>背景</td>
-<td>脱炭素、エネルギー安全保障、AI電力需要</td>
-</tr>
-</tbody></table>
-<p>重要なのは、「原発があるかないか」の議論だけでは現実を読み切れないことです。現実には、原発を使い続ける国も多く、その結果として核廃棄物処理の問題も世界的に残り続けています。</p>
-<p>## 5-5. 中間保管とは何か――“応急処置”としての現実</p>
-<p>ここは初心者が一番誤解しやすいところです。</p>
-<p>使用済み燃料は、取り出してすぐ最終処分できるわけではありません。まず冷却が必要で、その後、乾式キャスクなどで保管されることが多いです。これが中間保管です。</p>
-<p>### 中間保管をかなり噛み砕いて言うと</p>
-      <p>- 原発の敷地や中間施設で、いったん安全に置いておく</p>
-      <p>- しかし、それは「終わり」ではなく「途中」</p>
-      <p>- 次の行き先が決まっていないと、途中が長期化する</p>
-<p>この構図は、高速道路で言えば「出口が詰まっているので、途中に巨大な駐車場を作って一時的に車を逃がしている」状態に近いです。</p>
-<p>### 中間保管のメリット・デメリット</p>
-<table class="data-table">
-<thead><tr>
-<th>項目</th>
-<th>メリット</th>
-<th>デメリット</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>中間保管</td>
-<td>当面の安全確保、敷地内逼迫の緩和</td>
-<td>最終処分の代わりにはならない</td>
-</tr>
-<tr>
-<td>乾式キャスク</td>
-<td>比較的安定した保管が可能</td>
-<td>長期的な出口問題は残る</td>
-</tr>
-<tr>
-<td>敷地外中間施設</td>
-<td>原発サイトの負担軽減</td>
-<td>地域合意が必要</td>
-</tr>
-</tbody></table>
-<p>ここで大切なのは、「中間」という名前に安心しすぎないことです。中間保管は必要ですが、最終処分が決まらなければ“長い中間”になってしまいます。</p>
-<p>## 5-6. 最終処分場の現状――世界でも本当に前に進んでいる国は多くない</p>
-<p>最終処分の本命とされるのは、地下深くの安定した地層に高レベル廃棄物を隔離する「深地層処分」です。これが王道とされる一方、実際に前に進めた国はまだ限られています。</p>
-<p>### 世界の最終処分の現在地</p>
-<table class="data-table">
-<thead><tr>
-<th>国</th>
-<th>位置づけ</th>
-<th>見るべきポイント</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>フィンランド</td>
-<td>最先頭</td>
-<td>オンカロで実装段階に最も近い</td>
-</tr>
-<tr>
-<td>スウェーデン</td>
-<td>かなり前進</td>
-<td><strong>2025年</strong>に関連工事が前進</td>
-</tr>
-<tr>
-<td>カナダ</td>
-<td>選定・審査が進む</td>
-<td>合意形成プロセスが長い</td>
-</tr>
-<tr>
-<td>スイス</td>
-<td>許認可段階</td>
-<td>慎重だが制度的には前進</td>
-</tr>
-<tr>
-<td>フランス</td>
-<td>再処理と並行して処分を進める</td>
-<td>「再処理しても処分は必要」の典型</td>
-</tr>
-<tr>
-<td>アメリカ</td>
-<td>技術大国だが苦戦</td>
-<td>分散保管が続き、政治的決着が難しい</td>
-</tr>
-<tr>
-<td>日本</td>
-<td>中間保管は少し前進</td>
-<td>最終処分は依然として重い課題</td>
-</tr>
-</tbody></table>
-<p>この比較から見えてくるのは、最終処分は単なる技術競争ではないということです。むしろ、「長期の約束を国が守ると信じてもらえるか」「地域とどう合意形成するか」が非常に大きい。</p>
-<p>### なぜフィンランドは先行できたのか</p>
-      <p>- 地質条件</p>
-      <p>- 制度の継続性</p>
-      <p>- 長期資金の手当て</p>
-      <p>- 地域との対話</p>
-      <p>- “原発を使うなら後始末までやる”という一貫性</p>
-<p>日本が学ぶべきなのは、魔法の新技術というより、この地味な積み上げかもしれません。</p>
-<p>## 5-7. よくある誤解――「再処理すれば問題は小さくなるのでは？」</p>
-<p>再処理は、使用済み燃料から再利用可能なウランやプルトニウムを取り出す考え方です。ここで誤解されやすいのは、「再処理 = 最終処分不要」ではないことです。</p>
-<p>### 再処理を正しく見るための整理</p>
-<table class="data-table">
-<thead><tr>
-<th>視点</th>
-<th>評価</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>資源利用</td>
-<td>一定の意味がある</td>
-</tr>
-<tr>
-<td>廃棄物の性質の変化</td>
-<td>ある程度変わる</td>
-</tr>
-<tr>
-<td>最終処分の必要性</td>
-<td>消えない</td>
-</tr>
-<tr>
-<td>政策全体の複雑さ</td>
-<td>むしろ増すこともある</td>
-</tr>
-</tbody></table>
-<p>つまり、再処理は「全て解決する技術」ではなく、「問題の形を変えながら一部を活用する仕組み」です。フランスが再処理を進めつつ、なお最終処分を必要としているのは、その象徴です。</p>
-<p>## 5-8. 核変換とは何か――夢の技術か、現実的な補助線か</p>
-<p>核変換は、長寿命の放射性核種に中性子を当てるなどして、より短寿命な核種や安定な核種へ変える考え方です。うまくいけば、管理負担を減らせる可能性があります。</p>
-<p>### 初心者向けに超ざっくり言うと</p>
-      <p>- 厄介な核種の“性質そのもの”を変えたい</p>
-      <p>- うまくいけば、処分負担を減らせる</p>
-      <p>- ただし、全部を都合よく消せるわけではない</p>
-<p>この技術は魅力的です。なぜなら、埋め方を工夫するだけでなく、「中身を変える」発想だからです。</p>
-<p>ただし、ここは夢を見すぎると危険です。</p>
-<p>### 核変換の強材料・弱材料</p>
-<table class="data-table">
-<thead><tr>
-<th>項目</th>
-<th>強材料</th>
-<th>弱材料</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>期待される効果</td>
-<td>長寿命核種の負担軽減</td>
-<td>全ての問題を消すわけではない</td>
-</tr>
-<tr>
-<td>技術</td>
-<td>ADSなど研究が進む</td>
-<td>巨大設備、コスト、エネルギーが必要</td>
-</tr>
-<tr>
-<td>政策的位置づけ</td>
-<td>補助線として有望</td>
-<td>深地層処分の代替ではない</td>
-</tr>
-</tbody></table>
-<p>つまり、核変換は「処分場をゼロにする魔法」ではなく、「処分負担を小さくする可能性のある有力な補助線」と見るのが妥当です。</p>
-<p>## 5-9. 核変換にはエネルギーが要る――そこで核融合は使えないのか</p>
-<p>ここは今回のテーマの中でもかなり面白い論点です。</p>
-<p>核変換には、大量の中性子や大規模設備が必要です。ならば、核融合で出る強い中性子やエネルギーを使って、核変換をもっと効率的にできないのか。これは発想としてかなり筋が良いです。</p>
-<p>実際、核融合・核分裂ハイブリッドのような構想は以前から研究されています。理論上は魅力があります。未来のエネルギーが、過去の負の遺産の処理を助ける、という絵も描けます。</p>
-<p>しかし、現時点ではここにも大きな注意が必要です。</p>
-<p>### 核融合をどう見るべきか</p>
-<table class="data-table">
-<thead><tr>
-<th>視点</th>
-<th>評価</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>将来のエネルギー源としての期待</td>
-<td>大きい</td>
-</tr>
-<tr>
-<td>核変換との相性</td>
-<td>理論上は面白い</td>
-</tr>
-<tr>
-<td>今すぐの実装性</td>
-<td>低い</td>
-</tr>
-<tr>
-<td>廃棄物問題の即時解決策か</td>
-<td>まだそうではない</td>
-</tr>
-<tr>
-<td>核融合自体の廃棄物</td>
-<td>ゼロではない</td>
-</tr>
-</tbody></table>
-<p>つまり、核融合は将来の有力な補助線にはなり得ても、「だから今は最終処分を考えなくていい」と言える段階ではありません。</p>
-<p>## 5-10. 反対意見や注意点も整理しておく</p>
-<p>このテーマは意見が割れやすいので、反対意見や注意点も整理しておきます。</p>
-<p>### よくある反対意見・疑問</p>
-<p>#### 1. そんなに大変なら原発をやめればいいのでは？</p>
-      <p>これは一理あります。新たな廃棄物発生を抑える方向には働くからです。ただし、すでに存在する使用済み燃料や高レベル廃棄物は消えません。今後の発電政策と、すでにある廃棄物の後始末は、重なるけれど別の問題でもあります。</p>
-<p>#### 2. 地上でずっと監視すればいいのでは？</p>
-      <p>直感的にはわかります。しかし数万年単位で考えたとき、人間社会や制度が安定して続く保証はありません。だからこそ深地層処分は、「人間が失敗しても自然条件側で守る」という思想を持っています。</p>
-<p>#### 3. どうせどこも引き受けないのでは？</p>
-      <p>これは現実的な大問題です。ただし、フィンランドやスウェーデンのように、時間をかけて前進している例はあります。つまり絶対不可能と決まったわけではありません。</p>
-<p>## 5-11. 結局どう見るべきか――私が重視したい視点</p>
-<p>このテーマで私が一番重視したいのは、未来技術への期待を持ちながらも、今ある後始末を軽く見ないことです。</p>
-<p>核変換には希望があります。核融合にも将来の可能性があります。しかし、それは「いま決めにくい最終処分の議論を先送りしていい理由」にはなりません。</p>
-<p>結局、順番としてはこう見るのが一番自然です。</p>
-
-      <div class="sec-head" id="sec-summary">
-        <span class="sec-num">99</span>
-        <h2>まとめ</h2>
-        <span class="sec-head-en">SUMMARY</span>
-      </div>
-<p>核のごみ問題は、原発の是非を超えて、「現代社会がどれだけ長い責任を引き受けられるか」を問うテーマです。</p>
-<p>AIやデータセンターで電力需要が増え、原発が再評価されるほど、この問題は重くなります。発電だけ見れば未来の話ですが、出口に回ると、地層処分や中間保管という極めて地味で重い現実が待っています。</p>
-<p>だからこそ、今後のエネルギー政策を見るときは、「電気をどれだけ作れるか」だけでなく、「作ったあと、何をどこへどう残すのか」まで含めて見る必要があります。</p>
-<p>### 3行まとめ</p>
-      <p>- 原発再評価が進むほど、核のごみ問題の重さも増す</p>
-      <p>- 中間保管は必要だが、最終処分の代わりではない</p>
-      <p>- 核変換や核融合は希望だが、今の後始末を止める理由にはならない</p>
-<p>※本記事は特定の投資判断を推奨するものではありません。エネルギー政策や関連企業を見る際も、制度変更、規制、技術開発の不確実性が大きいため、最終的な判断は一次資料や最新情報も含めてご自身でご確認ください。</p>
-
-
-      <div class="disclaimer">
-        <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-card-label">世界の運転中原子炉</div>
+          <div class="stat-card-number">400<span style="font-size:1.1rem;">基超</span></div>
+          <div class="stat-card-sub">原発は縮小一辺倒ではなく、再評価と新設・延命が進んでいる。</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">建設中原子炉</div>
+          <div class="stat-card-number">70<span style="font-size:1.1rem;">基超</span></div>
+          <div class="stat-card-sub">脱炭素・エネルギー安保・AI電力需要が背景。</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">原子力の世界電力比率</div>
+          <div class="stat-card-number">約1<span style="font-size:1.1rem;">割弱</span></div>
+          <div class="stat-card-sub">小さくはないシェア。廃棄物問題も世界的に残り続ける。</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">管理が必要な期間</div>
+          <div class="stat-card-number">数万<span style="font-size:1.1rem;">年</span></div>
+          <div class="stat-card-sub">高レベル廃棄物。他電源にはない「時間」の重さ。</div>
+        </div>
       </div>
 
-      <hr class="art-hr">
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">01</span>
+          <h2>テーマの全体像｜これは「原発の話」であり「時間の話」でもある</h2>
+          <span class="q-section-head-en">OVERVIEW</span>
+        </div>
+        <p>核廃棄物問題は、単なる技術論ではありません。むしろ本質は、<strong>「人間が数十年で得る利益」と「数万年単位で残る責任」をどうつなぐのか</strong>、という時間の問題です。原発は数十年動きます。しかし、使用済み燃料や高レベル放射性廃棄物は、それよりはるかに長く管理が必要です。ここに、他の電源にはない重さがあります。</p>
+
+        <p>初心者向けにざっくり言うと、原発の議論には次の<strong>3層</strong>があります。</p>
+
+        <table class="data-table">
+          <thead><tr><th>層</th><th>何を考えるか</th><th>よく語られるか</th></tr></thead>
+          <tbody>
+            <tr><td><strong>発電</strong></td><td>電気を安定して作れるか</td><td>よく語られる</td></tr>
+            <tr><td><strong>安全</strong></td><td>事故リスクをどう見るか</td><td>かなり語られる</td></tr>
+            <tr><td><strong>後始末</strong></td><td>使用済み燃料や高レベル廃棄物をどうするか</td><td>相対的に語られにくい</td></tr>
+          </tbody>
+        </table>
+
+        <p>最近のAI・データセンター需要の話で原発が再評価される一方、実は一番答えを出しにくいのがこの<strong>「後始末」</strong>です。今回の南鳥島ニュースが重く見えるのも、まさにここです。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">02</span>
+          <h2>南鳥島のニュースは何が重いのか</h2>
+          <span class="q-section-head-en">MINAMITORISHIMA</span>
+        </div>
+        <p>まず誤解してはいけないのは、南鳥島の件は<strong>「最終処分場に決まった」という話ではない</strong>ことです。現時点で焦点になっているのは文献調査であり、机上で地質や既存資料を確認する初期段階にすぎません。</p>
+
+        <p>ただし、政治的・社会的な意味は決して軽くありません。なぜなら、最終処分の議論は「調べるだけ」であっても、地域に強いイメージを残すからです。制度上は初期段階でも、住民感情としては<strong>「候補地化の入口」</strong>に見える。ここに、制度と感情のズレがあります。</p>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">制度としては</span>
+            <h3>文献調査＝建設決定ではない</h3>
+            <p>地質や既存資料を机上で確認する初期段階。ここから概要調査・精密調査と続き、最終処分場の選定は長い階段の一段目にすぎません。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">社会的には</span>
+            <h3>かなり重い入口</h3>
+            <p>住民感情としては「候補地化の入口」に見える。制度と感情のズレを理解しないと、ニュースの意味を読み違えます。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">03</span>
+          <h2>なぜ今また原発なのか｜AIとデータセンターが背景にある</h2>
+          <span class="q-section-head-en">WHY NOW</span>
+        </div>
+        <p>ここ数年の原発再評価は、単に「脱炭素だから原発」という一本線ではありません。AIの普及、データセンターの増設、半導体工場の新設、産業の電化などが重なり、<strong>「常に大量の電力を安定供給できる電源」</strong>が改めて求められています。</p>
+
+        <p>太陽光や風力には大きな役割がありますが、天候や時間帯に左右される面があります。そこで、24時間365日止めにくい負荷を抱えるデータセンター側から見ると、ベースロード電源の価値が再評価されやすいのです。</p>
+
+        <table class="data-table">
+          <thead><tr><th>論点</th><th>強材料</th><th>弱材料・注意点</th></tr></thead>
+          <tbody>
+            <tr><td>AI・データセンターの電力需要</td><td>安定供給の価値が高い</td><td>需要見通しは変動する可能性がある</td></tr>
+            <tr><td>原発再評価</td><td>大量・安定供給が可能</td><td>廃棄物処理、建設コスト、社会的合意が重い</td></tr>
+            <tr><td>再エネ拡大</td><td>脱炭素と分散化に強い</td><td>出力変動への対応が必要</td></tr>
+            <tr><td>蓄電・系統整備</td><td>補完策として重要</td><td>一気に全て解決するわけではない</td></tr>
+          </tbody>
+        </table>
+
+        <p>つまり、原発再評価には一定の合理性があります。しかし、それは<strong>「だから後始末は後でいい」という話ではありません</strong>。むしろ原発を使う議論が強まるほど、核のごみの問題は重くなります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">04</span>
+          <h2>中間保管と最終処分｜似て非なる「応急処置」と「出口」</h2>
+          <span class="q-section-head-en">INTERIM VS FINAL</span>
+        </div>
+        <p>ここは初心者が一番誤解しやすいところです。使用済み燃料は、取り出してすぐ最終処分できるわけではありません。まず冷却が必要で、その後、乾式キャスクなどで保管されることが多い。これが<strong>中間保管</strong>です。</p>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🅿️</div>
+            <div class="pillar-title">中間保管（応急処置）</div>
+            <div class="pillar-desc">原発の敷地や中間施設で、いったん安全に置いておく。冷却・乾式キャスクなど。<strong>「終わり」ではなく「途中」</strong>。</div>
+            <div class="pillar-example">💡 たとえ：高速道路の途中にある巨大な駐車場</div>
+          </div>
+          <div class="pillar target">
+            <div class="pillar-icon">🏔️</div>
+            <div class="pillar-title">最終処分（本当の出口）</div>
+            <div class="pillar-desc">地下深くの安定した地層に高レベル廃棄物を隔離する「深地層処分」。<strong>次の行き先が決まらないと、中間が長期化</strong>する。</div>
+            <div class="pillar-example">💡 たとえ：詰まった高速道路の本当の出口</div>
+          </div>
+        </div>
+
+        <table class="data-table">
+          <thead><tr><th>項目</th><th>メリット</th><th>デメリット</th></tr></thead>
+          <tbody>
+            <tr><td><strong>中間保管</strong></td><td>当面の安全確保、敷地内逼迫の緩和</td><td>最終処分の代わりにはならない</td></tr>
+            <tr><td><strong>乾式キャスク</strong></td><td>比較的安定した保管が可能</td><td>長期的な出口問題は残る</td></tr>
+            <tr><td><strong>敷地外中間施設</strong></td><td>原発サイトの負担軽減</td><td>地域合意が必要</td></tr>
+          </tbody>
+        </table>
+
+        <p>大切なのは、<strong>「中間」という名前に安心しすぎないこと</strong>。中間保管は必要ですが、最終処分が決まらなければ「長い中間」になってしまいます。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">05</span>
+          <h2>世界の最終処分｜本当に前に進んでいる国は多くない</h2>
+          <span class="q-section-head-en">GLOBAL MAP</span>
+        </div>
+        <p>最終処分の本命とされるのは、地下深くの安定した地層に高レベル廃棄物を隔離する<strong>「深地層処分」</strong>です。これが王道とされる一方、実際に前に進めた国はまだ限られています。</p>
+
+        <table class="data-table">
+          <thead><tr><th>国</th><th>位置づけ</th><th>見るべきポイント</th></tr></thead>
+          <tbody>
+            <tr><td><strong>フィンランド</strong></td><td>最先頭</td><td>オンカロで実装段階に最も近い</td></tr>
+            <tr><td><strong>スウェーデン</strong></td><td>かなり前進</td><td><strong>2025年</strong>に関連工事が前進</td></tr>
+            <tr><td><strong>カナダ</strong></td><td>選定・審査が進む</td><td>合意形成プロセスが長い</td></tr>
+            <tr><td><strong>スイス</strong></td><td>許認可段階</td><td>慎重だが制度的には前進</td></tr>
+            <tr><td><strong>フランス</strong></td><td>再処理と並行して処分を進める</td><td>「再処理しても処分は必要」の典型</td></tr>
+            <tr><td><strong>アメリカ</strong></td><td>技術大国だが苦戦</td><td>分散保管が続き、政治的決着が難しい</td></tr>
+            <tr><td><strong>日本</strong></td><td>中間保管は少し前進</td><td>最終処分は依然として重い課題</td></tr>
+          </tbody>
+        </table>
+
+        <p>この比較から見えてくるのは、最終処分は単なる技術競争ではないということです。むしろ、<strong>「長期の約束を国が守ると信じてもらえるか」「地域とどう合意形成するか」</strong>が非常に大きい。</p>
+
+        <div class="stock-label">なぜフィンランドは先行できたのか</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box">
+            <div class="pro-box-label">✓ 成功要因</div>
+            地質条件／制度の継続性／長期資金の手当て／地域との対話／「原発を使うなら後始末までやる」という一貫性
+          </div>
+          <div class="con-box">
+            <div class="con-box-label">✗ 日本が学ぶべき点</div>
+            魔法の新技術ではなく「地味な積み上げ」。短期政権で約束がブレると、地域は動かない。
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">06</span>
+          <h2>再処理・核変換・核融合｜それぞれ何ができて何ができないか</h2>
+          <span class="q-section-head-en">TECH OPTIONS</span>
+        </div>
+        <p>「新技術で解決できないのか」という期待はよく出てきます。ここでは再処理・核変換・核融合を、<strong>できること／できないこと</strong>の3枚カードで整理します。</p>
+
+        <div class="risk-grid">
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">1</span>
+              <span class="risk-title">再処理</span>
+            </div>
+            <div class="risk-body">使用済み燃料から再利用可能なウランやプルトニウムを取り出す。<strong>資源利用には一定の意味</strong>があるが、最終処分の必要性は消えない。</div>
+            <div class="risk-example">⚠ フランスは再処理＋処分を並行</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">2</span>
+              <span class="risk-title">核変換</span>
+            </div>
+            <div class="risk-body">長寿命の放射性核種に中性子を当て、短寿命・安定な核種へ変える。<strong>管理負担を減らせる可能性</strong>はあるが、全てを消せるわけではない。</div>
+            <div class="risk-example">⚠ 処分場ゼロの魔法ではない</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">3</span>
+              <span class="risk-title">核融合</span>
+            </div>
+            <div class="risk-body">将来エネルギー源として期待大。強い中性子を核変換に使うハイブリッド構想もある。ただし<strong>今すぐの実装性は低い</strong>。</div>
+            <div class="risk-example">⚠ 核融合自体の廃棄物もゼロではない</div>
+          </div>
+        </div>
+
+        <table class="data-table">
+          <thead><tr><th>視点</th><th>再処理の評価</th></tr></thead>
+          <tbody>
+            <tr><td>資源利用</td><td>一定の意味がある</td></tr>
+            <tr><td>廃棄物の性質の変化</td><td>ある程度変わる</td></tr>
+            <tr><td>最終処分の必要性</td><td><strong>消えない</strong></td></tr>
+            <tr><td>政策全体の複雑さ</td><td>むしろ増すこともある</td></tr>
+          </tbody>
+        </table>
+
+        <div class="stock-label">核変換の強材料・弱材料</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box">
+            <div class="pro-box-label">✓ PROS</div>
+            長寿命核種の負担軽減／ADS（加速器駆動未臨界炉）など研究進展／処分場負担を小さくできる可能性
+          </div>
+          <div class="con-box">
+            <div class="con-box-label">✗ CONS</div>
+            全ての問題を消すわけではない／巨大設備・コスト・エネルギーが必要／深地層処分の代替ではない
+          </div>
+        </div>
+
+        <div class="stock-label">核融合をどう見るべきか</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box">
+            <div class="pro-box-label">✓ PROS</div>
+            将来のエネルギー源としての期待は大きい／核変換との理論上の相性は面白い／未来の電源が過去の負債処理を助ける絵
+          </div>
+          <div class="con-box">
+            <div class="con-box-label">✗ CONS</div>
+            今すぐの実装性は低い／廃棄物問題の即時解決策ではない／核融合自体の廃棄物もゼロではない
+          </div>
+        </div>
+
+        <p>つまり、<strong>核変換は「処分場をゼロにする魔法」ではなく、「処分負担を小さくする可能性のある有力な補助線」</strong>。核融合も将来の補助線にはなり得ても、「だから今は最終処分を考えなくていい」と言える段階ではありません。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">07</span>
+          <h2>よくある反対意見・疑問</h2>
+          <span class="q-section-head-en">FAQ</span>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">そんなに大変なら原発をやめればいいのでは？</div>
+            <div class="faq-a">一理あります。新たな廃棄物発生を抑える方向には働くからです。ただし、<strong>すでに存在する使用済み燃料や高レベル廃棄物は消えません</strong>。今後の発電政策と、すでにある廃棄物の後始末は、重なるけれど別の問題でもあります。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">地上でずっと監視すればいいのでは？</div>
+            <div class="faq-a">直感的にはわかります。しかし<strong>数万年単位で考えたとき、人間社会や制度が安定して続く保証はありません</strong>。だからこそ深地層処分は、「人間が失敗しても自然条件側で守る」という思想を持っています。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">どうせどこも引き受けないのでは？</div>
+            <div class="faq-a">これは現実的な大問題です。ただし、<strong>フィンランドやスウェーデンのように時間をかけて前進している例</strong>はあります。つまり絶対不可能と決まったわけではありません。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">再処理すれば問題は小さくなるのでは？</div>
+            <div class="faq-a">「再処理＝最終処分不要」ではありません。<strong>再処理は問題の形を変えながら一部を活用する仕組み</strong>であり、フランスが再処理を進めつつなお最終処分を必要としているのは、その象徴です。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">08</span>
+          <h2>結論｜順番で考える</h2>
+          <span class="q-section-head-en">CONCLUSION</span>
+        </div>
+        <p>このテーマで私が一番重視したいのは、<strong>未来技術への期待を持ちながらも、今ある後始末を軽く見ないこと</strong>です。核変換には希望があります。核融合にも将来の可能性があります。しかし、それは「いま決めにくい最終処分の議論を先送りしていい理由」にはなりません。</p>
+
+        <div class="matrix">
+          <div class="matrix-label">POLICY SEQUENCING</div>
+          <h3>「原発を動かすか」ではなく「動かしたあと、何をどこで引き受けるか」</h3>
+          <div class="matrix-grid">
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">Step 1</span>
+                <span class="matrix-cell-ticker">中間保管</span>
+              </div>
+              <div class="matrix-cell-desc">乾式キャスクなどで当面の安全を確保。ただし「長い中間」にしない意志を持つ。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">Step 2</span>
+                <span class="matrix-cell-ticker">最終処分</span>
+              </div>
+              <div class="matrix-cell-desc">深地層処分の地点選定・合意形成を地道に前進。フィンランド型の積み上げを参考に。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">Step 3</span>
+                <span class="matrix-cell-ticker">核変換</span>
+              </div>
+              <div class="matrix-cell-desc">処分負担を減らす補助線として研究継続。代替ではなく上乗せの位置づけ。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">Step 4</span>
+                <span class="matrix-cell-ticker">核融合</span>
+              </div>
+              <div class="matrix-cell-desc">将来の本丸電源＋核変換との融合を夢として追う。ただし今の出口問題は待たない。</div>
+            </div>
+          </div>
+        </div>
+
+        <p>核のごみ問題は、原発の是非を超えて、<strong>「現代社会がどれだけ長い責任を引き受けられるか」</strong>を問うテーマです。AIやデータセンターで電力需要が増え、原発が再評価されるほど、この問題は重くなります。発電だけ見れば未来の話ですが、出口に回ると、地層処分や中間保管という極めて地味で重い現実が待っています。だからこそ、今後のエネルギー政策を見るときは、「電気をどれだけ作れるか」だけでなく、<strong>「作ったあと、何をどこへどう残すのか」</strong>まで含めて見る必要があります。</p>
+
+        <div class="disclaimer">
+          <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品・個別銘柄への投資、政治的行動を推奨するものではありません。エネルギー政策や関連企業を見る際も、制度変更・規制・技術開発の不確実性が大きいため、最終的な判断は一次資料や最新情報も含めてご自身でご確認ください。
+        </div>
+      </div>
 
       <div class="related-head">RELATED ARTICLES</div>
       <div class="related-list">
-        <a href="../" class="related-item">
-          <span class="related-tag">一覧</span>
-          <span class="related-title">経済・株式の記事一覧へ</span>
-        </a>
+        <a href="../2026-04-15-artificial-fuel/" class="related-item"><span class="related-tag">エネルギー</span><span class="related-title">人工燃料は本当に現実解か　合成燃料・e-fuel の可能性とコストを整理 2026.04.15</span></a>
+        <a href="../2026-04-13-fusion-stocks/" class="related-item"><span class="related-tag">株式</span><span class="related-title">【夢の電源】核融合関連株おすすめ5選　本命・安全株・夢株を一気に整理 2026.04.13</span></a>
+        <a href="../2026-04-13-oil-boj/" class="related-item"><span class="related-tag">金融政策</span><span class="related-title">原油高で利上げは正解か？供給ショックと日銀の難題 2026.04.13</span></a>
+        <a href="../" class="related-item"><span class="related-tag">一覧</span><span class="related-title">経済・株式の記事一覧へ</span></a>
       </div>
-
     </main>
 
     <aside class="art-sidebar">
       <div class="sidebar-toc">
         <div class="sidebar-toc-label">目次</div>
         <ul class="toc-list">
-          <li><a href="#sec-conclusion"><span class="toc-n">00</span>先に結論</a></li>
-
-          <li><a href="#sec-summary"><span class="toc-n">99</span>まとめ</a></li>
+          <li><a href="#"><span class="toc-n">01</span>全体像（時間の話）</a></li>
+          <li><a href="#"><span class="toc-n">02</span>南鳥島の意味</a></li>
+          <li><a href="#"><span class="toc-n">03</span>なぜ今また原発</a></li>
+          <li><a href="#"><span class="toc-n">04</span>中間保管vs最終処分</a></li>
+          <li><a href="#"><span class="toc-n">05</span>世界の最終処分</a></li>
+          <li><a href="#"><span class="toc-n">06</span>再処理・核変換・核融合</a></li>
+          <li><a href="#"><span class="toc-n">07</span>FAQ</a></li>
+          <li><a href="#"><span class="toc-n">08</span>結論</a></li>
         </ul>
       </div>
       <div class="sidebar-meta">
         <div class="sidebar-meta-label">TAGS</div>
-        <div class="tag-cloud"><span class="tag-pill">核廃棄物</span><span class="tag-pill">原発</span><span class="tag-pill">南鳥島</span><span class="tag-pill">最終処分</span><span class="tag-pill">エネルギー政策</span></div>
+        <div class="tag-cloud">
+          <span class="tag-pill">核廃棄物</span>
+          <span class="tag-pill">原発</span>
+          <span class="tag-pill">南鳥島</span>
+          <span class="tag-pill">最終処分</span>
+          <span class="tag-pill">深地層処分</span>
+          <span class="tag-pill">中間保管</span>
+          <span class="tag-pill">核変換</span>
+          <span class="tag-pill">核融合</span>
+          <span class="tag-pill">AI電力需要</span>
+          <span class="tag-pill">エネルギー政策</span>
+        </div>
       </div>
     </aside>
   </div>
@@ -538,6 +709,5 @@
   </footer>
 
   <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/article-enhance.js?v=20260418e" defer></script>
 </body>
 </html>
