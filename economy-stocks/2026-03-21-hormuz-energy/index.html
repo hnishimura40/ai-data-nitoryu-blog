@@ -15,91 +15,258 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
-    .art-hero { background: linear-gradient(135deg, #0d1e38 0%, #d97706 100%); padding: 44px 24px; }
-    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; }
-    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
-    .art-cat-main { background: #d97706; color: #fff; }
-    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.95; }
-    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.55); display: flex; gap: 16px; flex-wrap: wrap; }
-    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
-    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
-    .art-body { min-width: 0; }
-    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
-    .art-body strong { color: #1a2744; }
-    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
-    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
-    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
-    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #d97706; background: #f0f4fb; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
-    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
-    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
-    @media (max-width: 560px) { .sec-head-en { display: none; } }
-    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #d97706; }
-    .summary-box { background: linear-gradient(135deg, #f0f6ff, #e6eefb); border: 1px solid #b5cdf0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
-    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #d97706; margin-bottom: 12px; }
-    .summary-box ul { margin: 0; }
-    .summary-box li { font-size: 0.87rem; }
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; display: block; overflow-x: auto; }
-    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
-    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:nth-child(even) td { background: #f8fafd; }
-    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
-    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
-    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
-    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
-    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px;  max-width: 640px; margin-left: auto !important; margin-right: auto !important; }
-    .video-box-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 10px; }
-    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
-    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
-    .related-list { display: flex; flex-direction: column; gap: 10px; }
-    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
-    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
-    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #d97706; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
-    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
-    .art-sidebar { font-size: 0.88rem; }
-    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
-    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
-    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
-    .toc-list { list-style: none; padding: 0; margin: 0; }
-    .toc-list li { border-bottom: 1px solid #e8ecf4; }
-    .toc-list li:last-child { border-bottom: none; }
-    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
-    .toc-list a:hover { color: #d97706; }
-    .toc-n { font-size: 0.62rem; font-weight: 900; color: #d97706; flex-shrink: 0; width: 22px; }
-    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
-    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
-    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
-    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
-  
-    .art-hero { padding: 24px 0 0 0 !important; }
-    .art-hero-thumb { width: 100%; max-width: 1100px; max-height: 360px; object-fit: cover; display: block; margin: 0 auto; }
-    .art-hero-title-block { max-width: var(--max-width, 1100px); margin: 0 auto; padding: 22px 24px 18px !important; }
-
-    .art-body > main .sec-head + p,
-    .art-body .sec-head + p {
-      background: linear-gradient(135deg, #f7f9fc, #eef3fb);
-      border-left: 4px solid #1a4fa0;
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      font-weight: 500;
-      margin-top: 0;
+    :root {
+      --q-accent:#7c3aed;
+      --q-accent2:#06b6d4;
+      color-scheme: light dark;
     }
-    .data-table th { font-size: 0.82rem; letter-spacing: 0.04em; }
-    .data-table { border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-    .data-table strong { color: #1a4fa0; font-weight: 900; }
-    .art-body p strong { color: #1a4fa0; font-weight: 800; background: linear-gradient(transparent 62%, #ffe58a 62%, #ffe58a 92%, transparent 92%); padding: 0 2px; }
-    .art-body p { text-align: justify; text-justify: inter-ideograph; }
-    .art-body h2 + p, .art-body .sec-sub + p { margin-top: 14px; }
+    html, body { background-color: #ffffff; color: #2a2e3c; }
 
-    /* article-body-enhanced */
+    /* ===== ダークモード：暗い配色 + 視認性重視 ===== */
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0b1020 !important; color: #d8dfef !important; }
+
+      .art-body p, .art-body li { color: #d8dfef !important; }
+
+      .art-body p strong, .art-body li strong {
+        color: #c4b5fd !important;
+        background: rgba(139,92,246,0.15) !important;
+        padding: 0 4px !important;
+        border-radius: 3px !important;
+      }
+
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #a78bfa !important; }
+      .stat-card-number { color: #f5f7ff !important; }
+      .stat-card-sub { color: #9aa3bf !important; }
+
+      .layer-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 6px 24px -8px rgba(0,0,0,0.4) !important; }
+      .layer-card h3 { color: #f5f7ff !important; }
+      .layer-card p { color: #c9d0e5 !important; }
+      .layer-card.tech .layer-card-tag { background: rgba(6,182,212,0.2) !important; color: #7dd3fc !important; }
+      .layer-card.market .layer-card-tag { background: rgba(245,158,11,0.18) !important; color: #fcd34d !important; }
+
+      .q-section-head { border-bottom-color: #2a3150 !important; }
+      .q-section-head h2 { color: #f5f7ff !important; }
+      .q-section-head-en { color: #5a6488 !important; }
+
+      .pillar { background: linear-gradient(180deg, #181c2e 0%, #141828 100%) !important; border-color: #2a3150 !important; }
+      .pillar-title { color: #f5f7ff !important; }
+      .pillar-desc { color: #b9c1d9 !important; }
+      .pillar-example { background: #0b1020 !important; border-color: #2a3150 !important; color: #a5adc8 !important; }
+      .pillar.target { background: linear-gradient(180deg, #2a1111 0%, #1a0a0a 100%) !important; border-color: #ef4444 !important; }
+      .pillar.target .pillar-desc, .pillar.target .pillar-title { color: #fecaca !important; }
+
+      .risk-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .risk-title { color: #f5f7ff !important; }
+      .risk-body { color: #b9c1d9 !important; }
+      .risk-example { background: rgba(252,211,77,0.12) !important; color: #fcd34d !important; }
+
+      .faq-item { background: #141828 !important; border-color: #2a3150 !important; border-left-color: #a78bfa !important; }
+      .faq-q { color: #f5f7ff !important; }
+      .faq-a { color: #c9d0e5 !important; }
+
+      .pro-box { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.05)) !important; border-color: rgba(16,185,129,0.4) !important; color: #86efac !important; }
+      .con-box { background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(239,68,68,0.05)) !important; border-color: rgba(239,68,68,0.4) !important; color: #fca5a5 !important; }
+
+      .data-table { box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5) !important; }
+      .data-table td { background-color: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+      .data-table strong { color: #c4b5fd !important; background: none !important; }
+
+      .sidebar-toc { background: linear-gradient(145deg, #141828, #0f1322) !important; border-color: #2a3150 !important; }
+      .sidebar-toc-label { color: #a78bfa !important; }
+      .toc-list a { color: #b9c1d9 !important; }
+      .toc-list a:hover { color: #c4b5fd !important; }
+      .toc-list li { border-bottom-color: #2a3150 !important; }
+      .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+      .sidebar-meta-label { color: #a78bfa !important; }
+      .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+
+      .related-item { background: #141828 !important; border-color: #2a3150 !important; }
+      .related-title { color: #f5f7ff !important; }
+      .related-head { color: #a78bfa !important; border-bottom-color: #2a3150 !important; }
+
+      .disclaimer { background: rgba(217,119,6,0.1) !important; color: #fcd34d !important; border-color: rgba(217,119,6,0.4) !important; }
+
+      .site-header { background: #0b1020 !important; border-bottom: 1px solid #2a3150 !important; }
+      .breadcrumb { background: #0f1322 !important; }
+      .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
+    }
+    .art-hero { background: radial-gradient(circle at 20% 0%, #1e0b4a 0%, #0a0a2a 40%, #050514 80%); padding: 0; position: relative; overflow: hidden; }
+    .art-hero-thumb { width: 100%; max-width: 1200px; max-height: 420px; object-fit: cover; display: block; margin: 0 auto; filter: saturate(1.1); }
+    .art-hero-title-block { max-width: 1100px; margin: 0 auto; padding: 26px 28px 22px; position: relative; z-index: 2; }
+    .art-hero-cats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; }
+    .art-cat-tech { background: linear-gradient(90deg, #7c3aed, #06b6d4); color: #fff; }
+    .art-cat-warn { background: #ef4444; color: #fff; }
+    .art-cat-stock { background: #10b981; color: #fff; }
+    .art-hero-h1 { font-size: clamp(1.2rem, 2.8vw, 1.8rem); font-weight: 900; color: #fff; line-height: 1.4; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .art-hero-meta { font-size: 0.78rem; color: rgba(255,255,255,0.65); display: flex; gap: 18px; }
+
+    .art-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 44px 24px 80px; align-items: flex-start; }
+    @media (max-width: 900px) { .art-layout { grid-template-columns: 1fr; padding: 28px 16px 60px; gap: 0; } }
+
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.96rem; line-height: 2; color: #2a2e3c; margin-bottom: 18px; }
+    .art-body strong { color: #7c3aed; font-weight: 800; }
+
+    .hero-summary {
+      background: linear-gradient(135deg, #0f0a2e 0%, #1a0a4e 60%, #061733 100%);
+      border-radius: 20px; padding: 32px 36px; color: #fff;
+      margin-bottom: 40px; position: relative; overflow: hidden;
+    }
+    .hero-summary::before {
+      content: ""; position: absolute; top: -40%; right: -10%;
+      width: 60%; height: 180%;
+      background: radial-gradient(ellipse, rgba(124,58,237,.35), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-summary-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 14px; }
+    .hero-summary h2 { font-size: 1.35rem; font-weight: 900; color: #fff; margin: 0 0 14px; line-height: 1.5; }
+    .hero-summary p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.95; margin: 0; }
+
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0 36px; }
+    .stat-card {
+      background: linear-gradient(145deg, #fff, #f5f7ff);
+      border: 1px solid #e4e8f4; border-radius: 16px; padding: 22px 24px;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before { content: ""; position: absolute; inset: 0 auto auto 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--q-accent), var(--q-accent2)); }
+    .stat-card-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; text-transform: uppercase; margin-bottom: 10px; }
+    .stat-card-number { font-family: 'Poppins', sans-serif; font-size: 2.4rem; font-weight: 900; color: #0f0a2e; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; font-style: italic; }
+    .stat-card-sub { font-size: 0.82rem; color: #5a6380; line-height: 1.6; }
+
+    .layer-split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 28px 0 36px; }
+    @media (max-width: 720px) { .layer-split { grid-template-columns: 1fr; } }
+    .layer-card { background: #fff; border-radius: 16px; padding: 24px 26px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 6px 24px -8px rgba(20, 30, 80, 0.12); }
+    .layer-card.tech { border-top: 5px solid #06b6d4; }
+    .layer-card.market { border-top: 5px solid #f59e0b; }
+    .layer-card-tag { display: inline-block; font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; }
+    .layer-card.tech .layer-card-tag { background: #e0f7fd; color: #0891b2; }
+    .layer-card.market .layer-card-tag { background: #fef3c7; color: #b45309; }
+    .layer-card h3 { font-size: 1.1rem; font-weight: 900; color: #0f0a2e; margin: 0 0 10px; }
+    .layer-card p { margin: 0; font-size: 0.92rem; line-height: 1.85; color: #2a2e3c; }
+
+    .q-section { margin: 56px 0 0; }
+    .q-section-head { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 3px solid #e4e8f4; }
+    .q-section-num { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 900; font-style: italic; background: linear-gradient(135deg, var(--q-accent), var(--q-accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; flex-shrink: 0; }
+    .q-section-head h2 { font-size: 1.3rem; font-weight: 900; color: #0f0a2e; margin: 0; line-height: 1.4; }
+    .q-section-head-en { margin-left: auto; font-size: 0.7rem; font-weight: 800; letter-spacing: .2em; color: #a3adc7; flex-shrink: 0; }
+    @media (max-width: 560px) { .q-section-head-en { display: none; } }
+
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar { background: linear-gradient(180deg, #fafbff 0%, #f0f3fa 100%); border-radius: 14px; padding: 22px 24px; border: 1px solid #dbe2f0; position: relative; }
+    .pillar-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .pillar-title { font-size: 1rem; font-weight: 900; color: #0f0a2e; margin-bottom: 8px; }
+    .pillar-desc { font-size: 0.88rem; color: #4a5270; line-height: 1.7; margin-bottom: 10px; }
+    .pillar-example { background: #fff; border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: #5a6380; border: 1px solid #e4e8f4; }
+    .pillar.target { border: 2px solid #ef4444; background: linear-gradient(180deg, #fff5f5 0%, #ffe4e4 100%); }
+    .pillar.target::after { content: "実権側"; position: absolute; top: -10px; right: 14px; background: #ef4444; color: #fff; font-size: 0.68rem; font-weight: 900; letter-spacing: .1em; padding: 3px 10px; border-radius: 3px; }
+
+    .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .risk-grid { grid-template-columns: 1fr; } }
+    .risk-card { background: #fff; border-radius: 14px; padding: 20px; border: 1px solid #e4e8f4; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .risk-card-head { display: flex; align-items: center; gap: 10px; }
+    .risk-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #ef4444, #f59e0b); color: #fff; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; }
+    .risk-title { font-size: 0.95rem; font-weight: 900; color: #0f0a2e; line-height: 1.4; }
+    .risk-body { font-size: 0.86rem; color: #4a5270; line-height: 1.75; }
+    .risk-example { margin-top: auto; padding: 10px 14px; background: #fef3c7; border-radius: 8px; font-size: 0.8rem; color: #7c2d12; font-weight: 500; }
+
+    .matrix { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 50%, #061733 100%); border-radius: 20px; padding: 32px 30px; color: #fff; margin: 28px 0 36px; }
+    .matrix-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 18px; }
+    .matrix h3 { font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0 0 20px; }
+    .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 560px) { .matrix-grid { grid-template-columns: 1fr; grid-template-rows: auto; } }
+    .matrix-cell { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 18px 20px; backdrop-filter: blur(8px); }
+    .matrix-cell-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .matrix-cell-type { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #a78bfa; }
+    .matrix-cell-ticker { font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 900; font-style: italic; color: #fff; }
+    .matrix-cell-desc { font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
+
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 30px; }
+    .faq-item { background: #fff; border-left: 4px solid var(--q-accent); border-radius: 0 12px 12px 0; padding: 18px 22px; border-top: 1px solid #e4e8f4; border-right: 1px solid #e4e8f4; border-bottom: 1px solid #e4e8f4; }
+    .faq-q, .faq-a { position: relative; padding-left: 34px; min-height: 24px; display: block; }
+    .faq-q { font-size: 0.95rem; font-weight: 800; color: #0f0a2e; margin-bottom: 12px; line-height: 1.6; }
+    .faq-a { font-size: 0.88rem; color: #4a5270; line-height: 1.85; }
+    .faq-q::before, .faq-a::before {
+      position: absolute; left: 0; top: 2px;
+      width: 24px; height: 24px; border-radius: 50%;
+      font-size: 0.7rem; font-weight: 900; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+    }
+    .faq-q::before { content: "Q"; background: #7c3aed; }
+    .faq-a::before { content: "A"; background: #06b6d4; }
+    @media (max-width: 560px) {
+      .faq-item { padding: 16px 16px 14px; }
+      .faq-q, .faq-a { padding-left: 30px; }
+      .faq-q::before, .faq-a::before { width: 22px; height: 22px; font-size: 0.65rem; }
+    }
+
+    .pros-cons-stock { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 720px) { .pros-cons-stock { grid-template-columns: 1fr; } }
+    .pro-box, .con-box { padding: 16px 18px; border-radius: 12px; font-size: 0.85rem; line-height: 1.75; }
+    .pro-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #86efac; color: #065f46; }
+    .con-box { background: linear-gradient(135deg, #fef2f2, #fee2e2); border: 1px solid #fca5a5; color: #991b1b; }
+    .pro-box-label, .con-box-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; margin-bottom: 8px; text-transform: uppercase; }
+    .pro-box ul, .con-box ul { margin: 4px 0 0; padding-left: 1.2em; }
+    .pro-box li, .con-box li { margin-bottom: 4px; }
+    .stock-label { font-size: 1rem; font-weight: 800; color: #0f0a2e; margin: 24px 0 10px; padding-left: 12px; border-left: 4px solid #7c3aed; }
+
+    .q-summary { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 100%); border-radius: 16px; padding: 28px 30px; margin: 36px 0 28px; }
+    .q-summary-label { font-size: 0.7rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 14px; }
+    .q-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 12px; }
+    .q-summary li { font-size: 0.92rem; color: rgba(255,255,255,0.92); line-height: 1.8; }
+    .q-summary li::marker { color: #facc15; font-weight: 900; }
+
+    .timeline { display: flex; justify-content: space-between; margin: 28px 0 36px; position: relative; padding: 0 20px; }
+    .timeline::before { content: ""; position: absolute; top: 32px; left: 40px; right: 40px; height: 3px; background: linear-gradient(90deg, #10b981, #06b6d4, #f59e0b, #ef4444); border-radius: 2px; }
+    .tl-stop { text-align: center; flex: 1; position: relative; }
+    .tl-dot { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 3px solid var(--q-accent); margin: 22px auto 10px; position: relative; z-index: 2; }
+    .tl-year { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1rem; font-style: italic; color: #0f0a2e; margin-bottom: 4px; }
+    .tl-label { font-size: 0.76rem; color: #5a6380; line-height: 1.5; padding: 0 4px; }
+
+    .video-box { background: linear-gradient(135deg, #0f0a2e, #1e0b4a); border-radius: 16px; padding: 20px; margin: 28px auto 40px; max-width: 700px; }
+    .video-box-label { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 12px; }
+    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; }
+    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 18px 0 28px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px -4px rgba(20,30,80,0.08); }
+    .data-table th { background: linear-gradient(135deg, #0f0a2e, #2a1065); color: #fff; padding: 12px 14px; text-align: left; font-weight: 800; letter-spacing: .04em; font-size: 0.8rem; }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid #edf0f7; color: #2a2e3c; vertical-align: middle; }
+    .data-table tr:nth-child(even) td { background: #fafbff; }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .disclaimer { background: linear-gradient(135deg, #fff9f0, #fef3c7); border-left: 4px solid #d97706; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #7c2d12; }
+
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 900px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; position: static !important; max-height: none !important; overflow: visible !important; top: auto !important; } }
+    .sidebar-toc { background: linear-gradient(145deg, #fafbff, #f0f3fa); border: 1px solid #dbe2f0; border-radius: 14px; padding: 20px 22px; position: sticky; top: 80px; margin-bottom: 24px; max-height: calc(100vh - 100px); overflow-y: auto; }
+    .sidebar-toc-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .18em; color: #7c3aed; margin-bottom: 14px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e4e8f4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 10px; padding: 9px 4px; color: #4a5270; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #7c3aed; }
+    .toc-n { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 0.7rem; font-weight: 900; color: #7c3aed; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dbe2f0; border-radius: 14px; padding: 18px 20px; }
+    .sidebar-meta-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #7c3aed; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #4a5270; background: #f0f3fa; border: 1px solid #dbe2f0; padding: 3px 9px; border-radius: 20px; }
+
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; border-bottom: 2px solid #e4e8f4; padding-bottom: 10px; margin: 48px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: #fff; border: 1px solid #e4e8f4; border-radius: 10px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 900; background: #7c3aed; color: #fff; padding: 3px 8px; border-radius: 3px; margin-top: 2px; letter-spacing: .08em; }
+    .related-title { font-size: 0.85rem; font-weight: 600; color: #0f0a2e; line-height: 1.5; }
   </style>
   <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <a href="../../" class="site-logo">
@@ -109,9 +276,7 @@
           <span class="logo-sub">野球・競馬 × 経済・株式</span>
         </div>
       </a>
-      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="../../">TOP</a>
         <a href="../../hanshin-keiba/">野球・競馬</a>
@@ -129,14 +294,18 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../../economy-stocks/">経済・株式</a>
       <span class="breadcrumb-sep">›</span>
-      <span>イラン情勢は遠い戦争ではない　原油・ホルムズ海峡・日本の家計まで一本でつながる話</span>
+      <span>イラン情勢は遠い戦争ではない</span>
     </div>
   </div>
 
   <div class="art-hero">
-    <img src="thumb.png?v=20260418c" alt="記事サムネイル" class="art-hero-thumb">
+    <img src="thumb.png?v=20260418c" alt="ホルムズ海峡と日本の家計" class="art-hero-thumb">
     <div class="art-hero-title-block">
-      <div class="art-hero-cats"><span class="art-cat-badge art-cat-main">時事</span></div>
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-tech">中東 × 税制</span>
+        <span class="art-cat-badge art-cat-warn">ホルムズ海峡</span>
+        <span class="art-cat-badge art-cat-stock">日本の家計</span>
+      </div>
       <h1 class="art-hero-h1">イラン情勢は遠い戦争ではない　原油・ホルムズ海峡・日本の家計まで一本でつながる話</h1>
       <div class="art-hero-meta">
         <span>2026.03.29</span>
@@ -148,146 +317,305 @@
   <div class="art-layout">
     <main class="art-body">
 
-
       <div class="hero-summary">
         <div class="hero-summary-label">この記事のコア</div>
         <h2>高市首相の公式方針は、先に2年間の食料品消費税ゼロ、その後に給付付き税額控除という2段構えだった。</h2>
-        <p>ところが、会議を重ねるうちに、前段の「2年間ゼロ」よりも、後段の「給付付き税額控除の制度設計」が前に出やすい構造になっている。 高橋洋一氏は、これを単なる偶然ではなく、「有識者会議で押し切れない可能性まで読んで、実務者会議という次の手が置かれている」と見ている。 ここは高橋氏の分析であり、公式資料からそのまま断定できる事実ではない。 ただ、実際に会議の構造、メンバー、各党の公式方針を並べると、「2年間ゼロを先に通す」よりも「制度設計を優先する」力が強くなりやすいことは確かだ。</p>
+        <p>ところが、会議を重ねるうちに、前段の「2年間ゼロ」よりも、後段の「給付付き税額控除の制度設計」が前に出やすい構造になっている。高橋洋一氏は、これを単なる偶然ではなく、<strong>「有識者会議で押し切れない可能性まで読んで、実務者会議という次の手が置かれている」</strong>と見ている。ここは高橋氏の分析であり、公式資料からそのまま断定できる事実ではない。ただ、実際に会議の構造、メンバー、各党の公式方針を並べると、「2年間ゼロを先に通す」よりも「制度設計を優先する」力が強くなりやすいことは確かだ。</p>
       </div>
-<p>中東のホルムズ海峡のニュースと、日本の消費税減税や給付付き税額控除のニュース。一見すると、まったく別の世界の話に見える。前者は国際政治と安全保障、後者は税制と国内政策だ。</p>
-<p>しかし、このチャットで整理してきた論点をつなぐと、両者は同じ構造を持っている。ポイントは「誰が実権を握るのか」だ。ホルムズ海峡では、誰が海の関所を握るのか。日本の税制では、誰が会議の実権を握り、どの順番で政策を動かすのか。</p>
-<p>今回の記事では、高橋洋一氏の番組・ライブでの発言と、首相会見、内閣官房の会議資料、各党の公式文書を並べながら、今起きていることを初心者にも分かるように整理する。単なるニュース紹介ではなく、「何が重要か」「どこを見るべきか」「どう考えるべきか」をはっきりさせることが目的だ。</p>
 
-      <div class="video-box" style="max-width:640px;margin-left:auto;margin-right:auto;">
+      <p>中東のホルムズ海峡のニュースと、日本の消費税減税や給付付き税額控除のニュース。一見すると、まったく別の世界の話に見える。前者は国際政治と安全保障、後者は税制と国内政策だ。</p>
+      <p>しかし、このチャットで整理してきた論点をつなぐと、両者は同じ構造を持っている。ポイントは<strong>「誰が実権を握るのか」</strong>だ。ホルムズ海峡では、誰が海の関所を握るのか。日本の税制では、誰が会議の実権を握り、どの順番で政策を動かすのか。</p>
+      <p>今回の記事では、高橋洋一氏の番組・ライブでの発言と、首相会見、内閣官房の会議資料、各党の公式文書を並べながら、今起きていることを初心者にも分かるように整理する。単なるニュース紹介ではなく、「何が重要か」「どこを見るべきか」「どう考えるべきか」をはっきりさせることが目的だ。</p>
+
+      <div class="video-box">
         <div class="video-box-label">▶ 動画でも解説しています</div>
         <div class="video-embed-wrap">
           <iframe src="https://www.youtube.com/embed/KgysQq_Fkn4" title="イラン情勢は遠い戦争ではない　原油・ホルムズ海峡・日本の家計まで一本でつながる話" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+
       <div class="q-summary">
         <div class="q-summary-label">3行まとめ</div>
         <ol>
-      <li>高市首相の公式方針は、先に2年間の食料品消費税ゼロ、その後に給付付き税額控除という2段構えだった。</li>
-      <li>しかし会議を重ねるうちに、前段のゼロより後段の制度設計が前に出やすい構造になっている。</li>
-      <li>高橋洋一氏は、財務省が有識者会議で押し切れない可能性まで見越して、実務者会議という次の手を置いていると見ている。</li>
+          <li>高市首相の公式方針は、先に<strong>2年間の食料品消費税ゼロ</strong>、その後に給付付き税額控除という2段構えだった。</li>
+          <li>しかし会議を重ねるうちに、前段のゼロより<strong>後段の制度設計が前に出やすい構造</strong>になっている。</li>
+          <li>高橋洋一氏は、財務省が有識者会議で押し切れない可能性まで見越して、<strong>実務者会議という次の手</strong>を置いていると見ている。</li>
         </ol>
       </div>
 
-      
-
-      <div class="sec-head" id="sec-conclusion">
-        <span class="sec-num">00</span>
-        <h2>先に結論</h2>
-        <span class="sec-head-en">CONCLUSION</span>
-      </div>
-<p>結論から言うと、今回の本丸は「減税に賛成か反対か」だけではない。</p>
-<p>高市首相の公式方針は、先に2年間の食料品消費税ゼロ、その後に給付付き税額控除という2段構えだった。ところが、会議を重ねるうちに、前段の「2年間ゼロ」よりも、後段の「給付付き税額控除の制度設計」が前に出やすい構造になっている。</p>
-<p>高橋洋一氏は、これを単なる偶然ではなく、「有識者会議で押し切れない可能性まで読んで、実務者会議という次の手が置かれている」と見ている。ここは高橋氏の分析であり、公式資料からそのまま断定できる事実ではない。ただ、実際に会議の構造、メンバー、各党の公式方針を並べると、「2年間ゼロを先に通す」よりも「制度設計を優先する」力が強くなりやすいことは確かだ。</p>
-
-<div class="sec-head" id="sec-01"><span class="sec-num">01</span><h2>テーマの全体像</h2><span class="sec-head-en">SECTION 01</span></div>
-<p>今回のテーマは、大きく二つある。</p>
-<p>一つ目は、中東情勢だ。イラン停戦、ホルムズ海峡、通行料、共同管理の話である。</p>
-      <p>二つ目は、国内政治だ。高市政権、2年間の食料品消費税ゼロ、給付付き税額控除、国民会議、実務者会議の話である。</p>
-<p>普通にニュースを追うと、この二つは別々に受け取られる。しかし高橋洋一氏の見方では、どちらも本質は同じだ。</p>
-<p>それは、</p>
-      <p>「善悪や建前ではなく、誰が実権を握るのか」</p>
-      <p>という構図である。</p>
-<p>ホルムズ海峡では、誰が海の関所を握るのか。</p>
-      <p>霞が関では、誰が会議の実権を握り、どの順番で政策を決めるのか。</p>
-<p>ここを押さえると、ニュースの見え方がかなり変わる。</p>
-<div class="sec-head" id="sec-02"><span class="sec-num">02</span><h2>初心者向けの噛み砕き説明：そもそも何が争点なのか</h2><span class="sec-head-en">SECTION 02</span></div>
-<p>今回の税制の話は、まず用語が難しい。</p>
-<p>「食料品の消費税ゼロ」は、その名の通り、レジで払う食料品の消費税をゼロにする話だ。消費者から見ると、買う瞬間に安くなる。</p>
-<p>一方、「給付付き税額控除」は、いったん今まで通り払ったうえで、後から所得などに応じて税負担を軽くしたり、現金給付の形で戻したりする仕組みだ。つまり、レジでの即時減税ではなく、後から精密に調整する制度である。</p>
-<p>この違いは大きい。</p>
-      <p>前者は分かりやすく、生活実感につながりやすい。</p>
-      <p>後者は狙った層に支援しやすいが、制度設計やシステム構築が重い。</p>
-<p>だから今回の論点は、</p>
-      <p>「どちらが理屈として美しいか」</p>
-      <p>だけではなく、</p>
-      <p>「どちらが先に実行されるのか」</p>
-      <p>になっている。</p>
-<div class="sec-head" id="sec-03"><span class="sec-num">03</span><h2>ホルムズ海峡の話をどう見るべきか</h2><span class="sec-head-en">SECTION 03</span></div>
-<p>ホルムズ海峡をめぐる議論では、国際法や正義の話が前に出やすい。しかし高橋洋一氏は、そこをかなりドライに見ている。</p>
-<p>高橋氏はライブで、</p>
-      <p>・イランが海峡を握ればイランの勝ち</p>
-      <p>・アメリカが握ればアメリカの勝ち</p>
-      <p>・だから共同管理という発想が出てくる</p>
-      <p>と話している。</p>
-<p>さらに、仮に通行料のようなものが乗ったとしても、価格インパクトは限定的で、議論の本質は「誰が管理権を握るのか」だと整理している。</p>
-<p>ここは賛否が分かれる部分だが、視点としては非常に分かりやすい。</p>
-      <p>つまり、ホルムズ海峡問題は「正義の戦い」というより、「関所を誰が押さえるのか」という実権争いでもある、ということだ。</p>
-<div class="sec-head" id="sec-04"><span class="sec-num">04</span><h2>高市首相の公式方針は何だったのか</h2><span class="sec-head-en">SECTION 04</span></div>
-<p>ここは曖昧にしてはいけない。</p>
-<p>高市首相は<strong>2026年2月18日</strong>の会見で、</p>
-      <p>・給付付き税額控除の制度設計を進める</p>
-      <p>・その導入までの間、飲食料品は2年間に限り消費税ゼロ税率とする</p>
-      <p>・野党の協力が得られれば、夏前に中間取りまとめを行い、税制改正関連法案の提出を目指す</p>
-      <p>と明言している。</p>
-<p>つまり、政府の建て付けは最初から2段構えだった。</p>
-<p>表1：高市首相の公式方針（要約）</p>
-      <p>項目 | 内容</p>
-      <p>前段 | 飲食料品を2年間に限って消費税ゼロ</p>
-      <p>後段 | 給付付き税額控除の制度設計・導入</p>
-      <p>時期感 | 夏前に中間取りまとめ、法案提出を目指す</p>
-      <p>意味 | まず生活負担を下げ、その後に制度の本丸へ移る</p>
-<p>ここで重要なのは、「先に2年間の食料品ゼロ」が公式の順番だったという点だ。</p>
-<div class="sec-head" id="sec-05"><span class="sec-num">05</span><h2>論点整理：なぜ“前段”が薄まりやすいのか</h2><span class="sec-head-en">SECTION 05</span></div>
-<p>高橋洋一氏が怒っているのは、給付付き税額控除そのものではない。</p>
-      <p>怒っているのは順番である。</p>
-<p>本来は、</p>
-
-      <div class="sec-head" id="sec-summary">
-        <span class="sec-num">99</span>
-        <h2>まとめ</h2>
-        <span class="sec-head-en">SUMMARY</span>
-      </div>
-<p>今回のテーマは、単なる減税賛成・反対の話ではない。</p>
-<p>本当に見るべきなのは、</p>
-      <p>「誰が実権を握り、どの順番で国民との約束が薄まっていくのか」</p>
-<p>ホルムズ海峡の話も、税制の話も、構造は同じだった。</p>
-      <p>表で語られる建前より、関所を押さえる側が強い。</p>
-      <p>海では海峡の管理権。</p>
-      <p>国内では会議と実務の管理権。</p>
-<p>だから、ニュースを見るときに大事なのは、支持率や空気感だけではない。</p>
-      <p>会議の構造、順番、法案提出の有無、そして前段の約束が本当に残るのか。</p>
-      <p>ここを追うことだ。</p>
-<p>なお、税制や経済政策には不確実性がある。政治日程も制度設計も今後変わりうる。</p>
-      <p>投資や経済の判断をするときは、最終的には一次資料と最新情報を必ず確認したい。</p>
-
-
-      <div class="disclaimer">
-        <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+      <!-- 主要数値 -->
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-card-label">公式方針の時限</div><div class="stat-card-number">2<span style="font-size:1rem;">年</span></div><div class="stat-card-sub">飲食料品の消費税ゼロ税率を2年間に限り適用。</div></div>
+        <div class="stat-card"><div class="stat-card-label">会見日</div><div class="stat-card-number">2.18</div><div class="stat-card-sub">2026年2月18日、高市首相の公式会見。</div></div>
+        <div class="stat-card"><div class="stat-card-label">法案提出目標</div><div class="stat-card-number">夏前</div><div class="stat-card-sub">中間取りまとめ・税制改正関連法案の提出を目指す。</div></div>
+        <div class="stat-card"><div class="stat-card-label">本丸テーマ</div><div class="stat-card-number">実権</div><div class="stat-card-sub">海峡でも会議でも、勝負は関所を誰が握るか。</div></div>
       </div>
 
-      <hr class="art-hr">
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">00</span>
+          <h2>先に結論｜本丸は賛否ではない</h2>
+          <span class="q-section-head-en">CONCLUSION</span>
+        </div>
+        <p>結論から言うと、今回の本丸は<strong>「減税に賛成か反対か」</strong>だけではない。</p>
+        <p>高市首相の公式方針は、先に2年間の食料品消費税ゼロ、その後に給付付き税額控除という2段構えだった。ところが、会議を重ねるうちに、前段の「2年間ゼロ」よりも、後段の「給付付き税額控除の制度設計」が前に出やすい構造になっている。</p>
+        <p>高橋洋一氏は、これを単なる偶然ではなく、<strong>「有識者会議で押し切れない可能性まで読んで、実務者会議という次の手が置かれている」</strong>と見ている。ここは高橋氏の分析であり、公式資料からそのまま断定できる事実ではない。ただ、実際に会議の構造、メンバー、各党の公式方針を並べると、「2年間ゼロを先に通す」よりも「制度設計を優先する」力が強くなりやすいことは確かだ。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">01</span>
+          <h2>テーマの全体像｜2つの戦場、同じ構造</h2>
+          <span class="q-section-head-en">OVERVIEW</span>
+        </div>
+        <p>今回のテーマは、大きく二つある。一つ目は中東情勢、二つ目は国内政治。普通にニュースを追うと別々に受け取られるが、高橋洋一氏の見方では、どちらも本質は<strong>「善悪や建前ではなく、誰が実権を握るのか」</strong>という構図だ。</p>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">Layer 1 — 中東情勢</span>
+            <h3>海の関所を誰が握るか</h3>
+            <p>イラン停戦、ホルムズ海峡、通行料、共同管理の話。表の議論は国際法・正義だが、本質は<strong>海峡の管理権を誰が押さえるか</strong>。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">Layer 2 — 国内政治</span>
+            <h3>会議の実権を誰が握るか</h3>
+            <p>高市政権、2年間の食料品消費税ゼロ、給付付き税額控除、国民会議、実務者会議の話。勝負は<strong>どの会議がどの順番で決めるか</strong>。</p>
+          </div>
+        </div>
+
+        <p>ホルムズ海峡では、誰が海の関所を握るのか。霞が関では、誰が会議の実権を握り、どの順番で政策を決めるのか。ここを押さえると、ニュースの見え方がかなり変わる。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">02</span>
+          <h2>初心者向け｜そもそも何が争点なのか</h2>
+          <span class="q-section-head-en">FUNDAMENTALS</span>
+        </div>
+        <p>今回の税制の話は、まず用語が難しい。「食料品の消費税ゼロ」と「給付付き税額控除」は似て見えて、仕組みも生活実感も大きく違う。</p>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🛒</div>
+            <div class="pillar-title">食料品の消費税ゼロ</div>
+            <div class="pillar-desc">その名の通り、レジで払う食料品の消費税をゼロにする話。消費者から見ると、<strong>買う瞬間に安くなる</strong>。</div>
+            <div class="pillar-example">💡 分かりやすく、生活実感につながりやすい</div>
+          </div>
+          <div class="pillar target">
+            <div class="pillar-icon">📊</div>
+            <div class="pillar-title">給付付き税額控除</div>
+            <div class="pillar-desc">いったん今まで通り払ったうえで、後から所得などに応じて税負担を軽くしたり、現金給付の形で戻したりする仕組み。<strong>レジでの即時減税ではなく、後から精密に調整する制度</strong>。</div>
+            <div class="pillar-example">💡 狙った層に支援しやすいが、制度設計やシステム構築が重い</div>
+          </div>
+        </div>
+
+        <p>だから今回の論点は、<strong>「どちらが理屈として美しいか」</strong>だけではなく、<strong>「どちらが先に実行されるのか」</strong>になっている。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">03</span>
+          <h2>ホルムズ海峡の話をどう見るべきか</h2>
+          <span class="q-section-head-en">HORMUZ</span>
+        </div>
+        <p>ホルムズ海峡をめぐる議論では、国際法や正義の話が前に出やすい。しかし高橋洋一氏は、そこをかなりドライに見ている。高橋氏はライブで、次のように話している。</p>
+
+        <div class="risk-grid">
+          <div class="risk-card">
+            <div class="risk-card-head"><span class="risk-badge">1</span><span class="risk-title">イランが握れば</span></div>
+            <div class="risk-body">イランが海峡の管理権を握れば、<strong>イランの勝ち</strong>。通行料や優先通過の条件を握れる側が有利。</div>
+            <div class="risk-example">🛢 海の関所を握る側が強い</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head"><span class="risk-badge">2</span><span class="risk-title">アメリカが握れば</span></div>
+            <div class="risk-body">アメリカが握れば<strong>アメリカの勝ち</strong>。西側にとっての航路安全は担保されるが、イラン側は受け入れにくい。</div>
+            <div class="risk-example">⚓ 世界最大の海軍力がそのまま発言力に</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head"><span class="risk-badge">3</span><span class="risk-title">だから共同管理</span></div>
+            <div class="risk-body">どちらか一方の完全支配が難しいから、<strong>共同管理という発想</strong>が出てくる。正義の話ではなく実権の折り合い。</div>
+            <div class="risk-example">🤝 仮に通行料が乗っても価格インパクトは限定的</div>
+          </div>
+        </div>
+
+        <p>さらに、仮に通行料のようなものが乗ったとしても、価格インパクトは限定的で、議論の本質は<strong>「誰が管理権を握るのか」</strong>だと整理している。ここは賛否が分かれる部分だが、視点としては非常に分かりやすい。つまり、ホルムズ海峡問題は「正義の戦い」というより、「関所を誰が押さえるのか」という実権争いでもある、ということだ。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">04</span>
+          <h2>高市首相の公式方針は何だったのか</h2>
+          <span class="q-section-head-en">OFFICIAL POLICY</span>
+        </div>
+        <p>ここは曖昧にしてはいけない。高市首相は<strong>2026年2月18日</strong>の会見で、次の3点を明言している。</p>
+
+        <ul>
+          <li>給付付き税額控除の制度設計を進める</li>
+          <li>その導入までの間、飲食料品は2年間に限り消費税ゼロ税率とする</li>
+          <li>野党の協力が得られれば、夏前に中間取りまとめを行い、税制改正関連法案の提出を目指す</li>
+        </ul>
+
+        <p>つまり、政府の建て付けは最初から2段構えだった。</p>
+
+        <div class="stock-label">表1：高市首相の公式方針（要約）</div>
+        <table class="data-table">
+          <thead><tr><th style="width:120px;">項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>前段</strong></td><td>飲食料品を<strong>2年間</strong>に限って消費税ゼロ</td></tr>
+            <tr><td><strong>後段</strong></td><td>給付付き税額控除の制度設計・導入</td></tr>
+            <tr><td><strong>時期感</strong></td><td>夏前に中間取りまとめ、法案提出を目指す</td></tr>
+            <tr><td><strong>意味</strong></td><td>まず生活負担を下げ、その後に制度の本丸へ移る</td></tr>
+          </tbody>
+        </table>
+
+        <p>ここで重要なのは、<strong>「先に2年間の食料品ゼロ」が公式の順番だった</strong>という点だ。</p>
+
+        <div class="timeline">
+          <div class="tl-stop"><div class="tl-dot" style="border-color:#10b981;"></div><div class="tl-year">2.18</div><div class="tl-label">会見で<br>公式方針表明</div></div>
+          <div class="tl-stop"><div class="tl-dot" style="border-color:#06b6d4;"></div><div class="tl-year">春</div><div class="tl-label">有識者会議<br>議論開始</div></div>
+          <div class="tl-stop"><div class="tl-dot" style="border-color:#f59e0b;"></div><div class="tl-year">夏前</div><div class="tl-label">中間取りまとめ<br>法案提出目標</div></div>
+          <div class="tl-stop"><div class="tl-dot" style="border-color:#ef4444;"></div><div class="tl-year">以降</div><div class="tl-label">給付付き控除<br>制度設計本格化</div></div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">05</span>
+          <h2>論点整理｜なぜ“前段”が薄まりやすいのか</h2>
+          <span class="q-section-head-en">DILUTION</span>
+        </div>
+        <p>高橋洋一氏が怒っているのは、給付付き税額控除そのものではない。<strong>怒っているのは順番</strong>である。本来は、先に2年間ゼロを通し、その間に制度設計を詰めるはずだったのに、会議の構造上、後段の制度設計が前に出てきてしまう。</p>
+
+        <div class="pros-cons-stock">
+          <div class="pro-box">
+            <div class="pro-box-label">✓ 公式の順番（建前）</div>
+            <ul>
+              <li>まず前段：2年間の食料品ゼロ</li>
+              <li>生活負担を即時に下げる</li>
+              <li>その間に後段の制度を詰める</li>
+              <li>夏前の法案提出という時期感</li>
+            </ul>
+          </div>
+          <div class="con-box">
+            <div class="con-box-label">✗ 実際に起きやすい力学</div>
+            <ul>
+              <li>有識者会議の議題は制度設計が中心になりやすい</li>
+              <li>「2年間ゼロ」の議論は後回しに</li>
+              <li>実務者会議が控えの手として用意されている</li>
+              <li>結果として前段が薄まる</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>高橋氏の見立てでは、この順番の逆転は偶然ではない。<strong>財務省は、有識者会議で押し切れない可能性まで見越して、実務者会議という次の手を置いている</strong>というのが高橋氏の読みである。ここは公式資料から断定できる話ではなく、あくまで分析だ。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">06</span>
+          <h2>よくある疑問｜FAQ</h2>
+          <span class="q-section-head-en">FAQ</span>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">ホルムズ海峡が封鎖されたら日本は終わり？</div>
+            <div class="faq-a">即座に「終わり」にはならない。日本は石油備蓄を積み上げており、中東依存も以前より下がっている。ただし<strong>燃料・物流・原料コストの上昇</strong>は家計と企業収益に確実に効いてくる。形が違うだけで痛みはある。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">通行料が乗ったら原油はいくら上がる？</div>
+            <div class="faq-a">高橋氏の整理では、仮に通行料のようなものが乗ったとしても<strong>価格インパクトは限定的</strong>。議論の本質は価格よりも「管理権を誰が握るか」という実権の問題だとしている。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">2年間の食料品ゼロは本当に実現する？</div>
+            <div class="faq-a">公式方針としては明言されているが、<strong>会議の順番が逆転しやすい構造</strong>があるため、そのまま通るとは限らない。野党の協力と法案提出のタイミングを見る必要がある。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">給付付き税額控除そのものが悪いのか？</div>
+            <div class="faq-a">高橋氏が問題視しているのは制度そのものではなく<strong>順番</strong>。狙った層に支援しやすいという利点はあるが、制度設計とシステム構築が重く、前段の即時減税を後回しにする口実にされやすい。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">99</span>
+          <h2>まとめ｜関所を押さえる側が強い</h2>
+          <span class="q-section-head-en">SUMMARY</span>
+        </div>
+        <p>今回のテーマは、単なる減税賛成・反対の話ではない。本当に見るべきなのは、<strong>「誰が実権を握り、どの順番で国民との約束が薄まっていくのか」</strong>だ。</p>
+
+        <p>ホルムズ海峡の話も、税制の話も、構造は同じだった。表で語られる建前より、<strong>関所を押さえる側が強い</strong>。海では海峡の管理権。国内では会議と実務の管理権。</p>
+
+        <div class="matrix">
+          <div class="matrix-label">POWER MAP｜実権の地図</div>
+          <h3>「誰が関所を握るか」で全てが決まる2つの戦場</h3>
+          <div class="matrix-grid">
+            <div class="matrix-cell">
+              <div class="matrix-cell-head"><span class="matrix-cell-type">中東・海</span><span class="matrix-cell-ticker">海峡</span></div>
+              <div class="matrix-cell-desc">ホルムズ海峡の管理権。イラン／米国／共同管理のいずれが握るか。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head"><span class="matrix-cell-type">中東・価格</span><span class="matrix-cell-ticker">通行料</span></div>
+              <div class="matrix-cell-desc">仮に乗っても価格インパクトは限定的。本質は実権の折り合い。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head"><span class="matrix-cell-type">霞が関・表</span><span class="matrix-cell-ticker">有識者会議</span></div>
+              <div class="matrix-cell-desc">制度設計の議論が中心になりやすい。前段のゼロは薄まりやすい。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head"><span class="matrix-cell-type">霞が関・裏</span><span class="matrix-cell-ticker">実務者会議</span></div>
+              <div class="matrix-cell-desc">押し切れない場合の次の手。高橋氏が警戒する構造の核。</div>
+            </div>
+          </div>
+        </div>
+
+        <p>だから、ニュースを見るときに大事なのは、支持率や空気感だけではない。<strong>会議の構造、順番、法案提出の有無、そして前段の約束が本当に残るのか</strong>。ここを追うことだ。</p>
+
+        <p>なお、税制や経済政策には不確実性がある。政治日程も制度設計も今後変わりうる。投資や経済の判断をするときは、最終的には一次資料と最新情報を必ず確認したい。</p>
+
+        <div class="disclaimer">
+          <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+        </div>
+      </div>
 
       <div class="related-head">RELATED ARTICLES</div>
       <div class="related-list">
-        <a href="../" class="related-item">
-          <span class="related-tag">一覧</span>
-          <span class="related-title">経済・株式の記事一覧へ</span>
-        </a>
+        <a href="../2026-04-13-oil-boj/" class="related-item"><span class="related-tag">エネルギー</span><span class="related-title">原油高で利上げは正解か？｜供給ショックと日銀の難題をわかりやすく解説 2026.04.13</span></a>
+        <a href="../2026-04-11-long-rates/" class="related-item"><span class="related-tag">金融政策</span><span class="related-title">長期金利と原油高の時代、日本経済はどう変わるのか 2026.04.11</span></a>
+        <a href="../2026-04-11-trump-tariffs/" class="related-item"><span class="related-tag">経済</span><span class="related-title">トランプ関税の全体像と日本株への波及 2026.04.11</span></a>
+        <a href="../2026-04-12-boj-banks-stocks/" class="related-item"><span class="related-tag">金融政策</span><span class="related-title">日銀の利上げで銀行は丸儲け？銀行株の本命を冷静に選ぶ 2026.04.12</span></a>
       </div>
-
     </main>
 
     <aside class="art-sidebar">
       <div class="sidebar-toc">
         <div class="sidebar-toc-label">目次</div>
         <ul class="toc-list">
-          <li><a href="#sec-conclusion"><span class="toc-n">00</span>先に結論</a></li>
-<li><a href="#sec-01"><span class="toc-n">01</span>テーマの全体像</a></li>
-<li><a href="#sec-02"><span class="toc-n">02</span>初心者向けの噛み砕き説明：そもそも何が争点な</a></li>
-<li><a href="#sec-03"><span class="toc-n">03</span>ホルムズ海峡の話をどう見るべきか</a></li>
-<li><a href="#sec-04"><span class="toc-n">04</span>高市首相の公式方針は何だったのか</a></li>
-<li><a href="#sec-05"><span class="toc-n">05</span>論点整理：なぜ“前段”が薄まりやすいのか</a></li>
-          <li><a href="#sec-summary"><span class="toc-n">99</span>まとめ</a></li>
+          <li><a href="#"><span class="toc-n">00</span>先に結論</a></li>
+          <li><a href="#"><span class="toc-n">01</span>テーマの全体像</a></li>
+          <li><a href="#"><span class="toc-n">02</span>そもそも何が争点か</a></li>
+          <li><a href="#"><span class="toc-n">03</span>ホルムズ海峡の見方</a></li>
+          <li><a href="#"><span class="toc-n">04</span>高市首相の公式方針</a></li>
+          <li><a href="#"><span class="toc-n">05</span>なぜ前段が薄まるのか</a></li>
+          <li><a href="#"><span class="toc-n">06</span>FAQ</a></li>
+          <li><a href="#"><span class="toc-n">99</span>まとめ</a></li>
         </ul>
       </div>
       <div class="sidebar-meta">
         <div class="sidebar-meta-label">TAGS</div>
-        <div class="tag-cloud"><span class="tag-pill">ホルムズ海峡</span><span class="tag-pill">エネルギー政策</span><span class="tag-pill">日米首脳会談</span><span class="tag-pill">原油</span><span class="tag-pill">中東</span></div>
+        <div class="tag-cloud">
+          <span class="tag-pill">ホルムズ海峡</span>
+          <span class="tag-pill">エネルギー政策</span>
+          <span class="tag-pill">日米首脳会談</span>
+          <span class="tag-pill">原油</span>
+          <span class="tag-pill">中東</span>
+          <span class="tag-pill">高市政権</span>
+          <span class="tag-pill">消費税</span>
+          <span class="tag-pill">給付付き税額控除</span>
+          <span class="tag-pill">高橋洋一</span>
+          <span class="tag-pill">税制</span>
+        </div>
       </div>
     </aside>
   </div>
@@ -299,6 +627,5 @@
   </footer>
 
   <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/article-enhance.js?v=20260418e" defer></script>
 </body>
 </html>

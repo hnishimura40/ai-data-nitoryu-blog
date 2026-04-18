@@ -15,91 +15,316 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
-    .art-hero { background: linear-gradient(135deg, #0d1e38 0%, #d97706 100%); padding: 44px 24px; }
-    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; }
-    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
-    .art-cat-main { background: #d97706; color: #fff; }
-    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.95; }
-    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.55); display: flex; gap: 16px; flex-wrap: wrap; }
-    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
-    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
-    .art-body { min-width: 0; }
-    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
-    .art-body strong { color: #1a2744; }
-    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
-    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
-    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
-    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #d97706; background: #f0f4fb; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
-    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
-    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
-    @media (max-width: 560px) { .sec-head-en { display: none; } }
-    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #d97706; }
-    .summary-box { background: linear-gradient(135deg, #f0f6ff, #e6eefb); border: 1px solid #b5cdf0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
-    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #d97706; margin-bottom: 12px; }
-    .summary-box ul { margin: 0; }
-    .summary-box li { font-size: 0.87rem; }
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; display: block; overflow-x: auto; }
-    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
-    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:nth-child(even) td { background: #f8fafd; }
-    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
-    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
-    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
-    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
-    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px;  max-width: 640px; margin-left: auto !important; margin-right: auto !important; }
-    .video-box-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 10px; }
-    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
-    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
-    .related-list { display: flex; flex-direction: column; gap: 10px; }
-    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
-    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
-    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #d97706; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
-    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
-    .art-sidebar { font-size: 0.88rem; }
-    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
-    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
-    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
-    .toc-list { list-style: none; padding: 0; margin: 0; }
-    .toc-list li { border-bottom: 1px solid #e8ecf4; }
-    .toc-list li:last-child { border-bottom: none; }
-    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
-    .toc-list a:hover { color: #d97706; }
-    .toc-n { font-size: 0.62rem; font-weight: 900; color: #d97706; flex-shrink: 0; width: 22px; }
-    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
-    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
-    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
-    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
-  
-    .art-hero { padding: 24px 0 0 0 !important; }
-    .art-hero-thumb { width: 100%; max-width: 1100px; max-height: 360px; object-fit: cover; display: block; margin: 0 auto; }
-    .art-hero-title-block { max-width: var(--max-width, 1100px); margin: 0 auto; padding: 22px 24px 18px !important; }
-
-    .art-body > main .sec-head + p,
-    .art-body .sec-head + p {
-      background: linear-gradient(135deg, #f7f9fc, #eef3fb);
-      border-left: 4px solid #1a4fa0;
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      font-weight: 500;
-      margin-top: 0;
+    :root {
+      --q-accent:#7c3aed;
+      --q-accent2:#06b6d4;
+      color-scheme: light dark;
     }
-    .data-table th { font-size: 0.82rem; letter-spacing: 0.04em; }
-    .data-table { border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-    .data-table strong { color: #1a4fa0; font-weight: 900; }
-    .art-body p strong { color: #1a4fa0; font-weight: 800; background: linear-gradient(transparent 62%, #ffe58a 62%, #ffe58a 92%, transparent 92%); padding: 0 2px; }
-    .art-body p { text-align: justify; text-justify: inter-ideograph; }
-    .art-body h2 + p, .art-body .sec-sub + p { margin-top: 14px; }
+    html, body { background-color: #ffffff; color: #2a2e3c; }
 
-    /* article-body-enhanced */
+    /* ===== ダークモード：暗い配色 + 視認性重視 ===== */
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0b1020 !important; color: #d8dfef !important; }
+
+      /* 本文テキスト */
+      .art-body p, .art-body li { color: #d8dfef !important; }
+
+      /* strong は黄色マーカー（白文字と被る問題）をやめ、明るい紫文字＋薄い下地 */
+      .art-body p strong, .art-body li strong {
+        color: #c4b5fd !important;
+        background: rgba(139,92,246,0.15) !important;
+        padding: 0 4px !important;
+        border-radius: 3px !important;
+      }
+
+      /* カード類：暗い濃紺系 */
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #a78bfa !important; }
+      .stat-card-number { color: #f5f7ff !important; }
+      .stat-card-sub { color: #9aa3bf !important; }
+
+      .layer-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 6px 24px -8px rgba(0,0,0,0.4) !important; }
+      .layer-card h3 { color: #f5f7ff !important; }
+      .layer-card p { color: #c9d0e5 !important; }
+      .layer-card.tech .layer-card-tag { background: rgba(6,182,212,0.2) !important; color: #7dd3fc !important; }
+      .layer-card.market .layer-card-tag { background: rgba(245,158,11,0.18) !important; color: #fcd34d !important; }
+
+      /* セクション見出し */
+      .q-section-head { border-bottom-color: #2a3150 !important; }
+      .q-section-head h2 { color: #f5f7ff !important; }
+      .q-section-head-en { color: #5a6488 !important; }
+
+      /* 2本柱 */
+      .pillar { background: linear-gradient(180deg, #181c2e 0%, #141828 100%) !important; border-color: #2a3150 !important; }
+      .pillar-title { color: #f5f7ff !important; }
+      .pillar-desc { color: #b9c1d9 !important; }
+      .pillar-example { background: #0b1020 !important; border-color: #2a3150 !important; color: #a5adc8 !important; }
+      .pillar.target { background: linear-gradient(180deg, #2a1111 0%, #1a0a0a 100%) !important; border-color: #ef4444 !important; }
+      .pillar.target .pillar-desc, .pillar.target .pillar-title { color: #fecaca !important; }
+
+      /* リスクカード */
+      .risk-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .risk-title { color: #f5f7ff !important; }
+      .risk-body { color: #b9c1d9 !important; }
+      .risk-example { background: rgba(252,211,77,0.12) !important; color: #fcd34d !important; }
+
+      /* FAQ */
+      .faq-item { background: #141828 !important; border-color: #2a3150 !important; border-left-color: #a78bfa !important; }
+      .faq-q { color: #f5f7ff !important; }
+      .faq-a { color: #c9d0e5 !important; }
+
+      /* 銘柄カード */
+      .stock-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .stock-ticker { color: #f5f7ff !important; }
+      .stock-desc { color: #b9c1d9 !important; }
+      .stock-metric { background: #0f1322 !important; }
+      .stock-metric-label { color: #8a93ac !important; }
+      .stock-metric-value { color: #f5f7ff !important; }
+
+      /* タグは色を落としすぎないように */
+      .tag-defense { background: rgba(34,197,94,0.2) !important; color: #86efac !important; }
+      .tag-stable  { background: rgba(59,130,246,0.2) !important; color: #93c5fd !important; }
+      .tag-dream   { background: rgba(236,72,153,0.2) !important; color: #f9a8d4 !important; }
+      .tag-specu   { background: rgba(239,68,68,0.2) !important; color: #fca5a5 !important; }
+
+      /* 銘柄ラベル */
+      .stock-label { color: #f5f7ff !important; }
+
+      /* 強材料・弱材料 */
+      .pro-box { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.05)) !important; border-color: rgba(16,185,129,0.4) !important; color: #86efac !important; }
+      .con-box { background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(239,68,68,0.05)) !important; border-color: rgba(239,68,68,0.4) !important; color: #fca5a5 !important; }
+
+      /* テーブル */
+      .data-table { box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5) !important; }
+      .data-table td { background-color: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+      .data-table strong { color: #c4b5fd !important; background: none !important; }
+
+      /* サイドバー */
+      .sidebar-toc { background: linear-gradient(145deg, #141828, #0f1322) !important; border-color: #2a3150 !important; }
+      .sidebar-toc-label { color: #a78bfa !important; }
+      .toc-list a { color: #b9c1d9 !important; }
+      .toc-list a:hover { color: #c4b5fd !important; }
+      .toc-list li { border-bottom-color: #2a3150 !important; }
+      .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+      .sidebar-meta-label { color: #a78bfa !important; }
+      .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+
+      /* 関連記事 */
+      .related-item { background: #141828 !important; border-color: #2a3150 !important; }
+      .related-title { color: #f5f7ff !important; }
+      .related-head { color: #a78bfa !important; border-bottom-color: #2a3150 !important; }
+
+      /* disclaimer */
+      .disclaimer { background: rgba(217,119,6,0.1) !important; color: #fcd34d !important; border-color: rgba(217,119,6,0.4) !important; }
+
+      /* ヘッダー・ブレッドクラム */
+      .site-header { background: #0b1020 !important; border-bottom: 1px solid #2a3150 !important; }
+      .breadcrumb { background: #0f1322 !important; }
+      .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
+    }
+    .art-hero { background: radial-gradient(circle at 20% 0%, #1e0b4a 0%, #0a0a2a 40%, #050514 80%); padding: 0; position: relative; overflow: hidden; }
+    .art-hero-thumb { width: 100%; max-width: 1200px; max-height: 420px; object-fit: cover; display: block; margin: 0 auto; filter: saturate(1.1); }
+    .art-hero-title-block { max-width: 1100px; margin: 0 auto; padding: 26px 28px 22px; position: relative; z-index: 2; }
+    .art-hero-cats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; }
+    .art-cat-tech { background: linear-gradient(90deg, #7c3aed, #06b6d4); color: #fff; }
+    .art-cat-warn { background: #ef4444; color: #fff; }
+    .art-cat-stock { background: #10b981; color: #fff; }
+    .art-hero-h1 { font-size: clamp(1.2rem, 2.8vw, 1.8rem); font-weight: 900; color: #fff; line-height: 1.4; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .art-hero-meta { font-size: 0.78rem; color: rgba(255,255,255,0.65); display: flex; gap: 18px; }
+
+    .art-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 44px 24px 80px; align-items: flex-start; }
+    @media (max-width: 900px) { .art-layout { grid-template-columns: 1fr; padding: 28px 16px 60px; gap: 0; } }
+
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.96rem; line-height: 2; color: #2a2e3c; margin-bottom: 18px; }
+    .art-body strong { color: #7c3aed; font-weight: 800; }
+
+    /* HERO SUMMARY */
+    .hero-summary {
+      background: linear-gradient(135deg, #0f0a2e 0%, #1a0a4e 60%, #061733 100%);
+      border-radius: 20px; padding: 32px 36px; color: #fff;
+      margin-bottom: 40px; position: relative; overflow: hidden;
+    }
+    .hero-summary::before {
+      content: ""; position: absolute; top: -40%; right: -10%;
+      width: 60%; height: 180%;
+      background: radial-gradient(ellipse, rgba(124,58,237,.35), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-summary-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 14px; }
+    .hero-summary h2 { font-size: 1.35rem; font-weight: 900; color: #fff; margin: 0 0 14px; line-height: 1.5; }
+    .hero-summary p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.95; margin: 0; }
+
+    /* STAT CARDS */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0 36px; }
+    .stat-card {
+      background: linear-gradient(145deg, #fff, #f5f7ff);
+      border: 1px solid #e4e8f4; border-radius: 16px; padding: 22px 24px;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before { content: ""; position: absolute; inset: 0 auto auto 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--q-accent), var(--q-accent2)); }
+    .stat-card-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; text-transform: uppercase; margin-bottom: 10px; }
+    .stat-card-number { font-family: 'Poppins', sans-serif; font-size: 2.4rem; font-weight: 900; color: #0f0a2e; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; font-style: italic; }
+    .stat-card-sub { font-size: 0.82rem; color: #5a6380; line-height: 1.6; }
+
+    /* 2レイヤー */
+    .layer-split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 28px 0 36px; }
+    @media (max-width: 720px) { .layer-split { grid-template-columns: 1fr; } }
+    .layer-card { background: #fff; border-radius: 16px; padding: 24px 26px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 6px 24px -8px rgba(20, 30, 80, 0.12); }
+    .layer-card.tech { border-top: 5px solid #06b6d4; }
+    .layer-card.market { border-top: 5px solid #f59e0b; }
+    .layer-card-tag { display: inline-block; font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; }
+    .layer-card.tech .layer-card-tag { background: #e0f7fd; color: #0891b2; }
+    .layer-card.market .layer-card-tag { background: #fef3c7; color: #b45309; }
+    .layer-card h3 { font-size: 1.1rem; font-weight: 900; color: #0f0a2e; margin: 0 0 10px; }
+    .layer-card p { margin: 0; font-size: 0.92rem; line-height: 1.85; color: #2a2e3c; }
+
+    /* セクション見出し */
+    .q-section { margin: 56px 0 0; }
+    .q-section-head { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 3px solid #e4e8f4; }
+    .q-section-num { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 900; font-style: italic; background: linear-gradient(135deg, var(--q-accent), var(--q-accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; flex-shrink: 0; }
+    .q-section-head h2 { font-size: 1.3rem; font-weight: 900; color: #0f0a2e; margin: 0; line-height: 1.4; }
+    .q-section-head-en { margin-left: auto; font-size: 0.7rem; font-weight: 800; letter-spacing: .2em; color: #a3adc7; flex-shrink: 0; }
+    @media (max-width: 560px) { .q-section-head-en { display: none; } }
+
+    /* 2本柱 */
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar { background: linear-gradient(180deg, #fafbff 0%, #f0f3fa 100%); border-radius: 14px; padding: 22px 24px; border: 1px solid #dbe2f0; position: relative; }
+    .pillar-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .pillar-title { font-size: 1rem; font-weight: 900; color: #0f0a2e; margin-bottom: 8px; }
+    .pillar-desc { font-size: 0.88rem; color: #4a5270; line-height: 1.7; margin-bottom: 10px; }
+    .pillar-example { background: #fff; border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: #5a6380; border: 1px solid #e4e8f4; }
+    .pillar.target { border: 2px solid #ef4444; background: linear-gradient(180deg, #fff5f5 0%, #ffe4e4 100%); }
+    .pillar.target::after { content: "量子が狙う"; position: absolute; top: -10px; right: 14px; background: #ef4444; color: #fff; font-size: 0.68rem; font-weight: 900; letter-spacing: .1em; padding: 3px 10px; border-radius: 3px; }
+
+    /* リスク3パターン */
+    .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .risk-grid { grid-template-columns: 1fr; } }
+    .risk-card { background: #fff; border-radius: 14px; padding: 20px; border: 1px solid #e4e8f4; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .risk-card-head { display: flex; align-items: center; gap: 10px; }
+    .risk-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #ef4444, #f59e0b); color: #fff; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; }
+    .risk-title { font-size: 0.95rem; font-weight: 900; color: #0f0a2e; line-height: 1.4; }
+    .risk-body { font-size: 0.86rem; color: #4a5270; line-height: 1.75; }
+    .risk-example { margin-top: auto; padding: 10px 14px; background: #fef3c7; border-radius: 8px; font-size: 0.8rem; color: #7c2d12; font-weight: 500; }
+
+    /* 銘柄スタットカード */
+    .stock-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 20px 0 30px; }
+    .stock-card { background: #fff; border-radius: 16px; padding: 22px 24px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .stock-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .stock-ticker { font-family: 'Poppins', sans-serif; font-size: 1.6rem; font-weight: 900; font-style: italic; color: #0f0a2e; line-height: 1; }
+    .stock-tag { font-size: 0.64rem; font-weight: 900; letter-spacing: .14em; padding: 3px 9px; border-radius: 3px; text-transform: uppercase; white-space: nowrap; }
+    .tag-defense { background: #dcfce7; color: #166534; }
+    .tag-stable  { background: #dbeafe; color: #1e40af; }
+    .tag-dream   { background: #fce7f3; color: #9d174d; }
+    .tag-specu   { background: #fee2e2; color: #991b1b; }
+    .stock-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 4px 0; }
+    .stock-metric { background: #f7f9fc; border-radius: 8px; padding: 8px 10px; }
+    .stock-metric-label { font-size: 0.62rem; font-weight: 800; letter-spacing: .1em; color: #7b86a6; text-transform: uppercase; margin-bottom: 2px; }
+    .stock-metric-value { font-size: 0.9rem; font-weight: 800; color: #0f0a2e; }
+    .stock-desc { font-size: 0.83rem; color: #4a5270; line-height: 1.7; }
+
+    /* 投資地図マトリクス */
+    .matrix { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 50%, #061733 100%); border-radius: 20px; padding: 32px 30px; color: #fff; margin: 28px 0 36px; }
+    .matrix-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 18px; }
+    .matrix h3 { font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0 0 20px; }
+    .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 560px) { .matrix-grid { grid-template-columns: 1fr; grid-template-rows: auto; } }
+    .matrix-cell { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 18px 20px; backdrop-filter: blur(8px); }
+    .matrix-cell-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .matrix-cell-type { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #a78bfa; }
+    .matrix-cell-ticker { font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 900; font-style: italic; color: #fff; }
+    .matrix-cell-desc { font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 30px; }
+    .faq-item { background: #fff; border-left: 4px solid var(--q-accent); border-radius: 0 12px 12px 0; padding: 18px 22px; border-top: 1px solid #e4e8f4; border-right: 1px solid #e4e8f4; border-bottom: 1px solid #e4e8f4; }
+    .faq-q, .faq-a { position: relative; padding-left: 34px; min-height: 24px; display: block; }
+    .faq-q { font-size: 0.95rem; font-weight: 800; color: #0f0a2e; margin-bottom: 12px; line-height: 1.6; }
+    .faq-a { font-size: 0.88rem; color: #4a5270; line-height: 1.85; }
+    .faq-q::before, .faq-a::before {
+      position: absolute; left: 0; top: 2px;
+      width: 24px; height: 24px; border-radius: 50%;
+      font-size: 0.7rem; font-weight: 900; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+    }
+    .faq-q::before { content: "Q"; background: #7c3aed; }
+    .faq-a::before { content: "A"; background: #06b6d4; }
+    @media (max-width: 560px) {
+      .faq-item { padding: 16px 16px 14px; }
+      .faq-q, .faq-a { padding-left: 30px; }
+      .faq-q::before, .faq-a::before { width: 22px; height: 22px; font-size: 0.65rem; }
+    }
+
+    /* 強材料・弱材料 */
+    .pros-cons-stock { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 720px) { .pros-cons-stock { grid-template-columns: 1fr; } }
+    .pro-box, .con-box { padding: 16px 18px; border-radius: 12px; font-size: 0.85rem; line-height: 1.75; }
+    .pro-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #86efac; color: #065f46; }
+    .con-box { background: linear-gradient(135deg, #fef2f2, #fee2e2); border: 1px solid #fca5a5; color: #991b1b; }
+    .pro-box-label, .con-box-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; margin-bottom: 8px; text-transform: uppercase; }
+    .stock-label { font-size: 1rem; font-weight: 800; color: #0f0a2e; margin: 24px 0 10px; padding-left: 12px; border-left: 4px solid #7c3aed; }
+
+    /* 3行まとめ */
+    .q-summary { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 100%); border-radius: 16px; padding: 28px 30px; margin: 36px 0 28px; }
+    .q-summary-label { font-size: 0.7rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 14px; }
+    .q-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 12px; }
+    .q-summary li { font-size: 0.92rem; color: rgba(255,255,255,0.92); line-height: 1.8; }
+    .q-summary li::marker { color: #facc15; font-weight: 900; }
+
+    /* タイムライン */
+    .timeline { display: flex; justify-content: space-between; margin: 28px 0 36px; position: relative; padding: 0 20px; }
+    .timeline::before { content: ""; position: absolute; top: 32px; left: 40px; right: 40px; height: 3px; background: linear-gradient(90deg, #10b981, #06b6d4, #f59e0b, #ef4444); border-radius: 2px; }
+    .tl-stop { text-align: center; flex: 1; position: relative; }
+    .tl-dot { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 3px solid var(--q-accent); margin: 22px auto 10px; position: relative; z-index: 2; }
+    .tl-year { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1rem; font-style: italic; color: #0f0a2e; margin-bottom: 4px; }
+    .tl-label { font-size: 0.76rem; color: #5a6380; line-height: 1.5; padding: 0 4px; }
+
+    /* 動画 */
+    .video-box { background: linear-gradient(135deg, #0f0a2e, #1e0b4a); border-radius: 16px; padding: 20px; margin: 28px auto 40px; max-width: 700px; }
+    .video-box-label { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 12px; }
+    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; }
+    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    /* テーブル */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 18px 0 28px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px -4px rgba(20,30,80,0.08); }
+    .data-table th { background: linear-gradient(135deg, #0f0a2e, #2a1065); color: #fff; padding: 12px 14px; text-align: left; font-weight: 800; letter-spacing: .04em; font-size: 0.8rem; }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid #edf0f7; color: #2a2e3c; vertical-align: middle; }
+    .data-table tr:nth-child(even) td { background: #fafbff; }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .disclaimer { background: linear-gradient(135deg, #fff9f0, #fef3c7); border-left: 4px solid #d97706; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #7c2d12; }
+
+    /* サイドバー */
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 900px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; position: static !important; max-height: none !important; overflow: visible !important; top: auto !important; } }
+    .sidebar-toc { background: linear-gradient(145deg, #fafbff, #f0f3fa); border: 1px solid #dbe2f0; border-radius: 14px; padding: 20px 22px; position: sticky; top: 80px; margin-bottom: 24px; max-height: calc(100vh - 100px); overflow-y: auto; }
+    .sidebar-toc-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .18em; color: #7c3aed; margin-bottom: 14px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e4e8f4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 10px; padding: 9px 4px; color: #4a5270; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #7c3aed; }
+    .toc-n { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 0.7rem; font-weight: 900; color: #7c3aed; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dbe2f0; border-radius: 14px; padding: 18px 20px; }
+    .sidebar-meta-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #7c3aed; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #4a5270; background: #f0f3fa; border: 1px solid #dbe2f0; padding: 3px 9px; border-radius: 20px; }
+
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; border-bottom: 2px solid #e4e8f4; padding-bottom: 10px; margin: 48px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: #fff; border: 1px solid #e4e8f4; border-radius: 10px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 900; background: #7c3aed; color: #fff; padding: 3px 8px; border-radius: 3px; margin-top: 2px; letter-spacing: .08em; }
+    .related-title { font-size: 0.85rem; font-weight: 600; color: #0f0a2e; line-height: 1.5; }
   </style>
   <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <a href="../../" class="site-logo">
@@ -109,9 +334,7 @@
           <span class="logo-sub">野球・競馬 × 経済・株式</span>
         </div>
       </a>
-      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="../../">TOP</a>
         <a href="../../hanshin-keiba/">野球・競馬</a>
@@ -129,17 +352,21 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../../economy-stocks/">経済・株式</a>
       <span class="breadcrumb-sep">›</span>
-      <span>ウーバーイーツはなぜ、お店と同じ値段で買えるのか？ 総額まで同じになる店の裏側を</span>
+      <span>ウーバーイーツはなぜ店と同じ値段で買えるのか</span>
     </div>
   </div>
 
   <div class="art-hero">
-    <img src="thumb.png?v=20260418c" alt="記事サムネイル" class="art-hero-thumb">
+    <img src="thumb.png?v=20260418c" alt="ウーバーイーツの価格構造" class="art-hero-thumb">
     <div class="art-hero-title-block">
-      <div class="art-hero-cats"><span class="art-cat-badge art-cat-main">企業分析</span></div>
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-tech">企業分析</span>
+        <span class="art-cat-badge art-cat-warn">ビジネスモデル</span>
+        <span class="art-cat-badge art-cat-stock">5銘柄比較</span>
+      </div>
       <h1 class="art-hero-h1">ウーバーイーツはなぜ、お店と同じ値段で買えるのか？ 総額まで同じになる店の裏側を解説</h1>
       <div class="art-hero-meta">
-        <span>2026.04.01</span>
+        <span>2026年4月1日</span>
         <span>AIデータ二刀流ブログ</span>
       </div>
     </div>
@@ -148,120 +375,444 @@
   <div class="art-layout">
     <main class="art-body">
 
-
       <div class="hero-summary">
         <div class="hero-summary-label">この記事のコア</div>
         <h2>誰かが損をして我慢している、というより、誰がどこで払うかを組み替えた結果です。</h2>
-        <p>具体的には、- 店は「集客＋配達外注＋注文管理＋販促＋分析」に対して加盟店手数料を払う- 利用者は会員サブスクで注文頻度を上げる- Uberは広告でも稼ぐ- そのうえで、規模の経済が効く会社は黒字化できる つまり、商品価格を店頭に寄せても、全体では成立しうる構造ができているわけです。 「フードデリバリー関連株」と一括りにしても、実態はかなり違います。 完成度が高い本命はUber、強いが高めなのがDoorDash、回復待ちの成長株がCoupang、守り寄りの主力候補がKDD…</p>
+        <p>店は「集客＋配達外注＋注文管理＋販促＋分析」に対して加盟店手数料を払う。利用者は会員サブスクで注文頻度を上げる。Uberは広告でも稼ぐ。そのうえで、規模の経済が効く会社は黒字化できる――つまり、商品価格を店頭に寄せても、全体では成立しうる構造ができているわけです。フードデリバリー関連株も一括りにはできず、完成度が高い本命はUber、強いが高めなのがDoorDash、回復待ちの成長株がCoupang、守り寄りの主力候補がKDDI、日本の再成長を最も生で映すのが出前館という整理になります。</p>
       </div>
-<p>「配達までしてもらっているのに、なぜ店頭と同じ値段で買えるのか。」</p>
-      <p>最近のUber Eatsを見ていると、多くの人がまずここで引っかかるはずです。しかも店によっては、会員特典や条件が重なることで、表示価格だけでなく、最終的な支払総額までかなり店頭に近い、あるいは同じに近い体験が出てきています。</p>
-<p>普通に考えれば不思議です。配達する人がいる。アプリを動かすシステムがある。決済やサポートもある。それなのに、なぜ「店と同じ値段」に見えるのか。さらに言えば、店は加盟店手数料まで払っているのに、本当にそれで成り立つのか。</p>
-<p>この記事では、この違和感を出発点にして、フードデリバリー業界の現在地を整理します。単なる「お得情報」ではなく、店・利用者・プラットフォームの3者が、どこでどうお金を払い、どこで回収しているのかを丁寧に追います。さらに後半では、関連<strong>5銘柄</strong>――Uber、DoorDash、Coupang、KDDI、出前館――を比較し、「どの会社がどんな勝ち筋を持っているのか」を初心者向けにわかりやすくまとめます。</p>
 
-      <div class="video-box" style="max-width:640px;margin-left:auto;margin-right:auto;">
+      <p>「配達までしてもらっているのに、なぜ店頭と同じ値段で買えるのか。」</p>
+
+      <p>最近のUber Eatsを見ていると、多くの人がまずここで引っかかるはずです。しかも店によっては、会員特典や条件が重なることで、表示価格だけでなく、最終的な支払総額までかなり店頭に近い、あるいは同じに近い体験が出てきています。</p>
+
+      <p>普通に考えれば不思議です。配達する人がいる。アプリを動かすシステムがある。決済やサポートもある。それなのに、なぜ「店と同じ値段」に見えるのか。さらに言えば、店は加盟店手数料まで払っているのに、本当にそれで成り立つのか。</p>
+
+      <p>この記事では、この違和感を出発点にして、フードデリバリー業界の現在地を整理します。単なる「お得情報」ではなく、店・利用者・プラットフォームの3者が、どこでどうお金を払い、どこで回収しているのかを丁寧に追います。さらに後半では、関連<strong>5銘柄</strong>――Uber、DoorDash、Coupang、KDDI、出前館――を比較し、「どの会社がどんな勝ち筋を持っているのか」を初心者向けにわかりやすくまとめます。</p>
+
+      <div class="video-box">
         <div class="video-box-label">▶ 動画でも解説しています</div>
         <div class="video-embed-wrap">
           <iframe src="https://www.youtube.com/embed/EFXOi3jesO8" title="ウーバーイーツはなぜ、お店と同じ値段で買えるのか？ 総額まで同じになる店の裏側を解説" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+
       <div class="q-summary">
         <div class="q-summary-label">3行まとめ</div>
         <ol>
-      <li>Uber Eatsの「同価格」は、単なる値下げではなく、回収場所の再設計である。</li>
-      <li>店の手数料、会員サブスク、広告、規模の経済が、この体験を支えている。</li>
-      <li>株で見ると、関連5銘柄は勝ち筋もリスクもかなり違う。</li>
+          <li>Uber Eatsの<strong>「同価格」</strong>は、単なる値下げではなく<strong>回収場所の再設計</strong>である。</li>
+          <li>店の手数料、会員サブスク、広告、規模の経済が、この体験を支えている。</li>
+          <li>株で見ると、関連5銘柄は<strong>勝ち筋もリスクもかなり違う</strong>。</li>
         </ol>
       </div>
 
-      
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">01</span>
+          <h2>先に結論｜回収場所を組み替えただけ</h2>
+          <span class="q-section-head-en">CONCLUSION</span>
+        </div>
+        <p>結論から言うと、Uber Eatsが「店と同じ値段」に見えるのは、<strong>単純な値下げではありません</strong>。誰かが損をして我慢している、というより、<strong>誰がどこで払うかを組み替えた結果</strong>です。</p>
 
-      <div class="sec-head" id="sec-conclusion">
-        <span class="sec-num">00</span>
-        <h2>先に結論</h2>
-        <span class="sec-head-en">CONCLUSION</span>
-      </div>
-<p>結論から言うと、Uber Eatsが「店と同じ値段」に見えるのは、単純な値下げではありません。</p>
-      <p>誰かが損をして我慢している、というより、誰がどこで払うかを組み替えた結果です。</p>
-<p>具体的には、</p>
-      <p>- 店は「集客＋配達外注＋注文管理＋販促＋分析」に対して加盟店手数料を払う</p>
-      <p>- 利用者は会員サブスクで注文頻度を上げる</p>
-      <p>- Uberは広告でも稼ぐ</p>
-      <p>- そのうえで、規模の経済が効く会社は黒字化できる</p>
-<p>つまり、商品価格を店頭に寄せても、全体では成立しうる構造ができているわけです。</p>
-<p>株式の見方も同じです。</p>
-      <p>「フードデリバリー関連株」と一括りにしても、実態はかなり違います。</p>
-      <p>完成度が高い本命はUber、強いが高めなのがDoorDash、回復待ちの成長株がCoupang、守り寄りの主力候補がKDDI、日本の再成長を最も生で映すのが出前館――という整理で見ると、かなりわかりやすくなります。</p>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-card-label">店の手数料</div>
+            <div class="stat-card-number">30%</div>
+            <div class="stat-card-sub">集客＋配達外注＋注文管理＋販促＋分析の対価として加盟店手数料を払う構造。</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">サブスク</div>
+            <div class="stat-card-number">Uber One</div>
+            <div class="stat-card-sub">会員課金で注文頻度を押し上げ、LTVを伸ばす仕組み。</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">広告収益</div>
+            <div class="stat-card-number">+α</div>
+            <div class="stat-card-sub">アプリ内広告が第3の収益柱。加盟店が販促のために追加で払う。</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">規模の経済</div>
+            <div class="stat-card-number">Scale</div>
+            <div class="stat-card-sub">注文密度が上がるほど配達効率が改善し、黒字化可能な構造に。</div>
+          </div>
+        </div>
 
-<p># 1. テーマの全体像――何が起きているのか</p>
-<p>まず押さえたいのは、今回のニュースの本質です。</p>
-<p>Uber Eats Japanは<strong>2026年3月20日</strong>から、全国約1万8,000店舗で「お店と同じ価格」を導入しました。Uber Japanは加盟店数を12万超と説明しているので、単純計算では対象は全体の約15％です。つまり、まだ全店ではありません。しかし「一部の例外」では片づけにくい規模にはなっています。</p>
-<p>さらに<strong>2026年2月</strong>には、Uber One特典の拡充で、対象レストランの一定条件下で「サービス料<strong>0円</strong>」「配達手数料<strong>0円</strong>」を打ち出しました。このため、対象店・対象条件が重なると、利用者の体験としては「商品代金だけ」にかなり近い注文も出てきます。</p>
-<p>ここが今回のインパクトです。</p>
-<p>これまでフードデリバリー最大の壁は、「便利だけど高い」でした。</p>
-      <p>ところが今は、「価格差をできるだけ縮めて、日常利用に持ち込む」方向に、業界全体が舵を切り始めています。</p>
-<p>## 初心者向けに一言で言うと</p>
-      <p>昔のデリバリーは「雨の日のぜいたく」でした。</p>
-      <p>今のデリバリーは「できれば日常インフラに入りたい」と思っている。</p>
-      <p>そのために、見える価格差を崩しに来ている。</p>
-      <p>これが全体像です。</p>
-<p># 2. 論点整理――このテーマで本当に見るべきポイント</p>
-<p>このテーマは、ただ「安い・高い」で見ると混乱します。論点は次の4つです。</p>
-<ol>
-<li>店はなぜ高い加盟店手数料を払ってまで出店するのか</li>
-</ol>
-
-      <div class="sec-head" id="sec-summary">
-        <span class="sec-num">99</span>
-        <h2>まとめ</h2>
-        <span class="sec-head-en">SUMMARY</span>
-      </div>
-<p>Uber Eatsの「お店と同じ価格」は、ニュースとして見ると派手ですが、本当に大事なのはその裏側です。</p>
-      <p>店は何を買っているのか。</p>
-      <p>利用者はなぜ会員になるのか。</p>
-      <p>Uberは広告で何を売っているのか。</p>
-      <p>そして、その構造はちゃんと儲かるのか。</p>
-<p>ここまで追うと、単なる「値下げニュース」ではなく、業界の競争ルールそのものが変わり始めていることが見えてきます。</p>
-<p>便利なサービスが安くなる、という話ではありません。</p>
-      <p>便利さを日常化するために、負担の置き場所を組み替えた。</p>
-      <p>その結果として、利用者から見える価格差が崩れている。</p>
-      <p>これが本質です。</p>
-<p>株式の見方も同じです。</p>
-      <p>「デリバリー関連」というラベルだけで見ると危ない。</p>
-      <p>各社の勝ち筋、収益構造、バリュエーション、事業の成熟度はかなり違います。</p>
-<p>ニュースを見るときも、株を見るときも、</p>
-      <p>「誰がどこで払っているのか」</p>
-      <p>この視点を持つと、かなり景色が変わるはずです。</p>
-
-
-      <div class="disclaimer">
-        <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+        <p>つまり、商品価格を店頭に寄せても、<strong>全体では成立しうる構造</strong>ができているわけです。株式の見方も同じで、「フードデリバリー関連株」と一括りにしても、実態はかなり違います。完成度が高い本命はUber、強いが高めなのがDoorDash、回復待ちの成長株がCoupang、守り寄りの主力候補がKDDI、日本の再成長を最も生で映すのが出前館――という整理で見ると、かなりわかりやすくなります。</p>
       </div>
 
-      <hr class="art-hr">
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">02</span>
+          <h2>テーマの全体像｜何が起きているのか</h2>
+          <span class="q-section-head-en">OVERVIEW</span>
+        </div>
+        <p>まず押さえたいのは、今回のニュースの本質です。Uber Eats Japanは<strong>2026年3月20日</strong>から、全国約<strong>1万8,000店舗</strong>で「お店と同じ価格」を導入しました。Uber Japanは加盟店数を<strong>12万超</strong>と説明しているので、単純計算では対象は全体の<strong>約15％</strong>です。まだ全店ではありませんが、「一部の例外」では片づけにくい規模になっています。</p>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-card-label">導入日</div>
+            <div class="stat-card-number">3/20</div>
+            <div class="stat-card-sub">2026年3月20日から「お店と同じ価格」を全国展開。</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">対象店舗</div>
+            <div class="stat-card-number">18,000</div>
+            <div class="stat-card-sub">全国約1万8,000店舗が対象（加盟店全体の約15%）。</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">加盟店総数</div>
+            <div class="stat-card-number">120,000+</div>
+            <div class="stat-card-sub">Uber Japan公式の加盟店数。今後も対象拡大余地。</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">会員特典</div>
+            <div class="stat-card-number">¥0</div>
+            <div class="stat-card-sub">2026年2月拡充。Uber One対象店でサービス料・配達手数料0円。</div>
+          </div>
+        </div>
+
+        <p>さらに<strong>2026年2月</strong>には、Uber One特典の拡充で、対象レストランの一定条件下で「サービス料<strong>0円</strong>」「配達手数料<strong>0円</strong>」を打ち出しました。このため、対象店・対象条件が重なると、利用者の体験としては「商品代金だけ」にかなり近い注文も出てきます。これまでフードデリバリー最大の壁は「便利だけど高い」でしたが、今は<strong>価格差をできるだけ縮めて、日常利用に持ち込む</strong>方向に、業界全体が舵を切り始めています。</p>
+
+        <p>昔のデリバリーは「雨の日のぜいたく」でした。今のデリバリーは「できれば日常インフラに入りたい」と思っている。そのために、見える価格差を崩しに来ている――これが全体像です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">03</span>
+          <h2>利用者とお店｜2つの視点で見る</h2>
+          <span class="q-section-head-en">TWO SIDES</span>
+        </div>
+        <p>このテーマは、利用者側とお店側の<strong>両面から見る</strong>ことで、初めて全体像が見えます。どちらか片方だけを見ると「値下げ万歳」「店が泣いている」の単純な話になってしまいます。</p>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">利用者サイド</span>
+            <h3>見える価格差が消えていく</h3>
+            <p>商品価格は店頭と同じ。Uber One会員なら<strong>サービス料・配達手数料0円</strong>の組み合わせも。支払総額まで店頭と同程度に近づく体験が広がり、「雨の日のぜいたく」から<strong>日常インフラ</strong>への移行が進む。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">加盟店サイド</span>
+            <h3>手数料と引き換えに何を得るか</h3>
+            <p>店は高い加盟店手数料を払う。その代わりに集客・配達外注・注文管理・販促・分析を一括で買う構造。<strong>自前で配達員を雇う・集客する・データ基盤を作るコスト</strong>と比較すると、必ずしも割高ではない。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">04</span>
+          <h2>ビジネスモデルの2本柱</h2>
+          <span class="q-section-head-en">BUSINESS MODEL</span>
+        </div>
+        <p>Uberが「店と同じ値段」を成立させているのは、<strong>2本柱</strong>の収益構造です。商品マージンに頼らず、別のところで回収する設計になっています。</p>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🏪</div>
+            <div class="pillar-title">柱1：加盟店手数料</div>
+            <div class="pillar-desc">店が集客・配達外注・注文管理・販促・分析をまとめて買う対価。商品代金に含まれない「サービス料金」として回収される。</div>
+            <div class="pillar-example">💡 たとえ：テナント料込みの商店街</div>
+          </div>
+          <div class="pillar target">
+            <div class="pillar-icon">💳</div>
+            <div class="pillar-title">柱2：会員サブスク＋広告</div>
+            <div class="pillar-desc">Uber Oneの月額課金で注文頻度を底上げし、アプリ内広告で加盟店から販促費を得る。<strong>商品価格を触らずに収益を積む</strong>仕組み。</div>
+            <div class="pillar-example">💡 たとえ：入場料＋広告収入のメディア</div>
+          </div>
+        </div>
+
+        <p>この2本柱に、<strong>規模の経済</strong>が加わることで初めて「店と同じ値段」が成立します。注文密度が上がるほど1配達あたりの配達員稼働時間が短くなり、単価も下げられる――この構造に入れた会社だけが黒字化できます。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">05</span>
+          <h2>3つのリスク｜構造は完璧ではない</h2>
+          <span class="q-section-head-en">RISK PATTERNS</span>
+        </div>
+        <p>ここまで聞くと完璧な構造に見えますが、<strong>3つのリスク</strong>が常について回ります。どれも「価格差を崩す」戦略が持つ副作用です。</p>
+
+        <div class="risk-grid">
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">1</span>
+              <span class="risk-title">加盟店の耐久力</span>
+            </div>
+            <div class="risk-body">手数料分を自社で飲み込める店と、そうでない店がある。体力差が広がり、寡占化が進むリスク。</div>
+            <div class="risk-example">🏚 体力勝負になる中小店舗</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">2</span>
+              <span class="risk-title">配達員の待遇</span>
+            </div>
+            <div class="risk-body">配達単価が下がれば担い手が減る。社会的・規制的な圧力が強まれば、コスト構造が一気に変わる可能性。</div>
+            <div class="risk-example">🚚 ギグワーク規制の波</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">3</span>
+              <span class="risk-title">サブスク依存</span>
+            </div>
+            <div class="risk-body">Uber One無料特典に慣れた利用者が有料プランを離脱すれば、サブスク収益の柱が崩れる。</div>
+            <div class="risk-example">🎯 特典疲れと解約</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">06</span>
+          <h2>フードデリバリー関連株 5銘柄を比較</h2>
+          <span class="q-section-head-en">STOCK DEEP DIVE</span>
+        </div>
+        <p>「デリバリー関連株」と一括りにしても、<strong>事業の色と株価の織り込み度は全く異なります</strong>。5銘柄の勝ち筋とリスクを整理します。</p>
+
+        <div class="stock-grid">
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">UBER</div>
+              <span class="stock-tag tag-stable">本命</span>
+            </div>
+            <div class="stock-desc">完成度が高い業界本命。配車×デリバリーの両輪で規模の経済が効き、黒字化が進む。会員サブスク・広告の3本柱が揃う。</div>
+          </div>
+
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">DASH</div>
+              <span class="stock-tag tag-dream">強いが高め</span>
+            </div>
+            <div class="stock-desc">米国デリバリー最大手。実力は本物だが、バリュエーションに成長を織り込み済み。入り口は慎重に。</div>
+          </div>
+
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">CPNG</div>
+              <span class="stock-tag tag-dream">回復待ち</span>
+            </div>
+            <div class="stock-desc">Coupang。韓国EC＋食品配送の成長株。収益化フェーズへの移行中で、勝てば大きいが忍耐が要る。</div>
+          </div>
+
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">KDDI</div>
+              <span class="stock-tag tag-defense">守り寄り</span>
+            </div>
+            <div class="stock-desc">通信本業の安定＋出前館との連携で守り寄りの主力候補。デリバリー単体ではなく、ポートフォリオ全体で見る銘柄。</div>
+          </div>
+
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">2484</div>
+              <span class="stock-tag tag-specu">再成長</span>
+            </div>
+            <div class="stock-desc">出前館。日本市場の再成長を最も生で映す銘柄。回復できれば大きいが、競争は厳しく体力勝負が続く。</div>
+          </div>
+        </div>
+
+        <p>テーマだけで全部少しずつ買うと、<strong>勝ち筋の違う銘柄を重複して持つ</strong>ことになります。まず自分のタイプ（本命／成長／守り）を決めるのが先決です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">07</span>
+          <h2>銘柄ごとの強材料・弱材料</h2>
+          <span class="q-section-head-en">PROS &amp; CONS</span>
+        </div>
+
+        <div class="stock-label">UBER｜完成度の高い本命</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ PROS</div>配車×デリバリーの両輪／会員サブスク＋広告／規模の経済で黒字化が進む</div>
+          <div class="con-box"><div class="con-box-label">✗ CONS</div>期待が既に織り込まれている／規制リスク（ギグワーク）／為替影響</div>
+        </div>
+
+        <div class="stock-label">DASH｜強いが入り口は慎重に</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ PROS</div>米国デリバリー最大手／事業実力は本物／市場シェアの厚さ</div>
+          <div class="con-box"><div class="con-box-label">✗ CONS</div>バリュエーションが高め／米市場依存／競争激化</div>
+        </div>
+
+        <div class="stock-label">CPNG｜回復待ちの成長株</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ PROS</div>韓国EC＋食品配送の成長余地／収益化フェーズに入りつつある</div>
+          <div class="con-box"><div class="con-box-label">✗ CONS</div>忍耐が必要／通貨・地政リスク／利益確定のタイミングが難しい</div>
+        </div>
+
+        <div class="stock-label">KDDI｜守り寄りの主力候補</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ PROS</div>通信本業の安定／配当／出前館との連携による上振れ余地</div>
+          <div class="con-box"><div class="con-box-label">✗ CONS</div>デリバリー純度は低い／通信規制／大化けはしにくい</div>
+        </div>
+
+        <div class="stock-label">出前館（2484）｜日本再成長の生映像</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ PROS</div>日本市場の再成長を最も生で反映／回復すれば伸び代大</div>
+          <div class="con-box"><div class="con-box-label">✗ CONS</div>競争激しく体力勝負／黒字化が遠い／需給が薄い</div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">08</span>
+          <h2>5銘柄 一覧比較</h2>
+          <span class="q-section-head-en">COMPARISON</span>
+        </div>
+
+        <table class="data-table">
+          <thead><tr><th>銘柄</th><th>ポジション</th><th>勝ち筋</th><th>主なリスク</th></tr></thead>
+          <tbody>
+            <tr><td><strong>UBER</strong></td><td>完成度の高い本命</td><td>配車＋デリバリー＋広告の3本柱</td><td>期待織り込み／規制</td></tr>
+            <tr><td><strong>DASH</strong></td><td>強いが高め</td><td>米国市場シェア</td><td>バリュエーション</td></tr>
+            <tr><td><strong>CPNG</strong></td><td>回復待ち成長株</td><td>韓国EC連携</td><td>収益化タイミング</td></tr>
+            <tr><td><strong>KDDI</strong></td><td>守り寄り主力</td><td>通信本業＋出前館連携</td><td>デリバリー純度低</td></tr>
+            <tr><td><strong>出前館</strong></td><td>日本再成長の生映像</td><td>日本市場回復</td><td>体力勝負</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">09</span>
+          <h2>よくある誤解への答え</h2>
+          <span class="q-section-head-en">FAQ</span>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">店と同じ値段なら、店は大損しているのでは？</div>
+            <div class="faq-a">実際は手数料を含めて価格設計されるケースが多く、<strong>単純な値引きではない</strong>。さらに集客・配達・分析を一括で外注できるメリットとのトレードオフ。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">なぜ配達料・サービス料を0円にできるのか？</div>
+            <div class="faq-a">Uber Oneという<strong>月額サブスク</strong>で回収しているから。さらに会員化で注文頻度が上がり、広告売上も伸びる循環ができている。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">デリバリー株はどれか1つ買えば良い？</div>
+            <div class="faq-a">勝ち筋が違うので<strong>一括りは危険</strong>。完成度のUBER、回復期待のCPNG、日本再成長の出前館は、それぞれ全く別の賭けです。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">この構造は長続きするのか？</div>
+            <div class="faq-a">規模の経済が効く限り成立しやすいが、<strong>ギグワーク規制・サブスク離脱・加盟店疲弊</strong>などが集中すると、構造は揺らぎうる。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">10</span>
+          <h2>投資地図｜4タイプで整理する</h2>
+          <span class="q-section-head-en">INVESTMENT MAP</span>
+        </div>
+
+        <div class="matrix">
+          <div class="matrix-label">YOUR POSITIONING MAP</div>
+          <h3>「どれが一番すごいか」ではなく「自分はどのタイプを買うか」を先に決める</h3>
+          <div class="matrix-grid">
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">完成度の本命</span>
+                <span class="matrix-cell-ticker">UBER</span>
+              </div>
+              <div class="matrix-cell-desc">3本柱が揃った業界本命。守り寄りに中核を据えるならここ。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">強いが高め</span>
+                <span class="matrix-cell-ticker">DASH</span>
+              </div>
+              <div class="matrix-cell-desc">米市場の実力株。押し目を待ちたいタイプ。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">回復待ち成長</span>
+                <span class="matrix-cell-ticker">CPNG / 出前館</span>
+              </div>
+              <div class="matrix-cell-desc">伸び代は大きいが、忍耐と管理の両方が必要。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">守り寄り</span>
+                <span class="matrix-cell-ticker">KDDI</span>
+              </div>
+              <div class="matrix-cell-desc">通信本業の安定に、デリバリーの上振れが乗る構造。</div>
+            </div>
+          </div>
+        </div>
+
+        <p>テーマだけで全部買うと、<strong>高い期待を重複して買う</strong>ことになります。自分のタイプを先に決めるのが賢明です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">11</span>
+          <h2>まとめ｜誰がどこで払っているのか</h2>
+          <span class="q-section-head-en">SUMMARY</span>
+        </div>
+        <p>Uber Eatsの「お店と同じ価格」は、ニュースとして見ると派手ですが、本当に大事なのはその裏側です。<strong>店は何を買っているのか。利用者はなぜ会員になるのか。Uberは広告で何を売っているのか。そして、その構造はちゃんと儲かるのか</strong>――ここまで追うと、単なる「値下げニュース」ではなく、業界の競争ルールそのものが変わり始めていることが見えてきます。</p>
+
+        <p>便利なサービスが安くなる、という話ではありません。便利さを日常化するために、<strong>負担の置き場所を組み替えた</strong>。その結果として、利用者から見える価格差が崩れている。これが本質です。</p>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">ニュースの読み方</span>
+            <h3>3つのキーポイント</h3>
+            <p>① <strong>同価格は値下げではなく回収場所の再設計</strong>　② <strong>加盟店手数料＋サブスク＋広告の3本柱</strong>　③ <strong>規模の経済が効く会社だけが黒字化できる</strong>。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">株の見方</span>
+            <h3>3つのキーポイント</h3>
+            <p>① <strong>デリバリー関連と一括りは危険</strong>　② <strong>本命・成長・守りで分ける</strong>　③ <strong>「良い会社」と「今買いやすい株」は別物</strong>。</p>
+          </div>
+        </div>
+
+        <p>ニュースを見るときも、株を見るときも、<strong>「誰がどこで払っているのか」</strong>――この視点を持つと、かなり景色が変わるはずです。</p>
+
+        <div class="disclaimer">
+          <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+        </div>
+      </div>
 
       <div class="related-head">RELATED ARTICLES</div>
       <div class="related-list">
-        <a href="../" class="related-item">
-          <span class="related-tag">一覧</span>
-          <span class="related-title">経済・株式の記事一覧へ</span>
-        </a>
+        <a href="../2026-04-18-app-future/" class="related-item"><span class="related-tag">テック</span><span class="related-title">アプリの未来｜AI時代にサブスク・広告モデルはどう変わるか</span></a>
+        <a href="../2026-04-11-hitorioya/" class="related-item"><span class="related-tag">社会</span><span class="related-title">ひとり親家庭の壁｜制度と現実のあいだにある3つの谷</span></a>
+        <a href="../2026-04-06-saizeriya/" class="related-item"><span class="related-tag">企業</span><span class="related-title">サイゼリヤはなぜ安い？　価格戦略とビジネスモデルを分解</span></a>
+        <a href="../2026-04-11-trump-tariffs/" class="related-item"><span class="related-tag">マクロ</span><span class="related-title">トランプ関税の本質｜日本企業への影響と投資戦略</span></a>
+        <a href="../" class="related-item"><span class="related-tag">一覧</span><span class="related-title">経済・株式の記事一覧へ</span></a>
       </div>
-
     </main>
 
     <aside class="art-sidebar">
       <div class="sidebar-toc">
         <div class="sidebar-toc-label">目次</div>
         <ul class="toc-list">
-          <li><a href="#sec-conclusion"><span class="toc-n">00</span>先に結論</a></li>
-
-          <li><a href="#sec-summary"><span class="toc-n">99</span>まとめ</a></li>
+          <li><a href="#sec-conclusion"><span class="toc-n">01</span>先に結論</a></li>
+          <li><a href="#sec-overview"><span class="toc-n">02</span>全体像</a></li>
+          <li><a href="#sec-twosides"><span class="toc-n">03</span>2つの視点</a></li>
+          <li><a href="#sec-model"><span class="toc-n">04</span>2本柱モデル</a></li>
+          <li><a href="#sec-risk"><span class="toc-n">05</span>3つのリスク</a></li>
+          <li><a href="#sec-stocks"><span class="toc-n">06</span>5銘柄比較</a></li>
+          <li><a href="#sec-proscons"><span class="toc-n">07</span>強材料・弱材料</a></li>
+          <li><a href="#sec-table"><span class="toc-n">08</span>一覧比較</a></li>
+          <li><a href="#sec-faq"><span class="toc-n">09</span>FAQ</a></li>
+          <li><a href="#sec-map"><span class="toc-n">10</span>投資地図</a></li>
+          <li><a href="#sec-summary"><span class="toc-n">11</span>まとめ</a></li>
         </ul>
       </div>
       <div class="sidebar-meta">
         <div class="sidebar-meta-label">TAGS</div>
-        <div class="tag-cloud"><span class="tag-pill">Uber Eats</span><span class="tag-pill">デリバリー</span><span class="tag-pill">外食</span><span class="tag-pill">手数料</span><span class="tag-pill">ビジネスモデル</span></div>
+        <div class="tag-cloud">
+          <span class="tag-pill">Uber Eats</span>
+          <span class="tag-pill">デリバリー</span>
+          <span class="tag-pill">外食</span>
+          <span class="tag-pill">手数料</span>
+          <span class="tag-pill">ビジネスモデル</span>
+          <span class="tag-pill">UBER</span>
+          <span class="tag-pill">DoorDash</span>
+          <span class="tag-pill">Coupang</span>
+          <span class="tag-pill">KDDI</span>
+          <span class="tag-pill">出前館</span>
+          <span class="tag-pill">ギグワーク</span>
+        </div>
       </div>
     </aside>
   </div>
@@ -273,6 +824,5 @@
   </footer>
 
   <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/article-enhance.js?v=20260418e" defer></script>
 </body>
 </html>
