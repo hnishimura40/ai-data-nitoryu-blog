@@ -1,10 +1,7 @@
 /* 記事共通ビジュアル強化 */
 
-/* ========== ライトモード強制（携帯ダークモード対策） ========== */
-html, body { color-scheme: light only; background-color: #ffffff; }
-
-/* ルート部分の色明示。iOS Safari / Android Chrome のダークモード自動反転を抑制 */
-.art-body, .art-layout, main.art-body { background-color: transparent; }
+/* color-scheme はメタタグで light dark 指定 */
+html { color-scheme: light dark; }
 
 /* ========== data-table セル内バー ========== */
 .data-table td.has-bar { position: relative; }
@@ -51,7 +48,7 @@ html, body { color-scheme: light only; background-color: #ffffff; }
   vertical-align: 2px;
 }
 
-/* ========== strong ハイライト（全記事共通） ========== */
+/* ========== strong ハイライト（ライトモード） ========== */
 .art-body p strong,
 .art-body li strong {
   color: #1a4fa0;
@@ -72,85 +69,172 @@ html, body { color-scheme: light only; background-color: #ffffff; }
   letter-spacing: 0.04em;
 }
 
-/* ========== 携帯ダークモード対策：白カードを明示的に白固定 ========== */
+/* ===================================================== */
+/* ダークモード: 全体を暗めにしつつ視認性を高める        */
+/* ===================================================== */
 @media (prefers-color-scheme: dark) {
-  /* ページ全体を明示的に白背景に */
-  html, body { background-color: #ffffff !important; color: #2a2e3c !important; }
 
-  /* 記事本文を白背景固定 */
-  .art-layout, .art-body, .blog-wrap, .main-content { background-color: #ffffff !important; }
-
-  /* 本文テキストを濃色固定 */
-  .art-body p, .art-body li { color: #2a2e3c !important; }
-
-  /* 白カード・明カード系を明示 */
-  .stat-card, .layer-card, .risk-card, .stock-card, .faq-item,
-  .related-item, .sidebar-meta, .pillar, .pillar-example,
-  .stock-metric, .article-list-item, .article-card, .post-card {
-    background-color: #ffffff !important;
-  }
-  .pillar { background: linear-gradient(180deg, #fafbff 0%, #f0f3fa 100%) !important; }
-  .pillar.target { background: linear-gradient(180deg, #fff5f5 0%, #ffe4e4 100%) !important; }
-
-  /* 本文見出し・ラベル類を濃色に */
-  .q-section-head h2, .sec-head h2,
-  .stat-card-number, .layer-card h3, .pillar-title,
-  .risk-title, .stock-ticker, .stock-metric-value,
-  .faq-q, .related-title,
-  .article-list-title, .article-title, .post-title {
-    color: #0f0a2e !important;
+  /* ベース */
+  html, body {
+    background-color: #0b1020 !important;
+    color: #d8dfef !important;
   }
 
-  /* サブテキスト */
-  .stat-card-sub, .layer-card p, .pillar-desc, .risk-body,
-  .stock-desc, .faq-a, .pillar-example {
-    color: #4a5270 !important;
+  /* 本文領域 */
+  .art-layout, .art-body, .blog-wrap, .main-content, .blog-main, .container {
+    background-color: transparent !important;
   }
 
-  /* data-table */
-  .data-table { background-color: #ffffff !important; }
-  .data-table td { background-color: #ffffff !important; color: #2a2e3c !important; }
-  .data-table tr:nth-child(even) td { background-color: #fafbff !important; }
-  .data-table th { color: #ffffff !important; }
+  /* 本文テキスト */
+  .art-body p, .art-body li, .art-body,
+  main p, main li,
+  .post-excerpt, .article-excerpt {
+    color: #d8dfef !important;
+  }
 
-  /* サイドバー目次 */
-  .sidebar-toc { background: linear-gradient(145deg, #fafbff, #f0f3fa) !important; }
-  .toc-list a { color: #4a5270 !important; }
+  /* ===== 重要：strong は黄色マーカーをやめ、薄紫下地＋明るい紫文字 ===== */
+  /* 白文字と黄色下線が被って読みにくくなる問題を解消 */
+  .art-body p strong,
+  .art-body li strong {
+    color: #c4b5fd !important;
+    background: rgba(139, 92, 246, 0.18) !important;
+    padding: 1px 5px !important;
+    border-radius: 3px !important;
+  }
+  .data-table strong { color: #c4b5fd !important; background: none !important; }
 
-  /* KEY POINT リード */
-  .art-body .sec-lede { color: #1a2744 !important; }
+  /* ===== KEY POINTリード ===== */
+  .art-body .sec-lede {
+    background: linear-gradient(135deg, #141828, #181c2e) !important;
+    border-left-color: #a78bfa !important;
+    color: #e4e8f4 !important;
+  }
+  .art-body .sec-lede::before {
+    background: rgba(167,139,250,0.2) !important;
+    color: #c4b5fd !important;
+  }
 
-  /* strong ハイライト（ダークモードでも見やすく） */
-  .art-body p strong, .art-body li strong { color: #1a4fa0 !important; }
+  /* ===== 見出し ===== */
+  .sec-head { border-bottom-color: #2a3150 !important; }
+  .sec-head h2 { color: #f1f5ff !important; }
+  .sec-head-en { color: #5a6488 !important; }
+  .sec-sub { color: #f1f5ff !important; border-left-color: #a78bfa !important; }
 
-  /* pro/con */
-  .pro-box { color: #065f46 !important; }
-  .con-box { color: #991b1b !important; }
+  /* ===== data-table ===== */
+  .data-table {
+    box-shadow: 0 4px 14px -4px rgba(0,0,0,0.5) !important;
+    border: 1px solid #2a3150 !important;
+  }
+  .data-table td {
+    background-color: #141828 !important;
+    color: #d8dfef !important;
+    border-bottom-color: #242a44 !important;
+  }
+  .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+  .data-table .cell-bar { background: #242a44 !important; }
+  .data-table .cell-bar-fill { background: linear-gradient(90deg, #7dd3fc, #a78bfa) !important; }
+
+  /* ===== summary-box / hlbox ===== */
+  .summary-box {
+    background: linear-gradient(135deg, #141828, #181c2e) !important;
+    border-color: #2a3150 !important;
+    border-left-color: #a78bfa !important;
+  }
+  .summary-box-title { color: #a78bfa !important; }
+  .summary-box li { color: #d8dfef !important; }
+  .hlbox {
+    background: linear-gradient(135deg, #1f1a0a, #2a2208) !important;
+    border-color: rgba(217,119,6,0.45) !important;
+    border-left-color: #fbbf24 !important;
+  }
+  .hlbox p { color: #fcd34d !important; }
+
+  /* ===== 関連記事 ===== */
+  .related-head {
+    color: #a78bfa !important;
+    border-bottom-color: #2a3150 !important;
+  }
+  .related-item {
+    background: #141828 !important;
+    border-color: #2a3150 !important;
+  }
+  .related-title { color: #f1f5ff !important; }
+
+  /* ===== サイドバー ===== */
+  .sidebar-toc {
+    background: linear-gradient(145deg, #141828, #0f1322) !important;
+    border-color: #2a3150 !important;
+  }
+  .sidebar-toc-label { color: #a78bfa !important; }
+  .toc-list a { color: #b9c1d9 !important; }
+  .toc-list a:hover { color: #c4b5fd !important; }
+  .toc-list li { border-bottom-color: #2a3150 !important; }
+  .toc-n { color: #a78bfa !important; }
+  .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+  .sidebar-meta-label { color: #a78bfa !important; }
+  .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+
+  /* ===== サイトヘッダー ===== */
+  .site-header {
+    background: #0b1020 !important;
+    border-bottom: 1px solid #2a3150 !important;
+  }
+  .logo-main { color: #f1f5ff !important; }
+  .logo-sub { color: #8a93ac !important; }
+  .site-nav a { color: #b9c1d9 !important; }
+  .site-nav a.active { color: #c4b5fd !important; }
+
+  /* ===== パンくず ===== */
+  .breadcrumb { background: #0f1322 !important; }
+  .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
+  .breadcrumb-sep { color: #5a6488 !important; }
+
+  /* ===== フッター ===== */
+  .site-footer { background: #0b1020 !important; border-top: 1px solid #2a3150 !important; }
+  .footer-copy { color: #8a93ac !important; }
+
+  /* ===== 記事一覧のカード ===== */
+  .article-list-item, .article-card, .post-card {
+    background: #141828 !important;
+    border-color: #2a3150 !important;
+  }
+  .article-list-title, .article-title, .post-title { color: #f1f5ff !important; }
+  .article-category, .post-cat { background: rgba(167,139,250,0.2) !important; color: #c4b5fd !important; }
+  .article-date, .post-date { color: #8a93ac !important; }
+
+  /* ===== TOP ヒーロー・ゲート ===== */
+  .site-hero { background: linear-gradient(135deg, #0b1020, #1a1f35) !important; }
+  .gate-card { background: #141828 !important; border-color: #2a3150 !important; }
+  .gate-label { color: #a78bfa !important; }
+
+  /* ===== 画像は少し暗めに ===== */
+  img { filter: brightness(0.92); }
+  .art-hero-thumb, .art-thumb-img { filter: brightness(0.85) saturate(1.05); }
+
+  /* ===== disclaimer ===== */
+  .disclaimer {
+    background: rgba(217,119,6,0.1) !important;
+    color: #fcd34d !important;
+    border-color: rgba(217,119,6,0.4) !important;
+  }
+
+  /* ===== ul/ol の good-list / bad-list ===== */
+  .good-list li { color: #86efac !important; }
+  .bad-list li { color: #fca5a5 !important; }
 }
 
 /* ========== モバイル追加調整 ========== */
 @media (max-width: 560px) {
-  /* スタットカード文字サイズ調整 */
   .stat-card-number { font-size: 1.9rem !important; }
   .stock-ticker { font-size: 1.4rem !important; }
-
-  /* タイムライン文字折返し許容 */
   .timeline { padding: 0 6px !important; }
   .tl-label { font-size: 0.68rem !important; }
   .tl-year { font-size: 0.88rem !important; }
-
-  /* ヒーローサマリーのパディング */
   .hero-summary { padding: 22px 20px !important; border-radius: 14px !important; }
   .hero-summary h2 { font-size: 1.1rem !important; }
-
-  /* マトリクス */
   .matrix { padding: 22px 18px !important; border-radius: 14px !important; }
   .matrix h3 { font-size: 1.05rem !important; }
-
-  /* 本文段落 */
   .art-body p { font-size: 0.93rem !important; line-height: 1.9 !important; }
-
-  /* セクション見出し */
   .q-section-head h2, .sec-head h2 { font-size: 1.08rem !important; }
   .q-section-num { font-size: 1.5rem !important; }
 }
