@@ -46,7 +46,7 @@
     .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
     .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
     .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
-    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px; }
+    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px;  max-width: 640px; margin-left: auto !important; margin-right: auto !important; }
     .video-box-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 10px; }
     .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
     .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
@@ -72,7 +72,11 @@
     .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
     .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
     .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
-  </style>
+  
+    .art-hero { padding: 0 !important; }
+    .art-hero-thumb { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+    .art-hero-title-block { max-width: var(--max-width, 1100px); margin: 0 auto; padding: 22px 24px 18px !important; }
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -109,6 +113,7 @@
   </div>
 
   <div class="art-hero">
+    <img src="thumb.png" alt="記事サムネイル" class="art-hero-thumb">
     <div class="art-hero-title-block">
       <div class="art-hero-cats"><span class="art-cat-badge art-cat-main">時事</span></div>
       <h1 class="art-hero-h1">ブレグジットの結末。英国はなぜEUにまた近づくのか【日本の外国人政策にも通じる話】</h1>
