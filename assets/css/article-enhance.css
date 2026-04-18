@@ -21,29 +21,31 @@ html { color-scheme: light dark; }
   transition: width 0.6s ease;
 }
 
-/* ========== セクション冒頭 KEY POINT ========== */
+/* ========== セクション冒頭 KEY POINT（視認性強化） ========== */
 .art-body .sec-lede {
   position: relative;
-  background: linear-gradient(135deg, #f7f9fc, #eef3fb);
+  background: linear-gradient(135deg, #e8f0ff 0%, #d5e4fa 100%);
+  border: 1px solid #b5cdf0;
   border-left: 4px solid #1a4fa0;
   padding: 18px 20px 16px;
   border-radius: 0 10px 10px 0;
   margin: 0 0 22px;
   font-weight: 500;
-  color: #1a2744;
+  color: #0f1a3a;
   line-height: 1.85;
+  box-shadow: 0 2px 10px -4px rgba(26, 79, 160, 0.15);
 }
 .art-body .sec-lede::before {
   content: "KEY POINT";
   display: inline-block;
-  font-size: 0.62rem;
+  font-size: 0.64rem;
   font-weight: 900;
-  letter-spacing: 0.16em;
-  color: #1a4fa0;
-  background: #e8f0ff;
-  padding: 3px 8px;
+  letter-spacing: 0.18em;
+  color: #fff;
+  background: linear-gradient(90deg, #1a4fa0, #7c3aed);
+  padding: 4px 10px;
   border-radius: 3px;
-  margin-right: 10px;
+  margin-right: 12px;
   margin-bottom: 6px;
   vertical-align: 2px;
 }
