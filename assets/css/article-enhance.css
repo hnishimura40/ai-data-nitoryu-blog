@@ -1,0 +1,67 @@
+/* 記事共通ビジュアル強化 */
+
+/* ========== data-table セル内バー ========== */
+.data-table td.has-bar { position: relative; }
+.data-table .cell-bar {
+  display: block;
+  height: 4px;
+  background: #eef2f8;
+  border-radius: 999px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+.data-table .cell-bar-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #1a4fa0, #7c3aed);
+  border-radius: 999px;
+  transition: width 0.6s ease;
+}
+
+/* ========== セクション冒頭 KEY POINT ========== */
+.art-body .sec-lede {
+  position: relative;
+  background: linear-gradient(135deg, #f7f9fc, #eef3fb);
+  border-left: 4px solid #1a4fa0;
+  padding: 18px 20px 16px;
+  border-radius: 0 10px 10px 0;
+  margin: 0 0 22px;
+  font-weight: 500;
+  color: #1a2744;
+  line-height: 1.85;
+}
+.art-body .sec-lede::before {
+  content: "KEY POINT";
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  color: #1a4fa0;
+  background: #e8f0ff;
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-right: 10px;
+  margin-bottom: 6px;
+  vertical-align: 2px;
+}
+
+/* ========== strong ハイライト（全記事共通） ========== */
+.art-body p strong,
+.art-body li strong {
+  color: #1a4fa0;
+  font-weight: 800;
+  background: linear-gradient(transparent 62%, #ffe58a 62%, #ffe58a 92%, transparent 92%);
+  padding: 0 2px;
+}
+.data-table strong { color: #1a4fa0; font-weight: 900; background: none; padding: 0; }
+
+/* data-table 磨き */
+.data-table {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.data-table th {
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
