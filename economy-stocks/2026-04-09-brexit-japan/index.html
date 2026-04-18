@@ -15,91 +15,284 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
-    .art-hero { background: linear-gradient(135deg, #0d1e38 0%, #7c3aed 100%); padding: 44px 24px; }
-    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; }
-    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
-    .art-cat-main { background: #7c3aed; color: #fff; }
-    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.95; }
-    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.55); display: flex; gap: 16px; flex-wrap: wrap; }
-    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
-    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
-    .art-body { min-width: 0; }
-    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
-    .art-body strong { color: #1a2744; }
-    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
-    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
-    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
-    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; background: #f0f4fb; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
-    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
-    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
-    @media (max-width: 560px) { .sec-head-en { display: none; } }
-    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #7c3aed; }
-    .summary-box { background: linear-gradient(135deg, #f0f6ff, #e6eefb); border: 1px solid #b5cdf0; border-left: 4px solid #7c3aed; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
-    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #7c3aed; margin-bottom: 12px; }
-    .summary-box ul { margin: 0; }
-    .summary-box li { font-size: 0.87rem; }
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; display: block; overflow-x: auto; }
-    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
-    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:nth-child(even) td { background: #f8fafd; }
-    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
-    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
-    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
-    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
-    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px;  max-width: 640px; margin-left: auto !important; margin-right: auto !important; }
-    .video-box-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 10px; }
-    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
-    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
-    .related-list { display: flex; flex-direction: column; gap: 10px; }
-    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
-    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
-    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #7c3aed; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
-    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
-    .art-sidebar { font-size: 0.88rem; }
-    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
-    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
-    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
-    .toc-list { list-style: none; padding: 0; margin: 0; }
-    .toc-list li { border-bottom: 1px solid #e8ecf4; }
-    .toc-list li:last-child { border-bottom: none; }
-    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
-    .toc-list a:hover { color: #7c3aed; }
-    .toc-n { font-size: 0.62rem; font-weight: 900; color: #7c3aed; flex-shrink: 0; width: 22px; }
-    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
-    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
-    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
-    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
-  
-    .art-hero { padding: 24px 0 0 0 !important; }
-    .art-hero-thumb { width: 100%; max-width: 1100px; max-height: 360px; object-fit: cover; display: block; margin: 0 auto; }
-    .art-hero-title-block { max-width: var(--max-width, 1100px); margin: 0 auto; padding: 22px 24px 18px !important; }
-
-    .art-body > main .sec-head + p,
-    .art-body .sec-head + p {
-      background: linear-gradient(135deg, #f7f9fc, #eef3fb);
-      border-left: 4px solid #1a4fa0;
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      font-weight: 500;
-      margin-top: 0;
+    :root {
+      --q-accent:#7c3aed;
+      --q-accent2:#06b6d4;
+      color-scheme: light dark;
     }
-    .data-table th { font-size: 0.82rem; letter-spacing: 0.04em; }
-    .data-table { border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-    .data-table strong { color: #1a4fa0; font-weight: 900; }
-    .art-body p strong { color: #1a4fa0; font-weight: 800; background: linear-gradient(transparent 62%, #ffe58a 62%, #ffe58a 92%, transparent 92%); padding: 0 2px; }
-    .art-body p { text-align: justify; text-justify: inter-ideograph; }
-    .art-body h2 + p, .art-body .sec-sub + p { margin-top: 14px; }
+    html, body { background-color: #ffffff; color: #2a2e3c; }
 
-    /* article-body-enhanced */
+    /* ===== ダークモード：暗い配色 + 視認性重視 ===== */
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0b1020 !important; color: #d8dfef !important; }
+
+      /* 本文テキスト */
+      .art-body p, .art-body li { color: #d8dfef !important; }
+
+      /* strong は黄色マーカー（白文字と被る問題）をやめ、明るい紫文字＋薄い下地 */
+      .art-body p strong, .art-body li strong {
+        color: #c4b5fd !important;
+        background: rgba(139,92,246,0.15) !important;
+        padding: 0 4px !important;
+        border-radius: 3px !important;
+      }
+
+      /* カード類：暗い濃紺系 */
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #a78bfa !important; }
+      .stat-card-number { color: #f5f7ff !important; }
+      .stat-card-sub { color: #9aa3bf !important; }
+
+      .layer-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 6px 24px -8px rgba(0,0,0,0.4) !important; }
+      .layer-card h3 { color: #f5f7ff !important; }
+      .layer-card p { color: #c9d0e5 !important; }
+      .layer-card.tech .layer-card-tag { background: rgba(6,182,212,0.2) !important; color: #7dd3fc !important; }
+      .layer-card.market .layer-card-tag { background: rgba(245,158,11,0.18) !important; color: #fcd34d !important; }
+
+      /* セクション見出し */
+      .q-section-head { border-bottom-color: #2a3150 !important; }
+      .q-section-head h2 { color: #f5f7ff !important; }
+      .q-section-head-en { color: #5a6488 !important; }
+
+      /* 2本柱 */
+      .pillar { background: linear-gradient(180deg, #181c2e 0%, #141828 100%) !important; border-color: #2a3150 !important; }
+      .pillar-title { color: #f5f7ff !important; }
+      .pillar-desc { color: #b9c1d9 !important; }
+      .pillar-example { background: #0b1020 !important; border-color: #2a3150 !important; color: #a5adc8 !important; }
+      .pillar.target { background: linear-gradient(180deg, #2a1111 0%, #1a0a0a 100%) !important; border-color: #ef4444 !important; }
+      .pillar.target .pillar-desc, .pillar.target .pillar-title { color: #fecaca !important; }
+
+      /* リスクカード */
+      .risk-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .risk-title { color: #f5f7ff !important; }
+      .risk-body { color: #b9c1d9 !important; }
+      .risk-example { background: rgba(252,211,77,0.12) !important; color: #fcd34d !important; }
+
+      /* FAQ */
+      .faq-item { background: #141828 !important; border-color: #2a3150 !important; border-left-color: #a78bfa !important; }
+      .faq-q { color: #f5f7ff !important; }
+      .faq-a { color: #c9d0e5 !important; }
+
+      /* 強材料・弱材料 */
+      .pro-box { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.05)) !important; border-color: rgba(16,185,129,0.4) !important; color: #86efac !important; }
+      .con-box { background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(239,68,68,0.05)) !important; border-color: rgba(239,68,68,0.4) !important; color: #fca5a5 !important; }
+
+      /* テーブル */
+      .data-table { box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5) !important; }
+      .data-table td { background-color: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+      .data-table strong { color: #c4b5fd !important; background: none !important; }
+
+      /* サイドバー */
+      .sidebar-toc { background: linear-gradient(145deg, #141828, #0f1322) !important; border-color: #2a3150 !important; }
+      .sidebar-toc-label { color: #a78bfa !important; }
+      .toc-list a { color: #b9c1d9 !important; }
+      .toc-list a:hover { color: #c4b5fd !important; }
+      .toc-list li { border-bottom-color: #2a3150 !important; }
+      .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+      .sidebar-meta-label { color: #a78bfa !important; }
+      .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+
+      /* 関連記事 */
+      .related-item { background: #141828 !important; border-color: #2a3150 !important; }
+      .related-title { color: #f5f7ff !important; }
+      .related-head { color: #a78bfa !important; border-bottom-color: #2a3150 !important; }
+
+      /* disclaimer */
+      .disclaimer { background: rgba(217,119,6,0.1) !important; color: #fcd34d !important; border-color: rgba(217,119,6,0.4) !important; }
+
+      /* ヘッダー・ブレッドクラム */
+      .site-header { background: #0b1020 !important; border-bottom: 1px solid #2a3150 !important; }
+      .breadcrumb { background: #0f1322 !important; }
+      .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
+    }
+    .art-hero { background: radial-gradient(circle at 20% 0%, #1e0b4a 0%, #0a0a2a 40%, #050514 80%); padding: 0; position: relative; overflow: hidden; }
+    .art-hero-thumb { width: 100%; max-width: 1200px; max-height: 420px; object-fit: cover; display: block; margin: 0 auto; filter: saturate(1.1); }
+    .art-hero-title-block { max-width: 1100px; margin: 0 auto; padding: 26px 28px 22px; position: relative; z-index: 2; }
+    .art-hero-cats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; }
+    .art-cat-tech { background: linear-gradient(90deg, #7c3aed, #06b6d4); color: #fff; }
+    .art-cat-warn { background: #ef4444; color: #fff; }
+    .art-cat-stock { background: #10b981; color: #fff; }
+    .art-hero-h1 { font-size: clamp(1.2rem, 2.8vw, 1.8rem); font-weight: 900; color: #fff; line-height: 1.4; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .art-hero-meta { font-size: 0.78rem; color: rgba(255,255,255,0.65); display: flex; gap: 18px; }
+
+    .art-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 44px 24px 80px; align-items: flex-start; }
+    @media (max-width: 900px) { .art-layout { grid-template-columns: 1fr; padding: 28px 16px 60px; gap: 0; } }
+
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.96rem; line-height: 2; color: #2a2e3c; margin-bottom: 18px; }
+    .art-body strong { color: #7c3aed; font-weight: 800; }
+
+    /* HERO SUMMARY */
+    .hero-summary {
+      background: linear-gradient(135deg, #0f0a2e 0%, #1a0a4e 60%, #061733 100%);
+      border-radius: 20px; padding: 32px 36px; color: #fff;
+      margin-bottom: 40px; position: relative; overflow: hidden;
+    }
+    .hero-summary::before {
+      content: ""; position: absolute; top: -40%; right: -10%;
+      width: 60%; height: 180%;
+      background: radial-gradient(ellipse, rgba(124,58,237,.35), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-summary-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 14px; }
+    .hero-summary h2 { font-size: 1.35rem; font-weight: 900; color: #fff; margin: 0 0 14px; line-height: 1.5; }
+    .hero-summary p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.95; margin: 0; }
+
+    /* STAT CARDS */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0 36px; }
+    .stat-card {
+      background: linear-gradient(145deg, #fff, #f5f7ff);
+      border: 1px solid #e4e8f4; border-radius: 16px; padding: 22px 24px;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before { content: ""; position: absolute; inset: 0 auto auto 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--q-accent), var(--q-accent2)); }
+    .stat-card-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; text-transform: uppercase; margin-bottom: 10px; }
+    .stat-card-number { font-family: 'Poppins', sans-serif; font-size: 2.2rem; font-weight: 900; color: #0f0a2e; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; font-style: italic; }
+    .stat-card-sub { font-size: 0.82rem; color: #5a6380; line-height: 1.6; }
+    @media (max-width:560px) { .stat-card-number { font-size: 1.8rem; } }
+
+    /* 2レイヤー */
+    .layer-split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 28px 0 36px; }
+    @media (max-width: 720px) { .layer-split { grid-template-columns: 1fr; } }
+    .layer-card { background: #fff; border-radius: 16px; padding: 24px 26px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 6px 24px -8px rgba(20, 30, 80, 0.12); }
+    .layer-card.tech { border-top: 5px solid #06b6d4; }
+    .layer-card.market { border-top: 5px solid #f59e0b; }
+    .layer-card-tag { display: inline-block; font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; }
+    .layer-card.tech .layer-card-tag { background: #e0f7fd; color: #0891b2; }
+    .layer-card.market .layer-card-tag { background: #fef3c7; color: #b45309; }
+    .layer-card h3 { font-size: 1.1rem; font-weight: 900; color: #0f0a2e; margin: 0 0 10px; }
+    .layer-card p { margin: 0; font-size: 0.92rem; line-height: 1.85; color: #2a2e3c; }
+
+    /* セクション見出し */
+    .q-section { margin: 56px 0 0; }
+    .q-section-head { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 3px solid #e4e8f4; }
+    .q-section-num { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 900; font-style: italic; background: linear-gradient(135deg, var(--q-accent), var(--q-accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; flex-shrink: 0; }
+    .q-section-head h2 { font-size: 1.3rem; font-weight: 900; color: #0f0a2e; margin: 0; line-height: 1.4; }
+    .q-section-head-en { margin-left: auto; font-size: 0.7rem; font-weight: 800; letter-spacing: .2em; color: #a3adc7; flex-shrink: 0; }
+    @media (max-width: 560px) { .q-section-head-en { display: none; } }
+
+    /* 2本柱 */
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar { background: linear-gradient(180deg, #fafbff 0%, #f0f3fa 100%); border-radius: 14px; padding: 22px 24px; border: 1px solid #dbe2f0; position: relative; }
+    .pillar-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .pillar-title { font-size: 1rem; font-weight: 900; color: #0f0a2e; margin-bottom: 8px; }
+    .pillar-desc { font-size: 0.88rem; color: #4a5270; line-height: 1.7; margin-bottom: 10px; }
+    .pillar-example { background: #fff; border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: #5a6380; border: 1px solid #e4e8f4; }
+    .pillar.target { border: 2px solid #ef4444; background: linear-gradient(180deg, #fff5f5 0%, #ffe4e4 100%); }
+    .pillar.target::after { content: "日本の課題"; position: absolute; top: -10px; right: 14px; background: #ef4444; color: #fff; font-size: 0.68rem; font-weight: 900; letter-spacing: .1em; padding: 3px 10px; border-radius: 3px; }
+
+    /* リスク3パターン */
+    .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .risk-grid { grid-template-columns: 1fr; } }
+    .risk-card { background: #fff; border-radius: 14px; padding: 20px; border: 1px solid #e4e8f4; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .risk-card-head { display: flex; align-items: center; gap: 10px; }
+    .risk-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #ef4444, #f59e0b); color: #fff; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; }
+    .risk-title { font-size: 0.95rem; font-weight: 900; color: #0f0a2e; line-height: 1.4; }
+    .risk-body { font-size: 0.86rem; color: #4a5270; line-height: 1.75; }
+    .risk-example { margin-top: auto; padding: 10px 14px; background: #fef3c7; border-radius: 8px; font-size: 0.8rem; color: #7c2d12; font-weight: 500; }
+
+    /* 投資地図マトリクス */
+    .matrix { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 50%, #061733 100%); border-radius: 20px; padding: 32px 30px; color: #fff; margin: 28px 0 36px; }
+    .matrix-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 18px; }
+    .matrix h3 { font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0 0 20px; }
+    .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 560px) { .matrix-grid { grid-template-columns: 1fr; grid-template-rows: auto; } }
+    .matrix-cell { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 18px 20px; backdrop-filter: blur(8px); }
+    .matrix-cell-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .matrix-cell-type { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #a78bfa; }
+    .matrix-cell-ticker { font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 900; font-style: italic; color: #fff; }
+    .matrix-cell-desc { font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 30px; }
+    .faq-item { background: #fff; border-left: 4px solid var(--q-accent); border-radius: 0 12px 12px 0; padding: 18px 22px; border-top: 1px solid #e4e8f4; border-right: 1px solid #e4e8f4; border-bottom: 1px solid #e4e8f4; }
+    .faq-q, .faq-a { position: relative; padding-left: 34px; min-height: 24px; display: block; }
+    .faq-q { font-size: 0.95rem; font-weight: 800; color: #0f0a2e; margin-bottom: 12px; line-height: 1.6; }
+    .faq-a { font-size: 0.88rem; color: #4a5270; line-height: 1.85; }
+    .faq-q::before, .faq-a::before {
+      position: absolute; left: 0; top: 2px;
+      width: 24px; height: 24px; border-radius: 50%;
+      font-size: 0.7rem; font-weight: 900; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+    }
+    .faq-q::before { content: "Q"; background: #7c3aed; }
+    .faq-a::before { content: "A"; background: #06b6d4; }
+    @media (max-width: 560px) {
+      .faq-item { padding: 16px 16px 14px; }
+      .faq-q, .faq-a { padding-left: 30px; }
+      .faq-q::before, .faq-a::before { width: 22px; height: 22px; font-size: 0.65rem; }
+    }
+
+    /* 強材料・弱材料 */
+    .pros-cons-stock { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 720px) { .pros-cons-stock { grid-template-columns: 1fr; } }
+    .pro-box, .con-box { padding: 16px 18px; border-radius: 12px; font-size: 0.85rem; line-height: 1.75; }
+    .pro-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #86efac; color: #065f46; }
+    .con-box { background: linear-gradient(135deg, #fef2f2, #fee2e2); border: 1px solid #fca5a5; color: #991b1b; }
+    .pro-box-label, .con-box-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; margin-bottom: 8px; text-transform: uppercase; }
+    .stock-label { font-size: 1rem; font-weight: 800; color: #0f0a2e; margin: 24px 0 10px; padding-left: 12px; border-left: 4px solid #7c3aed; }
+
+    /* 3行まとめ */
+    .q-summary { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 100%); border-radius: 16px; padding: 28px 30px; margin: 36px 0 28px; }
+    .q-summary-label { font-size: 0.7rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 14px; }
+    .q-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 12px; }
+    .q-summary li { font-size: 0.92rem; color: rgba(255,255,255,0.92); line-height: 1.8; }
+    .q-summary li::marker { color: #facc15; font-weight: 900; }
+
+    /* タイムライン */
+    .timeline { display: flex; justify-content: space-between; margin: 28px 0 36px; position: relative; padding: 0 20px; }
+    .timeline::before { content: ""; position: absolute; top: 32px; left: 40px; right: 40px; height: 3px; background: linear-gradient(90deg, #10b981, #06b6d4, #f59e0b, #ef4444); border-radius: 2px; }
+    .tl-stop { text-align: center; flex: 1; position: relative; }
+    .tl-dot { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 3px solid var(--q-accent); margin: 22px auto 10px; position: relative; z-index: 2; }
+    .tl-year { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1rem; font-style: italic; color: #0f0a2e; margin-bottom: 4px; }
+    .tl-label { font-size: 0.76rem; color: #5a6380; line-height: 1.5; padding: 0 4px; }
+
+    /* 動画 */
+    .video-box { background: linear-gradient(135deg, #0f0a2e, #1e0b4a); border-radius: 16px; padding: 20px; margin: 28px auto 40px; max-width: 700px; }
+    .video-box-label { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 12px; }
+    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; }
+    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    /* テーブル */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 18px 0 28px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px -4px rgba(20,30,80,0.08); }
+    .data-table th { background: linear-gradient(135deg, #0f0a2e, #2a1065); color: #fff; padding: 12px 14px; text-align: left; font-weight: 800; letter-spacing: .04em; font-size: 0.8rem; }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid #edf0f7; color: #2a2e3c; vertical-align: middle; }
+    .data-table tr:nth-child(even) td { background: #fafbff; }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .disclaimer { background: linear-gradient(135deg, #fff9f0, #fef3c7); border-left: 4px solid #d97706; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #7c2d12; }
+
+    /* サイドバー */
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 900px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; position: static !important; max-height: none !important; overflow: visible !important; top: auto !important; } }
+    .sidebar-toc { background: linear-gradient(145deg, #fafbff, #f0f3fa); border: 1px solid #dbe2f0; border-radius: 14px; padding: 20px 22px; position: sticky; top: 80px; margin-bottom: 24px; max-height: calc(100vh - 100px); overflow-y: auto; }
+    .sidebar-toc-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .18em; color: #7c3aed; margin-bottom: 14px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e4e8f4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 10px; padding: 9px 4px; color: #4a5270; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #7c3aed; }
+    .toc-n { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 0.7rem; font-weight: 900; color: #7c3aed; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dbe2f0; border-radius: 14px; padding: 18px 20px; }
+    .sidebar-meta-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #7c3aed; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #4a5270; background: #f0f3fa; border: 1px solid #dbe2f0; padding: 3px 9px; border-radius: 20px; }
+
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; border-bottom: 2px solid #e4e8f4; padding-bottom: 10px; margin: 48px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: #fff; border: 1px solid #e4e8f4; border-radius: 10px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 900; background: #7c3aed; color: #fff; padding: 3px 8px; border-radius: 3px; margin-top: 2px; letter-spacing: .08em; }
+    .related-title { font-size: 0.85rem; font-weight: 600; color: #0f0a2e; line-height: 1.5; }
   </style>
   <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <a href="../../" class="site-logo">
@@ -109,9 +302,7 @@
           <span class="logo-sub">野球・競馬 × 経済・株式</span>
         </div>
       </a>
-      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="../../">TOP</a>
         <a href="../../hanshin-keiba/">野球・競馬</a>
@@ -129,14 +320,18 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../../economy-stocks/">経済・株式</a>
       <span class="breadcrumb-sep">›</span>
-      <span>ブレグジットの結末。英国はなぜEUにまた近づくのか【日本の外国人政策にも通じる話</span>
+      <span>ブレグジットの結末。英国はなぜEUにまた近づくのか</span>
     </div>
   </div>
 
   <div class="art-hero">
-    <img src="thumb.png?v=20260418c" alt="記事サムネイル" class="art-hero-thumb">
+    <img src="thumb.png?v=20260418c" alt="ブレグジットと日本の外国人政策" class="art-hero-thumb">
     <div class="art-hero-title-block">
-      <div class="art-hero-cats"><span class="art-cat-badge art-cat-main">時事</span></div>
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-warn">時事・国際</span>
+        <span class="art-cat-badge art-cat-tech">英国 × 日本</span>
+        <span class="art-cat-badge art-cat-stock">外国人政策</span>
+      </div>
       <h1 class="art-hero-h1">ブレグジットの結末。英国はなぜEUにまた近づくのか【日本の外国人政策にも通じる話】</h1>
       <div class="art-hero-meta">
         <span>2026.04.09</span>
@@ -148,403 +343,435 @@
   <div class="art-layout">
     <main class="art-body">
 
-
       <div class="hero-summary">
         <div class="hero-summary-label">この記事のコア</div>
-        <h2>第1に、ブレグジットは「経済合理性より、国家の自己決定感を優先した政治判断」でした。</h2>
-        <p>離脱を支持した人たちは、単に損得で動いたのではなく、「自分たちの国のことを自分たちで決めたい」という感情に動かされていました。 第2に、その後の現実はかなり皮肉でした。 英国は主権の象徴を取り戻した一方で、EUとの貿易摩擦は増え、移民問題も「減る」ではなく「構造が変わる」形で進みました。 第3に、日本が本当に見るべきなのは、外国人受け入れの是非そのものより、「どの程度の定住・永住・家族形成を、どんな条件で認めるのかを、日本人自身がどこまで決めていると感じられるか」という点…</p>
+        <h2>ブレグジットは「経済合理性より、国家の自己決定感を優先した政治判断」だった。</h2>
+        <p>離脱を支持した人たちは、単に損得で動いたのではなく、「自分たちの国のことを自分たちで決めたい」という感情に動かされていました。その後の現実はかなり皮肉で、英国は主権の象徴を取り戻した一方で、EUとの貿易摩擦は増え、移民問題も「減る」ではなく「構造が変わる」形で進みました。日本が本当に見るべきなのは、<strong>外国人受け入れの是非そのものより、「どの程度の定住・永住・家族形成を、どんな条件で認めるのかを、日本人自身がどこまで決めていると感じられるか」</strong>という点です。</p>
       </div>
-<p>ブレグジットは、よく「イギリスがEUを出て失敗した話」と一言で片づけられます。</p>
-<p>ただ、それだけでは本質を取り逃します。</p>
-      <p>なぜなら、あの国民投票は単なる通商政策の選択ではなく、「この国のルールを誰が決めるのか」「この国の輪郭を自分たちで守れているのか」という感情が噴き出した出来事だったからです。</p>
-<p>そして、この構図は日本にとっても無関係ではありません。</p>
-      <p>日本では少子化が急速に進み、外国人の定住も着実に広がっています。現場では人手不足への対応が急務ですが、その一方で、永住化・家族帯同・地域負担・社会の連続性といった論点は、まだ十分に正面から議論されているとは言いにくいのが実情です。</p>
-<p>この記事では、ブレグジットを改めて総括しながら、</p>
-      <p>「英国で何が起きたのか」</p>
-      <p>「なぜそれが経済だけでは説明できないのか」</p>
-      <p>「日本はどこを見落としやすいのか」</p>
-      <p>を、初心者向けに噛み砕いて整理します。</p>
 
-      <div class="video-box" style="max-width:640px;margin-left:auto;margin-right:auto;">
+      <div class="video-box">
         <div class="video-box-label">▶ 動画でも解説しています</div>
         <div class="video-embed-wrap">
           <iframe src="https://www.youtube.com/embed/RmyjbmW9VR0" title="ブレグジットの結末。英国はなぜEUにまた近づくのか【日本の外国人政策にも通じる話】" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+
       <div class="q-summary">
         <div class="q-summary-label">3行まとめ</div>
         <ol>
-      <li>ブレグジットは、貿易よりも「国家の自己決定感」が勝った政治判断だった。</li>
-      <li>離脱後の英国では、貿易摩擦が増え、移民も「減る」より「構造が変わる」形になった。</li>
-      <li>日本も、永住化・定住化・少子化を踏まえた制度設計を、感情論ではなく政策論として急ぐべき段階にある。</li>
+          <li>ブレグジットは、貿易よりも<strong>「国家の自己決定感」が勝った政治判断</strong>だった。</li>
+          <li>離脱後の英国では、<strong>貿易摩擦が増え、移民も「減る」より「構造が変わる」形</strong>になった。</li>
+          <li>日本も、永住化・定住化・少子化を踏まえた制度設計を、<strong>感情論ではなく政策論として急ぐべき段階</strong>にある。</li>
         </ol>
       </div>
 
-      
-
-      <div class="sec-head" id="sec-conclusion">
-        <span class="sec-num">00</span>
-        <h2>先に結論</h2>
-        <span class="sec-head-en">CONCLUSION</span>
-      </div>
-<p>結論は3つです。</p>
-<p>第1に、ブレグジットは「経済合理性より、国家の自己決定感を優先した政治判断」でした。</p>
-      <p>離脱を支持した人たちは、単に損得で動いたのではなく、「自分たちの国のことを自分たちで決めたい」という感情に動かされていました。</p>
-<p>第2に、その後の現実はかなり皮肉でした。</p>
-      <p>英国は主権の象徴を取り戻した一方で、EUとの貿易摩擦は増え、移民問題も「減る」ではなく「構造が変わる」形で進みました。</p>
-<p>第3に、日本が本当に見るべきなのは、外国人受け入れの是非そのものより、「どの程度の定住・永住・家族形成を、どんな条件で認めるのかを、日本人自身がどこまで決めていると感じられるか」という点です。</p>
-<p>要するに、英国の教訓はこうです。</p>
-      <p>感情を無視して経済だけで押し切ると、あとでその不満はアイデンティティの怒りとして噴き出す。</p>
-      <p>だから日本でも、怒る前に決める、曖昧なまま進めない、という姿勢が重要になります。</p>
-
-<div class="sec-head" id="sec-01"><span class="sec-num">01</span><h2>テーマの全体像</h2><span class="sec-head-en">SECTION 01</span></div>
-<p>ブレグジットは「EU離脱」だが、本質は“国家の輪郭”をめぐる投票だった</p>
-<p><strong>2016年</strong>の英国国民投票では、離脱が<strong>51.9%</strong>、残留が<strong>48.1%</strong>でした。</p>
-      <p>数字だけ見れば僅差です。しかし、その僅差の中に、英国社会にたまっていた大きな不満が凝縮されていました。英国選挙管理委員会の公式結果でも、この比率は明確です。[出典1]</p>
-<p>ここで重要なのは、あの投票を単なる「経済に弱い選択」と見ないことです。</p>
-      <p>もちろん経済界や専門家の多くは残留を支持しました。離脱すれば貿易や投資に悪影響が出るという警告も多く出ていました。</p>
-      <p>それでも離脱が勝ったのは、経済よりも先に「自分たちの国のことを、自分たちで決めたい」という感情があったからです。</p>
-<p>初心者向けに言い換えると、こうです。</p>
-<ul>
-<li>経済の論理：EUに残った方が商売はしやすい</li>
-<li>感情の論理：でも、このままでは“自分たちの国を自分たちで決めていない”気がする</li>
-</ul>
-<p>ブレグジットは、この2つのうち後者が勝った出来事でした。</p>
-<div class="sec-head" id="sec-02"><span class="sec-num">02</span><h2>論点整理</h2><span class="sec-head-en">SECTION 02</span></div>
-<p>ブレグジットで本当に争われたのは何だったのか</p>
-<p>論点は大きく4つありました。</p>
-<p>(1) 主権</p>
-      <p>英国の法律やルールを、ブリュッセルではなくロンドンで決めたいという感覚。</p>
-<p>(2) 国境</p>
-      <p>人の出入りを誰が管理するのかという感覚。</p>
-<p>(3) アイデンティティ</p>
-      <p>生活環境の変化や社会の雰囲気の変化に対する違和感。</p>
-<p>(4) 経済</p>
-      <p>通商、投資、雇用、企業活動への影響。</p>
-<p>メディアでは経済面が注目されがちですが、投票行動を動かしたのは(1)から(3)の要素がかなり大きかったと見る方が自然です。</p>
-<p>ここは日本でも似ています。</p>
-      <p>人手不足や賃金の話だけで制度を広げていくと、あとから「そんな規模の変化まで合意した覚えはない」という反発が出やすくなります。</p>
-<div class="sec-head" id="sec-03"><span class="sec-num">03</span><h2>重要な数字をまず表で確認</h2><span class="sec-head-en">SECTION 03</span></div>
-<p>表1　ブレグジットをめぐる主要数字</p>
-<table class="data-table">
-<thead><tr>
-<th>項目</th>
-<th>数字</th>
-<th>どう見るべきか</th>
-</tr></thead>
-<tbody>
-<tr>
-<td><strong>2016年</strong>国民投票</td>
-<td>離脱 <strong>51.9%</strong> / 残留 <strong>48.1%</strong></td>
-<td>英国社会が真っ二つに割れた象徴的な結果</td>
-</tr>
-<tr>
-<td><strong>2024年</strong>のEU向け輸出比率</td>
-<td><strong>41%</strong></td>
-<td>EUは今でも英国の巨大市場</td>
-</tr>
-<tr>
-<td><strong>2024年</strong>のEUからの輸入比率</td>
-<td><strong>51%</strong></td>
-<td>「出たから関係が薄くなった」とは言えない</td>
-</tr>
-<tr>
-<td>対EUの財輸出（<strong>2019年</strong>比・実質）</td>
-<td><strong>18%</strong>減</td>
-<td>モノの輸出は摩擦の影響を受けやすい</td>
-</tr>
-<tr>
-<td>対EUのサービス輸出（<strong>2019年</strong>比・実質）</td>
-<td><strong>19%</strong>増</td>
-<td>サービスはモノほど国境摩擦の影響を受けにくい</td>
-</tr>
-<tr>
-<td>OBRの長期前提</td>
-<td>貿易量<strong>15%</strong>低下、生産性<strong>4%</strong>押し下げ</td>
-<td>英公的機関は長期コストをかなり重く見ている</td>
-</tr>
-<tr>
-<td>YE<strong>2025年6月</strong>のEU系純移動</td>
-<td>▲7万人</td>
-<td>EUからの純移動は減少</td>
-</tr>
-<tr>
-<td>YE<strong>2025年6月</strong>の非EU+純移動</td>
-<td>+38.3万人</td>
-<td>移民は「減る」より「構造が変わる」形になった</td>
-</tr>
-</tbody></table>
-<p>出典：[1][2][3][4]</p>
-<div class="sec-head" id="sec-04"><span class="sec-num">04</span><h2>初心者向けの噛み砕き説明</h2><span class="sec-head-en">SECTION 04</span></div>
-<p>「自由になる」と「摩擦がなくなる」は別の話</p>
-<p>ブレグジットを誤解しやすいポイントはここです。</p>
-<p>英国はEUを出たので、法律上は自分たちの裁量を増やしました。</p>
-      <p>この意味では「主権を取り戻した」は一定程度、事実です。</p>
-<p>ただし、隣に巨大市場が存在する現実は変わりません。</p>
-      <p>EUを出ても、英国企業はEUと売買し続ける必要があります。</p>
-      <p>その結果、何が起きたかというと、関税そのものよりも、書類、検査、基準調整、通関などの“非関税障壁”が重くのしかかるようになりました。[出典3]</p>
-<p>これを身近な例で言えば、</p>
-      <p>「会社を独立して自由にはなったが、最大の取引先とは今も仕事を続ける必要があり、しかも手続きだけは増えた」</p>
-      <p>という状態です。</p>
-<p>ここがブレグジットの皮肉です。</p>
-<div class="sec-head" id="sec-05"><span class="sec-num">05</span><h2>メリット・デメリット整理</h2><span class="sec-head-en">SECTION 05</span></div>
-<p>英国は何を得て、何を失ったのか</p>
-<p>表2　ブレグジットの強材料と弱材料</p>
-<table class="data-table">
-<thead><tr>
-<th>観点</th>
-<th>強材料・メリット</th>
-<th>弱材料・デメリット</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>主権</td>
-<td>国境管理や制度運用の裁量を増やした</td>
-<td>ただし経済はEUとの関係を断てず、現実は再調整が必要</td>
-</tr>
-<tr>
-<td>政治</td>
-<td>「自分たちで決める」という感覚を回復した</td>
-<td>社会の分断が長引き、政治的コストも大きかった</td>
-</tr>
-<tr>
-<td>貿易</td>
-<td>独自の通商政策を展開できる</td>
-<td>EU向け財輸出には摩擦コストが増加</td>
-</tr>
-<tr>
-<td>移民</td>
-<td>EU自由移動の仕組みから離脱</td>
-<td>非EUからの流入増で構造が変わり、狙い通りの整理にはならなかった</td>
-</tr>
-<tr>
-<td>外交</td>
-<td>独自路線を演出しやすい</td>
-<td>安全保障・エネルギー・通商では結局EU協調が必要</td>
-</tr>
-</tbody></table>
-<p>ここから見えてくるのは、ブレグジットが「完全な成功」でも「単純な失敗」でもないということです。</p>
-      <p>象徴としての主権は得た。</p>
-      <p>しかし、その対価として実務の摩擦は増えた。</p>
-      <p>しかも、移民問題も“思った通りに片づいた”わけではない。</p>
-<p>この「象徴は取ったが、現実は複雑になった」という構図が重要です。</p>
-<div class="sec-head" id="sec-06"><span class="sec-num">06</span><h2>移民問題で何が起きたのか</h2><span class="sec-head-en">SECTION 06</span></div>
-<p>“減った”のではなく、“入れ替わった”と見る方が近い</p>
-<p>英国の移民問題で誤解しやすいのは、「ブレグジットで移民が減った」と短絡的に言うことです。</p>
-      <p>実際には、EU系の純移動は減りましたが、非EU系の純移動はなお大きく、英国国家統計局（ONS）でも<strong>2021年</strong>以降は非EU+の動きが全体のトレンドを主導してきたと整理されています。[出典4]</p>
-<p>つまり、</p>
-      <p>・EUからの流入を減らした</p>
-      <p>・しかし人手不足は残った</p>
-      <p>・その結果、別ルートから人を呼ぶ必要が高まった</p>
-      <p>という流れです。</p>
-<p>この点は非常に示唆的です。</p>
-      <p>国境を厳しくしたつもりでも、労働需要が残れば、流入がゼロになるわけではありません。</p>
-      <p>むしろ、流入元や在留の性質が変わることがあります。</p>
-<p>ここは日本にも通じる大きな論点です。</p>
-      <p>制度をいじる時は、「人数」だけでなく、「どの資格で」「どのくらいの期間」「家族形成や定住にどうつながるのか」まで見ないと、実態を見誤ります。</p>
-<div class="sec-head" id="sec-07"><span class="sec-num">07</span><h2>では、日本はどうか</h2><span class="sec-head-en">SECTION 07</span></div>
-<p>日本はすでに“入り口の国”というより“定着が進む国”として見た方がいい</p>
-<p>次に日本の数字を見ます。</p>
-<p>表3　日本の現在地を示す主要数字</p>
-<table class="data-table">
-<thead><tr>
-<th>項目</th>
-<th>数字</th>
-<th>どう見るべきか</th>
-</tr></thead>
-<tbody>
-<tr>
-<td><strong>2025年6月</strong>末の在留外国人数</td>
-<td>395万<strong>6,619人</strong></td>
-<td>過去最高を更新</td>
-</tr>
-<tr>
-<td>うち永住者</td>
-<td>93万<strong>2,090人</strong></td>
-<td>在留資格別で最大区分</td>
-</tr>
-<tr>
-<td><strong>2024年</strong>出生数</td>
-<td>68万<strong>6,173人</strong></td>
-<td>過去最少</td>
-</tr>
-<tr>
-<td><strong>2024年</strong>合計特殊出生率</td>
-<td>1.15</td>
-<td>過去最低</td>
-</tr>
-<tr>
-<td><strong>2024年</strong>自然増減</td>
-<td>▲91万<strong>9,205人</strong></td>
-<td>人口減少が急速に進行</td>
-</tr>
-<tr>
-<td>永住許可の原則</td>
-<td>引き続き10年以上在留</td>
-<td>ただし高度人材などは短縮ルートあり</td>
-</tr>
-</tbody></table>
-<p>出典：[5][6][7]</p>
-<p>この表を並べると、日本の見え方が変わります。</p>
-<p>「人手が足りないから、外国人を短期的に受け入れる」という感覚のままだと、現実を見誤りやすい。</p>
-      <p>なぜなら、最大区分がすでに永住者だからです。[出典5]</p>
-<p>もちろん、これだけで「すぐに何かが決まる」と言うつもりはありません。</p>
-      <p>ただし少なくとも、日本は“来てもらうだけの国”ではなく、“定住が進んでいる国”として制度を考えた方が現実に近い、ということです。</p>
-<div class="sec-head" id="sec-08"><span class="sec-num">08</span><h2>読者が誤解しやすい点</h2><span class="sec-head-en">SECTION 08</span></div>
-<p>このテーマは「受け入れ賛成か反対か」の二択ではない</p>
-<p>この話題でありがちな誤解は3つあります。</p>
-<p>誤解1　外国人を受け入れるか、受け入れないかの二択だ</p>
-      <p>→ 実際にはそうではありません。</p>
-      <p>問題は、どの資格を、どの規模で、どのスピードで、どんな条件で認めるかです。</p>
-<p>誤解2　懸念を語ること自体が差別だ</p>
-      <p>→ 個人への排斥と、制度設計の議論は分けて考える必要があります。</p>
-      <p>教育、医療、住宅、言語支援、自治体負担、永住要件などを議論すること自体は、政策論です。</p>
-<p>誤解3　人手不足だから、とにかく広げればよい</p>
-      <p>→ 短期の労働力需要と、長期の国家像は時間軸が違います。</p>
-      <p>この2つを同じ箱に入れると、短期合理性が長期設計を飲み込みやすくなります。</p>
-<div class="sec-head" id="sec-09"><span class="sec-num">09</span><h2>日本で本当に問うべき論点</h2><span class="sec-head-en">SECTION 09</span></div>
-<p>「外国人が多い少ない」ではなく「どこまでを誰が決めるのか」</p>
-<p>このチャット全体で整理された問題意識を、政策論として言い換えるなら、論点は次の4つです。</p>
-<p>(1) 永住を、単なる長期滞在の延長として扱ってよいのか</p>
-      <p>永住は事実上、国家共同体への恒久的な参加に近い意味を持ちます。ならば、どの要件が妥当かをもっと正面から議論してよいはずです。</p>
-<p>(2) 家族帯同・定住化・世代形成を、労働力政策のおまけにしていないか</p>
-      <p>本当に長期の社会構成を変えるのは、単独労働者の受け入れそのものより、定住と家族形成です。</p>
-<p>(3) 地域社会の受け入れ能力を軽視していないか</p>
-      <p>学校、医療、通訳、住宅、生活支援。受け入れのコストは国全体よりも、自治体や現場に先に現れます。</p>
-<p>(4) 国民的合意の速度を無視していないか</p>
-      <p>内容だけでなく、変化のスピードも重要です。急すぎる変化は、内容以前に反発を生みます。</p>
-<p>ここで大事なのは、結論を急がないことです。</p>
-      <p>しかし、論点を避けたままではもっと危ない。</p>
-      <p>英国の教訓はまさにそこにあります。</p>
-<div class="sec-head" id="sec-10"><span class="sec-num">10</span><h2>反対意見・注意点も整理する</h2><span class="sec-head-en">SECTION 10</span></div>
-<p>懸念だけで制度を固めると、別の副作用もある</p>
-<p>ここまで読むと、「では受け入れを強く絞ればよいのか」と感じる人もいるかもしれません。</p>
-      <p>しかし、そこも単純ではありません。</p>
-<p>表4　日本で想定される強材料と弱材料</p>
-<table class="data-table">
-<thead><tr>
-<th>観点</th>
-<th>強材料</th>
-<th>弱材料・注意点</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>労働市場</td>
-<td>人手不足の緩和、現場維持</td>
-<td>賃金改善や省力化の先送りにつながる可能性</td>
-</tr>
-<tr>
-<td>財政・税収</td>
-<td>働き手・消費者の増加</td>
-<td>教育・医療・自治体コストの増加もありうる</td>
-</tr>
-<tr>
-<td>産業競争力</td>
-<td>高度人材の確保、イノベーション余地</td>
-<td>制度設計が曖昧だと社会的摩擦が増える</td>
-</tr>
-<tr>
-<td>地域社会</td>
-<td>人口減少地域の維持に寄与する可能性</td>
-<td>地域の受け入れ能力を超えると反発が強まる</td>
-</tr>
-<tr>
-<td>政治</td>
-<td>早めに制度設計すれば安定化に寄与</td>
-<td>議論を封じると、後で感情的な対立になりやすい</td>
-</tr>
-</tbody></table>
-<p>つまり、慎重論にも拡大論にも、それぞれ見落としがあります。</p>
-<p>慎重論の弱点：</p>
-      <p>・人手不足の現実を軽く見がち</p>
-      <p>・高度人材や現場維持の必要性を過小評価しがち</p>
-<p>拡大論の弱点：</p>
-      <p>・永住化や家族形成の長期影響を軽く見がち</p>
-      <p>・地域や住民の納得プロセスを飛ばしがち</p>
-<p>だから必要なのは、「賛成か反対か」ではなく「どう設計するか」です。</p>
-<div class="sec-head" id="sec-11"><span class="sec-num">11</span><h2>株式・経済の視点で見るなら</h2><span class="sec-head-en">SECTION 11</span></div>
-<p>投資家がこのテーマで見るべき数字は何か</p>
-<p>このテーマは政治・社会問題に見えますが、投資や株式にもつながります。</p>
-      <p>ただし、個別銘柄を断定的に語るより、まずはマクロの見方を押さえる方が大切です。</p>
-<p>投資家が見るべきポイントは主に4つです。</p>
-<p>(1) 貿易摩擦が企業収益にどう効くか</p>
-      <p>ブレグジットでは、特に「モノ」の輸出入で手続きコストが増えました。日本でも制度変更がサプライチェーンや物流に与える影響は、企業収益に直結します。</p>
-<p>(2) 労働供給が賃金とサービス価格にどう影響するか</p>
-      <p>労働力が不足すれば、賃金上昇や人件費負担が進みます。一方で受け入れ拡大は、その圧力を和らげる可能性があります。</p>
-<p>(3) 自治体・公共コストの増減</p>
-      <p>教育、医療、生活支援などの負担が増える場合、財政面の議論にも波及します。これは税制や公共投資の議論にもつながります。</p>
-<p>(4) 政策の不確実性</p>
-      <p>最も市場が嫌うのは、ルールが変わること以上に、ルールが曖昧なことです。</p>
-      <p>明確な制度設計が見えるかどうかは、中長期の投資判断でも重要です。</p>
-<p>ここでのポイントは、「賛成・反対」よりも、「制度の明確さ」と「時間軸の整合性」を見ることです。</p>
-<div class="sec-head" id="sec-12"><span class="sec-num">12</span><h2>今後の注目点</h2><span class="sec-head-en">SECTION 12</span></div>
-<p>英国と日本、それぞれどこを見るべきか</p>
-<p>英国での注目点</p>
-<p>・スターマー政権がどこまでEUとの協調を深めるか</p>
-      <p><strong>2026年4月</strong>の首相発言では、英国の長期的国益にはEUとのより近い協力が必要だと明言されました。[出典8]</p>
-      <p>ただし、単一市場や関税同盟への復帰までは否定しています。</p>
-<p>・貿易摩擦の実務的緩和が進むか</p>
-      <p>農業、電力、排出量取引などで、どこまで調整が進むか。</p>
-<p>・移民の構造変化がさらにどう続くか</p>
-      <p>EU系の減少と非EU系の構成変化が今後どう落ち着くか。</p>
-<p>日本での注目点</p>
-<ul>
-<li>永住・定住・高度人材ルートの制度見直しが議論されるか</li>
-<li>家族帯同や自治体負担がどの程度、政策論として可視化されるか</li>
-<li>少子化対策と外国人受け入れ政策を別々に設計できるか</li>
-<li>「感情の封じ込め」ではなく「制度への翻訳」ができるか</li>
-</ul>
-<div class="sec-head" id="sec-13"><span class="sec-num">13</span><h2>結局どう見るべきか</h2><span class="sec-head-en">SECTION 13</span></div>
-<p>この記事の核心を一言で言えば、こうです。</p>
-<p>ブレグジットは、経済の話である前に、「国の輪郭を誰が決めるのか」という政治の話だった。</p>
-      <p>そして、その問いは日本にも確実に近づいている。</p>
-<p>英国は、主権を取り戻すという象徴を得ました。</p>
-      <p>しかし現実には、EUとの距離をもう一度詰め直さざるを得ない局面に来ています。</p>
-      <p>一方、日本はまだ大きな政治的噴出の手前にいるように見えます。</p>
-      <p>だからこそ、今のうちに制度を詰める余地があります。</p>
-<p>本当に問うべきなのは、「外国人そのものをどう評価するか」ではありません。</p>
-      <p>問うべきなのは、</p>
-      <p>「日本人自身が、この国の将来の構成をどこまで自分たちで決めていると感じられるか」</p>
-      <p>です。</p>
-<p>ここを曖昧にしたまま進むと、あとで議論は経済から離れ、感情の対立になりやすい。</p>
-      <p>だから、今必要なのはレッテル貼りではなく、線引きの議論です。</p>
-<div class="sec-head" id="sec-14"><span class="sec-num">14</span><h2>3行まとめ</h2><span class="sec-head-en">SECTION 14</span></div>
-<ul>
-<li>ブレグジットは、貿易よりも「国家の自己決定感」が勝った政治判断だった。</li>
-<li>離脱後の英国では、貿易摩擦が増え、移民も「減る」より「構造が変わる」形になった。</li>
-<li>日本も、永住化・定住化・少子化を踏まえた制度設計を、感情論ではなく政策論として急ぐべき段階にある。</li>
-</ul>
-
-      <div class="sec-head" id="sec-summary">
-        <span class="sec-num">99</span>
-        <h2>まとめ</h2>
-        <span class="sec-head-en">SUMMARY</span>
-      </div>
-<p>ブレグジットを総括すると、主権の象徴は取り戻したが、現実の摩擦はむしろ増えた、というのが基本線です。</p>
-<p>そして、この話の価値は「英国の失敗談を眺めること」ではありません。</p>
-      <p>本当に重要なのは、日本でも同じ構図が起きうることを理解することです。</p>
-<p>少子化が進み、在留外国人数が増え、永住者が最大区分となっている今、日本の論点は単なる労働力不足対策では済みません。</p>
-      <p>短期の人手不足と、長期の国家像を分けて考える。</p>
-      <p>地域負担や家族形成まで含めて制度を考える。</p>
-      <p>そして、社会の納得速度を無視しない。</p>
-<p>この3つを外すと、経済合理性だけでは支えきれない反発が後から大きくなります。</p>
-<p>煽って終わるのではなく、曖昧なまま進めない。</p>
-      <p>それが、このテーマを見るうえでのいちばん実務的な姿勢だと思います。</p>
-<p>※本記事は制度・人口動態・政治経済の論点整理を目的としたものであり、特定の投資判断や売買を推奨するものではありません。投資判断はご自身の責任でお願いします。</p>
-
-
-      <div class="disclaimer">
-        <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+      <!-- 主要数値 -->
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-card-label">2016国民投票</div><div class="stat-card-number">51.9<span style="font-size:1rem;">%</span></div><div class="stat-card-sub">離脱支持。残留48.1%で社会は真っ二つに。</div></div>
+        <div class="stat-card"><div class="stat-card-label">対EU財輸出</div><div class="stat-card-number">−18<span style="font-size:1rem;">%</span></div><div class="stat-card-sub">2019年比・実質。モノの摩擦コストが重い。</div></div>
+        <div class="stat-card"><div class="stat-card-label">非EU系純移動</div><div class="stat-card-number">+38.3<span style="font-size:1rem;">万人</span></div><div class="stat-card-sub">YE2025年6月。減るより構造が変わった。</div></div>
+        <div class="stat-card"><div class="stat-card-label">日本の永住者</div><div class="stat-card-number">93.2<span style="font-size:1rem;">万人</span></div><div class="stat-card-sub">2025年6月末。在留資格別で最大区分。</div></div>
       </div>
 
-      <hr class="art-hr">
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">00</span>
+          <h2>先に結論｜3つの核心</h2>
+          <span class="q-section-head-en">CONCLUSION</span>
+        </div>
+        <p>ブレグジットは、よく「イギリスがEUを出て失敗した話」と一言で片づけられます。ただ、それだけでは本質を取り逃します。なぜなら、あの国民投票は単なる通商政策の選択ではなく、<strong>「この国のルールを誰が決めるのか」「この国の輪郭を自分たちで守れているのか」</strong>という感情が噴き出した出来事だったからです。</p>
+        <p>そして、この構図は日本にとっても無関係ではありません。日本では少子化が急速に進み、外国人の定住も着実に広がっています。現場では人手不足への対応が急務ですが、その一方で、永住化・家族帯同・地域負担・社会の連続性といった論点は、まだ十分に正面から議論されているとは言いにくいのが実情です。</p>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">Layer 1 — 英国で何が起きたか</span>
+            <h3>象徴は取り戻したが、現実は複雑化</h3>
+            <p>英国は主権の象徴を取り戻した一方で、EUとの貿易摩擦は増え、移民問題も<strong>「減る」ではなく「構造が変わる」</strong>形で進んだ。感情を無視して経済だけで押し切ると、あとでその不満はアイデンティティの怒りとして噴き出す。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">Layer 2 — 日本の課題</span>
+            <h3>入り口の国から、定住が進む国へ</h3>
+            <p>日本が本当に見るべきなのは、外国人受け入れの是非そのものより、<strong>「どの程度の定住・永住・家族形成を、どんな条件で認めるのかを、日本人自身がどこまで決めていると感じられるか」</strong>という点。怒る前に決める、曖昧なまま進めない、が重要。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">01</span>
+          <h2>テーマの全体像｜"国家の輪郭"をめぐる投票</h2>
+          <span class="q-section-head-en">OVERVIEW</span>
+        </div>
+        <p>ブレグジットは「EU離脱」だが、本質は<strong>"国家の輪郭"をめぐる投票</strong>だった。<strong>2016年</strong>の英国国民投票では、離脱が<strong>51.9%</strong>、残留が<strong>48.1%</strong>。数字だけ見れば僅差ですが、その僅差の中に、英国社会にたまっていた大きな不満が凝縮されていました。[出典1]</p>
+        <p>ここで重要なのは、あの投票を単なる「経済に弱い選択」と見ないことです。もちろん経済界や専門家の多くは残留を支持しました。離脱すれば貿易や投資に悪影響が出るという警告も多く出ていました。それでも離脱が勝ったのは、経済よりも先に<strong>「自分たちの国のことを、自分たちで決めたい」という感情</strong>があったからです。</p>
+
+        <div class="pros-cons-stock">
+          <div class="pro-box">
+            <div class="pro-box-label">経済の論理</div>
+            EUに残った方が商売はしやすい。投資・貿易・雇用すべて追い風。
+          </div>
+          <div class="con-box">
+            <div class="con-box-label">感情の論理</div>
+            このままでは"自分たちの国を自分たちで決めていない"気がする。
+          </div>
+        </div>
+
+        <p>ブレグジットは、この2つのうち<strong>後者が勝った出来事</strong>でした。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">02</span>
+          <h2>論点整理｜本当に争われた4つの軸</h2>
+          <span class="q-section-head-en">FOUR AXES</span>
+        </div>
+        <p>ブレグジットで本当に争われたのは何だったのか。論点は大きく4つ。メディアでは経済面が注目されがちですが、投票行動を動かしたのは主権・国境・アイデンティティの要素がかなり大きかったと見る方が自然です。</p>
+
+        <div class="risk-grid">
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">1</span>
+              <span class="risk-title">主権</span>
+            </div>
+            <div class="risk-body">英国の法律やルールを、ブリュッセルではなくロンドンで決めたいという感覚。</div>
+            <div class="risk-example">🏛 「誰が決めるのか」の問題</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">2</span>
+              <span class="risk-title">国境</span>
+            </div>
+            <div class="risk-body">人の出入りを誰が管理するのかという感覚。自由移動への抵抗感。</div>
+            <div class="risk-example">🛂 「誰を入れるか」の問題</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">3</span>
+              <span class="risk-title">アイデンティティ</span>
+            </div>
+            <div class="risk-body">生活環境の変化や社会の雰囲気の変化に対する違和感。</div>
+            <div class="risk-example">🏘 「どう暮らすか」の問題</div>
+          </div>
+        </div>
+
+        <p>(4つ目は<strong>経済</strong>＝通商、投資、雇用、企業活動への影響)。ここは日本でも似ています。人手不足や賃金の話だけで制度を広げていくと、あとから<strong>「そんな規模の変化まで合意した覚えはない」</strong>という反発が出やすくなります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">03</span>
+          <h2>重要な数字｜ブレグジットを表で確認</h2>
+          <span class="q-section-head-en">KEY NUMBERS</span>
+        </div>
+        <p>表1　ブレグジットをめぐる主要数字</p>
+
+        <table class="data-table">
+          <thead><tr>
+            <th>項目</th>
+            <th>数字</th>
+            <th>どう見るべきか</th>
+          </tr></thead>
+          <tbody>
+            <tr><td><strong>2016年</strong>国民投票</td><td>離脱 <strong>51.9%</strong> / 残留 <strong>48.1%</strong></td><td>英国社会が真っ二つに割れた象徴的な結果</td></tr>
+            <tr><td><strong>2024年</strong>のEU向け輸出比率</td><td><strong>41%</strong></td><td>EUは今でも英国の巨大市場</td></tr>
+            <tr><td><strong>2024年</strong>のEUからの輸入比率</td><td><strong>51%</strong></td><td>「出たから関係が薄くなった」とは言えない</td></tr>
+            <tr><td>対EUの財輸出（<strong>2019年</strong>比・実質）</td><td><strong>18%</strong>減</td><td>モノの輸出は摩擦の影響を受けやすい</td></tr>
+            <tr><td>対EUのサービス輸出（<strong>2019年</strong>比・実質）</td><td><strong>19%</strong>増</td><td>サービスはモノほど国境摩擦の影響を受けにくい</td></tr>
+            <tr><td>OBRの長期前提</td><td>貿易量<strong>15%</strong>低下、生産性<strong>4%</strong>押し下げ</td><td>英公的機関は長期コストをかなり重く見ている</td></tr>
+            <tr><td>YE<strong>2025年6月</strong>のEU系純移動</td><td>▲7万人</td><td>EUからの純移動は減少</td></tr>
+            <tr><td>YE<strong>2025年6月</strong>の非EU+純移動</td><td>+38.3万人</td><td>移民は「減る」より「構造が変わる」形になった</td></tr>
+          </tbody>
+        </table>
+
+        <p>出典：[1][2][3][4]</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">04</span>
+          <h2>ブレグジット後の時系列｜英EU関係の再接近</h2>
+          <span class="q-section-head-en">TIMELINE</span>
+        </div>
+        <p>離脱は一瞬ではなく、長い交渉と再調整の過程でした。象徴を取った後、現実の摩擦に合わせて関係は少しずつ"戻って"きています。</p>
+
+        <div class="timeline">
+          <div class="tl-stop"><div class="tl-dot" style="border-color:#10b981;"></div><div class="tl-year">2016</div><div class="tl-label">国民投票<br>離脱51.9%</div></div>
+          <div class="tl-stop"><div class="tl-dot" style="border-color:#06b6d4;"></div><div class="tl-year">2020</div><div class="tl-label">EU離脱<br>完了</div></div>
+          <div class="tl-stop"><div class="tl-dot" style="border-color:#f59e0b;"></div><div class="tl-year">2024</div><div class="tl-label">貿易摩擦が<br>顕在化</div></div>
+          <div class="tl-stop"><div class="tl-dot" style="border-color:#ef4444;"></div><div class="tl-year">2026</div><div class="tl-label"><strong>再接近へ<br>協力深化</strong></div></div>
+        </div>
+
+        <p>英国はEUを出たので、法律上は自分たちの裁量を増やしました。この意味では「主権を取り戻した」は一定程度、事実です。ただし、隣に巨大市場が存在する現実は変わりません。EUを出ても、英国企業はEUと売買し続ける必要があります。その結果、関税そのものよりも、<strong>書類、検査、基準調整、通関などの"非関税障壁"</strong>が重くのしかかるようになりました。[出典3]</p>
+        <p>身近な例で言えば、「会社を独立して自由にはなったが、最大の取引先とは今も仕事を続ける必要があり、しかも手続きだけは増えた」という状態です。<strong>ここがブレグジットの皮肉</strong>です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">05</span>
+          <h2>メリット・デメリット整理｜英国は何を得て、何を失ったか</h2>
+          <span class="q-section-head-en">PROS &amp; CONS</span>
+        </div>
+        <p>表2　ブレグジットの強材料と弱材料</p>
+
+        <table class="data-table">
+          <thead><tr>
+            <th>観点</th>
+            <th>強材料・メリット</th>
+            <th>弱材料・デメリット</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>主権</td><td>国境管理や制度運用の裁量を増やした</td><td>ただし経済はEUとの関係を断てず、現実は再調整が必要</td></tr>
+            <tr><td>政治</td><td>「自分たちで決める」という感覚を回復した</td><td>社会の分断が長引き、政治的コストも大きかった</td></tr>
+            <tr><td>貿易</td><td>独自の通商政策を展開できる</td><td>EU向け財輸出には摩擦コストが増加</td></tr>
+            <tr><td>移民</td><td>EU自由移動の仕組みから離脱</td><td>非EUからの流入増で構造が変わり、狙い通りの整理にはならなかった</td></tr>
+            <tr><td>外交</td><td>独自路線を演出しやすい</td><td>安全保障・エネルギー・通商では結局EU協調が必要</td></tr>
+          </tbody>
+        </table>
+
+        <p>ここから見えてくるのは、ブレグジットが「完全な成功」でも「単純な失敗」でもないということです。<strong>象徴としての主権は得た。しかし、その対価として実務の摩擦は増えた。しかも、移民問題も"思った通りに片づいた"わけではない。</strong>この「象徴は取ったが、現実は複雑になった」という構図が重要です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">06</span>
+          <h2>移民問題｜"減った"のではなく、"入れ替わった"</h2>
+          <span class="q-section-head-en">MIGRATION</span>
+        </div>
+        <p>英国の移民問題で誤解しやすいのは、「ブレグジットで移民が減った」と短絡的に言うことです。実際には、<strong>EU系の純移動は減りましたが、非EU系の純移動はなお大きく</strong>、英国国家統計局（ONS）でも<strong>2021年</strong>以降は非EU+の動きが全体のトレンドを主導してきたと整理されています。[出典4]</p>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🇪🇺</div>
+            <div class="pillar-title">EU系移民</div>
+            <div class="pillar-desc">ブレグジットで自由移動の仕組みから離脱。EUからの流入は減少し、狙い通りに見える部分も。</div>
+            <div class="pillar-example">💡 EU系純移動 ▲7万人（YE2025/6）</div>
+          </div>
+          <div class="pillar target">
+            <div class="pillar-icon">🌏</div>
+            <div class="pillar-title">非EU系移民</div>
+            <div class="pillar-desc">人手不足は残り、別ルートから人を呼ぶ必要が高まった。<strong>流入元や在留の性質が変わった</strong>。</div>
+            <div class="pillar-example">💡 非EU+純移動 +38.3万人</div>
+          </div>
+        </div>
+
+        <p>つまり、EUからの流入を減らしたが、人手不足は残り、その結果、別ルートから人を呼ぶ必要が高まった、という流れです。<strong>国境を厳しくしたつもりでも、労働需要が残れば、流入がゼロになるわけではありません。</strong>むしろ、流入元や在留の性質が変わることがあります。</p>
+        <p>ここは日本にも通じる大きな論点です。制度をいじる時は、「人数」だけでなく、<strong>「どの資格で」「どのくらいの期間」「家族形成や定住にどうつながるのか」</strong>まで見ないと、実態を見誤ります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">07</span>
+          <h2>では、日本はどうか｜"定着が進む国"としての数字</h2>
+          <span class="q-section-head-en">JAPAN NOW</span>
+        </div>
+        <p>日本はすでに"入り口の国"というより<strong>"定着が進む国"</strong>として見た方がいい。表3　日本の現在地を示す主要数字。</p>
+
+        <table class="data-table">
+          <thead><tr>
+            <th>項目</th>
+            <th>数字</th>
+            <th>どう見るべきか</th>
+          </tr></thead>
+          <tbody>
+            <tr><td><strong>2025年6月</strong>末の在留外国人数</td><td>395万<strong>6,619人</strong></td><td>過去最高を更新</td></tr>
+            <tr><td>うち永住者</td><td>93万<strong>2,090人</strong></td><td>在留資格別で最大区分</td></tr>
+            <tr><td><strong>2024年</strong>出生数</td><td>68万<strong>6,173人</strong></td><td>過去最少</td></tr>
+            <tr><td><strong>2024年</strong>合計特殊出生率</td><td>1.15</td><td>過去最低</td></tr>
+            <tr><td><strong>2024年</strong>自然増減</td><td>▲91万<strong>9,205人</strong></td><td>人口減少が急速に進行</td></tr>
+            <tr><td>永住許可の原則</td><td>引き続き10年以上在留</td><td>ただし高度人材などは短縮ルートあり</td></tr>
+          </tbody>
+        </table>
+
+        <p>出典：[5][6][7]</p>
+        <p>この表を並べると、日本の見え方が変わります。「人手が足りないから、外国人を短期的に受け入れる」という感覚のままだと、現実を見誤りやすい。なぜなら、<strong>最大区分がすでに永住者</strong>だからです。[出典5] 日本は"来てもらうだけの国"ではなく、<strong>"定住が進んでいる国"として制度を考えた方が現実に近い</strong>、ということです。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">08</span>
+          <h2>読者が誤解しやすい3点｜FAQ</h2>
+          <span class="q-section-head-en">FAQ</span>
+        </div>
+        <p>このテーマは<strong>「受け入れ賛成か反対か」の二択ではない</strong>。よくある誤解は3つ。</p>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">外国人を受け入れるか、受け入れないかの二択？</div>
+            <div class="faq-a">違います。実際にはそうではなく、<strong>どの資格を、どの規模で、どのスピードで、どんな条件で認めるか</strong>が問題。賛否の二択では設計が決まりません。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">懸念を語ること自体が差別では？</div>
+            <div class="faq-a">個人への排斥と、制度設計の議論は分けて考える必要があります。<strong>教育、医療、住宅、言語支援、自治体負担、永住要件などを議論すること自体は政策論</strong>です。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">人手不足だから、とにかく広げればよい？</div>
+            <div class="faq-a">短期の労働力需要と、長期の国家像は時間軸が違います。この2つを同じ箱に入れると、<strong>短期合理性が長期設計を飲み込みやすく</strong>なります。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">09</span>
+          <h2>日本で本当に問うべき4論点</h2>
+          <span class="q-section-head-en">FOUR QUESTIONS</span>
+        </div>
+        <p><strong>「外国人が多い少ない」ではなく「どこまでを誰が決めるのか」</strong>。政策論として言い換えるなら、論点は次の4つです。</p>
+
+        <div class="risk-grid">
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">1</span>
+              <span class="risk-title">永住の意味</span>
+            </div>
+            <div class="risk-body">永住を、単なる長期滞在の延長として扱ってよいのか。事実上、国家共同体への恒久的な参加に近い意味を持つ。</div>
+            <div class="risk-example">🏠 要件の再議論が必要</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">2</span>
+              <span class="risk-title">家族帯同・定住化</span>
+            </div>
+            <div class="risk-body">家族帯同・定住化・世代形成を、労働力政策のおまけにしていないか。本当に社会構成を変えるのは定住と家族形成。</div>
+            <div class="risk-example">👨‍👩‍👧 長期の社会構成に直結</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">3</span>
+              <span class="risk-title">地域の受け入れ能力</span>
+            </div>
+            <div class="risk-body">学校、医療、通訳、住宅、生活支援。受け入れのコストは国全体よりも、<strong>自治体や現場に先に現れる</strong>。</div>
+            <div class="risk-example">🏢 現場負担を軽視できない</div>
+          </div>
+        </div>
+
+        <p>(4つ目は<strong>国民的合意の速度</strong>)。内容だけでなく、変化のスピードも重要です。急すぎる変化は、内容以前に反発を生みます。大事なのは、<strong>結論を急がないこと。しかし、論点を避けたままではもっと危ない</strong>。英国の教訓はまさにそこにあります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">10</span>
+          <h2>反対意見・注意点｜慎重論と拡大論、両方の弱点</h2>
+          <span class="q-section-head-en">BOTH SIDES</span>
+        </div>
+        <p>ここまで読むと、「では受け入れを強く絞ればよいのか」と感じる人もいるかもしれません。しかし、そこも単純ではありません。表4　日本で想定される強材料と弱材料。</p>
+
+        <table class="data-table">
+          <thead><tr>
+            <th>観点</th>
+            <th>強材料</th>
+            <th>弱材料・注意点</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>労働市場</td><td>人手不足の緩和、現場維持</td><td>賃金改善や省力化の先送りにつながる可能性</td></tr>
+            <tr><td>財政・税収</td><td>働き手・消費者の増加</td><td>教育・医療・自治体コストの増加もありうる</td></tr>
+            <tr><td>産業競争力</td><td>高度人材の確保、イノベーション余地</td><td>制度設計が曖昧だと社会的摩擦が増える</td></tr>
+            <tr><td>地域社会</td><td>人口減少地域の維持に寄与する可能性</td><td>地域の受け入れ能力を超えると反発が強まる</td></tr>
+            <tr><td>政治</td><td>早めに制度設計すれば安定化に寄与</td><td>議論を封じると、後で感情的な対立になりやすい</td></tr>
+          </tbody>
+        </table>
+
+        <div class="pros-cons-stock">
+          <div class="pro-box">
+            <div class="pro-box-label">慎重論の弱点</div>
+            人手不足の現実を軽く見がち／高度人材や現場維持の必要性を過小評価しがち
+          </div>
+          <div class="con-box">
+            <div class="con-box-label">拡大論の弱点</div>
+            永住化や家族形成の長期影響を軽く見がち／地域や住民の納得プロセスを飛ばしがち
+          </div>
+        </div>
+
+        <p>だから必要なのは、<strong>「賛成か反対か」ではなく「どう設計するか」</strong>です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">11</span>
+          <h2>株式・経済の視点｜投資家が見るべき4ポイント</h2>
+          <span class="q-section-head-en">INVESTMENT LENS</span>
+        </div>
+        <p>このテーマは政治・社会問題に見えますが、投資や株式にもつながります。ただし、個別銘柄を断定的に語るより、まずはマクロの見方を押さえる方が大切です。</p>
+
+        <table class="data-table">
+          <thead><tr><th style="width:40px;">#</th><th>見るポイント</th><th>なぜ重要か</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1</strong></td><td>貿易摩擦が企業収益にどう効くか</td><td>ブレグジットでは「モノ」の輸出入で手続きコストが増加。サプライチェーンに直結。</td></tr>
+            <tr><td><strong>2</strong></td><td>労働供給が賃金・サービス価格にどう影響するか</td><td>労働力不足は賃金上昇や人件費負担を生む。受け入れ拡大は圧力を和らげる可能性。</td></tr>
+            <tr><td><strong>3</strong></td><td>自治体・公共コストの増減</td><td>教育、医療、生活支援の負担増は財政議論に波及し、税制や公共投資に関わる。</td></tr>
+            <tr><td><strong>4</strong></td><td>政策の不確実性</td><td>市場が最も嫌うのは、ルール変更以上に<strong>ルールが曖昧なこと</strong>。中長期判断に直結。</td></tr>
+          </tbody>
+        </table>
+
+        <p>ここでのポイントは、「賛成・反対」よりも、<strong>「制度の明確さ」と「時間軸の整合性」を見る</strong>ことです。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">12</span>
+          <h2>今後の注目点｜英国と日本、それぞれどこを見るか</h2>
+          <span class="q-section-head-en">WHAT TO WATCH</span>
+        </div>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">英国での注目点</span>
+            <h3>EU協調の深化ペース</h3>
+            <p>スターマー政権がどこまでEUとの協調を深めるか。<strong>2026年4月</strong>の首相発言では、英国の長期的国益にはEUとのより近い協力が必要だと明言。[出典8] ただし単一市場・関税同盟への復帰までは否定。農業、電力、排出量取引での実務的調整、移民の構造変化の落ち着きどころに注目。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">日本での注目点</span>
+            <h3>制度設計を政策論に翻訳できるか</h3>
+            <p>永住・定住・高度人材ルートの制度見直し／家族帯同や自治体負担の可視化／少子化対策と外国人受け入れ政策を別々に設計できるか／<strong>「感情の封じ込め」ではなく「制度への翻訳」</strong>ができるか。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">13</span>
+          <h2>結論｜4点マトリクスで整理する</h2>
+          <span class="q-section-head-en">FINAL MAP</span>
+        </div>
+        <p>この記事の核心を一言で言えば、<strong>ブレグジットは、経済の話である前に、「国の輪郭を誰が決めるのか」という政治の話だった。そして、その問いは日本にも確実に近づいている</strong>。</p>
+
+        <div class="matrix">
+          <div class="matrix-label">FINAL ASSESSMENT</div>
+          <h3>本当に問うべきは「日本人自身がどこまで決めていると感じられるか」</h3>
+          <div class="matrix-grid">
+            <div class="matrix-cell"><div class="matrix-cell-head"><span class="matrix-cell-type">英国 主権</span><span class="matrix-cell-ticker">取り戻した</span></div><div class="matrix-cell-desc">象徴としての自己決定感は得た。しかし現実の摩擦は増えた。</div></div>
+            <div class="matrix-cell"><div class="matrix-cell-head"><span class="matrix-cell-type">英国 移民</span><span class="matrix-cell-ticker">入れ替わり</span></div><div class="matrix-cell-desc">EU系は減ったが、非EU系が増え構造が変化。狙い通りではない。</div></div>
+            <div class="matrix-cell"><div class="matrix-cell-head"><span class="matrix-cell-type">日本 現状</span><span class="matrix-cell-ticker">定住進行</span></div><div class="matrix-cell-desc">永住者が最大区分。"入り口の国"から"定着の国"へ。</div></div>
+            <div class="matrix-cell"><div class="matrix-cell-head"><span class="matrix-cell-type">日本 課題</span><span class="matrix-cell-ticker">線引き議論</span></div><div class="matrix-cell-desc">レッテル貼りではなく、制度設計・時間軸・納得速度の議論を。</div></div>
+          </div>
+        </div>
+
+        <p>英国は、主権を取り戻すという象徴を得ました。しかし現実には、EUとの距離をもう一度詰め直さざるを得ない局面に来ています。一方、日本はまだ大きな政治的噴出の手前にいるように見えます。だからこそ、<strong>今のうちに制度を詰める余地があります</strong>。</p>
+        <p>本当に問うべきなのは、「外国人そのものをどう評価するか」ではありません。問うべきなのは、<strong>「日本人自身が、この国の将来の構成をどこまで自分たちで決めていると感じられるか」</strong>です。ここを曖昧にしたまま進むと、あとで議論は経済から離れ、感情の対立になりやすい。だから、今必要なのは<strong>レッテル貼りではなく、線引きの議論</strong>です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">99</span>
+          <h2>まとめ｜煽って終わらせず、曖昧なまま進めない</h2>
+          <span class="q-section-head-en">SUMMARY</span>
+        </div>
+        <p>ブレグジットを総括すると、<strong>主権の象徴は取り戻したが、現実の摩擦はむしろ増えた</strong>、というのが基本線です。そして、この話の価値は「英国の失敗談を眺めること」ではありません。本当に重要なのは、<strong>日本でも同じ構図が起きうることを理解すること</strong>です。</p>
+        <p>少子化が進み、在留外国人数が増え、永住者が最大区分となっている今、日本の論点は単なる労働力不足対策では済みません。短期の人手不足と、長期の国家像を分けて考える。地域負担や家族形成まで含めて制度を考える。そして、社会の納得速度を無視しない。<strong>この3つを外すと、経済合理性だけでは支えきれない反発が後から大きくなります</strong>。</p>
+        <p>煽って終わるのではなく、曖昧なまま進めない。それが、このテーマを見るうえでのいちばん実務的な姿勢だと思います。</p>
+
+        <div class="disclaimer">
+          <strong>ご注意</strong>：本記事は制度・人口動態・政治経済の論点整理を目的としたものであり、特定の投資判断や売買、政治的行動を推奨するものではありません。投資判断はご自身の責任でお願いします。
+        </div>
+      </div>
 
       <div class="related-head">RELATED ARTICLES</div>
       <div class="related-list">
-        <a href="../" class="related-item">
-          <span class="related-tag">一覧</span>
-          <span class="related-title">経済・株式の記事一覧へ</span>
-        </a>
+        <a href="../2026-04-11-trump-tariffs/" class="related-item"><span class="related-tag">国際</span><span class="related-title">トランプ関税は成功だったのか？貿易赤字・家計・日本企業で総点検 2026.04.11</span></a>
+        <a href="../2026-04-11-hitorioya/" class="related-item"><span class="related-tag">社会</span><span class="related-title">ひとり親世帯の貧困と社会保障の現在地 2026.04.11</span></a>
+        <a href="../2026-04-18-oda/" class="related-item"><span class="related-tag">政策</span><span class="related-title">ODAの役割と日本外交 2026.04.18</span></a>
+        <a href="../2026-03-21-hormuz-energy/" class="related-item"><span class="related-tag">国際</span><span class="related-title">ホルムズ海峡とエネルギー安全保障 2026.03.21</span></a>
+        <a href="../" class="related-item"><span class="related-tag">一覧</span><span class="related-title">経済・株式の記事一覧へ</span></a>
       </div>
 
     </main>
@@ -553,27 +780,36 @@
       <div class="sidebar-toc">
         <div class="sidebar-toc-label">目次</div>
         <ul class="toc-list">
-          <li><a href="#sec-conclusion"><span class="toc-n">00</span>先に結論</a></li>
-<li><a href="#sec-01"><span class="toc-n">01</span>テーマの全体像</a></li>
-<li><a href="#sec-02"><span class="toc-n">02</span>論点整理</a></li>
-<li><a href="#sec-03"><span class="toc-n">03</span>重要な数字をまず表で確認</a></li>
-<li><a href="#sec-04"><span class="toc-n">04</span>初心者向けの噛み砕き説明</a></li>
-<li><a href="#sec-05"><span class="toc-n">05</span>メリット・デメリット整理</a></li>
-<li><a href="#sec-06"><span class="toc-n">06</span>移民問題で何が起きたのか</a></li>
-<li><a href="#sec-07"><span class="toc-n">07</span>では、日本はどうか</a></li>
-<li><a href="#sec-08"><span class="toc-n">08</span>読者が誤解しやすい点</a></li>
-<li><a href="#sec-09"><span class="toc-n">09</span>日本で本当に問うべき論点</a></li>
-<li><a href="#sec-10"><span class="toc-n">10</span>反対意見・注意点も整理する</a></li>
-<li><a href="#sec-11"><span class="toc-n">11</span>株式・経済の視点で見るなら</a></li>
-<li><a href="#sec-12"><span class="toc-n">12</span>今後の注目点</a></li>
-<li><a href="#sec-13"><span class="toc-n">13</span>結局どう見るべきか</a></li>
-<li><a href="#sec-14"><span class="toc-n">14</span>3行まとめ</a></li>
-          <li><a href="#sec-summary"><span class="toc-n">99</span>まとめ</a></li>
+          <li><a href="#"><span class="toc-n">00</span>先に結論</a></li>
+          <li><a href="#"><span class="toc-n">01</span>全体像</a></li>
+          <li><a href="#"><span class="toc-n">02</span>論点4軸</a></li>
+          <li><a href="#"><span class="toc-n">03</span>重要な数字</a></li>
+          <li><a href="#"><span class="toc-n">04</span>時系列</a></li>
+          <li><a href="#"><span class="toc-n">05</span>メリ・デメ</a></li>
+          <li><a href="#"><span class="toc-n">06</span>移民問題</a></li>
+          <li><a href="#"><span class="toc-n">07</span>日本の現在地</a></li>
+          <li><a href="#"><span class="toc-n">08</span>FAQ</a></li>
+          <li><a href="#"><span class="toc-n">09</span>4論点</a></li>
+          <li><a href="#"><span class="toc-n">10</span>反対意見</a></li>
+          <li><a href="#"><span class="toc-n">11</span>投資目線</a></li>
+          <li><a href="#"><span class="toc-n">12</span>注目点</a></li>
+          <li><a href="#"><span class="toc-n">13</span>結論</a></li>
+          <li><a href="#"><span class="toc-n">99</span>まとめ</a></li>
         </ul>
       </div>
       <div class="sidebar-meta">
         <div class="sidebar-meta-label">TAGS</div>
-        <div class="tag-cloud"><span class="tag-pill">ブレグジット</span><span class="tag-pill">EU</span><span class="tag-pill">英国</span><span class="tag-pill">外国人政策</span><span class="tag-pill">国際情勢</span></div>
+        <div class="tag-cloud">
+          <span class="tag-pill">ブレグジット</span>
+          <span class="tag-pill">EU</span>
+          <span class="tag-pill">英国</span>
+          <span class="tag-pill">外国人政策</span>
+          <span class="tag-pill">国際情勢</span>
+          <span class="tag-pill">移民</span>
+          <span class="tag-pill">永住</span>
+          <span class="tag-pill">少子化</span>
+          <span class="tag-pill">主権</span>
+        </div>
       </div>
     </aside>
   </div>
@@ -585,6 +821,5 @@
   </footer>
 
   <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/article-enhance.js?v=20260418e" defer></script>
 </body>
 </html>

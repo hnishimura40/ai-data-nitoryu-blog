@@ -15,91 +15,316 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
-    .art-hero { background: linear-gradient(135deg, #0d1e38 0%, #0d9488 100%); padding: 44px 24px; }
-    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; }
-    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
-    .art-cat-main { background: #0d9488; color: #fff; }
-    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.95; }
-    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.55); display: flex; gap: 16px; flex-wrap: wrap; }
-    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
-    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
-    .art-body { min-width: 0; }
-    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
-    .art-body strong { color: #1a2744; }
-    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
-    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
-    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
-    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #0d9488; background: #f0f4fb; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
-    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
-    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
-    @media (max-width: 560px) { .sec-head-en { display: none; } }
-    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #0d9488; }
-    .summary-box { background: linear-gradient(135deg, #f0f6ff, #e6eefb); border: 1px solid #b5cdf0; border-left: 4px solid #0d9488; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
-    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #0d9488; margin-bottom: 12px; }
-    .summary-box ul { margin: 0; }
-    .summary-box li { font-size: 0.87rem; }
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; display: block; overflow-x: auto; }
-    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
-    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:nth-child(even) td { background: #f8fafd; }
-    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
-    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
-    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
-    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
-    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px;  max-width: 640px; margin-left: auto !important; margin-right: auto !important; }
-    .video-box-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 10px; }
-    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
-    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
-    .related-list { display: flex; flex-direction: column; gap: 10px; }
-    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
-    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
-    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #0d9488; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
-    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
-    .art-sidebar { font-size: 0.88rem; }
-    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
-    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
-    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
-    .toc-list { list-style: none; padding: 0; margin: 0; }
-    .toc-list li { border-bottom: 1px solid #e8ecf4; }
-    .toc-list li:last-child { border-bottom: none; }
-    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
-    .toc-list a:hover { color: #0d9488; }
-    .toc-n { font-size: 0.62rem; font-weight: 900; color: #0d9488; flex-shrink: 0; width: 22px; }
-    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
-    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
-    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
-    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
-  
-    .art-hero { padding: 24px 0 0 0 !important; }
-    .art-hero-thumb { width: 100%; max-width: 1100px; max-height: 360px; object-fit: cover; display: block; margin: 0 auto; }
-    .art-hero-title-block { max-width: var(--max-width, 1100px); margin: 0 auto; padding: 22px 24px 18px !important; }
-
-    .art-body > main .sec-head + p,
-    .art-body .sec-head + p {
-      background: linear-gradient(135deg, #f7f9fc, #eef3fb);
-      border-left: 4px solid #1a4fa0;
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      font-weight: 500;
-      margin-top: 0;
+    :root {
+      --q-accent:#7c3aed;
+      --q-accent2:#06b6d4;
+      color-scheme: light dark;
     }
-    .data-table th { font-size: 0.82rem; letter-spacing: 0.04em; }
-    .data-table { border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-    .data-table strong { color: #1a4fa0; font-weight: 900; }
-    .art-body p strong { color: #1a4fa0; font-weight: 800; background: linear-gradient(transparent 62%, #ffe58a 62%, #ffe58a 92%, transparent 92%); padding: 0 2px; }
-    .art-body p { text-align: justify; text-justify: inter-ideograph; }
-    .art-body h2 + p, .art-body .sec-sub + p { margin-top: 14px; }
+    html, body { background-color: #ffffff; color: #2a2e3c; }
 
-    /* article-body-enhanced */
+    /* ===== ダークモード：暗い配色 + 視認性重視 ===== */
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0b1020 !important; color: #d8dfef !important; }
+
+      /* 本文テキスト */
+      .art-body p, .art-body li { color: #d8dfef !important; }
+
+      /* strong は黄色マーカー（白文字と被る問題）をやめ、明るい紫文字＋薄い下地 */
+      .art-body p strong, .art-body li strong {
+        color: #c4b5fd !important;
+        background: rgba(139,92,246,0.15) !important;
+        padding: 0 4px !important;
+        border-radius: 3px !important;
+      }
+
+      /* カード類：暗い濃紺系 */
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #a78bfa !important; }
+      .stat-card-number { color: #f5f7ff !important; }
+      .stat-card-sub { color: #9aa3bf !important; }
+
+      .layer-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 6px 24px -8px rgba(0,0,0,0.4) !important; }
+      .layer-card h3 { color: #f5f7ff !important; }
+      .layer-card p { color: #c9d0e5 !important; }
+      .layer-card.tech .layer-card-tag { background: rgba(6,182,212,0.2) !important; color: #7dd3fc !important; }
+      .layer-card.market .layer-card-tag { background: rgba(245,158,11,0.18) !important; color: #fcd34d !important; }
+
+      /* セクション見出し */
+      .q-section-head { border-bottom-color: #2a3150 !important; }
+      .q-section-head h2 { color: #f5f7ff !important; }
+      .q-section-head-en { color: #5a6488 !important; }
+
+      /* 2本柱 */
+      .pillar { background: linear-gradient(180deg, #181c2e 0%, #141828 100%) !important; border-color: #2a3150 !important; }
+      .pillar-title { color: #f5f7ff !important; }
+      .pillar-desc { color: #b9c1d9 !important; }
+      .pillar-example { background: #0b1020 !important; border-color: #2a3150 !important; color: #a5adc8 !important; }
+      .pillar.target { background: linear-gradient(180deg, #2a1111 0%, #1a0a0a 100%) !important; border-color: #ef4444 !important; }
+      .pillar.target .pillar-desc, .pillar.target .pillar-title { color: #fecaca !important; }
+
+      /* リスクカード */
+      .risk-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .risk-title { color: #f5f7ff !important; }
+      .risk-body { color: #b9c1d9 !important; }
+      .risk-example { background: rgba(252,211,77,0.12) !important; color: #fcd34d !important; }
+
+      /* FAQ */
+      .faq-item { background: #141828 !important; border-color: #2a3150 !important; border-left-color: #a78bfa !important; }
+      .faq-q { color: #f5f7ff !important; }
+      .faq-a { color: #c9d0e5 !important; }
+
+      /* 銘柄カード */
+      .stock-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .stock-ticker { color: #f5f7ff !important; }
+      .stock-desc { color: #b9c1d9 !important; }
+      .stock-metric { background: #0f1322 !important; }
+      .stock-metric-label { color: #8a93ac !important; }
+      .stock-metric-value { color: #f5f7ff !important; }
+
+      /* タグは色を落としすぎないように */
+      .tag-defense { background: rgba(34,197,94,0.2) !important; color: #86efac !important; }
+      .tag-stable  { background: rgba(59,130,246,0.2) !important; color: #93c5fd !important; }
+      .tag-dream   { background: rgba(236,72,153,0.2) !important; color: #f9a8d4 !important; }
+      .tag-specu   { background: rgba(239,68,68,0.2) !important; color: #fca5a5 !important; }
+
+      /* 銘柄ラベル */
+      .stock-label { color: #f5f7ff !important; }
+
+      /* 強材料・弱材料 */
+      .pro-box { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.05)) !important; border-color: rgba(16,185,129,0.4) !important; color: #86efac !important; }
+      .con-box { background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(239,68,68,0.05)) !important; border-color: rgba(239,68,68,0.4) !important; color: #fca5a5 !important; }
+
+      /* テーブル */
+      .data-table { box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5) !important; }
+      .data-table td { background-color: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+      .data-table strong { color: #c4b5fd !important; background: none !important; }
+
+      /* サイドバー */
+      .sidebar-toc { background: linear-gradient(145deg, #141828, #0f1322) !important; border-color: #2a3150 !important; }
+      .sidebar-toc-label { color: #a78bfa !important; }
+      .toc-list a { color: #b9c1d9 !important; }
+      .toc-list a:hover { color: #c4b5fd !important; }
+      .toc-list li { border-bottom-color: #2a3150 !important; }
+      .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+      .sidebar-meta-label { color: #a78bfa !important; }
+      .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+
+      /* 関連記事 */
+      .related-item { background: #141828 !important; border-color: #2a3150 !important; }
+      .related-title { color: #f5f7ff !important; }
+      .related-head { color: #a78bfa !important; border-bottom-color: #2a3150 !important; }
+
+      /* disclaimer */
+      .disclaimer { background: rgba(217,119,6,0.1) !important; color: #fcd34d !important; border-color: rgba(217,119,6,0.4) !important; }
+
+      /* ヘッダー・ブレッドクラム */
+      .site-header { background: #0b1020 !important; border-bottom: 1px solid #2a3150 !important; }
+      .breadcrumb { background: #0f1322 !important; }
+      .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
+    }
+    .art-hero { background: radial-gradient(circle at 20% 0%, #1e0b4a 0%, #0a0a2a 40%, #050514 80%); padding: 0; position: relative; overflow: hidden; }
+    .art-hero-thumb { width: 100%; max-width: 1200px; max-height: 420px; object-fit: cover; display: block; margin: 0 auto; filter: saturate(1.1); }
+    .art-hero-title-block { max-width: 1100px; margin: 0 auto; padding: 26px 28px 22px; position: relative; z-index: 2; }
+    .art-hero-cats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; }
+    .art-cat-tech { background: linear-gradient(90deg, #7c3aed, #06b6d4); color: #fff; }
+    .art-cat-warn { background: #ef4444; color: #fff; }
+    .art-cat-stock { background: #10b981; color: #fff; }
+    .art-hero-h1 { font-size: clamp(1.2rem, 2.8vw, 1.8rem); font-weight: 900; color: #fff; line-height: 1.4; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .art-hero-meta { font-size: 0.78rem; color: rgba(255,255,255,0.65); display: flex; gap: 18px; }
+
+    .art-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 44px 24px 80px; align-items: flex-start; }
+    @media (max-width: 900px) { .art-layout { grid-template-columns: 1fr; padding: 28px 16px 60px; gap: 0; } }
+
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.96rem; line-height: 2; color: #2a2e3c; margin-bottom: 18px; }
+    .art-body strong { color: #7c3aed; font-weight: 800; }
+
+    /* HERO SUMMARY */
+    .hero-summary {
+      background: linear-gradient(135deg, #0f0a2e 0%, #1a0a4e 60%, #061733 100%);
+      border-radius: 20px; padding: 32px 36px; color: #fff;
+      margin-bottom: 40px; position: relative; overflow: hidden;
+    }
+    .hero-summary::before {
+      content: ""; position: absolute; top: -40%; right: -10%;
+      width: 60%; height: 180%;
+      background: radial-gradient(ellipse, rgba(124,58,237,.35), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-summary-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 14px; }
+    .hero-summary h2 { font-size: 1.35rem; font-weight: 900; color: #fff; margin: 0 0 14px; line-height: 1.5; }
+    .hero-summary p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.95; margin: 0; }
+
+    /* STAT CARDS */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0 36px; }
+    .stat-card {
+      background: linear-gradient(145deg, #fff, #f5f7ff);
+      border: 1px solid #e4e8f4; border-radius: 16px; padding: 22px 24px;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before { content: ""; position: absolute; inset: 0 auto auto 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--q-accent), var(--q-accent2)); }
+    .stat-card-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; text-transform: uppercase; margin-bottom: 10px; }
+    .stat-card-number { font-family: 'Poppins', sans-serif; font-size: 2.4rem; font-weight: 900; color: #0f0a2e; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; font-style: italic; }
+    .stat-card-sub { font-size: 0.82rem; color: #5a6380; line-height: 1.6; }
+
+    /* 2レイヤー */
+    .layer-split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 28px 0 36px; }
+    @media (max-width: 720px) { .layer-split { grid-template-columns: 1fr; } }
+    .layer-card { background: #fff; border-radius: 16px; padding: 24px 26px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 6px 24px -8px rgba(20, 30, 80, 0.12); }
+    .layer-card.tech { border-top: 5px solid #06b6d4; }
+    .layer-card.market { border-top: 5px solid #f59e0b; }
+    .layer-card-tag { display: inline-block; font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; }
+    .layer-card.tech .layer-card-tag { background: #e0f7fd; color: #0891b2; }
+    .layer-card.market .layer-card-tag { background: #fef3c7; color: #b45309; }
+    .layer-card h3 { font-size: 1.1rem; font-weight: 900; color: #0f0a2e; margin: 0 0 10px; }
+    .layer-card p { margin: 0; font-size: 0.92rem; line-height: 1.85; color: #2a2e3c; }
+
+    /* セクション見出し */
+    .q-section { margin: 56px 0 0; }
+    .q-section-head { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 3px solid #e4e8f4; }
+    .q-section-num { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 900; font-style: italic; background: linear-gradient(135deg, var(--q-accent), var(--q-accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; flex-shrink: 0; }
+    .q-section-head h2 { font-size: 1.3rem; font-weight: 900; color: #0f0a2e; margin: 0; line-height: 1.4; }
+    .q-section-head-en { margin-left: auto; font-size: 0.7rem; font-weight: 800; letter-spacing: .2em; color: #a3adc7; flex-shrink: 0; }
+    @media (max-width: 560px) { .q-section-head-en { display: none; } }
+
+    /* 2本柱 */
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar { background: linear-gradient(180deg, #fafbff 0%, #f0f3fa 100%); border-radius: 14px; padding: 22px 24px; border: 1px solid #dbe2f0; position: relative; }
+    .pillar-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .pillar-title { font-size: 1rem; font-weight: 900; color: #0f0a2e; margin-bottom: 8px; }
+    .pillar-desc { font-size: 0.88rem; color: #4a5270; line-height: 1.7; margin-bottom: 10px; }
+    .pillar-example { background: #fff; border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: #5a6380; border: 1px solid #e4e8f4; }
+    .pillar.target { border: 2px solid #ef4444; background: linear-gradient(180deg, #fff5f5 0%, #ffe4e4 100%); }
+    .pillar.target::after { content: "主戦場"; position: absolute; top: -10px; right: 14px; background: #ef4444; color: #fff; font-size: 0.68rem; font-weight: 900; letter-spacing: .1em; padding: 3px 10px; border-radius: 3px; }
+
+    /* リスク3パターン */
+    .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .risk-grid { grid-template-columns: 1fr; } }
+    .risk-card { background: #fff; border-radius: 14px; padding: 20px; border: 1px solid #e4e8f4; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .risk-card-head { display: flex; align-items: center; gap: 10px; }
+    .risk-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #ef4444, #f59e0b); color: #fff; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; }
+    .risk-title { font-size: 0.95rem; font-weight: 900; color: #0f0a2e; line-height: 1.4; }
+    .risk-body { font-size: 0.86rem; color: #4a5270; line-height: 1.75; }
+    .risk-example { margin-top: auto; padding: 10px 14px; background: #fef3c7; border-radius: 8px; font-size: 0.8rem; color: #7c2d12; font-weight: 500; }
+
+    /* 銘柄スタットカード */
+    .stock-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 20px 0 30px; }
+    .stock-card { background: #fff; border-radius: 16px; padding: 22px 24px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .stock-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .stock-ticker { font-family: 'Poppins', sans-serif; font-size: 1.6rem; font-weight: 900; font-style: italic; color: #0f0a2e; line-height: 1; }
+    .stock-tag { font-size: 0.64rem; font-weight: 900; letter-spacing: .14em; padding: 3px 9px; border-radius: 3px; text-transform: uppercase; white-space: nowrap; }
+    .tag-defense { background: #dcfce7; color: #166534; }
+    .tag-stable  { background: #dbeafe; color: #1e40af; }
+    .tag-dream   { background: #fce7f3; color: #9d174d; }
+    .tag-specu   { background: #fee2e2; color: #991b1b; }
+    .stock-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 4px 0; }
+    .stock-metric { background: #f7f9fc; border-radius: 8px; padding: 8px 10px; }
+    .stock-metric-label { font-size: 0.62rem; font-weight: 800; letter-spacing: .1em; color: #7b86a6; text-transform: uppercase; margin-bottom: 2px; }
+    .stock-metric-value { font-size: 0.9rem; font-weight: 800; color: #0f0a2e; }
+    .stock-desc { font-size: 0.83rem; color: #4a5270; line-height: 1.7; }
+
+    /* 投資地図マトリクス */
+    .matrix { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 50%, #061733 100%); border-radius: 20px; padding: 32px 30px; color: #fff; margin: 28px 0 36px; }
+    .matrix-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 18px; }
+    .matrix h3 { font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0 0 20px; }
+    .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 560px) { .matrix-grid { grid-template-columns: 1fr; grid-template-rows: auto; } }
+    .matrix-cell { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 18px 20px; backdrop-filter: blur(8px); }
+    .matrix-cell-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .matrix-cell-type { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #a78bfa; }
+    .matrix-cell-ticker { font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 900; font-style: italic; color: #fff; }
+    .matrix-cell-desc { font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
+
+    /* FAQ（position:absolute でバッジを固定し、本文は padding-left で避ける） */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 30px; }
+    .faq-item { background: #fff; border-left: 4px solid var(--q-accent); border-radius: 0 12px 12px 0; padding: 18px 22px; border-top: 1px solid #e4e8f4; border-right: 1px solid #e4e8f4; border-bottom: 1px solid #e4e8f4; }
+    .faq-q, .faq-a { position: relative; padding-left: 34px; min-height: 24px; display: block; }
+    .faq-q { font-size: 0.95rem; font-weight: 800; color: #0f0a2e; margin-bottom: 12px; line-height: 1.6; }
+    .faq-a { font-size: 0.88rem; color: #4a5270; line-height: 1.85; }
+    .faq-q::before, .faq-a::before {
+      position: absolute; left: 0; top: 2px;
+      width: 24px; height: 24px; border-radius: 50%;
+      font-size: 0.7rem; font-weight: 900; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+    }
+    .faq-q::before { content: "Q"; background: #7c3aed; }
+    .faq-a::before { content: "A"; background: #06b6d4; }
+    @media (max-width: 560px) {
+      .faq-item { padding: 16px 16px 14px; }
+      .faq-q, .faq-a { padding-left: 30px; }
+      .faq-q::before, .faq-a::before { width: 22px; height: 22px; font-size: 0.65rem; }
+    }
+
+    /* 強材料・弱材料 */
+    .pros-cons-stock { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 720px) { .pros-cons-stock { grid-template-columns: 1fr; } }
+    .pro-box, .con-box { padding: 16px 18px; border-radius: 12px; font-size: 0.85rem; line-height: 1.75; }
+    .pro-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #86efac; color: #065f46; }
+    .con-box { background: linear-gradient(135deg, #fef2f2, #fee2e2); border: 1px solid #fca5a5; color: #991b1b; }
+    .pro-box-label, .con-box-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; margin-bottom: 8px; text-transform: uppercase; }
+    .stock-label { font-size: 1rem; font-weight: 800; color: #0f0a2e; margin: 24px 0 10px; padding-left: 12px; border-left: 4px solid #7c3aed; }
+
+    /* 3行まとめ */
+    .q-summary { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 100%); border-radius: 16px; padding: 28px 30px; margin: 36px 0 28px; }
+    .q-summary-label { font-size: 0.7rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 14px; }
+    .q-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 12px; }
+    .q-summary li { font-size: 0.92rem; color: rgba(255,255,255,0.92); line-height: 1.8; }
+    .q-summary li::marker { color: #facc15; font-weight: 900; }
+
+    /* タイムライン */
+    .timeline { display: flex; justify-content: space-between; margin: 28px 0 36px; position: relative; padding: 0 20px; }
+    .timeline::before { content: ""; position: absolute; top: 32px; left: 40px; right: 40px; height: 3px; background: linear-gradient(90deg, #10b981, #06b6d4, #f59e0b, #ef4444); border-radius: 2px; }
+    .tl-stop { text-align: center; flex: 1; position: relative; }
+    .tl-dot { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 3px solid var(--q-accent); margin: 22px auto 10px; position: relative; z-index: 2; }
+    .tl-year { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1rem; font-style: italic; color: #0f0a2e; margin-bottom: 4px; }
+    .tl-label { font-size: 0.76rem; color: #5a6380; line-height: 1.5; padding: 0 4px; }
+
+    /* 動画 */
+    .video-box { background: linear-gradient(135deg, #0f0a2e, #1e0b4a); border-radius: 16px; padding: 20px; margin: 28px auto 40px; max-width: 700px; }
+    .video-box-label { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 12px; }
+    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; }
+    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    /* テーブル */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 18px 0 28px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px -4px rgba(20,30,80,0.08); }
+    .data-table th { background: linear-gradient(135deg, #0f0a2e, #2a1065); color: #fff; padding: 12px 14px; text-align: left; font-weight: 800; letter-spacing: .04em; font-size: 0.8rem; }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid #edf0f7; color: #2a2e3c; vertical-align: middle; }
+    .data-table tr:nth-child(even) td { background: #fafbff; }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .disclaimer { background: linear-gradient(135deg, #fff9f0, #fef3c7); border-left: 4px solid #d97706; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #7c2d12; }
+
+    /* サイドバー */
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 900px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; position: static !important; max-height: none !important; overflow: visible !important; top: auto !important; } }
+    .sidebar-toc { background: linear-gradient(145deg, #fafbff, #f0f3fa); border: 1px solid #dbe2f0; border-radius: 14px; padding: 20px 22px; position: sticky; top: 80px; margin-bottom: 24px; max-height: calc(100vh - 100px); overflow-y: auto; }
+    .sidebar-toc-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .18em; color: #7c3aed; margin-bottom: 14px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e4e8f4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 10px; padding: 9px 4px; color: #4a5270; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #7c3aed; }
+    .toc-n { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 0.7rem; font-weight: 900; color: #7c3aed; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dbe2f0; border-radius: 14px; padding: 18px 20px; }
+    .sidebar-meta-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #7c3aed; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #4a5270; background: #f0f3fa; border: 1px solid #dbe2f0; padding: 3px 9px; border-radius: 20px; }
+
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; border-bottom: 2px solid #e4e8f4; padding-bottom: 10px; margin: 48px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: #fff; border: 1px solid #e4e8f4; border-radius: 10px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 900; background: #7c3aed; color: #fff; padding: 3px 8px; border-radius: 3px; margin-top: 2px; letter-spacing: .08em; }
+    .related-title { font-size: 0.85rem; font-weight: 600; color: #0f0a2e; line-height: 1.5; }
   </style>
   <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <a href="../../" class="site-logo">
@@ -109,9 +334,7 @@
           <span class="logo-sub">野球・競馬 × 経済・株式</span>
         </div>
       </a>
-      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="../../">TOP</a>
         <a href="../../hanshin-keiba/">野球・競馬</a>
@@ -129,14 +352,18 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../../economy-stocks/">経済・株式</a>
       <span class="breadcrumb-sep">›</span>
-      <span>日本のAI関連株5銘柄を格付け　東京エレクトロン、アドバンテスト、富士通、ソフト</span>
+      <span>日本のAI関連株5銘柄を格付け</span>
     </div>
   </div>
 
   <div class="art-hero">
-    <img src="thumb.png?v=20260418c" alt="記事サムネイル" class="art-hero-thumb">
+    <img src="thumb.png?v=20260418c" alt="日本のAI関連株5銘柄を格付け" class="art-hero-thumb">
     <div class="art-hero-title-block">
-      <div class="art-hero-cats"><span class="art-cat-badge art-cat-main">株式分析</span></div>
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-tech">AI × 半導体</span>
+        <span class="art-cat-badge art-cat-warn">国内事情</span>
+        <span class="art-cat-badge art-cat-stock">5銘柄格付け</span>
+      </div>
       <h1 class="art-hero-h1">日本のAI関連株5銘柄を格付け　東京エレクトロン、アドバンテスト、富士通、ソフトバンク、さくらインターネット</h1>
       <div class="art-hero-meta">
         <span>2026.04.09</span>
@@ -148,113 +375,434 @@
   <div class="art-layout">
     <main class="art-body">
 
-
       <div class="hero-summary">
         <div class="hero-summary-label">この記事のコア</div>
-        <h2>ですが、途中から世界の勝負は「良い物を作る会社」よりも、「OS・標準・設計・量産投資・資本を握る会社」が強い方向へ移りました。</h2>
-        <p>その変化に対して、日本企業は既存設備・既存顧客・既存評価制度に縛られ、国全体もデフレと需要不足の中で守りに入りやすかった。 結果として、「前の時代の優等生であること自体が、次の時代への切り替えを遅らせた」のです。</p>
+        <h2>世界の勝負は「良い物を作る会社」から「OS・標準・設計・量産投資・資本を握る会社」へ移った。</h2>
+        <p>その変化に対して、日本企業は既存設備・既存顧客・既存評価制度に縛られ、国全体もデフレと需要不足の中で守りに入りやすかった。結果として、<strong>「前の時代の優等生であること自体が、次の時代への切り替えを遅らせた」</strong>のです。</p>
       </div>
-<p>「日本製のAIを作る方向で政府は頑張ってほしかった。」</p>
-<p>この言葉には、ただの技術論では終わらない悔しさがあります。</p>
-      <p>昔の日本は、半導体、家電、太陽電池などで世界の前列にいました。にもかかわらず、いまAIの土台を握っているのは海外勢ばかりに見える。では、日本は本当に“技術を失った”のでしょうか。</p>
-<p>この記事では、そう単純には見ません。</p>
-      <p>むしろ重要なのは、「世界の儲け方と主役の席が変わったのに、日本はその変化にうまく乗れなかった」という点です。半導体の分業化、OSやプラットフォームの支配、太陽電池の量産競争、そしてバブル崩壊後のデフレと守りの経営。この流れを一本につなぐと、「なぜ独自AIが見えにくいのか」の輪郭がかなりはっきりしてきます。</p>
 
-      <div class="video-box" style="max-width:640px;margin-left:auto;margin-right:auto;">
+      <div class="video-box">
         <div class="video-box-label">▶ 動画でも解説しています</div>
         <div class="video-embed-wrap">
           <iframe src="https://www.youtube.com/embed/ULLsAHKwKbY" title="日本のAI関連株5銘柄を格付け　東京エレクトロン、アドバンテスト、富士通、ソフトバンク、さくらインターネット" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+
       <div class="q-summary">
         <div class="q-summary-label">3行まとめ</div>
         <ol>
-      <li>日本は技術を急に失ったのではなく、「主役の席が『良い製品』から『標準・OS・設計・量産・資本』へ移る中で乗り遅れた」。</li>
-      <li>企業は無知だったというより、「切り替えると今の会社が痛む構造」と、無形資産にお金がつきにくい金融構造に縛られていた。</li>
-      <li>さらに、「バブル崩壊後の需要不足とデフレ」が、企業にも社会にも「まず守る」を合理化し、産業転換を遅らせた。</li>
+          <li>日本は技術を急に失ったのではなく、<strong>「主役の席が『良い製品』から『標準・OS・設計・量産・資本』へ移る中で乗り遅れた」</strong>。</li>
+          <li>企業は無知だったというより、<strong>「切り替えると今の会社が痛む構造」と、無形資産にお金がつきにくい金融構造に縛られていた</strong>。</li>
+          <li>さらに、<strong>「バブル崩壊後の需要不足とデフレ」が、企業にも社会にも『まず守る』を合理化し、産業転換を遅らせた</strong>。</li>
         </ol>
       </div>
 
-      
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">01</span>
+          <h2>先に結論｜「弱くなった」のではなく「主役が移った」</h2>
+          <span class="q-section-head-en">CONCLUSION</span>
+        </div>
+        <p>「日本製のAIを作る方向で政府は頑張ってほしかった。」この言葉には、ただの技術論では終わらない悔しさがあります。昔の日本は、半導体、家電、太陽電池などで世界の前列にいました。にもかかわらず、いまAIの土台を握っているのは海外勢ばかりに見える。では、日本は本当に<strong>“技術を失った”</strong>のでしょうか。</p>
 
-      <div class="sec-head" id="sec-conclusion">
-        <span class="sec-num">00</span>
-        <h2>先に結論</h2>
-        <span class="sec-head-en">CONCLUSION</span>
-      </div>
-<p>結論から言えば、日本は技術そのものを急に失ったから負けたのではありません。</p>
-      <p>強かったのは事実です。ですが、途中から世界の勝負は「良い物を作る会社」よりも、「OS・標準・設計・量産投資・資本を握る会社」が強い方向へ移りました。その変化に対して、日本企業は既存設備・既存顧客・既存評価制度に縛られ、国全体もデフレと需要不足の中で守りに入りやすかった。結果として、「前の時代の優等生であること自体が、次の時代への切り替えを遅らせた」のです。</p>
+        <p>この記事では、そう単純には見ません。むしろ重要なのは、<strong>「世界の儲け方と主役の席が変わったのに、日本はその変化にうまく乗れなかった」</strong>という点です。半導体の分業化、OSやプラットフォームの支配、太陽電池の量産競争、そしてバブル崩壊後のデフレと守りの経営。この流れを一本につなぐと、「なぜ独自AIが見えにくいのか」の輪郭がかなりはっきりしてきます。</p>
 
-<div class="sec-head" id="sec-01"><span class="sec-num">01</span><h2>テーマの全体像</h2><span class="sec-head-en">SECTION 01</span></div>
-<p>「日本は弱かった」のではなく、「主役の席が移った」</p>
-<p>このテーマを理解するうえで大事なのは、「日本は昔すごかった」「今はダメになった」という感情的な二分法を一度外すことです。</p>
-      <p>日本は実際に強かった分野がありました。一方で、最初からOSやソフトのような“土台”を握れていなかった分野もありました。さらに90年代以降は、製品そのものよりも、その製品が動く標準やプラットフォーム、量産体制、設計のエコシステムのほうが利益を吸い上げる構造が強まりました。ここで主役の席が移ったのです。</p>
-<div class="sec-head" id="sec-02"><span class="sec-num">02</span><h2>まず押さえたい主要数字</h2><span class="sec-head-en">SECTION 02</span></div>
-<p>項目：日本の半導体世界売上シェア</p>
-      <p>主要数字：<strong>1988年</strong> 約<strong>51%</strong> → <strong>2022年</strong> 約<strong>9%</strong></p>
-      <p>意味：日本は「少し弱くなった」のではなく、主役の座を失った</p>
-<p>項目：WindowsのOSシェア</p>
-      <p>主要数字：<strong>90%</strong>超、後半は<strong>95%</strong>以上</p>
-      <p>意味：PC本体より、OSとアプリの生態系が勝負を決めた</p>
-<p>項目：中国の太陽光製造シェア</p>
-      <p>主要数字：主要工程で<strong>80%</strong>以上</p>
-      <p>意味：技術だけでなく量産・投資・コストで中国が主導権を握った</p>
-<p>項目：中国の太陽光製造コスト</p>
-      <p>主要数字：中国はインドより約<strong>10%</strong>低く、米国より約<strong>20%</strong>低く、欧州より約<strong>35%</strong>低い</p>
-      <p>意味：「良い技術」だけでは勝てない総力戦だった</p>
-<p>項目：FY1997の財政引き締め</p>
-      <p>主要数字：GDP比<strong>1.90%</strong></p>
-      <p>意味：回復途上の景気に重いブレーキがかかった</p>
-<p>項目：<strong>1998年</strong>の日本GDP</p>
-      <p>主要数字：ほぼ<strong>3%</strong>減</p>
-      <p>意味：失速は一時的な違和感ではなく、実体経済に強く表れた</p>
-<p>項目：設備投資の落ち込み</p>
-      <p>主要数字：<strong>1997年</strong>初ピーク比で約<strong>20%</strong>減</p>
-      <p>意味：企業が未来より守りへ傾いた</p>
-<p>項目：生産性格差への示唆</p>
-      <p>主要数字：ソフト・無形資産を米国並みに増やせば日米生産性格差の約半分を埋めうる</p>
-      <p>意味：日本の課題は「デジタル投資不足」でもある</p>
-<div class="sec-head" id="sec-03"><span class="sec-num">03</span><h2>論点整理</h2><span class="sec-head-en">SECTION 03</span></div>
-<p>この記事の争点は5つ</p>
-
-      <div class="sec-head" id="sec-summary">
-        <span class="sec-num">99</span>
-        <h2>まとめ</h2>
-        <span class="sec-head-en">SUMMARY</span>
-      </div>
-<p>半導体シェア、Windowsシェア、中国太陽光シェア、<strong>1997年</strong>引き締め、<strong>1998年</strong>GDP・設備投資</p>
-
-
-      <div class="disclaimer">
-        <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+        <p>結論から言えば、日本は技術そのものを急に失ったから負けたのではありません。強かったのは事実です。ですが、途中から世界の勝負は<strong>「良い物を作る会社」よりも、「OS・標準・設計・量産投資・資本を握る会社」が強い方向</strong>へ移りました。その変化に対して、日本企業は既存設備・既存顧客・既存評価制度に縛られ、国全体もデフレと需要不足の中で守りに入りやすかった。結果として、<strong>「前の時代の優等生であること自体が、次の時代への切り替えを遅らせた」</strong>のです。</p>
       </div>
 
-      <hr class="art-hr">
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">02</span>
+          <h2>テーマの全体像｜2レイヤーで読む</h2>
+          <span class="q-section-head-en">OVERVIEW</span>
+        </div>
+        <p>このテーマを理解するうえで大事なのは、<strong>「日本は昔すごかった」「今はダメになった」という感情的な二分法を一度外す</strong>ことです。日本は実際に強かった分野がありました。一方で、最初からOSやソフトのような“土台”を握れていなかった分野もありました。</p>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">Layer 1 — 技術</span>
+            <h3>「良い物を作る」の時代</h3>
+            <p>半導体、家電、太陽電池。日本が前列にいた製造力・品質の世界。ここは今でも一部で強い（装置・素材）。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">Layer 2 — 市場</span>
+            <h3>「土台を握る」の時代</h3>
+            <p>90年代以降、<strong>OS・標準・プラットフォーム・量産投資・資本</strong>が利益を吸い上げる構造に変化。ここで主役の席が移った。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">03</span>
+          <h2>まず押さえたい主要数字</h2>
+          <span class="q-section-head-en">KEY NUMBERS</span>
+        </div>
+        <p>「日本は弱くなった」を感覚で語るのではなく、数字で骨格を押さえます。どれも<strong>「主役の席が移った」</strong>という仮説を裏付ける材料です。</p>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-card-label">半導体世界シェア</div>
+            <div class="stat-card-number">51→9%</div>
+            <div class="stat-card-sub">1988年 約51% → 2022年 約9%。主役の座を失った。</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">Windows OSシェア</div>
+            <div class="stat-card-number">95%+</div>
+            <div class="stat-card-sub">PC本体より、OSとアプリの生態系が勝負を決めた。</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">中国 太陽光製造</div>
+            <div class="stat-card-number">80%+</div>
+            <div class="stat-card-sub">主要工程で80%以上。量産・投資・コストで主導権を握った。</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">中国の製造コスト優位</div>
+            <div class="stat-card-number">−35%</div>
+            <div class="stat-card-sub">欧州比 約−35%、米国比 約−20%、インド比 約−10%。</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">FY1997 財政引き締め</div>
+            <div class="stat-card-number">1.90%</div>
+            <div class="stat-card-sub">GDP比。回復途上の景気に重いブレーキがかかった。</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">1998年 日本GDP</div>
+            <div class="stat-card-number">−3%</div>
+            <div class="stat-card-sub">ほぼ3%減。失速は実体経済に強く表れた。</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">設備投資の落ち込み</div>
+            <div class="stat-card-number">−20%</div>
+            <div class="stat-card-sub">1997年初ピーク比で約20%減。未来より守りへ。</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">生産性格差の示唆</div>
+            <div class="stat-card-number">約1/2</div>
+            <div class="stat-card-sub">ソフト・無形資産を米国並みに増やせば日米格差の約半分を埋めうる。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">04</span>
+          <h2>日本AI関連株5銘柄を格付け</h2>
+          <span class="q-section-head-en">STOCK DEEP DIVE</span>
+        </div>
+        <p>AI関連株は一括りにされがちですが、<strong>事業の色と株価の織り込み度は全く異なります</strong>。装置・テスター・システム・通信・クラウド――立ち位置を分けて見るのが先決です。</p>
+
+        <div class="stock-grid">
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">8035</div>
+              <span class="stock-tag tag-defense">守り</span>
+            </div>
+            <div class="stock-metrics">
+              <div class="stock-metric"><div class="stock-metric-label">銘柄</div><div class="stock-metric-value">東京エレクトロン</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">領域</div><div class="stock-metric-value">半導体装置</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">強み</div><div class="stock-metric-value">世界シェア</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">評価</div><div class="stock-metric-value">高品質</div></div>
+            </div>
+            <div class="stock-desc">AI半導体の前工程装置で世界有数。AI設備投資の波に最も直接的に乗る、日本発の「装置の雄」。</div>
+          </div>
+
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">6857</div>
+              <span class="stock-tag tag-stable">安定</span>
+            </div>
+            <div class="stock-metrics">
+              <div class="stock-metric"><div class="stock-metric-label">銘柄</div><div class="stock-metric-value">アドバンテスト</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">領域</div><div class="stock-metric-value">テスター</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">強み</div><div class="stock-metric-value">AI向け検査</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">評価</div><div class="stock-metric-value">テーマ直球</div></div>
+            </div>
+            <div class="stock-desc">AI半導体テスターで世界首位級。GPU・HBM量産で需要直結だが、テーマ期待も株価に織り込み済み。</div>
+          </div>
+
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">6702</div>
+              <span class="stock-tag tag-stable">安定</span>
+            </div>
+            <div class="stock-metrics">
+              <div class="stock-metric"><div class="stock-metric-label">銘柄</div><div class="stock-metric-value">富士通</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">領域</div><div class="stock-metric-value">ITサービス</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">強み</div><div class="stock-metric-value">国内基盤</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">評価</div><div class="stock-metric-value">大型</div></div>
+            </div>
+            <div class="stock-desc">国内SI・スパコン系で底力あり。AIの「使う側」としての需要は堅いが、世界標準を握る立場ではない。</div>
+          </div>
+
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">9984</div>
+              <span class="stock-tag tag-dream">夢</span>
+            </div>
+            <div class="stock-metrics">
+              <div class="stock-metric"><div class="stock-metric-label">銘柄</div><div class="stock-metric-value">ソフトバンクG</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">領域</div><div class="stock-metric-value">AI投資</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">強み</div><div class="stock-metric-value">Arm・OpenAI系</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">評価</div><div class="stock-metric-value">未来織込</div></div>
+            </div>
+            <div class="stock-desc">Arm・AI投資の大口ポジションで「土台側」に最も近い日本勢。ただし評価は期待先行でボラも大きい。</div>
+          </div>
+
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">3778</div>
+              <span class="stock-tag tag-specu">投機</span>
+            </div>
+            <div class="stock-metrics">
+              <div class="stock-metric"><div class="stock-metric-label">銘柄</div><div class="stock-metric-value">さくらインターネット</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">領域</div><div class="stock-metric-value">GPUクラウド</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">強み</div><div class="stock-metric-value">国策クラウド</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">評価</div><div class="stock-metric-value">観察枠</div></div>
+            </div>
+            <div class="stock-desc">国内GPUクラウドの象徴銘柄。テーマ性は高いが規模は小さく、期待に株価が追いついてしまう局面も。</div>
+          </div>
+        </div>
+
+        <p>大事な教訓は一つ。<strong>「良い会社」と「今買いやすい株」は別物</strong>。国内勢は装置・テスターで存在感があっても、AIの「土台」を握る席は別のプレイヤーが多く取っています。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">05</span>
+          <h2>ビットコインではなく日本｜2本の柱で見る構造</h2>
+          <span class="q-section-head-en">FOUNDATIONS</span>
+        </div>
+        <p>日本の製造業・半導体が強かった背景は、大きく<strong>2本の柱</strong>に分けられます。AI時代に揺らいだのは、主にもう一方の柱です。</p>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🏭</div>
+            <div class="pillar-title">柱1：ものづくりの品質</div>
+            <div class="pillar-desc">素材・装置・工程管理・品質保証。現場の積み上げで勝ってきた領域。今も装置・素材で強い。</div>
+            <div class="pillar-example">💡 例：東京エレクトロン、信越化学、SUMCO</div>
+          </div>
+          <div class="pillar target">
+            <div class="pillar-icon">💻</div>
+            <div class="pillar-title">柱2：標準・OS・資本</div>
+            <div class="pillar-desc">OSやプラットフォーム、設計思想、量産投資、資本の厚み。<strong>AI時代の主役はここ</strong>。</div>
+            <div class="pillar-example">💡 例：Windows、Arm、NVIDIA、TSMC、ハイパースケーラー</div>
+          </div>
+        </div>
+
+        <p>日本の弱さは「ものを作れない」ではなく、<strong>「ものが動く土台と、そこに流れ込む資本」を握れていない</strong>点にあります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">06</span>
+          <h2>論点整理｜切り替えを遅らせた3パターン</h2>
+          <span class="q-section-head-en">RISK PATTERNS</span>
+        </div>
+        <p>なぜ切り替えが遅れたのか。単純な「経営が悪い」で片付けず、<strong>3つの構造要因</strong>に分けて整理します。</p>
+
+        <div class="risk-grid">
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">1</span>
+              <span class="risk-title">既存資産の呪い</span>
+            </div>
+            <div class="risk-body">強かった設備・顧客・評価制度に縛られ、切り替えると「今の会社」が痛む。優等生ほど動きにくい。</div>
+            <div class="risk-example">🏚 前時代の工場が、次への足枷になる</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">2</span>
+              <span class="risk-title">無形資産にお金がつかない</span>
+            </div>
+            <div class="risk-body">ソフト・データ・設計のような無形資産に資本が流れにくい金融構造。「見える工場」が優先された。</div>
+            <div class="risk-example">💰 担保にしにくいものには資金が来ない</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">3</span>
+              <span class="risk-title">デフレと守りの合理化</span>
+            </div>
+            <div class="risk-body">バブル崩壊後の需要不足とデフレが、企業にも家計にも「まず守る」を合理的にし、産業転換を遅らせた。</div>
+            <div class="risk-example">📉 1997〜98年の失速が象徴的</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">07</span>
+          <h2>銘柄ごとの強材料・弱材料</h2>
+          <span class="q-section-head-en">PROS &amp; CONS</span>
+        </div>
+
+        <div class="stock-label">東京エレクトロン（8035）｜装置の雄</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ PROS</div>AI半導体装置の世界シェア／AI設備投資の直球ベネフィッシャリー／技術優位と顧客基盤</div>
+          <div class="con-box"><div class="con-box-label">✗ CONS</div>半導体サイクル依存／地政学リスク／テーマ期待が株価に乗りやすい</div>
+        </div>
+
+        <div class="stock-label">アドバンテスト（6857）｜AIテスター本命</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ PROS</div>AI半導体テスターで世界首位級／GPU・HBM量産で需要直結</div>
+          <div class="con-box"><div class="con-box-label">✗ CONS</div>バリュエーションが重い局面／単一顧客依存のボラ／短期の需給変動に敏感</div>
+        </div>
+
+        <div class="stock-label">富士通（6702）｜国内ITサービス</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ PROS</div>国内SI・スパコン・公共系の底力／AI導入需要の受け皿</div>
+          <div class="con-box"><div class="con-box-label">✗ CONS</div>世界標準を握る立場ではない／海外ITサービスとの競争</div>
+        </div>
+
+        <div class="stock-label">ソフトバンクG（9984）｜AI投資の夢枠</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ PROS</div>Arm・AI関連投資で「土台側」に最も近い／大化けの可能性</div>
+          <div class="con-box"><div class="con-box-label">✗ CONS</div>評価の期待先行／ボラティリティが大きい／投資家のリスク許容度に依存</div>
+        </div>
+
+        <div class="stock-label">さくらインターネット（3778）｜投機・ウォッチ枠</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ PROS</div>国内GPUクラウドの象徴／国策テーマに絡みやすい</div>
+          <div class="con-box"><div class="con-box-label">✗ CONS</div>規模は小さく株価が期待を先取りしがち／主力向きではない</div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">08</span>
+          <h2>よくある誤解への答え</h2>
+          <span class="q-section-head-en">FAQ</span>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">日本は技術を失ったのでは？</div>
+            <div class="faq-a">違います。装置・素材など今も強い領域はあります。失ったのは技術そのものではなく、<strong>「主役の席」＝標準・OS・設計・量産投資・資本</strong>を握るポジションです。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">経営判断の失敗が原因では？</div>
+            <div class="faq-a">一部はそうでも、<strong>「切り替えると今の会社が痛む構造」</strong>と、<strong>無形資産にお金がつきにくい金融構造</strong>という根深い要因があります。個々の経営者の責任にしすぎると本質を外します。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">今からでも日本製AIは可能？</div>
+            <div class="faq-a">ゼロから世界標準を取るのは難しいですが、<strong>装置・テスター・GPUクラウド・AI投資という「土台に近い席」</strong>では勝負できます。その代表が本記事の5銘柄です。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">09</span>
+          <h2>投資地図｜4タイプで整理する</h2>
+          <span class="q-section-head-en">INVESTMENT MAP</span>
+        </div>
+
+        <div class="matrix">
+          <div class="matrix-label">YOUR POSITIONING MAP</div>
+          <h3>「どれがすごいか」ではなく「自分はどこを買うか」を先に決める</h3>
+          <div class="matrix-grid">
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">守りの本命</span>
+                <span class="matrix-cell-ticker">8035</span>
+              </div>
+              <div class="matrix-cell-desc">東京エレクトロン。AI設備投資に直結する装置の雄。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">安定のテーマ株</span>
+                <span class="matrix-cell-ticker">6857 / 6702</span>
+              </div>
+              <div class="matrix-cell-desc">アドバンテスト／富士通。需要は堅いが織り込みも進む。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">夢の本命候補</span>
+                <span class="matrix-cell-ticker">9984</span>
+              </div>
+              <div class="matrix-cell-desc">ソフトバンクG。Arm・AI投資で「土台側」に最も近い。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">投機・観察</span>
+                <span class="matrix-cell-ticker">3778</span>
+              </div>
+              <div class="matrix-cell-desc">さくらインターネット。筋は良いが株価は先回り気味。</div>
+            </div>
+          </div>
+        </div>
+
+        <p>テーマだけで少しずつ全部買うと、<strong>高すぎる夢を重複して買う</strong>ことになります。自分のタイプを先に決めるのが賢明です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">10</span>
+          <h2>まとめ｜どう見るべきか</h2>
+          <span class="q-section-head-en">SUMMARY</span>
+        </div>
+        <p>今回のテーマを一言で言うなら、<strong>「日本は技術を失ったから負けたのではなく、世界の主役の席が移った時に乗り遅れた」</strong>という話です。チェックすべき数字は、半導体シェア、Windowsシェア、中国太陽光シェア、1997年引き締め、1998年GDP・設備投資です。</p>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">構造まとめ</span>
+            <h3>3つのキーポイント</h3>
+            <p>① <strong>主役は「良い製品」から「標準・OS・量産・資本」へ移った</strong>　② <strong>既存資産と無形資産への資金不足が切り替えを遅らせた</strong>　③ <strong>デフレと需要不足が「守り」を合理化した</strong>。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">投資まとめ</span>
+            <h3>3つのキーポイント</h3>
+            <p>① <strong>日本AI株は全部同じではない</strong>　② <strong>守り・安定・夢・投機で分けて考える</strong>　③ <strong>「良い会社」と「今買いやすい株」は別</strong>。</p>
+          </div>
+        </div>
+
+        <p>筆者の整理では、<strong>守りなら東京エレクトロン、安定ならアドバンテスト・富士通、夢を取るならソフトバンクG</strong>が一番しっくりきます。さくらインターネットはテーマ銘柄として面白いですが、株価はかなり先の期待を取り込んでいる印象です。</p>
+
+        <div class="disclaimer">
+          <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+        </div>
+      </div>
 
       <div class="related-head">RELATED ARTICLES</div>
       <div class="related-list">
-        <a href="../" class="related-item">
-          <span class="related-tag">一覧</span>
-          <span class="related-title">経済・株式の記事一覧へ</span>
-        </a>
+        <a href="../2026-04-13-fusion-stocks/" class="related-item"><span class="related-tag">株式</span><span class="related-title">【夢の電源】核融合関連株おすすめ5選　本命・安全株・夢株を一気に整理 2026.04.13</span></a>
+        <a href="../2026-04-06-quantum-btc/" class="related-item"><span class="related-tag">株式</span><span class="related-title">2029年ビットコイン危機は本当か　量子脅威の正体と量子関連株5銘柄を徹底比較 2026.04.06</span></a>
+        <a href="../2026-04-12-boj-banks-stocks/" class="related-item"><span class="related-tag">株式</span><span class="related-title">日銀利上げで銀行株はどう動くか　メガバンク中心に整理 2026.04.12</span></a>
+        <a href="../2026-04-14-ai-mythos/" class="related-item"><span class="related-tag">AI</span><span class="related-title">AIを巡る神話と現実　バブル論・雇用・規制を整理する 2026.04.14</span></a>
+        <a href="../" class="related-item"><span class="related-tag">一覧</span><span class="related-title">経済・株式の記事一覧へ</span></a>
       </div>
-
     </main>
 
     <aside class="art-sidebar">
       <div class="sidebar-toc">
         <div class="sidebar-toc-label">目次</div>
         <ul class="toc-list">
-          <li><a href="#sec-conclusion"><span class="toc-n">00</span>先に結論</a></li>
-<li><a href="#sec-01"><span class="toc-n">01</span>テーマの全体像</a></li>
-<li><a href="#sec-02"><span class="toc-n">02</span>まず押さえたい主要数字</a></li>
-<li><a href="#sec-03"><span class="toc-n">03</span>論点整理</a></li>
-          <li><a href="#sec-summary"><span class="toc-n">99</span>まとめ</a></li>
+          <li><a href="#sec-01"><span class="toc-n">01</span>先に結論</a></li>
+          <li><a href="#sec-02"><span class="toc-n">02</span>全体像</a></li>
+          <li><a href="#sec-03"><span class="toc-n">03</span>主要数字</a></li>
+          <li><a href="#sec-04"><span class="toc-n">04</span>5銘柄格付け</a></li>
+          <li><a href="#sec-05"><span class="toc-n">05</span>2本の柱</a></li>
+          <li><a href="#sec-06"><span class="toc-n">06</span>論点整理</a></li>
+          <li><a href="#sec-07"><span class="toc-n">07</span>強材料・弱材料</a></li>
+          <li><a href="#sec-08"><span class="toc-n">08</span>FAQ</a></li>
+          <li><a href="#sec-09"><span class="toc-n">09</span>投資地図</a></li>
+          <li><a href="#sec-10"><span class="toc-n">10</span>まとめ</a></li>
         </ul>
       </div>
       <div class="sidebar-meta">
         <div class="sidebar-meta-label">TAGS</div>
-        <div class="tag-cloud"><span class="tag-pill">AI関連株</span><span class="tag-pill">半導体</span><span class="tag-pill">東京エレクトロン</span><span class="tag-pill">アドバンテスト</span><span class="tag-pill">ソフトバンク</span></div>
+        <div class="tag-cloud">
+          <span class="tag-pill">AI関連株</span>
+          <span class="tag-pill">半導体</span>
+          <span class="tag-pill">東京エレクトロン</span>
+          <span class="tag-pill">アドバンテスト</span>
+          <span class="tag-pill">富士通</span>
+          <span class="tag-pill">ソフトバンクG</span>
+          <span class="tag-pill">さくらインターネット</span>
+          <span class="tag-pill">日本経済</span>
+          <span class="tag-pill">デフレ</span>
+          <span class="tag-pill">無形資産</span>
+        </div>
       </div>
     </aside>
   </div>
@@ -266,6 +814,5 @@
   </footer>
 
   <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/article-enhance.js?v=20260418e" defer></script>
 </body>
 </html>

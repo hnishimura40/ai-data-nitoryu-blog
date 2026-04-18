@@ -15,91 +15,308 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
-    .art-hero { background: linear-gradient(135deg, #0d1e38 0%, #0d9488 100%); padding: 44px 24px; }
-    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; }
-    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
-    .art-cat-main { background: #0d9488; color: #fff; }
-    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.95; }
-    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.55); display: flex; gap: 16px; flex-wrap: wrap; }
-    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
-    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
-    .art-body { min-width: 0; }
-    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
-    .art-body strong { color: #1a2744; }
-    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
-    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
-    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
-    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #0d9488; background: #f0f4fb; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
-    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
-    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
-    @media (max-width: 560px) { .sec-head-en { display: none; } }
-    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #0d9488; }
-    .summary-box { background: linear-gradient(135deg, #f0f6ff, #e6eefb); border: 1px solid #b5cdf0; border-left: 4px solid #0d9488; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
-    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #0d9488; margin-bottom: 12px; }
-    .summary-box ul { margin: 0; }
-    .summary-box li { font-size: 0.87rem; }
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; display: block; overflow-x: auto; }
-    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
-    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:nth-child(even) td { background: #f8fafd; }
-    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
-    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
-    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
-    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
-    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px;  max-width: 640px; margin-left: auto !important; margin-right: auto !important; }
-    .video-box-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 10px; }
-    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
-    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
-    .related-list { display: flex; flex-direction: column; gap: 10px; }
-    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
-    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
-    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #0d9488; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
-    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
-    .art-sidebar { font-size: 0.88rem; }
-    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
-    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
-    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
-    .toc-list { list-style: none; padding: 0; margin: 0; }
-    .toc-list li { border-bottom: 1px solid #e8ecf4; }
-    .toc-list li:last-child { border-bottom: none; }
-    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
-    .toc-list a:hover { color: #0d9488; }
-    .toc-n { font-size: 0.62rem; font-weight: 900; color: #0d9488; flex-shrink: 0; width: 22px; }
-    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
-    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
-    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
-    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
-  
-    .art-hero { padding: 24px 0 0 0 !important; }
-    .art-hero-thumb { width: 100%; max-width: 1100px; max-height: 360px; object-fit: cover; display: block; margin: 0 auto; }
-    .art-hero-title-block { max-width: var(--max-width, 1100px); margin: 0 auto; padding: 22px 24px 18px !important; }
-
-    .art-body > main .sec-head + p,
-    .art-body .sec-head + p {
-      background: linear-gradient(135deg, #f7f9fc, #eef3fb);
-      border-left: 4px solid #1a4fa0;
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      font-weight: 500;
-      margin-top: 0;
+    :root {
+      --q-accent:#0d9488;
+      --q-accent2:#06b6d4;
+      color-scheme: light dark;
     }
-    .data-table th { font-size: 0.82rem; letter-spacing: 0.04em; }
-    .data-table { border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-    .data-table strong { color: #1a4fa0; font-weight: 900; }
-    .art-body p strong { color: #1a4fa0; font-weight: 800; background: linear-gradient(transparent 62%, #ffe58a 62%, #ffe58a 92%, transparent 92%); padding: 0 2px; }
-    .art-body p { text-align: justify; text-justify: inter-ideograph; }
-    .art-body h2 + p, .art-body .sec-sub + p { margin-top: 14px; }
+    html, body { background-color: #ffffff; color: #2a2e3c; }
 
-    /* article-body-enhanced */
+    /* ===== ダークモード：暗い配色 + 視認性重視 ===== */
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0b1020 !important; color: #d8dfef !important; }
+
+      /* 本文テキスト */
+      .art-body p, .art-body li { color: #d8dfef !important; }
+
+      /* strong は黄色マーカー（白文字と被る問題）をやめ、明るい緑文字＋薄い下地 */
+      .art-body p strong, .art-body li strong {
+        color: #5eead4 !important;
+        background: rgba(13,148,136,0.18) !important;
+        padding: 0 4px !important;
+        border-radius: 3px !important;
+      }
+
+      /* カード類：暗い濃紺系 */
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #5eead4 !important; }
+      .stat-card-number { color: #f5f7ff !important; }
+      .stat-card-sub { color: #9aa3bf !important; }
+
+      .layer-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 6px 24px -8px rgba(0,0,0,0.4) !important; }
+      .layer-card h3 { color: #f5f7ff !important; }
+      .layer-card p { color: #c9d0e5 !important; }
+      .layer-card.tech .layer-card-tag { background: rgba(6,182,212,0.2) !important; color: #7dd3fc !important; }
+      .layer-card.market .layer-card-tag { background: rgba(245,158,11,0.18) !important; color: #fcd34d !important; }
+
+      /* セクション見出し */
+      .q-section-head { border-bottom-color: #2a3150 !important; }
+      .q-section-head h2 { color: #f5f7ff !important; }
+      .q-section-head-en { color: #5a6488 !important; }
+
+      /* 2本柱 */
+      .pillar { background: linear-gradient(180deg, #181c2e 0%, #141828 100%) !important; border-color: #2a3150 !important; }
+      .pillar-title { color: #f5f7ff !important; }
+      .pillar-desc { color: #b9c1d9 !important; }
+      .pillar-example { background: #0b1020 !important; border-color: #2a3150 !important; color: #a5adc8 !important; }
+      .pillar.target { background: linear-gradient(180deg, #2a1111 0%, #1a0a0a 100%) !important; border-color: #ef4444 !important; }
+      .pillar.target .pillar-desc, .pillar.target .pillar-title { color: #fecaca !important; }
+
+      /* リスクカード */
+      .risk-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .risk-title { color: #f5f7ff !important; }
+      .risk-body { color: #b9c1d9 !important; }
+      .risk-example { background: rgba(252,211,77,0.12) !important; color: #fcd34d !important; }
+
+      /* FAQ */
+      .faq-item { background: #141828 !important; border-color: #2a3150 !important; border-left-color: #5eead4 !important; }
+      .faq-q { color: #f5f7ff !important; }
+      .faq-a { color: #c9d0e5 !important; }
+
+      /* 銘柄カード */
+      .stock-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .stock-ticker { color: #f5f7ff !important; }
+      .stock-desc { color: #b9c1d9 !important; }
+      .stock-metric { background: #0f1322 !important; }
+      .stock-metric-label { color: #8a93ac !important; }
+      .stock-metric-value { color: #f5f7ff !important; }
+
+      /* タグは色を落としすぎないように */
+      .tag-defense { background: rgba(34,197,94,0.2) !important; color: #86efac !important; }
+      .tag-stable  { background: rgba(59,130,246,0.2) !important; color: #93c5fd !important; }
+      .tag-dream   { background: rgba(236,72,153,0.2) !important; color: #f9a8d4 !important; }
+      .tag-specu   { background: rgba(239,68,68,0.2) !important; color: #fca5a5 !important; }
+
+      /* 銘柄ラベル */
+      .stock-label { color: #f5f7ff !important; }
+
+      /* 強材料・弱材料 */
+      .pro-box { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.05)) !important; border-color: rgba(16,185,129,0.4) !important; color: #86efac !important; }
+      .con-box { background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(239,68,68,0.05)) !important; border-color: rgba(239,68,68,0.4) !important; color: #fca5a5 !important; }
+
+      /* テーブル */
+      .data-table { box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5) !important; }
+      .data-table td { background-color: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+      .data-table strong { color: #5eead4 !important; background: none !important; }
+
+      /* サイドバー */
+      .sidebar-toc { background: linear-gradient(145deg, #141828, #0f1322) !important; border-color: #2a3150 !important; }
+      .sidebar-toc-label { color: #5eead4 !important; }
+      .toc-list a { color: #b9c1d9 !important; }
+      .toc-list a:hover { color: #5eead4 !important; }
+      .toc-list li { border-bottom-color: #2a3150 !important; }
+      .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+      .sidebar-meta-label { color: #5eead4 !important; }
+      .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+
+      /* 関連記事 */
+      .related-item { background: #141828 !important; border-color: #2a3150 !important; }
+      .related-title { color: #f5f7ff !important; }
+      .related-head { color: #5eead4 !important; border-bottom-color: #2a3150 !important; }
+
+      /* disclaimer */
+      .disclaimer { background: rgba(217,119,6,0.1) !important; color: #fcd34d !important; border-color: rgba(217,119,6,0.4) !important; }
+
+      /* ヘッダー・ブレッドクラム */
+      .site-header { background: #0b1020 !important; border-bottom: 1px solid #2a3150 !important; }
+      .breadcrumb { background: #0f1322 !important; }
+      .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
+    }
+    .art-hero { background: radial-gradient(circle at 20% 0%, #0b3a36 0%, #0a1a2a 40%, #050b14 80%); padding: 0; position: relative; overflow: hidden; }
+    .art-hero-thumb { width: 100%; max-width: 1200px; max-height: 420px; object-fit: cover; display: block; margin: 0 auto; filter: saturate(1.1); }
+    .art-hero-title-block { max-width: 1100px; margin: 0 auto; padding: 26px 28px 22px; position: relative; z-index: 2; }
+    .art-hero-cats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; }
+    .art-cat-tech { background: linear-gradient(90deg, #0d9488, #06b6d4); color: #fff; }
+    .art-cat-warn { background: #ef4444; color: #fff; }
+    .art-cat-stock { background: #10b981; color: #fff; }
+    .art-hero-h1 { font-size: clamp(1.2rem, 2.8vw, 1.8rem); font-weight: 900; color: #fff; line-height: 1.4; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .art-hero-meta { font-size: 0.78rem; color: rgba(255,255,255,0.65); display: flex; gap: 18px; }
+
+    .art-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 44px 24px 80px; align-items: flex-start; }
+    @media (max-width: 900px) { .art-layout { grid-template-columns: 1fr; padding: 28px 16px 60px; gap: 0; } }
+
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.96rem; line-height: 2; color: #2a2e3c; margin-bottom: 18px; }
+    .art-body strong { color: #0d9488; font-weight: 800; }
+
+    /* HERO SUMMARY */
+    .hero-summary {
+      background: linear-gradient(135deg, #0a2e2a 0%, #0a4e44 60%, #061d33 100%);
+      border-radius: 20px; padding: 32px 36px; color: #fff;
+      margin-bottom: 40px; position: relative; overflow: hidden;
+    }
+    .hero-summary::before {
+      content: ""; position: absolute; top: -40%; right: -10%;
+      width: 60%; height: 180%;
+      background: radial-gradient(ellipse, rgba(13,148,136,.35), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-summary-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #5eead4; margin-bottom: 14px; }
+    .hero-summary h2 { font-size: 1.35rem; font-weight: 900; color: #fff; margin: 0 0 14px; line-height: 1.5; }
+    .hero-summary p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.95; margin: 0; }
+
+    /* STAT CARDS */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0 36px; }
+    .stat-card {
+      background: linear-gradient(145deg, #fff, #f5fdfb);
+      border: 1px solid #cdeae6; border-radius: 16px; padding: 22px 24px;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before { content: ""; position: absolute; inset: 0 auto auto 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--q-accent), var(--q-accent2)); }
+    .stat-card-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; color: #0d9488; text-transform: uppercase; margin-bottom: 10px; }
+    .stat-card-number { font-family: 'Poppins', sans-serif; font-size: 2.4rem; font-weight: 900; color: #0a2e2a; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; font-style: italic; }
+    .stat-card-sub { font-size: 0.82rem; color: #5a6380; line-height: 1.6; }
+
+    /* 2レイヤー */
+    .layer-split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 28px 0 36px; }
+    @media (max-width: 720px) { .layer-split { grid-template-columns: 1fr; } }
+    .layer-card { background: #fff; border-radius: 16px; padding: 24px 26px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 6px 24px -8px rgba(20, 30, 80, 0.12); }
+    .layer-card.tech { border-top: 5px solid #06b6d4; }
+    .layer-card.market { border-top: 5px solid #f59e0b; }
+    .layer-card-tag { display: inline-block; font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; }
+    .layer-card.tech .layer-card-tag { background: #e0f7fd; color: #0891b2; }
+    .layer-card.market .layer-card-tag { background: #fef3c7; color: #b45309; }
+    .layer-card h3 { font-size: 1.1rem; font-weight: 900; color: #0a2e2a; margin: 0 0 10px; }
+    .layer-card p { margin: 0; font-size: 0.92rem; line-height: 1.85; color: #2a2e3c; }
+
+    /* セクション見出し */
+    .q-section { margin: 56px 0 0; }
+    .q-section-head { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 3px solid #e4e8f4; }
+    .q-section-num { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 900; font-style: italic; background: linear-gradient(135deg, var(--q-accent), var(--q-accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; flex-shrink: 0; }
+    .q-section-head h2 { font-size: 1.3rem; font-weight: 900; color: #0a2e2a; margin: 0; line-height: 1.4; }
+    .q-section-head-en { margin-left: auto; font-size: 0.7rem; font-weight: 800; letter-spacing: .2em; color: #a3adc7; flex-shrink: 0; }
+    @media (max-width: 560px) { .q-section-head-en { display: none; } }
+
+    /* 2本柱 */
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar { background: linear-gradient(180deg, #fafffd 0%, #ecfaf7 100%); border-radius: 14px; padding: 22px 24px; border: 1px solid #c7e7e0; position: relative; }
+    .pillar-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .pillar-title { font-size: 1rem; font-weight: 900; color: #0a2e2a; margin-bottom: 8px; }
+    .pillar-desc { font-size: 0.88rem; color: #4a5270; line-height: 1.7; margin-bottom: 10px; }
+    .pillar-example { background: #fff; border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: #5a6380; border: 1px solid #e4e8f4; }
+    .pillar.target { border: 2px solid #ef4444; background: linear-gradient(180deg, #fff5f5 0%, #ffe4e4 100%); }
+    .pillar.target::after { content: "純度高"; position: absolute; top: -10px; right: 14px; background: #ef4444; color: #fff; font-size: 0.68rem; font-weight: 900; letter-spacing: .1em; padding: 3px 10px; border-radius: 3px; }
+
+    /* リスク3パターン */
+    .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .risk-grid { grid-template-columns: 1fr; } }
+    .risk-card { background: #fff; border-radius: 14px; padding: 20px; border: 1px solid #e4e8f4; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .risk-card-head { display: flex; align-items: center; gap: 10px; }
+    .risk-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #ef4444, #f59e0b); color: #fff; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; }
+    .risk-title { font-size: 0.95rem; font-weight: 900; color: #0a2e2a; line-height: 1.4; }
+    .risk-body { font-size: 0.86rem; color: #4a5270; line-height: 1.75; }
+    .risk-example { margin-top: auto; padding: 10px 14px; background: #fef3c7; border-radius: 8px; font-size: 0.8rem; color: #7c2d12; font-weight: 500; }
+
+    /* 銘柄スタットカード */
+    .stock-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 20px 0 30px; }
+    .stock-card { background: #fff; border-radius: 16px; padding: 22px 24px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .stock-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .stock-ticker { font-family: 'Poppins', sans-serif; font-size: 1.6rem; font-weight: 900; font-style: italic; color: #0a2e2a; line-height: 1; }
+    .stock-tag { font-size: 0.64rem; font-weight: 900; letter-spacing: .14em; padding: 3px 9px; border-radius: 3px; text-transform: uppercase; white-space: nowrap; }
+    .tag-defense { background: #dcfce7; color: #166534; }
+    .tag-stable  { background: #dbeafe; color: #1e40af; }
+    .tag-dream   { background: #fce7f3; color: #9d174d; }
+    .tag-specu   { background: #fee2e2; color: #991b1b; }
+    .stock-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 4px 0; }
+    .stock-metric { background: #f7fbfa; border-radius: 8px; padding: 8px 10px; }
+    .stock-metric-label { font-size: 0.62rem; font-weight: 800; letter-spacing: .1em; color: #7b86a6; text-transform: uppercase; margin-bottom: 2px; }
+    .stock-metric-value { font-size: 0.9rem; font-weight: 800; color: #0a2e2a; }
+    .stock-desc { font-size: 0.83rem; color: #4a5270; line-height: 1.7; }
+
+    /* 投資地図マトリクス */
+    .matrix { background: linear-gradient(135deg, #0a2e2a 0%, #0d4c44 50%, #061d33 100%); border-radius: 20px; padding: 32px 30px; color: #fff; margin: 28px 0 36px; }
+    .matrix-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #5eead4; margin-bottom: 18px; }
+    .matrix h3 { font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0 0 20px; }
+    .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 560px) { .matrix-grid { grid-template-columns: 1fr; grid-template-rows: auto; } }
+    .matrix-cell { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 18px 20px; backdrop-filter: blur(8px); }
+    .matrix-cell-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .matrix-cell-type { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #5eead4; }
+    .matrix-cell-ticker { font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 900; font-style: italic; color: #fff; }
+    .matrix-cell-desc { font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 30px; }
+    .faq-item { background: #fff; border-left: 4px solid var(--q-accent); border-radius: 0 12px 12px 0; padding: 18px 22px; border-top: 1px solid #e4e8f4; border-right: 1px solid #e4e8f4; border-bottom: 1px solid #e4e8f4; }
+    .faq-q, .faq-a { position: relative; padding-left: 34px; min-height: 24px; display: block; }
+    .faq-q { font-size: 0.95rem; font-weight: 800; color: #0a2e2a; margin-bottom: 12px; line-height: 1.6; }
+    .faq-a { font-size: 0.88rem; color: #4a5270; line-height: 1.85; }
+    .faq-q::before, .faq-a::before {
+      position: absolute; left: 0; top: 2px;
+      width: 24px; height: 24px; border-radius: 50%;
+      font-size: 0.7rem; font-weight: 900; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+    }
+    .faq-q::before { content: "Q"; background: #0d9488; }
+    .faq-a::before { content: "A"; background: #06b6d4; }
+    @media (max-width: 560px) {
+      .faq-item { padding: 16px 16px 14px; }
+      .faq-q, .faq-a { padding-left: 30px; }
+      .faq-q::before, .faq-a::before { width: 22px; height: 22px; font-size: 0.65rem; }
+    }
+
+    /* 強材料・弱材料 */
+    .pros-cons-stock { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 720px) { .pros-cons-stock { grid-template-columns: 1fr; } }
+    .pro-box, .con-box { padding: 16px 18px; border-radius: 12px; font-size: 0.85rem; line-height: 1.75; }
+    .pro-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #86efac; color: #065f46; }
+    .con-box { background: linear-gradient(135deg, #fef2f2, #fee2e2); border: 1px solid #fca5a5; color: #991b1b; }
+    .pro-box-label, .con-box-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; margin-bottom: 8px; text-transform: uppercase; }
+    .stock-label { font-size: 1rem; font-weight: 800; color: #0a2e2a; margin: 24px 0 10px; padding-left: 12px; border-left: 4px solid #0d9488; }
+
+    /* 3行まとめ */
+    .q-summary { background: linear-gradient(135deg, #0a2e2a 0%, #0d4c44 100%); border-radius: 16px; padding: 28px 30px; margin: 36px 0 28px; }
+    .q-summary-label { font-size: 0.7rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 14px; }
+    .q-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 12px; }
+    .q-summary li { font-size: 0.92rem; color: rgba(255,255,255,0.92); line-height: 1.8; }
+    .q-summary li::marker { color: #facc15; font-weight: 900; }
+
+    /* 動画 */
+    .video-box { background: linear-gradient(135deg, #0a2e2a, #0d4c44); border-radius: 16px; padding: 20px; margin: 28px auto 40px; max-width: 700px; }
+    .video-box-label { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 12px; }
+    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; }
+    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    /* テーブル */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 18px 0 28px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px -4px rgba(20,30,80,0.08); }
+    .data-table th { background: linear-gradient(135deg, #0a2e2a, #0d4c44); color: #fff; padding: 12px 14px; text-align: left; font-weight: 800; letter-spacing: .04em; font-size: 0.8rem; }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid #edf0f7; color: #2a2e3c; vertical-align: middle; }
+    .data-table tr:nth-child(even) td { background: #fafdfc; }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .disclaimer { background: linear-gradient(135deg, #fff9f0, #fef3c7); border-left: 4px solid #d97706; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #7c2d12; }
+
+    /* サイドバー */
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 900px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; position: static !important; max-height: none !important; overflow: visible !important; top: auto !important; } }
+    .sidebar-toc { background: linear-gradient(145deg, #fafffd, #ecfaf7); border: 1px solid #c7e7e0; border-radius: 14px; padding: 20px 22px; position: sticky; top: 80px; margin-bottom: 24px; max-height: calc(100vh - 100px); overflow-y: auto; }
+    .sidebar-toc-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .18em; color: #0d9488; margin-bottom: 14px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e4e8f4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 10px; padding: 9px 4px; color: #4a5270; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #0d9488; }
+    .toc-n { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 0.7rem; font-weight: 900; color: #0d9488; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #c7e7e0; border-radius: 14px; padding: 18px 20px; }
+    .sidebar-meta-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #0d9488; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #4a5270; background: #ecfaf7; border: 1px solid #c7e7e0; padding: 3px 9px; border-radius: 20px; }
+
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #0d9488; border-bottom: 2px solid #e4e8f4; padding-bottom: 10px; margin: 48px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: #fff; border: 1px solid #e4e8f4; border-radius: 10px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 900; background: #0d9488; color: #fff; padding: 3px 8px; border-radius: 3px; margin-top: 2px; letter-spacing: .08em; }
+    .related-title { font-size: 0.85rem; font-weight: 600; color: #0a2e2a; line-height: 1.5; }
   </style>
   <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <a href="../../" class="site-logo">
@@ -109,9 +326,7 @@
           <span class="logo-sub">野球・競馬 × 経済・株式</span>
         </div>
       </a>
-      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="../../">TOP</a>
         <a href="../../hanshin-keiba/">野球・競馬</a>
@@ -129,14 +344,18 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../../economy-stocks/">経済・株式</a>
       <span class="breadcrumb-sep">›</span>
-      <span>【夢の電源】核融合関連株おすすめ5選　本命・安全株・夢株を一気に整理</span>
+      <span>核融合関連株おすすめ5選</span>
     </div>
   </div>
 
   <div class="art-hero">
-    <img src="thumb.png?v=20260418c" alt="記事サムネイル" class="art-hero-thumb">
+    <img src="thumb.png?v=20260418c" alt="核融合関連株5選" class="art-hero-thumb">
     <div class="art-hero-title-block">
-      <div class="art-hero-cats"><span class="art-cat-badge art-cat-main">株式分析</span></div>
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-tech">夢の電源</span>
+        <span class="art-cat-badge art-cat-warn">核融合</span>
+        <span class="art-cat-badge art-cat-stock">5銘柄比較</span>
+      </div>
       <h1 class="art-hero-h1">【夢の電源】核融合関連株おすすめ5選　本命・安全株・夢株を一気に整理</h1>
       <div class="art-hero-meta">
         <span>2026.04.13</span>
@@ -148,272 +367,434 @@
   <div class="art-layout">
     <main class="art-body">
 
-
       <div class="hero-summary">
         <div class="hero-summary-label">この記事のコア</div>
         <h2>核融合は、もう完全な空想ではありません。</h2>
-        <p>ただし、まだ普通の発電所でもありません。 いまは、「夢を見る段階」から、「夢の工事が本当に前に進んでいるかを点検する段階」に入っています。 株式で見ると、さらに整理が必要です。 ・核融合そのものに一番近いのは SVAC / 将来GFUZ・安全性込みの総合力では GOOGL と MSFT・本業で待ちながら核融合の上振れを狙うなら ENI と NUE</p>
+        <p>ただし、まだ普通の発電所でもありません。いまは、<strong>「夢を見る段階」から「夢の工事が本当に前に進んでいるかを点検する段階」</strong>に入っています。株式で見ると、さらに整理が必要です。核融合そのものに一番近いのは<strong>SVAC / 将来GFUZ</strong>、安全性込みの総合力では<strong>GOOGLとMSFT</strong>、本業で待ちながら核融合の上振れを狙うなら<strong>ENIとNUE</strong>です。</p>
       </div>
-<p>核融合と聞くと、いまだに「夢の技術」「地上の太陽」「いつか来る未来」といった言葉が先に浮かぶ人が多いと思います。</p>
-      <p>実際、そのイメージは半分正しく、半分はもう古くなっています。</p>
-<p>なぜなら今の核融合は、単なる未来ロマンとして語るには現実味を帯びてきた一方で、まだ普通の発電所として成立したとも言えない、かなり微妙で面白い位置にいるからです。</p>
-      <p>しかも最近は、AIやデータセンターの電力需要増加によって、「もし間に合うなら、核融合は本当に欲しい電源だ」という空気が強まっています。</p>
-<p>この記事では、まず核融合の全体像と現在地を初心者向けに整理し、そのうえで「じゃあ株式市場では何をどう見ればいいのか」までつなげて解説します。</p>
-      <p>結論を先に言えば、核融合関連株は全部同じではありません。純粋度が高い株ほど夢も大きいが、同時にリスクも濃くなります。</p>
 
-      <div class="video-box" style="max-width:640px;margin-left:auto;margin-right:auto;">
+      <div class="video-box">
         <div class="video-box-label">▶ 動画でも解説しています</div>
         <div class="video-embed-wrap">
           <iframe src="https://www.youtube.com/embed/79R_4qF-nnI" title="【夢の電源】核融合関連株おすすめ5選　本命・安全株・夢株を一気に整理" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+
       <div class="q-summary">
         <div class="q-summary-label">3行まとめ</div>
         <ol>
-      <li>核融合は、もう完全な空想ではないが、まだ普通の発電所でもない</li>
-      <li>核融合関連株は、純粋ベット株・大型オプション株・待てる関連株に分けると見やすい</li>
-      <li>一発を狙うならSVAC / GFUZ、勝ちやすさならGOOGLとMSFT、待ちながら夢を見るならENIとNUE</li>
+          <li><strong>核融合は、もう完全な空想ではないが、まだ普通の発電所でもない</strong>。AI・データセンター電力需要と合わせて語られる段階。</li>
+          <li>核融合関連株は<strong>純粋ベット株・大型オプション株・待てる関連株に分ける</strong>と見やすい。</li>
+          <li>一発を狙うなら<strong>SVAC / GFUZ</strong>、勝ちやすさなら<strong>GOOGLとMSFT</strong>、待ちながら夢を見るなら<strong>ENIとNUE</strong>。</li>
         </ol>
       </div>
 
-      
-
-      <div class="sec-head" id="sec-conclusion">
-        <span class="sec-num">00</span>
-        <h2>先に結論</h2>
-        <span class="sec-head-en">CONCLUSION</span>
-      </div>
-<p>結論はシンプルです。</p>
-<p>核融合は、もう完全な空想ではありません。</p>
-      <p>ただし、まだ普通の発電所でもありません。</p>
-      <p>いまは、「夢を見る段階」から、「夢の工事が本当に前に進んでいるかを点検する段階」に入っています。</p>
-<p>株式で見ると、さらに整理が必要です。</p>
-<ul>
-<li>核融合そのものに一番近いのは SVAC / 将来GFUZ</li>
-<li>安全性込みの総合力では GOOGL と MSFT</li>
-<li>本業で待ちながら核融合の上振れを狙うなら ENI と NUE</li>
-</ul>
-<p>つまり、核融合関連株で大切なのは「核融合っぽいかどうか」ではありません。</p>
-      <p>どれだけ純粋に賭けるのか、どれだけ失敗耐性を重視するのかを分けて考えることです。</p>
-
-<div class="sec-head" id="sec-01"><span class="sec-num">01</span><h2>テーマの全体像</h2><span class="sec-head-en">SECTION 01</span></div>
-<p>核融合は「夢」だが、もう昔の意味での夢ではない</p>
-<p>核融合が夢の技術と呼ばれる理由ははっきりしています。</p>
-      <p>燃料の見え方が強く、エネルギー密度が高く、しかも低炭素で安定電源候補になりうるからです。</p>
-      <p>これだけ聞くと、たしかに「もしできれば世界が変わる」と言いたくなります。</p>
-<p>ただし、ここで大事なのは、夢の大きさと実用化の近さは別物だということです。</p>
-      <p>いまの核融合は、夢のまま止まっているわけではありません。</p>
-      <p>一方で、明日コンセントからその電気が来る段階でもありません。</p>
-      <p>この中間の現在地を雑に捉えると、「もうすぐ実用化」と「どうせ何十年も先」の両極端に振れてしまいます。</p>
-<div class="sec-head" id="sec-02"><span class="sec-num">02</span><h2>初心者向けの噛み砕き説明</h2><span class="sec-head-en">SECTION 02</span></div>
-<p>核融合は何がそんなにすごいのか</p>
-<p>まず、核融合は今の原発で使われる核分裂とは別物です。</p>
-      <p>重いものを割るのではなく、軽い原子核どうしをくっつけてエネルギーを出します。</p>
-      <p>太陽が光っている仕組みを、地上で再現しようとしている、と考えるとわかりやすいです。</p>
-<p>そのうえで、核融合が期待される理由は大きく3つあります。</p>
-<div class="sec-head" id="sec-03"><span class="sec-num">03</span><h2>表1：核融合が期待される理由</h2><span class="sec-head-en">SECTION 03</span></div>
-<p>・燃料：重水素やリチウム由来で、資源制約の見え方が強い</p>
-      <p>→「燃料を奪い合う世界」から少し離れられるかもしれない</p>
-      <p>・エネルギー密度：少量の燃料で大きなエネルギーが出る</p>
-      <p>→ ものすごく少ない量で大きな発電が狙える</p>
-      <p>・電源の性格：低炭素で、理屈の上では安定電源になりうる</p>
-      <p>→ AI時代に欲しい「止まりにくい電源候補」</p>
-<p>だからこそ、最近はAIやデータセンター電力需要の増加とセットで語られることが増えています。</p>
-      <p>「技術が完成したら使う」ではなく、「使いたいから、今のうちに育てたい」という空気が強くなっているわけです。</p>
-<div class="sec-head" id="sec-04"><span class="sec-num">04</span><h2>論点整理</h2><span class="sec-head-en">SECTION 04</span></div>
-<p>核融合の本当の難しさは、物理だけではない</p>
-<p>核融合の説明でよくある誤解は、「一億度にできるかどうかが全て」だと思ってしまうことです。</p>
-      <p>実際には、そこから先の方がむしろ厄介です。</p>
-<div class="sec-head" id="sec-05"><span class="sec-num">05</span><h2>表2：核融合の難所</h2><span class="sec-head-en">SECTION 05</span></div>
-<p>・温度：一億度級が必要</p>
-      <p>→ まず火をつけるだけでも異常に難しい</p>
-      <p>・閉じ込め：温度・密度・時間をそろえる必要</p>
-      <p>→ 熱いだけではだめ、逃がさない工夫が必要</p>
-      <p>・壁材：中性子で材料が痛む</p>
-      <p>→ 夢の技術なのに最後は「壁がもつか」の話になる</p>
-      <p>・燃料サイクル：トリチウムを増殖・回収する必要</p>
-      <p>→ 走りながら燃料を作る車みたいな難しさ</p>
-      <p>・熱回収：発電として安定利用できるか</p>
-      <p>→ 反応成功と発電成功は別</p>
-      <p>・遠隔保守：人が近づけない環境で維持する必要</p>
-      <p>→ 修理そのものが超難しい</p>
-      <p>・採算：安く、長く、止まらず回せるか</p>
-      <p>→ 科学の成功とビジネスの成功は別</p>
-<p>この整理はかなり重要です。</p>
-      <p>核融合の敵は、高度な物理だけではありません。</p>
-      <p>壁材、保守、燃料、採算のような地味な工学の中に、本当の難しさがあります。</p>
-<div class="sec-head" id="sec-06"><span class="sec-num">06</span><h2>2026年の現在地</h2><span class="sec-head-en">SECTION 06</span></div>
-<p>「事実」「工程表」「期待」を分けて見る</p>
-<p>このテーマで読者が一番混乱しやすいのはここです。</p>
-      <p>核融合の進展は、事実、工程表、期待を混ぜると急に分からなくなります。</p>
-      <p>この3つは重みが違います。</p>
-<div class="sec-head" id="sec-07"><span class="sec-num">07</span><h2>表3：いまの全体像</h2><span class="sec-head-en">SECTION 07</span></div>
-<p>・事実：NIFの点火達成</p>
-      <p>→ 科学的に「無理ではない」と示した大前進</p>
-      <p>・工程表：ITER、JT-60SA、W7-X</p>
-      <p>→ 国家・国際プロジェクトの本筋</p>
-      <p>・期待：CFS、Helion、General Fusionなど</p>
-      <p>→ 企業目標としては魅力的だが、未達リスクも大きい</p>
-<p>この見方をすると、核融合の現在地はかなり整理しやすくなります。</p>
-      <p>完全な夢物語ではない。けれども、完成した発電所でもない。</p>
-      <p>この温度感が一番正確です。</p>
-<div class="sec-head" id="sec-08"><span class="sec-num">08</span><h2>強材料・弱材料</h2><span class="sec-head-en">SECTION 08</span></div>
-<p>強材料</p>
-      <p>・AIとデータセンター需要で「安定した大電源」が本当に欲しくなっている</p>
-      <p>・国家プロジェクトだけでなく、民間企業も工程表を書き始めている</p>
-      <p>・純粋な科学実証は、もう昔よりかなり前進している</p>
-      <p>・公開市場でも、核融合の果実を取りにいく大型株が増えている</p>
-<p>弱材料</p>
-      <p>・商用化は依然として未確立</p>
-      <p>・技術の進展と、投資としての成功は別物</p>
-      <p>・追加資金調達や希薄化が重くなりやすい</p>
-      <p>・5年以内では「本格収益寄与前」の銘柄が多い</p>
-      <p>・期待が盛り上がるほど、過大評価や誤解も起きやすい</p>
-<p>ここで大事なのは、強材料だけを見て突っ込まないことです。</p>
-      <p>とくに株式投資では、技術のすごさと株の点数は一致しないという前提を忘れない方がいいです。</p>
-<div class="sec-head" id="sec-09"><span class="sec-num">09</span><h2>ここから株式分析</h2><span class="sec-head-en">SECTION 09</span></div>
-<p>核融合関連株は3グループに分けると理解しやすい</p>
-<p>このテーマで一番整理しやすいのはここです。</p>
-      <p>核融合関連株は、全部まとめて「核融合株」と呼ぶと失敗しやすい。</p>
-      <p>むしろ、次の3つに分ける方がわかりやすいです。</p>
-<div class="sec-head" id="sec-10"><span class="sec-num">10</span><h2>表4：核融合関連株の3分類</h2><span class="sec-head-en">SECTION 10</span></div>
-<p>・純度が高いがハイリスク：SVAC / 将来GFUZ</p>
-      <p>→ 核融合そのものに最も近いが、最も危ない</p>
-      <p>・本業が強く核融合はオプション：GOOGL、MSFT</p>
-      <p>→ 核融合が遅れても本体が崩れにくい</p>
-      <p>・本業で待ちながら上振れを狙う：ENI、NUE</p>
-      <p>→ 爆発力は低いが、失敗耐性が高い</p>
-<div class="sec-head" id="sec-11"><span class="sec-num">11</span><h2>主要5銘柄の比較</h2><span class="sec-head-en">SECTION 11</span></div>
-<p>まず、全体を一枚で見る</p>
-<div class="sec-head" id="sec-12"><span class="sec-num">12</span><h2>表5：主要5銘柄比較</h2><span class="sec-head-en">SECTION 12</span></div>
-<p>・SVAC / 将来GFUZ</p>
-      <p>一言：最も純粋な核融合ベット</p>
-      <p>総合おすすめ度の目安：Base 56前後 / Option 69前後</p>
-      <p>ポイント：夢の本命だが高ボラ</p>
-<p>・GOOGL</p>
-      <p>一言：AI本命＋fusion option</p>
-      <p>総合おすすめ度の目安：Base 84 / Option 88</p>
-      <p>ポイント：核融合の果実をかなり取り込みやすい</p>
-<p>・MSFT</p>
-      <p>一言：核融合オプション付きAI・電力大型株</p>
-      <p>総合おすすめ度の目安：Base 79 / Option 86</p>
-      <p>ポイント：爆発力は小さめ、失敗耐性は圧倒的</p>
-<p>・ENI</p>
-      <p>一言：本業で待てる核融合オプション株</p>
-      <p>総合おすすめ度の目安：Base 76 / Option 81</p>
-      <p>ポイント：エネルギー会社としての筋が通る</p>
-<p>・NUE</p>
-      <p>一言：融合オプション付き高品質景気敏感株</p>
-      <p>総合おすすめ度の目安：Base 70 / Option 79</p>
-      <p>ポイント：鉄鋼本体で守りつつ、上振れを取る</p>
-<p>GOOGLは、TAE出資とCFSの200MWオフテイクを持ちながら、主役は依然としてSearch、Cloud、AIです。</p>
-      <p>だから「核融合本命株」ではなく、AI本命＋fusion option付きという整理が自然です。</p>
-<p>MSFTも同じく、Helionとの50MW PPAは象徴的ですが、Microsoft本体の規模から見ると5年以内の主役はAzureやAIインフラです。</p>
-      <p>こちらも電力確保を先回りする大型株として見るのが自然です。</p>
-<p>ENIは、CFSの初期出資者であり、<strong><strong>10億</strong>ドル</strong>超のARC商用炉オフテイク契約まで結んでいます。</p>
-      <p>つまり、純粋な核融合ベット株ではないものの、本業で待てる大型の核融合オプション株です。</p>
-<p>NUEは、Helionとの500MW計画や3500万ドル投資がある一方で、本体はあくまで鉄鋼会社です。</p>
-      <p>したがって、核融合ど真ん中ではないが、質の高い周辺株として見るのが妥当です。</p>
-<p>SVAC / 将来GFUZは、最も核融合そのものに近いですが、SPAC、希薄化、追加資金調達、未商用というリスクが重い。</p>
-      <p>だからこそ、面白いが最も危ない、という評価になります。</p>
-<div class="sec-head" id="sec-13"><span class="sec-num">13</span><h2>読者が誤解しやすい点</h2><span class="sec-head-en">SECTION 13</span></div>
-<p>「本命」と「おすすめ」は同じではない</p>
-<p>ここが初心者にとって最も大事かもしれません。</p>
-<ul>
-<li>本命という意味では、SVAC / 将来GFUZが最も核融合そのものに近い</li>
-<li>でも、おすすめという意味では、GOOGLやMSFTの方が多くの読者には向いている</li>
-</ul>
-<p>このズレが起きる理由は、純度と安全性がだいたい反比例するからです。</p>
-<div class="sec-head" id="sec-14"><span class="sec-num">14</span><h2>表6：純度順と総合順</h2><span class="sec-head-en">SECTION 14</span></div>
-<p>・核融合純度順</p>
-      <p>SVAC / GFUZ → ENI → GOOGL → MSFT → NUE</p>
-<p>・安全性込みの総合順</p>
-      <p>GOOGL → MSFT → ENI → NUE → SVAC / GFUZ</p>
-<p>この対比はかなり示唆的です。</p>
-      <p>純度が高い株ほど、夢も大きい。</p>
-      <p>でも、リスクもそのまま濃くなる。</p>
-      <p>この感覚を持てるかどうかで、核融合関連株の見え方はかなり変わります。</p>
-<div class="sec-head" id="sec-15"><span class="sec-num">15</span><h2>今後の注目点</h2><span class="sec-head-en">SECTION 15</span></div>
-<p>何を見れば判断を間違えにくいか</p>
-<div class="sec-head" id="sec-16"><span class="sec-num">16</span><h2>表7：監視ポイント</h2><span class="sec-head-en">SECTION 16</span></div>
-<p>・SVAC / GFUZ</p>
-      <p>1keV、10keV、Lawson関連、希薄化、追加資金調達</p>
-      <p>・GOOGL</p>
-      <p>Cloud成長率、AI収益化、CFS/TAE進捗、電力確保</p>
-      <p>・MSFT</p>
-      <p>Azure成長、Capex効率、Helion進捗、電力制約緩和</p>
-      <p>・ENI</p>
-      <p>原油・ガス市況、本業CF、SPARC/ARC進捗、DTT動向</p>
-      <p>・NUE</p>
-      <p>鉄鋼市況、Helion Polarisの電力実証、500MW案件具体化</p>
-<p>この表を見ても分かる通り、同じ“核融合関連株”でも、見るべき指標は全然違います。</p>
-      <p>SVAC / GFUZは技術進捗が主役。</p>
-      <p>GOOGLやMSFTは本業が主役。</p>
-      <p>ENIやNUEは本業で待てるかがまず大事。</p>
-      <p>ここを分けて見るだけでも、かなり判断がブレにくくなります。</p>
-<div class="sec-head" id="sec-17"><span class="sec-num">17</span><h2>結局どう見るべきか</h2><span class="sec-head-en">SECTION 17</span></div>
-<p>私なら、こう整理します。</p>
-<ul>
-<li>一発を狙うなら SVAC / 将来GFUZ</li>
-<li>勝ちやすさを取りにいくなら GOOGL と MSFT</li>
-<li>待ちながら夢を見るなら ENI と NUE</li>
-</ul>
-<p>この整理が、一番しっくりくる結論です。</p>
-      <p>そして、初心者にとって一番危ないのは、「核融合っぽい」という漠然とした印象だけで選ぶことです。</p>
-      <p>むしろ大事なのは、自分が純度を買っているのか、安全性を買っているのかを自覚することです。</p>
-
-      <div class="sec-head" id="sec-summary">
-        <span class="sec-num">99</span>
-        <h2>まとめ</h2>
-        <span class="sec-head-en">SUMMARY</span>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-card-label">純粋ベット</div>
+          <div class="stat-card-number">SVAC</div>
+          <div class="stat-card-sub">将来GFUZ。最も核融合に近いが、最も危ない。</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">総合力</div>
+          <div class="stat-card-number">84</div>
+          <div class="stat-card-sub">GOOGL Base 84 / Option 88。核融合の果実を取り込みやすい。</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">オフテイク</div>
+          <div class="stat-card-number">$1B+</div>
+          <div class="stat-card-sub">ENI × ARC商用炉オフテイク契約。本業で待てる。</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Helion PPA</div>
+          <div class="stat-card-number">500MW</div>
+          <div class="stat-card-sub">NUE × Helion 500MW計画＋3500万ドル投資。</div>
+        </div>
       </div>
 
-<div class="art-summary"><div class="art-summary-label">3行まとめ</div><ol><li>核融合は、もう完全な空想ではないが、まだ普通の発電所でもない</li><li>核融合関連株は、純粋ベット株・大型オプション株・待てる関連株に分けると見やすい</li><li>一発を狙うならSVAC / GFUZ、勝ちやすさならGOOGLとMSFT、待ちながら夢を見るならENIとNUE</li></ol></div>
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">01</span>
+          <h2>テーマの全体像｜夢と現在地を2レイヤーで見る</h2>
+          <span class="q-section-head-en">OVERVIEW</span>
+        </div>
+        <p>核融合と聞くと、いまだに「夢の技術」「地上の太陽」「いつか来る未来」といった言葉が先に浮かぶ人が多いと思います。実際、そのイメージは<strong>半分正しく、半分はもう古い</strong>。なぜなら今の核融合は、単なる未来ロマンとして語るには現実味を帯びてきた一方で、まだ普通の発電所として成立したとも言えない、かなり微妙で面白い位置にいるからです。</p>
+        <p>しかも最近は、AIやデータセンターの電力需要増加によって、<strong>「もし間に合うなら、核融合は本当に欲しい電源だ」</strong>という空気が強まっています。</p>
 
-      <div class="disclaimer">
-        <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">Layer 1 — 技術</span>
+            <h3>夢の大きさと実用化の近さは別物</h3>
+            <p>燃料の見え方が強く、エネルギー密度が高く、しかも<strong>低炭素で安定電源候補</strong>になりうる。ただし夢のまま止まっているわけではなく、一方で明日コンセントから電気が来る段階でもない。この中間が現在地。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">Layer 2 — 市場</span>
+            <h3>AI電力需要が火をつけた</h3>
+            <p>「技術が完成したら使う」ではなく、<strong>「使いたいから、今のうちに育てたい」</strong>という空気。国家プロジェクトだけでなく、民間企業も工程表を書き始め、公開市場でも大型株が参入。</p>
+          </div>
+        </div>
+
+        <p>結論を先に言えば、核融合関連株は全部同じではありません。<strong>純粋度が高い株ほど夢も大きいが、同時にリスクも濃くなります</strong>。</p>
       </div>
 
-      <hr class="art-hr">
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">02</span>
+          <h2>初心者向け｜核融合は何がそんなにすごいのか</h2>
+          <span class="q-section-head-en">PRIMER</span>
+        </div>
+        <p>まず、核融合は今の原発で使われる核分裂とは別物です。重いものを割るのではなく、<strong>軽い原子核どうしをくっつけてエネルギーを出す</strong>。太陽が光っている仕組みを、地上で再現しようとしている、と考えるとわかりやすいです。</p>
+
+        <table class="data-table">
+          <thead><tr><th>観点</th><th>核融合が期待される理由</th><th>要するに</th></tr></thead>
+          <tbody>
+            <tr><td><strong>燃料</strong></td><td>重水素やリチウム由来で、資源制約の見え方が強い</td><td>燃料を奪い合う世界から少し離れられるかも</td></tr>
+            <tr><td><strong>エネルギー密度</strong></td><td>少量の燃料で大きなエネルギーが出る</td><td>ものすごく少ない量で大きな発電が狙える</td></tr>
+            <tr><td><strong>電源の性格</strong></td><td>低炭素で、理屈の上では安定電源になりうる</td><td>AI時代に欲しい「止まりにくい電源候補」</td></tr>
+          </tbody>
+        </table>
+
+        <p>だからこそ、最近はAIやデータセンター電力需要の増加とセットで語られることが増えています。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">03</span>
+          <h2>論点整理｜核融合の本当の難しさは物理だけではない</h2>
+          <span class="q-section-head-en">BOTTLENECKS</span>
+        </div>
+        <p>核融合の説明でよくある誤解は、「一億度にできるかどうかが全て」だと思ってしまうことです。実際には、<strong>そこから先の方がむしろ厄介</strong>です。</p>
+
+        <table class="data-table">
+          <thead><tr><th>難所</th><th>内容</th><th>意味</th></tr></thead>
+          <tbody>
+            <tr><td><strong>温度</strong></td><td>一億度級が必要</td><td>まず火をつけるだけでも異常に難しい</td></tr>
+            <tr><td><strong>閉じ込め</strong></td><td>温度・密度・時間をそろえる</td><td>熱いだけではだめ、逃がさない工夫</td></tr>
+            <tr><td><strong>壁材</strong></td><td>中性子で材料が痛む</td><td>夢の技術なのに最後は「壁がもつか」</td></tr>
+            <tr><td><strong>燃料サイクル</strong></td><td>トリチウムを増殖・回収する</td><td>走りながら燃料を作る車みたいな難しさ</td></tr>
+            <tr><td><strong>熱回収</strong></td><td>発電として安定利用できるか</td><td>反応成功と発電成功は別</td></tr>
+            <tr><td><strong>遠隔保守</strong></td><td>人が近づけない環境で維持</td><td>修理そのものが超難しい</td></tr>
+            <tr><td><strong>採算</strong></td><td>安く、長く、止まらず回せるか</td><td>科学の成功とビジネスの成功は別</td></tr>
+          </tbody>
+        </table>
+
+        <p>核融合の敵は、高度な物理だけではありません。<strong>壁材、保守、燃料、採算のような地味な工学の中に、本当の難しさ</strong>があります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">04</span>
+          <h2>2026年の現在地｜「事実」「工程表」「期待」を分けて見る</h2>
+          <span class="q-section-head-en">STATUS 2026</span>
+        </div>
+        <p>このテーマで読者が一番混乱しやすいのはここです。核融合の進展は、<strong>事実、工程表、期待を混ぜると急に分からなくなる</strong>。この3つは重みが違います。</p>
+
+        <div class="risk-grid">
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">事</span>
+              <span class="risk-title">事実：NIFの点火達成</span>
+            </div>
+            <div class="risk-body">科学的に「無理ではない」と示した大前進。起きたことは揺るがない。</div>
+            <div class="risk-example">✅ 確定した前進</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">工</span>
+              <span class="risk-title">工程表：ITER、JT-60SA、W7-X</span>
+            </div>
+            <div class="risk-body">国家・国際プロジェクトの本筋。公的な時間軸で進む。</div>
+            <div class="risk-example">⏱ 公式ロードマップ</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">期</span>
+              <span class="risk-title">期待：CFS、Helion、GF</span>
+            </div>
+            <div class="risk-body">企業目標としては魅力的だが、<strong>未達リスクも大きい</strong>。</div>
+            <div class="risk-example">⚠ 過大評価に注意</div>
+          </div>
+        </div>
+
+        <p>この見方をすると、核融合の現在地はかなり整理しやすくなります。<strong>完全な夢物語ではない。けれども、完成した発電所でもない</strong>。この温度感が一番正確です。</p>
+
+        <div class="stock-label">強材料</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box"><div class="pro-box-label">✓ 強材料</div>AIとデータセンター需要で「安定した大電源」が本当に欲しくなっている／国家プロジェクトだけでなく民間も工程表を書き始めた／純粋な科学実証は前進／公開市場でも大型株が増加。</div>
+          <div class="con-box"><div class="con-box-label">✗ 弱材料</div>商用化は依然として未確立／技術進展と投資成功は別物／追加資金調達や希薄化が重い／5年以内では本格収益寄与前の銘柄が多い／期待が盛り上がるほど過大評価や誤解も起きやすい。</div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">05</span>
+          <h2>株式分析｜核融合関連株は3グループで見る</h2>
+          <span class="q-section-head-en">CLASSIFICATION</span>
+        </div>
+        <p>このテーマで一番整理しやすいのはここです。核融合関連株は、<strong>全部まとめて「核融合株」と呼ぶと失敗しやすい</strong>。次の3つに分ける方がわかりやすい。</p>
+
+        <div class="pillars">
+          <div class="pillar target">
+            <div class="pillar-icon">🔥</div>
+            <div class="pillar-title">① 純度が高いがハイリスク</div>
+            <div class="pillar-desc"><strong>SVAC / 将来GFUZ</strong>。核融合そのものに最も近いが、最も危ない。</div>
+            <div class="pillar-example">💡 一発を狙う夢株</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🏛</div>
+            <div class="pillar-title">② 本業強くfusionオプション</div>
+            <div class="pillar-desc"><strong>GOOGL、MSFT</strong>。核融合が遅れても本体が崩れにくい。</div>
+            <div class="pillar-example">💡 勝ちやすさ重視</div>
+          </div>
+        </div>
+        <div class="pillars" style="grid-template-columns:1fr;">
+          <div class="pillar">
+            <div class="pillar-icon">⛽</div>
+            <div class="pillar-title">③ 本業で待ちながら上振れを狙う</div>
+            <div class="pillar-desc"><strong>ENI、NUE</strong>。爆発力は低いが、失敗耐性が高い。本業でキャッシュを生みながら、核融合の上振れをオプションとして持つ。</div>
+            <div class="pillar-example">💡 待てる関連株</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">06</span>
+          <h2>主要5銘柄を比較｜ティッカー別に整理</h2>
+          <span class="q-section-head-en">STOCK DEEP DIVE</span>
+        </div>
+        <p>まず、全体を一枚で見る。総合おすすめ度の目安は、Base（通常評価）／Option（核融合上振れ込み）の2軸。</p>
+
+        <div class="stock-grid">
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">SVAC</div>
+              <span class="stock-tag tag-specu">純度MAX</span>
+            </div>
+            <div class="stock-metrics">
+              <div class="stock-metric"><div class="stock-metric-label">将来</div><div class="stock-metric-value">GFUZ</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">Base</div><div class="stock-metric-value">56前後</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">Option</div><div class="stock-metric-value">69前後</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">評価</div><div class="stock-metric-value">夢の本命</div></div>
+            </div>
+            <div class="stock-desc">最も純粋な核融合ベット。SPAC、希薄化、追加資金調達、未商用というリスクが重い。面白いが最も危ない。</div>
+          </div>
+
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">GOOGL</div>
+              <span class="stock-tag tag-stable">総合首位</span>
+            </div>
+            <div class="stock-metrics">
+              <div class="stock-metric"><div class="stock-metric-label">Base</div><div class="stock-metric-value">84</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">Option</div><div class="stock-metric-value">88</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">柱</div><div class="stock-metric-value">AI本命</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">fusion</div><div class="stock-metric-value">TAE/CFS</div></div>
+            </div>
+            <div class="stock-desc">TAE出資とCFSの<strong>200MWオフテイク</strong>を持ちながら、主役は依然としてSearch、Cloud、AI。核融合の果実をかなり取り込みやすい。</div>
+          </div>
+
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">MSFT</div>
+              <span class="stock-tag tag-stable">失敗耐性</span>
+            </div>
+            <div class="stock-metrics">
+              <div class="stock-metric"><div class="stock-metric-label">Base</div><div class="stock-metric-value">79</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">Option</div><div class="stock-metric-value">86</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">柱</div><div class="stock-metric-value">Azure/AI</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">fusion</div><div class="stock-metric-value">Helion 50MW PPA</div></div>
+            </div>
+            <div class="stock-desc">Helionとの50MW PPAは象徴的。5年以内の主役はAzureやAIインフラ。電力確保を先回りする大型株。爆発力は小さめ、失敗耐性は圧倒的。</div>
+          </div>
+
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">ENI</div>
+              <span class="stock-tag tag-defense">待てる</span>
+            </div>
+            <div class="stock-metrics">
+              <div class="stock-metric"><div class="stock-metric-label">Base</div><div class="stock-metric-value">76</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">Option</div><div class="stock-metric-value">81</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">関与</div><div class="stock-metric-value">CFS初期出資</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">オフテイク</div><div class="stock-metric-value">10億ドル超</div></div>
+            </div>
+            <div class="stock-desc">CFSの初期出資者であり、<strong>10億ドル超のARC商用炉オフテイク契約</strong>まで結ぶ。純粋な核融合ベット株ではないが、本業で待てる大型の核融合オプション株。</div>
+          </div>
+
+          <div class="stock-card">
+            <div class="stock-card-head">
+              <div class="stock-ticker">NUE</div>
+              <span class="stock-tag tag-dream">質高</span>
+            </div>
+            <div class="stock-metrics">
+              <div class="stock-metric"><div class="stock-metric-label">Base</div><div class="stock-metric-value">70</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">Option</div><div class="stock-metric-value">79</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">関与</div><div class="stock-metric-value">Helion 500MW</div></div>
+              <div class="stock-metric"><div class="stock-metric-label">投資</div><div class="stock-metric-value">3500万ドル</div></div>
+            </div>
+            <div class="stock-desc">Helionとの500MW計画や3500万ドル投資がある一方で、本体はあくまで鉄鋼会社。核融合ど真ん中ではないが、質の高い周辺株。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">07</span>
+          <h2>誤解への答え｜「本命」と「おすすめ」は同じではない</h2>
+          <span class="q-section-head-en">FAQ</span>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">結局、核融合の「本命株」はどれ？</div>
+            <div class="faq-a">本命という意味では、<strong>SVAC / 将来GFUZが最も核融合そのものに近い</strong>。でも「おすすめ」という意味では、GOOGLやMSFTの方が多くの読者には向いています。ズレが起きる理由は、純度と安全性がだいたい反比例するから。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">GOOGLやMSFTは「核融合株」と呼んでいい？</div>
+            <div class="faq-a">厳密には「AI本命＋fusion option」が正確です。GOOGLはTAE出資・CFSの200MWオフテイク、MSFTはHelionとの50MW PPAを持ちますが、本体の規模から見ると核融合は上振れオプション。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">ENIやNUEは爆発力が弱くないか？</div>
+            <div class="faq-a">その通りですが、ENIはCFSの初期出資者で<strong>10億ドル超のARC商用炉オフテイク契約</strong>を結んでおり、NUEはHelionとの500MW計画・3500万ドル投資があります。本業で待てるのが強みです。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">核融合っぽい銘柄を全部買えばいい？</div>
+            <div class="faq-a">それが一番危ない。「核融合っぽい」という漠然とした印象だけで選ぶと、高すぎる夢を重複して買うことになります。<strong>自分が純度を買っているのか、安全性を買っているのかを自覚する</strong>のが大事。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">08</span>
+          <h2>純度順と総合順｜夢とリスクは反比例する</h2>
+          <span class="q-section-head-en">RANKING</span>
+        </div>
+
+        <table class="data-table">
+          <thead><tr><th style="width:40px;">#</th><th>核融合純度順</th><th>安全性込みの総合順</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1</strong></td><td>SVAC / GFUZ</td><td>GOOGL</td></tr>
+            <tr><td><strong>2</strong></td><td>ENI</td><td>MSFT</td></tr>
+            <tr><td><strong>3</strong></td><td>GOOGL</td><td>ENI</td></tr>
+            <tr><td><strong>4</strong></td><td>MSFT</td><td>NUE</td></tr>
+            <tr><td><strong>5</strong></td><td>NUE</td><td>SVAC / GFUZ</td></tr>
+          </tbody>
+        </table>
+
+        <p>この対比はかなり示唆的です。<strong>純度が高い株ほど、夢も大きい。でも、リスクもそのまま濃くなる</strong>。この感覚を持てるかどうかで、核融合関連株の見え方はかなり変わります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">09</span>
+          <h2>今後の注目点｜銘柄ごとの監視ポイント</h2>
+          <span class="q-section-head-en">WHAT TO WATCH</span>
+        </div>
+        <p>同じ“核融合関連株”でも、<strong>見るべき指標は全然違う</strong>。SVAC / GFUZは技術進捗が主役、GOOGLやMSFTは本業が主役、ENIやNUEは本業で待てるかがまず大事です。</p>
+
+        <table class="data-table">
+          <thead><tr><th>銘柄</th><th>主なチェック項目</th></tr></thead>
+          <tbody>
+            <tr><td><strong>SVAC / GFUZ</strong></td><td>1keV、10keV、Lawson関連、希薄化、追加資金調達</td></tr>
+            <tr><td><strong>GOOGL</strong></td><td>Cloud成長率、AI収益化、CFS/TAE進捗、電力確保</td></tr>
+            <tr><td><strong>MSFT</strong></td><td>Azure成長、Capex効率、Helion進捗、電力制約緩和</td></tr>
+            <tr><td><strong>ENI</strong></td><td>原油・ガス市況、本業CF、SPARC/ARC進捗、DTT動向</td></tr>
+            <tr><td><strong>NUE</strong></td><td>鉄鋼市況、Helion Polarisの電力実証、500MW案件具体化</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">10</span>
+          <h2>結論｜投資地図で自分のタイプを先に決める</h2>
+          <span class="q-section-head-en">INVESTMENT MAP</span>
+        </div>
+        <p>私なら、こう整理します。<strong>一発を狙うなら SVAC / 将来GFUZ、勝ちやすさを取りにいくなら GOOGL と MSFT、待ちながら夢を見るなら ENI と NUE</strong>。</p>
+
+        <div class="matrix">
+          <div class="matrix-label">YOUR POSITIONING MAP</div>
+          <h3>「核融合っぽいかどうか」ではなく「自分はどこを買うか」を先に決める</h3>
+          <div class="matrix-grid">
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">一発を狙う</span>
+                <span class="matrix-cell-ticker">SVAC / GFUZ</span>
+              </div>
+              <div class="matrix-cell-desc">核融合そのものに最も近い。純度MAXで夢も最大。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">勝ちやすさ</span>
+                <span class="matrix-cell-ticker">GOOGL / MSFT</span>
+              </div>
+              <div class="matrix-cell-desc">AI本命＋fusion option。失敗耐性が圧倒的に高い。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">待てるエネルギー</span>
+                <span class="matrix-cell-ticker">ENI</span>
+              </div>
+              <div class="matrix-cell-desc">CFS初期出資＋10億ドル超オフテイク。本業で待てる。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">質高景気敏感</span>
+                <span class="matrix-cell-ticker">NUE</span>
+              </div>
+              <div class="matrix-cell-desc">Helion 500MW計画。鉄鋼本体で守りつつ上振れ。</div>
+            </div>
+          </div>
+        </div>
+
+        <p>初心者にとって一番危ないのは、「核融合っぽい」という漠然とした印象だけで選ぶことです。むしろ大事なのは、<strong>自分が純度を買っているのか、安全性を買っているのかを自覚する</strong>ことです。</p>
+
+        <div class="disclaimer">
+          <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+        </div>
+      </div>
 
       <div class="related-head">RELATED ARTICLES</div>
       <div class="related-list">
-        <a href="../" class="related-item">
-          <span class="related-tag">一覧</span>
-          <span class="related-title">経済・株式の記事一覧へ</span>
-        </a>
+        <a href="../2026-04-12-boj-banks-stocks/" class="related-item"><span class="related-tag">株式</span><span class="related-title">日銀利上げで銀行株はどう動く　金融政策の本質と関連株の整理 2026.04.12</span></a>
+        <a href="../2026-04-15-artificial-fuel/" class="related-item"><span class="related-tag">エネ</span><span class="related-title">人工燃料の現在地　合成燃料・e-fuelの本当の意味と関連銘柄 2026.04.15</span></a>
+        <a href="../2026-04-13-oil-boj/" class="related-item"><span class="related-tag">経済</span><span class="related-title">原油と日銀　エネルギー価格が金融政策に与える影響 2026.04.13</span></a>
+        <a href="../2026-04-06-quantum-btc/" class="related-item"><span class="related-tag">株式</span><span class="related-title">2029年ビットコイン危機は本当か　量子脅威と量子関連株5銘柄 2026.04.06</span></a>
+        <a href="../" class="related-item"><span class="related-tag">一覧</span><span class="related-title">経済・株式の記事一覧へ</span></a>
       </div>
-
     </main>
 
     <aside class="art-sidebar">
       <div class="sidebar-toc">
         <div class="sidebar-toc-label">目次</div>
         <ul class="toc-list">
-          <li><a href="#sec-conclusion"><span class="toc-n">00</span>先に結論</a></li>
-<li><a href="#sec-01"><span class="toc-n">01</span>テーマの全体像</a></li>
-<li><a href="#sec-02"><span class="toc-n">02</span>初心者向けの噛み砕き説明</a></li>
-<li><a href="#sec-03"><span class="toc-n">03</span>表1：核融合が期待される理由</a></li>
-<li><a href="#sec-04"><span class="toc-n">04</span>論点整理</a></li>
-<li><a href="#sec-05"><span class="toc-n">05</span>表2：核融合の難所</a></li>
-<li><a href="#sec-06"><span class="toc-n">06</span>2026年の現在地</a></li>
-<li><a href="#sec-07"><span class="toc-n">07</span>表3：いまの全体像</a></li>
-<li><a href="#sec-08"><span class="toc-n">08</span>強材料・弱材料</a></li>
-<li><a href="#sec-09"><span class="toc-n">09</span>ここから株式分析</a></li>
-<li><a href="#sec-10"><span class="toc-n">10</span>表4：核融合関連株の3分類</a></li>
-<li><a href="#sec-11"><span class="toc-n">11</span>主要5銘柄の比較</a></li>
-<li><a href="#sec-12"><span class="toc-n">12</span>表5：主要5銘柄比較</a></li>
-<li><a href="#sec-13"><span class="toc-n">13</span>読者が誤解しやすい点</a></li>
-<li><a href="#sec-14"><span class="toc-n">14</span>表6：純度順と総合順</a></li>
-<li><a href="#sec-15"><span class="toc-n">15</span>今後の注目点</a></li>
-<li><a href="#sec-16"><span class="toc-n">16</span>表7：監視ポイント</a></li>
-<li><a href="#sec-17"><span class="toc-n">17</span>結局どう見るべきか</a></li>
-          <li><a href="#sec-summary"><span class="toc-n">99</span>まとめ</a></li>
+          <li><a href="#sec-01"><span class="toc-n">01</span>テーマの全体像</a></li>
+          <li><a href="#sec-02"><span class="toc-n">02</span>核融合の何がすごい</a></li>
+          <li><a href="#sec-03"><span class="toc-n">03</span>本当の難所</a></li>
+          <li><a href="#sec-04"><span class="toc-n">04</span>2026年の現在地</a></li>
+          <li><a href="#sec-05"><span class="toc-n">05</span>3グループで見る</a></li>
+          <li><a href="#sec-06"><span class="toc-n">06</span>主要5銘柄比較</a></li>
+          <li><a href="#sec-07"><span class="toc-n">07</span>FAQ</a></li>
+          <li><a href="#sec-08"><span class="toc-n">08</span>純度順と総合順</a></li>
+          <li><a href="#sec-09"><span class="toc-n">09</span>監視ポイント</a></li>
+          <li><a href="#sec-10"><span class="toc-n">10</span>投資地図・結論</a></li>
         </ul>
       </div>
       <div class="sidebar-meta">
         <div class="sidebar-meta-label">TAGS</div>
-        <div class="tag-cloud"><span class="tag-pill">核融合</span><span class="tag-pill">夢の電源</span><span class="tag-pill">関連株</span><span class="tag-pill">エネルギー</span><span class="tag-pill">AI需要</span></div>
+        <div class="tag-cloud">
+          <span class="tag-pill">核融合</span>
+          <span class="tag-pill">夢の電源</span>
+          <span class="tag-pill">関連株</span>
+          <span class="tag-pill">SVAC</span>
+          <span class="tag-pill">GOOGL</span>
+          <span class="tag-pill">MSFT</span>
+          <span class="tag-pill">ENI</span>
+          <span class="tag-pill">NUE</span>
+          <span class="tag-pill">AI電力</span>
+        </div>
       </div>
     </aside>
   </div>
@@ -425,6 +806,5 @@
   </footer>
 
   <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/article-enhance.js?v=20260418e" defer></script>
 </body>
 </html>
