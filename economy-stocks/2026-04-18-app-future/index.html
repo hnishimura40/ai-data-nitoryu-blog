@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/img/logo.png">
+  <link rel="apple-touch-icon" href="/assets/img/logo.png">
+  <meta name="description" content="Nothing、Google、AppFunctions、MCPをもとに「アプリは本当に消えるのか」を初心者向けに整理。技術の全体像だけでなく、経済・株式の視点から勝者と敗者、注目点、リスクまでわかりやすく解説します。">
+  <title>App Storeの次は何か。AI時代の「アプリ不要論」を本気で考える | AIデータ二刀流ブログ</title>
+  <link rel="stylesheet" href="../../assets/css/style.css?v=5">
+  <link rel="stylesheet" href="../../assets/css/article.css?v=7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
+  <style>
+    .art-hero { background: linear-gradient(135deg, #0a1428 0%, #1e3a5f 60%, #27ae60 100%); }
+
+    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; padding: 22px 24px 18px; }
+    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
+    .art-cat-tech    { background: #0d9488; color: #fff; }
+    .art-cat-ai      { background: #7c3aed; color: #fff; }
+    .art-cat-market  { background: #1a4fa0; color: #fff; }
+    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.92; }
+    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.5); display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
+    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
+
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
+    .art-body strong { color: #1a2744; }
+    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
+    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
+
+    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
+    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #0d9488; background: #e0f2f1; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
+    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
+    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
+    @media (max-width: 560px) { .sec-head-en { display: none; } }
+    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #0d9488; }
+
+    .summary-box { background: linear-gradient(135deg, #e0f7f4, #d0ece8); border: 1px solid #7fc2b8; border-left: 4px solid #0d9488; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
+    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #0d9488; margin-bottom: 12px; }
+    .summary-box ul { margin: 0; }
+    .summary-box li { font-size: 0.87rem; }
+
+    .hlbox { background: linear-gradient(135deg, #f5f0ff, #ede4ff); border: 1px solid #c5a8f0; border-left: 4px solid #7c3aed; border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 24px 0; }
+    .hlbox p { margin: 0; font-size: 0.94rem; }
+
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; }
+    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
+    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: #f8fafd; }
+
+    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
+    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
+    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
+    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
+
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #0d9488; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
+    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
+
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
+    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
+    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e8ecf4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #0d9488; }
+    .toc-n { font-size: 0.62rem; font-weight: 900; color: #0d9488; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
+    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
+    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
+    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
+    .art-hero-thumb { width: 100%; max-height: 420px; object-fit: cover; display: block; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../" class="site-logo">
+        <img src="/assets/img/logo.png" alt="AIデータ二刀流" class="logo-img" width="40" height="40">
+        <div>
+          <span class="logo-main">AIデータ二刀流ブログ</span>
+          <span class="logo-sub">野球・競馬 × 経済・株式</span>
+        </div>
+      </a>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="../../">TOP</a>
+        <a href="../../hanshin-keiba/">野球・競馬</a>
+        <a href="../../economy-stocks/" class="active">経済・株式</a>
+        <a href="../../channels/">チャンネル</a>
+        <a href="../../profile/">運営について</a>
+        <a href="../../contact/">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="../../">TOP</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../economy-stocks/">経済・株式</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>App Storeの次は何か</span>
+    </div>
+  </div>
+
+  <div class="art-hero">
+    <img src="thumb.png" alt="App Storeの次は何か。AI時代のアプリ不要論" class="art-hero-thumb">
+
+    <div class="art-hero-title-block">
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-tech">テクノロジー</span>
+        <span class="art-cat-badge art-cat-ai">AI</span>
+        <span class="art-cat-badge art-cat-market">産業分析</span>
+      </div>
+      <h1 class="art-hero-h1">
+        App Storeの次は何か。AI時代の「アプリ不要論」を本気で考える
+      </h1>
+      <div class="art-hero-meta">
+        <span>2026年4月18日</span>
+        <span>AIデータ二刀流ブログ</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="art-layout">
+    <main class="art-body">
+
+      <div class="summary-box">
+        <div class="summary-box-title">この記事でわかること</div>
+        <ul>
+          <li>「アプリが消える」とは、実際には何を意味しているのか</li>
+          <li>NothingとGoogleの戦略は何が違うのか</li>
+          <li>AppFunctionsやMCPが、なぜ重要なのか</li>
+          <li>この流れで強くなる企業と、相対的に弱くなる企業の特徴</li>
+          <li>便利さの裏にあるブラックボックス化、門番化、プライバシー問題</li>
+        </ul>
+      </div>
+
+      <p>「アプリは消える」という言い方は、いかにも煽りっぽく聞こえます。けれど、NothingのEssential Apps、GoogleのAppFunctionsとGemini、そしてMCPの標準化の流れを並べてみると、単なる話題作りでは片づけにくい。</p>
+
+      <p>いま起きているのは、スマホ新機能の小さな競争ではありません。人がアプリを探し、開き、画面を移動しながら目的を達成する時代から、<strong>人は意図だけを伝え、AIが裏で必要な機能を呼び出す時代</strong>へ寄り始めている可能性があります。</p>
+
+      <div class="hlbox">
+        <p><strong>この記事で扱うこと</strong>：Nothing、Google、MCPを手がかりに、何が起きているのか／どこがまだ不確実か／投資やビジネスの視点で何を見ればよいかを、初心者にもわかる形で整理します。</p>
+      </div>
+
+      <!-- 先に結論 -->
+      <div class="sec-head" id="sec-conclusion">
+        <span class="sec-num">01</span>
+        <h2>先に結論</h2>
+        <span class="sec-head-en">CONCLUSION</span>
+      </div>
+      <ol>
+        <li>近い将来に「アプリそのものが一斉に消える」とまでは言いにくい。ただし<strong>「アプリを探して、開いて、また別のアプリへ移る」手間は今後かなり薄れる可能性がある</strong></li>
+        <li>この変化の本質は、ガジェット進化ではなく<strong>ソフトウェアの価値が「画面」から「機能」へ移る</strong>こと</li>
+        <li>経済・株式の視点では<strong>「次の門番」が誰になるか</strong>が最大の論点になる</li>
+        <li>一方で、これはまだ完成された未来ではない。安全性、責任の所在、標準化、ユーザー継続利用、プライバシーへの信頼がそろわない限り、一気に世界が変わるとは限らない</li>
+      </ol>
+
+      <!-- 全体像 -->
+      <div class="sec-head" id="sec-overview">
+        <span class="sec-num">02</span>
+        <h2>画面中心から意図中心への移行</h2>
+        <span class="sec-head-en">OVERVIEW</span>
+      </div>
+      <p>これまでのスマホの世界では、「目的」より先に「どのアプリで開くか」を考える必要がありました。予定を確認するならカレンダー、場所を決めるなら地図、連絡するならメッセージ、というように、人間が自分で分解して動いていました。これが今後は、「来週の昼、会いやすい場所を決めて連絡して」のように意図だけを伝えれば、AIが裏で複数機能をつないで処理する方向へ進むかもしれません。</p>
+      <ul>
+        <li><strong>これまで</strong>：人間がアプリを使い分ける</li>
+        <li><strong>これから</strong>：AIが必要な機能を裏で使い分けるかもしれない</li>
+      </ul>
+
+      <!-- 論点の地図 -->
+      <div class="sec-head" id="sec-map">
+        <span class="sec-num">03</span>
+        <h2>論点の地図</h2>
+        <span class="sec-head-en">MAP</span>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>論点</th><th>何が変わるのか</th><th>重要度</th></tr></thead>
+        <tbody>
+          <tr><td>使い方</td><td>アプリを開く前提から、意図を伝える前提へ</td><td>高</td></tr>
+          <tr><td>技術</td><td>AppFunctionsやMCPで機能単位の接続が進む</td><td>高</td></tr>
+          <tr><td>ビジネス</td><td>UIの目立ち方よりAIに呼ばれる機能が重要に</td><td>高</td></tr>
+          <tr><td>競争</td><td>「意図の入口」を握る企業が強くなる可能性</td><td>非常に高</td></tr>
+          <tr><td>リスク</td><td>ブラックボックス化、誘導、プライバシー、責任問題</td><td>非常に高</td></tr>
+          <tr><td>投資</td><td>ハードより、エージェント層・標準・機能公開側</td><td>高</td></tr>
+        </tbody>
+      </table>
+
+      <!-- 事実整理 -->
+      <div class="sec-head" id="sec-facts">
+        <span class="sec-num">04</span>
+        <h2>事実ベースで何が起きているのか</h2>
+        <span class="sec-head-en">FACTS</span>
+      </div>
+
+      <p class="sec-sub">Nothingの動き</p>
+      <p>Nothingは2026年2月、Essential Appsのベータ拡大を案内し、Playground上で自然言語から小さな個人向けアプリを作れる方向を打ち出しました。初期ベータはPhone (3)向けで、安定後はNothing OS 4.0以降のNothing・CMF端末へ広げる計画です。強く対応している権限は位置情報、カレンダー読み取り、連絡先が中心で、カメラ・マイク・通知などは今後拡張予定とされています。</p>
+
+      <p class="sec-sub">Googleの動き</p>
+      <p>Googleは2026年2月に、GeminiがAndroid上で複数ステップの作業を代行するプレビューを公開しました。Android Developers Blogでは、AppFunctionsによってアプリ側がAIエージェントへ機能を公開でき、専用統合がないアプリ向けにはUI automation frameworkも開発中と説明しています。Googleは<strong>「既存アプリ世界の上にAIの橋をかける」現実路線</strong>を取っているように見えます。</p>
+
+      <p class="sec-sub">AppFunctionsとは何か</p>
+      <p>初心者向けに言えば、<strong>「アプリ全体を開かなくても、必要な機能だけAIが呼び出せる仕組み」</strong>です。「メモアプリの追記する」「カレンダーアプリの予定を作る」「ギャラリーの特定条件の写真を出す」のように、アプリの中の部品だけをAIが直接使いやすくする発想です。</p>
+
+      <p class="sec-sub">MCPとは何か</p>
+      <p>MCPはAnthropicが公開したオープン標準で、AIと外部データソースやツールを安全につなぐための共通プロトコルとして広がっています。「MCPが唯一の勝ち筋」という話ではなく、<strong>AIが外部機能をまたいで動くには、何らかの共通ルールが必要だ</strong>ということが本質です。</p>
+
+      <!-- Nothing vs Google -->
+      <div class="sec-head" id="sec-compare">
+        <span class="sec-num">05</span>
+        <h2>NothingとGoogleは何が違うのか</h2>
+        <span class="sec-head-en">VS</span>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>項目</th><th>Nothing</th><th>Google</th></tr></thead>
+        <tbody>
+          <tr><td>立ち位置</td><td>未来の見せ方が先行</td><td>現実の橋渡しが先行</td></tr>
+          <tr><td>発想</td><td>個人向け小型アプリをその場で作る</td><td>既存アプリの上でAI代行を進める</td></tr>
+          <tr><td>強み</td><td>ビジョンの鋭さ、問題提起</td><td>配布力、OS統合、開発者基盤</td></tr>
+          <tr><td>弱み</td><td>現時点では機能・対象が限定的</td><td>未来像としては保守的に見える</td></tr>
+          <tr><td>投資的な見方</td><td>直接の収益化はまだ読みにくい</td><td>エコシステム強化として理解しやすい</td></tr>
+        </tbody>
+      </table>
+      <p>重要なのは「Nothingが勝つか」ではなく、<strong>Nothingが投げた問いは業界全体に影響する</strong>点です。</p>
+
+      <!-- 噛み砕き -->
+      <div class="sec-head" id="sec-analogy">
+        <span class="sec-num">06</span>
+        <h2>なぜ「機能」が大事になるのか</h2>
+        <span class="sec-head-en">ANALOGY</span>
+      </div>
+      <p>従来のアプリを「レストラン」と考えてみてください。いままでは、オムライスが食べたければレストランという建物に入り、席に座り、メニューを見て注文していた。しかしAppFunctionsのような世界では、AIが「オムライス」という料理だけを裏口から受け取ってくるイメージに近い。つまり、建物全体ではなく<strong>必要な料理だけを呼ぶ</strong>ようになります。</p>
+      <p>この変化が意味するのは、アプリの価値が「目立つ看板」から<strong>「中で何ができるか」</strong>に移るかもしれないということ。ホーム画面で目立つ企業が強い時代から、AIに選ばれて機能を呼ばれる企業が強い時代へ寄る可能性があります。</p>
+
+      <!-- 強材料と弱材料 -->
+      <div class="sec-head" id="sec-pros-cons">
+        <span class="sec-num">07</span>
+        <h2>強材料と弱材料</h2>
+        <span class="sec-head-en">PROS &amp; CONS</span>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>強材料</th><th>弱材料</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="vertical-align:top;">
+              ・複数アプリ往復の手間を減らせる<br>
+              ・Android側がAppFunctionsを整備<br>
+              ・AI性能の向上<br>
+              ・MCPなど標準化の進展<br>
+              ・ユーザーの作業完了率向上
+            </td>
+            <td style="vertical-align:top;">
+              ・AI誤作動時の被害が大きい<br>
+              ・ブラックボックス化<br>
+              ・位置・連絡先・決済など深い権限問題<br>
+              ・業界全体の接続方式が未成熟<br>
+              ・日常での継続利用が不確実
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 産業インパクト -->
+      <div class="sec-head" id="sec-industry">
+        <span class="sec-num">08</span>
+        <h2>経済・株式分析として重要な理由</h2>
+        <span class="sec-head-en">INDUSTRY IMPACT</span>
+      </div>
+
+      <p class="sec-sub">1. 価値の取り分が変わる可能性</p>
+      <p>いまのアプリ経済では、OS、アプリストア、目立つアプリ、課金基盤が価値の中心でした。しかしAIエージェント時代になると、意図を最初に受け取る層／標準や接続ルールを握る層／AIに呼ばれやすい機能を持つ層／信頼と認証を担保する層の重要性が増す可能性があります。<strong>評価される企業の軸が変わる</strong>かもしれません。</p>
+
+      <p class="sec-sub">2. 新しい門番が生まれる可能性</p>
+      <p>検索時代は検索エンジンが門番でした。スマホ時代はOSとアプリストアが門番でした。次は<strong>「ユーザーの意図を最初に受け取るAI」が門番になる</strong>かもしれません。これは便利さの話であると同時に、<strong>市場の分配権の話</strong>でもあります。</p>
+
+      <p class="sec-sub">3. 株式市場で見方が変わる可能性</p>
+      <p>今後は「アプリのMAUが多い」「UIが便利」という見方だけでは不十分になるかもしれません。見るべきは、AI連携の深さ、機能公開のしやすさ、標準への対応、権限管理と安全設計、データの質と独自性、AI時代の入口になるか依存するかといった点です。</p>
+
+      <div class="hlbox">
+        <p><strong>一行で言えば</strong>：いままでは「人に選ばれるアプリ」が強かった。これからは「AIに呼ばれる機能」が強くなるかもしれない。</p>
+      </div>
+
+      <!-- 反対意見 -->
+      <div class="sec-head" id="sec-caution">
+        <span class="sec-num">09</span>
+        <h2>反対意見や注意点</h2>
+        <span class="sec-head-en">COUNTERPOINTS</span>
+      </div>
+      <p class="sec-sub">注意点1　「アプリ消滅」は言いすぎ</p>
+      <p>すぐにアプリがなくなるわけではありません。体験そのものが価値のサービス（ゲーム、動画、買い物比較、クリエイティブ作業）は、今後も豊かなUIを必要とする可能性が高い。</p>
+
+      <p class="sec-sub">注意点2　人間は意図をうまく言語化できない</p>
+      <p>AIが賢くても、指示が曖昧なら結果も曖昧になります。未来は<strong>AIが候補を出し、人間が選び直すハイブリッド型</strong>になる可能性が高いです。</p>
+
+      <p class="sec-sub">注意点3　プライバシーの壁は重い</p>
+      <p>本当に役立つエージェントほど深い文脈を必要とします。便利になるほど預ける情報が増えるので、<strong>技術競争はそのまま信頼競争</strong>になります。</p>
+
+      <p class="sec-sub">注意点4　標準は普及して初めて意味を持つ</p>
+      <p>MCPやAppFunctionsのような仕組みがあっても、実際にどこまで広がるかは別問題。開発者負担、セキュリティ、相互運用性、収益配分のルールが整わないと、話は途中で止まる可能性もあります。</p>
+
+      <!-- 立場別 -->
+      <div class="sec-head" id="sec-stakeholders">
+        <span class="sec-num">10</span>
+        <h2>立場別メリット・デメリット</h2>
+        <span class="sec-head-en">STAKEHOLDERS</span>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>観点</th><th>メリット</th><th>デメリット</th></tr></thead>
+        <tbody>
+          <tr><td>ユーザー</td><td>作業が速い、横断が楽、学習コスト低下</td><td>判断過程が見えにくい、任せすぎの危険</td></tr>
+          <tr><td>開発者</td><td>UI量産より高付加価値領域へ移れる</td><td>機能公開・権限管理・責任設計が重い</td></tr>
+          <tr><td>プラットフォーム</td><td>滞在時間より成果達成で価値を出せる</td><td>規制・責任・信頼問題が重い</td></tr>
+          <tr><td>投資家</td><td>新しい勝ち筋を早く見つけられる</td><td>テーマ先行で過熱しやすい</td></tr>
+          <tr><td>社会全体</td><td>生産性改善の余地</td><td>門番化、誘導、監視的利用への懸念</td></tr>
+        </tbody>
+      </table>
+
+      <!-- 今後の注目 -->
+      <div class="sec-head" id="sec-watch">
+        <span class="sec-num">11</span>
+        <h2>今後の注目点</h2>
+        <span class="sec-head-en">WHAT TO WATCH</span>
+      </div>
+      <ol>
+        <li><strong>対応権限の広がり</strong>　決済、通知、外部サービス、通話、より深い個人データまで広がるか</li>
+        <li><strong>継続利用の有無</strong>　実際にユーザーが日常でAI代行をどれだけ使うか</li>
+        <li><strong>標準の成熟度</strong>　MCPのような共通規格がどこまで広がるか</li>
+        <li><strong>規制と責任設計</strong>　AIが予約・購入・連絡・データ操作までまたぐ時の責任問題</li>
+        <li><strong>企業の開示の仕方</strong>　何の機能をAIへ公開するのか、どの標準に対応するのか、どのデータを武器にするのか</li>
+      </ol>
+
+      <!-- まとめ -->
+      <div class="sec-head" id="sec-summary">
+        <span class="sec-num">12</span>
+        <h2>結局どう見るべきか</h2>
+        <span class="sec-head-en">SUMMARY</span>
+      </div>
+      <p>このテーマは「アプリが終わるかどうか」という二択で見るべきではありません。本質は、アプリという箱の存在感が薄れ、機能単位で呼ばれる世界へ寄るのかどうかにあります。短期では「アプリ消滅」より「アプリを意識しない時間が増える」が現実的です。中長期では、新しい門番が誰になるかが最大の論点になります。OS、検索、ストアの次に「意図の入口」を握る企業が強くなる可能性があります。</p>
+      <p>投資家やビジネス側は、派手なデモよりも<strong>権限・標準・継続利用・信頼設計・実際の接続範囲</strong>を見るべきです。経済・株式の観点では、この変化を「ガジェットの流行」ではなく<strong>ソフトウェア産業の価値配分の見直し</strong>として見ることが重要です。</p>
+
+      <div class="art-summary">
+        <div class="art-summary-label">3行まとめ</div>
+        <ol>
+          <li>すぐにアプリが消えるとは言いにくいが、アプリを探して開いて回る手間は薄れる可能性が高い。</li>
+          <li>勝負の軸は、目立つUIから、AIに呼ばれる機能と"意図の入口"へ移るかもしれない。</li>
+          <li>投資・経済の視点では、標準化、安全性、継続利用、信頼設計を追うことが重要になる。</li>
+        </ol>
+      </div>
+
+      <div class="disclaimer">
+        <strong>ご注意</strong>：本記事は技術動向と産業構造を考えるための整理であり、特定銘柄の売買を推奨するものではありません。実際の投資判断は、各社の開示、製品進捗、競争環境、規制動向を確認したうえで、自己責任で行ってください。
+      </div>
+
+      <hr class="art-hr">
+
+      <div class="related-head">RELATED ARTICLES</div>
+      <div class="related-list">
+        <a href="../2026-04-18-private-credit/" class="related-item">
+          <span class="related-tag">マクロ</span>
+          <span class="related-title">プライベートクレジット問題とは何か　次のリーマンではないが、静かな危機は始まるのか 2026.04.18</span>
+        </a>
+        <a href="../2026-04-18-oda/" class="related-item">
+          <span class="related-tag">時事</span>
+          <span class="related-title">なぜ日本は海外に金を出せて、国民には遅いのか｜ODAをいま批判的に考える 2026.04.18</span>
+        </a>
+      </div>
+
+    </main>
+
+    <aside class="art-sidebar">
+      <div class="sidebar-toc">
+        <div class="sidebar-toc-label">目次</div>
+        <ul class="toc-list">
+          <li><a href="#sec-conclusion"><span class="toc-n">01</span>先に結論</a></li>
+          <li><a href="#sec-overview"><span class="toc-n">02</span>全体像</a></li>
+          <li><a href="#sec-map"><span class="toc-n">03</span>論点の地図</a></li>
+          <li><a href="#sec-facts"><span class="toc-n">04</span>事実整理</a></li>
+          <li><a href="#sec-compare"><span class="toc-n">05</span>Nothing vs Google</a></li>
+          <li><a href="#sec-analogy"><span class="toc-n">06</span>噛み砕き</a></li>
+          <li><a href="#sec-pros-cons"><span class="toc-n">07</span>強材料と弱材料</a></li>
+          <li><a href="#sec-industry"><span class="toc-n">08</span>産業インパクト</a></li>
+          <li><a href="#sec-caution"><span class="toc-n">09</span>反対意見</a></li>
+          <li><a href="#sec-stakeholders"><span class="toc-n">10</span>立場別</a></li>
+          <li><a href="#sec-watch"><span class="toc-n">11</span>今後の注目点</a></li>
+          <li><a href="#sec-summary"><span class="toc-n">12</span>まとめ</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-meta">
+        <div class="sidebar-meta-label">TAGS</div>
+        <div class="tag-cloud">
+          <span class="tag-pill">Nothing</span>
+          <span class="tag-pill">Google</span>
+          <span class="tag-pill">Gemini</span>
+          <span class="tag-pill">AppFunctions</span>
+          <span class="tag-pill">MCP</span>
+          <span class="tag-pill">AIエージェント</span>
+          <span class="tag-pill">アプリ</span>
+          <span class="tag-pill">テック株</span>
+          <span class="tag-pill">プラットフォーム戦略</span>
+          <span class="tag-pill">生成AI</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; 2026 AIデータ二刀流ブログ</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>
