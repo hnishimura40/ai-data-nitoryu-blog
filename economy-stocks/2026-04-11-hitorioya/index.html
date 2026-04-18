@@ -6,100 +6,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="/assets/img/logo.png">
   <link rel="apple-touch-icon" href="/assets/img/logo.png">
-  <meta name="description" content="ひとり親家庭はなぜ苦しいのか　働いているのに楽にならない本当の理由 | ひとり親家庭の話になると、議論はしばしば二つの極端に分かれます。 一つは「もっと給付を増やせばいい」という見方。もう一つは「働けば何とかなる」「自己責任ではないか」という見方です。 しかし、実態はそのどちらだけでも説明できません">
+  <meta name="description" content="ひとり親家庭はなぜ苦しいのか。児童扶養手当、就学援助、養育費、孤立、制度の入口設計まで、数字と実態からわかりやすく整理します。">
   <title>ひとり親家庭はなぜ苦しいのか　働いているのに楽にならない本当の理由 | AIデータ二刀流ブログ</title>
   <link rel="stylesheet" href="../../assets/css/style.css?v=5">
   <link rel="stylesheet" href="../../assets/css/article.css?v=7">
-  <link rel="stylesheet" href="../../assets/css/article-enhance.css?v=20260418e">
+  <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418m">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
-    .art-hero { background: linear-gradient(135deg, #0d1e38 0%, #475569 100%); padding: 44px 24px; }
-    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; }
-    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
-    .art-cat-main { background: #475569; color: #fff; }
-    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.95; }
-    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.55); display: flex; gap: 16px; flex-wrap: wrap; }
-    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
-    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
-    .art-body { min-width: 0; }
-    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
-    .art-body strong { color: #1a2744; }
-    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
-    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
-    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
-    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #475569; background: #f0f4fb; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
-    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
-    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
-    @media (max-width: 560px) { .sec-head-en { display: none; } }
-    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #475569; }
-    .summary-box { background: linear-gradient(135deg, #f0f6ff, #e6eefb); border: 1px solid #b5cdf0; border-left: 4px solid #475569; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
-    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #475569; margin-bottom: 12px; }
-    .summary-box ul { margin: 0; }
-    .summary-box li { font-size: 0.87rem; }
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; display: block; overflow-x: auto; }
-    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
-    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:nth-child(even) td { background: #f8fafd; }
-    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
-    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
-    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
-    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
-    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px;  max-width: 640px; margin-left: auto !important; margin-right: auto !important; }
-    .video-box-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 10px; }
-    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
-    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
-    .related-list { display: flex; flex-direction: column; gap: 10px; }
-    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
-    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
-    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #475569; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
-    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
-    .art-sidebar { font-size: 0.88rem; }
-    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
-    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
-    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
-    .toc-list { list-style: none; padding: 0; margin: 0; }
-    .toc-list li { border-bottom: 1px solid #e8ecf4; }
-    .toc-list li:last-child { border-bottom: none; }
-    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
-    .toc-list a:hover { color: #475569; }
-    .toc-n { font-size: 0.62rem; font-weight: 900; color: #475569; flex-shrink: 0; width: 22px; }
-    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
-    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
-    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
-    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
-  
-    .art-hero { padding: 24px 0 0 0 !important; }
-    .art-hero-thumb { width: 100%; max-width: 1100px; max-height: 360px; object-fit: cover; display: block; margin: 0 auto; }
-    .art-hero-title-block { max-width: var(--max-width, 1100px); margin: 0 auto; padding: 22px 24px 18px !important; }
-
-    .art-body > main .sec-head + p,
-    .art-body .sec-head + p {
-      background: linear-gradient(135deg, #f7f9fc, #eef3fb);
-      border-left: 4px solid #1a4fa0;
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      font-weight: 500;
-      margin-top: 0;
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0 36px; }
+    .stat-card { background: linear-gradient(145deg, #fff, #f5f7ff); border: 1px solid #e4e8f4; border-radius: 16px; padding: 22px 24px; position: relative; overflow: hidden; }
+    .stat-card::before { content: ""; position: absolute; inset: 0 auto auto 0; width: 4px; height: 100%; background: linear-gradient(180deg, #7c3aed, #06b6d4); }
+    .stat-card-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; text-transform: uppercase; margin-bottom: 10px; }
+    .stat-card-number { font-family: 'Poppins', sans-serif; font-size: 2.2rem; font-weight: 900; color: #0f0a2e; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; font-style: italic; }
+    .stat-card-sub { font-size: 0.82rem; color: #5a6380; line-height: 1.6; }
+    @media (max-width:560px) { .stat-card-number { font-size: 1.8rem; } }
+    @media (prefers-color-scheme: dark) {
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #a78bfa !important; } .stat-card-number { color: #f5f7ff !important; } .stat-card-sub { color: #9aa3bf !important; }
     }
-    .data-table th { font-size: 0.82rem; letter-spacing: 0.04em; }
-    .data-table { border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-    .data-table strong { color: #1a4fa0; font-weight: 900; }
-    .art-body p strong { color: #1a4fa0; font-weight: 800; background: linear-gradient(transparent 62%, #ffe58a 62%, #ffe58a 92%, transparent 92%); padding: 0 2px; }
-    .art-body p { text-align: justify; text-justify: inter-ideograph; }
-    .art-body h2 + p, .art-body .sec-sub + p { margin-top: 14px; }
 
-    /* article-body-enhanced */
+    /* 4つの壁（2x2グリッド） */
+    .wall-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 24px 0 36px; }
+    @media (max-width:560px) { .wall-grid { grid-template-columns: 1fr; } }
+    .wall-card { background: #fff; border-radius: 14px; padding: 20px 22px; border: 1px solid #e4e8f4; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); position: relative; border-left: 4px solid #ef4444; }
+    .wall-card-num { position: absolute; top: -10px; right: 14px; background: #ef4444; color: #fff; font-size: 0.68rem; font-weight: 900; letter-spacing: .1em; padding: 3px 10px; border-radius: 3px; }
+    .wall-card-title { font-size: 1rem; font-weight: 900; color: #0f0a2e; margin-bottom: 8px; }
+    .wall-card-desc { font-size: 0.86rem; color: #4a5270; line-height: 1.75; margin-bottom: 8px; }
+    .wall-card-example { background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 8px 12px; font-size: 0.8rem; color: #991b1b; }
+    @media (prefers-color-scheme: dark) {
+      .wall-card { background: #141828 !important; border-color: #2a3150 !important; border-left-color: #ef4444 !important; }
+      .wall-card-title { color: #f5f7ff !important; } .wall-card-desc { color: #b9c1d9 !important; }
+      .wall-card-example { background: rgba(239,68,68,0.12) !important; border-color: rgba(239,68,68,0.4) !important; color: #fca5a5 !important; }
+    }
+
+    /* 3本柱（支援制度） */
+    .pillars3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 24px 0 36px; }
+    @media (max-width:720px) { .pillars3 { grid-template-columns: 1fr; } }
+    .pillar3 { background: linear-gradient(180deg, #fafbff 0%, #f0f3fa 100%); border-radius: 14px; padding: 22px 24px; border: 1px solid #dbe2f0; text-align: center; }
+    .pillar3-icon { font-size: 2.2rem; line-height: 1; margin-bottom: 10px; }
+    .pillar3-title { font-size: 0.98rem; font-weight: 900; color: #0f0a2e; margin-bottom: 8px; }
+    .pillar3-role { display: inline-block; font-size: 0.7rem; font-weight: 900; letter-spacing: .1em; padding: 3px 10px; border-radius: 3px; background: #e0e7ff; color: #4338ca; margin-bottom: 10px; }
+    .pillar3-desc { font-size: 0.85rem; color: #4a5270; line-height: 1.75; text-align: left; }
+    @media (prefers-color-scheme: dark) {
+      .pillar3 { background: linear-gradient(180deg, #181c2e 0%, #141828 100%) !important; border-color: #2a3150 !important; }
+      .pillar3-title { color: #f5f7ff !important; } .pillar3-desc { color: #b9c1d9 !important; }
+      .pillar3-role { background: rgba(167,139,250,0.2) !important; color: #c4b5fd !important; }
+    }
+
+    .matrix { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 50%, #061733 100%); border-radius: 20px; padding: 32px 30px; color: #fff; margin: 28px 0 36px; }
+    .matrix-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 18px; }
+    .matrix h3 { font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0 0 20px; }
+    .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    @media (max-width:560px) { .matrix-grid { grid-template-columns: 1fr; } .matrix { padding: 22px 18px; } .matrix h3 { font-size: 1.05rem; } }
+    .matrix-cell { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 18px 20px; }
+    .matrix-cell-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; gap: 10px; }
+    .matrix-cell-type { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #a78bfa; }
+    .matrix-cell-ticker { font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 900; font-style: italic; color: #fff; }
+    .matrix-cell-desc { font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
   </style>
-  <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <a href="../../" class="site-logo">
@@ -109,9 +78,7 @@
           <span class="logo-sub">野球・競馬 × 経済・株式</span>
         </div>
       </a>
-      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="../../">TOP</a>
         <a href="../../hanshin-keiba/">野球・競馬</a>
@@ -125,290 +92,258 @@
 
   <div class="breadcrumb">
     <div class="breadcrumb-inner">
-      <a href="../../">TOP</a>
-      <span class="breadcrumb-sep">›</span>
-      <a href="../../economy-stocks/">経済・株式</a>
-      <span class="breadcrumb-sep">›</span>
-      <span>ひとり親家庭はなぜ苦しいのか　働いているのに楽にならない本当の理由</span>
+      <a href="../../">TOP</a><span class="breadcrumb-sep">›</span>
+      <a href="../../economy-stocks/">経済・株式</a><span class="breadcrumb-sep">›</span>
+      <span>ひとり親家庭はなぜ苦しいのか</span>
     </div>
   </div>
 
   <div class="art-hero">
-    <img src="thumb.png?v=20260418c" alt="記事サムネイル" class="art-hero-thumb">
+    <img src="thumb.png?v=20260418m" alt="ひとり親家庭の現実" class="art-hero-thumb">
     <div class="art-hero-title-block">
-      <div class="art-hero-cats"><span class="art-cat-badge art-cat-main">社会</span></div>
-      <h1 class="art-hero-h1">ひとり親家庭はなぜ苦しいのか　働いているのに楽にならない本当の理由</h1>
-      <div class="art-hero-meta">
-        <span>2026.04.11</span>
-        <span>AIデータ二刀流ブログ</span>
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-opinion">社会・社会保障</span>
+        <span class="art-cat-badge art-cat-warn">ひとり親</span>
+        <span class="art-cat-badge art-cat-politics">制度設計</span>
       </div>
+      <h1 class="art-hero-h1">ひとり親家庭はなぜ苦しいのか　働いているのに楽にならない本当の理由</h1>
+      <div class="art-hero-meta"><span>2026年4月11日</span><span>AIデータ二刀流ブログ</span></div>
     </div>
   </div>
 
   <div class="art-layout">
     <main class="art-body">
 
-
       <div class="hero-summary">
         <div class="hero-summary-label">この記事のコア</div>
-        <h2>本当に重要なのは、次の五つです。</h2>
-        <p></p>
+        <h2>「働いていないから苦しい」ではない。かなり働いているのに、生活が安定しにくい構造問題。</h2>
+        <p>母子世帯の母の就業率は<strong>86.3%</strong>。それでも相対的貧困率は<strong>44.5%</strong>にのぼります。原因は本人の努力不足ではなく、労働市場・家計・制度アクセス・孤立の4つが絡み合った<strong>構造問題</strong>。だから支援は「給付を増やす」だけでは足りず、<strong>必要な人に間に合う形で届くか</strong>が本丸です。</p>
       </div>
-<p>ひとり親家庭の話になると、議論はしばしば二つの極端に分かれます。</p>
-      <p>一つは「もっと給付を増やせばいい」という見方。もう一つは「働けば何とかなる」「自己責任ではないか」という見方です。</p>
-<p>しかし、実態はそのどちらだけでも説明できません。</p>
-      <p>ひとり親家庭は、働いていないから苦しいのではなく、かなり働いているのに、生活が安定しにくい。しかも、苦しさの正体は生活費の不足だけではなく、学校でかかる費用、養育費の不払い、相談や手続きのしにくさ、孤立感まで重なってできています。</p>
-<p>この記事では、こども家庭庁や文部科学省の公表資料をもとに、ひとり親家庭の現状を初心者向けに噛み砕いて整理します。そのうえで、「何が重要か」「どこを見るべきか」「支援をどう考えるべきか」を、限られた財源という現実も踏まえて考えます。</p>
 
-      <div class="video-box" style="max-width:640px;margin-left:auto;margin-right:auto;">
+      <div class="video-box">
         <div class="video-box-label">▶ 動画でも解説しています</div>
         <div class="video-embed-wrap">
-          <iframe src="https://www.youtube.com/embed/matEcFXtMSE" title="ひとり親家庭はなぜ苦しいのか　働いているのに楽にならない本当の理由" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/matEcFXtMSE" title="ひとり親家庭" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+
       <div class="q-summary">
         <div class="q-summary-label">3行まとめ</div>
         <ol>
-      <li>ひとり親家庭は、働いていないから苦しいのではなく、働いていても安定しにくい構造にある。</li>
-      <li>児童扶養手当、就学援助、養育費、相談支援は、それぞれ支える場所が違う。</li>
-      <li>本当に重要なのは、制度の数よりも、必要な人に間に合う形で届く仕組みをつくること。</li>
+          <li>ひとり親家庭は<strong>働いていないから苦しいのではなく、働いていても安定しにくい構造</strong>にある。</li>
+          <li>児童扶養手当・就学援助・養育費・相談支援は<strong>それぞれ支える場所が違う</strong>。</li>
+          <li>本当に重要なのは、制度の数よりも<strong>必要な人に間に合う形で届く仕組み</strong>をつくること。</li>
         </ol>
       </div>
 
-      
-
-      <div class="sec-head" id="sec-conclusion">
-        <span class="sec-num">00</span>
-        <h2>先に結論</h2>
-        <span class="sec-head-en">CONCLUSION</span>
-      </div>
-<p>結論から言うと、ひとり親家庭支援の本丸は、給付額を増やすことだけではありません。</p>
-<p>本当に重要なのは、次の五つです。</p>
-
-<p># テーマの全体像</p>
-<p>ひとり親家庭の問題は、単なる「貧困問題」ではありません。より正確に言えば、次の四つが重なった問題です。</p>
-<ul>
-<li>労働市場の問題：働いても安定収入に乗りにくい</li>
-<li>家計の問題：生活費・教育費・養育費の穴が大きい</li>
-<li>制度アクセスの問題：情報・時間・手続きの壁が厚い</li>
-<li>孤立の問題：相談相手がいない、つながりが弱い</li>
-</ul>
-<p>この四つは別々ではなく、連動します。</p>
-      <p>たとえば、仕事と育児で時間がなくなると、制度を調べる時間もなくなる。制度が使えないと家計がさらに厳しくなる。家計が厳しいと孤立しやすくなる。孤立すると、ますます支援につながりにくくなる。</p>
-<p>ここを一つの構造として見ないと、「現金を増やす」「本人の努力を促す」といった単線的な議論になりやすく、実態を外します。</p>
-<p># まず押さえたい重要数字</p>
-<p>以下の表は、このテーマの全体像をつかむうえでの基礎データです。</p>
-<table class="data-table">
-<thead><tr>
-<th>項目</th>
-<th>数字・内容</th>
-<th>何を意味するか</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>母子世帯の母の就業率</td>
-<td><strong>86.3%</strong></td>
-<td>「働いていないから苦しい」わけではない</td>
-</tr>
-<tr>
-<td>就業者のうち正規の職員・従業員</td>
-<td><strong>48.8%</strong></td>
-<td>正社員の人も多いが、それでも苦しい</td>
-</tr>
-<tr>
-<td>母自身の平均年間収入</td>
-<td><strong>272万円</strong></td>
-<td>働いていても家計に余裕が出にくい</td>
-</tr>
-<tr>
-<td>母自身の平均年間就労収入</td>
-<td><strong>236万円</strong></td>
-<td>給与収入ベースではさらに厳しい</td>
-</tr>
-<tr>
-<td>世帯全体の平均年間収入</td>
-<td><strong>373万円</strong></td>
-<td>世帯全体で見ても楽とは言いにくい</td>
-</tr>
-<tr>
-<td>養育費の現在受給率</td>
-<td><strong>28.1%</strong></td>
-<td>本来入るべきお金が十分に流れていない</td>
-</tr>
-<tr>
-<td>就学援助（要保護）</td>
-<td>約8万人</td>
-<td>学校費支援が必要な世帯が一定数ある</td>
-</tr>
-<tr>
-<td>就学援助（準要保護）</td>
-<td>約114万人</td>
-<td>「学校生活の費用負担」は広く重い</td>
-</tr>
-<tr>
-<td>ひとり親世帯の相対的貧困率</td>
-<td><strong>44.5%</strong></td>
-<td>日本のひとり親世帯の厳しさを示す代表指標</td>
-</tr>
-</tbody></table>
-<p>※相対的貧困率は重要な指標ですが、現物給付や資産の多寡を十分に反映しない点には注意が必要です。</p>
-<p># 初心者向けの噛み砕き説明</p>
-<p>この話をすごく単純に言うと、ひとり親家庭は「スタート地点に立つ前に、すでに体力をかなり使っている状態」です。</p>
-<p>朝は子どもの準備、送迎、仕事、帰宅後は食事、洗濯、宿題、寝かしつけ。ここまでやって、ようやく一日が終わります。そのあとに制度を調べて、比較して、必要書類をそろえて、窓口へ行く余力がどれだけ残るのか。</p>
-<p>この現実を見ないまま、「制度はあります」「使わないのは本人の問題」と言ってしまうと、実態から外れます。</p>
-<p># 論点整理1　働いていないから苦しい、ではない</p>
-<p>母子世帯の母の就業率は<strong>86.3%</strong>です。これはかなり高い水準で、「働いていないから苦しい」という理解が実態とずれていることを示しています。</p>
-<p>問題は、働いているかどうかではなく、どのような条件の仕事に就けるかです。</p>
-<p>ひとり親家庭では、子どもの急病、送迎、学校対応など、時間の融通が必要な場面が多くなります。そのため、残業前提、急なシフト変更前提、遠距離通勤前提の仕事は選びにくい。能力や意欲の問題というより、生活条件が仕事の選択肢を狭めるわけです。</p>
-<p>ここで「正社員になれば解決」と単純に考えるのも危険です。正規の職員・従業員は<strong>48.8%</strong>います。それでも平均年間収入は<strong>272万円</strong>です。つまり、正社員かどうかだけではなく、「続けられる働き方か」「収入が本当に安定するか」を見なければなりません。</p>
-<p># 論点整理2　家計を支える制度はあるが、役割が違う</p>
-<p>制度を考えるときは、「何を支える制度なのか」を分けて理解したほうがわかりやすいです。</p>
-<p>## 児童扶養手当</p>
-<p>児童扶養手当は、生活費の土台です。</p>
-      <p>家賃、食費、光熱費など、暮らし全体の底が抜けないようにするための制度と見ると理解しやすいでしょう。</p>
-<p><strong>2024年11月</strong>には所得限度額や第3子以降加算の引上げも行われ、制度改善も進みました。ただし、これだけで生活が完成するわけではありません。あくまで「底支え」であり、就労収入や他の支援と組み合わせて初めて意味を持つ制度です。</p>
-<p>## 就学援助</p>
-<p>就学援助は、学校でかかる費用の穴埋めです。</p>
-<p>学校は授業料だけでは回りません。学用品、通学用品、新入学準備、修学旅行、給食、部活動、PTA会費、卒業アルバム、オンライン学習通信費まで、見えにくい出費が積み重なります。</p>
-<p>就学援助は、こうした「学校生活のために必要だが、家計をじわじわ圧迫する支出」を支える制度です。児童扶養手当と似て見えて、支える場所が違います。</p>
-<p>## 養育費</p>
-<p>養育費は、公費で支える制度ではなく、「本来流れるべきお金」です。</p>
-<p>離婚した母子家庭のうち、現在も養育費を受け取っているのは<strong>28.1%</strong>にとどまります。ここが大きな問題です。本来家庭の中で循環するはずのお金が十分に流れないため、一方の親と公的支援に過剰な負担が寄ってしまいます。</p>
-<p>この意味で、養育費の確保は「おまけの支援」ではなく、支援構造の中心に近い論点です。</p>
-<p># 論点整理3　制度があっても届かない理由</p>
-<p>ここが、このテーマで最も見落とされやすい点です。</p>
-<p>制度がないことも問題ですが、同じくらい大きいのが「制度までたどり着けない」ことです。</p>
-<p>## 制度アクセスを阻む4つの壁</p>
-<table class="data-table">
-<thead><tr>
-<th>壁</th>
-<th>具体例</th>
-<th>何が起きるか</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>時間の壁</td>
-<td>仕事、送迎、家事、育児で一日が終わる</td>
-<td>制度を調べる余裕がない</td>
-</tr>
-<tr>
-<td>手続きの壁</td>
-<td>必要書類、窓口、予約、平日昼の来庁</td>
-<td>申請の途中で止まりやすい</td>
-</tr>
-<tr>
-<td>心理の壁</td>
-<td>こんなことで相談していいのか、自分が悪いのではないか</td>
-<td>相談自体をためらう</td>
-</tr>
-<tr>
-<td>孤立の壁</td>
-<td>誰にも話せない、比較対象がない</td>
-<td>小さな困りごとが大きくなるまで外に出ない</td>
-</tr>
-</tbody></table>
-<p>この4つは互いに強化し合います。</p>
-      <p>時間がないから調べられない。調べられないから不安になる。不安になるから相談しにくくなる。相談しにくいから孤立する。孤立するからさらに支援につながりにくくなる。</p>
-<p>ここまで含めて見ると、「制度はあるのに、なぜ苦しいのか」の答えがかなり見えてきます。</p>
-<p># 論点整理4　孤立は、お金と同じくらい重い</p>
-<p>ひとり親家庭のしんどさを語るとき、お金の話は見えやすいのに、孤立の話は後回しにされがちです。</p>
-<p>しかし、孤立はかなり重い問題です。</p>
-<ul>
-<li>誰にも相談できない</li>
-<li>自分だけが遅れている気がする</li>
-<li>子どもの小さな異変を一人で抱え込む</li>
-<li>困りごとが大きくなるまで外に出ない</li>
-</ul>
-<p>こども家庭庁も、ひとり親家庭同士が悩みを打ち明けたり相談し合ったりする情報交換事業を支援メニューに位置づけています。これは、孤立が単なる気分の問題ではなく、支援の対象そのものだということを意味します。</p>
-<p># メリット・デメリット整理</p>
-<p>このテーマを考えるうえで、政策手段ごとの強みと弱みを整理しておくと見通しが良くなります。</p>
-<p>## 主要な支援策の比較</p>
-<table class="data-table">
-<thead><tr>
-<th>支援策</th>
-<th>強み</th>
-<th>弱み・注意点</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>現金給付の拡充</td>
-<td>即効性がある。家計の自由度が高い</td>
-<td>一律配布だと効率が落ちやすい。入口が遠いと取りこぼしが残る</td>
-</tr>
-<tr>
-<td>児童扶養手当</td>
-<td>生活費の土台を支えやすい</td>
-<td>これだけで生活全体を解決する制度ではない</td>
-</tr>
-<tr>
-<td>就学援助</td>
-<td>学校費の穴埋めに直結しやすい</td>
-<td>自治体差があり、周知不足だと使われにくい</td>
-</tr>
-<tr>
-<td>養育費確保支援</td>
-<td>本来流れるべきお金を回復させやすい</td>
-<td>履行確保に時間・手続・心理的負担がある</td>
-</tr>
-<tr>
-<td>就業支援・資格取得支援</td>
-<td>中長期で所得改善につながりやすい</td>
-<td>生活・託児・時間支援が伴わないと使い切れない</td>
-</tr>
-<tr>
-<td>生活支援・一時預かり</td>
-<td>離職防止や就業継続に効きやすい</td>
-<td>目立ちにくく、予算の優先度が下がりやすい</td>
-</tr>
-<tr>
-<td>プッシュ型・先回り支援</td>
-<td>取りこぼしを減らしやすい</td>
-<td>個人情報や実務設計への丁寧な配慮が必要</td>
-</tr>
-</tbody></table>
-<p>ポイントは、どれか一つが万能ではないことです。</p>
-      <p>現金給付だけでも足りないし、就労支援だけでも足りない。入口設計だけ直しても、そもそも制度が薄ければ苦しい。結局は、複数の穴を組み合わせて埋める必要があります。</p>
-<p># 反対意見や注意点</p>
-<p>## 反対意見1　「働けばいいのではないか」</p>
-<p>これは最もよく出る意見ですが、就業率<strong>86.3%</strong>という数字を見ると、実態とずれています。</p>
-      <p>論点は「働くかどうか」ではなく、「安定した収入につながる仕事を、子育てと両立しながら続けられるか」です。</p>
-<p>## 反対意見2　「給付を増やしすぎると依存を生むのではないか」</p>
-<p>一律の現金給付だけに依存する設計は確かに課題があります。</p>
-      <p>ただし、児童扶養手当や就学援助のような基礎的支援は、依存を生むための制度ではなく、生活が崩壊する手前で底を支える制度です。</p>
-<p>## 反対意見3　「支援を自動化しすぎると不公平ではないか」</p>
-<p>完全自動支給には、所得確認や個人情報管理の課題があります。したがって、すべてを一足飛びに自動化するのではなく、まずは「対象になりそうな人へ自動案内」「事前入力済み申請」「オンライン仮申請」「相談までの伴走」といった段階的設計が現実的です。</p>
-<p># 今後の注目点</p>
-<p>今後、このテーマで特に見るべきポイントは次の5つです。</p>
-<ol>
-<li>児童扶養手当の見直しが、実際の生活改善につながるか</li>
-</ol>
-
-      <div class="sec-head" id="sec-summary">
-        <span class="sec-num">99</span>
-        <h2>まとめ</h2>
-        <span class="sec-head-en">SUMMARY</span>
-      </div>
-<p>ひとり親家庭の問題を考えるとき、「もっと給付を増やせばよい」「自己責任ではないか」という二択にしてしまうと、かなり見誤ります。</p>
-<p>実態はもっと複雑です。</p>
-      <p>かなり働いているのに、生活が安定しにくい。学校でかかる費用が重い。養育費が十分に流れない。制度があっても、そこまで行く時間も気力もない。誰にも相談できず、孤立しやすい。</p>
-<p>だから必要なのは、制度の追加だけではありません。</p>
-      <p>すでにある制度を、必要な人に間に合う形で届けること。入口を近づけること。生活が完全に止まる前に、先に支えること。</p>
-<p>ひとり親家庭支援は、感情論だけでも、財政論だけでも足りません。</p>
-      <p>生活実感、制度設計、働き方、教育費、養育費、孤立。この全部を一つの構造として見ることが、今後の議論には必要だと思います。</p>
-
-
-      <div class="disclaimer">
-        <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+      <!-- 主要数値 -->
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-card-label">母の就業率</div><div class="stat-card-number">86.3<span style="font-size:1rem;">%</span></div><div class="stat-card-sub">「働いていないから苦しい」は実態と違う。</div></div>
+        <div class="stat-card"><div class="stat-card-label">正規職員比率</div><div class="stat-card-number">48.8<span style="font-size:1rem;">%</span></div><div class="stat-card-sub">正社員でも苦しいケースが多い。</div></div>
+        <div class="stat-card"><div class="stat-card-label">母の平均年収</div><div class="stat-card-number">272<span style="font-size:1rem;">万円</span></div><div class="stat-card-sub">世帯全体でも373万円と楽ではない。</div></div>
+        <div class="stat-card"><div class="stat-card-label">養育費受給率</div><div class="stat-card-number">28.1<span style="font-size:1rem;">%</span></div><div class="stat-card-sub">本来流れるべきお金が十分に流れていない。</div></div>
+        <div class="stat-card"><div class="stat-card-label">相対的貧困率</div><div class="stat-card-number">44.5<span style="font-size:1rem;">%</span></div><div class="stat-card-sub">ひとり親世帯の厳しさを示す代表指標。</div></div>
+        <div class="stat-card"><div class="stat-card-label">就学援助(準要保護)</div><div class="stat-card-number">114<span style="font-size:1rem;">万人</span></div><div class="stat-card-sub">学校生活費の負担は広く重い。</div></div>
       </div>
 
-      <hr class="art-hr">
+      <div class="q-section">
+        <div class="q-section-head"><span class="q-section-num">01</span><h2>テーマの全体像｜4つが重なった構造問題</h2><span class="q-section-head-en">OVERVIEW</span></div>
+        <p>ひとり親家庭の問題は、単なる「貧困問題」ではありません。より正確に言えば、<strong>次の4つが重なった</strong>問題です。</p>
+
+        <div class="risk-grid">
+          <div class="risk-card"><div class="risk-card-head"><span class="risk-badge" style="background:linear-gradient(135deg,#7c3aed,#06b6d4);">1</span><span class="risk-title">労働市場</span></div><div class="risk-body">働いても安定収入に乗りにくい。時間融通の必要性が職選択を狭める。</div></div>
+          <div class="risk-card"><div class="risk-card-head"><span class="risk-badge" style="background:linear-gradient(135deg,#06b6d4,#10b981);">2</span><span class="risk-title">家計</span></div><div class="risk-body">生活費・教育費・養育費の穴が大きい。学校でかかる費用が重い。</div></div>
+          <div class="risk-card"><div class="risk-card-head"><span class="risk-badge" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">3</span><span class="risk-title">制度アクセス</span></div><div class="risk-body">情報・時間・手続きの壁が厚い。制度まで辿り着けない。</div></div>
+          <div class="risk-card"><div class="risk-card-head"><span class="risk-badge" style="background:linear-gradient(135deg,#ef4444,#7c3aed);">4</span><span class="risk-title">孤立</span></div><div class="risk-body">相談相手がいない、つながりが弱い。困りごとが大きくなるまで外に出ない。</div></div>
+        </div>
+
+        <p>この4つは<strong>別々ではなく連動</strong>します。時間がない→制度を調べられない→家計が苦しい→孤立する→ますます支援につながらない。一つの構造として見ないと、単線的な議論になって実態を外します。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head"><span class="q-section-num">02</span><h2>「働けばいい」は通じない｜なぜ働いても苦しいか</h2><span class="q-section-head-en">WORK REALITY</span></div>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">⏰</div>
+            <div class="pillar-title">時間の制約</div>
+            <div class="pillar-desc">子どもの急病・送迎・学校対応で時間融通が必要。残業前提・急シフト前提・遠距離通勤の仕事は選びにくい。</div>
+            <div class="pillar-example">💡 能力や意欲ではなく、生活条件が選択肢を狭める</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">💴</div>
+            <div class="pillar-title">収入の壁</div>
+            <div class="pillar-desc">正社員でも平均年収は<strong>272万円</strong>。正規か非正規かだけではなく「続けられる働き方か」「安定するか」が問題。</div>
+            <div class="pillar-example">💡 「正社員になれば解決」は単純化しすぎ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head"><span class="q-section-num">03</span><h2>支援制度の3本柱｜役割が違う</h2><span class="q-section-head-en">SUPPORT PILLARS</span></div>
+        <p>家計を支える制度は、<strong>「何を支える制度なのか」</strong>を分けて理解すると見通しが良くなります。</p>
+
+        <div class="pillars3">
+          <div class="pillar3">
+            <div class="pillar3-icon">🏠</div>
+            <span class="pillar3-role">土台</span>
+            <div class="pillar3-title">児童扶養手当</div>
+            <div class="pillar3-desc">生活費の土台。家賃・食費・光熱費など暮らし全体の底が抜けないようにする。2024年11月に所得限度額・第3子加算の引上げあり。あくまで底支え。</div>
+          </div>
+          <div class="pillar3">
+            <div class="pillar3-icon">🎒</div>
+            <span class="pillar3-role">穴埋め</span>
+            <div class="pillar3-title">就学援助</div>
+            <div class="pillar3-desc">学校でかかる費用の穴埋め。学用品・通学用品・新入学準備・修学旅行・給食・部活・PTA会費まで広くカバー。児童扶養手当と支える場所が違う。</div>
+          </div>
+          <div class="pillar3">
+            <div class="pillar3-icon">💸</div>
+            <span class="pillar3-role">本来流れるお金</span>
+            <div class="pillar3-title">養育費</div>
+            <div class="pillar3-desc">公費で支える制度ではなく「本来流れるべきお金」。現在受給率は<strong>28.1%</strong>に留まり、家庭内の循環が不十分。支援構造の<strong>中心に近い論点</strong>。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head"><span class="q-section-num">04</span><h2>制度があっても届かない｜4つの壁</h2><span class="q-section-head-en">ACCESS BARRIERS</span></div>
+        <p>このテーマで最も見落とされやすいのが、<strong>「制度はあるのに、そこまで辿り着けない」</strong>問題です。</p>
+
+        <div class="wall-grid">
+          <div class="wall-card">
+            <span class="wall-card-num">WALL 1</span>
+            <div class="wall-card-title">⏱ 時間の壁</div>
+            <div class="wall-card-desc">仕事、送迎、家事、育児で一日が終わる。制度を調べる余裕がない。</div>
+            <div class="wall-card-example">「調べる時間がない」が入口で止まる</div>
+          </div>
+          <div class="wall-card">
+            <span class="wall-card-num">WALL 2</span>
+            <div class="wall-card-title">📋 手続きの壁</div>
+            <div class="wall-card-desc">必要書類、窓口予約、平日昼の来庁。申請途中で止まりやすい。</div>
+            <div class="wall-card-example">平日昼に役所は行けない</div>
+          </div>
+          <div class="wall-card">
+            <span class="wall-card-num">WALL 3</span>
+            <div class="wall-card-title">💭 心理の壁</div>
+            <div class="wall-card-desc">「こんなことで相談していいのか」「自分が悪いのでは」と自責し、相談そのものをためらう。</div>
+            <div class="wall-card-example">支援を受けることへの罪悪感</div>
+          </div>
+          <div class="wall-card">
+            <span class="wall-card-num">WALL 4</span>
+            <div class="wall-card-title">🌑 孤立の壁</div>
+            <div class="wall-card-desc">誰にも話せない、比較対象がない。小さな困りごとが大きくなるまで外に出ない。</div>
+            <div class="wall-card-example">崩れてから気付かれる</div>
+          </div>
+        </div>
+
+        <p>この4つは<strong>互いに強化し合う</strong>。時間→調べられない→不安→相談できない→孤立→さらに支援から遠のく、という負の循環です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head"><span class="q-section-num">05</span><h2>孤立は、お金と同じくらい重い</h2><span class="q-section-head-en">ISOLATION</span></div>
+        <p>お金の話は見えやすいのに、孤立の話は後回しにされがち。しかし孤立は<strong>支援の対象そのもの</strong>です。</p>
+
+        <div class="pros-cons">
+          <div class="con-box">
+            <div class="con-box-label">孤立が生む症状</div>
+            <ul>
+              <li>誰にも相談できない</li>
+              <li>自分だけが遅れている気がする</li>
+              <li>子どもの小さな異変を一人で抱え込む</li>
+              <li>困りごとが大きくなるまで外に出ない</li>
+            </ul>
+          </div>
+          <div class="pro-box">
+            <div class="pro-box-label">公的な取り組み</div>
+            <ul>
+              <li>こども家庭庁が情報交換事業を支援メニューに</li>
+              <li>ひとり親同士の悩み共有・相談の仕組み</li>
+              <li>オンライン・夜間相談の拡充</li>
+              <li>つながりそのものが「支援の一部」</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head"><span class="q-section-num">06</span><h2>主要な支援策｜強みと弱み</h2><span class="q-section-head-en">POLICY COMPARISON</span></div>
+
+        <table class="data-table">
+          <thead><tr><th>支援策</th><th>強み</th><th>弱み・注意点</th></tr></thead>
+          <tbody>
+            <tr><td>現金給付の拡充</td><td>即効性。家計の自由度が高い</td><td>一律だと効率が落ちる。入口が遠いと取りこぼし</td></tr>
+            <tr><td>児童扶養手当</td><td>生活費の土台を支えやすい</td><td>これだけで生活は完成しない</td></tr>
+            <tr><td>就学援助</td><td>学校費の穴埋めに直結</td><td>自治体差。周知不足だと使われない</td></tr>
+            <tr><td>養育費確保支援</td><td>本来のお金を回復できる</td><td>履行確保に時間・手続・心理負担</td></tr>
+            <tr><td>就業・資格取得支援</td><td>中長期で所得改善に効く</td><td>生活・託児・時間支援が伴わないと使い切れない</td></tr>
+            <tr><td>プッシュ型・先回り支援</td><td>取りこぼしを減らせる</td><td>個人情報や実務設計の配慮が必要</td></tr>
+          </tbody>
+        </table>
+
+        <p>ポイントは<strong>どれか1つが万能ではない</strong>こと。現金・就労・入口設計を<strong>複数組み合わせて穴を埋める</strong>必要があります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head"><span class="q-section-num">07</span><h2>よくある反対意見への答え</h2><span class="q-section-head-en">FAQ</span></div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">働けばいいのでは？</div>
+            <div class="faq-a">就業率は<strong>86.3%</strong>。論点は「働くかどうか」ではなく、<strong>「安定した収入の仕事を、子育てと両立しながら続けられるか」</strong>です。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">給付を増やすと依存を生むのでは？</div>
+            <div class="faq-a">一律給付への過度な依存設計には課題があります。しかし児童扶養手当や就学援助は<strong>「生活が崩壊する手前で底を支える」制度</strong>で、依存を生むための制度ではありません。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">支援を自動化しすぎると不公平では？</div>
+            <div class="faq-a">完全自動支給には所得確認・情報管理の課題が。<strong>段階的設計</strong>が現実的：①自動案内→②事前入力済み申請→③オンライン仮申請→④相談伴走。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head"><span class="q-section-num">08</span><h2>今後の注目点｜5つのチェック</h2><span class="q-section-head-en">WHAT TO WATCH</span></div>
+
+        <table class="data-table">
+          <thead><tr><th>#</th><th>観測ポイント</th><th>なぜ重要か</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1</strong></td><td>児童扶養手当の見直し</td><td>実際の生活改善につながるか</td></tr>
+            <tr><td><strong>2</strong></td><td>就学援助の自治体差</td><td>地域間格差がどう縮まるか</td></tr>
+            <tr><td><strong>3</strong></td><td>養育費の履行確保</td><td>本来のお金が流れる仕組みの実装</td></tr>
+            <tr><td><strong>4</strong></td><td>夜間・休日・オンライン相談</td><td>時間の壁を乗り越えられるか</td></tr>
+            <tr><td><strong>5</strong></td><td>こどもデータ連携・プッシュ型</td><td>取りこぼしを実際に減らせるか</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head"><span class="q-section-num">09</span><h2>結論｜「優しさ」と「設計」の両輪</h2><span class="q-section-head-en">CONCLUSION</span></div>
+        <p>ひとり親家庭支援は<strong>「優しさの話」であると同時に、「設計の話」</strong>でもあります。</p>
+
+        <div class="matrix">
+          <div class="matrix-label">RESTRUCTURE SUPPORT</div>
+          <h3>制度を増やすだけでなく、入口を近づけ、使い切れる形に直す</h3>
+          <div class="matrix-grid">
+            <div class="matrix-cell"><div class="matrix-cell-head"><span class="matrix-cell-type">底支え</span><span class="matrix-cell-ticker">生活費</span></div><div class="matrix-cell-desc">児童扶養手当で底が抜けないように。</div></div>
+            <div class="matrix-cell"><div class="matrix-cell-head"><span class="matrix-cell-type">穴埋め</span><span class="matrix-cell-ticker">教育費</span></div><div class="matrix-cell-desc">就学援助で学校生活の費用を軽減。</div></div>
+            <div class="matrix-cell"><div class="matrix-cell-head"><span class="matrix-cell-type">回復</span><span class="matrix-cell-ticker">養育費</span></div><div class="matrix-cell-desc">本来流れるべきお金の履行を確保。</div></div>
+            <div class="matrix-cell"><div class="matrix-cell-head"><span class="matrix-cell-type">入口設計</span><span class="matrix-cell-ticker">プッシュ</span></div><div class="matrix-cell-desc">必要な人に、先回りで情報と相談を届ける。</div></div>
+          </div>
+        </div>
+
+        <p>支援の評価軸は<strong>「制度があるか」ではなく「必要な人に届くか」</strong>。生活実感・制度設計・働き方・教育費・養育費・孤立をひとつの構造として見ることが、これからの議論には必要です。</p>
+
+        <div class="disclaimer">
+          <strong>ご注意</strong>：本記事は公表資料をもとに一般的な論点を整理したものです。制度の対象や運用は自治体差や制度改正で変わる場合があります。個別事情に応じた判断は、自治体窓口や専門家への確認もあわせておすすめします。
+        </div>
+      </div>
 
       <div class="related-head">RELATED ARTICLES</div>
       <div class="related-list">
-        <a href="../" class="related-item">
-          <span class="related-tag">一覧</span>
-          <span class="related-title">経済・株式の記事一覧へ</span>
-        </a>
+        <a href="../2026-04-05-b-type-workshop/" class="related-item"><span class="related-tag">社会</span><span class="related-title">【B型作業所の闇】誰のための制度か 2026.04.05</span></a>
+        <a href="../2026-04-08-osaka-giin/" class="related-item"><span class="related-tag">政治</span><span class="related-title">大阪府議会79人→29人案は本当に改革か 2026.04.08</span></a>
+        <a href="../" class="related-item"><span class="related-tag">一覧</span><span class="related-title">経済・株式の記事一覧へ</span></a>
       </div>
 
     </main>
@@ -417,25 +352,32 @@
       <div class="sidebar-toc">
         <div class="sidebar-toc-label">目次</div>
         <ul class="toc-list">
-          <li><a href="#sec-conclusion"><span class="toc-n">00</span>先に結論</a></li>
-
-          <li><a href="#sec-summary"><span class="toc-n">99</span>まとめ</a></li>
+          <li><a href="#"><span class="toc-n">01</span>全体像</a></li>
+          <li><a href="#"><span class="toc-n">02</span>働いても苦しい</a></li>
+          <li><a href="#"><span class="toc-n">03</span>支援の3本柱</a></li>
+          <li><a href="#"><span class="toc-n">04</span>4つの壁</a></li>
+          <li><a href="#"><span class="toc-n">05</span>孤立の問題</a></li>
+          <li><a href="#"><span class="toc-n">06</span>支援策比較</a></li>
+          <li><a href="#"><span class="toc-n">07</span>FAQ</a></li>
+          <li><a href="#"><span class="toc-n">08</span>注目点</a></li>
+          <li><a href="#"><span class="toc-n">09</span>結論</a></li>
         </ul>
       </div>
       <div class="sidebar-meta">
         <div class="sidebar-meta-label">TAGS</div>
-        <div class="tag-cloud"><span class="tag-pill">ひとり親</span><span class="tag-pill">社会保障</span><span class="tag-pill">貧困</span><span class="tag-pill">児童扶養手当</span></div>
+        <div class="tag-cloud">
+          <span class="tag-pill">ひとり親家庭</span><span class="tag-pill">児童扶養手当</span><span class="tag-pill">就学援助</span>
+          <span class="tag-pill">養育費</span><span class="tag-pill">子どもの貧困</span><span class="tag-pill">社会保障</span>
+          <span class="tag-pill">制度設計</span><span class="tag-pill">プッシュ型支援</span>
+        </div>
       </div>
     </aside>
   </div>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-      <p class="footer-copy">&copy; 2026 AIデータ二刀流ブログ</p>
-    </div>
+    <div class="footer-inner"><p class="footer-copy">&copy; 2026 AIデータ二刀流ブログ</p></div>
   </footer>
 
   <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/article-enhance.js?v=20260418e" defer></script>
 </body>
 </html>
