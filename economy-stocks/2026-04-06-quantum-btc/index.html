@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="color-scheme" content="light only">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="/assets/img/logo.png">
   <link rel="apple-touch-icon" href="/assets/img/logo.png">
@@ -17,6 +18,23 @@
     :root {
       --q-accent:#7c3aed;
       --q-accent2:#06b6d4;
+      color-scheme: light only;
+    }
+    html, body { background-color: #ffffff; color: #2a2e3c; }
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #ffffff !important; color: #2a2e3c !important; }
+      .art-body p, .art-body li { color: #2a2e3c !important; }
+      .stat-card { background: linear-gradient(145deg, #ffffff, #f5f7ff) !important; }
+      .stat-card-number, .layer-card h3, .pillar-title, .risk-title, .stock-ticker, .stock-metric-value, .faq-q, .q-section-head h2 { color: #0f0a2e !important; }
+      .stat-card-sub, .layer-card p, .pillar-desc, .risk-body, .stock-desc, .faq-a, .pillar-example { color: #4a5270 !important; }
+      .layer-card, .risk-card, .stock-card, .faq-item, .pillar, .pillar-example, .stock-metric { background-color: #ffffff !important; }
+      .pillar { background: linear-gradient(180deg, #fafbff 0%, #f0f3fa 100%) !important; }
+      .pillar.target { background: linear-gradient(180deg, #fff5f5 0%, #ffe4e4 100%) !important; }
+      .data-table td { background-color: #ffffff !important; color: #2a2e3c !important; }
+      .data-table tr:nth-child(even) td { background-color: #fafbff !important; }
+      .pro-box { color: #065f46 !important; }
+      .con-box { color: #991b1b !important; }
+      .stock-label { color: #0f0a2e !important; }
     }
     .art-hero { background: radial-gradient(circle at 20% 0%, #1e0b4a 0%, #0a0a2a 40%, #050514 80%); padding: 0; position: relative; overflow: hidden; }
     .art-hero-thumb { width: 100%; max-width: 1200px; max-height: 420px; object-fit: cover; display: block; margin: 0 auto; filter: saturate(1.1); }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body { margin: 0; background: #888; display: flex; justify-content: center; }
+.phone-frame {
+  width: 390px;
+  height: 844px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border: 3px solid #333;
+  border-radius: 20px;
+  position: relative;
+  background: white;
+}
+iframe {
+  width: 390px;
+  height: 844px;
+  border: none;
+  display: block;
+}
+</style>
+</head>
+<body>
+  <div class="phone-frame">
+    <iframe src="http://localhost:8765/hanshin-keiba/"
+            style="width:390px;height:2000px;border:none;"
+            id="f"></iframe>
+  </div>
+  <script>
+    // iframeのviewportを390pxに固定
+    const f = document.getElementById('f');
+    f.onload = function() {
+      try {
+        f.contentDocument.documentElement.style.width = '390px';
+        f.contentDocument.body.style.width = '390px';
+      } catch(e) {}
+    }
+  </script>
+</body>
+</html>

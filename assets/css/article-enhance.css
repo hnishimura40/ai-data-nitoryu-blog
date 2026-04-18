@@ -1,5 +1,11 @@
 /* 記事共通ビジュアル強化 */
 
+/* ========== ライトモード強制（携帯ダークモード対策） ========== */
+html, body { color-scheme: light only; background-color: #ffffff; }
+
+/* ルート部分の色明示。iOS Safari / Android Chrome のダークモード自動反転を抑制 */
+.art-body, .art-layout, main.art-body { background-color: transparent; }
+
 /* ========== data-table セル内バー ========== */
 .data-table td.has-bar { position: relative; }
 .data-table .cell-bar {
@@ -64,4 +70,87 @@
 .data-table th {
   font-size: 0.82rem;
   letter-spacing: 0.04em;
+}
+
+/* ========== 携帯ダークモード対策：白カードを明示的に白固定 ========== */
+@media (prefers-color-scheme: dark) {
+  /* ページ全体を明示的に白背景に */
+  html, body { background-color: #ffffff !important; color: #2a2e3c !important; }
+
+  /* 記事本文を白背景固定 */
+  .art-layout, .art-body, .blog-wrap, .main-content { background-color: #ffffff !important; }
+
+  /* 本文テキストを濃色固定 */
+  .art-body p, .art-body li { color: #2a2e3c !important; }
+
+  /* 白カード・明カード系を明示 */
+  .stat-card, .layer-card, .risk-card, .stock-card, .faq-item,
+  .related-item, .sidebar-meta, .pillar, .pillar-example,
+  .stock-metric, .article-list-item, .article-card, .post-card {
+    background-color: #ffffff !important;
+  }
+  .pillar { background: linear-gradient(180deg, #fafbff 0%, #f0f3fa 100%) !important; }
+  .pillar.target { background: linear-gradient(180deg, #fff5f5 0%, #ffe4e4 100%) !important; }
+
+  /* 本文見出し・ラベル類を濃色に */
+  .q-section-head h2, .sec-head h2,
+  .stat-card-number, .layer-card h3, .pillar-title,
+  .risk-title, .stock-ticker, .stock-metric-value,
+  .faq-q, .related-title,
+  .article-list-title, .article-title, .post-title {
+    color: #0f0a2e !important;
+  }
+
+  /* サブテキスト */
+  .stat-card-sub, .layer-card p, .pillar-desc, .risk-body,
+  .stock-desc, .faq-a, .pillar-example {
+    color: #4a5270 !important;
+  }
+
+  /* data-table */
+  .data-table { background-color: #ffffff !important; }
+  .data-table td { background-color: #ffffff !important; color: #2a2e3c !important; }
+  .data-table tr:nth-child(even) td { background-color: #fafbff !important; }
+  .data-table th { color: #ffffff !important; }
+
+  /* サイドバー目次 */
+  .sidebar-toc { background: linear-gradient(145deg, #fafbff, #f0f3fa) !important; }
+  .toc-list a { color: #4a5270 !important; }
+
+  /* KEY POINT リード */
+  .art-body .sec-lede { color: #1a2744 !important; }
+
+  /* strong ハイライト（ダークモードでも見やすく） */
+  .art-body p strong, .art-body li strong { color: #1a4fa0 !important; }
+
+  /* pro/con */
+  .pro-box { color: #065f46 !important; }
+  .con-box { color: #991b1b !important; }
+}
+
+/* ========== モバイル追加調整 ========== */
+@media (max-width: 560px) {
+  /* スタットカード文字サイズ調整 */
+  .stat-card-number { font-size: 1.9rem !important; }
+  .stock-ticker { font-size: 1.4rem !important; }
+
+  /* タイムライン文字折返し許容 */
+  .timeline { padding: 0 6px !important; }
+  .tl-label { font-size: 0.68rem !important; }
+  .tl-year { font-size: 0.88rem !important; }
+
+  /* ヒーローサマリーのパディング */
+  .hero-summary { padding: 22px 20px !important; border-radius: 14px !important; }
+  .hero-summary h2 { font-size: 1.1rem !important; }
+
+  /* マトリクス */
+  .matrix { padding: 22px 18px !important; border-radius: 14px !important; }
+  .matrix h3 { font-size: 1.05rem !important; }
+
+  /* 本文段落 */
+  .art-body p { font-size: 0.93rem !important; line-height: 1.9 !important; }
+
+  /* セクション見出し */
+  .q-section-head h2, .sec-head h2 { font-size: 1.08rem !important; }
+  .q-section-num { font-size: 1.5rem !important; }
 }
