@@ -10,338 +10,300 @@
   <title>ルーカスの立ち上がり不安と今季初連敗　阪神3-4巨人、本当の敗因は初回の四球とダルベック3ランにある | AIデータ二刀流ブログ</title>
   <link rel="stylesheet" href="../../assets/css/style.css?v=5">
   <link rel="stylesheet" href="../../assets/css/article.css?v=7">
+  <link rel="stylesheet" href="../../assets/css/article-enhance.css?v=20260418e">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
-    /* =========================================
-       OGP Hero – loss color scheme (grey/blue)
-       ========================================= */
-    .ogp-hero {
-      container-type: inline-size;
-      width: 100%;
-      aspect-ratio: 1200 / 630;
-      max-width: 600px;
-      background: #0b1525;
-      border-radius: 8px;
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      font-family: 'Noto Sans JP', sans-serif;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    :root {
+      --q-accent:#7c3aed;
+      --q-accent2:#06b6d4;
+      color-scheme: light dark;
     }
-    .ogp-left-panel {
-      width: 42%;
-      background: linear-gradient(135deg, #475569 0%, #334155 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 8cqw 4cqw;
-      gap: 3cqw;
-      clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+    html, body { background-color: #ffffff; color: #2a2e3c; }
+
+    /* ===== ダークモード：暗い配色 + 視認性重視 ===== */
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0b1020 !important; color: #d8dfef !important; }
+
+      /* 本文テキスト */
+      .art-body p, .art-body li { color: #d8dfef !important; }
+
+      /* strong は黄色マーカー（白文字と被る問題）をやめ、明るい紫文字＋薄い下地 */
+      .art-body p strong, .art-body li strong {
+        color: #c4b5fd !important;
+        background: rgba(139,92,246,0.15) !important;
+        padding: 0 4px !important;
+        border-radius: 3px !important;
+      }
+
+      /* カード類：暗い濃紺系 */
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #a78bfa !important; }
+      .stat-card-number { color: #f5f7ff !important; }
+      .stat-card-sub { color: #9aa3bf !important; }
+
+      .layer-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 6px 24px -8px rgba(0,0,0,0.4) !important; }
+      .layer-card h3 { color: #f5f7ff !important; }
+      .layer-card p { color: #c9d0e5 !important; }
+      .layer-card.tech .layer-card-tag { background: rgba(6,182,212,0.2) !important; color: #7dd3fc !important; }
+      .layer-card.market .layer-card-tag { background: rgba(245,158,11,0.18) !important; color: #fcd34d !important; }
+
+      /* セクション見出し */
+      .q-section-head { border-bottom-color: #2a3150 !important; }
+      .q-section-head h2 { color: #f5f7ff !important; }
+      .q-section-head-en { color: #5a6488 !important; }
+
+      /* 2本柱 */
+      .pillar { background: linear-gradient(180deg, #181c2e 0%, #141828 100%) !important; border-color: #2a3150 !important; }
+      .pillar-title { color: #f5f7ff !important; }
+      .pillar-desc { color: #b9c1d9 !important; }
+      .pillar-example { background: #0b1020 !important; border-color: #2a3150 !important; color: #a5adc8 !important; }
+      .pillar.target { background: linear-gradient(180deg, #2a1111 0%, #1a0a0a 100%) !important; border-color: #ef4444 !important; }
+      .pillar.target .pillar-desc, .pillar.target .pillar-title { color: #fecaca !important; }
+
+      /* リスクカード */
+      .risk-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .risk-title { color: #f5f7ff !important; }
+      .risk-body { color: #b9c1d9 !important; }
+      .risk-example { background: rgba(252,211,77,0.12) !important; color: #fcd34d !important; }
+
+      /* FAQ */
+      .faq-item { background: #141828 !important; border-color: #2a3150 !important; border-left-color: #a78bfa !important; }
+      .faq-q { color: #f5f7ff !important; }
+      .faq-a { color: #c9d0e5 !important; }
+
+      /* 銘柄カード */
+      .stock-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .stock-ticker { color: #f5f7ff !important; }
+      .stock-desc { color: #b9c1d9 !important; }
+      .stock-metric { background: #0f1322 !important; }
+      .stock-metric-label { color: #8a93ac !important; }
+      .stock-metric-value { color: #f5f7ff !important; }
+
+      /* タグは色を落としすぎないように */
+      .tag-defense { background: rgba(34,197,94,0.2) !important; color: #86efac !important; }
+      .tag-stable  { background: rgba(59,130,246,0.2) !important; color: #93c5fd !important; }
+      .tag-dream   { background: rgba(236,72,153,0.2) !important; color: #f9a8d4 !important; }
+      .tag-specu   { background: rgba(239,68,68,0.2) !important; color: #fca5a5 !important; }
+
+      /* 銘柄ラベル */
+      .stock-label { color: #f5f7ff !important; }
+
+      /* 強材料・弱材料 */
+      .pro-box { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.05)) !important; border-color: rgba(16,185,129,0.4) !important; color: #86efac !important; }
+      .con-box { background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(239,68,68,0.05)) !important; border-color: rgba(239,68,68,0.4) !important; color: #fca5a5 !important; }
+
+      /* テーブル */
+      .data-table { box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5) !important; }
+      .data-table td { background-color: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+      .data-table strong { color: #c4b5fd !important; background: none !important; }
+
+      /* サイドバー */
+      .sidebar-toc { background: linear-gradient(145deg, #141828, #0f1322) !important; border-color: #2a3150 !important; }
+      .sidebar-toc-label { color: #a78bfa !important; }
+      .toc-list a { color: #b9c1d9 !important; }
+      .toc-list a:hover { color: #c4b5fd !important; }
+      .toc-list li { border-bottom-color: #2a3150 !important; }
+      .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+      .sidebar-meta-label { color: #a78bfa !important; }
+      .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+
+      /* 関連記事 */
+      .related-item { background: #141828 !important; border-color: #2a3150 !important; }
+      .related-title { color: #f5f7ff !important; }
+      .related-head { color: #a78bfa !important; border-bottom-color: #2a3150 !important; }
+
+      /* disclaimer */
+      .disclaimer { background: rgba(217,119,6,0.1) !important; color: #fcd34d !important; border-color: rgba(217,119,6,0.4) !important; }
+
+      /* ヘッダー・ブレッドクラム */
+      .site-header { background: #0b1020 !important; border-bottom: 1px solid #2a3150 !important; }
+      .breadcrumb { background: #0f1322 !important; }
+      .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
     }
-    .ogp-team-name {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-weight: 900;
-      font-size: 5cqw;
-      color: #e2e8f0;
-      letter-spacing: 0.1em;
+    .art-hero { background: radial-gradient(circle at 20% 0%, #4a0b0b 0%, #2a0a0a 40%, #140505 80%); padding: 0; position: relative; overflow: hidden; }
+    .art-hero-thumb { width: 100%; max-width: 1200px; max-height: 420px; object-fit: cover; display: block; margin: 0 auto; filter: saturate(1.1); }
+    .art-hero-title-block { max-width: 1100px; margin: 0 auto; padding: 26px 28px 22px; position: relative; z-index: 2; }
+    .art-hero-cats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; }
+    .art-cat-baseball { background: linear-gradient(90deg, #facc15, #f59e0b); color: #3a2a00; }
+    .art-cat-game { background: #0ea5e9; color: #fff; }
+    .art-cat-loss { background: #7f1d1d; color: #fecaca; }
+    .art-hero-h1 { font-size: clamp(1.2rem, 2.8vw, 1.8rem); font-weight: 900; color: #fff; line-height: 1.4; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .art-hero-meta { font-size: 0.78rem; color: rgba(255,255,255,0.65); display: flex; gap: 18px; flex-wrap: wrap; }
+
+    .art-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 44px 24px 80px; align-items: flex-start; }
+    @media (max-width: 900px) { .art-layout { grid-template-columns: 1fr; padding: 28px 16px 60px; gap: 0; } }
+
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.96rem; line-height: 2; color: #2a2e3c; margin-bottom: 18px; }
+    .art-body strong { color: #7c3aed; font-weight: 800; }
+
+    /* HERO SUMMARY */
+    .hero-summary {
+      background: linear-gradient(135deg, #0f0a2e 0%, #1a0a4e 60%, #061733 100%);
+      border-radius: 20px; padding: 32px 36px; color: #fff;
+      margin-bottom: 40px; position: relative; overflow: hidden;
     }
-    .ogp-score {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 900;
-      font-size: 9cqw;
-      color: #e2e8f0;
+    .hero-summary::before {
+      content: ""; position: absolute; top: -40%; right: -10%;
+      width: 60%; height: 180%;
+      background: radial-gradient(ellipse, rgba(124,58,237,.35), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-summary-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 14px; }
+    .hero-summary h2 { font-size: 1.35rem; font-weight: 900; color: #fff; margin: 0 0 14px; line-height: 1.5; }
+    .hero-summary p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.95; margin: 0; }
+
+    /* STAT CARDS */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0 36px; }
+    .stat-card {
+      background: linear-gradient(145deg, #fff, #f5f7ff);
+      border: 1px solid #e4e8f4; border-radius: 16px; padding: 22px 24px;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before { content: ""; position: absolute; inset: 0 auto auto 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--q-accent), var(--q-accent2)); }
+    .stat-card-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; text-transform: uppercase; margin-bottom: 10px; }
+    .stat-card-number { font-family: 'Poppins', sans-serif; font-size: 2.4rem; font-weight: 900; color: #0f0a2e; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; font-style: italic; }
+    .stat-card-sub { font-size: 0.82rem; color: #5a6380; line-height: 1.6; }
+
+    /* 2レイヤー */
+    .layer-split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 28px 0 36px; }
+    @media (max-width: 720px) { .layer-split { grid-template-columns: 1fr; } }
+    .layer-card { background: #fff; border-radius: 16px; padding: 24px 26px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 6px 24px -8px rgba(20, 30, 80, 0.12); }
+    .layer-card.tech { border-top: 5px solid #06b6d4; }
+    .layer-card.market { border-top: 5px solid #f59e0b; }
+    .layer-card-tag { display: inline-block; font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; }
+    .layer-card.tech .layer-card-tag { background: #e0f7fd; color: #0891b2; }
+    .layer-card.market .layer-card-tag { background: #fef3c7; color: #b45309; }
+    .layer-card h3 { font-size: 1.1rem; font-weight: 900; color: #0f0a2e; margin: 0 0 10px; }
+    .layer-card p { margin: 0; font-size: 0.92rem; line-height: 1.85; color: #2a2e3c; }
+
+    /* セクション見出し */
+    .q-section { margin: 56px 0 0; }
+    .q-section-head { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 3px solid #e4e8f4; }
+    .q-section-num { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 900; font-style: italic; background: linear-gradient(135deg, var(--q-accent), var(--q-accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; flex-shrink: 0; }
+    .q-section-head h2 { font-size: 1.3rem; font-weight: 900; color: #0f0a2e; margin: 0; line-height: 1.4; }
+    .q-section-head-en { margin-left: auto; font-size: 0.7rem; font-weight: 800; letter-spacing: .2em; color: #a3adc7; flex-shrink: 0; }
+    @media (max-width: 560px) { .q-section-head-en { display: none; } }
+
+    /* 2本柱 */
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar { background: linear-gradient(180deg, #fafbff 0%, #f0f3fa 100%); border-radius: 14px; padding: 22px 24px; border: 1px solid #dbe2f0; position: relative; }
+    .pillar-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .pillar-title { font-size: 1rem; font-weight: 900; color: #0f0a2e; margin-bottom: 8px; }
+    .pillar-desc { font-size: 0.88rem; color: #4a5270; line-height: 1.7; margin-bottom: 10px; }
+    .pillar-example { background: #fff; border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: #5a6380; border: 1px solid #e4e8f4; }
+    .pillar.target { border: 2px solid #ef4444; background: linear-gradient(180deg, #fff5f5 0%, #ffe4e4 100%); }
+    .pillar.target::after { content: "最大の課題"; position: absolute; top: -10px; right: 14px; background: #ef4444; color: #fff; font-size: 0.68rem; font-weight: 900; letter-spacing: .1em; padding: 3px 10px; border-radius: 3px; }
+
+    /* リスク3パターン */
+    .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .risk-grid { grid-template-columns: 1fr; } }
+    .risk-card { background: #fff; border-radius: 14px; padding: 20px; border: 1px solid #e4e8f4; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .risk-card-head { display: flex; align-items: center; gap: 10px; }
+    .risk-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #ef4444, #f59e0b); color: #fff; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; }
+    .risk-title { font-size: 0.95rem; font-weight: 900; color: #0f0a2e; line-height: 1.4; }
+    .risk-body { font-size: 0.86rem; color: #4a5270; line-height: 1.75; }
+    .risk-example { margin-top: auto; padding: 10px 14px; background: #fef3c7; border-radius: 8px; font-size: 0.8rem; color: #7c2d12; font-weight: 500; }
+
+    /* 投資地図マトリクス */
+    .matrix { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 50%, #061733 100%); border-radius: 20px; padding: 32px 30px; color: #fff; margin: 28px 0 36px; }
+    .matrix-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 18px; }
+    .matrix h3 { font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0 0 20px; }
+    .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 560px) { .matrix-grid { grid-template-columns: 1fr; grid-template-rows: auto; } }
+    .matrix-cell { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 18px 20px; backdrop-filter: blur(8px); }
+    .matrix-cell-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; gap: 10px; }
+    .matrix-cell-type { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #a78bfa; }
+    .matrix-cell-ticker { font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 900; font-style: italic; color: #fff; }
+    .matrix-cell-desc { font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 30px; }
+    .faq-item { background: #fff; border-left: 4px solid var(--q-accent); border-radius: 0 12px 12px 0; padding: 18px 22px; border-top: 1px solid #e4e8f4; border-right: 1px solid #e4e8f4; border-bottom: 1px solid #e4e8f4; }
+    .faq-q, .faq-a { position: relative; padding-left: 34px; min-height: 24px; display: block; }
+    .faq-q { font-size: 0.95rem; font-weight: 800; color: #0f0a2e; margin-bottom: 12px; line-height: 1.6; }
+    .faq-a { font-size: 0.88rem; color: #4a5270; line-height: 1.85; }
+    .faq-q::before, .faq-a::before {
+      position: absolute; left: 0; top: 2px;
+      width: 24px; height: 24px; border-radius: 50%;
+      font-size: 0.7rem; font-weight: 900; color: #fff;
+      display: flex; align-items: center; justify-content: center;
       line-height: 1;
     }
-    .ogp-right-panel {
-      flex: 1;
-      padding: 5cqw 6cqw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 2.5cqw;
-    }
-    .ogp-main-text {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-weight: 900;
-      font-size: 4.5cqw;
-      color: #f1f5f9;
-      line-height: 1.35;
-    }
-    .ogp-sub-text {
-      font-size: 2.8cqw;
-      color: #94a3b8;
-      font-weight: 700;
-    }
-    .ogp-topics {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5cqw;
-    }
-    .ogp-topic {
-      font-size: 2.2cqw;
-      color: #cbd5e1;
-      padding-left: 2cqw;
-      border-left: 0.5cqw solid #facc15;
-    }
-    .ogp-topic.t-red   { border-left-color: #ef4444; }
-    .ogp-topic.t-blue  { border-left-color: #38bdf8; }
-    .ogp-topic.t-grey  { border-left-color: #94a3b8; }
-
-    /* =========================================
-       Article hero area
-       ========================================= */
-    .art-hero {
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      background: transparent;
-    }
-    .art-hero-body {
-      flex: 1;
-      min-width: 280px;
-    }
-    .art-cats {
-      display: flex;
-      gap: .5rem;
-      flex-wrap: wrap;
-      margin-bottom: .75rem;
-    }
-    .cat-badge {
-      background: #1e3a5f;
-      color: #93c5fd;
-      font-size: .75rem;
-      padding: .25rem .6rem;
-      border-radius: 3px;
-      font-weight: 700;
-    }
-    .cat-badge.loss {
-      background: #3b1f1f;
-      color: #fca5a5;
-    }
-    .art-title {
-      font-size: clamp(1.1rem, 2.8vw, 1.7rem);
-      font-weight: 900;
-      color: #f1f5f9;
-      line-height: 1.35;
-      margin-bottom: .5rem;
-    }
-    .art-meta {
-      font-size: .85rem;
-      color: #64748b;
+    .faq-q::before { content: "Q"; background: #7c3aed; }
+    .faq-a::before { content: "A"; background: #06b6d4; }
+    @media (max-width: 560px) {
+      .faq-item { padding: 16px 16px 14px; }
+      .faq-q, .faq-a { padding-left: 30px; }
+      .faq-q::before, .faq-a::before { width: 22px; height: 22px; font-size: 0.65rem; }
     }
 
-    /* =========================================
-       Breadcrumb
-       ========================================= */
-    .breadcrumb, .breadcrumb-inner, .breadcrumb a { color: #64748b; }
-    .breadcrumb a:hover { color: #93c5fd; }
+    /* 強材料・弱材料 */
+    .pros-cons-stock { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 720px) { .pros-cons-stock { grid-template-columns: 1fr; } }
+    .pro-box, .con-box { padding: 16px 18px; border-radius: 12px; font-size: 0.85rem; line-height: 1.85; }
+    .pro-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #86efac; color: #065f46; }
+    .con-box { background: linear-gradient(135deg, #fef2f2, #fee2e2); border: 1px solid #fca5a5; color: #991b1b; }
+    .pro-box-label, .con-box-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; margin-bottom: 8px; text-transform: uppercase; }
+    .stock-label { font-size: 1rem; font-weight: 800; color: #0f0a2e; margin: 24px 0 10px; padding-left: 12px; border-left: 4px solid #7c3aed; }
 
-    /* =========================================
-       Main layout
-       ========================================= */
-    .main-content {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem 4rem;
-    }
-    .art-layout {
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 2.5rem;
-    }
-    @media (max-width: 860px) {
-      .art-layout { grid-template-columns: 1fr; }
-    }
+    /* 3行まとめ */
+    .q-summary { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 100%); border-radius: 16px; padding: 28px 30px; margin: 36px 0 28px; }
+    .q-summary-label { font-size: 0.7rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 14px; }
+    .q-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 12px; }
+    .q-summary li { font-size: 0.92rem; color: rgba(255,255,255,0.92); line-height: 1.8; }
+    .q-summary li::marker { color: #facc15; font-weight: 900; }
 
-    /* =========================================
-       Article body elements
-       ========================================= */
-    .sec-head {
-      font-size: 1.25rem;
-      font-weight: 900;
-      color: #f1f5f9;
-      border-left: 4px solid #ef4444;
-      padding: .4rem .8rem;
-      background: rgba(239,68,68,.05);
-      margin: 2rem 0 .8rem;
-    }
-    .sec-sub {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #93c5fd;
-      margin: 1.5rem 0 .5rem;
-      border-bottom: 1px solid #1e3a5f;
-      padding-bottom: .3rem;
-    }
-    .summary-box {
-      background: #0f2040;
-      border: 1px solid #1e3a5f;
-      border-radius: 8px;
-      padding: 1.2rem 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .summary-box-title {
-      font-size: .75rem;
-      font-weight: 900;
-      letter-spacing: .12em;
-      color: #ef4444;
-      margin-bottom: .75rem;
-    }
-    .summary-box ul {
-      padding-left: 1.2rem;
-      color: #cbd5e1;
-      line-height: 1.9;
-      margin: 0;
-    }
-    .summary-box li {
-      font-size: .9rem;
-      margin-bottom: .2rem;
-    }
-    .hlbox {
-      background: rgba(239,68,68,.07);
-      border-left: 3px solid #ef4444;
-      padding: .8rem 1.2rem;
-      border-radius: 0 6px 6px 0;
-      margin: 1rem 0;
-      color: #e2e8f0;
-    }
-    .hlbox.blue {
-      background: rgba(56,189,248,.06);
-      border-left-color: #38bdf8;
-    }
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: .9rem;
-      margin: 1rem 0 1.5rem;
-    }
-    .data-table th {
-      background: #1e3a5f;
-      color: #93c5fd;
-      padding: .5rem .75rem;
-      text-align: left;
-      font-weight: 700;
-    }
-    .data-table td {
-      padding: .45rem .75rem;
-      border-bottom: 1px solid #1e3a5f;
-      color: #cbd5e1;
-    }
-    .data-table tr:nth-child(even) td {
-      background: rgba(30,58,95,.3);
-    }
+    /* タイムライン */
+    .timeline { display: flex; justify-content: space-between; margin: 28px 0 36px; position: relative; padding: 0 20px; }
+    .timeline::before { content: ""; position: absolute; top: 32px; left: 40px; right: 40px; height: 3px; background: linear-gradient(90deg, #ef4444, #f59e0b, #06b6d4, #10b981); border-radius: 2px; }
+    .tl-stop { text-align: center; flex: 1; position: relative; }
+    .tl-dot { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 3px solid var(--q-accent); margin: 22px auto 10px; position: relative; z-index: 2; }
+    .tl-year { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1rem; font-style: italic; color: #0f0a2e; margin-bottom: 4px; }
+    .tl-label { font-size: 0.76rem; color: #5a6380; line-height: 1.5; padding: 0 4px; }
 
-    .art-summary {
-      background: #0f2040;
-      border: 1px solid #1e3a5f;
-      border-radius: 12px;
-      padding: 1.5rem 1.8rem;
-      margin: 2rem 0 1.5rem;
-    }
-    .art-summary-label {
-      font-size: .65rem;
-      font-weight: 900;
-      letter-spacing: .18em;
-      color: #ef4444;
-      margin-bottom: 1rem;
-    }
-    .art-summary ol {
-      margin: 0;
-      padding-left: 1.4em;
-      display: flex;
-      flex-direction: column;
-      gap: .75rem;
-    }
-    .art-summary li {
-      font-size: .9rem;
-      color: rgba(255,255,255,0.85);
-      line-height: 1.75;
-    }
+    /* 動画 */
+    .video-box { background: linear-gradient(135deg, #0f0a2e, #1e0b4a); border-radius: 16px; padding: 20px; margin: 28px auto 40px; max-width: 700px; }
+    .video-box-label { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 12px; }
+    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; }
+    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-    /* =========================================
-       Sidebar
-       ========================================= */
-    .sidebar {}
-    .side-box {
-      background: #0f2040;
-      border: 1px solid #1e3a5f;
-      border-radius: 8px;
-      padding: 1rem 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-    .side-box h3 {
-      font-size: .9rem;
-      font-weight: 700;
-      color: #ef4444;
-      margin-bottom: .75rem;
-      padding-bottom: .4rem;
-      border-bottom: 1px solid #1e3a5f;
-    }
-    .side-box ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .side-box ul li {
-      padding: .35rem 0;
-      border-bottom: 1px solid #0d1f3c;
-      font-size: .85rem;
-      color: #94a3b8;
-    }
-    .side-box ul li:last-child {
-      border-bottom: none;
-    }
-    .side-box ul li a {
-      color: #60a5fa;
-      text-decoration: none;
-    }
-    .side-box ul li a:hover {
-      color: #93c5fd;
-      text-decoration: underline;
-    }
-    .side-tag {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .4rem;
-    }
-    .side-tag span {
-      background: #1e3a5f;
-      color: #93c5fd;
-      font-size: .75rem;
-      padding: .2rem .5rem;
-      border-radius: 3px;
-    }
+    /* テーブル */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 18px 0 28px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px -4px rgba(20,30,80,0.08); }
+    .data-table th { background: linear-gradient(135deg, #0f0a2e, #2a1065); color: #fff; padding: 12px 14px; text-align: left; font-weight: 800; letter-spacing: .04em; font-size: 0.8rem; }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid #edf0f7; color: #2a2e3c; vertical-align: middle; }
+    .data-table tr:nth-child(even) td { background: #fafbff; }
+    .data-table tr:last-child td { border-bottom: none; }
 
-    article p {
-      color: #cbd5e1;
-      line-height: 1.85;
-      margin-bottom: .9rem;
-      font-size: .95rem;
-    }
-    article ul, article ol {
-      color: #cbd5e1;
-      line-height: 1.9;
-      padding-left: 1.4rem;
-      margin-bottom: 1rem;
-    }
-    article li {
-      font-size: .9rem;
-      margin-bottom: .3rem;
-    }
-    article strong {
-      color: #e2e8f0;
-      font-weight: 700;
-    }
+    .disclaimer { background: linear-gradient(135deg, #fff9f0, #fef3c7); border-left: 4px solid #d97706; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #7c2d12; }
 
-    /* footer */
-    .site-footer p { color: #64748b; }
+    /* サイドバー */
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 900px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; position: static !important; max-height: none !important; overflow: visible !important; top: auto !important; } }
+    .sidebar-toc { background: linear-gradient(145deg, #fafbff, #f0f3fa); border: 1px solid #dbe2f0; border-radius: 14px; padding: 20px 22px; position: sticky; top: 80px; margin-bottom: 24px; max-height: calc(100vh - 100px); overflow-y: auto; }
+    .sidebar-toc-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .18em; color: #7c3aed; margin-bottom: 14px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e4e8f4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 10px; padding: 9px 4px; color: #4a5270; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #7c3aed; }
+    .toc-n { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 0.7rem; font-weight: 900; color: #7c3aed; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dbe2f0; border-radius: 14px; padding: 18px 20px; }
+    .sidebar-meta-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #7c3aed; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #4a5270; background: #f0f3fa; border: 1px solid #dbe2f0; padding: 3px 9px; border-radius: 20px; }
+
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; border-bottom: 2px solid #e4e8f4; padding-bottom: 10px; margin: 48px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: #fff; border: 1px solid #e4e8f4; border-radius: 10px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 900; background: #7c3aed; color: #fff; padding: 3px 8px; border-radius: 3px; margin-top: 2px; letter-spacing: .08em; }
+    .related-title { font-size: 0.85rem; font-weight: 600; color: #0f0a2e; line-height: 1.5; }
   </style>
   <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
 </head>
@@ -356,9 +318,7 @@
           <span class="logo-sub">野球・競馬 × 経済・株式</span>
         </div>
       </a>
-      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="../../">TOP</a>
         <a href="../../hanshin-keiba/" class="active">野球・競馬</a>
@@ -376,57 +336,90 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../../hanshin-keiba/">野球・競馬</a>
       <span class="breadcrumb-sep">›</span>
-      <span>ルーカスの立ち上がり不安と今季初連敗 阪神3-4巨人</span>
+      <span>阪神3-4巨人　ルーカス立ち上がり不安</span>
     </div>
   </div>
 
-  <!-- ===== HERO ===== -->
-  <section class="art-hero">
-
-    <img src="thumb.png?v=20260418c" alt="阪神3-4巨人 ルーカス初回炎上" class="art-thumb-img">
-
-    <!-- Article title block -->
-    <div class="art-hero-body">
-      <div class="art-cats">
-        <span class="cat-badge">阪神タイガース</span>
-        <span class="cat-badge loss">敗戦分析</span>
-        <span class="cat-badge">試合分析</span>
+  <div class="art-hero">
+    <img src="thumb.png?v=20260418c" alt="阪神3-4巨人 ルーカス初回炎上" class="art-hero-thumb">
+    <div class="art-hero-title-block">
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-baseball">阪神タイガース</span>
+        <span class="art-cat-badge art-cat-game">試合分析</span>
+        <span class="art-cat-badge art-cat-loss">敗戦分析</span>
       </div>
-      <h1 class="art-title">ルーカスの立ち上がり不安と今季初連敗　阪神3-4巨人、本当の敗因は初回の四球とダルベック3ランにある</h1>
-      <div class="art-meta">
-        2026年4月16日（木）&nbsp;|&nbsp; 東京ドーム&nbsp;|&nbsp; 阪神 <strong style="color:#fca5a5;">3 – 4</strong> 巨人&nbsp;|&nbsp; AIデータ分析
+      <h1 class="art-hero-h1">ルーカスの立ち上がり不安と今季初連敗　阪神3-4巨人、本当の敗因は初回の四球とダルベック3ランにある</h1>
+      <div class="art-hero-meta">
+        <span>2026年4月16日（木）</span>
+        <span>東京ドーム</span>
+        <span>阪神 3 – 4 巨人</span>
       </div>
     </div>
+  </div>
 
-  </section>
+  <div class="art-layout">
+    <main class="art-body">
 
-  <!-- ===== MAIN CONTENT ===== -->
-  <div class="main-content">
-    <div class="art-layout">
+      <div class="hero-summary">
+        <div class="hero-summary-label">この試合のコア</div>
+        <h2>「巨人に圧倒された」敗戦ではなく、「初回に自分から3点を渡した」試合。</h2>
+        <p>ルーカスが初回に先頭から連続四球を出し、ダルベックに<strong>先制3ラン</strong>。直後に佐藤輝明の<strong>4号2ラン</strong>で反撃を見せたが、5回1死満塁で1点止まり、8回森下の二塁打も生かせず、今季初の連敗となった。中継ぎ4イニング無失点でつないだ粘りと、投手運用の課題が同時に浮き彫りになった一戦。</p>
+      </div>
 
-      <!-- ========= ARTICLE BODY ========= -->
-      <article class="art-body">
-
-        <div class="summary-box">
-          <div class="summary-box-title">この記事でわかること</div>
-          <ul>
-            <li>初回の連続四球からダルベック3ランが生まれた経緯</li>
-            <li>佐藤輝明の即時反撃4号2ランの価値</li>
-            <li>5回1死満塁を1点で止めた最大の逸機</li>
-            <li>中継ぎ4イニング無失点でも届かなかった理由</li>
-            <li>ルーカスの立ち上がり問題と投手運用の今後</li>
-          </ul>
+      <div class="video-box">
+        <div class="video-box-label">▶ 動画でも解説しています</div>
+        <div class="video-embed-wrap">
+          <iframe src="https://www.youtube.com/embed/2DeTxoi8k8k" title="阪神3-4巨人 敗戦分析" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
+      </div>
 
-        <!-- 試合結果 -->
-        <h2 class="sec-head" id="sec-result">試合結果</h2>
+      <div class="q-summary">
+        <div class="q-summary-label">3行まとめ</div>
+        <ol>
+          <li>阪神の敗因は「巨人に圧倒された」より、<strong>「初回に自分から3点を渡した」</strong>ことが大きかった。</li>
+          <li>打線は反撃の形を作っており、問題は打てないことより<strong>決め切れないこと、そして投手運用の不安</strong>にある。</li>
+          <li>立石待望論は高まるが、いま本当に重いテーマは<strong>野手よりも投手陣の整備</strong>である。</li>
+        </ol>
+      </div>
+
+      <!-- ===== SECTION 01 ===== -->
+      <div class="q-section" id="sec-result">
+        <div class="q-section-head">
+          <span class="q-section-num">01</span>
+          <h2>試合結果サマリー｜キーナンバーで見る</h2>
+          <span class="q-section-head-en">RESULT</span>
+        </div>
+        <p>東京ドームで行われた阪神対巨人。阪神は<strong>3-4</strong>で敗れ今季初の連敗。先発ルーカスが初回に3失点、3回にも1点を追加され、打線は佐藤輝明の2ランで反撃するも届かなかった。</p>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-card-label">Final Score</div>
+            <div class="stat-card-number">3-4</div>
+            <div class="stat-card-sub">阪神 敗戦／今季初の連敗</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">Lucas IP/ER</div>
+            <div class="stat-card-number">5/4</div>
+            <div class="stat-card-sub">5回4失点で降板、敗戦投手</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">Sato HR</div>
+            <div class="stat-card-number">4</div>
+            <div class="stat-card-sub">初回裏に即時反撃の4号2ラン</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">Relief IP</div>
+            <div class="stat-card-number">4.0</div>
+            <div class="stat-card-sub">中継ぎ4イニング無失点リレー</div>
+          </div>
+        </div>
 
         <table class="data-table">
           <thead><tr><th>項目</th><th>内容</th></tr></thead>
           <tbody>
             <tr><td>日付</td><td>2026年4月16日（木）東京ドーム</td></tr>
             <tr><td>対戦カード</td><td>阪神タイガース vs 読売ジャイアンツ</td></tr>
-            <tr><td>スコア</td><td><strong style="color:#fca5a5;">阪神 3 - 4 巨人</strong>（阪神敗戦）</td></tr>
+            <tr><td>スコア</td><td><strong>阪神 3 - 4 巨人</strong>（阪神敗戦）</td></tr>
             <tr><td>勝投手</td><td>田中将大（大勢がセーブ）</td></tr>
             <tr><td>敗投手</td><td>ルーカス</td></tr>
             <tr><td>阪神先発</td><td>ルーカス（5回4失点）</td></tr>
@@ -435,53 +428,122 @@
             <tr><td>チーム状況</td><td>今季初の連敗</td></tr>
           </tbody>
         </table>
+      </div>
 
-        <!-- 試合の流れ -->
-        <h2 class="sec-head" id="sec-flow">試合の流れ</h2>
-
-        <h3 class="sec-sub">初回：ルーカスの連続四球→ダルベック先制3ランで最悪のスタート</h3>
-        <div class="hlbox">
-          先頭から連続四球を与え、ダルベックにスライダーが甘く入り先制3ラン。開始直後に3-0と大量ビハインドを背負った。
+      <!-- ===== SECTION 02 ===== -->
+      <div class="q-section" id="sec-flow">
+        <div class="q-section-head">
+          <span class="q-section-num">02</span>
+          <h2>試合の流れ｜イニングで追う</h2>
+          <span class="q-section-head-en">TIMELINE</span>
         </div>
-        <p>
-          ルーカスの立ち上がりの不安定さは今季繰り返されているパターンだ。四球で自ら走者を出し、一発で一気に失点するという最悪の形がそのまま現れた。
-        </p>
+        <p>試合は最初のわずか数分で方向性が決まった。ルーカスが自分からリズムを崩し、そこから阪神は追いかける展開を強いられた。</p>
 
-        <h3 class="sec-sub">初回裏：佐藤輝明が空気を戻す4号2ラン</h3>
-        <p>
-          阪神はすぐに反撃。中野拓夢が内野安打で出塁し、佐藤輝明が4号2ラン。「まだいける」空気を作った一発。佐藤は6試合連続安打と打席内容の良さを継続している。
-        </p>
-
-        <h3 class="sec-sub">3回：もう1点が重かった</h3>
-        <p>
-          ルーカスは3回にも連打で失点。ダルベックのタイムリーで4点目を許し、点差が再び2に開いた。近本光司のチャージの遅れを指摘する見方もある。
-        </p>
-
-        <h3 class="sec-sub">5回：1死満塁で1点止まり—最大の逸機</h3>
-        <div class="hlbox">
-          小幡竜平の安打→代打福島圭音の内野安打→近本安打で1死満塁。中野の犠牲フライで1点差まで迫ったが、逆転できなかった。この攻撃が試合最大の取りこぼし。
+        <div class="timeline">
+          <div class="tl-stop"><div class="tl-dot" style="border-color:#ef4444;"></div><div class="tl-year">1回表</div><div class="tl-label"><strong>連続四球→<br>ダルベック3ラン</strong></div></div>
+          <div class="tl-stop"><div class="tl-dot" style="border-color:#f59e0b;"></div><div class="tl-year">1回裏</div><div class="tl-label">佐藤輝明<br>4号2ラン</div></div>
+          <div class="tl-stop"><div class="tl-dot" style="border-color:#06b6d4;"></div><div class="tl-year">3回</div><div class="tl-label">ダルベック<br>タイムリーで4点目</div></div>
+          <div class="tl-stop"><div class="tl-dot" style="border-color:#a78bfa;"></div><div class="tl-year">5回</div><div class="tl-label">1死満塁<br>1点止まり</div></div>
+          <div class="tl-stop"><div class="tl-dot" style="border-color:#10b981;"></div><div class="tl-year">6-9回</div><div class="tl-label">中継ぎ<br>4回無失点</div></div>
         </div>
 
-        <h3 class="sec-sub">6回以降：中継ぎ4イニング無失点、でも打線が届かない</h3>
-        <p>
-          ルーカス降板後は岩貞、桐敷、ドリス、モレッタが無失点リレー。特にドリスは3者連続三振と圧倒的な存在感。一方打線は8回に森下の二塁打を生かせず、9回も島村の初打席が見せ場に止まった。
-        </p>
+        <p><strong>初回：ルーカスの連続四球→ダルベック先制3ランで最悪のスタート。</strong>先頭から連続四球を与え、ダルベックにスライダーが甘く入り先制3ラン。開始直後に3-0と大量ビハインドを背負った。ルーカスの立ち上がりの不安定さは今季繰り返されているパターンで、四球で自ら走者を出し、一発で一気に失点するという最悪の形がそのまま現れた。</p>
 
-        <!-- データ -->
-        <h2 class="sec-head" id="sec-data">データで見るポイント</h2>
+        <p><strong>初回裏：佐藤輝明が空気を戻す4号2ラン。</strong>阪神はすぐに反撃。中野拓夢が内野安打で出塁し、佐藤輝明が4号2ラン。「まだいける」空気を作った一発。佐藤は6試合連続安打と打席内容の良さを継続している。</p>
 
-        <p><strong>チームスタッツ</strong></p>
-        <table class="data-table">
-          <thead><tr><th>項目</th><th>阪神</th><th>巨人</th></tr></thead>
-          <tbody>
-            <tr><td>得点</td><td>3</td><td>4</td></tr>
-            <tr><td>安打</td><td>8</td><td>7</td></tr>
-            <tr><td>先発</td><td>ルーカス 5回4失点</td><td>田中将大 6回3失点</td></tr>
-            <tr><td>本塁打</td><td>佐藤輝 4号2ラン</td><td>ダルベック 先制3ラン</td></tr>
-          </tbody>
-        </table>
+        <p><strong>3回：もう1点が重かった。</strong>ルーカスは3回にも連打で失点。ダルベックのタイムリーで4点目を許し、点差が再び2に開いた。近本光司のチャージの遅れを指摘する見方もある。</p>
 
-        <p><strong>ルーカス今季データ</strong></p>
+        <p><strong>5回：1死満塁で1点止まり—最大の逸機。</strong>小幡竜平の安打→代打福島圭音の内野安打→近本安打で1死満塁。中野の犠牲フライで1点差まで迫ったが、逆転できなかった。この攻撃が試合最大の取りこぼし。</p>
+
+        <p><strong>6回以降：中継ぎ4イニング無失点、でも打線が届かない。</strong>ルーカス降板後は岩貞、桐敷、ドリス、モレッタが無失点リレー。特にドリスは3者連続三振と圧倒的な存在感。一方打線は8回に森下の二塁打を生かせず、9回も島村の初打席が見せ場に止まった。</p>
+      </div>
+
+      <!-- ===== SECTION 03 ===== -->
+      <div class="q-section" id="sec-split">
+        <div class="q-section-head">
+          <span class="q-section-num">03</span>
+          <h2>打撃と投球｜2つのレイヤーで整理</h2>
+          <span class="q-section-head-en">BATTING vs PITCHING</span>
+        </div>
+        <p>今日の試合を整理する鍵は、<strong>打撃</strong>と<strong>投球</strong>を別々に評価することだ。打線は決して機能していなかったわけではない。</p>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">Layer 1 — 打撃</span>
+            <h3>形はあった、決め切れない</h3>
+            <p>佐藤輝の<strong>4号2ラン</strong>、中野の8試合連続安打、福島の代打内野安打、森下の二塁打と、チャンスと反撃の形は何度も作った。5回1死満塁で1点止まり、8回二塁打を生かせなかったのが痛点。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">Layer 2 — 投球</span>
+            <h3>先発が崩れ、中継ぎが救った</h3>
+            <p>ルーカスは5回4失点で敗戦投手。一方で岩貞・桐敷・ドリス・モレッタが<strong>4イニング無失点</strong>で終盤までつないだ。負けの責任はほぼ先発と序盤の失点に集約される構図。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SECTION 04 ===== -->
+      <div class="q-section" id="sec-pillars">
+        <div class="q-section-head">
+          <span class="q-section-num">04</span>
+          <h2>敗戦のキーポイント｜2本柱</h2>
+          <span class="q-section-head-en">KEY ISSUES</span>
+        </div>
+        <p>この試合の敗因は、大きく<strong>2本の柱</strong>で説明できる。片方はチャンス逸機、もう片方は先発の立ち上がり問題。</p>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">⚾</div>
+            <div class="pillar-title">柱1：好機の取りこぼし</div>
+            <div class="pillar-desc">5回1死満塁で1点止まり、8回森下の二塁打後に追加点を奪えず。反撃の形はあったが最後の1本が出なかった。</div>
+            <div class="pillar-example">💡 取れる場面で取る、が最大の差</div>
+          </div>
+          <div class="pillar target">
+            <div class="pillar-icon">🎯</div>
+            <div class="pillar-title">柱2：先発の立ち上がり</div>
+            <div class="pillar-desc">ルーカスの初回四球→被弾パターンは今季の繰り返し。<strong>今季総失点9のうち7が初回</strong>と、構造的な問題。</div>
+            <div class="pillar-example">💡 自分から点を渡す形が最も重い</div>
+          </div>
+        </div>
+
+        <p>どちらか一方なら勝てた可能性もある。ただ「序盤の3失点」と「終盤の決定打不足」が同じ試合で重なったことが、1点差敗戦の正体だ。</p>
+      </div>
+
+      <!-- ===== SECTION 05 ===== -->
+      <div class="q-section" id="sec-risk">
+        <div class="q-section-head">
+          <span class="q-section-num">05</span>
+          <h2>ルーカスの不安｜3つのパターン</h2>
+          <span class="q-section-head-en">LUCAS CONCERNS</span>
+        </div>
+        <p>ルーカスを今後も先発で使うのか。判断を難しくしているのは、<strong>不安が単一の症状でない</strong>ことだ。</p>
+
+        <div class="risk-grid">
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">1</span>
+              <span class="risk-title">初回の制球難</span>
+            </div>
+            <div class="risk-body">先頭からの連続四球で自ら走者を置く。今季総失点9のうち7が初回に集中。</div>
+            <div class="risk-example">⚠ 立ち上がりでリズムを作れない</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">2</span>
+              <span class="risk-title">四球→被弾の連鎖</span>
+            </div>
+            <div class="risk-body">走者を出した直後に甘い球を被弾する流れ。今日もダルベックに先制3ランを許した。</div>
+            <div class="risk-example">⚠ 最悪の失点パターンが反復</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge">3</span>
+              <span class="risk-title">再登板の判断</span>
+            </div>
+            <div class="risk-body">我慢起用か再調整か。大竹耕太郎・高橋遥人をどう組み込むかがローテ再編の焦点。</div>
+            <div class="risk-example">⚠ 代替案の整理が急務</div>
+          </div>
+        </div>
+
         <table class="data-table">
           <thead><tr><th>項目</th><th>数値</th></tr></thead>
           <tbody>
@@ -492,8 +554,28 @@
             <tr><td>与四球（この試合）</td><td>2</td></tr>
           </tbody>
         </table>
+      </div>
 
-        <p><strong>打線ハイライト</strong></p>
+      <!-- ===== SECTION 06 ===== -->
+      <div class="q-section" id="sec-data">
+        <div class="q-section-head">
+          <span class="q-section-num">06</span>
+          <h2>データで見るポイント</h2>
+          <span class="q-section-head-en">STATS</span>
+        </div>
+
+        <div class="stock-label">チームスタッツ</div>
+        <table class="data-table">
+          <thead><tr><th>項目</th><th>阪神</th><th>巨人</th></tr></thead>
+          <tbody>
+            <tr><td>得点</td><td>3</td><td>4</td></tr>
+            <tr><td>安打</td><td>8</td><td>7</td></tr>
+            <tr><td>先発</td><td>ルーカス 5回4失点</td><td>田中将大 6回3失点</td></tr>
+            <tr><td>本塁打</td><td>佐藤輝 4号2ラン</td><td>ダルベック 先制3ラン</td></tr>
+          </tbody>
+        </table>
+
+        <div class="stock-label">打線ハイライト</div>
         <table class="data-table">
           <thead><tr><th>選手</th><th>結果</th></tr></thead>
           <tbody>
@@ -504,7 +586,7 @@
           </tbody>
         </table>
 
-        <p><strong>中継ぎ成績</strong></p>
+        <div class="stock-label">中継ぎ成績</div>
         <table class="data-table">
           <thead><tr><th>投手</th><th>結果</th></tr></thead>
           <tbody>
@@ -515,12 +597,16 @@
           </tbody>
         </table>
 
-        <div class="hlbox blue">
-          この試合は中継ぎが打たれて負けたのではない。中継ぎが耐えたからこそ終盤まで勝ち筋を残せた。敗因はより明確に先発と序盤の失点に集約される。
-        </div>
+        <p>この試合は中継ぎが打たれて負けたのではない。中継ぎが耐えたからこそ終盤まで勝ち筋を残せた。<strong>敗因はより明確に先発と序盤の失点に集約</strong>される。</p>
+      </div>
 
-        <!-- 選手評価 -->
-        <h2 class="sec-head" id="sec-players">選手評価</h2>
+      <!-- ===== SECTION 07 ===== -->
+      <div class="q-section" id="sec-players">
+        <div class="q-section-head">
+          <span class="q-section-num">07</span>
+          <h2>選手評価</h2>
+          <span class="q-section-head-en">PLAYER REVIEW</span>
+        </div>
 
         <table class="data-table">
           <thead><tr><th>選手名</th><th>良かった点</th><th>評価</th><th>次戦への見方</th></tr></thead>
@@ -535,107 +621,183 @@
             <tr><td><strong>福島圭音</strong></td><td>代打内野安打</td><td>B+</td><td>ベンチから流れを変える存在に</td></tr>
           </tbody>
         </table>
+      </div>
 
-        <!-- 勝負の分岐点 -->
-        <h2 class="sec-head" id="sec-turning">勝負の分岐点</h2>
-
-        <h3 class="sec-sub">1. 初回の連続四球とダルベック3ラン—最大の分岐点</h3>
-        <p>試合開始直後に自ら出塁を許し、被弾で一気に3点差。この失点のパターンがすべての始まりだった。先発が自分からリズムを崩す形は最も取り返しにくい。</p>
-
-        <h3 class="sec-sub">2. 佐藤の2ランで流れを戻した直後の3回失点</h3>
-        <p>初回の即反撃で「まだいける」空気を作りながら、3回にもう1点を許したことで再び2点差に戻された。追いかける側が流れを取り戻せなかった分岐点。</p>
-
-        <h3 class="sec-sub">3. 5回1死満塁で1点止まり</h3>
-        <p>この試合最大の逸機。あの場面で逆転できていれば試合の流れは大きく変わっていた。1点止まりで終わったことが試合の結末を決定づけた。</p>
-
-        <h3 class="sec-sub">4. 8回先頭・森下の二塁打を生かせなかった</h3>
-        <p>得点圏に走者を置いて無得点に終わる場面が続いた。反撃の糸口を幾度もつかみながら、最後の1本が出なかった。</p>
-
-        <h3 class="sec-sub">5. 中継ぎが4イニング無失点でつないだ価値</h3>
-        <p>岩貞・桐敷・ドリス・モレッタの4人が合計4イニングを無失点で抑えた。この粘りは次戦以降への明確な材料となる。</p>
-
-        <!-- まとめ -->
-        <h2 class="sec-head" id="sec-summary">まとめ・今後の見方</h2>
-
-        <h3 class="sec-sub">良かった点</h3>
-        <ul>
-          <li>佐藤輝明が初回に即座に2点を返した</li>
-          <li>中野拓夢の安定した出塁・打点</li>
-          <li>小幡・福島と脇役が反撃の形を作った</li>
-          <li>中継ぎ陣が4イニング無失点で踏ん張った</li>
-          <li>ドリスの3者連続三振は終盤の明るい材料</li>
-          <li>島村に1軍初打席が回り若手起用の幅が見えた</li>
-        </ul>
-
-        <h3 class="sec-sub">課題</h3>
-        <ul>
-          <li>ルーカスの立ち上がり不安が再び出た</li>
-          <li>四球からの一発という最悪の失点パターン</li>
-          <li>5回満塁・8回二塁打の好機を仕留め切れなかった</li>
-          <li>投手陣の再編候補や復帰見通しが見えにくい</li>
-          <li>立石待望論は高まるが本当の不安は投手側にある</li>
-        </ul>
-
-        <h3 class="sec-sub">今後の見方</h3>
-        <p>
-          ルーカスを次も先発で使うのか。大竹耕太郎や高橋遥人をどう組み込むか。立石の1軍昇格目安は50〜60打席のところ現状19打席。投手整備が本題になる。
-        </p>
-
-        <div class="art-summary">
-          <div class="art-summary-label">3行まとめ</div>
-          <ol>
-            <li>阪神の敗因は「巨人に圧倒された」より、「初回に自分から3点を渡した」ことが大きかった。</li>
-            <li>打線は反撃の形を作っており、問題は打てないことより決め切れないこと、そして投手運用の不安にある。</li>
-            <li>立石待望論は高まるが、いま本当に重いテーマは野手よりも投手陣の整備である。</li>
-          </ol>
+      <!-- ===== SECTION 08 ===== -->
+      <div class="q-section" id="sec-turning">
+        <div class="q-section-head">
+          <span class="q-section-num">08</span>
+          <h2>勝負の分岐点｜5つのポイント</h2>
+          <span class="q-section-head-en">TURNING POINTS</span>
         </div>
 
-      </article>
+        <p><strong>1. 初回の連続四球とダルベック3ラン—最大の分岐点。</strong>試合開始直後に自ら出塁を許し、被弾で一気に3点差。この失点のパターンがすべての始まりだった。先発が自分からリズムを崩す形は最も取り返しにくい。</p>
 
-      <!-- ========= SIDEBAR ========= -->
-      <aside class="sidebar">
+        <p><strong>2. 佐藤の2ランで流れを戻した直後の3回失点。</strong>初回の即反撃で「まだいける」空気を作りながら、3回にもう1点を許したことで再び2点差に戻された。追いかける側が流れを取り戻せなかった分岐点。</p>
 
-        <div class="side-box">
-          <h3>目次</h3>
-          <ul>
-            <li><a href="#sec-result">試合結果</a></li>
-            <li><a href="#sec-flow">試合の流れ</a></li>
-            <li><a href="#sec-data">データ分析</a></li>
-            <li><a href="#sec-players">選手評価</a></li>
-            <li><a href="#sec-turning">勝負の分岐点</a></li>
-            <li><a href="#sec-summary">まとめ・今後</a></li>
-          </ul>
+        <p><strong>3. 5回1死満塁で1点止まり。</strong>この試合最大の逸機。あの場面で逆転できていれば試合の流れは大きく変わっていた。1点止まりで終わったことが試合の結末を決定づけた。</p>
+
+        <p><strong>4. 8回先頭・森下の二塁打を生かせなかった。</strong>得点圏に走者を置いて無得点に終わる場面が続いた。反撃の糸口を幾度もつかみながら、最後の1本が出なかった。</p>
+
+        <p><strong>5. 中継ぎが4イニング無失点でつないだ価値。</strong>岩貞・桐敷・ドリス・モレッタの4人が合計4イニングを無失点で抑えた。この粘りは次戦以降への明確な材料となる。</p>
+      </div>
+
+      <!-- ===== SECTION 09 ===== -->
+      <div class="q-section" id="sec-proscons">
+        <div class="q-section-head">
+          <span class="q-section-num">09</span>
+          <h2>光った点・課題点</h2>
+          <span class="q-section-head-en">PROS &amp; CONS</span>
         </div>
 
-        <div class="side-box">
-          <h3>関連記事</h3>
-          <ul>
-            <li><a href="../2026-04-14-giants-loss/">逆転したのに勝ち切れず　阪神3-4巨人（4/14）</a></li>
-            <li><a href="../2026-04-17-morishita-chunichi/">森下の一発で終わらせるな 阪神2-1中日（4/17）</a></li>
-            <li><a href="../2026-04-12-haruto-chunichi/">高橋遥人完封・中日3タテ達成（4/12）</a></li>
-          </ul>
-        </div>
-
-        <div class="side-box">
-          <h3>タグ</h3>
-          <div class="side-tag">
-            <span>阪神タイガース</span>
-            <span>読売ジャイアンツ</span>
-            <span>ルーカス</span>
-            <span>佐藤輝明</span>
-            <span>中野拓夢</span>
-            <span>ダルベック</span>
-            <span>田中将大</span>
-            <span>ドリス</span>
-            <span>立石</span>
-            <span>投手運用</span>
-            <span>2026シーズン</span>
+        <div class="stock-label">打線まわり</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box">
+            <div class="pro-box-label">✓ 光った点</div>
+            佐藤輝明が初回に即座に2点を返した／中野拓夢の安定した出塁・打点／小幡・福島と脇役が反撃の形を作った／島村に1軍初打席が回り若手起用の幅
+          </div>
+          <div class="con-box">
+            <div class="con-box-label">✗ 課題点</div>
+            5回1死満塁を1点で止めた／8回二塁打の好機を仕留め切れなかった／終盤の決定打が最後まで出なかった
           </div>
         </div>
 
-      </aside>
+        <div class="stock-label">投手まわり</div>
+        <div class="pros-cons-stock">
+          <div class="pro-box">
+            <div class="pro-box-label">✓ 光った点</div>
+            中継ぎ陣が4イニング無失点で踏ん張った／ドリスの3者連続三振は終盤の明るい材料／桐敷7回3者凡退／モレッタ2奪三振
+          </div>
+          <div class="con-box">
+            <div class="con-box-label">✗ 課題点</div>
+            ルーカスの立ち上がり不安が再び出た／四球からの一発という最悪の失点パターン／投手陣の再編候補や復帰見通しが見えにくい／立石待望論は高まるが本当の不安は投手側にある
+          </div>
+        </div>
+      </div>
 
-    </div>
+      <!-- ===== SECTION 10 ===== -->
+      <div class="q-section" id="sec-faq">
+        <div class="q-section-head">
+          <span class="q-section-num">10</span>
+          <h2>よくある疑問への答え</h2>
+          <span class="q-section-head-en">FAQ</span>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">打線が打てなかったから負けたのでは？</div>
+            <div class="faq-a">違います。阪神は8安打を放ち、佐藤の2ラン、中野の犠飛で3点を奪っています。問題は<strong>「打てない」ではなく「決め切れない」</strong>こと。5回1死満塁・8回二塁打を生かせなかった点が大きい。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">ルーカスは次も先発で使うべきか？</div>
+            <div class="faq-a">今季総失点9のうち<strong>7が初回</strong>と、立ち上がりの問題は構造的。我慢起用か再調整か、大竹耕太郎・高橋遥人をどう組み込むかがローテ再編の焦点になります。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">立石の1軍昇格はあるのか？</div>
+            <div class="faq-a">立石の1軍昇格目安は50〜60打席のところ現状19打席。待望論は高まりますが、<strong>本当に重いテーマは野手より投手側</strong>にあるというのが本稿の読みです。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">中継ぎは崩れていないのか？</div>
+            <div class="faq-a">むしろ逆で、岩貞・桐敷・ドリス・モレッタの4人が<strong>4イニング無失点</strong>。ドリスは3者連続三振で圧倒的でした。中継ぎが耐えたからこそ終盤まで勝ち筋が残りました。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SECTION 11 ===== -->
+      <div class="q-section" id="sec-summary">
+        <div class="q-section-head">
+          <span class="q-section-num">11</span>
+          <h2>次戦への見方｜4タイプで整理</h2>
+          <span class="q-section-head-en">NEXT GAME MAP</span>
+        </div>
+
+        <p>次戦以降に注目すべきテーマを4つに分けて整理する。<strong>「何が不安で、何が前向きか」を先に分解してから試合を見ると、流れの読み方が変わる</strong>。</p>
+
+        <div class="matrix">
+          <div class="matrix-label">NEXT GAME POSITIONING MAP</div>
+          <h3>「何を続けて、何を立て直すか」を先に決める</h3>
+          <div class="matrix-grid">
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">最重要テーマ</span>
+                <span class="matrix-cell-ticker">先発再編</span>
+              </div>
+              <div class="matrix-cell-desc">ルーカス起用の見直し、大竹・高橋遥人の組み込み方が最大の論点。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">継続したい</span>
+                <span class="matrix-cell-ticker">中継ぎ</span>
+              </div>
+              <div class="matrix-cell-desc">岩貞・桐敷・ドリス・モレッタの4人体制は終盤の明確な武器。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">伸ばしたい</span>
+                <span class="matrix-cell-ticker">打線の軸</span>
+              </div>
+              <div class="matrix-cell-desc">佐藤輝の打球継続、中野8試合連続安打。決定打を量産できるか。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">観察枠</span>
+                <span class="matrix-cell-ticker">若手/立石</span>
+              </div>
+              <div class="matrix-cell-desc">小幡・福島・島村の機能、立石の昇格タイミングを中期で見る。</div>
+            </div>
+          </div>
+        </div>
+
+        <p>ルーカスを次も先発で使うのか。大竹耕太郎や高橋遥人をどう組み込むか。立石の1軍昇格目安は50〜60打席のところ現状19打席。<strong>投手整備が本題</strong>になる。</p>
+
+        <div class="disclaimer">
+          <strong>ご注意</strong>：本記事は試合分析を目的とした個人の見解です。選手評価・采配評価は筆者独自の基準によるもので、公式統計や球団公式見解と異なる場合があります。
+        </div>
+      </div>
+
+      <div class="related-head">RELATED ARTICLES</div>
+      <div class="related-list">
+        <a href="../2026-04-14-giants-loss/" class="related-item"><span class="related-tag">試合</span><span class="related-title">逆転したのに勝ち切れず　阪神3-4巨人（4/14）</span></a>
+        <a href="../2026-04-17-morishita-chunichi/" class="related-item"><span class="related-tag">試合</span><span class="related-title">森下の一発で終わらせるな 阪神2-1中日（4/17）</span></a>
+        <a href="../2026-04-12-haruto-chunichi/" class="related-item"><span class="related-tag">試合</span><span class="related-title">高橋遥人完封・中日3タテ達成（4/12）</span></a>
+        <a href="../2026-04-01-lucas-dena/" class="related-item"><span class="related-tag">関連</span><span class="related-title">ルーカス関連 前回登板レビュー（4/01）</span></a>
+      </div>
+    </main>
+
+    <aside class="art-sidebar">
+      <div class="sidebar-toc">
+        <div class="sidebar-toc-label">目次</div>
+        <ul class="toc-list">
+          <li><a href="#sec-result"><span class="toc-n">01</span>試合結果</a></li>
+          <li><a href="#sec-flow"><span class="toc-n">02</span>試合の流れ</a></li>
+          <li><a href="#sec-split"><span class="toc-n">03</span>打撃と投球</a></li>
+          <li><a href="#sec-pillars"><span class="toc-n">04</span>敗戦のキー</a></li>
+          <li><a href="#sec-risk"><span class="toc-n">05</span>ルーカス不安</a></li>
+          <li><a href="#sec-data"><span class="toc-n">06</span>データ</a></li>
+          <li><a href="#sec-players"><span class="toc-n">07</span>選手評価</a></li>
+          <li><a href="#sec-turning"><span class="toc-n">08</span>分岐点</a></li>
+          <li><a href="#sec-proscons"><span class="toc-n">09</span>光った/課題</a></li>
+          <li><a href="#sec-faq"><span class="toc-n">10</span>FAQ</a></li>
+          <li><a href="#sec-summary"><span class="toc-n">11</span>次戦への見方</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-meta">
+        <div class="sidebar-meta-label">TAGS</div>
+        <div class="tag-cloud">
+          <span class="tag-pill">阪神タイガース</span>
+          <span class="tag-pill">読売ジャイアンツ</span>
+          <span class="tag-pill">ルーカス</span>
+          <span class="tag-pill">佐藤輝明</span>
+          <span class="tag-pill">中野拓夢</span>
+          <span class="tag-pill">ダルベック</span>
+          <span class="tag-pill">田中将大</span>
+          <span class="tag-pill">ドリス</span>
+          <span class="tag-pill">立石</span>
+          <span class="tag-pill">投手運用</span>
+          <span class="tag-pill">2026シーズン</span>
+        </div>
+      </div>
+    </aside>
   </div>
 
   <footer class="site-footer">
