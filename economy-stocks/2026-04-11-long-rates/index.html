@@ -6,100 +6,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="/assets/img/logo.png">
   <link rel="apple-touch-icon" href="/assets/img/logo.png">
-  <meta name="description" content="なぜ今、長期金利が上がるのか｜インフレ・日銀・高橋洋一氏の見方を整理 | 「長期金利が上がった」「日銀が利上げを続けるかもしれない」「原油高で物価上昇」。 最近の経済ニュースは、ひとつひとつは聞いたことがあっても、全部を一本の線で理解するのは意外と難しいです。 ただ、ここをつなげて考えられるようにな">
-  <title>なぜ今、長期金利が上がるのか｜インフレ・日銀・高橋洋一氏の見方を整理 | AIデータ二刀流ブログ</title>
+  <meta name="description" content="長期金利上昇、政策金利、原油高、イラン情勢、住宅ローン、日本株まで一気につながる経済の全体像を初心者向けに整理。日銀と高橋洋一氏の見方の違い、供給ショックと利上げの考え方も噛み砕いて解説します。">
+  <title>長期金利と原油高の時代、日本経済はどう変わるのか｜物価・日銀・住宅ローン・株 | AIデータ二刀流ブログ</title>
   <link rel="stylesheet" href="../../assets/css/style.css?v=5">
   <link rel="stylesheet" href="../../assets/css/article.css?v=7">
-  <link rel="stylesheet" href="../../assets/css/article-enhance.css?v=20260418e">
+  <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418m">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
-    .art-hero { background: linear-gradient(135deg, #0d1e38 0%, #1a4fa0 100%); padding: 44px 24px; }
-    .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; }
-    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .art-cat-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
-    .art-cat-main { background: #1a4fa0; color: #fff; }
-    .art-hero-h1 { font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff; line-height: 1.45; margin: 0 0 10px; opacity: 0.95; }
-    .art-hero-meta { font-size: 0.76rem; color: rgba(255,255,255,0.55); display: flex; gap: 16px; flex-wrap: wrap; }
-    .art-layout { display: grid; grid-template-columns: 1fr 292px; gap: 40px; max-width: var(--max-width); margin: 0 auto; padding: 40px 20px 72px; align-items: start; }
-    @media (max-width: 860px) { .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; } }
-    .art-body { min-width: 0; }
-    .art-body p { font-size: 0.95rem; line-height: 1.95; color: #2a2a2a; margin-bottom: 18px; }
-    .art-body strong { color: #1a2744; }
-    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
-    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
-    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
-    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #1a4fa0; background: #f0f4fb; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
-    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary); margin: 0; line-height: 1.4; }
-    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
-    @media (max-width: 560px) { .sec-head-en { display: none; } }
-    .sec-sub { font-size: 1rem; font-weight: 700; color: var(--color-primary); margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #1a4fa0; }
-    .summary-box { background: linear-gradient(135deg, #f0f6ff, #e6eefb); border: 1px solid #b5cdf0; border-left: 4px solid #1a4fa0; border-radius: 0 8px 8px 0; padding: 20px 22px; margin-bottom: 32px; }
-    .summary-box-title { font-size: 0.72rem; font-weight: 900; letter-spacing: .12em; color: #1a4fa0; margin-bottom: 12px; }
-    .summary-box ul { margin: 0; }
-    .summary-box li { font-size: 0.87rem; }
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 18px 0 28px; display: block; overflow-x: auto; }
-    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
-    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:nth-child(even) td { background: #f8fafd; }
-    .art-summary { background: var(--color-primary); border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
-    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #facc15; margin-bottom: 14px; }
-    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
-    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
-    .video-box { background: #0b1220; border-radius: 12px; padding: 18px; margin: 24px 0 32px;  max-width: 640px; margin-left: auto !important; margin-right: auto !important; }
-    .video-box-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #f87171; margin-bottom: 10px; }
-    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
-    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
-    .related-list { display: flex; flex-direction: column; gap: 10px; }
-    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
-    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
-    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #1a4fa0; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
-    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
-    .art-sidebar { font-size: 0.88rem; }
-    @media (max-width: 860px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
-    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
-    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
-    .toc-list { list-style: none; padding: 0; margin: 0; }
-    .toc-list li { border-bottom: 1px solid #e8ecf4; }
-    .toc-list li:last-child { border-bottom: none; }
-    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
-    .toc-list a:hover { color: #1a4fa0; }
-    .toc-n { font-size: 0.62rem; font-weight: 900; color: #1a4fa0; flex-shrink: 0; width: 22px; }
-    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
-    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
-    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
-    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
-  
-    .art-hero { padding: 24px 0 0 0 !important; }
-    .art-hero-thumb { width: 100%; max-width: 1100px; max-height: 360px; object-fit: cover; display: block; margin: 0 auto; }
-    .art-hero-title-block { max-width: var(--max-width, 1100px); margin: 0 auto; padding: 22px 24px 18px !important; }
-
-    .art-body > main .sec-head + p,
-    .art-body .sec-head + p {
-      background: linear-gradient(135deg, #f7f9fc, #eef3fb);
-      border-left: 4px solid #1a4fa0;
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      font-weight: 500;
-      margin-top: 0;
+    /* 記事個別：フロー図 */
+    .flow-diagram { display: flex; align-items: center; gap: 8px; margin: 22px 0 28px; flex-wrap: wrap; justify-content: center; }
+    .flow-step { background: linear-gradient(145deg, #fff, #f5f7ff); border: 1px solid #e4e8f4; border-radius: 12px; padding: 14px 16px; min-width: 130px; text-align: center; box-shadow: 0 4px 12px -4px rgba(20,30,80,0.08); }
+    .flow-step-num { font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 900; font-style: italic; color: #7c3aed; line-height: 1; margin-bottom: 6px; }
+    .flow-step-label { font-size: 0.8rem; font-weight: 700; color: #0f0a2e; line-height: 1.4; }
+    .flow-arrow { font-size: 1.4rem; color: #a78bfa; font-weight: 900; }
+    @media (max-width: 720px) { .flow-diagram { flex-direction: column; } .flow-arrow { transform: rotate(90deg); } }
+    @media (prefers-color-scheme: dark) {
+      .flow-step { background: #141828 !important; border-color: #2a3150 !important; }
+      .flow-step-label { color: #f1f5ff !important; }
     }
-    .data-table th { font-size: 0.82rem; letter-spacing: 0.04em; }
-    .data-table { border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-    .data-table strong { color: #1a4fa0; font-weight: 900; }
-    .art-body p strong { color: #1a4fa0; font-weight: 800; background: linear-gradient(transparent 62%, #ffe58a 62%, #ffe58a 92%, transparent 92%); padding: 0 2px; }
-    .art-body p { text-align: justify; text-justify: inter-ideograph; }
-    .art-body h2 + p, .art-body .sec-sub + p { margin-top: 14px; }
 
-    /* article-body-enhanced */
+    /* スタットグリッド */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0 36px; }
+    .stat-card { background: linear-gradient(145deg, #fff, #f5f7ff); border: 1px solid #e4e8f4; border-radius: 16px; padding: 22px 24px; position: relative; overflow: hidden; }
+    .stat-card::before { content: ""; position: absolute; inset: 0 auto auto 0; width: 4px; height: 100%; background: linear-gradient(180deg, #7c3aed, #06b6d4); }
+    .stat-card-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; color: #7c3aed; text-transform: uppercase; margin-bottom: 10px; }
+    .stat-card-number { font-family: 'Poppins', sans-serif; font-size: 2.4rem; font-weight: 900; color: #0f0a2e; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; font-style: italic; }
+    .stat-card-sub { font-size: 0.82rem; color: #5a6380; line-height: 1.6; }
+    @media (max-width: 560px) { .stat-card-number { font-size: 1.9rem; } }
+    @media (prefers-color-scheme: dark) {
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #a78bfa !important; }
+      .stat-card-number { color: #f5f7ff !important; }
+      .stat-card-sub { color: #9aa3bf !important; }
+    }
+
+    /* 2本柱 */
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar { background: linear-gradient(180deg, #fafbff 0%, #f0f3fa 100%); border-radius: 14px; padding: 22px 24px; border: 1px solid #dbe2f0; position: relative; }
+    .pillar-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .pillar-title { font-size: 1rem; font-weight: 900; color: #0f0a2e; margin-bottom: 8px; }
+    .pillar-desc { font-size: 0.88rem; color: #4a5270; line-height: 1.7; margin-bottom: 10px; }
+    .pillar-example { background: #fff; border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: #5a6380; border: 1px solid #e4e8f4; }
+    .pillar.target { border: 2px solid #f59e0b; background: linear-gradient(180deg, #fffbf0 0%, #fef3c7 100%); }
+    @media (prefers-color-scheme: dark) {
+      .pillar { background: linear-gradient(180deg, #181c2e 0%, #141828 100%) !important; border-color: #2a3150 !important; }
+      .pillar-title { color: #f5f7ff !important; }
+      .pillar-desc { color: #b9c1d9 !important; }
+      .pillar-example { background: #0b1020 !important; border-color: #2a3150 !important; color: #a5adc8 !important; }
+      .pillar.target { background: linear-gradient(180deg, #2a1f08 0%, #1a1408 100%) !important; border-color: #f59e0b !important; }
+    }
+
+    /* リスク3パターン */
+    .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .risk-grid { grid-template-columns: 1fr; } }
+    .risk-card { background: #fff; border-radius: 14px; padding: 20px; border: 1px solid #e4e8f4; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .risk-card-head { display: flex; align-items: center; gap: 10px; }
+    .risk-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; color: #fff; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; }
+    .risk-title { font-size: 0.95rem; font-weight: 900; color: #0f0a2e; line-height: 1.4; }
+    .risk-body { font-size: 0.86rem; color: #4a5270; line-height: 1.75; }
+    .risk-example { margin-top: auto; padding: 10px 14px; background: #fef3c7; border-radius: 8px; font-size: 0.8rem; color: #7c2d12; font-weight: 500; }
+    @media (prefers-color-scheme: dark) {
+      .risk-card { background: #141828 !important; border-color: #2a3150 !important; }
+      .risk-title { color: #f5f7ff !important; }
+      .risk-body { color: #b9c1d9 !important; }
+      .risk-example { background: rgba(252,211,77,0.12) !important; color: #fcd34d !important; }
+    }
+
+    /* 投資マトリクス */
+    .matrix { background: linear-gradient(135deg, #0f0a2e 0%, #2a1065 50%, #061733 100%); border-radius: 20px; padding: 32px 30px; color: #fff; margin: 28px 0 36px; }
+    .matrix-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #a78bfa; margin-bottom: 18px; }
+    .matrix h3 { font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0 0 20px; }
+    .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 560px) { .matrix-grid { grid-template-columns: 1fr; } .matrix { padding: 22px 18px; } .matrix h3 { font-size: 1.05rem; } }
+    .matrix-cell { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 18px 20px; }
+    .matrix-cell-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .matrix-cell-type { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #a78bfa; }
+    .matrix-cell-ticker { font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 900; font-style: italic; color: #fff; }
+    .matrix-cell-desc { font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
   </style>
-  <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <a href="../../" class="site-logo">
@@ -109,9 +99,7 @@
           <span class="logo-sub">野球・競馬 × 経済・株式</span>
         </div>
       </a>
-      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="../../">TOP</a>
         <a href="../../hanshin-keiba/">野球・競馬</a>
@@ -129,17 +117,21 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../../economy-stocks/">経済・株式</a>
       <span class="breadcrumb-sep">›</span>
-      <span>なぜ今、長期金利が上がるのか｜インフレ・日銀・高橋洋一氏の見方を整理</span>
+      <span>長期金利と原油高の時代</span>
     </div>
   </div>
 
   <div class="art-hero">
-    <img src="thumb.png?v=20260418c" alt="記事サムネイル" class="art-hero-thumb">
+    <img src="thumb.png?v=20260418m" alt="長期金利と原油高" class="art-hero-thumb">
     <div class="art-hero-title-block">
-      <div class="art-hero-cats"><span class="art-cat-badge art-cat-main">金融政策</span></div>
-      <h1 class="art-hero-h1">なぜ今、長期金利が上がるのか｜インフレ・日銀・高橋洋一氏の見方を整理</h1>
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-economy">金融政策</span>
+        <span class="art-cat-badge art-cat-warn">物価・金利</span>
+        <span class="art-cat-badge art-cat-stock">日本株影響</span>
+      </div>
+      <h1 class="art-hero-h1">長期金利と原油高の時代、日本経済はどう変わるのか｜物価・日銀・住宅ローン・株を一気につなぐ</h1>
       <div class="art-hero-meta">
-        <span>2026.04.11</span>
+        <span>2026年4月11日</span>
         <span>AIデータ二刀流ブログ</span>
       </div>
     </div>
@@ -148,548 +140,365 @@
   <div class="art-layout">
     <main class="art-body">
 
-
       <div class="hero-summary">
         <div class="hero-summary-label">この記事のコア</div>
-        <h2>結論を先に書くと、今回の局面は次の3点で見るのが分かりやすいです。</h2>
-        <p></p>
+        <h2>「物価が上がった＝すぐ利上げ」ではない。順番を間違えると景気を壊す局面。</h2>
+        <p>政策金利は<strong>0.75%</strong>、長期金利は一時<strong>2.395%</strong>まで上昇。しかし今回は景気過熱ではなく、円安と原油高という<strong>供給ショック</strong>が入り口。だから、需要を冷やす利上げを急ぐのではなく、<strong>まず供給対策＋補正予算、次に金利</strong>という順番で考えるべき局面です。</p>
       </div>
-<p>「長期金利が上がった」「日銀が利上げを続けるかもしれない」「原油高で物価上昇」。</p>
-      <p>最近の経済ニュースは、ひとつひとつは聞いたことがあっても、全部を一本の線で理解するのは意外と難しいです。</p>
-<p>ただ、ここをつなげて考えられるようになると、ニュースの意味が一気に変わります。</p>
-      <p>長期金利の上昇は、単なる金融市場の話ではありません。住宅ローン、預金金利、ガソリン代、電気代、企業業績、日本株の物色まで、かなり広い範囲に影響が及びます。</p>
-      <p>しかも今回は、景気が強すぎるからの素直な金利上昇ではなく、円安や原油高、イラン情勢に伴う供給ショックまで重なっており、さらにややこしい局面です。</p>
-<p>この記事では、このチャットで整理してきた論点をもとに、</p>
-      <p>「そもそも金利とは何か」</p>
-      <p>「長期金利上昇は何を意味するのか」</p>
-      <p>「物価高に対して日銀はどう動くべきか」</p>
-      <p>「家計や株式市場にはどう効くのか」</p>
-      <p>を、初心者にも読める形で整理します。</p>
 
-      <div class="video-box" style="max-width:640px;margin-left:auto;margin-right:auto;">
+      <div class="video-box">
         <div class="video-box-label">▶ 動画でも解説しています</div>
         <div class="video-embed-wrap">
-          <iframe src="https://www.youtube.com/embed/fi_4MyKZt8Y" title="なぜ今、長期金利が上がるのか｜インフレ・日銀・高橋洋一氏の見方を整理" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/fi_4MyKZt8Y" title="長期金利と原油高の時代" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+
       <div class="q-summary">
         <div class="q-summary-label">3行まとめ</div>
         <ol>
-      <li>======================================================================</li>
+          <li>日本は「金利ゼロの国」から抜けつつあるが、今回は<strong>原油高・円安の供給ショック</strong>が重なっている。</li>
+          <li>だから<strong>「物価高＝即利上げ」とは言い切れず</strong>、供給対策と危機管理型の補正予算を先に検討すべき局面。</li>
+          <li>ただし賃金・サービス価格・期待インフレに<strong>二次波及</strong>が見えれば、日銀は後手に回らず追加利上げを検討する必要がある。</li>
         </ol>
       </div>
 
-      <div class="summary-box">
-        <div class="summary-box-title">この記事でわかること</div>
-        <ul><li>金利とは何か。政策金利と長期金利の違い</li><li>なぜ今、日本の長期金利が注目されているのか</li><li>総合CPI、コアCPI、コアコア、欧米版コアの違い</li><li>日銀寄りの見方と、高橋洋一氏寄りの見方の違い</li><li>イラン戦争に伴う原油高・物価高に対して、政策金利をどう考えるべきか</li><li>住宅ローン、生活コスト、日本株への影響</li><li>今後どの数字を見れば全体像を追えるのか</li></ul>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-card-label">政策金利</div>
+          <div class="stat-card-number">0.75<span style="font-size:1.1rem;">%</span></div>
+          <div class="stat-card-sub">日銀が直接動かす短期金利。無担保コール翌日物の誘導目標。</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">10年国債利回り</div>
+          <div class="stat-card-number">2.395<span style="font-size:1.1rem;">%</span></div>
+          <div class="stat-card-sub">市場が将来の金利・物価を織り込んだ水準（一時）。</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">コアCPI(26年2月)</div>
+          <div class="stat-card-number">1.6<span style="font-size:1.1rem;">%</span></div>
+          <div class="stat-card-sub">生鮮除く。日本で一般に「コア」と呼ばれる指標。</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">マネタリーベース</div>
+          <div class="stat-card-number">-11.6<span style="font-size:1.1rem;">%</span></div>
+          <div class="stat-card-sub">前年比。ベースマネーはすでに大きく縮小中。</div>
+        </div>
       </div>
 
-      <div class="sec-head" id="sec-conclusion">
-        <span class="sec-num">00</span>
-        <h2>先に結論</h2>
-        <span class="sec-head-en">CONCLUSION</span>
-      </div>
-<p>結論を先に書くと、今回の局面は次の<strong>3点</strong>で見るのが分かりやすいです。</p>
-<p>1. 日本は「金利ゼロの国」から少しずつ抜けつつある</p>
-      <p>政策金利はすでに0.75％まで上がっており、長期金利も2％台まで上昇しました。市場は、今の金利だけでなく、この先の利上げや物価を織り込み始めています。</p>
-<p>2. ただし今回は、景気が強すぎるからのシンプルな利上げ局面ではない</p>
-      <p>円安、原油高、中東情勢という外からのショックが大きく、物価上昇の入り口は供給ショック寄りです。したがって、「物価高だからすぐ利上げ」がそのまま正解とは言い切れません。</p>
-<p>3. 見るべきは“金利を上げるかどうか”だけではなく、“何をどの順番で使うか”</p>
-      <p>足元では、政策金利をすぐ追加で上げるより、供給対策や危機管理型の補正予算を優先しつつ、賃金・サービス価格・期待インフレへの二次波及が見えてきた時に日銀が追加利上げを検討する、という順番が自然です。</p>
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">01</span>
+          <h2>テーマの全体像｜3つは一本の線でつながる</h2>
+          <span class="q-section-head-en">OVERVIEW</span>
+        </div>
+        <p>「10年国債が上がった」「日銀が利上げするかも」「原油が上がった」は、バラバラに見えて実は一本の流れ。<strong>生活コストと資産価格</strong>に広くつながる話です。</p>
 
-<ol>
-<li>テーマの全体像｜なぜ長期金利と原油高を一緒に見る必要があるのか</li>
-</ol>
-<p>経済ニュースを見ていると、</p>
-      <p>「10年国債利回りが上がった」</p>
-      <p>「日銀が利上げを続けるかもしれない」</p>
-      <p>「原油価格が上昇した」</p>
-      <p>という話が別々に出てきます。</p>
-<p>しかし実際には、この3つはかなりつながっています。</p>
-<div class="sec-head" id="sec-01"><span class="sec-num">01</span><h2>大きな流れ</h2><span class="sec-head-en">SECTION 01</span></div>
-<p>原油高・円安</p>
-      <p>→ 物価が上がりやすくなる</p>
-      <p>→ 市場が「日銀はこの先も利上げするかもしれない」と考える</p>
-      <p>→ 長期金利が上がる</p>
-      <p>→ 住宅ローン固定金利、企業の調達コスト、株価評価に影響する</p>
-<p>つまり、長期金利のニュースは金融市場の中だけで完結する話ではなく、生活コストと資産価格に広くつながる話です。</p>
-<p>しかも今回は、景気が強すぎて需要が過熱しているというより、</p>
-      <p>「外から来たコスト上昇」と</p>
-      <p>「市場が先回りする金利上昇」が重なっています。</p>
-      <p>ここが、今回の局面を難しく、同時に面白くしているポイントです。</p>
-<ol>
-<li>まず基礎整理｜金利とは何か。政策金利と長期金利の違い</li>
-</ol>
-<p>初心者が最初につまずきやすいのは、「金利」という言葉が1つではないことです。</p>
-<div class="sec-head" id="sec-02"><span class="sec-num">02</span><h2>金利の基本整理</h2><span class="sec-head-en">SECTION 02</span></div>
-<table class="data-table">
-<thead><tr>
-<th>項目</th>
-<th>ざっくりした意味</th>
-<th>誰が主に動かすか</th>
-<th>生活への影響</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>政策金利</td>
-<td>日銀が操作する短期金利の基準</td>
-<td>日銀</td>
-<td>変動ローン、短期の資金調達、為替</td>
-</tr>
-<tr>
-<td>長期金利</td>
-<td>市場が決める将来予想込みの金利</td>
-<td>市場</td>
-<td>固定ローン、国債、株価評価、不動産</td>
-</tr>
-</tbody></table>
-<p>政策金利は、「日銀が今どうしたいか」を示す金利です。</p>
-      <p>一方、長期金利は、「市場がこの先どうなると思っているか」が反映される金利です。</p>
-<p>たとえると、</p>
-      <p>政策金利は“今の天気”、</p>
-      <p>長期金利は“来週の天気予報”に近いです。</p>
-<p>今は晴れていても、来週は大雨だとみんなが思えば、傘の値段は先に上がります。</p>
-      <p>同じように、今の政策金利が0.75％でも、市場が「この先も利上げが続きそうだ」と思えば、10年金利は先に上がります。</p>
-<ol>
-<li>重要な数字を一度整理する</li>
-</ol>
-<p>まず、この記事で前提になる主要データをまとめます。</p>
-<div class="sec-head" id="sec-03"><span class="sec-num">03</span><h2>足元の主要数字</h2><span class="sec-head-en">SECTION 03</span></div>
-<table class="data-table">
-<thead><tr>
-<th>指標</th>
-<th>数字</th>
-<th>見方のポイント</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>日銀の政策金利（無担保コール翌日物の誘導目標）</td>
-<td>0.75％</td>
-<td>日銀が直接動かす短期金利</td>
-</tr>
-<tr>
-<td>新発10年国債利回り</td>
-<td>一時 2.395％</td>
-<td>市場が将来の金利や物価を織り込んだ水準</td>
-</tr>
-<tr>
-<td>全国CPI 総合（<strong>2026年2月</strong>）</td>
-<td>1.3％</td>
-<td>家計実感に近い総合物価</td>
-</tr>
-<tr>
-<td>全国CPI 生鮮除く（<strong>2026年2月</strong>）</td>
-<td>1.6％</td>
-<td>日本でよく「コア」と呼ばれる指標</td>
-</tr>
-<tr>
-<td>全国CPI 生鮮・エネルギー除く（<strong>2026年2月</strong>）</td>
-<td>2.5％</td>
-<td>物価の基調を見る材料の一つ</td>
-</tr>
-<tr>
-<td>マネタリーベース（<strong>2026年3月</strong>）</td>
-<td>前年比 -11.6％</td>
-<td>ベースマネーは大きく縮小中</td>
-</tr>
-</tbody></table>
-<p>ここから分かるのは、表面の総合CPIはかなり落ち着いて見える一方で、</p>
-      <p>「生鮮・エネルギーを除いた部分」はまだ2％台で粘っていることです。</p>
-<p>つまり、</p>
-      <p>「もう物価は落ち着いた」と言うには早いが、</p>
-      <p>「完全に物価が暴走している」と言うほどでもない。</p>
-      <p>この中途半端さが、議論を分かりにくくしています。</p>
-<ol>
-<li>論点整理｜なぜ同じニュースを見ても見方が分かれるのか</li>
-</ol>
-<p>今回の論点を整理すると、大きく4つです。</p>
-<p>【論点1】長期金利上昇は危機なのか、正常化なのか</p>
-      <p>【論点2】今の物価高は需要インフレなのか、供給ショックなのか</p>
-      <p>【論点3】日銀は後手を恐れるべきか、先走りを恐れるべきか</p>
-      <p>【論点4】家計と株式市場には、誰が得で誰が苦しいのか</p>
-<p>ここで重要なのは、「金利上昇＝全部悪い」「利上げ＝全部正しい」と単純化しないことです。</p>
-<ol>
-<li>物価を見る物差しが違うと、結論が変わる</li>
-</ol>
-<p>このチャットで何度も出てきた大事なポイントがここです。</p>
-<p>物価の見方には複数あります。</p>
-<div class="sec-head" id="sec-04"><span class="sec-num">04</span><h2>物価指標の違い</h2><span class="sec-head-en">SECTION 04</span></div>
-<table class="data-table">
-<thead><tr>
-<th>指標</th>
-<th>何を除くか</th>
-<th>何を見るための指標か</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>総合CPI</td>
-<td>何も除かない</td>
-<td>家計全体の物価実感に近い</td>
-</tr>
-<tr>
-<td>日本のコアCPI</td>
-<td>生鮮食品を除く</td>
-<td>日本でよく報じられるコア物価</td>
-</tr>
-<tr>
-<td>コアコア</td>
-<td>生鮮食品・エネルギーを除く</td>
-<td>より基調的な物価を見る</td>
-</tr>
-<tr>
-<td>欧米版コアに近い考え方</td>
-<td>食料・エネルギーを除く</td>
-<td>一時要因をより強く除いて基調を見る</td>
-</tr>
-</tbody></table>
-<p>ここで日銀寄りの見方と、高橋洋一氏寄りの見方が分かれます。</p>
-<div class="sec-head" id="sec-05"><span class="sec-num">05</span><h2>見方の違い</h2><span class="sec-head-en">SECTION 05</span></div>
-<p>日銀寄りの見方</p>
-      <p>- 総合やコアだけでなく、賃金、サービス価格、期待インフレも見る</p>
-      <p>- 原油高そのものより、それが二次波及して国内の値上げ体質になることを警戒</p>
-      <p>- 後手に回ると危険だと考えやすい</p>
-<p>高橋洋一氏寄りの見方</p>
-      <p>- 食料やエネルギーなど一時要因をもっと厳しく除いて見るべき</p>
-      <p>- 輸入コスト要因が大きい局面で利上げを急ぐのは危険</p>
-      <p>- 先走って景気を冷やすリスクを警戒しやすい</p>
-<p>ここでのポイントは、</p>
-      <p>「どちらが絶対に正しいか」より、</p>
-      <p>「何をインフレの本体と見るか」で結論が変わることです。</p>
-<ol>
-<li>初心者向けの噛み砕き説明｜需要インフレと供給ショックの違い</li>
-</ol>
-<p>ここはすごく大事なので、かなり噛み砕きます。</p>
-<div class="sec-head" id="sec-06"><span class="sec-num">06</span><h2>需要インフレ</h2><span class="sec-head-en">SECTION 06</span></div>
-<p>景気が良くて、給料も増え、みんながたくさん買う。</p>
-      <p>その結果、企業が値上げしやすくなる。</p>
-      <p>このタイプは、利上げで需要を少し冷やすと効きやすい。</p>
-<div class="sec-head" id="sec-07"><span class="sec-num">07</span><h2>供給ショック</h2><span class="sec-head-en">SECTION 07</span></div>
-<p>原油高、物流停滞、円安、輸入コスト上昇などで、外から物価が押し上げられる。</p>
-      <p>このタイプは、利上げしても油田が増えるわけではない。</p>
-      <p>だから、需要インフレほどは効きにくい。</p>
-<p>ここを一言で言うなら、</p>
-      <p>「風邪の熱」と「真夏に走った後の熱」は、同じ熱でも処方箋が違う、ということです。</p>
-<p>今の日本は、入口としては供給ショック寄りです。</p>
-      <p>だから、</p>
-      <p>「物価が上がった＝すぐ利上げ」</p>
-      <p>は、少し雑な結論になります。</p>
-<ol>
-<li>イラン戦争と原油高｜物価高に日銀はどう向き合うべきか</li>
-</ol>
-<p>このチャットで深掘りした<strong>2本</strong>目の動画の本丸がここです。</p>
-<p>イラン戦争や中東情勢の緊迫化によって原油が上がると、</p>
-      <p>ガソリン、電気、ガス、物流、食品に波及しやすくなります。</p>
-<p>ここで考えるべき政策は、大きく3つあります。</p>
-<div class="sec-head" id="sec-08"><span class="sec-num">08</span><h2>政策の選択肢</h2><span class="sec-head-en">SECTION 08</span></div>
-<ol>
-<li>政策金利を上げる</li>
-</ol>
-<ol>
-<li>補正予算や家計・企業支援を行う</li>
-<li>備蓄、電力、調達先多角化など供給側の対策を行う</li>
-</ol>
-<p>私がこのチャット全体から整理した結論はこうです。</p>
-<div class="sec-head" id="sec-09"><span class="sec-num">09</span><h2>現時点で自然な順番</h2><span class="sec-head-en">SECTION 09</span></div>
-<ul>
-<li>当面は政策金利をすぐ追加で上げない</li>
-<li>先に供給対策と危機管理型の補正予算を打つ</li>
-<li>そのうえで、賃金・サービス価格・期待インフレへの二次波及が見えたら、追加利上げを検討する</li>
-</ul>
-<p>この順番が自然だと思う理由は次の通りです。</p>
-<div class="sec-head" id="sec-10"><span class="sec-num">10</span><h2>据え置き寄りに考える理由</h2><span class="sec-head-en">SECTION 10</span></div>
-<ul>
-<li>今回の入口が供給ショック寄りだから</li>
-<li>マネタリーベースはすでに大きく縮小しているから</li>
-<li>長期金利も先に上がっており、市場面ではすでに引き締めが進んでいるから</li>
-<li>景気は強すぎるとは言い切れないから</li>
-</ul>
-<div class="sec-head" id="sec-11"><span class="sec-num">11</span><h2>それでも利上げ余地を残す理由</h2><span class="sec-head-en">SECTION 11</span></div>
-<ul>
-<li>原油高がサービス価格や賃金にまで波及する可能性がある</li>
-<li>期待インフレが上がると、単なる一時要因では済まなくなる</li>
-<li>後手に回ると、後から急な利上げが必要になる恐れがある</li>
-</ul>
-<ol>
-<li>「ビハインド・ザ・カーブ」とは何か</li>
-</ol>
-<p>今回の議論を面白くしているキーワードがこれです。</p>
-<p>ビハインド・ザ・カーブとは、</p>
-      <p>中央銀行が後手に回ることです。</p>
-<p>本当は早めに少しずつ対応すれば良かったのに、</p>
-      <p>判断が遅れて、あとで急激な利上げをしなければならなくなる。</p>
-      <p>これを日銀側は怖がっています。</p>
-<p>一方で、高橋洋一氏寄りの見方が怖がるのは逆です。</p>
-<div class="sec-head" id="sec-12"><span class="sec-num">12</span><h2>日銀側が怖がるもの</h2><span class="sec-head-en">SECTION 12</span></div>
-<ul>
-<li>後手</li>
-<li>期待インフレの上昇</li>
-<li>二次波及</li>
-<li>後から大きく利上げする羽目になること</li>
-</ul>
-<div class="sec-head" id="sec-13"><span class="sec-num">13</span><h2>高橋氏寄りが怖がるもの</h2><span class="sec-head-en">SECTION 13</span></div>
-<ul>
-<li>先走り</li>
-<li>供給ショックに対して利上げをぶつけること</li>
-<li>景気を先に壊してしまうこと</li>
-</ul>
-<p>この対立を一言で言うと、</p>
-      <p>「後手の怖さ」と「先走りの怖さ」の綱引きです。</p>
-<ol>
-<li>家計への影響｜住宅ローン、預金、生活コストはどうなるか</li>
-</ol>
-<p>ここは読者が一番気になるところです。</p>
-<div class="sec-head" id="sec-14"><span class="sec-num">14</span><h2>家計への主な影響</h2><span class="sec-head-en">SECTION 14</span></div>
-<table class="data-table">
-<thead><tr>
-<th>項目</th>
-<th>影響</th>
-<th>ポイント</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>ガソリン・電気・ガス</td>
-<td>上がりやすい</td>
-<td>原油高・円安が直撃しやすい</td>
-</tr>
-<tr>
-<td>食品</td>
-<td>上がりやすい</td>
-<td>物流・エネルギー・輸入コストが波及</td>
-</tr>
-<tr>
-<td>固定ローン</td>
-<td>先に重くなりやすい</td>
-<td>長期金利の影響を受けやすい</td>
-</tr>
-<tr>
-<td>変動ローン</td>
-<td>後から効きやすい</td>
-<td>政策金利引き上げ後に反映されやすい</td>
-</tr>
-<tr>
-<td>預金金利</td>
-<td>少し追い風</td>
-<td>金利ある世界では利息が戻りやすい</td>
-</tr>
-</tbody></table>
-<p>ここで重要なのは、家計に痛みが来る順番です。</p>
-<ol>
-<li>まず生活コストが上がる</li>
-</ol>
-<ol>
-<li>次に固定ローンが重くなる</li>
-<li>さらに後から変動ローンに波及する可能性がある</li>
-</ol>
-<p>つまり、金利のニュースは、結局「生活コストのニュース」でもあります。</p>
-<ol>
-<li>株式市場への影響｜どこが強く、どこが弱いのか</li>
-</ol>
-<p>株式市場は「全部悪い」でもなければ「銀行だけ勝ち」でもありません。</p>
-      <p>大事なのは選別です。</p>
-<div class="sec-head" id="sec-15"><span class="sec-num">15</span><h2>金利上昇・原油高局面の強弱整理</h2><span class="sec-head-en">SECTION 15</span></div>
-<table class="data-table">
-<thead><tr>
-<th>分類</th>
-<th>相対的に強い/弱い</th>
-<th>理由</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>銀行</td>
-<td>強い寄り</td>
-<td>利ざや改善が期待される</td>
-</tr>
-<tr>
-<td>保険</td>
-<td>強い寄り</td>
-<td>再投資利回り改善が追い風</td>
-</tr>
-<tr>
-<td>REIT・不動産</td>
-<td>弱い</td>
-<td>借入コスト増、相対利回り魅力低下</td>
-</tr>
-<tr>
-<td>借入依存企業</td>
-<td>弱い</td>
-<td>利払い負担が重くなる</td>
-</tr>
-<tr>
-<td>高PERグロース</td>
-<td>弱い</td>
-<td>将来利益の現在価値が下がりやすい</td>
-</tr>
-<tr>
-<td>燃料多消費企業</td>
-<td>弱い</td>
-<td>原油高が直撃</td>
-</tr>
-<tr>
-<td>現金が厚く価格転嫁できる企業</td>
-<td>相対的に強い</td>
-<td>コスト増に耐えやすい</td>
-</tr>
-</tbody></table>
-<p>ここで誤解しやすいのが、</p>
-      <p>「銀行株を買っておけば全部OK」という発想です。</p>
-<p>確かに銀行は追い風を受けやすいですが、</p>
-      <p>- 既存国債の評価損</p>
-      <p>- 預金金利引き上げによる調達コスト増</p>
-      <p>- 景気悪化時の貸倒れリスク</p>
-      <p>もあります。</p>
-<p>したがって、</p>
-      <p>「銀行は相対的に強いが、全面無敵ではない」</p>
-      <p>が正確な見方です。</p>
-<ol>
-<li>強材料・弱材料を整理する</li>
-</ol>
-<p>ここまでの話を、強材料・弱材料で整理するとこうなります。</p>
-<div class="sec-head" id="sec-16"><span class="sec-num">16</span><h2>強材料</h2><span class="sec-head-en">SECTION 16</span></div>
-<ul>
-<li>金利ある世界への正常化は、銀行・保険には追い風</li>
-<li>預金金利が戻れば、現金を持つ家計には少し追い風</li>
-<li>価格転嫁できる企業は相対的に強い</li>
-<li>供給対策や危機管理補正がうまく機能すれば、大事故を避けやすい</li>
-</ul>
-<div class="sec-head" id="sec-17"><span class="sec-num">17</span><h2>弱材料</h2><span class="sec-head-en">SECTION 17</span></div>
-<ul>
-<li>原油高・円安は生活コストを押し上げる</li>
-<li>固定ローンはすでに重くなりやすい</li>
-<li>REIT、不動産、借入依存企業は逆風</li>
-<li>日銀が後手でも先走りでも、景気に傷が入る可能性がある</li>
-<li>中東情勢が長引くと、スタグフレーション寄りの嫌な展開もありうる</li>
-</ul>
-<ol>
-<li>読者が誤解しやすい点</li>
-</ol>
-<p>ここは丁寧に整理しておきます。</p>
-<p>【誤解1】物価高なら、いつでも利上げが正解</p>
-      <p>→ そうとは限りません。需要インフレと供給ショックでは効き方が違います。</p>
-<p>【誤解2】長期金利が上がるのは、日本財政が終わったから</p>
-      <p>→ 少なくとも足元では、将来の利上げ観測や物価見通しを市場が織り込む面が大きいです。</p>
-<p>【誤解3】銀行だけが一人勝ちする</p>
-      <p>→ 銀行にも評価損や調達コスト上昇、景気悪化リスクがあります。</p>
-<p>【誤解4】供給ショックなら、日銀は何もしなくていい</p>
-      <p>→ それも違います。二次波及が見えてきたら、今度は後手のリスクが大きくなります。</p>
-<ol>
-<li>今後の注目点｜何を見れば全体像を追えるか</li>
-</ol>
-<p>細かいニュースを全部追わなくても、次の5つを見ていればかなり全体像は掴めます。</p>
-<div class="sec-head" id="sec-18"><span class="sec-num">18</span><h2>今後の注目点</h2><span class="sec-head-en">SECTION 18</span></div>
-<ol>
-<li>東京都区部CPI</li>
-</ol>
-<ol>
-<li>全国CPI、とくにコアコア系</li>
-</ol>
-<ol>
-<li>ドル円</li>
-</ol>
-<ol>
-<li>原油価格</li>
-</ol>
-<ol>
-<li>日銀会合後の表現の変化</li>
-</ol>
-<p>特に重要なのは、</p>
-      <p>「原油高が続くか」</p>
-      <p>「サービス価格が粘るか」</p>
-      <p>「賃上げが広がるか」</p>
-      <p>「日銀が次の利上げに前向きな表現を強めるか」</p>
-      <p>です。</p>
-<p>ここが揃ってくるほど、</p>
-      <p>「供給ショックだから様子見」だけでは済まなくなります。</p>
-<ol>
-<li>結局どう見るべきか</li>
-</ol>
-<p>ここまで長く整理してきましたが、最後に一番大事な見方を置きます。</p>
-<p>今回の局面は、</p>
-      <p>「金利が上がるかどうか」</p>
-      <p>だけで見ると見誤りやすいです。</p>
-<p>本当に大事なのは、</p>
-<ul>
-<li>今の物価高の入口は何か</li>
-<li>その物価高がどこまで国内に波及するのか</li>
-<li>日銀は後手を恐れるべきか、先走りを恐れるべきか</li>
-<li>家計と株式市場のどこに先に痛みが出るのか</li>
-</ul>
-<p>を、順番で考えることです。</p>
-<p>私自身の見方をまとめると、</p>
-      <p>現時点では</p>
-      <p>「供給ショック起点の物価高に対して、政策金利をすぐ追加で上げるのはやや筋が悪い」</p>
-      <p>と考えます。</p>
-<p>ただし同時に、</p>
-      <p>「だから日銀は何もするな」とまでは言いません。</p>
-      <p>賃金、サービス価格、期待インフレに二次波及が見えれば、今度は追加利上げも十分選択肢に入ります。</p>
-<p>要するに、</p>
-      <p>答えは「即利上げ」でも「絶対据え置き」でもなく、</p>
-      <p>「まず供給対策、次に金利」</p>
-      <p>という順番にある、というのが現時点での一番自然な整理です。</p>
-<ul>
-<li>日本は「金利ゼロの国」から少しずつ抜けつつあるが、今回は原油高・円安という供給ショックが重なっている。</li>
-<li>そのため、物価高だから即利上げ、とは言い切れず、供給対策と危機管理型の補正予算を先に考えるべき局面だ。</li>
-<li>ただし、賃金・サービス価格・期待インフレに二次波及が見えれば、日銀は後手に回らず追加利上げを検討する必要がある。</li>
-</ul>
-<ol>
-<li>政策金利と長期金利の違い</li>
-<li>CPI指標の違い（総合、コア、コアコア、欧米版コア）</li>
-<li>家計への影響の順番（生活コスト→固定ローン→変動ローン）</li>
-</ol>
-<ol>
-<li>金利上昇局面の業種別強弱表</li>
-<li>日銀寄りの見方と高橋洋一氏寄りの見方の比較表</li>
-</ol>
-<ol>
-<li>供給ショックと需要インフレの違い</li>
-</ol>
-<ol>
-<li>今後チェックすべき5指標一覧</li>
-</ol>
-<div class="sec-head" id="sec-19"><span class="sec-num">19</span><h2>参考データの整理用メモ</h2><span class="sec-head-en">SECTION 19</span></div>
-<ul>
-<li>日銀政策金利：0.75％</li>
-<li>新発10年国債利回り：一時2.395％</li>
-<li>全国CPI（<strong>2026年2月</strong>）：総合1.3％、生鮮除く1.6％、生鮮・エネルギー除く2.5％</li>
-<li>マネタリーベース（<strong>2026年3月</strong>）：前年比-11.6％</li>
-</ul>
-<div class="sec-head" id="sec-20"><span class="sec-num">20</span><h2>自然な注意文案</h2><span class="sec-head-en">SECTION 20</span></div>
-<p>本記事は公開時点の公開情報をもとにした整理・考察です。原油価格、為替、金融政策、株式市場の見通しには不確実性があり、今後の情勢変化によって前提が変わる可能性があります。特に投資判断については、最終的にご自身でご判断ください。</p>
+        <div class="flow-diagram">
+          <div class="flow-step"><div class="flow-step-num">1</div><div class="flow-step-label">原油高<br>円安</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="flow-step-num">2</div><div class="flow-step-label">物価が<br>上がる</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="flow-step-num">3</div><div class="flow-step-label">市場が<br>利上げ織込</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="flow-step-num">4</div><div class="flow-step-label">長期金利<br>が上昇</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="flow-step-num">5</div><div class="flow-step-label">ローン<br>株価</div></div>
+        </div>
 
-      <div class="sec-head" id="sec-summary">
-        <span class="sec-num">99</span>
-        <h2>まとめ</h2>
-        <span class="sec-head-en">SUMMARY</span>
-      </div>
-<p>長期金利、政策金利、物価、原油高、住宅ローン、日本株。</p>
-      <p>一見するとバラバラに見えるニュースですが、実際にはかなり強くつながっています。</p>
-<p>最近の経済ニュースが分かりにくいのは、単なる「景気が良いから利上げ」という素直な局面ではなく、</p>
-      <p>外からの供給ショックと、国内の価格転嫁や市場の期待が同時に動いているからです。</p>
-<p>だからこそ、</p>
-      <p>「どの物価指標を見るのか」</p>
-      <p>「今の物価高の入り口は何か」</p>
-      <p>「何をどの順番で使うべきか」</p>
-      <p>を分けて考える必要があります。</p>
-<p>この視点があるだけで、</p>
-      <p>長期金利のニュースも、</p>
-      <p>日銀会合のニュースも、</p>
-      <p>原油高のニュースも、</p>
-      <p>かなり読みやすくなります。</p>
-<p>なお、株式市場や個別銘柄への影響は、金利、エネルギーコスト、価格転嫁力、財務体質など複数要因で変わります。</p>
-      <p>将来見通しには不確実性があるため、投資判断は自己責任で、前提条件の変化にも注意しながら見ていくのが自然です。</p>
-
-
-      <div class="disclaimer">
-        <strong>ご注意</strong>：本記事は情報整理と考察を目的としたものであり、特定の金融商品や個別銘柄への投資、政治的行動を推奨するものではありません。最終的な判断はご自身の責任で行ってください。
+        <p>しかも今回は景気過熱ではなく<strong>「外から来たコスト上昇」と「市場の先回り」</strong>が重なった、難しい局面です。</p>
       </div>
 
-      <hr class="art-hr">
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">02</span>
+          <h2>金利の基本｜政策金利と長期金利は別物</h2>
+          <span class="q-section-head-en">FUNDAMENTALS</span>
+        </div>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">☀️</div>
+            <div class="pillar-title">政策金利（今の天気）</div>
+            <div class="pillar-desc">日銀が操作する短期金利の基準。「日銀が今どうしたいか」を示す。</div>
+            <div class="pillar-example">💡 生活面：変動ローン・短期資金調達・為替に影響</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🌧️</div>
+            <div class="pillar-title">長期金利（来週の天気予報）</div>
+            <div class="pillar-desc">市場が決める将来予想込みの金利。「市場がこの先どうなると思っているか」が反映される。</div>
+            <div class="pillar-example">💡 生活面：固定ローン・国債・株価評価・不動産に影響</div>
+          </div>
+        </div>
+
+        <p>今の政策金利が0.75%でも、市場が「この先も利上げが続きそう」と思えば、<strong>10年金利は先回りで上がる</strong>。これが今まさに起きていることです。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">03</span>
+          <h2>物価の物差しで結論が変わる</h2>
+          <span class="q-section-head-en">CPI LENS</span>
+        </div>
+        <p>今回の議論でいちばん重要なのが、<strong>「何をインフレの本体と見るか」</strong>で結論が分かれることです。</p>
+
+        <table class="data-table">
+          <thead><tr><th>指標</th><th>何を除くか</th><th>26年2月値</th><th>見る意図</th></tr></thead>
+          <tbody>
+            <tr><td>総合CPI</td><td>何も除かない</td><td><strong>1.3%</strong></td><td>家計の物価実感に近い</td></tr>
+            <tr><td>日本のコアCPI</td><td>生鮮食品</td><td><strong>1.6%</strong></td><td>日本で一般的なコア</td></tr>
+            <tr><td>コアコア</td><td>生鮮食品+エネルギー</td><td><strong>2.5%</strong></td><td>より基調的な物価</td></tr>
+            <tr><td>欧米版コア</td><td>食料全体+エネルギー</td><td>—</td><td>一時要因を強く除いた基調</td></tr>
+          </tbody>
+        </table>
+
+        <p>表面のCPIは落ち着いているのに、<strong>エネルギー除いた基調は2%台で粘っている</strong>。この中途半端さが、議論を分けています。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">04</span>
+          <h2>見方の対立｜日銀寄り vs 高橋洋一氏寄り</h2>
+          <span class="q-section-head-en">TWO CAMPS</span>
+        </div>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <span class="layer-card-tag">日銀寄り</span>
+            <h3>「後手」が怖い</h3>
+            <p>総合・コアだけでなく<strong>賃金・サービス価格・期待インフレ</strong>まで広く見る。原油高の二次波及を警戒し、後手に回って後から急な利上げを強いられることを最も嫌う。</p>
+          </div>
+          <div class="layer-card market">
+            <span class="layer-card-tag">高橋洋一氏寄り</span>
+            <h3>「先走り」が怖い</h3>
+            <p>食料・エネルギーなど一時要因は厳しく除いて基調を見るべき。<strong>輸入コスト要因が大きい局面での利上げは危険</strong>。先に景気を壊してしまうリスクを警戒する。</p>
+          </div>
+        </div>
+
+        <p><strong>どちらが絶対に正しいか</strong>ではなく、「何をインフレの本体とみるか」で見方が割れているのが本質です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">05</span>
+          <h2>需要インフレ vs 供給ショック｜処方箋は違う</h2>
+          <span class="q-section-head-en">DEMAND VS SUPPLY</span>
+        </div>
+        <p>同じ「物価高」でも、原因が違えば効く薬も違います。</p>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🔥</div>
+            <div class="pillar-title">需要インフレ（風邪の熱）</div>
+            <div class="pillar-desc">景気が良く、給料も増えて、みんながたくさん買う → 企業が値上げしやすくなる。利上げで需要を冷やせば効きやすい。</div>
+          </div>
+          <div class="pillar target">
+            <div class="pillar-icon">🌡️</div>
+            <div class="pillar-title">供給ショック（走った後の熱）</div>
+            <div class="pillar-desc">原油高・物流停滞・円安・輸入コスト上昇などで外から押し上げられる。<strong>利上げしても油田は増えない</strong>ため効きにくい。</div>
+          </div>
+        </div>
+
+        <p>今の日本は<strong>入口としては供給ショック寄り</strong>。だから「物価上がった→即利上げ」は少し雑な結論になります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">06</span>
+          <h2>3つの政策選択肢と自然な順番</h2>
+          <span class="q-section-head-en">POLICY OPTIONS</span>
+        </div>
+        <p>イラン戦争に伴う原油高に対し、政策の選択肢は3つ。現時点で自然な順番は<strong>1→2→3</strong>です。</p>
+
+        <div class="risk-grid">
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge" style="background:linear-gradient(135deg,#10b981,#06b6d4);">1</span>
+              <span class="risk-title">補正予算・支援</span>
+            </div>
+            <div class="risk-body">家計・企業を直接支える危機管理型の財政出動。供給ショックの痛みを和らげる。</div>
+            <div class="risk-example">⭐ 最優先で検討</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge" style="background:linear-gradient(135deg,#06b6d4,#7c3aed);">2</span>
+              <span class="risk-title">供給側の対策</span>
+            </div>
+            <div class="risk-body">備蓄の活用、電力確保、調達先の多角化など。根っこの「物がない」問題を軽減する。</div>
+            <div class="risk-example">⭐ 同時並行で実施</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head">
+              <span class="risk-badge" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">3</span>
+              <span class="risk-title">政策金利の引き上げ</span>
+            </div>
+            <div class="risk-body">需要を冷やす薬。供給ショックには効きにくいが、二次波及が見えたら必要に。</div>
+            <div class="risk-example">⚠ 二次波及が見えたら検討</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">07</span>
+          <h2>「ビハインド・ザ・カーブ」の綱引き</h2>
+          <span class="q-section-head-en">BEHIND THE CURVE</span>
+        </div>
+
+        <div class="pros-cons">
+          <div class="pro-box">
+            <div class="pro-box-label">日銀が怖がるもの</div>
+            <ul>
+              <li>判断遅れ（後手）</li>
+              <li>期待インフレの上昇</li>
+              <li>二次波及の定着</li>
+              <li>後から大きく利上げする羽目</li>
+            </ul>
+          </div>
+          <div class="con-box">
+            <div class="con-box-label">高橋氏寄りが怖がるもの</div>
+            <ul>
+              <li>先走り利上げ</li>
+              <li>供給ショックに需要冷却をぶつけること</li>
+              <li>景気を先に壊すリスク</li>
+              <li>スタグフレーション化</li>
+            </ul>
+          </div>
+        </div>
+        <p>言い換えると、<strong>「後手の怖さ」と「先走りの怖さ」の綱引き</strong>。どちらのリスクを取るかが、金融政策論争の本質です。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">08</span>
+          <h2>家計への影響｜痛みが来る順番</h2>
+          <span class="q-section-head-en">HOUSEHOLD IMPACT</span>
+        </div>
+
+        <table class="data-table">
+          <thead><tr><th>項目</th><th>方向</th><th>ポイント</th></tr></thead>
+          <tbody>
+            <tr><td>ガソリン・電気・ガス</td><td>⚠ 上がる</td><td>原油高・円安が直撃</td></tr>
+            <tr><td>食品</td><td>⚠ 上がる</td><td>物流・輸入コストが波及</td></tr>
+            <tr><td>固定ローン</td><td>⚠ 先に重い</td><td>長期金利の影響を受けやすい</td></tr>
+            <tr><td>変動ローン</td><td>△ 後から効く</td><td>政策金利引き上げ後に反映</td></tr>
+            <tr><td>預金金利</td><td>○ 追い風</td><td>金利のある世界では利息が戻る</td></tr>
+          </tbody>
+        </table>
+
+        <p>ポイントは<strong>痛みが来る順番</strong>。①生活コスト → ②固定ローン → ③変動ローン、の3段階で家計を圧迫していきます。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">09</span>
+          <h2>株式市場の強弱｜「銀行一人勝ち」の誤解</h2>
+          <span class="q-section-head-en">STOCK WINNERS &amp; LOSERS</span>
+        </div>
+
+        <table class="data-table">
+          <thead><tr><th>セクター</th><th>方向</th><th>理由</th></tr></thead>
+          <tbody>
+            <tr><td>銀行</td><td><strong>強い</strong></td><td>利ざや改善が期待される</td></tr>
+            <tr><td>保険</td><td><strong>強い</strong></td><td>再投資利回り改善が追い風</td></tr>
+            <tr><td>価格転嫁できる企業</td><td><strong>相対的に強い</strong></td><td>コスト増に耐えやすい</td></tr>
+            <tr><td>REIT・不動産</td><td>弱い</td><td>借入コスト増、相対利回り魅力低下</td></tr>
+            <tr><td>借入依存企業</td><td>弱い</td><td>利払い負担が重くなる</td></tr>
+            <tr><td>高PERグロース</td><td>弱い</td><td>将来利益の現在価値が下がる</td></tr>
+            <tr><td>燃料多消費企業</td><td>弱い</td><td>原油高が直撃</td></tr>
+          </tbody>
+        </table>
+
+        <p>ただし<strong>「銀行株を買っておけば全部OK」は危険</strong>。既存国債の評価損、預金金利引き上げによる調達コスト増、景気悪化時の貸倒れリスクもあります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">10</span>
+          <h2>よくある誤解への答え</h2>
+          <span class="q-section-head-en">FAQ</span>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">物価高なら、いつでも利上げが正解では？</div>
+            <div class="faq-a">そうとは限りません。<strong>需要インフレと供給ショックでは効き方が違う</strong>。供給ショックに利上げをぶつけると景気を先に壊すリスクがあります。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">長期金利が上がるのは、日本財政が終わったから？</div>
+            <div class="faq-a">少なくとも足元では、<strong>将来の利上げ観測や物価見通しを市場が織り込む</strong>面が大きい。財政不安シナリオが主因とは言い切れません。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">銀行だけが一人勝ちする？</div>
+            <div class="faq-a">違います。<strong>既存国債の評価損・調達コスト上昇・貸倒れリスク</strong>もあり、全面無敵ではありません。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">供給ショックなら、日銀は何もしなくていい？</div>
+            <div class="faq-a">それも違います。<strong>二次波及が見えてきたら、今度は後手のリスクが大きくなる</strong>。状況の変化を見て姿勢を変える必要があります。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">11</span>
+          <h2>今後の注目点｜この5つを見れば十分</h2>
+          <span class="q-section-head-en">WHAT TO WATCH</span>
+        </div>
+
+        <table class="data-table">
+          <thead><tr><th>#</th><th>観測指標</th><th>見るポイント</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1</strong></td><td>東京都区部CPI</td><td>全国CPIの先行指標</td></tr>
+            <tr><td><strong>2</strong></td><td>全国CPI（コアコア系）</td><td>基調的な物価動向</td></tr>
+            <tr><td><strong>3</strong></td><td>ドル円</td><td>輸入コストへの反映</td></tr>
+            <tr><td><strong>4</strong></td><td>原油価格</td><td>供給ショックが続くか</td></tr>
+            <tr><td><strong>5</strong></td><td>日銀会合後の表現</td><td>利上げへの前傾度</td></tr>
+          </tbody>
+        </table>
+        <p>特に重要なのは<strong>原油高が続くか／サービス価格が粘るか／賃上げが広がるか／日銀表現が強まるか</strong>。ここが揃ってくるほど「供給ショックだから様子見」では済まなくなります。</p>
+      </div>
+
+      <div class="q-section">
+        <div class="q-section-head">
+          <span class="q-section-num">12</span>
+          <h2>結論｜答えは「順番」にある</h2>
+          <span class="q-section-head-en">CONCLUSION</span>
+        </div>
+        <p>今回の局面は、「金利を上げるかどうか」だけで見ると見誤りやすい。本当に大事なのは<strong>順番で考えること</strong>です。</p>
+
+        <div class="matrix">
+          <div class="matrix-label">POLICY SEQUENCING</div>
+          <h3>即利上げでも絶対据え置きでもなく「まず供給対策、次に金利」</h3>
+          <div class="matrix-grid">
+            <div class="matrix-cell">
+              <div class="matrix-cell-head"><span class="matrix-cell-type">Step 1</span><span class="matrix-cell-ticker">供給対策</span></div>
+              <div class="matrix-cell-desc">備蓄・電力・調達先多角化など根っこの供給面に手を打つ。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head"><span class="matrix-cell-type">Step 2</span><span class="matrix-cell-ticker">補正予算</span></div>
+              <div class="matrix-cell-desc">家計・企業への危機管理型の財政支援で痛みを和らげる。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head"><span class="matrix-cell-type">Step 3</span><span class="matrix-cell-ticker">二次波及確認</span></div>
+              <div class="matrix-cell-desc">賃金・サービス価格・期待インフレへの広がりを監視。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head"><span class="matrix-cell-type">Step 4</span><span class="matrix-cell-ticker">追加利上げ</span></div>
+              <div class="matrix-cell-desc">二次波及が見えれば、日銀は後手に回らず金利を動かす。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="disclaimer">
+          <strong>ご注意</strong>：本記事は論点整理を目的としたものであり、特定の金融商品・個別銘柄への投資を推奨するものではありません。将来見通しには不確実性が大きく、最終的な判断はご自身の責任で行ってください。
+        </div>
+      </div>
 
       <div class="related-head">RELATED ARTICLES</div>
       <div class="related-list">
-        <a href="../" class="related-item">
-          <span class="related-tag">一覧</span>
-          <span class="related-title">経済・株式の記事一覧へ</span>
-        </a>
+        <a href="../2026-04-13-oil-boj/" class="related-item"><span class="related-tag">金融政策</span><span class="related-title">原油高で利上げは正解か？供給ショックと日銀の難題 2026.04.13</span></a>
+        <a href="../2026-04-12-boj-banks-stocks/" class="related-item"><span class="related-tag">株式</span><span class="related-title">日銀の利上げで銀行は丸儲け？銀行株の本命を選ぶ 2026.04.12</span></a>
+        <a href="../" class="related-item"><span class="related-tag">一覧</span><span class="related-title">経済・株式の記事一覧へ</span></a>
       </div>
 
     </main>
@@ -698,33 +507,33 @@
       <div class="sidebar-toc">
         <div class="sidebar-toc-label">目次</div>
         <ul class="toc-list">
-          <li><a href="#sec-conclusion"><span class="toc-n">00</span>先に結論</a></li>
-<li><a href="#sec-01"><span class="toc-n">01</span>大きな流れ</a></li>
-<li><a href="#sec-02"><span class="toc-n">02</span>金利の基本整理</a></li>
-<li><a href="#sec-03"><span class="toc-n">03</span>足元の主要数字</a></li>
-<li><a href="#sec-04"><span class="toc-n">04</span>物価指標の違い</a></li>
-<li><a href="#sec-05"><span class="toc-n">05</span>見方の違い</a></li>
-<li><a href="#sec-06"><span class="toc-n">06</span>需要インフレ</a></li>
-<li><a href="#sec-07"><span class="toc-n">07</span>供給ショック</a></li>
-<li><a href="#sec-08"><span class="toc-n">08</span>政策の選択肢</a></li>
-<li><a href="#sec-09"><span class="toc-n">09</span>現時点で自然な順番</a></li>
-<li><a href="#sec-10"><span class="toc-n">10</span>据え置き寄りに考える理由</a></li>
-<li><a href="#sec-11"><span class="toc-n">11</span>それでも利上げ余地を残す理由</a></li>
-<li><a href="#sec-12"><span class="toc-n">12</span>日銀側が怖がるもの</a></li>
-<li><a href="#sec-13"><span class="toc-n">13</span>高橋氏寄りが怖がるもの</a></li>
-<li><a href="#sec-14"><span class="toc-n">14</span>家計への主な影響</a></li>
-<li><a href="#sec-15"><span class="toc-n">15</span>金利上昇・原油高局面の強弱整理</a></li>
-<li><a href="#sec-16"><span class="toc-n">16</span>強材料</a></li>
-<li><a href="#sec-17"><span class="toc-n">17</span>弱材料</a></li>
-<li><a href="#sec-18"><span class="toc-n">18</span>今後の注目点</a></li>
-<li><a href="#sec-19"><span class="toc-n">19</span>参考データの整理用メモ</a></li>
-<li><a href="#sec-20"><span class="toc-n">20</span>自然な注意文案</a></li>
-          <li><a href="#sec-summary"><span class="toc-n">99</span>まとめ</a></li>
+          <li><a href="#"><span class="toc-n">01</span>全体像</a></li>
+          <li><a href="#"><span class="toc-n">02</span>金利の基本</a></li>
+          <li><a href="#"><span class="toc-n">03</span>CPIの物差し</a></li>
+          <li><a href="#"><span class="toc-n">04</span>見方の対立</a></li>
+          <li><a href="#"><span class="toc-n">05</span>需要vs供給</a></li>
+          <li><a href="#"><span class="toc-n">06</span>政策選択肢</a></li>
+          <li><a href="#"><span class="toc-n">07</span>綱引き</a></li>
+          <li><a href="#"><span class="toc-n">08</span>家計影響</a></li>
+          <li><a href="#"><span class="toc-n">09</span>株式強弱</a></li>
+          <li><a href="#"><span class="toc-n">10</span>FAQ</a></li>
+          <li><a href="#"><span class="toc-n">11</span>注目点</a></li>
+          <li><a href="#"><span class="toc-n">12</span>結論</a></li>
         </ul>
       </div>
       <div class="sidebar-meta">
         <div class="sidebar-meta-label">TAGS</div>
-        <div class="tag-cloud"><span class="tag-pill">長期金利</span><span class="tag-pill">インフレ</span><span class="tag-pill">日銀</span><span class="tag-pill">高橋洋一</span><span class="tag-pill">債券</span></div>
+        <div class="tag-cloud">
+          <span class="tag-pill">長期金利</span>
+          <span class="tag-pill">政策金利</span>
+          <span class="tag-pill">日銀</span>
+          <span class="tag-pill">インフレ</span>
+          <span class="tag-pill">コアコア</span>
+          <span class="tag-pill">原油高</span>
+          <span class="tag-pill">住宅ローン</span>
+          <span class="tag-pill">日本株</span>
+          <span class="tag-pill">高橋洋一</span>
+        </div>
       </div>
     </aside>
   </div>
@@ -736,6 +545,5 @@
   </footer>
 
   <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/article-enhance.js?v=20260418e" defer></script>
 </body>
 </html>
