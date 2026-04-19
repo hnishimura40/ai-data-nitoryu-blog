@@ -15,6 +15,52 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --q-accent: #1a4fa0;
+      --q-accent2: #d97706;
+      color-scheme: light dark;
+    }
+    html, body { background-color: #ffffff; color: #2a2e3c; }
+
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0b1020 !important; color: #d8dfef !important; }
+      .art-body p, .art-body li { color: #d8dfef !important; }
+      .art-body p strong, .art-body li strong { color: #7dd3fc !important; background: rgba(26,79,160,0.2) !important; padding: 0 4px !important; border-radius: 3px !important; }
+      .sec-head { border-bottom-color: #2a3150 !important; }
+      .sec-head h2 { color: #f5f7ff !important; }
+      .sec-head-en { color: #5a6488 !important; }
+      .data-table { box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5) !important; }
+      .data-table td { background-color: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+      .data-table th { background: #0b1020 !important; color: #7dd3fc !important; }
+      .data-table strong { color: #7dd3fc !important; background: none !important; }
+      .sidebar-toc { background: linear-gradient(145deg, #141828, #0f1322) !important; border-color: #2a3150 !important; }
+      .sidebar-toc-label { color: #7dd3fc !important; }
+      .toc-list a { color: #b9c1d9 !important; }
+      .toc-list a:hover { color: #7dd3fc !important; }
+      .toc-list li { border-bottom-color: #2a3150 !important; }
+      .toc-n { color: #7dd3fc !important; }
+      .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+      .sidebar-meta-label { color: #7dd3fc !important; }
+      .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+      .related-item { background: #141828 !important; border-color: #2a3150 !important; }
+      .related-title { color: #f5f7ff !important; }
+      .related-head { color: #7dd3fc !important; border-bottom-color: #2a3150 !important; }
+      .disclaimer { background: rgba(217,119,6,0.1) !important; color: #fcd34d !important; border-color: rgba(217,119,6,0.4) !important; }
+      .site-header { background: #0b1020 !important; border-bottom: 1px solid #2a3150 !important; }
+      .breadcrumb { background: #0f1322 !important; }
+      .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
+      .summary-box { background: linear-gradient(135deg, #0a1e38, #0a2e48) !important; border-color: #1a3060 !important; }
+      .hlbox { background: rgba(217,119,6,0.1) !important; border-color: rgba(217,119,6,0.3) !important; }
+      .art-summary { background: #0b1020 !important; border: 1px solid #2a3150 !important; }
+      .hero-summary { background: linear-gradient(135deg, #0a1e38 0%, #0d2e5e 60%, #050e20 100%) !important; }
+    }
+
+    .hero-summary { background: linear-gradient(135deg, #0a1e38 0%, #0d2e5e 60%, #050e20 100%); border-radius: 16px; padding: 28px 32px; color: #fff; margin-bottom: 36px; }
+    .hs-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .2em; color: #7dd3fc; margin-bottom: 14px; }
+    .hs-list { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
+    .hs-list li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
+
     .art-hero { background: linear-gradient(135deg, #0d1e38 0%, #1a4fa0 100%); }
 
     .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; padding: 22px 24px 18px; }
@@ -146,7 +192,21 @@
   <div class="art-layout">
     <main class="art-body">
 
-      
+      <div class="hero-summary">
+        <div class="hs-label">KEY POINTS — この記事のポイント</div>
+        <ol class="hs-list">
+          <li>次のリーマンが確定した話ではないが、<strong>「遅効型の信用収縮」</strong>が景気をじわじわ冷やすリスクがある</li>
+          <li>半流動型ファンドの償還圧力と高金利・景気減速が重なると<strong>信用問題が流動性問題に変わる</strong></li>
+          <li>見るべきは「大崩壊するか」ではなく<strong>「償還→借り換え→信用収縮→景気波及」の順番</strong></li>
+        </ol>
+      </div>
+
+      <div class="video-box" style="margin-bottom:32px;">
+        <div style="font-size:.65rem;font-weight:900;letter-spacing:.14em;color:#8898b0;margin-bottom:10px;">▶ YOUTUBE — 動画でも解説中</div>
+        <div style="position:relative;padding-bottom:56.25%;background:#0b1020;border-radius:10px;overflow:hidden;">
+          <iframe style="position:absolute;inset:0;width:100%;height:100%;border:none;" src="https://www.youtube.com/embed/rdZXkeuJlNE?rel=0" title="プライベートクレジット問題とは何か 次のリーマンではないが、静かな危機は始まるのか" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
 
       <p>プライベートクレジットという言葉は、一般にはまだそこまで浸透していません。しかし金融市場の内側では、ここ1年ほどで「見過ごせない論点」になっています。</p>
 
@@ -417,12 +477,39 @@
   </div>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-      <p class="footer-copy">&copy; 2026 AIデータ二刀流ブログ</p>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-name">AIデータ二刀流ブログ</div>
+        <p>野球・競馬と経済・株式の2軸で、データとAIを活用した分析コンテンツを発信するメディアブログ。</p>
+        <div class="footer-social">
+          <a href="https://www.youtube.com/@AI-economy-radio" target="_blank" rel="noopener" class="social-btn social-yt">▶ 経済ラジオ</a>
+          <a href="https://www.youtube.com/@AI-Baseball-Horse" target="_blank" rel="noopener" class="social-btn social-yt">▶ AI二刀流</a>
+          <a href="https://x.com/AI_yakyu_Keiba" target="_blank" rel="noopener" class="social-btn social-x">𝕏 フォロー</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>コンテンツ</h4>
+        <nav class="footer-nav">
+          <a href="../../hanshin-keiba/">野球・競馬データ分析</a>
+          <a href="../../economy-stocks/">経済・時事・株式分析</a>
+          <a href="../../channels/">YouTubeチャンネル</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>サイト情報</h4>
+        <nav class="footer-nav">
+          <a href="../../profile/">運営について</a>
+          <a href="../../privacy-policy/">プライバシーポリシー</a>
+          <a href="../../contact/">お問い合わせ</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 AIデータ二刀流ブログ. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/article-enhance.js?v=20260418e" defer></script>
+
 </body>
 </html>

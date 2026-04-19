@@ -15,6 +15,52 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --q-accent: #7c3aed;
+      --q-accent2: #1a4fa0;
+      color-scheme: light dark;
+    }
+    html, body { background-color: #ffffff; color: #2a2e3c; }
+
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0b1020 !important; color: #d8dfef !important; }
+      .art-body p, .art-body li { color: #d8dfef !important; }
+      .art-body p strong, .art-body li strong { color: #c4b5fd !important; background: rgba(124,58,237,0.15) !important; padding: 0 4px !important; border-radius: 3px !important; }
+      .sec-head { border-bottom-color: #2a3150 !important; }
+      .sec-head h2 { color: #f5f7ff !important; }
+      .sec-head-en { color: #5a6488 !important; }
+      .data-table { box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5) !important; }
+      .data-table td { background-color: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+      .data-table th { background: #0b1020 !important; color: #c4b5fd !important; }
+      .data-table strong { color: #c4b5fd !important; background: none !important; }
+      .sidebar-toc { background: linear-gradient(145deg, #141828, #0f1322) !important; border-color: #2a3150 !important; }
+      .sidebar-toc-label { color: #c4b5fd !important; }
+      .toc-list a { color: #b9c1d9 !important; }
+      .toc-list a:hover { color: #c4b5fd !important; }
+      .toc-list li { border-bottom-color: #2a3150 !important; }
+      .toc-n { color: #c4b5fd !important; }
+      .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+      .sidebar-meta-label { color: #c4b5fd !important; }
+      .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+      .related-item { background: #141828 !important; border-color: #2a3150 !important; }
+      .related-title { color: #f5f7ff !important; }
+      .related-head { color: #c4b5fd !important; border-bottom-color: #2a3150 !important; }
+      .disclaimer { background: rgba(217,119,6,0.1) !important; color: #fcd34d !important; border-color: rgba(217,119,6,0.4) !important; }
+      .site-header { background: #0b1020 !important; border-bottom: 1px solid #2a3150 !important; }
+      .breadcrumb { background: #0f1322 !important; }
+      .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
+      .summary-box { background: linear-gradient(135deg, #1a0e2e, #1a0e3e) !important; border-color: #3a1f6f !important; }
+      .hlbox { background: rgba(124,58,237,0.1) !important; border-color: rgba(124,58,237,0.3) !important; }
+      .art-summary { background: #0b1020 !important; border: 1px solid #2a3150 !important; }
+      .hero-summary { background: linear-gradient(135deg, #1a0e2e 0%, #2a1a4e 60%, #0f0820 100%) !important; }
+    }
+
+    .hero-summary { background: linear-gradient(135deg, #1a0e2e 0%, #2a1a4e 60%, #0f0820 100%); border-radius: 16px; padding: 28px 32px; color: #fff; margin-bottom: 36px; }
+    .hs-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .2em; color: #c4b5fd; margin-bottom: 14px; }
+    .hs-list { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
+    .hs-list li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
+
     .art-hero { background: linear-gradient(135deg, #1e2a4a 0%, #3e5888 100%); }
 
     .art-hero-title-block { max-width: var(--max-width); margin: 0 auto; padding: 22px 24px 18px; }
@@ -145,7 +191,14 @@
   <div class="art-layout">
     <main class="art-body">
 
-      
+      <div class="hero-summary">
+        <div class="hs-label">KEY POINTS — この記事のポイント</div>
+        <ol class="hs-list">
+          <li>ODAは昔の日本には意味があったが、今の日本では<strong>同じ温度で続けるのは難しい</strong></li>
+          <li>「何兆円支援」は全部現金ではないが、それでも<strong>政治の外向き優先は厳しく問われるべき</strong></li>
+          <li>今後は総額だけでなく<strong>内訳と国内政策との優先順位</strong>をセットで見ることが重要</li>
+        </ol>
+      </div>
 
       <p>海外支援のニュースが出るたびに、「なぜ日本は外国には大きな金額を出せるのに、国内の負担軽減はこんなに遅いのか」と感じる人は少なくないはずです。物価高、社会保険料の重さ、手取りの伸び悩み、子育て不安、老後不安が同時にのしかかる今、「何千億円」「何兆円規模の支援」という見出しが流れてくれば、違和感が出るのは自然です。</p>
 
@@ -416,12 +469,39 @@
   </div>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-      <p class="footer-copy">&copy; 2026 AIデータ二刀流ブログ</p>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-name">AIデータ二刀流ブログ</div>
+        <p>野球・競馬と経済・株式の2軸で、データとAIを活用した分析コンテンツを発信するメディアブログ。</p>
+        <div class="footer-social">
+          <a href="https://www.youtube.com/@AI-economy-radio" target="_blank" rel="noopener" class="social-btn social-yt">▶ 経済ラジオ</a>
+          <a href="https://www.youtube.com/@AI-Baseball-Horse" target="_blank" rel="noopener" class="social-btn social-yt">▶ AI二刀流</a>
+          <a href="https://x.com/AI_yakyu_Keiba" target="_blank" rel="noopener" class="social-btn social-x">𝕏 フォロー</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>コンテンツ</h4>
+        <nav class="footer-nav">
+          <a href="../../hanshin-keiba/">野球・競馬データ分析</a>
+          <a href="../../economy-stocks/">経済・時事・株式分析</a>
+          <a href="../../channels/">YouTubeチャンネル</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>サイト情報</h4>
+        <nav class="footer-nav">
+          <a href="../../profile/">運営について</a>
+          <a href="../../privacy-policy/">プライバシーポリシー</a>
+          <a href="../../contact/">お問い合わせ</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 AIデータ二刀流ブログ. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/article-enhance.js?v=20260418e" defer></script>
+
 </body>
 </html>
