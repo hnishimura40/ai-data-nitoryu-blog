@@ -5,43 +5,24 @@
 
 ---
 
-## 1. 本番測定IDへの差し替え
+## 1. 本番測定ID
 
-現在コードには仮ID `G-XXXXXXXXXX` が入っている。以下の2箇所を本番IDに置換すること。
+**現在の本番ID: `G-Z46KWRF7TH`**（2026-04-19反映済み）
 
-### 1-1. analytics.js の定数
+配置済み箇所:
+- `assets/js/analytics.js` の `GA_MEASUREMENT_ID` 定数
+- 全55HTMLの `<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z46KWRF7TH">`
+- `_inject_analytics.py` の `GA_ID`（新規記事追加時に自動で同IDを注入）
 
-ファイル: `assets/js/analytics.js`
-
-```js
-// 23行目付近
-var GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';  // ← 本番IDに置換
-```
-
-### 1-2. 全HTMLの gtag スクリプトタグ
-
-各HTMLの `</head>` 直前に以下が入っている。
-
-```html
-<!-- GA4:ainitoryu -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script src="{相対パス}/assets/js/analytics.js"></script>
-```
-
-### 推奨: sed で一括置換
+### 将来IDを変更する場合（参考）
 
 ```bash
 # プロジェクトルートで実行
-NEW_ID="G-ABCD1234EF"   # ← 本番IDに
-# HTML
-grep -rl "G-XXXXXXXXXX" --include="*.html" . | xargs sed -i "s/G-XXXXXXXXXX/${NEW_ID}/g"
-# analytics.js
-sed -i "s/G-XXXXXXXXXX/${NEW_ID}/g" assets/js/analytics.js
-# 注入スクリプト（今後の新規記事にも反映されるよう）
-sed -i "s/G-XXXXXXXXXX/${NEW_ID}/g" _inject_analytics.py
+OLD_ID="G-Z46KWRF7TH"
+NEW_ID="G-XXXXXXXXXX"   # ← 新しいID
+grep -rl "$OLD_ID" --include="*.html" --include="*.js" --include="*.py" . \
+  | xargs sed -i "s/${OLD_ID}/${NEW_ID}/g"
 ```
-
-差し替え後は `git diff` を確認してからコミット→push→Cloudflare Pagesで自動デプロイ。
 
 ---
 
@@ -156,12 +137,12 @@ GA4は1プロパティあたりのカスタムディメンション固有値が 
 
 運用開始（本番ID差し替え→push）の**直前と直後**に確認する。
 
-### 6-1. 差し替え前
+### 6-1. 差し替え前（今後再度IDを変えた場合に適用）
 
-- [ ] analytics.js / 全HTML / `_inject_analytics.py` に `G-XXXXXXXXXX` が残っていない
+- [ ] analytics.js / 全HTML / `_inject_analytics.py` に旧ID残存ゼロ
 - [ ] `node -c` などで analytics.js / main.js の構文OK
 - [ ] ローカルで任意の記事ページを開き DevTools Console にエラーが出ない
-- [ ] DevTools Network で `gtag/js?id=G-XXXXXXXXXX` のリクエストが200で完了する（仮IDでも404にはならない）
+- [ ] DevTools Network で `gtag/js?id=G-Z46KWRF7TH` のリクエストが200で完了
 
 ### 6-2. 差し替え直後（本番デプロイ後15分以内）
 

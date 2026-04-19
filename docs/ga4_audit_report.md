@@ -100,7 +100,7 @@ assets/js/main.js
 
 | # | 内容 | 推奨対応 |
 |---|---|---|
-| A | `GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'` が仮ID。現状は無効なID相当で実計測されない | **運用開始前**に本番IDへ差し替え（[ga4_setup_guide.md](./ga4_setup_guide.md) の §1 参照） |
+| A | 本番ID `G-Z46KWRF7TH` を配置済み（2026-04-19）。DebugViewでの実イベント到達確認を運用開始前に実施すること | [ga4_setup_guide.md](./ga4_setup_guide.md) §3 参照 |
 | B | affiliate 判定で `amazon.co.jp` を無条件にAmazon扱い。アフィリエイト無しリンク（書籍参照など）もカウントされる | 運用でOK、必要なら `<a data-affiliate="none">` を付与 |
 | C | 今後 hanshin-keiba/ 配下に新規 keiba 記事を増やす際、`_inject_analytics.py` の自動判定に頼るとタイトル/スラグのキーワードで振り分けられる。誤判定時は `<body>` の `data-article-category` を手動上書き | 新規記事投入後に DebugView で `article_category` を目視確認（運用メモに記載） |
 | D | `category_click` の `to_category` は `hanshin-keiba` を `baseball_or_keiba` と統合表示。具体分類は遷移先ページ側に任せる | 必要になったら個別 slug 判定に拡張 |
@@ -117,4 +117,4 @@ assets/js/main.js
 | 6イベント実装 | ✅ （重要2件を当監査で修正） |
 | 個人情報非送信 | ✅ |
 | 表示崩れ・デザイン影響 | ✅ なし |
-| **本番投入可否** | **caution** — 仮IDのまま投入すると計測されないので、§5-Aの本番IDへの差し替えを完了させてから投入すること。それ以外の技術的ブロッカーは無し。 |
+| **本番投入可否** | **yes** — 本番ID `G-Z46KWRF7TH` 配置・監査指摘2件修正済み。残るはDebugViewでの実イベント到達確認のみ。 |

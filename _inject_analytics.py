@@ -8,7 +8,7 @@ import os, re, pathlib, html as htmlmod
 
 ROOT = pathlib.Path(__file__).parent.resolve()
 
-GA_ID = "G-XXXXXXXXXX"
+GA_ID = "G-Z46KWRF7TH"
 MARKER = "<!-- GA4:ainitoryu -->"
 
 # 競馬記事判定キーワード（hanshin-keiba/配下で true のものは keiba、それ以外は baseball）

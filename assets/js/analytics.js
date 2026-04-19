@@ -20,7 +20,7 @@
 
   // ========== 設定 ==========
   // 差し替え用: 本番GA4計測IDを入れ替えるだけで有効化できる
-  var GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+  var GA_MEASUREMENT_ID = 'G-Z46KWRF7TH';
 
   // ========== gtag 初期化 ==========
   window.dataLayer = window.dataLayer || [];
