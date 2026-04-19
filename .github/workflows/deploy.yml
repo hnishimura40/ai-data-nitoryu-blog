@@ -10,6 +10,29 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # デプロイ対象から開発用アーティファクト・CI設定・配信不要ファイルを削除。
+      # ここで物理削除することで、公開サイトからの取得を確実に不可能にする
+      # （robots.txt や noindex に頼らず、配信しない方針）。
+      - name: Strip non-public artifacts
+        run: |
+          set -e
+          # 開発用スクリプト
+          rm -f _*.py
+          # CI/リポジトリ設定
+          rm -rf .github
+          rm -f .gitignore
+          # Node/ビルド設定（静的サイトでは不要）
+          rm -f package.json package-lock.json
+          rm -rf node_modules
+          # 開発ドキュメント（公開したい場合はこの行を削除）
+          rm -rf docs
+          # 移行期のプレビューファイル
+          rm -f mobile-test.html
+          # バックアップ・一時
+          find . -name '*.bak' -delete -o -name '*.tmp' -delete -o -name '.DS_Store' -delete
+          echo "Remaining top-level:"
+          ls -la
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
