@@ -10,450 +10,346 @@
   <title>阪神開幕1軍ロースター総整理｜先発の厚み、ブルペン再編、立石待望論まで 2026 | AIデータ二刀流ブログ</title>
   <link rel="stylesheet" href="../../assets/css/style.css?v=5">
   <link rel="stylesheet" href="../../assets/css/article.css?v=7">
+  <link rel="stylesheet" href="../../assets/css/article-enhance.css?v=20260418e">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
   <style>
-    /* ===================================
-       ARTICLE PAGE — MAGAZINE STYLE
-    =================================== */
+    :root {
+      --q-accent:#7c3aed;
+      --q-accent2:#06b6d4;
+      color-scheme: light dark;
+    }
+    html, body { background-color: #ffffff; color: #2a2e3c; }
 
-    /* --- Hero --- */
-    .art-hero { background: #0b1525; }
+    /* ===== ダークモード：暗い配色 + 視認性重視 ===== */
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0b1020 !important; color: #d8dfef !important; }
 
-    /* OGP Hero Design — 1200x630 */
+      .art-body p, .art-body li { color: #d8dfef !important; }
+
+      .art-body p strong, .art-body li strong {
+        color: #c4b5fd !important;
+        background: rgba(139,92,246,0.15) !important;
+        padding: 0 4px !important;
+        border-radius: 3px !important;
+      }
+
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #a78bfa !important; }
+      .stat-card-number { color: #f5f7ff !important; }
+      .stat-card-sub { color: #9aa3bf !important; }
+
+      .layer-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 6px 24px -8px rgba(0,0,0,0.4) !important; }
+      .layer-card h3 { color: #f5f7ff !important; }
+      .layer-card p { color: #c9d0e5 !important; }
+      .layer-card.tech .layer-card-tag { background: rgba(6,182,212,0.2) !important; color: #7dd3fc !important; }
+      .layer-card.market .layer-card-tag { background: rgba(245,158,11,0.18) !important; color: #fcd34d !important; }
+
+      .q-section-head { border-bottom-color: #2a3150 !important; }
+      .q-section-head h2 { color: #f5f7ff !important; }
+      .q-section-head-en { color: #5a6488 !important; }
+
+      .pillar { background: linear-gradient(180deg, #181c2e 0%, #141828 100%) !important; border-color: #2a3150 !important; }
+      .pillar-title { color: #f5f7ff !important; }
+      .pillar-desc { color: #b9c1d9 !important; }
+      .pillar-example { background: #0b1020 !important; border-color: #2a3150 !important; color: #a5adc8 !important; }
+      .pillar.target { background: linear-gradient(180deg, #2a1a00 0%, #1a1200 100%) !important; border-color: #eab308 !important; }
+      .pillar.target .pillar-desc, .pillar.target .pillar-title { color: #fde68a !important; }
+
+      .risk-card { background: #141828 !important; border-color: #2a3150 !important; box-shadow: 0 4px 16px -6px rgba(0,0,0,0.4) !important; }
+      .risk-title { color: #f5f7ff !important; }
+      .risk-body { color: #b9c1d9 !important; }
+      .risk-example { background: rgba(252,211,77,0.12) !important; color: #fcd34d !important; }
+
+      .faq-item { background: #141828 !important; border-color: #2a3150 !important; border-left-color: #eab308 !important; }
+      .faq-q { color: #f5f7ff !important; }
+      .faq-a { color: #c9d0e5 !important; }
+
+      .pro-box { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.05)) !important; border-color: rgba(16,185,129,0.4) !important; color: #86efac !important; }
+      .con-box { background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(239,68,68,0.05)) !important; border-color: rgba(239,68,68,0.4) !important; color: #fca5a5 !important; }
+
+      .data-table { box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5) !important; }
+      .data-table td { background-color: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+      .data-table strong { color: #fde68a !important; background: none !important; }
+
+      .sidebar-toc { background: linear-gradient(145deg, #141828, #0f1322) !important; border-color: #2a3150 !important; }
+      .sidebar-toc-label { color: #eab308 !important; }
+      .toc-list a { color: #b9c1d9 !important; }
+      .toc-list a:hover { color: #fde68a !important; }
+      .toc-list li { border-bottom-color: #2a3150 !important; }
+      .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+      .sidebar-meta-label { color: #eab308 !important; }
+      .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+
+      .related-item { background: #141828 !important; border-color: #2a3150 !important; }
+      .related-title { color: #f5f7ff !important; }
+      .related-head { color: #eab308 !important; border-bottom-color: #2a3150 !important; }
+
+      .disclaimer { background: rgba(217,119,6,0.1) !important; color: #fcd34d !important; border-color: rgba(217,119,6,0.4) !important; }
+
+      .site-header { background: #0b1020 !important; border-bottom: 1px solid #2a3150 !important; }
+      .breadcrumb { background: #0f1322 !important; }
+      .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
+    }
+
+    /* ===== HERO ===== */
+    .art-hero { background: radial-gradient(circle at 20% 0%, #1a1a00 0%, #2a2000 40%, #0a0a0a 80%); padding: 0; position: relative; overflow: hidden; }
+    .art-hero-thumb { width: 100%; max-width: 1200px; max-height: 420px; object-fit: cover; display: block; margin: 0 auto; filter: saturate(1.1); }
+    .art-hero-title-block { max-width: 1100px; margin: 0 auto; padding: 26px 28px 22px; position: relative; z-index: 2; }
+    .art-hero-cats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; }
+
+    /* Baseball variants */
+    .art-cat-baseball { background: linear-gradient(90deg, #eab308, #1a1a1a); color: #fff; }
+    .art-cat-analysis { background: linear-gradient(90deg, #7c3aed, #06b6d4); color: #fff; }
+    .art-cat-roster   { background: linear-gradient(90deg, #f59e0b, #b45309); color: #fff; }
+    .art-cat-game     { background: linear-gradient(90deg, #f59e0b, #b45309); color: #fff; }
+    .art-cat-hit      { background: #dc2626; color: #fff; }
+    .art-cat-loss     { background: #475569; color: #fff; }
+
+    .art-hero-h1 { font-size: clamp(1.2rem, 2.8vw, 1.8rem); font-weight: 900; color: #fff; line-height: 1.4; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .art-hero-meta { font-size: 0.78rem; color: rgba(255,255,255,0.65); display: flex; gap: 18px; }
+
+    /* OGP Hero (preserved from original for backward look) */
     .ogp-hero {
       container-type: inline-size;
-      width: 100%;
-      max-width: 400px;
-      margin: 20px auto 0;
-      border-radius: 10px;
-      aspect-ratio: 1200 / 630;
-      position: relative;
-      overflow: hidden;
-      background: #0f172a;
-      display: flex;
-      font-family: 'Noto Sans JP', sans-serif;
+      width: 100%; max-width: 560px; margin: 20px auto 0;
+      border-radius: 10px; aspect-ratio: 1200 / 630;
+      position: relative; overflow: hidden; background: #0f172a;
+      display: flex; font-family: 'Noto Sans JP', sans-serif;
       box-shadow: 0 8px 32px rgba(0,0,0,0.35);
     }
-    .ogp-bg-dots {
-      position: absolute; inset: 0;
-      background-image: radial-gradient(#1e293b 2px, transparent 2px);
-      background-size: 1.67cqw 1.67cqw;
-      z-index: 0;
-    }
-    .ogp-yellow {
-      position: absolute; top: -10%; left: -15%; width: 68%; height: 120%;
-      background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%);
-      transform: skewX(-15deg); z-index: 1;
-      box-shadow: 1.25cqw 0 3.33cqw rgba(0,0,0,0.6);
-      border-right: 1cqw solid #fff;
-    }
-    .ogp-dark {
-      position: absolute; top: 0; right: 0; width: 50%; height: 100%;
-      background: linear-gradient(135deg, #111827 0%, #020617 100%); z-index: 0;
-    }
-    .ogp-texture {
-      position: absolute; inset: 0;
-      background-image: radial-gradient(rgba(0,0,0,0.15) 2px, transparent 2px);
-      background-size: 0.5cqw 0.5cqw; z-index: 2; pointer-events: none;
-    }
-    .ogp-left {
-      position: relative; z-index: 10; width: 52%; height: 100%;
-      padding: 3.33cqw 0 3.33cqw 3.33cqw;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .ogp-right {
-      position: relative; z-index: 10; width: 48%; height: 100%;
-      padding: 4.17cqw 3.33cqw 4.17cqw 1.67cqw;
-      display: flex; flex-direction: column; justify-content: center; gap: 1.5cqw;
-    }
-    .ogp-year-badge {
-      display: inline-block; background: #111827; color: #facc15;
-      font-size: 2.67cqw; font-weight: 900;
-      padding: 0.5cqw 1.67cqw; border-radius: 0.5cqw; margin-bottom: 1cqw;
-      align-self: flex-start; transform: skewX(-10deg);
-      box-shadow: 0.42cqw 0.42cqw 0 rgba(0,0,0,0.3);
-      border: 0.25cqw solid #111827;
-    }
+    .ogp-bg-dots { position: absolute; inset: 0; background-image: radial-gradient(#1e293b 2px, transparent 2px); background-size: 1.67cqw 1.67cqw; z-index: 0; }
+    .ogp-yellow { position: absolute; top: -10%; left: -15%; width: 68%; height: 120%; background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%); transform: skewX(-15deg); z-index: 1; box-shadow: 1.25cqw 0 3.33cqw rgba(0,0,0,0.6); border-right: 1cqw solid #fff; }
+    .ogp-dark { position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: linear-gradient(135deg, #111827 0%, #020617 100%); z-index: 0; }
+    .ogp-texture { position: absolute; inset: 0; background-image: radial-gradient(rgba(0,0,0,0.15) 2px, transparent 2px); background-size: 0.5cqw 0.5cqw; z-index: 2; pointer-events: none; }
+    .ogp-left { position: relative; z-index: 10; width: 52%; height: 100%; padding: 3.33cqw 0 3.33cqw 3.33cqw; display: flex; flex-direction: column; justify-content: center; }
+    .ogp-right { position: relative; z-index: 10; width: 48%; height: 100%; padding: 4.17cqw 3.33cqw 4.17cqw 1.67cqw; display: flex; flex-direction: column; justify-content: center; gap: 1.5cqw; }
+    .ogp-year-badge { display: inline-block; background: #111827; color: #facc15; font-size: 2.67cqw; font-weight: 900; padding: 0.5cqw 1.67cqw; border-radius: 0.5cqw; margin-bottom: 1cqw; align-self: flex-start; transform: skewX(-10deg); box-shadow: 0.42cqw 0.42cqw 0 rgba(0,0,0,0.3); border: 0.25cqw solid #111827; }
     .ogp-year-badge span { display: inline-block; transform: skewX(10deg); }
-    .ogp-main-title {
-      font-size: 7.33cqw; font-weight: 900; color: #111827;
-      line-height: 1.05; letter-spacing: -0.17cqw;
-      text-shadow: 0.33cqw 0.33cqw 0px #fff; margin-bottom: 0.42cqw;
-    }
-    .ogp-sub-title {
-      font-size: 7cqw; font-weight: 900; color: #fff; line-height: 1.05;
-      text-shadow: 0.5cqw 0.5cqw 0px #111827, 0.67cqw 0.67cqw 1.25cqw rgba(0,0,0,0.5);
-      -webkit-text-stroke: 0.25cqw #111827;
-    }
+    .ogp-main-title { font-size: 7.33cqw; font-weight: 900; color: #111827; line-height: 1.05; letter-spacing: -0.17cqw; text-shadow: 0.33cqw 0.33cqw 0px #fff; margin-bottom: 0.42cqw; }
+    .ogp-sub-title { font-size: 7cqw; font-weight: 900; color: #fff; line-height: 1.05; text-shadow: 0.5cqw 0.5cqw 0px #111827, 0.67cqw 0.67cqw 1.25cqw rgba(0,0,0,0.5); -webkit-text-stroke: 0.25cqw #111827; }
     .ogp-red { color: #ef4444; -webkit-text-stroke: 0.25cqw #fff; text-shadow: 0.5cqw 0.5cqw 0px #111827; }
-    .ogp-method-badge {
-      margin-top: 2.08cqw; background: #ef4444; color: #fff;
-      font-size: 2.17cqw; font-weight: 900; padding: 0.83cqw 2.08cqw;
-      display: inline-block; align-self: flex-start; transform: skewX(-15deg);
-      box-shadow: 0.5cqw 0.5cqw 0 #111827;
-    }
+    .ogp-method-badge { margin-top: 2.08cqw; background: #ef4444; color: #fff; font-size: 2.17cqw; font-weight: 900; padding: 0.83cqw 2.08cqw; display: inline-block; align-self: flex-start; transform: skewX(-15deg); box-shadow: 0.5cqw 0.5cqw 0 #111827; }
     .ogp-method-badge span { display: inline-block; transform: skewX(15deg); }
-    .ogp-topic-box {
-      background: rgba(30,41,59,0.95); border-left: 0.67cqw solid #facc15;
-      padding: 1.25cqw 1.67cqw; border-radius: 0 0.83cqw 0.83cqw 0;
-      box-shadow: 0 0.5cqw 1.25cqw rgba(0,0,0,0.5);
-    }
+    .ogp-topic-box { background: rgba(30,41,59,0.95); border-left: 0.67cqw solid #facc15; padding: 1.25cqw 1.67cqw; border-radius: 0 0.83cqw 0.83cqw 0; box-shadow: 0 0.5cqw 1.25cqw rgba(0,0,0,0.5); }
     .ogp-topic-box:nth-child(2) { border-left-color: #ef4444; }
     .ogp-topic-box:nth-child(3) { border-left-color: #38bdf8; }
     .ogp-topic-box:nth-child(4) { border-left-color: #10b981; }
     .ogp-topic-header { display: flex; align-items: center; gap: 1cqw; margin-bottom: 0.17cqw; }
-    .ogp-topic-num {
-      font-family: 'Poppins', sans-serif; font-style: italic;
-      font-size: 2cqw; font-weight: 900; color: #94a3b8; line-height: 1;
-    }
+    .ogp-topic-num { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 2cqw; font-weight: 900; color: #94a3b8; line-height: 1; }
     .ogp-topic-title { font-size: 2.17cqw; font-weight: 900; color: #f8fafc; line-height: 1; }
     .ogp-topic-desc { font-size: 1.5cqw; font-weight: 900; color: #facc15; padding-left: 3cqw; }
     .ogp-topic-box:nth-child(2) .ogp-topic-desc { color: #fca5a5; }
     .ogp-topic-box:nth-child(3) .ogp-topic-desc { color: #7dd3fc; }
     .ogp-topic-box:nth-child(4) .ogp-topic-desc { color: #6ee7b7; }
 
-    /* Hero title block */
-    .art-hero-title-block {
-      max-width: var(--max-width); margin: 0 auto; padding: 22px 24px 18px;
-    }
-    .art-hero-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .art-cat-badge {
-      font-size: 0.68rem; font-weight: 800; letter-spacing: .12em;
-      text-transform: uppercase; padding: 3px 10px; border-radius: 2px;
-    }
-    .art-cat-sports { background: var(--color-accent-sports); color: #fff; }
-    .art-cat-gold   { background: var(--color-accent-gold);   color: #1a2744; }
-    .art-hero-h1 {
-      font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 900; color: #fff;
-      line-height: 1.45; margin: 0 0 10px; opacity: 0.75;
-    }
-    .art-hero-meta {
-      font-size: 0.76rem; color: rgba(255,255,255,0.45);
-      display: flex; gap: 16px; flex-wrap: wrap;
-    }
+    .art-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 44px 24px 80px; align-items: flex-start; }
+    @media (max-width: 900px) { .art-layout { grid-template-columns: 1fr; padding: 28px 16px 60px; gap: 0; } }
 
-    /* YouTube featured video */
-    .art-video-section { margin-bottom: 28px; }
-    .art-video-label {
-      font-size: 0.65rem; font-weight: 900; letter-spacing: .18em;
-      color: #8898b0; margin-bottom: 10px;
-    }
-    .yt-featured-card {
-      border-radius: 10px; overflow: hidden; border: 1px solid #e0e6f0;
-      cursor: pointer; transition: box-shadow .2s, transform .2s;
-      background: #fff;
-    }
-    .yt-featured-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.15); transform: translateY(-2px); }
-    .yt-featured-thumb-wrap {
-      position: relative; padding-bottom: 56.25%; background: #0b1525; overflow: hidden;
-    }
-    .yt-featured-thumb {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; transition: transform .3s;
-    }
-    .yt-featured-card:hover .yt-featured-thumb { transform: scale(1.03); }
-    .yt-featured-overlay {
-      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-      background: rgba(0,0,0,0.22); transition: background .2s;
-    }
-    .yt-featured-card:hover .yt-featured-overlay { background: rgba(0,0,0,0.1); }
-    .yt-featured-play {
-      width: 72px; height: 50px; background: #ff0000; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center; transition: transform .2s, background .2s;
-    }
-    .yt-featured-card:hover .yt-featured-play { transform: scale(1.12); background: #cc0000; }
-    .yt-featured-play svg { width: 28px; height: 28px; fill: #fff; }
-    .yt-featured-body { padding: 12px 16px 14px; display: flex; align-items: center; gap: 12px; }
-    .yt-featured-info { flex: 1; }
-    .yt-featured-title { font-size: 0.88rem; font-weight: 700; color: #1a2744; line-height: 1.45; }
-    .yt-featured-channel { font-size: 0.72rem; color: #8898b0; margin-top: 3px; }
-    .yt-featured-ext-link {
-      flex-shrink: 0; font-size: 0.75rem; font-weight: 700;
-      color: var(--color-accent-sports); text-decoration: none; white-space: nowrap;
-    }
-    .yt-featured-ext-link:hover { text-decoration: underline; }
-    .yt-playing iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; }
-
-    /* --- Layout --- */
-    .art-layout {
-      display: grid;
-      grid-template-columns: 1fr 292px;
-      gap: 40px;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 40px 20px 72px;
-      align-items: start;
-    }
-    @media (max-width: 860px) {
-      .art-layout { grid-template-columns: 1fr; padding: 24px 16px 56px; gap: 0; }
-    }
-
-    /* --- Body base --- */
     .art-body { min-width: 0; }
-    .art-body p {
-      font-size: 0.95rem;
-      line-height: 1.95;
-      color: #2a2a2a;
-      margin-bottom: 18px;
-    }
-    .art-body strong { color: #1a2744; }
-    .art-body ul { padding-left: 1.4em; margin-bottom: 18px; }
-    .art-body li { font-size: 0.93rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 5px; }
+    .art-body p { font-size: 0.96rem; line-height: 2; color: #2a2e3c; margin-bottom: 18px; }
+    .art-body strong { color: #b45309; font-weight: 800; }
 
-    /* --- Section headers --- */
-    .sec-head {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin: 48px 0 22px;
-      padding-bottom: 14px;
-      border-bottom: 3px solid #e4e8f0;
+    /* HERO SUMMARY */
+    .hero-summary {
+      background: linear-gradient(135deg, #1a1400 0%, #3a2a00 60%, #0a0a0a 100%);
+      border-radius: 20px; padding: 32px 36px; color: #fff;
+      margin-bottom: 40px; position: relative; overflow: hidden;
     }
-    .sec-num {
-      font-size: 0.65rem;
-      font-weight: 900;
-      letter-spacing: .14em;
-      color: var(--color-accent-sports);
-      background: #fff0f0;
-      padding: 4px 8px;
-      border-radius: 3px;
-      flex-shrink: 0;
+    .hero-summary::before {
+      content: ""; position: absolute; top: -40%; right: -10%;
+      width: 60%; height: 180%;
+      background: radial-gradient(ellipse, rgba(234,179,8,.35), transparent 70%);
+      pointer-events: none;
     }
-    .sec-head h2 {
-      font-size: 1.22rem;
-      font-weight: 900;
-      color: var(--color-primary);
-      margin: 0;
-      line-height: 1.4;
-    }
-    .sec-head-en {
-      font-size: 0.68rem;
-      font-weight: 800;
-      letter-spacing: .2em;
-      color: #b0b8c8;
-      margin-left: auto;
-      flex-shrink: 0;
-    }
-    @media (max-width: 560px) { .sec-head-en { display: none; } }
+    .hero-summary-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 14px; }
+    .hero-summary h2 { font-size: 1.35rem; font-weight: 900; color: #fff; margin: 0 0 14px; line-height: 1.5; position: relative; }
+    .hero-summary p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.95; margin: 0; position: relative; }
 
-    .sec-sub {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--color-primary);
-      margin: 28px 0 12px;
-      padding-left: 12px;
-      border-left: 3px solid var(--color-accent-economy, #1a6fa8);
+    /* STAT CARDS */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 28px 0 36px; }
+    .stat-card {
+      background: linear-gradient(145deg, #fff, #f5f7ff);
+      border: 1px solid #e4e8f4; border-radius: 16px; padding: 22px 24px;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before { content: ""; position: absolute; inset: 0 auto auto 0; width: 4px; height: 100%; background: linear-gradient(180deg, #eab308, #b45309); }
+    .stat-card-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; color: #b45309; text-transform: uppercase; margin-bottom: 10px; }
+    .stat-card-number { font-family: 'Poppins', sans-serif; font-size: 2.4rem; font-weight: 900; color: #0f0a2e; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; font-style: italic; }
+    .stat-card-sub { font-size: 0.82rem; color: #5a6380; line-height: 1.6; }
+
+    /* 2レイヤー */
+    .layer-split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 28px 0 36px; }
+    @media (max-width: 720px) { .layer-split { grid-template-columns: 1fr; } }
+    .layer-card { background: #fff; border-radius: 16px; padding: 24px 26px; border: 1px solid #e4e8f4; position: relative; box-shadow: 0 6px 24px -8px rgba(20, 30, 80, 0.12); }
+    .layer-card.tech { border-top: 5px solid #06b6d4; }
+    .layer-card.market { border-top: 5px solid #f59e0b; }
+    .layer-card-tag { display: inline-block; font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 10px; border-radius: 3px; margin-bottom: 12px; }
+    .layer-card.tech .layer-card-tag { background: #e0f7fd; color: #0891b2; }
+    .layer-card.market .layer-card-tag { background: #fef3c7; color: #b45309; }
+    .layer-card h3 { font-size: 1.1rem; font-weight: 900; color: #0f0a2e; margin: 0 0 10px; }
+    .layer-card p { margin: 0; font-size: 0.92rem; line-height: 1.85; color: #2a2e3c; }
+
+    /* セクション見出し */
+    .q-section { margin: 56px 0 0; }
+    .q-section-head { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; margin-bottom: 24px; border-bottom: 3px solid #e4e8f4; }
+    .q-section-num { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 900; font-style: italic; background: linear-gradient(135deg, #eab308, #b45309); -webkit-background-clip: text; background-clip: text; color: transparent; flex-shrink: 0; }
+    .q-section-head h2 { font-size: 1.3rem; font-weight: 900; color: #0f0a2e; margin: 0; line-height: 1.4; }
+    .q-section-head-en { margin-left: auto; font-size: 0.7rem; font-weight: 800; letter-spacing: .2em; color: #a3adc7; flex-shrink: 0; }
+    @media (max-width: 560px) { .q-section-head-en { display: none; } }
+
+    /* 2本柱 */
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar { background: linear-gradient(180deg, #fafbff 0%, #f0f3fa 100%); border-radius: 14px; padding: 22px 24px; border: 1px solid #dbe2f0; position: relative; }
+    .pillar-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .pillar-title { font-size: 1rem; font-weight: 900; color: #0f0a2e; margin-bottom: 8px; }
+    .pillar-desc { font-size: 0.88rem; color: #4a5270; line-height: 1.7; margin-bottom: 10px; }
+    .pillar-example { background: #fff; border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: #5a6380; border: 1px solid #e4e8f4; }
+    .pillar.target { border: 2px solid #eab308; background: linear-gradient(180deg, #fffbeb 0%, #fef3c7 100%); }
+    .pillar.target::after { content: "KEY"; position: absolute; top: -10px; right: 14px; background: #eab308; color: #1a1a1a; font-size: 0.68rem; font-weight: 900; letter-spacing: .1em; padding: 3px 10px; border-radius: 3px; }
+
+    /* リスク3パターン */
+    .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0 30px; }
+    @media (max-width: 720px) { .risk-grid { grid-template-columns: 1fr; } }
+    .risk-card { background: #fff; border-radius: 14px; padding: 20px; border: 1px solid #e4e8f4; box-shadow: 0 4px 16px -6px rgba(20, 30, 80, 0.08); display: flex; flex-direction: column; gap: 10px; }
+    .risk-card-head { display: flex; align-items: center; gap: 10px; }
+    .risk-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #ef4444, #f59e0b); color: #fff; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; }
+    .risk-title { font-size: 0.95rem; font-weight: 900; color: #0f0a2e; line-height: 1.4; }
+    .risk-body { font-size: 0.86rem; color: #4a5270; line-height: 1.75; }
+    .risk-example { margin-top: auto; padding: 10px 14px; background: #fef3c7; border-radius: 8px; font-size: 0.8rem; color: #7c2d12; font-weight: 500; }
+
+    /* 投資地図マトリクス */
+    .matrix { background: linear-gradient(135deg, #1a1400 0%, #3a2a00 50%, #0a0a0a 100%); border-radius: 20px; padding: 32px 30px; color: #fff; margin: 28px 0 36px; }
+    .matrix-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 18px; }
+    .matrix h3 { font-size: 1.2rem; font-weight: 900; color: #fff; margin: 0 0 20px; }
+    .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 560px) { .matrix-grid { grid-template-columns: 1fr; grid-template-rows: auto; } }
+    .matrix-cell { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 18px 20px; backdrop-filter: blur(8px); }
+    .matrix-cell-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .matrix-cell-type { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #facc15; }
+    .matrix-cell-ticker { font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 900; font-style: italic; color: #fff; }
+    .matrix-cell-desc { font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin: 20px 0 30px; }
+    .faq-item { background: #fff; border-left: 4px solid #eab308; border-radius: 0 12px 12px 0; padding: 18px 22px; border-top: 1px solid #e4e8f4; border-right: 1px solid #e4e8f4; border-bottom: 1px solid #e4e8f4; }
+    .faq-q, .faq-a { position: relative; padding-left: 34px; min-height: 24px; display: block; }
+    .faq-q { font-size: 0.95rem; font-weight: 800; color: #0f0a2e; margin-bottom: 12px; line-height: 1.6; }
+    .faq-a { font-size: 0.88rem; color: #4a5270; line-height: 1.85; }
+    .faq-q::before, .faq-a::before {
+      position: absolute; left: 0; top: 2px;
+      width: 24px; height: 24px; border-radius: 50%;
+      font-size: 0.7rem; font-weight: 900; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+    }
+    .faq-q::before { content: "Q"; background: #eab308; color: #1a1a1a; }
+    .faq-a::before { content: "A"; background: #1a1a1a; }
+    @media (max-width: 560px) {
+      .faq-item { padding: 16px 16px 14px; }
+      .faq-q, .faq-a { padding-left: 30px; }
+      .faq-q::before, .faq-a::before { width: 22px; height: 22px; font-size: 0.65rem; }
     }
 
-    /* --- Summary box --- */
-    .summary-box {
-      background: linear-gradient(135deg, #f0f5ff, #eef3fb);
-      border: 1px solid #c8d8ef;
-      border-left: 4px solid #1a6fa8;
-      border-radius: 0 8px 8px 0;
-      padding: 20px 22px;
-      margin-bottom: 32px;
-    }
-    .summary-box-title {
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: .12em;
-      color: #1a6fa8;
-      margin-bottom: 12px;
-    }
-    .summary-box ul { margin: 0; }
-    .summary-box li { font-size: 0.87rem; }
+    /* 強材料・弱材料 */
+    .pros-cons-stock { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 720px) { .pros-cons-stock { grid-template-columns: 1fr; } }
+    .pro-box, .con-box { padding: 16px 18px; border-radius: 12px; font-size: 0.85rem; line-height: 1.75; }
+    .pro-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #86efac; color: #065f46; }
+    .con-box { background: linear-gradient(135deg, #fef2f2, #fee2e2); border: 1px solid #fca5a5; color: #991b1b; }
+    .pro-box-label, .con-box-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; margin-bottom: 8px; text-transform: uppercase; }
+    .stock-label { font-size: 1rem; font-weight: 800; color: #0f0a2e; margin: 24px 0 10px; padding-left: 12px; border-left: 4px solid #eab308; }
 
-    /* --- Highlight box --- */
-    .hlbox {
-      background: linear-gradient(135deg, #fffbf0, #fff8e6);
-      border: 1px solid #e6c96a;
-      border-left: 4px solid var(--color-accent-gold);
-      border-radius: 0 8px 8px 0;
-      padding: 18px 22px;
-      margin: 24px 0;
-    }
-    .hlbox p { margin: 0; font-size: 0.94rem; }
+    /* 3行まとめ */
+    .q-summary { background: linear-gradient(135deg, #1a1400 0%, #3a2a00 100%); border-radius: 16px; padding: 28px 30px; margin: 36px 0 28px; }
+    .q-summary-label { font-size: 0.7rem; font-weight: 900; letter-spacing: .2em; color: #facc15; margin-bottom: 14px; }
+    .q-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 12px; }
+    .q-summary li { font-size: 0.92rem; color: rgba(255,255,255,0.92); line-height: 1.8; }
+    .q-summary li::marker { color: #facc15; font-weight: 900; }
 
-    /* ================================================
-       pWAR BAR CHART
-    ================================================ */
-    .pwar-chart {
-      background: #fff;
-      border: 1px solid #e0e6f0;
-      border-radius: 12px;
-      padding: 22px 24px;
-      margin: 18px 0 28px;
+    /* タイムライン */
+    .timeline { display: flex; justify-content: space-between; margin: 28px 0 36px; position: relative; padding: 0 20px; flex-wrap: wrap; gap: 8px 0; }
+    .timeline::before { content: ""; position: absolute; top: 32px; left: 40px; right: 40px; height: 3px; background: linear-gradient(90deg, #10b981, #06b6d4, #eab308, #f59e0b, #ef4444); border-radius: 2px; }
+    .tl-stop { text-align: center; flex: 1; min-width: 90px; position: relative; }
+    .tl-dot { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 3px solid #eab308; margin: 22px auto 10px; position: relative; z-index: 2; }
+    .tl-year { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1rem; font-style: italic; color: #0f0a2e; margin-bottom: 4px; }
+    .tl-label { font-size: 0.76rem; color: #5a6380; line-height: 1.5; padding: 0 4px; }
+
+    /* 動画 */
+    .video-box { background: linear-gradient(135deg, #1a1400, #3a2a00); border-radius: 16px; padding: 20px; margin: 28px auto 40px; max-width: 700px; }
+    .video-box-label { font-size: 0.72rem; font-weight: 900; letter-spacing: .16em; color: #facc15; margin-bottom: 12px; }
+    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; }
+    .video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    /* テーブル */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 18px 0 28px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px -4px rgba(20,30,80,0.08); }
+    .data-table th { background: linear-gradient(135deg, #1a1400, #3a2a00); color: #fff; padding: 12px 14px; text-align: left; font-weight: 800; letter-spacing: .04em; font-size: 0.8rem; }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid #edf0f7; color: #2a2e3c; vertical-align: middle; }
+    .data-table tr:nth-child(even) td { background: #fafbff; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table td strong { color: #b45309; }
+
+    .disclaimer { background: linear-gradient(135deg, #fff9f0, #fef3c7); border-left: 4px solid #d97706; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #7c2d12; }
+
+    /* pWAR bar chart (preserved) */
+    .pwar-chart { background: #fff; border: 1px solid #e4e8f4; border-radius: 14px; padding: 22px 24px; margin: 18px 0 28px; box-shadow: 0 4px 16px -6px rgba(20,30,80,0.08); }
+    @media (prefers-color-scheme: dark) {
+      .pwar-chart { background: #141828 !important; border-color: #2a3150 !important; }
+      .pwar-name { color: #e6e9f5 !important; }
+      .pwar-val { color: #e6e9f5 !important; }
+      .pwar-track { background: #1e2540 !important; }
     }
-    .pwar-chart-title {
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: .14em;
-      color: #8898b0;
-      margin-bottom: 18px;
-    }
-    .pwar-row {
-      display: grid;
-      grid-template-columns: 96px 1fr 52px;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 11px;
-    }
+    .pwar-chart-title { font-size: 0.7rem; font-weight: 800; letter-spacing: .14em; color: #b45309; margin-bottom: 18px; }
+    .pwar-row { display: grid; grid-template-columns: 96px 1fr 56px; align-items: center; gap: 10px; margin-bottom: 11px; }
     .pwar-row:last-child { margin-bottom: 0; }
-    .pwar-name {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: #1a2744;
-      text-align: right;
-      white-space: nowrap;
-    }
-    .pwar-name.top { color: var(--color-accent-sports); }
-    .pwar-name.injured { color: #b0b8c8; text-decoration: line-through; }
-    .pwar-track {
-      height: 24px;
-      background: #f0f3f9;
-      border-radius: 4px;
-      overflow: hidden;
-      position: relative;
-    }
-    .pwar-fill {
-      height: 100%;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding-right: 8px;
-      font-size: 0.72rem;
-      font-weight: 800;
-      color: #fff;
-      animation: barGrow .8s ease both;
-    }
+    .pwar-name { font-size: 0.82rem; font-weight: 700; color: #0f0a2e; text-align: right; white-space: nowrap; }
+    .pwar-name.top { color: #b45309; }
+    .pwar-name.injured { color: #94a3b8; text-decoration: line-through; }
+    .pwar-track { height: 24px; background: #f0f3f9; border-radius: 4px; overflow: hidden; position: relative; }
+    .pwar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; font-size: 0.72rem; font-weight: 800; color: #fff; animation: barGrow .8s ease both; }
     @keyframes barGrow { from { width: 0 !important; } }
-    .pwar-fill.tier-s  { background: linear-gradient(90deg, #c0392b 0%, #e74c3c 100%); }
+    .pwar-fill.tier-s  { background: linear-gradient(90deg, #b45309 0%, #eab308 100%); }
     .pwar-fill.tier-a  { background: linear-gradient(90deg, #1a4fa0 0%, #2e7dd6 100%); }
     .pwar-fill.tier-b  { background: linear-gradient(90deg, #27768a 0%, #3aafcc 100%); }
     .pwar-fill.tier-c  { background: linear-gradient(90deg, #718096 0%, #a0aec0 100%); }
     .pwar-fill.tier-injured { background: #c8d2de; }
     .pwar-fill.tier-neg { background: #e0e6f0; color: #a0aec0; }
-    .pwar-val {
-      font-size: 0.82rem;
-      font-weight: 800;
-      text-align: left;
-      color: #1a2744;
-    }
-    .pwar-val.injured { color: #b0b8c8; }
-    .pwar-injury-badge {
-      display: inline-block;
-      font-size: 0.6rem;
-      font-weight: 800;
-      background: #e74c3c;
-      color: #fff;
-      padding: 1px 5px;
-      border-radius: 2px;
-      margin-left: 4px;
-      vertical-align: middle;
-    }
+    .pwar-val { font-size: 0.82rem; font-weight: 800; text-align: left; color: #0f0a2e; }
+    .pwar-val.injured { color: #94a3b8; }
+    .pwar-injury-badge { display: inline-block; font-size: 0.6rem; font-weight: 800; background: #dc2626; color: #fff; padding: 1px 5px; border-radius: 2px; margin-left: 4px; vertical-align: middle; }
 
-    /* ================================================
-       AWARDS GRID
-    ================================================ */
-    .awards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 14px;
-      margin: 18px 0 28px;
-    }
-    .award-card {
-      background: #fff;
-      border: 1px solid #e0e6f0;
-      border-radius: 10px;
-      padding: 14px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .award-card-name {
-      font-size: 0.9rem;
-      font-weight: 800;
-      color: var(--color-primary);
-    }
-    .award-card-pwar {
-      font-size: 0.7rem;
-      color: #8898b0;
-      font-weight: 600;
-    }
-    .award-card-pwar span {
-      font-size: 1.1rem;
-      font-weight: 900;
-      color: var(--color-accent-sports);
-    }
-    .award-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-    }
-    .award-chip {
-      font-size: 0.64rem;
-      font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
+    /* Awards / chips / new players / eval cards (preserved) */
+    .awards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin: 18px 0 28px; }
+    .award-card { background: #fff; border: 1px solid #e4e8f4; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 3px 12px -4px rgba(20,30,80,0.08); }
+    @media (prefers-color-scheme: dark) { .award-card { background: #141828 !important; border-color: #2a3150 !important; } .award-card-name { color: #f5f7ff !important; } .award-card-pwar { color: #9aa3bf !important; } }
+    .award-card-name { font-size: 0.9rem; font-weight: 800; color: #0f0a2e; }
+    .award-card-pwar { font-size: 0.7rem; color: #8898b0; font-weight: 600; }
+    .award-card-pwar span { font-size: 1.1rem; font-weight: 900; color: #b45309; }
+    .award-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+    .award-chip { font-size: 0.64rem; font-weight: 800; padding: 2px 7px; border-radius: 20px; white-space: nowrap; }
     .chip-mvp { background: #fff3cd; color: #856404; border: 1px solid #ffd56a; }
     .chip-title { background: #ffe0e0; color: #8b1a1a; border: 1px solid #f5a5a5; }
     .chip-bn { background: #e3f0ff; color: #1a4fa0; border: 1px solid #a0c4f0; }
     .chip-gg { background: #e6f5ec; color: #1a6634; border: 1px solid #8fcfaa; }
 
-    /* ================================================
-       NEW PLAYER CARDS
-    ================================================ */
-    .newplayer-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin: 18px 0 28px;
-    }
+    .newplayer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 18px 0 28px; }
     @media (max-width: 640px) { .newplayer-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 380px) { .newplayer-grid { grid-template-columns: 1fr; } }
-    .npc {
-      background: #fff;
-      border: 1px solid #e0e6f0;
-      border-radius: 10px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .npc-role {
-      font-size: 0.62rem;
-      font-weight: 800;
-      letter-spacing: .1em;
-      color: var(--color-accent-sports);
-      background: #fff0f0;
-      padding: 2px 7px;
-      border-radius: 2px;
-      align-self: flex-start;
-    }
+    .npc { background: #fff; border: 1px solid #e4e8f4; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 3px 12px -4px rgba(20,30,80,0.08); }
+    @media (prefers-color-scheme: dark) { .npc { background: #141828 !important; border-color: #2a3150 !important; } .npc-name { color: #f5f7ff !important; } .npc-desc { color: #b9c1d9 !important; } }
+    .npc-role { font-size: 0.62rem; font-weight: 800; letter-spacing: .1em; color: #b45309; background: #fef3c7; padding: 2px 7px; border-radius: 2px; align-self: flex-start; }
     .npc-role.blue { color: #1a6fa8; background: #e8f2fb; }
     .npc-role.gold { color: #7a5800; background: #fff4d6; }
-    .npc-name { font-size: 0.96rem; font-weight: 900; color: var(--color-primary); }
+    .npc-name { font-size: 0.96rem; font-weight: 900; color: #0f0a2e; }
     .npc-desc { font-size: 0.78rem; color: #555; line-height: 1.65; }
-    .npc-grade-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 4px;
-    }
+    .npc-grade-row { display: flex; align-items: center; gap: 6px; margin-top: 4px; }
     .npc-grade-label { font-size: 0.68rem; color: #8898b0; }
-    .grade-badge {
-      font-size: 0.76rem;
-      font-weight: 900;
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
-    .gb-s  { background: #c0392b; color: #fff; }
+    .grade-badge { font-size: 0.76rem; font-weight: 900; padding: 2px 8px; border-radius: 4px; }
+    .gb-s  { background: #b45309; color: #fff; }
     .gb-ap { background: #1a4fa0; color: #fff; }
     .gb-a  { background: #2a75c7; color: #fff; }
     .gb-am { background: #5b8fa8; color: #fff; }
@@ -461,281 +357,52 @@
     .gb-b  { background: #718096; color: #fff; }
     .gb-ae { background: #e67e22; color: #fff; }
 
-    /* ================================================
-       EVALUATION CARDS
-    ================================================ */
-    .eval-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin: 18px 0 28px;
-    }
+    .eval-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 18px 0 28px; }
     @media (max-width: 560px) { .eval-grid { grid-template-columns: 1fr; } }
-    .eval-card {
-      background: #fff;
-      border: 1px solid #e0e6f0;
-      border-radius: 10px;
-      padding: 16px;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 12px;
-      align-items: start;
-    }
-    .eval-grade-col {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-    }
-    .eval-grade-big {
-      font-size: 1.5rem;
-      font-weight: 900;
-      width: 46px;
-      height: 46px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-    }
+    .eval-card { background: #fff; border: 1px solid #e4e8f4; border-radius: 12px; padding: 16px; display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; box-shadow: 0 3px 12px -4px rgba(20,30,80,0.08); }
+    @media (prefers-color-scheme: dark) { .eval-card { background: #141828 !important; border-color: #2a3150 !important; } .eval-name { color: #f5f7ff !important; } .eval-pos { background: #1e2540 !important; color: #b9c1d9 !important; } }
+    .eval-grade-col { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .eval-grade-big { font-size: 1.5rem; font-weight: 900; width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; border-radius: 8px; }
     .eval-pwar-small { font-size: 0.68rem; color: #8898b0; font-weight: 700; text-align: center; }
-    .eval-name { font-size: 0.96rem; font-weight: 800; color: var(--color-primary); margin-bottom: 5px; }
-    .eval-pos {
-      font-size: 0.64rem;
-      font-weight: 700;
-      color: #8898b0;
-      background: #f0f3f9;
-      padding: 1px 7px;
-      border-radius: 2px;
-      display: inline-block;
-      margin-bottom: 7px;
-    }
+    .eval-name { font-size: 0.96rem; font-weight: 800; color: #0f0a2e; margin-bottom: 5px; }
+    .eval-pos { font-size: 0.64rem; font-weight: 700; color: #8898b0; background: #f0f3f9; padding: 1px 7px; border-radius: 2px; display: inline-block; margin-bottom: 7px; }
     .eval-good { font-size: 0.78rem; color: #1a6634; margin-bottom: 3px; }
     .eval-good::before { content: "◎ "; font-size: 0.7rem; }
     .eval-risk { font-size: 0.78rem; color: #8b1a1a; }
     .eval-risk::before { content: "△ "; font-size: 0.7rem; }
 
-    /* compact eval table for secondary players */
-    .eval-table-compact {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.82rem;
-      margin: 0 0 28px;
-    }
-    .eval-table-compact th {
-      background: #1a2744;
-      color: #fff;
-      padding: 8px 10px;
-      text-align: left;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    .eval-table-compact td {
-      padding: 7px 10px;
-      border-bottom: 1px solid #e8ebf0;
-      color: #2a2a2a;
-      vertical-align: middle;
-    }
+    .eval-table-compact { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin: 0 0 28px; }
+    .eval-table-compact th { background: linear-gradient(135deg, #1a1400, #3a2a00); color: #fff; padding: 8px 10px; text-align: left; font-weight: 700; white-space: nowrap; }
+    .eval-table-compact td { padding: 7px 10px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
     .eval-table-compact tr:last-child td { border-bottom: none; }
     .eval-table-compact tr:nth-child(even) td { background: #f8fafd; }
-
-    /* ================================================
-       KEY POINTS - full-width callout strips
-    ================================================ */
-    .kp-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border: 1px solid #e0e6f0;
-      border-radius: 10px;
-      overflow: hidden;
-      margin: 20px 0 28px;
-    }
-    @media (max-width: 560px) { .kp-strip { grid-template-columns: 1fr; } }
-    .kp-cell {
-      padding: 18px 18px 16px;
-      background: #fff;
-      border-right: 1px solid #e0e6f0;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .kp-cell:last-child { border-right: none; }
-    @media (max-width: 560px) {
-      .kp-cell { border-right: none; border-bottom: 1px solid #e0e6f0; }
-      .kp-cell:last-child { border-bottom: none; }
-    }
-    .kp-n {
-      font-size: 0.62rem;
-      font-weight: 900;
-      letter-spacing: .12em;
-      color: var(--color-accent-sports);
-    }
-    .kp-title { font-size: 0.9rem; font-weight: 800; color: var(--color-primary); line-height: 1.4; }
-    .kp-body { font-size: 0.78rem; color: #555; line-height: 1.65; }
-
-    /* ================================================
-       3-LINE SUMMARY
-    ================================================ */
-    .art-summary {
-      background: var(--color-primary);
-      border-radius: 12px;
-      padding: 26px 28px;
-      margin: 36px 0 28px;
-    }
-    .art-summary-label {
-      font-size: 0.65rem;
-      font-weight: 900;
-      letter-spacing: .18em;
-      color: var(--color-accent-gold);
-      margin-bottom: 14px;
-    }
-    .art-summary ol {
-      margin: 0;
-      padding-left: 1.4em;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .art-summary li {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.9);
-      line-height: 1.75;
+    @media (prefers-color-scheme: dark) {
+      .eval-table-compact td { background: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .eval-table-compact tr:nth-child(even) td { background: #181c2e !important; }
     }
 
-    /* ================================================
-       CHANNEL CTA
-    ================================================ */
-    .channel-cta {
-      background: linear-gradient(135deg, #0f1e38, #1a3460);
-      border-radius: 12px;
-      padding: 24px 26px;
-      margin: 28px 0;
-      text-align: center;
-    }
-    .channel-cta p { font-size: 0.88rem; color: rgba(255,255,255,0.8); margin-bottom: 16px; }
-    .cta-btn-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-
-    /* ================================================
-       RELATED ARTICLES
-    ================================================ */
-    .related-head {
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: .14em;
-      color: #8898b0;
-      border-bottom: 2px solid #e0e6f0;
-      padding-bottom: 10px;
-      margin: 36px 0 14px;
-    }
-    .related-list { display: flex; flex-direction: column; gap: 10px; }
-    .related-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 12px 14px;
-      background: #fff;
-      border: 1px solid #e0e6f0;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: box-shadow .18s;
-    }
-    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
-    .related-tag {
-      flex-shrink: 0;
-      font-size: 0.62rem;
-      font-weight: 800;
-      background: var(--color-accent-sports);
-      color: #fff;
-      padding: 2px 7px;
-      border-radius: 2px;
-      margin-top: 2px;
-    }
-    .related-title { font-size: 0.84rem; font-weight: 600; color: var(--color-primary); line-height: 1.5; }
-
-    /* ================================================
-       SIDEBAR
-    ================================================ */
+    /* サイドバー */
     .art-sidebar { font-size: 0.88rem; }
-    @media (max-width: 860px) {
-      .art-sidebar { display: contents; }
-      .sidebar-toc { order: -1; margin-bottom: 28px; }
-    }
-    .sidebar-toc {
-      background: #f7f9fc;
-      border: 1px solid #dde3ef;
-      border-radius: 10px;
-      padding: 18px 20px;
-      position: sticky;
-      top: 80px;
-      margin-bottom: 24px;
-    }
-    .sidebar-toc-label {
-      font-size: 0.65rem;
-      font-weight: 900;
-      letter-spacing: .16em;
-      color: #8898b0;
-      margin-bottom: 12px;
-    }
+    @media (max-width: 900px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; position: static !important; max-height: none !important; overflow: visible !important; top: auto !important; } }
+    .sidebar-toc { background: linear-gradient(145deg, #fafbff, #f0f3fa); border: 1px solid #dbe2f0; border-radius: 14px; padding: 20px 22px; position: sticky; top: 80px; margin-bottom: 24px; max-height: calc(100vh - 100px); overflow-y: auto; }
+    .sidebar-toc-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .18em; color: #b45309; margin-bottom: 14px; }
     .toc-list { list-style: none; padding: 0; margin: 0; }
-    .toc-list li { border-bottom: 1px solid #e8ecf4; }
+    .toc-list li { border-bottom: 1px solid #e4e8f4; }
     .toc-list li:last-child { border-bottom: none; }
-    .toc-list a {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 4px;
-      color: #445;
-      text-decoration: none;
-      font-size: 0.8rem;
-      line-height: 1.4;
-      transition: color .15s;
-    }
-    .toc-list a:hover { color: var(--color-accent-sports); }
-    .toc-n {
-      font-size: 0.62rem;
-      font-weight: 900;
-      color: var(--color-accent-sports);
-      flex-shrink: 0;
-      width: 22px;
-    }
-    .sidebar-meta {
-      background: #fff;
-      border: 1px solid #dde3ef;
-      border-radius: 10px;
-      padding: 18px 20px;
-      margin-bottom: 24px;
-    }
-    .sidebar-meta-label {
-      font-size: 0.65rem;
-      font-weight: 900;
-      letter-spacing: .14em;
-      color: #8898b0;
-      margin-bottom: 10px;
-    }
+    .toc-list a { display: flex; align-items: center; gap: 10px; padding: 9px 4px; color: #4a5270; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #b45309; }
+    .toc-n { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 0.7rem; font-weight: 900; color: #b45309; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dbe2f0; border-radius: 14px; padding: 18px 20px; margin-bottom: 20px; }
+    .sidebar-meta-label { font-size: 0.68rem; font-weight: 900; letter-spacing: .16em; color: #b45309; margin-bottom: 10px; }
     .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill {
-      font-size: 0.72rem;
-      color: #445;
-      background: #f0f3f9;
-      border: 1px solid #dde3ef;
-      padding: 3px 9px;
-      border-radius: 20px;
-      cursor: default;
-    }
-    .sidebar-profile {
-      background: #fff;
-      border: 1px solid #dde3ef;
-      border-radius: 10px;
-      padding: 18px 20px;
-      text-align: center;
-    }
-    .sidebar-profile-name { font-size: 0.9rem; font-weight: 800; color: var(--color-primary); margin-bottom: 6px; }
-    .sidebar-profile p { font-size: 0.78rem; color: #666; line-height: 1.7; margin: 0 0 14px; }
-    .sp-btn-col { display: flex; flex-direction: column; gap: 8px; }
+    .tag-pill { font-size: 0.72rem; color: #4a5270; background: #f0f3fa; border: 1px solid #dbe2f0; padding: 3px 9px; border-radius: 20px; }
 
-    /* divider */
-    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
-
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #b45309; border-bottom: 2px solid #e4e8f4; padding-bottom: 10px; margin: 48px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: #fff; border: 1px solid #e4e8f4; border-radius: 10px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 900; background: #eab308; color: #1a1a1a; padding: 3px 8px; border-radius: 3px; margin-top: 2px; letter-spacing: .08em; }
+    .related-title { font-size: 0.85rem; font-weight: 600; color: #0f0a2e; line-height: 1.5; }
   </style>
   <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
 </head>
@@ -750,9 +417,7 @@
           <span class="logo-sub">野球・競馬 × 経済・株式</span>
         </div>
       </a>
-      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="../../">TOP</a>
         <a href="../../hanshin-keiba/" class="active">野球・競馬</a>
@@ -774,65 +439,46 @@
     </div>
   </div>
 
-  <!-- ===== HERO ===== -->
   <div class="art-hero">
 
-    <!-- OGP Thumbnail Design -->
     <div class="ogp-hero">
       <div class="ogp-bg-dots"></div>
       <div class="ogp-yellow"></div>
       <div class="ogp-dark"></div>
       <div class="ogp-texture"></div>
-
       <div class="ogp-left">
         <div class="ogp-year-badge"><span>阪神タイガース 2026</span></div>
         <div class="ogp-main-title">開幕1軍<br>ロースター</div>
         <div class="ogp-sub-title"><span class="ogp-red">完全</span>総整理!</div>
         <div class="ogp-method-badge"><span>pWAR × 現在地 で読み解く</span></div>
       </div>
-
       <div class="ogp-right">
         <div class="ogp-topic-box">
-          <div class="ogp-topic-header">
-            <span class="ogp-topic-num">01</span>
-            <span class="ogp-topic-title">先発ピッチャー</span>
-          </div>
+          <div class="ogp-topic-header"><span class="ogp-topic-num">01</span><span class="ogp-topic-title">先発ピッチャー</span></div>
           <div class="ogp-topic-desc">12球団屈指の陣容</div>
         </div>
         <div class="ogp-topic-box">
-          <div class="ogp-topic-header">
-            <span class="ogp-topic-num">02</span>
-            <span class="ogp-topic-title">中継ぎ・リリーフ</span>
-          </div>
+          <div class="ogp-topic-header"><span class="ogp-topic-num">02</span><span class="ogp-topic-title">中継ぎ・リリーフ</span></div>
           <div class="ogp-topic-desc">ブルペンの再設計</div>
         </div>
         <div class="ogp-topic-box">
-          <div class="ogp-topic-header">
-            <span class="ogp-topic-num">03</span>
-            <span class="ogp-topic-title">スタメン・野手</span>
-          </div>
+          <div class="ogp-topic-header"><span class="ogp-topic-num">03</span><span class="ogp-topic-title">スタメン・野手</span></div>
           <div class="ogp-topic-desc">不動の中心と競争</div>
         </div>
         <div class="ogp-topic-box">
-          <div class="ogp-topic-header">
-            <span class="ogp-topic-num">04</span>
-            <span class="ogp-topic-title">新戦力</span>
-          </div>
+          <div class="ogp-topic-header"><span class="ogp-topic-num">04</span><span class="ogp-topic-title">新戦力</span></div>
           <div class="ogp-topic-desc">完全体へのピース</div>
         </div>
       </div>
     </div>
 
-    <!-- Article meta (below design) -->
     <div class="art-hero-title-block">
       <div class="art-hero-cats">
-        <span class="art-cat-badge art-cat-sports">阪神タイガース</span>
-        <span class="art-cat-badge art-cat-gold">2026シーズン展望</span>
-        <span class="art-cat-badge art-cat-sports">開幕ロースター分析</span>
+        <span class="art-cat-badge art-cat-baseball">阪神タイガース</span>
+        <span class="art-cat-badge art-cat-analysis">ロースター分析</span>
+        <span class="art-cat-badge art-cat-roster">2026展望</span>
       </div>
-      <h1 class="art-hero-h1">
-        阪神開幕1軍ロースター総整理｜先発の厚み、ブルペン再編、立石待望論まで見えた2026年の全体像
-      </h1>
+      <h1 class="art-hero-h1">阪神開幕1軍ロースター総整理｜先発の厚み、ブルペン再編、立石待望論まで見えた2026年の全体像</h1>
       <div class="art-hero-meta">
         <span>2026年3月27日</span>
         <span>AIデータ二刀流ブログ</span>
@@ -840,669 +486,624 @@
     </div>
   </div>
 
-  <!-- ===== LAYOUT ===== -->
   <div class="art-layout">
-
-    <!-- ===== MAIN ===== -->
     <main class="art-body">
 
-      <!-- Summary -->
-      <div class="summary-box">
-        <div class="summary-box-title">THIS ARTICLE COVERS</div>
-        <ul>
-          <li>先発陣が「強い」だけでなく、なぜ<strong>贅沢な並べ方の悩み</strong>ができるのか</li>
-          <li>石井大智離脱後のブルペンが、どこを軸に<strong>再設計</strong>されるのか</li>
-          <li>スタメンの中心がどれだけ固く、どこに<strong>流動域</strong>が残っているのか</li>
-          <li>立石正広・ルーカス・モレッタら<strong>新戦力</strong>がどこで効いてくるのか</li>
-          <li>実績・pWAR・現在地で読む、<strong>開幕前の阪神の全体像</strong></li>
-        </ul>
+      <!-- HERO SUMMARY -->
+      <div class="hero-summary">
+        <div class="hero-summary-label">この記事のコア</div>
+        <h2>「戦力がそろっている」だけではない。強い選手が多すぎて、どう並べるかで悩めるチーム——それが2026年の阪神。</h2>
+        <p>昨年のセ・リーグ覇者として今季も優勝最有力候補。ただし<strong>先発は豪華すぎて並べ方が論点</strong>になり、石井大智の長期離脱でブルペンは<strong>再設計</strong>が必要、打線は主力の格が高い一方で遊撃・左翼・ベンチには動きが残る。立石正広の合流を最大の夢に据えながら、pWARと現在地で「完全体への距離」を読み解く。</p>
       </div>
 
-      <!-- Lead -->
-      <p>
-        2026年の阪神タイガースは、開幕前の時点で「強い」という印象がかなりはっきりしている。
-        昨年のセ・リーグ覇者として今季も投打に充実した戦力を誇り、優勝最有力候補に位置づけられている。
-      </p>
-      <p>
-        ただ、その一方で、見れば見るほど単純ではない。先発は豪華だが、豪華すぎるからこそ並べ方が論点になる。ブルペンは強力だが、石井大智の離脱で再設計が必要になった。打線は主力の格が高いが、遊撃・左翼・ベンチ要員にはまだ動きがある。
-      </p>
-      <div class="hlbox">
-        <p>今年の阪神は、ただ「戦力がそろっている」だけではない。<strong>強い選手が多すぎて、どう並べるかで悩めるチーム</strong>になっている。そこがこのチームの最大の強みであり、同時に開幕前の一番面白いポイントでもある。</p>
-      </div>
-
-      <!-- =====================
-           SECTION 1: STARTERS
-      ===================== -->
-      <div class="sec-head" id="sec-starter">
-        <span class="sec-num">01</span>
-        <h2>先発陣 — 異常な厚みと"並べ方"の論点</h2>
-        <span class="sec-head-en">STARTING PITCHERS</span>
-      </div>
-
-      <p>
-        最初に目に入るのはやはり先発陣の厚みだ。
-        村上頌樹・才木浩人というタイトルホルダー級の軸がいて、その後ろに大竹耕太郎・髙橋遥人・伊藤将司・伊原陵人、さらに新外国人のルーカスまで控える。「6人目をどう埋めるか」ではなく、<strong>強い投手をどう並べるか</strong>の悩み方になっている。
-      </p>
-
-      <!-- pWAR Chart: Starters -->
-      <div class="pwar-chart">
-        <div class="pwar-chart-title">pWAR RANKING — 先発投手（2025シーズン）</div>
-
-        <div class="pwar-row">
-          <div class="pwar-name top">村上頌樹</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-s" style="width:87%">10.4</div>
-          </div>
-          <div class="pwar-val">10.4</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name top">才木浩人</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-s" style="width:69%">8.3</div>
-          </div>
-          <div class="pwar-val">8.3</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name">大竹耕太郎</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-a" style="width:45%">5.4</div>
-          </div>
-          <div class="pwar-val">5.4</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name">伊藤将司</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-a" style="width:30%">3.6</div>
-          </div>
-          <div class="pwar-val">3.6</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name">髙橋遥人</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-b" style="width:18%">2.2</div>
-          </div>
-          <div class="pwar-val">2.2</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name">伊原陵人</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-b" style="width:16%">1.9</div>
-          </div>
-          <div class="pwar-val">1.9</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name" style="color:#8898b0;">ルーカス</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-c" style="width:8%"></div>
-          </div>
-          <div class="pwar-val" style="color:#8898b0;">新加入</div>
-        </div>
-      </div>
-
-      <p>
-        上位2枚のpWARの差が際立つ。村上（10.4）と才木（8.3）は、12球団全体で見ても上位に位置するダブルエースだ。その後ろに5.4・3.6・2.2・1.9と続く6人目まで全員が実績を持ち、<strong>「どのローテを誰で回すか」が贅沢な論点</strong>になっている。
-      </p>
-
-      <!-- =====================
-           SECTION 2: BULLPEN
-      ===================== -->
-      <div class="sec-head" id="sec-bullpen">
-        <span class="sec-num">02</span>
-        <h2>ブルペン — 石井大智離脱と再設計</h2>
-        <span class="sec-head-en">RELIEF PITCHERS</span>
-      </div>
-
-      <p>
-        ただし投手陣全体が無風ではない。キャンプ中に石井大智が左アキレス腱断裂の大ケガで長期離脱。pWAR3.1と桐敷に次ぐ数字を残していただけに、その穴は無視できない。ブルペンは昨年の延長線ではなく、<strong>再設計が必要な局面</strong>に入っている。
-      </p>
-
-      <!-- pWAR Chart: Bullpen -->
-      <div class="pwar-chart">
-        <div class="pwar-chart-title">pWAR RANKING — リリーフ投手（2025シーズン）</div>
-
-        <div class="pwar-row">
-          <div class="pwar-name top">桐敷拓馬</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-s" style="width:82%">3.3</div>
-          </div>
-          <div class="pwar-val">3.3</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name injured">石井大智</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-injured" style="width:77%">3.1</div>
-          </div>
-          <div class="pwar-val injured">3.1 <span class="pwar-injury-badge">離脱</span></div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name">岩崎優</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-a" style="width:60%">2.4</div>
-          </div>
-          <div class="pwar-val">2.4</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name">及川雅貴</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-a" style="width:52%">2.1</div>
-          </div>
-          <div class="pwar-val">2.1</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name">湯浅京己</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-neg" style="width:2%"></div>
-          </div>
-          <div class="pwar-val" style="color:#a0aec0;">−0.2</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name" style="color:#8898b0;">モレッタ</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-c" style="width:8%"></div>
-          </div>
-          <div class="pwar-val" style="color:#8898b0;">新加入</div>
-        </div>
-      </div>
-
-      <div class="hlbox">
-        <p>
-          石井不在でも<strong>岩崎・桐敷・及川・モレッタ</strong>という選択肢がある。「終わった」ではなく「組み直し」の段階にとどまっている。ここをどう回せるかが、シーズン序盤の分岐点になる。
-        </p>
-      </div>
-
-      <!-- =====================
-           SECTION 3: BATTING
-      ===================== -->
-      <div class="sec-head" id="sec-batting">
-        <span class="sec-num">03</span>
-        <h2>野手・スタメン — 中心は固く、周辺は競争</h2>
-        <span class="sec-head-en">BATTERS / STARTERS</span>
-      </div>
-
-      <p>
-        近本光司・中野拓夢・森下翔太・佐藤輝明・大山悠輔・坂本誠志郎という主力の格は、昨年の表彰実績を見ても明らかに高い。一方で遊撃は小幡竜平と木浪聖也、左翼は中川勇斗らの争いが残る。<strong>中心が強固で、なおかつ周辺競争が死んでいない</strong>ところがこの打線の面白さだ。
-      </p>
-
-      <!-- pWAR Chart: Batters -->
-      <div class="pwar-chart">
-        <div class="pwar-chart-title">pWAR RANKING — スタメン野手（2025シーズン）</div>
-
-        <div class="pwar-row">
-          <div class="pwar-name top">近本光司</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-s" style="width:91%">18.2</div>
-          </div>
-          <div class="pwar-val">18.2</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name top">佐藤輝明</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-s" style="width:82%">16.4</div>
-          </div>
-          <div class="pwar-val">16.4</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name top">森下翔太</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-s" style="width:64%">12.8</div>
-          </div>
-          <div class="pwar-val">12.8</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name top">中野拓夢</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-s" style="width:57%">11.4</div>
-          </div>
-          <div class="pwar-val">11.4</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name">坂本誠志郎</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-a" style="width:46%">9.3</div>
-          </div>
-          <div class="pwar-val">9.3</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name">大山悠輔</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-a" style="width:46%">9.2</div>
-          </div>
-          <div class="pwar-val">9.2</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name">小幡竜平</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-b" style="width:7%"></div>
-          </div>
-          <div class="pwar-val">1.4</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name">木浪聖也</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-b" style="width:6%"></div>
-          </div>
-          <div class="pwar-val">1.1</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name">中川勇斗</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-c" style="width:2%"></div>
-          </div>
-          <div class="pwar-val">0.0</div>
-        </div>
-        <div class="pwar-row">
-          <div class="pwar-name" style="color:#a0aec0;">濱田太貴</div>
-          <div class="pwar-track">
-            <div class="pwar-fill tier-neg" style="width:1%"></div>
-          </div>
-          <div class="pwar-val" style="color:#a0aec0;">−0.6</div>
-        </div>
-      </div>
-
-      <div class="sec-sub">2025年 主力の表彰実績</div>
-
-      <!-- Awards Grid -->
-      <div class="awards-grid">
-        <div class="award-card">
-          <div class="award-card-name">佐藤輝明</div>
-          <div class="award-card-pwar">pWAR <span>16.4</span></div>
-          <div class="award-chips">
-            <span class="award-chip chip-mvp">MVP</span>
-            <span class="award-chip chip-title">本塁打王</span>
-            <span class="award-chip chip-title">打点王</span>
-            <span class="award-chip chip-bn">BN</span>
-            <span class="award-chip chip-gg">GG</span>
-          </div>
-        </div>
-        <div class="award-card">
-          <div class="award-card-name">近本光司</div>
-          <div class="award-card-pwar">pWAR <span>18.2</span></div>
-          <div class="award-chips">
-            <span class="award-chip chip-title">盗塁王</span>
-            <span class="award-chip chip-bn">BN</span>
-            <span class="award-chip chip-gg">GG</span>
-          </div>
-        </div>
-        <div class="award-card">
-          <div class="award-card-name">村上頌樹</div>
-          <div class="award-card-pwar">pWAR <span>10.4</span></div>
-          <div class="award-chips">
-            <span class="award-chip chip-title">最多勝</span>
-            <span class="award-chip chip-title">最高勝率</span>
-            <span class="award-chip chip-title">最多奪三振</span>
-            <span class="award-chip chip-bn">BN</span>
-            <span class="award-chip chip-gg">GG</span>
-          </div>
-        </div>
-        <div class="award-card">
-          <div class="award-card-name">森下翔太</div>
-          <div class="award-card-pwar">pWAR <span>12.8</span></div>
-          <div class="award-chips">
-            <span class="award-chip chip-bn">BN</span>
-            <span class="award-chip chip-gg">GG</span>
-          </div>
-        </div>
-        <div class="award-card">
-          <div class="award-card-name">中野拓夢</div>
-          <div class="award-card-pwar">pWAR <span>11.4</span></div>
-          <div class="award-chips">
-            <span class="award-chip chip-bn">BN</span>
-            <span class="award-chip chip-gg">GG</span>
-          </div>
-        </div>
-        <div class="award-card">
-          <div class="award-card-name">坂本誠志郎</div>
-          <div class="award-card-pwar">pWAR <span>9.3</span></div>
-          <div class="award-chips">
-            <span class="award-chip chip-bn">BN</span>
-            <span class="award-chip chip-gg">GG</span>
-          </div>
-        </div>
-        <div class="award-card">
-          <div class="award-card-name">大山悠輔</div>
-          <div class="award-card-pwar">pWAR <span>9.2</span></div>
-          <div class="award-chips">
-            <span class="award-chip chip-bn">BN</span>
-            <span class="award-chip chip-gg">GG</span>
-          </div>
-        </div>
-        <div class="award-card">
-          <div class="award-card-name">才木浩人</div>
-          <div class="award-card-pwar">pWAR <span>8.3</span></div>
-          <div class="award-chips">
-            <span class="award-chip chip-title">最優秀防御率</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- =====================
-           SECTION 4: NEW PLAYERS
-      ===================== -->
-      <div class="sec-head" id="sec-new">
-        <span class="sec-num">04</span>
-        <h2>新戦力 — "各所の上積み"という設計</h2>
-        <span class="sec-head-en">NEW PLAYERS</span>
-      </div>
-
-      <p>
-        新戦力の見方も重要だ。一人のスターが全部を変える形ではなく、<strong>各ポジションを少しずつ分厚くする形</strong>で入っている。そして途中合流の最大の夢が立石正広だ。
-      </p>
-
-      <div class="newplayer-grid">
-        <div class="npc">
-          <span class="npc-role">STARTING</span>
-          <div class="npc-name">ルーカス</div>
-          <div class="npc-desc">ローテ上積みの新外国人左腕。序盤の出来次第で評価が大きく動く。</div>
-          <div class="npc-grade-row">
-            <span class="npc-grade-label">評価</span>
-            <span class="grade-badge gb-bp">B+</span>
-          </div>
-        </div>
-        <div class="npc">
-          <span class="npc-role">RELIEF</span>
-          <div class="npc-name">モレッタ</div>
-          <div class="npc-desc">石井離脱後のブルペン再編の鍵。球威で流れを変えうる右腕。</div>
-          <div class="npc-grade-row">
-            <span class="npc-grade-label">評価</span>
-            <span class="grade-badge gb-bp">B+</span>
-          </div>
-        </div>
-        <div class="npc">
-          <span class="npc-role gold">DREAM</span>
-          <div class="npc-name">立石正広</div>
-          <div class="npc-desc">ドラ1。2軍で満塁弾・左翼起用。合流すれば打線の厚みが一段上がる。</div>
-          <div class="npc-grade-row">
-            <span class="npc-grade-label">評価</span>
-            <span class="grade-badge gb-ae">A（期待）</span>
-          </div>
-        </div>
-        <div class="npc">
-          <span class="npc-role blue">BENCH</span>
-          <div class="npc-name">岡城快成</div>
-          <div class="npc-desc">開幕1軍入り。走攻守の使い道が広くベンチの柔軟性を上げる。</div>
-          <div class="npc-grade-row">
-            <span class="npc-grade-label">評価</span>
-            <span class="grade-badge gb-bp">B+</span>
-          </div>
-        </div>
-        <div class="npc">
-          <span class="npc-role blue">CATCHER</span>
-          <div class="npc-name">嶋村麟士朗</div>
-          <div class="npc-desc">支配下即1軍。捕手層の厚みを増し、坂本の負担を分散できる。</div>
-          <div class="npc-grade-row">
-            <span class="npc-grade-label">評価</span>
-            <span class="grade-badge gb-bp">B+</span>
-          </div>
-        </div>
-        <div class="npc">
-          <span class="npc-role blue">PH</span>
-          <div class="npc-name">濱田太貴</div>
-          <div class="npc-desc">ベンチ打力の底上げ候補。途中出場で空気を変えたい一枚。</div>
-          <div class="npc-grade-row">
-            <span class="npc-grade-label">評価</span>
-            <span class="grade-badge gb-b">B</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- =====================
-           SECTION 5: EVALUATION
-      ===================== -->
-      <div class="sec-head" id="sec-eval">
-        <span class="sec-num">05</span>
-        <h2>選手別評価 — 主力8名</h2>
-        <span class="sec-head-en">PLAYER GRADES</span>
-      </div>
-
-      <!-- Eval cards: top players -->
-      <div class="eval-grid">
-        <div class="eval-card">
-          <div class="eval-grade-col">
-            <div class="eval-grade-big gb-s">S</div>
-            <div class="eval-pwar-small">pWAR<br>10.4</div>
-          </div>
-          <div>
-            <div class="eval-name">村上頌樹</div>
-            <span class="eval-pos">先発 / エース</span>
-            <div class="eval-good">投手3冠の実績。試合を壊しにくい安定感</div>
-            <div class="eval-risk">開幕投手ゆえのマークは厳しい</div>
-          </div>
-        </div>
-        <div class="eval-card">
-          <div class="eval-grade-col">
-            <div class="eval-grade-big gb-s">S</div>
-            <div class="eval-pwar-small">pWAR<br>8.3</div>
-          </div>
-          <div>
-            <div class="eval-name">才木浩人</div>
-            <span class="eval-pos">先発 / ダブルエース</span>
-            <div class="eval-good">最優秀防御率の重み。表ローテの格</div>
-            <div class="eval-risk">厚い陣容の中で並び方が論点</div>
-          </div>
-        </div>
-        <div class="eval-card">
-          <div class="eval-grade-col">
-            <div class="eval-grade-big gb-s">S</div>
-            <div class="eval-pwar-small">pWAR<br>16.4</div>
-          </div>
-          <div>
-            <div class="eval-name">佐藤輝明</div>
-            <span class="eval-pos">三塁 / MVP</span>
-            <div class="eval-good">MVP・本塁打王・打点王。打線の中心</div>
-            <div class="eval-risk">開幕直後はマーク集中</div>
-          </div>
-        </div>
-        <div class="eval-card">
-          <div class="eval-grade-col">
-            <div class="eval-grade-big gb-s">S</div>
-            <div class="eval-pwar-small">pWAR<br>18.2</div>
-          </div>
-          <div>
-            <div class="eval-name">近本光司</div>
-            <span class="eval-pos">中堅 / 盗塁王</span>
-            <div class="eval-good">盗塁王・外野の表彰実績。攻撃の起点</div>
-            <div class="eval-risk">不在時の代替が効きにくい</div>
-          </div>
-        </div>
-        <div class="eval-card">
-          <div class="eval-grade-col">
-            <div class="eval-grade-big gb-ap">A+</div>
-            <div class="eval-pwar-small">pWAR<br>2.2</div>
-          </div>
-          <div>
-            <div class="eval-name">髙橋遥人</div>
-            <span class="eval-pos">先発 / 左腕</span>
-            <div class="eval-good">左の質で試合を変えられる</div>
-            <div class="eval-risk">稼働の継続性が課題</div>
-          </div>
-        </div>
-        <div class="eval-card">
-          <div class="eval-grade-col">
-            <div class="eval-grade-big gb-ap">A+</div>
-            <div class="eval-pwar-small">pWAR<br>1.9</div>
-          </div>
-          <div>
-            <div class="eval-name">伊原陵人</div>
-            <span class="eval-pos">先発 / 2年目</span>
-            <div class="eval-good">2年目でローテ本体へ。戦力として見たい</div>
-            <div class="eval-risk">年間を通した積み上げはこれから</div>
-          </div>
-        </div>
-        <div class="eval-card">
-          <div class="eval-grade-col">
-            <div class="eval-grade-big gb-a">A</div>
-            <div class="eval-pwar-small">pWAR<br>3.3</div>
-          </div>
-          <div>
-            <div class="eval-name">桐敷拓馬</div>
-            <span class="eval-pos">リリーフ / セットアップ</span>
-            <div class="eval-good">再編ブルペンで最も計算しやすい</div>
-            <div class="eval-risk">石井離脱分の負荷が増す</div>
-          </div>
-        </div>
-        <div class="eval-card">
-          <div class="eval-grade-col">
-            <div class="eval-grade-big gb-a">A</div>
-            <div class="eval-pwar-small">pWAR<br>2.4</div>
-          </div>
-          <div>
-            <div class="eval-name">岩崎優</div>
-            <span class="eval-pos">リリーフ / 抑え</span>
-            <div class="eval-good">抑えの経験値と終盤の安定感</div>
-            <div class="eval-risk">前の回の再設計次第で負担増</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="sec-sub">その他 注目選手</div>
-      <div style="overflow-x:auto; margin-bottom:28px;">
-        <table class="eval-table-compact">
-          <thead>
-            <tr>
-              <th>選手名</th>
-              <th>評価</th>
-              <th>良かった点</th>
-              <th>課題</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>小幡竜平</strong></td>
-              <td><span class="grade-badge gb-am">A−</span></td>
-              <td>遊撃争いで一歩前、守備の軽さ</td>
-              <td>木浪との競争継続</td>
-            </tr>
-            <tr>
-              <td><strong>中川勇斗</strong></td>
-              <td><span class="grade-badge gb-am">A−</span></td>
-              <td>左翼争いを具体化した今春の内容</td>
-              <td>実績の積み上げはまだこれから</td>
-            </tr>
-            <tr>
-              <td><strong>立石正広</strong></td>
-              <td><span class="grade-badge gb-ae">A（期待）</span></td>
-              <td>最大の上積み候補。2軍で強烈な片鱗</td>
-              <td>1軍合流前、起用時期が未定</td>
-            </tr>
-            <tr>
-              <td>ルーカス</td>
-              <td><span class="grade-badge gb-bp">B+</span></td>
-              <td>ローテ上積みの左腕</td>
-              <td>日本での完成度は見極め中</td>
-            </tr>
-            <tr>
-              <td>モレッタ</td>
-              <td><span class="grade-badge gb-bp">B+</span></td>
-              <td>ブルペン再編の鍵、球威で流れを変えうる</td>
-              <td>勝ちパターン定着はまだこれから</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- =====================
-           SECTION 6: OUTLOOK
-      ===================== -->
-      <div class="sec-head" id="sec-outlook">
-        <span class="sec-num">06</span>
-        <h2>今後どう見るか — シーズンの3論点</h2>
-        <span class="sec-head-en">SEASON OUTLOOK</span>
-      </div>
-
-      <div class="kp-strip">
-        <div class="kp-cell">
-          <div class="kp-n">論点 01</div>
-          <div class="kp-title">先発の並べ方</div>
-          <div class="kp-body">「誰で埋めるか」ではなく「どう並べるか」で語れる。村上・才木・髙橋・伊原・大竹・伊藤・ルーカスの7枚をいかに設計するかがシーズンを左右する。</div>
-        </div>
-        <div class="kp-cell">
-          <div class="kp-n">論点 02</div>
-          <div class="kp-title">ブルペン再設計</div>
-          <div class="kp-body">石井不在の穴を岩崎・桐敷・及川・モレッタで埋める。「終わった」ではなく「組み直し」の段階。序盤の回し方が評価の分岐点になる。</div>
-        </div>
-        <div class="kp-cell">
-          <div class="kp-n">論点 03</div>
-          <div class="kp-title">立石合流のタイミング</div>
-          <div class="kp-body">どこかで1軍に来れば、打線の厚みと選択肢は一段上がる。合流した瞬間、阪神はさらに「完全体」へ近づく。シーズン最大の夢。</div>
-        </div>
-      </div>
-
-      <p>
-        阪神は開幕前の時点で優勝候補の条件を満たしている。ただし本当の勝負は、主力の格だけではなく、<strong>どれだけ運用の幅を使えるか</strong>にある。先発の並び、ブルペン再編、ベンチ戦力の活用。この3つがシーズン序盤の重要テーマだ。
-      </p>
-
-      <hr class="art-hr">
-
-      <!-- 3-line summary -->
-      <div class="art-summary">
-        <div class="art-summary-label">3 POINT SUMMARY</div>
+      <!-- 3行まとめ -->
+      <div class="q-summary">
+        <div class="q-summary-label">3行まとめ</div>
         <ol>
-          <li>2026年の阪神は、先発の厚みと主力の格で見れば、開幕前時点ですでに優勝候補の条件を満たしている。</li>
-          <li>ただし石井離脱後のブルペン再編・遊撃＆左翼の流動域・ベンチ打力にはまだ論点が残る。</li>
-          <li>そして最大の夢は立石正広。途中合流してハマった時、阪神はさらに「完全体」へ近づく。</li>
+          <li>2026年の阪神は、<strong>先発の厚みと主力の格</strong>で開幕前時点すでに優勝候補の条件を満たしている。</li>
+          <li>石井離脱後の<strong>ブルペン再編・遊撃&amp;左翼の流動域・ベンチ打力</strong>にはまだ論点が残る。</li>
+          <li>最大の夢は<strong>立石正広</strong>。途中合流してハマった時、阪神はさらに「完全体」へ近づく。</li>
         </ol>
       </div>
 
-      <!-- Channel CTA -->
-      <div class="channel-cta">
-        <p>動画でも阪神のデータ分析を配信中。チャンネル登録でシーズン最新情報をチェック！</p>
-        <div class="cta-btn-row">
-          <a href="https://www.youtube.com/@AI-Baseball-Horse" target="_blank" rel="noopener" class="social-btn social-yt">▶ AI二刀流チャンネル</a>
-          <a href="https://x.com/AI_yakyu_Keiba" target="_blank" rel="noopener" class="social-btn social-x">𝕏 最新情報をフォロー</a>
+      <p>2026年の阪神タイガースは、開幕前の時点で「強い」という印象がかなりはっきりしている。昨年のセ・リーグ覇者として今季も投打に充実した戦力を誇り、優勝最有力候補に位置づけられている。</p>
+      <p>ただ、その一方で、見れば見るほど単純ではない。先発は豪華だが、豪華すぎるからこそ並べ方が論点になる。ブルペンは強力だが、石井大智の離脱で再設計が必要になった。打線は主力の格が高いが、遊撃・左翼・ベンチ要員にはまだ動きがある。<strong>強い選手が多すぎて、どう並べるかで悩めるチーム</strong>——そこがこのチームの最大の強みであり、同時に開幕前の一番面白いポイントでもある。</p>
+
+      <!-- ===================== 01 OVERVIEW ===================== -->
+      <div class="q-section" id="sec-overview">
+        <div class="q-section-head">
+          <span class="q-section-num">01</span>
+          <h2>開幕時点のチーム像｜数字で見る"完全体"への距離</h2>
+          <span class="q-section-head-en">TEAM OVERVIEW</span>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-card-label">ACE pWAR</div>
+            <div class="stat-card-number">10.4</div>
+            <div class="stat-card-sub">村上頌樹（2025）投手3冠の実績</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">MVP pWAR</div>
+            <div class="stat-card-number">16.4</div>
+            <div class="stat-card-sub">佐藤輝明（MVP・本塁打王・打点王）</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">LEAD-OFF pWAR</div>
+            <div class="stat-card-number">18.2</div>
+            <div class="stat-card-sub">近本光司（盗塁王）打線の起点</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">ROTATION</div>
+            <div class="stat-card-number">7</div>
+            <div class="stat-card-sub">先発候補が7枚。並べ方の贅沢な論点</div>
+          </div>
         </div>
       </div>
 
-      <!-- Related -->
+      <!-- ===================== 02 STARTERS ===================== -->
+      <div class="q-section" id="sec-starter">
+        <div class="q-section-head">
+          <span class="q-section-num">02</span>
+          <h2>先発陣｜異常な厚みと"並べ方"の論点</h2>
+          <span class="q-section-head-en">STARTING PITCHERS</span>
+        </div>
+
+        <p>最初に目に入るのはやはり先発陣の厚みだ。村上頌樹・才木浩人というタイトルホルダー級の軸がいて、その後ろに大竹耕太郎・髙橋遥人・伊藤将司・伊原陵人、さらに新外国人のルーカスまで控える。「6人目をどう埋めるか」ではなく、<strong>強い投手をどう並べるか</strong>の悩み方になっている。</p>
+
+        <div class="pwar-chart">
+          <div class="pwar-chart-title">pWAR RANKING — 先発投手（2025シーズン）</div>
+          <div class="pwar-row"><div class="pwar-name top">村上頌樹</div><div class="pwar-track"><div class="pwar-fill tier-s" style="width:87%">10.4</div></div><div class="pwar-val">10.4</div></div>
+          <div class="pwar-row"><div class="pwar-name top">才木浩人</div><div class="pwar-track"><div class="pwar-fill tier-s" style="width:69%">8.3</div></div><div class="pwar-val">8.3</div></div>
+          <div class="pwar-row"><div class="pwar-name">大竹耕太郎</div><div class="pwar-track"><div class="pwar-fill tier-a" style="width:45%">5.4</div></div><div class="pwar-val">5.4</div></div>
+          <div class="pwar-row"><div class="pwar-name">伊藤将司</div><div class="pwar-track"><div class="pwar-fill tier-a" style="width:30%">3.6</div></div><div class="pwar-val">3.6</div></div>
+          <div class="pwar-row"><div class="pwar-name">髙橋遥人</div><div class="pwar-track"><div class="pwar-fill tier-b" style="width:18%">2.2</div></div><div class="pwar-val">2.2</div></div>
+          <div class="pwar-row"><div class="pwar-name">伊原陵人</div><div class="pwar-track"><div class="pwar-fill tier-b" style="width:16%">1.9</div></div><div class="pwar-val">1.9</div></div>
+          <div class="pwar-row"><div class="pwar-name" style="color:#8898b0;">ルーカス</div><div class="pwar-track"><div class="pwar-fill tier-c" style="width:8%"></div></div><div class="pwar-val" style="color:#8898b0;">新加入</div></div>
+        </div>
+
+        <p>上位2枚のpWARの差が際立つ。村上（10.4）と才木（8.3）は、12球団全体で見ても上位に位置するダブルエースだ。その後ろに5.4・3.6・2.2・1.9と続く6人目まで全員が実績を持ち、<strong>「どのローテを誰で回すか」が贅沢な論点</strong>になっている。</p>
+
+        <div class="pillars">
+          <div class="pillar target">
+            <div class="pillar-icon">🔥</div>
+            <div class="pillar-title">ダブルエースの格</div>
+            <div class="pillar-desc">村上頌樹（pWAR 10.4）と才木浩人（pWAR 8.3）は、最多勝・最優秀防御率・最多奪三振など投手タイトルを束ねる。試合を壊しにくい安定感と、表ローテの格の両方を備える。</div>
+            <div class="pillar-example">村上：最多勝・最高勝率・最多奪三振・BN・GG／才木：最優秀防御率</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">📊</div>
+            <div class="pillar-title">4枚目以降も全員が実績組</div>
+            <div class="pillar-desc">大竹5.4／伊藤3.6／髙橋2.2／伊原1.9／新外国人ルーカス。ここまで全員が実績で語れる投手で、6人目が余る陣容。序盤の並び次第で勝ちパターンの作り方が変わる。</div>
+            <div class="pillar-example">「並べ方」で勝ちが変わる、贅沢な悩み</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== 03 BULLPEN ===================== -->
+      <div class="q-section" id="sec-bullpen">
+        <div class="q-section-head">
+          <span class="q-section-num">03</span>
+          <h2>ブルペン｜石井大智離脱と再設計</h2>
+          <span class="q-section-head-en">RELIEF PITCHERS</span>
+        </div>
+
+        <p>ただし投手陣全体が無風ではない。キャンプ中に石井大智が左アキレス腱断裂の大ケガで長期離脱。pWAR 3.1と桐敷に次ぐ数字を残していただけに、その穴は無視できない。ブルペンは昨年の延長線ではなく、<strong>再設計が必要な局面</strong>に入っている。</p>
+
+        <div class="pwar-chart">
+          <div class="pwar-chart-title">pWAR RANKING — リリーフ投手（2025シーズン）</div>
+          <div class="pwar-row"><div class="pwar-name top">桐敷拓馬</div><div class="pwar-track"><div class="pwar-fill tier-s" style="width:82%">3.3</div></div><div class="pwar-val">3.3</div></div>
+          <div class="pwar-row"><div class="pwar-name injured">石井大智</div><div class="pwar-track"><div class="pwar-fill tier-injured" style="width:77%">3.1</div></div><div class="pwar-val injured">3.1 <span class="pwar-injury-badge">離脱</span></div></div>
+          <div class="pwar-row"><div class="pwar-name">岩崎優</div><div class="pwar-track"><div class="pwar-fill tier-a" style="width:60%">2.4</div></div><div class="pwar-val">2.4</div></div>
+          <div class="pwar-row"><div class="pwar-name">及川雅貴</div><div class="pwar-track"><div class="pwar-fill tier-a" style="width:52%">2.1</div></div><div class="pwar-val">2.1</div></div>
+          <div class="pwar-row"><div class="pwar-name">湯浅京己</div><div class="pwar-track"><div class="pwar-fill tier-neg" style="width:2%"></div></div><div class="pwar-val" style="color:#a0aec0;">−0.2</div></div>
+          <div class="pwar-row"><div class="pwar-name" style="color:#8898b0;">モレッタ</div><div class="pwar-track"><div class="pwar-fill tier-c" style="width:8%"></div></div><div class="pwar-val" style="color:#8898b0;">新加入</div></div>
+        </div>
+
+        <div class="risk-grid">
+          <div class="risk-card">
+            <div class="risk-card-head"><div class="risk-badge">1</div><div class="risk-title">石井不在の穴の大きさ</div></div>
+            <div class="risk-body">pWAR 3.1の計算できる右腕を勝ちパターンから丸ごと1枚抜く形。桐敷・岩崎にかかる負担は必然的に増える。</div>
+            <div class="risk-example">左アキレス腱断裂、長期離脱確定</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head"><div class="risk-badge">2</div><div class="risk-title">湯浅京己の復調待ち</div></div>
+            <div class="risk-body">2025はpWAR −0.2と低調。かつての勝ちパターンを任せられる球威を取り戻せれば、ブルペンの期待値は一段跳ね上がる。</div>
+            <div class="risk-example">復調すれば「7回・桐敷／8回・湯浅／9回・岩崎」の形も</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head"><div class="risk-badge">3</div><div class="risk-title">モレッタの適応スピード</div></div>
+            <div class="risk-body">新外国人右腕。球威で流れを変えうる素材だが、日本の打者への適応は見極めが必要。序盤のハマり方が評価の分岐点。</div>
+            <div class="risk-example">ハマればそのまま勝ちパターン定着</div>
+          </div>
+        </div>
+
+        <p>石井不在でも<strong>岩崎・桐敷・及川・モレッタ</strong>という選択肢がある。「終わった」ではなく「組み直し」の段階にとどまっている。ここをどう回せるかが、シーズン序盤の分岐点になる。</p>
+      </div>
+
+      <!-- ===================== 04 BATTING ===================== -->
+      <div class="q-section" id="sec-batting">
+        <div class="q-section-head">
+          <span class="q-section-num">04</span>
+          <h2>野手・スタメン｜中心は固く、周辺は競争</h2>
+          <span class="q-section-head-en">BATTERS / STARTERS</span>
+        </div>
+
+        <p>近本光司・中野拓夢・森下翔太・佐藤輝明・大山悠輔・坂本誠志郎という主力の格は、昨年の表彰実績を見ても明らかに高い。一方で遊撃は小幡竜平と木浪聖也、左翼は中川勇斗らの争いが残る。<strong>中心が強固で、なおかつ周辺競争が死んでいない</strong>ところがこの打線の面白さだ。</p>
+
+        <div class="pwar-chart">
+          <div class="pwar-chart-title">pWAR RANKING — スタメン野手（2025シーズン）</div>
+          <div class="pwar-row"><div class="pwar-name top">近本光司</div><div class="pwar-track"><div class="pwar-fill tier-s" style="width:91%">18.2</div></div><div class="pwar-val">18.2</div></div>
+          <div class="pwar-row"><div class="pwar-name top">佐藤輝明</div><div class="pwar-track"><div class="pwar-fill tier-s" style="width:82%">16.4</div></div><div class="pwar-val">16.4</div></div>
+          <div class="pwar-row"><div class="pwar-name top">森下翔太</div><div class="pwar-track"><div class="pwar-fill tier-s" style="width:64%">12.8</div></div><div class="pwar-val">12.8</div></div>
+          <div class="pwar-row"><div class="pwar-name top">中野拓夢</div><div class="pwar-track"><div class="pwar-fill tier-s" style="width:57%">11.4</div></div><div class="pwar-val">11.4</div></div>
+          <div class="pwar-row"><div class="pwar-name">坂本誠志郎</div><div class="pwar-track"><div class="pwar-fill tier-a" style="width:46%">9.3</div></div><div class="pwar-val">9.3</div></div>
+          <div class="pwar-row"><div class="pwar-name">大山悠輔</div><div class="pwar-track"><div class="pwar-fill tier-a" style="width:46%">9.2</div></div><div class="pwar-val">9.2</div></div>
+          <div class="pwar-row"><div class="pwar-name">小幡竜平</div><div class="pwar-track"><div class="pwar-fill tier-b" style="width:7%"></div></div><div class="pwar-val">1.4</div></div>
+          <div class="pwar-row"><div class="pwar-name">木浪聖也</div><div class="pwar-track"><div class="pwar-fill tier-b" style="width:6%"></div></div><div class="pwar-val">1.1</div></div>
+          <div class="pwar-row"><div class="pwar-name">中川勇斗</div><div class="pwar-track"><div class="pwar-fill tier-c" style="width:2%"></div></div><div class="pwar-val">0.0</div></div>
+          <div class="pwar-row"><div class="pwar-name" style="color:#a0aec0;">濱田太貴</div><div class="pwar-track"><div class="pwar-fill tier-neg" style="width:1%"></div></div><div class="pwar-val" style="color:#a0aec0;">−0.6</div></div>
+        </div>
+      </div>
+
+      <!-- ===================== 05 AWARDS ===================== -->
+      <div class="q-section" id="sec-awards">
+        <div class="q-section-head">
+          <span class="q-section-num">05</span>
+          <h2>2025年 主力の表彰実績｜格の可視化</h2>
+          <span class="q-section-head-en">AWARDS &amp; TITLES</span>
+        </div>
+
+        <p>スタメン中軸と先発2枚に、<strong>タイトル・ベストナイン・ゴールデングラブ</strong>が集中している。主力の「格」は数字だけでなく、リーグ全体での評価でも明確に裏打ちされている。</p>
+
+        <div class="awards-grid">
+          <div class="award-card">
+            <div class="award-card-name">佐藤輝明</div>
+            <div class="award-card-pwar">pWAR <span>16.4</span></div>
+            <div class="award-chips">
+              <span class="award-chip chip-mvp">MVP</span>
+              <span class="award-chip chip-title">本塁打王</span>
+              <span class="award-chip chip-title">打点王</span>
+              <span class="award-chip chip-bn">BN</span>
+              <span class="award-chip chip-gg">GG</span>
+            </div>
+          </div>
+          <div class="award-card">
+            <div class="award-card-name">近本光司</div>
+            <div class="award-card-pwar">pWAR <span>18.2</span></div>
+            <div class="award-chips">
+              <span class="award-chip chip-title">盗塁王</span>
+              <span class="award-chip chip-bn">BN</span>
+              <span class="award-chip chip-gg">GG</span>
+            </div>
+          </div>
+          <div class="award-card">
+            <div class="award-card-name">村上頌樹</div>
+            <div class="award-card-pwar">pWAR <span>10.4</span></div>
+            <div class="award-chips">
+              <span class="award-chip chip-title">最多勝</span>
+              <span class="award-chip chip-title">最高勝率</span>
+              <span class="award-chip chip-title">最多奪三振</span>
+              <span class="award-chip chip-bn">BN</span>
+              <span class="award-chip chip-gg">GG</span>
+            </div>
+          </div>
+          <div class="award-card">
+            <div class="award-card-name">森下翔太</div>
+            <div class="award-card-pwar">pWAR <span>12.8</span></div>
+            <div class="award-chips">
+              <span class="award-chip chip-bn">BN</span>
+              <span class="award-chip chip-gg">GG</span>
+            </div>
+          </div>
+          <div class="award-card">
+            <div class="award-card-name">中野拓夢</div>
+            <div class="award-card-pwar">pWAR <span>11.4</span></div>
+            <div class="award-chips">
+              <span class="award-chip chip-bn">BN</span>
+              <span class="award-chip chip-gg">GG</span>
+            </div>
+          </div>
+          <div class="award-card">
+            <div class="award-card-name">坂本誠志郎</div>
+            <div class="award-card-pwar">pWAR <span>9.3</span></div>
+            <div class="award-chips">
+              <span class="award-chip chip-bn">BN</span>
+              <span class="award-chip chip-gg">GG</span>
+            </div>
+          </div>
+          <div class="award-card">
+            <div class="award-card-name">大山悠輔</div>
+            <div class="award-card-pwar">pWAR <span>9.2</span></div>
+            <div class="award-chips">
+              <span class="award-chip chip-bn">BN</span>
+              <span class="award-chip chip-gg">GG</span>
+            </div>
+          </div>
+          <div class="award-card">
+            <div class="award-card-name">才木浩人</div>
+            <div class="award-card-pwar">pWAR <span>8.3</span></div>
+            <div class="award-chips">
+              <span class="award-chip chip-title">最優秀防御率</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== 06 投打レイヤー ===================== -->
+      <div class="q-section" id="sec-layer">
+        <div class="q-section-head">
+          <span class="q-section-num">06</span>
+          <h2>投打2レイヤーで見る阪神｜強みと流動域</h2>
+          <span class="q-section-head-en">PITCHING vs BATTING</span>
+        </div>
+
+        <div class="layer-split">
+          <div class="layer-card tech">
+            <div class="layer-card-tag">PITCHING</div>
+            <h3>投手陣｜厚みと再設計</h3>
+            <p>先発は村上・才木の"ダブルエース"を筆頭に7枚が候補。ブルペンは石井大智の長期離脱で再設計局面。桐敷・岩崎・及川を軸に、モレッタ／湯浅の復調がどう乗るかで序盤の勝ちパターンが決まる。</p>
+          </div>
+          <div class="layer-card market">
+            <div class="layer-card-tag">BATTING</div>
+            <h3>打線｜格の高い中心と残る競争</h3>
+            <p>近本・中野・森下・佐藤輝・大山・坂本の中軸はBN／GG級の格。一方で遊撃（小幡 vs 木浪）、左翼（中川勇斗ら）、ベンチ打力には動きが残る。そこに立石正広の合流シナリオが乗る。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== 07 NEW PLAYERS ===================== -->
+      <div class="q-section" id="sec-new">
+        <div class="q-section-head">
+          <span class="q-section-num">07</span>
+          <h2>新戦力｜"各所の上積み"という設計</h2>
+          <span class="q-section-head-en">NEW PLAYERS</span>
+        </div>
+
+        <p>新戦力の見方も重要だ。一人のスターが全部を変える形ではなく、<strong>各ポジションを少しずつ分厚くする形</strong>で入っている。そして途中合流の最大の夢が立石正広だ。</p>
+
+        <div class="newplayer-grid">
+          <div class="npc">
+            <span class="npc-role">STARTING</span>
+            <div class="npc-name">ルーカス</div>
+            <div class="npc-desc">ローテ上積みの新外国人左腕。序盤の出来次第で評価が大きく動く。</div>
+            <div class="npc-grade-row"><span class="npc-grade-label">評価</span><span class="grade-badge gb-bp">B+</span></div>
+          </div>
+          <div class="npc">
+            <span class="npc-role">RELIEF</span>
+            <div class="npc-name">モレッタ</div>
+            <div class="npc-desc">石井離脱後のブルペン再編の鍵。球威で流れを変えうる右腕。</div>
+            <div class="npc-grade-row"><span class="npc-grade-label">評価</span><span class="grade-badge gb-bp">B+</span></div>
+          </div>
+          <div class="npc">
+            <span class="npc-role gold">DREAM</span>
+            <div class="npc-name">立石正広</div>
+            <div class="npc-desc">ドラ1。2軍で満塁弾・左翼起用。合流すれば打線の厚みが一段上がる。</div>
+            <div class="npc-grade-row"><span class="npc-grade-label">評価</span><span class="grade-badge gb-ae">A（期待）</span></div>
+          </div>
+          <div class="npc">
+            <span class="npc-role blue">BENCH</span>
+            <div class="npc-name">岡城快成</div>
+            <div class="npc-desc">開幕1軍入り。走攻守の使い道が広くベンチの柔軟性を上げる。</div>
+            <div class="npc-grade-row"><span class="npc-grade-label">評価</span><span class="grade-badge gb-bp">B+</span></div>
+          </div>
+          <div class="npc">
+            <span class="npc-role blue">CATCHER</span>
+            <div class="npc-name">嶋村麟士朗</div>
+            <div class="npc-desc">支配下即1軍。捕手層の厚みを増し、坂本の負担を分散できる。</div>
+            <div class="npc-grade-row"><span class="npc-grade-label">評価</span><span class="grade-badge gb-bp">B+</span></div>
+          </div>
+          <div class="npc">
+            <span class="npc-role blue">PH</span>
+            <div class="npc-name">濱田太貴</div>
+            <div class="npc-desc">ベンチ打力の底上げ候補。途中出場で空気を変えたい一枚。</div>
+            <div class="npc-grade-row"><span class="npc-grade-label">評価</span><span class="grade-badge gb-b">B</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== 08 EVAL ===================== -->
+      <div class="q-section" id="sec-eval">
+        <div class="q-section-head">
+          <span class="q-section-num">08</span>
+          <h2>選手別評価｜主力8名</h2>
+          <span class="q-section-head-en">PLAYER GRADES</span>
+        </div>
+
+        <div class="eval-grid">
+          <div class="eval-card">
+            <div class="eval-grade-col"><div class="eval-grade-big gb-s">S</div><div class="eval-pwar-small">pWAR<br>10.4</div></div>
+            <div>
+              <div class="eval-name">村上頌樹</div>
+              <span class="eval-pos">先発 / エース</span>
+              <div class="eval-good">投手3冠の実績。試合を壊しにくい安定感</div>
+              <div class="eval-risk">開幕投手ゆえのマークは厳しい</div>
+            </div>
+          </div>
+          <div class="eval-card">
+            <div class="eval-grade-col"><div class="eval-grade-big gb-s">S</div><div class="eval-pwar-small">pWAR<br>8.3</div></div>
+            <div>
+              <div class="eval-name">才木浩人</div>
+              <span class="eval-pos">先発 / ダブルエース</span>
+              <div class="eval-good">最優秀防御率の重み。表ローテの格</div>
+              <div class="eval-risk">厚い陣容の中で並び方が論点</div>
+            </div>
+          </div>
+          <div class="eval-card">
+            <div class="eval-grade-col"><div class="eval-grade-big gb-s">S</div><div class="eval-pwar-small">pWAR<br>16.4</div></div>
+            <div>
+              <div class="eval-name">佐藤輝明</div>
+              <span class="eval-pos">三塁 / MVP</span>
+              <div class="eval-good">MVP・本塁打王・打点王。打線の中心</div>
+              <div class="eval-risk">開幕直後はマーク集中</div>
+            </div>
+          </div>
+          <div class="eval-card">
+            <div class="eval-grade-col"><div class="eval-grade-big gb-s">S</div><div class="eval-pwar-small">pWAR<br>18.2</div></div>
+            <div>
+              <div class="eval-name">近本光司</div>
+              <span class="eval-pos">中堅 / 盗塁王</span>
+              <div class="eval-good">盗塁王・外野の表彰実績。攻撃の起点</div>
+              <div class="eval-risk">不在時の代替が効きにくい</div>
+            </div>
+          </div>
+          <div class="eval-card">
+            <div class="eval-grade-col"><div class="eval-grade-big gb-ap">A+</div><div class="eval-pwar-small">pWAR<br>2.2</div></div>
+            <div>
+              <div class="eval-name">髙橋遥人</div>
+              <span class="eval-pos">先発 / 左腕</span>
+              <div class="eval-good">左の質で試合を変えられる</div>
+              <div class="eval-risk">稼働の継続性が課題</div>
+            </div>
+          </div>
+          <div class="eval-card">
+            <div class="eval-grade-col"><div class="eval-grade-big gb-ap">A+</div><div class="eval-pwar-small">pWAR<br>1.9</div></div>
+            <div>
+              <div class="eval-name">伊原陵人</div>
+              <span class="eval-pos">先発 / 2年目</span>
+              <div class="eval-good">2年目でローテ本体へ。戦力として見たい</div>
+              <div class="eval-risk">年間を通した積み上げはこれから</div>
+            </div>
+          </div>
+          <div class="eval-card">
+            <div class="eval-grade-col"><div class="eval-grade-big gb-a">A</div><div class="eval-pwar-small">pWAR<br>3.3</div></div>
+            <div>
+              <div class="eval-name">桐敷拓馬</div>
+              <span class="eval-pos">リリーフ / セットアップ</span>
+              <div class="eval-good">再編ブルペンで最も計算しやすい</div>
+              <div class="eval-risk">石井離脱分の負荷が増す</div>
+            </div>
+          </div>
+          <div class="eval-card">
+            <div class="eval-grade-col"><div class="eval-grade-big gb-a">A</div><div class="eval-pwar-small">pWAR<br>2.4</div></div>
+            <div>
+              <div class="eval-name">岩崎優</div>
+              <span class="eval-pos">リリーフ / 抑え</span>
+              <div class="eval-good">抑えの経験値と終盤の安定感</div>
+              <div class="eval-risk">前の回の再設計次第で負担増</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stock-label">その他 注目選手</div>
+        <div style="overflow-x:auto;">
+          <table class="eval-table-compact">
+            <thead>
+              <tr>
+                <th>選手名</th>
+                <th>評価</th>
+                <th>光った点</th>
+                <th>課題点</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>小幡竜平</strong></td>
+                <td><span class="grade-badge gb-am">A−</span></td>
+                <td>遊撃争いで一歩前、守備の軽さ</td>
+                <td>木浪との競争継続</td>
+              </tr>
+              <tr>
+                <td><strong>中川勇斗</strong></td>
+                <td><span class="grade-badge gb-am">A−</span></td>
+                <td>左翼争いを具体化した今春の内容</td>
+                <td>実績の積み上げはまだこれから</td>
+              </tr>
+              <tr>
+                <td><strong>立石正広</strong></td>
+                <td><span class="grade-badge gb-ae">A（期待）</span></td>
+                <td>最大の上積み候補。2軍で強烈な片鱗</td>
+                <td>1軍合流前、起用時期が未定</td>
+              </tr>
+              <tr>
+                <td>ルーカス</td>
+                <td><span class="grade-badge gb-bp">B+</span></td>
+                <td>ローテ上積みの左腕</td>
+                <td>日本での完成度は見極め中</td>
+              </tr>
+              <tr>
+                <td>モレッタ</td>
+                <td><span class="grade-badge gb-bp">B+</span></td>
+                <td>ブルペン再編の鍵、球威で流れを変えうる</td>
+                <td>勝ちパターン定着はまだこれから</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ===================== 09 光った点・課題点 ===================== -->
+      <div class="q-section" id="sec-proscons">
+        <div class="q-section-head">
+          <span class="q-section-num">09</span>
+          <h2>光った点・課題点｜開幕ロースターの総括</h2>
+          <span class="q-section-head-en">PROS &amp; CONS</span>
+        </div>
+
+        <div class="pros-cons-stock">
+          <div class="pro-box">
+            <div class="pro-box-label">✓ 光った点</div>
+            村上・才木のダブルエース／先発7枚が全員実績組／佐藤輝のMVP・本塁打王・打点王3冠／近本の盗塁王＆GG／中軸にBN・GGが集中／桐敷・岩崎の勝ちパターン健在／立石正広という最大の夢／新戦力が「各所の上積み」で機能
+          </div>
+          <div class="con-box">
+            <div class="con-box-label">✗ 課題点</div>
+            石井大智の左アキレス腱断裂離脱／湯浅京己の復調待ち（pWAR −0.2）／遊撃・左翼の流動域が残る／ベンチ打力は底上げ途上／主力にマークが集中／6人目の先発が"余る"贅沢な負担／モレッタの適応スピード
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== 10 OUTLOOK ===================== -->
+      <div class="q-section" id="sec-outlook">
+        <div class="q-section-head">
+          <span class="q-section-num">10</span>
+          <h2>今後どう見るか｜シーズンの3論点</h2>
+          <span class="q-section-head-en">SEASON OUTLOOK</span>
+        </div>
+
+        <div class="risk-grid">
+          <div class="risk-card">
+            <div class="risk-card-head"><div class="risk-badge">01</div><div class="risk-title">先発の並べ方</div></div>
+            <div class="risk-body">「誰で埋めるか」ではなく「どう並べるか」で語れる。村上・才木・髙橋・伊原・大竹・伊藤・ルーカスの7枚をいかに設計するかがシーズンを左右する。</div>
+            <div class="risk-example">6人目が余る贅沢を、どう勝ちに変えるか</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head"><div class="risk-badge">02</div><div class="risk-title">ブルペン再設計</div></div>
+            <div class="risk-body">石井不在の穴を岩崎・桐敷・及川・モレッタで埋める。「終わった」ではなく「組み直し」の段階。序盤の回し方が評価の分岐点になる。</div>
+            <div class="risk-example">湯浅の復調がハマれば一段上がる</div>
+          </div>
+          <div class="risk-card">
+            <div class="risk-card-head"><div class="risk-badge">03</div><div class="risk-title">立石合流のタイミング</div></div>
+            <div class="risk-body">どこかで1軍に来れば、打線の厚みと選択肢は一段上がる。合流した瞬間、阪神はさらに「完全体」へ近づく。シーズン最大の夢。</div>
+            <div class="risk-example">2軍で満塁弾・左翼起用の準備</div>
+          </div>
+        </div>
+
+        <p>阪神は開幕前の時点で優勝候補の条件を満たしている。ただし本当の勝負は、主力の格だけではなく、<strong>どれだけ運用の幅を使えるか</strong>にある。先発の並び、ブルペン再編、ベンチ戦力の活用。この3つがシーズン序盤の重要テーマだ。</p>
+      </div>
+
+      <!-- ===================== 11 MATRIX ===================== -->
+      <div class="q-section" id="sec-matrix">
+        <div class="q-section-head">
+          <span class="q-section-num">11</span>
+          <h2>完全体への4象限｜ロースター運用マトリクス</h2>
+          <span class="q-section-head-en">ROSTER MATRIX</span>
+        </div>
+
+        <div class="matrix">
+          <div class="matrix-label">HANSHIN 2026 — ROSTER MAP</div>
+          <h3>「格の中心」と「流動域」で読む4象限</h3>
+          <div class="matrix-grid">
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">CORE / 投</span>
+                <span class="matrix-cell-ticker">村上・才木</span>
+              </div>
+              <div class="matrix-cell-desc">ダブルエース。pWAR 10.4＋8.3。タイトル実績で試合を壊しにくい、先発の絶対的な柱。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">CORE / 打</span>
+                <span class="matrix-cell-ticker">近本・佐藤輝・森下・中野</span>
+              </div>
+              <div class="matrix-cell-desc">打線中軸。BN・GG・タイトルが集中。pWAR 18.2／16.4／12.8／11.4の主力カルテット。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">REBUILD / 投</span>
+                <span class="matrix-cell-ticker">ブルペン</span>
+              </div>
+              <div class="matrix-cell-desc">石井離脱を受けた再設計局面。桐敷・岩崎・及川の軸に、モレッタ／湯浅復調が乗るかが焦点。</div>
+            </div>
+            <div class="matrix-cell">
+              <div class="matrix-cell-head">
+                <span class="matrix-cell-type">UPSIDE / 打</span>
+                <span class="matrix-cell-ticker">立石・中川・小幡</span>
+              </div>
+              <div class="matrix-cell-desc">流動域＋上積み候補。遊撃・左翼の競争と、立石正広の途中合流が「完全体」への残りピース。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== 12 FAQ ===================== -->
+      <div class="q-section" id="sec-faq">
+        <div class="q-section-head">
+          <span class="q-section-num">12</span>
+          <h2>開幕前のよくある疑問｜FAQ</h2>
+          <span class="q-section-head-en">FAQ</span>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">2026年の阪神は本当に優勝候補なのか？</div>
+            <div class="faq-a">はい。先発・中軸・ブルペンの3つのレイヤー全てに実績組が並び、pWAR上位の主力だけで他球団を引き離せる格がある。ただ「勝ち切る」には、先発の並べ方とブルペン再編がうまくハマる必要がある。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">石井大智の離脱はどれくらい痛いのか？</div>
+            <div class="faq-a">pWAR 3.1は桐敷に次ぐ数字で、勝ちパターンの計算できる1枚を丸ごと失う形。短期では岩崎・桐敷の負担増、中期ではモレッタ・湯浅の出来が穴埋めのポイントになる。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">立石正広はいつ上がってくるのか？</div>
+            <div class="faq-a">開幕時点では2軍スタート。満塁弾や左翼起用など、実戦で1軍合流への準備が進んでいる。タイミングは流動的だが、ハマれば打線の厚みが一段上がる"最大の夢"の位置づけ。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">遊撃は小幡と木浪、どちらが開幕を取るのか？</div>
+            <div class="faq-a">pWARでは小幡1.4／木浪1.1とほぼ互角で、キャンプ〜オープン戦の内容次第で決まる。守備の軽さで小幡が一歩前という評価はあるが、競争は継続と見るのが現実的。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">先発の"並べ方"が論点、とはどういう意味か？</div>
+            <div class="faq-a">村上・才木・大竹・伊藤・髙橋・伊原・ルーカスの7枚いずれも実績組。どの順で中6日を回すか、誰を中継ぎに回すか、誰をローテ外して休ませるかで、勝ちパターンの作り方が変わる。これは他球団にはない贅沢な悩みだ。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="disclaimer">
+        ※本記事は2026年3月27日時点のpWAR数値・報道・キャンプ／オープン戦情報をもとにした分析であり、シーズン中の起用・選手状態・成績を保証するものではありません。数値は公開されている推計値を参照しており、媒体により差が出る場合があります。
+      </div>
+
       <div class="related-head">RELATED ARTICLES</div>
       <div class="related-list">
-        <a href="../../hanshin-keiba/" class="related-item">
-          <span class="related-tag">野球</span>
-          <span class="related-title">野球・競馬データ分析 — 阪神・競馬の最新分析記事一覧</span>
+        <a href="../../hanshin-keiba/2026-central-league-analysis/" class="related-item">
+          <span class="related-tag">セ・リーグ</span>
+          <span class="related-title">2026年セ・リーグ順位予想｜6球団の戦力を徹底比較</span>
         </a>
-        <a href="../../economy-stocks/" class="related-item">
-          <span class="related-tag">経済</span>
-          <span class="related-title">経済・株式分析 — データとAIで読む市場の動向</span>
+        <a href="../../hanshin-keiba/2026-kaimaku-card-summary/" class="related-item">
+          <span class="related-tag">開幕</span>
+          <span class="related-title">2026年プロ野球 開幕カード総まとめ｜各球団の初戦を整理</span>
+        </a>
+        <a href="../../hanshin-keiba/2026-04-18-hanshin-chunichi/" class="related-item">
+          <span class="related-tag">試合分析</span>
+          <span class="related-title">森下翔太の"修正力"が試合を決めた　阪神4-3中日</span>
+        </a>
+        <a href="../../hanshin-keiba/2026-04-17-morishita-chunichi/" class="related-item">
+          <span class="related-tag">選手</span>
+          <span class="related-title">森下翔太 vs 中日　ここ最近の対戦データから見える傾向</span>
+        </a>
+        <a href="../../hanshin-keiba/2026-04-16-lucas-giants/" class="related-item">
+          <span class="related-tag">新戦力</span>
+          <span class="related-title">ルーカス登板の巨人戦分析｜新外国人左腕のリアル</span>
         </a>
       </div>
 
     </main>
 
-    <!-- ===== SIDEBAR ===== -->
     <aside class="art-sidebar">
 
       <div class="sidebar-toc">
         <div class="sidebar-toc-label">CONTENTS</div>
         <ul class="toc-list">
-          <li>
-            <a href="#sec-starter">
-              <span class="toc-n">01</span>先発陣 — 並べ方の論点
-            </a>
-          </li>
-          <li>
-            <a href="#sec-bullpen">
-              <span class="toc-n">02</span>ブルペン — 石井離脱と再設計
-            </a>
-          </li>
-          <li>
-            <a href="#sec-batting">
-              <span class="toc-n">03</span>野手・スタメン
-            </a>
-          </li>
-          <li>
-            <a href="#sec-new">
-              <span class="toc-n">04</span>新戦力 — 各所の上積み
-            </a>
-          </li>
-          <li>
-            <a href="#sec-eval">
-              <span class="toc-n">05</span>選手別評価
-            </a>
-          </li>
-          <li>
-            <a href="#sec-outlook">
-              <span class="toc-n">06</span>今後どう見るか
-            </a>
-          </li>
+          <li><a href="#sec-overview"><span class="toc-n">01</span>チーム像の数字</a></li>
+          <li><a href="#sec-starter"><span class="toc-n">02</span>先発陣 — 並べ方の論点</a></li>
+          <li><a href="#sec-bullpen"><span class="toc-n">03</span>ブルペン — 石井離脱と再設計</a></li>
+          <li><a href="#sec-batting"><span class="toc-n">04</span>野手・スタメン</a></li>
+          <li><a href="#sec-awards"><span class="toc-n">05</span>主力の表彰実績</a></li>
+          <li><a href="#sec-layer"><span class="toc-n">06</span>投打2レイヤー</a></li>
+          <li><a href="#sec-new"><span class="toc-n">07</span>新戦力 — 各所の上積み</a></li>
+          <li><a href="#sec-eval"><span class="toc-n">08</span>選手別評価</a></li>
+          <li><a href="#sec-proscons"><span class="toc-n">09</span>光った点・課題点</a></li>
+          <li><a href="#sec-outlook"><span class="toc-n">10</span>今後どう見るか</a></li>
+          <li><a href="#sec-matrix"><span class="toc-n">11</span>運用マトリクス</a></li>
+          <li><a href="#sec-faq"><span class="toc-n">12</span>FAQ</a></li>
         </ul>
       </div>
 
@@ -1515,26 +1116,18 @@
           <span class="tag-pill">才木浩人</span>
           <span class="tag-pill">佐藤輝明</span>
           <span class="tag-pill">近本光司</span>
+          <span class="tag-pill">森下翔太</span>
           <span class="tag-pill">立石正広</span>
           <span class="tag-pill">ルーカス</span>
           <span class="tag-pill">モレッタ</span>
           <span class="tag-pill">2026展望</span>
-        </div>
-      </div>
-
-      <div class="sidebar-profile">
-        <div class="sidebar-profile-name">AIデータ二刀流ブログ</div>
-        <p>野球・競馬と経済・株式の2軸で、データとAIを活用した分析コンテンツを発信。</p>
-        <div class="sp-btn-col">
-          <a href="https://www.youtube.com/@AI-Baseball-Horse" target="_blank" rel="noopener" class="social-btn social-yt" style="font-size:0.78rem;">▶ AI二刀流チャンネル</a>
-          <a href="https://www.youtube.com/@AI-economy-radio" target="_blank" rel="noopener" class="social-btn social-yt" style="font-size:0.78rem;">▶ 経済ラジオ</a>
-          <a href="https://x.com/AI_yakyu_Keiba" target="_blank" rel="noopener" class="social-btn social-x" style="font-size:0.78rem;">𝕏 フォロー</a>
+          <span class="tag-pill">pWAR</span>
         </div>
       </div>
 
     </aside>
 
-  </div><!-- /art-layout -->
+  </div>
 
   <footer class="site-footer">
     <div class="footer-top">
