@@ -116,7 +116,14 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      // 送信完了メッセージを表示 (実際の送信処理はバックエンドで)
+      // 送信完了 (フロント確認のみ。実際のバックエンド送信は別途)
+      // 分析用: 成功時にカスタムイベントを発火（個人情報は送らない）
+      try {
+        window.dispatchEvent(new CustomEvent('contact:submit-success', {
+          detail: { formName: contactForm.id || contactForm.name || 'contact' }
+        }));
+      } catch (_) { /* noop */ }
+
       const formWrap = contactForm.closest('.form-wrap');
       formWrap.innerHTML = `
         <div style="text-align:center; padding: 40px 0;">

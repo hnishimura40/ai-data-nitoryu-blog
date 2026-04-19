@@ -28,11 +28,14 @@
   window.gtag = window.gtag || gtag;
 
   gtag('js', new Date());
-  // IP匿名化（GA4は標準で匿名化だが明示）・広告関連信号は抑制
+  // IP匿名化（GA4標準。明示）、広告関連信号抑制、
+  // page_location/page_path はクエリを除去して送信（PII混入防止）
   gtag('config', GA_MEASUREMENT_ID, {
     anonymize_ip: true,
     allow_google_signals: false,
-    allow_ad_personalization_signals: false
+    allow_ad_personalization_signals: false,
+    page_location: location.origin + location.pathname,
+    page_path: location.pathname
   });
 
   // ========== ユーティリティ ==========
@@ -56,10 +59,7 @@
 
   function getArticleCategory() {
     if (body && body.dataset && body.dataset.articleCategory) return body.dataset.articleCategory;
-    // フォールバック: パスから推定
-    var p = location.pathname;
-    if (/^\/economy-stocks\//.test(p)) return 'economy';
-    if (/^\/hanshin-keiba\//.test(p)) return 'baseball';
+    // data-article-category が無い = 記事ページではない扱い
     return 'static_page';
   }
 
@@ -71,7 +71,8 @@
   }
 
   function pagePath() {
-    return location.pathname + location.search;
+    // 将来URLパラメータが増えてもPII混入しないよう pathname のみ
+    return location.pathname;
   }
 
   function baseArticleParams() {
@@ -103,7 +104,8 @@
   }
 
   function isYouTube(url) {
-    return /(^|\.)youtube\.com\//i.test(url) || /(^|\.)youtu\.be\//i.test(url);
+    // https://youtu.be/xxx / https://www.youtube.com/... の両方に対応
+    return /(?:^https?:\/\/)?(?:[\w-]+\.)*(?:youtube\.com|youtu\.be)\//i.test(url);
   }
 
   // アフィリエイト判定: URLドメイン/パターンで自動判定
@@ -278,25 +280,18 @@
   }
 
   // ========== 問い合わせフォーム送信 ==========
-  // 個人情報は送らず、送信イベントだけを記録する
-  document.addEventListener('submit', function (ev) {
+  // main.js 側でバリデーション通過後に 'contact:submit-success' を発火する。
+  // ここではそのカスタムイベントだけを拾う（submitイベント直接拾いだと
+  // バリデーション失敗時にも発火してしまうため）。入力値は一切送らない。
+  window.addEventListener('contact:submit-success', function (ev) {
     try {
-      var form = ev.target;
-      if (!form || form.tagName !== 'FORM') return;
-      // 問い合わせフォームの判定
-      var isContact =
-        (form.dataset && form.dataset.formName === 'contact') ||
-        /contact/i.test(form.id || '') ||
-        /contact/i.test(form.name || '') ||
-        /\/contact\//.test(location.pathname);
-      if (!isContact) return;
-
+      var name = (ev && ev.detail && ev.detail.formName) || 'contact';
       send('contact_submit', {
-        form_name: (form.dataset && form.dataset.formName) || form.id || form.name || 'contact',
+        form_name: name,
         page_path: pagePath()
       });
     } catch (e) { /* noop */ }
-  }, true);
+  });
 
   } catch (e) { /* analytics failure must not break the page */ }
 })();
