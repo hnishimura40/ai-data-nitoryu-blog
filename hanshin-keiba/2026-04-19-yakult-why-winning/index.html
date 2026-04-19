@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="color-scheme" content="light dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/img/logo.png">
+  <link rel="apple-touch-icon" href="/assets/img/logo.png">
+  <meta name="description" content="去年セ最下位、今年も戦前評価最下位だったヤクルトがなぜ首位争いできているのか。Team WARとポジション別データで「投手主導＋外野・センターライン」という勝ち方の正体を徹底分析。">
+  <title>ヤクルトはなぜ勝てているのか｜去年最下位・今年も低評価だったのに首位争いする理由 | AIデータ二刀流ブログ</title>
+  <link rel="stylesheet" href="../../assets/css/style.css?v=5">
+  <link rel="stylesheet" href="../../assets/css/article.css?v=7">
+  <link rel="stylesheet" href="../../assets/css/article-enhance.css?v=20260418e">
+  <style>
+    :root {
+      --q-accent: #14b8a6;
+      --q-accent2: #0ea5e9;
+      color-scheme: light dark;
+    }
+    html, body { background-color: #ffffff; color: #2a2e3c; }
+
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0b1020 !important; color: #d8dfef !important; }
+      .art-body p, .art-body li { color: #d8dfef !important; }
+      .art-body p strong, .art-body li strong { color: #5eead4 !important; background: rgba(20,184,166,0.15) !important; padding: 0 4px !important; border-radius: 3px !important; }
+      .sec-head { border-bottom-color: #2a3150 !important; }
+      .sec-head h2 { color: #f5f7ff !important; }
+      .sec-head-en { color: #5a6488 !important; }
+      .sec-sub { color: #f5f7ff !important; border-left-color: #14b8a6 !important; }
+      .stat-card { background: linear-gradient(145deg, #1a1f35, #141828) !important; border-color: #2a3150 !important; }
+      .stat-card-label { color: #5eead4 !important; }
+      .stat-card-number { color: #f5f7ff !important; }
+      .stat-card-sub { color: #9aa3bf !important; }
+      .data-table { box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5) !important; }
+      .data-table td { background-color: #141828 !important; color: #d8dfef !important; border-bottom-color: #2a3150 !important; }
+      .data-table tr:nth-child(even) td { background-color: #181c2e !important; }
+      .data-table th { background: #0b1020 !important; color: #5eead4 !important; }
+      .data-table strong { color: #5eead4 !important; background: none !important; }
+      .faq-item { background: #141828 !important; border-color: #2a3150 !important; border-left-color: #5eead4 !important; }
+      .faq-q { color: #f5f7ff !important; }
+      .faq-a { color: #c9d0e5 !important; }
+      .pro-box { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.05)) !important; border-color: rgba(16,185,129,0.4) !important; color: #86efac !important; }
+      .con-box { background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(239,68,68,0.05)) !important; border-color: rgba(239,68,68,0.4) !important; color: #fca5a5 !important; }
+      .matrix-table td { background: #141828 !important; border-color: #2a3150 !important; color: #d8dfef !important; }
+      .matrix-table th { background: #0b1020 !important; color: #5eead4 !important; border-color: #2a3150 !important; }
+      .sidebar-toc { background: linear-gradient(145deg, #141828, #0f1322) !important; border-color: #2a3150 !important; }
+      .sidebar-toc-label { color: #5eead4 !important; }
+      .toc-list a { color: #b9c1d9 !important; }
+      .toc-list a:hover { color: #5eead4 !important; }
+      .toc-list li { border-bottom-color: #2a3150 !important; }
+      .toc-n { color: #5eead4 !important; }
+      .sidebar-meta { background: #141828 !important; border-color: #2a3150 !important; }
+      .sidebar-meta-label { color: #5eead4 !important; }
+      .tag-pill { background: #1a1f35 !important; color: #b9c1d9 !important; border-color: #2a3150 !important; }
+      .related-item { background: #141828 !important; border-color: #2a3150 !important; }
+      .related-title { color: #f5f7ff !important; }
+      .related-head { color: #5eead4 !important; border-bottom-color: #2a3150 !important; }
+      .hlbox { background: rgba(20,184,166,0.1) !important; border-color: rgba(20,184,166,0.3) !important; }
+      .art-summary { background: #0b1020 !important; border: 1px solid #2a3150 !important; }
+      .hero-summary { background: linear-gradient(135deg, #051f1f 0%, #083030 60%, #040e14 100%) !important; }
+      .disclaimer { background: rgba(217,119,6,0.1) !important; color: #fcd34d !important; border-color: rgba(217,119,6,0.4) !important; }
+      .site-header { background: #0b1020 !important; border-bottom: 1px solid #2a3150 !important; }
+      .breadcrumb { background: #0f1322 !important; }
+      .breadcrumb-inner a, .breadcrumb-inner span { color: #b9c1d9 !important; }
+      .war-bar-bg { background: #1a1f35 !important; }
+    }
+
+    /* ===== ART HERO ===== */
+    .art-hero {
+      background: radial-gradient(circle at 20% 0%, #082020 0%, #0a2e1e 40%, #050a14 80%);
+      padding: 0; position: relative; overflow: hidden;
+    }
+    .art-hero-thumb { width: 100%; max-width: 1200px; max-height: 420px; object-fit: cover; display: block; margin: 0 auto; filter: saturate(1.1); }
+    .art-hero-title-block { max-width: 1100px; margin: 0 auto; padding: 26px 28px 22px; position: relative; z-index: 2; }
+    .art-hero-cats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .art-cat-badge { font-size: 0.68rem; font-weight: 900; letter-spacing: .14em; padding: 4px 12px; border-radius: 999px; text-transform: uppercase; }
+    .art-cat-baseball { background: linear-gradient(90deg, #14b8a6, #0ea5e9); color: #fff; }
+    .art-cat-data    { background: #6366f1; color: #fff; }
+    .art-cat-yakult  { background: linear-gradient(90deg, #1a9e6e, #14b8a6); color: #fff; }
+    .art-hero-h1 { font-size: clamp(1.2rem, 2.8vw, 1.8rem); font-weight: 900; color: #fff; line-height: 1.4; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .art-hero-meta { font-size: 0.78rem; color: rgba(255,255,255,0.65); display: flex; gap: 18px; }
+
+    /* ===== LAYOUT ===== */
+    .art-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 44px 24px 80px; align-items: flex-start; }
+    @media (max-width: 900px) { .art-layout { grid-template-columns: 1fr; padding: 28px 16px 60px; gap: 0; } }
+
+    /* ===== BODY ===== */
+    .art-body { min-width: 0; }
+    .art-body p { font-size: 0.96rem; line-height: 2; color: #2a2e3c; margin-bottom: 18px; }
+    .art-body strong { color: #0f766e; font-weight: 800; }
+    .art-body ul, .art-body ol { padding-left: 1.4em; margin-bottom: 18px; }
+    .art-body li { font-size: 0.93rem; line-height: 1.9; color: #2a2e3c; margin-bottom: 4px; }
+
+    /* ===== HERO SUMMARY ===== */
+    .hero-summary {
+      background: linear-gradient(135deg, #051f1f 0%, #083030 60%, #040e14 100%);
+      border-radius: 16px; padding: 28px 32px; color: #fff; margin-bottom: 36px;
+    }
+    .hs-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .2em; color: #5eead4; margin-bottom: 14px; }
+    .hs-list { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
+    .hs-list li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
+
+    /* ===== VIDEO BOX ===== */
+    .video-box { margin-bottom: 36px; }
+    .video-label { font-size: .65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
+    .video-wrap { position: relative; padding-bottom: 56.25%; background: #0b1020; border-radius: 10px; overflow: hidden; }
+    .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+
+    /* ===== SECTION HEAD ===== */
+    .sec-head { display: flex; align-items: center; gap: 14px; margin: 48px 0 22px; padding-bottom: 14px; border-bottom: 3px solid #e4e8f0; }
+    .sec-num { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #14b8a6; background: #e0f2f1; padding: 4px 8px; border-radius: 3px; flex-shrink: 0; }
+    .sec-head h2 { font-size: 1.22rem; font-weight: 900; color: var(--color-primary, #1a2744); margin: 0; line-height: 1.4; }
+    .sec-head-en { font-size: 0.68rem; font-weight: 800; letter-spacing: .2em; color: #b0b8c8; margin-left: auto; flex-shrink: 0; }
+    @media (max-width: 560px) { .sec-head-en { display: none; } }
+    .sec-sub { font-size: 1rem; font-weight: 700; color: #1a2744; margin: 28px 0 12px; padding-left: 12px; border-left: 3px solid #14b8a6; }
+
+    /* ===== STAT CARDS ===== */
+    .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 20px 0 28px; }
+    @media (max-width: 640px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
+    .stat-card { background: linear-gradient(145deg, #f7f9fc, #eef2f8); border: 1px solid #dde3ef; border-radius: 10px; padding: 16px 14px; text-align: center; }
+    .stat-card-label { font-size: 0.62rem; font-weight: 900; letter-spacing: .12em; color: #14b8a6; margin-bottom: 6px; }
+    .stat-card-number { font-size: 1.5rem; font-weight: 900; color: #1a2744; line-height: 1.1; }
+    .stat-card-sub { font-size: 0.68rem; color: #8898b0; margin-top: 4px; }
+
+    /* ===== DATA TABLE ===== */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; margin: 18px 0 28px; }
+    .data-table th { background: #1a2744; color: #fff; padding: 9px 12px; text-align: left; font-weight: 700; white-space: nowrap; }
+    .data-table td { padding: 8px 12px; border-bottom: 1px solid #e8ebf0; color: #2a2a2a; vertical-align: middle; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: #f8fafd; }
+    .td-top { font-weight: 900; color: #14b8a6; }
+    .td-bottom { color: #ef4444; }
+    .td-hi { font-weight: 800; }
+
+    /* ===== HLBOX ===== */
+    .hlbox { background: linear-gradient(135deg, #e0fdf4, #ccfbf1); border: 1px solid #99f6e4; border-left: 4px solid #14b8a6; border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 24px 0; }
+    .hlbox p { margin: 0; font-size: 0.94rem; }
+
+    /* ===== WAR BAR ===== */
+    .war-bars { display: flex; flex-direction: column; gap: 8px; margin: 18px 0 28px; }
+    .war-bar-row { display: flex; align-items: center; gap: 10px; }
+    .war-bar-label { font-size: 0.8rem; font-weight: 700; color: #1a2744; width: 68px; flex-shrink: 0; }
+    .war-bar-bg { background: #e8ecf4; border-radius: 4px; flex: 1; height: 20px; overflow: hidden; }
+    .war-bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 6px; font-size: 0.7rem; font-weight: 800; color: #fff; white-space: nowrap; }
+    .war-bar-val { font-size: 0.8rem; font-weight: 800; color: #1a2744; width: 36px; text-align: right; flex-shrink: 0; }
+
+    /* ===== PROS / CONS ===== */
+    .pros-cons-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0 28px; }
+    @media (max-width: 600px) { .pros-cons-row { grid-template-columns: 1fr; } }
+    .pro-box, .con-box { border-radius: 10px; padding: 18px 20px; }
+    .pro-box { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 1px solid #86efac; }
+    .con-box { background: linear-gradient(135deg, #fff1f2, #ffe4e6); border: 1px solid #fca5a5; }
+    .pc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; margin-bottom: 10px; }
+    .pro-box .pc-label { color: #16a34a; }
+    .con-box .pc-label { color: #dc2626; }
+    .pc-list { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 6px; }
+    .pc-list li { font-size: 0.85rem; line-height: 1.6; }
+    .pro-box .pc-list li { color: #166534; }
+    .con-box .pc-list li { color: #9f1239; }
+
+    /* ===== MATRIX ===== */
+    .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin: 18px 0 28px; }
+    .matrix-table th { background: #1a2744; color: #fff; padding: 8px 12px; text-align: center; font-weight: 700; }
+    .matrix-table td { padding: 8px 10px; border: 1px solid #e4e8f0; color: #2a2a2a; text-align: center; vertical-align: middle; }
+    .mx-A { background: #dcfce7; color: #166534; font-weight: 800; }
+    .mx-B { background: #e0f2fe; color: #0369a1; font-weight: 700; }
+    .mx-C { background: #fef9c3; color: #854d0e; }
+    .mx-D { background: #fee2e2; color: #991b1b; }
+    .mx-pos { font-weight: 800; text-align: left; padding-left: 14px; }
+
+    /* ===== 3行まとめ ===== */
+    .art-summary { background: #1a2744; border-radius: 12px; padding: 26px 28px; margin: 36px 0 28px; }
+    .art-summary-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .18em; color: #5eead4; margin-bottom: 14px; }
+    .art-summary ol { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 10px; }
+    .art-summary li { font-size: 0.9rem; color: rgba(255,255,255,0.9); line-height: 1.75; }
+
+    /* ===== SIDEBAR ===== */
+    .art-sidebar { font-size: 0.88rem; }
+    @media (max-width: 900px) { .art-sidebar { display: contents; } .sidebar-toc { order: -1; margin-bottom: 28px; } }
+    .sidebar-toc { background: #f7f9fc; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; position: sticky; top: 80px; margin-bottom: 24px; }
+    .sidebar-toc-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .16em; color: #8898b0; margin-bottom: 12px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; }
+    .toc-list li { border-bottom: 1px solid #e8ecf4; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { display: flex; align-items: center; gap: 8px; padding: 8px 4px; color: #445; text-decoration: none; font-size: 0.8rem; line-height: 1.4; transition: color .15s; }
+    .toc-list a:hover { color: #14b8a6; }
+    .toc-n { font-size: 0.62rem; font-weight: 900; color: #14b8a6; flex-shrink: 0; width: 22px; }
+    .sidebar-meta { background: #fff; border: 1px solid #dde3ef; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
+    .sidebar-meta-label { font-size: 0.65rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; margin-bottom: 10px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { font-size: 0.72rem; color: #445; background: #f0f3f9; border: 1px solid #dde3ef; padding: 3px 9px; border-radius: 20px; cursor: default; }
+
+    /* ===== RELATED ===== */
+    .related-head { font-size: 0.72rem; font-weight: 900; letter-spacing: .14em; color: #8898b0; border-bottom: 2px solid #e0e6f0; padding-bottom: 10px; margin: 36px 0 14px; }
+    .related-list { display: flex; flex-direction: column; gap: 10px; }
+    .related-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #e0e6f0; border-radius: 8px; text-decoration: none; transition: box-shadow .18s; }
+    .related-item:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+    .related-tag { flex-shrink: 0; font-size: 0.62rem; font-weight: 800; background: #14b8a6; color: #fff; padding: 2px 7px; border-radius: 2px; margin-top: 2px; }
+    .related-title { font-size: 0.84rem; font-weight: 600; color: #1a2744; line-height: 1.5; }
+
+    .art-hr { border: none; border-top: 2px solid #edf0f6; margin: 40px 0; }
+    .disclaimer { background: #fff9f0; border: 1px solid #f0d9a0; border-left: 4px solid #d97706; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; font-size: 0.84rem; line-height: 1.75; color: #6a4a10; }
+  </style>
+  <link rel="stylesheet" href="../../assets/css/article-v2.css?v=20260418j">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../" class="site-logo">
+        <img src="/assets/img/logo.png" alt="AIデータ二刀流" class="logo-img" width="40" height="40">
+        <div>
+          <span class="logo-main">AIデータ二刀流ブログ</span>
+          <span class="logo-sub">野球・競馬 × 経済・株式</span>
+        </div>
+      </a>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="../../">TOP</a>
+        <a href="../../hanshin-keiba/" class="active">野球・競馬</a>
+        <a href="../../economy-stocks/">経済・株式</a>
+        <a href="../../channels/">チャンネル</a>
+        <a href="../../profile/">運営について</a>
+        <a href="../../contact/">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="../../">TOP</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../hanshin-keiba/">野球・競馬</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>ヤクルト躍進の正体</span>
+    </div>
+  </div>
+
+  <div class="art-hero">
+    <img src="thumb.png" alt="ヤクルトはなぜ勝てているのか" class="art-hero-thumb">
+    <div class="art-hero-title-block">
+      <div class="art-hero-cats">
+        <span class="art-cat-badge art-cat-yakult">ヤクルト</span>
+        <span class="art-cat-badge art-cat-data">データ分析</span>
+        <span class="art-cat-badge art-cat-baseball">球団分析</span>
+      </div>
+      <h1 class="art-hero-h1">
+        ヤクルトはなぜ勝てているのか｜去年最下位・今年も低評価だったのに首位争いする理由
+      </h1>
+      <div class="art-hero-meta">
+        <span>2026年4月19日</span>
+        <span>AIデータ二刀流ブログ</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="art-layout">
+    <main class="art-body">
+
+      <div class="hero-summary">
+        <div class="hs-label">KEY POINTS — この記事のポイント</div>
+        <ol class="hs-list">
+          <li>去年はpWAR adv. セ最下位（11.2）、今年の戦前想定も最下位（8.9）だったのに<strong>現在はTeam WAR 4.1でセ3位の実力帯</strong></li>
+          <li>最大の勝因は<strong>Pitch WAR 2.4の投手主導</strong>。打線でも外野・遊撃・捕手がしっかり勝ち筋を作っている</li>
+          <li>ただし順位より実力は1段下（WAR 3位、勝利ギャップ+2.02）。<strong>守備とコーナー内野の不安</strong>が今後のカギを握る</li>
+        </ol>
+      </div>
+
+      <div class="video-box">
+        <div class="video-label">▶ YOUTUBE — 動画でも解説中</div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/M2zHo2tKNXc?rel=0" title="ヤクルトはなぜ勝てているのか" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <p>2026年シーズン序盤、ヤクルトスワローズの戦いぶりに驚いている人は多いはずだ。去年はセ・リーグ最下位。しかも今年の開幕前評価も決して高くなかった。むしろ、村上が抜けたことも含めて「かなり厳しい」と見る向きが強かった。それなのに、いざシーズンが始まるとヤクルトは勝っている。</p>
+
+      <p>この話を単なる「勢いがある」「雰囲気がいい」で済ませるのはもったいない。数字を追っていくと、今のヤクルトは<strong>"理由のない好調"ではない</strong>。一方で、"完成された最強チーム"でもない。この絶妙な立ち位置こそが、今のヤクルトを一番面白くしている。</p>
+
+      <div class="hlbox">
+        <p><strong>この記事でわかること</strong>：去年の弱さの実態、今年も低評価だった理由、それでも勝てているTeam WARの内訳、ポジション別の強みと弱み、そしてこの好調が本物かどうかをデータで整理する。</p>
+      </div>
+
+      <!-- ===== SEC 01 ===== -->
+      <div class="sec-head" id="sec-weak">
+        <span class="sec-num">01</span>
+        <h2>去年のヤクルトは本当に弱かった</h2>
+        <span class="sec-head-en">2025 REALITY</span>
+      </div>
+
+      <p>まず確認したい。2025年のヤクルトは、単に順位が悪かっただけではない。<strong>数字で見ても、かなり明確に弱かった。</strong></p>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-card-label">2025 勝率</div>
+          <div class="stat-card-number">.419</div>
+          <div class="stat-card-sub">57勝79敗7分</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">pWAR adv.</div>
+          <div class="stat-card-number">11.2</div>
+          <div class="stat-card-sub">セ・リーグ 6位</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">TZR（守備）</div>
+          <div class="stat-card-number">-48.6</div>
+          <div class="stat-card-sub">大幅マイナス</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">OPS+</div>
+          <div class="stat-card-number">88</div>
+          <div class="stat-card-sub">平均以下（100基準）</div>
+        </div>
+      </div>
+
+      <p class="sec-sub">2025 pWAR adv. セ・リーグ比較</p>
+      <table class="data-table">
+        <thead><tr><th>チーム</th><th>野手</th><th>投手</th><th>合計</th><th>順位</th></tr></thead>
+        <tbody>
+          <tr><td>阪神</td><td>32.1</td><td>19.5</td><td class="td-hi">51.6</td><td class="td-top">1位</td></tr>
+          <tr><td>巨人</td><td>23.1</td><td>11.9</td><td class="td-hi">35.0</td><td>2位</td></tr>
+          <tr><td>DeNA</td><td>20.9</td><td>11.1</td><td class="td-hi">32.0</td><td>3位</td></tr>
+          <tr><td>中日</td><td>14.4</td><td>7.3</td><td>21.7</td><td>4位</td></tr>
+          <tr><td>広島</td><td>10.3</td><td>10.2</td><td>20.5</td><td>5位</td></tr>
+          <tr><td><strong>ヤクルト</strong></td><td><strong>3.8</strong></td><td><strong>7.4</strong></td><td class="td-bottom"><strong>11.2</strong></td><td class="td-bottom"><strong>6位</strong></td></tr>
+        </tbody>
+      </table>
+
+      <p>チーム指標も厳しい。OPS+ 88で打線は平均以下、wSB -1.0で走塁もマイナス、FIP- 103で投手も突出していない。何より守備の傷が非常に大きく（TZR -48.6）、打つ・走る・守る・投げるの全部がじわっと苦しかったチームだった。</p>
+
+      <p>しかも去年は<strong>村上がいたシーズンだった</strong>。それでも最下位。今のヤクルトを「もともと地力があったチーム」と雑に片づけるのは危険だ。</p>
+
+      <!-- ===== SEC 02 ===== -->
+      <div class="sec-head" id="sec-preseason">
+        <span class="sec-num">02</span>
+        <h2>今年の戦前評価も、さらに低かった</h2>
+        <span class="sec-head-en">PRESEASON ESTIMATE</span>
+      </div>
+
+      <p>去年のヤクルトが弱かっただけなら「今年は少し戻したのでは」と考える人もいるだろう。だが、<strong>開幕前の戦力想定はそうなっていなかった。</strong></p>
+
+      <table class="data-table">
+        <thead><tr><th>チーム</th><th>2025実績</th><th>2026現有戦力</th><th>変化</th></tr></thead>
+        <tbody>
+          <tr><td>阪神</td><td>51.6</td><td>50.7</td><td>-0.9</td></tr>
+          <tr><td>巨人</td><td>35.0</td><td>27.7</td><td>-7.3</td></tr>
+          <tr><td>DeNA</td><td>32.0</td><td>25.2</td><td>-6.8</td></tr>
+          <tr><td>中日</td><td>21.7</td><td>21.3</td><td>-0.4</td></tr>
+          <tr><td>広島</td><td>20.5</td><td>21.0</td><td>+0.5</td></tr>
+          <tr><td><strong>ヤクルト</strong></td><td>11.2</td><td class="td-bottom"><strong>8.9</strong></td><td class="td-bottom"><strong>-2.3</strong></td></tr>
+        </tbody>
+      </table>
+
+      <p>内訳を見ると、野手 3.8 → 2.2（-1.6）、投手 7.4 → 6.7（-0.7）。つまり戦前の見立てとしては、野手も投手も去年より大きく良くなるとは見られていなかった。</p>
+
+      <div class="hlbox">
+        <p><strong>ここが核心だ。</strong>去年も弱かった。今年の戦前評価も最下位水準。それなのに、今は勝っている。このズレこそが今回のテーマの核心だ。</p>
+      </div>
+
+      <!-- ===== SEC 03 ===== -->
+      <div class="sec-head" id="sec-current">
+        <span class="sec-num">03</span>
+        <h2>現在地 — Team WAR はセ3位の実力帯</h2>
+        <span class="sec-head-en">CURRENT STANDING</span>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-card-label">現在順位</div>
+          <div class="stat-card-number">1位</div>
+          <div class="stat-card-sub">12勝5敗 勝率.706</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Team WAR</div>
+          <div class="stat-card-number">4.1</div>
+          <div class="stat-card-sub">セ3位相当</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">勝利ギャップ</div>
+          <div class="stat-card-number">+2.02</div>
+          <div class="stat-card-sub">少し勝ちが先行</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Pitch WAR</div>
+          <div class="stat-card-number">2.4</div>
+          <div class="stat-card-sub">最大の勝因</div>
+        </div>
+      </div>
+
+      <p class="sec-sub">セ・リーグ Team WAR 比較（4/18時点）</p>
+      <div class="war-bars">
+        <div class="war-bar-row">
+          <div class="war-bar-label">阪神</div>
+          <div class="war-bar-bg"><div class="war-bar-fill" style="width:100%;background:linear-gradient(90deg,#dc2626,#ef4444);">6.1</div></div>
+          <div class="war-bar-val">6.1</div>
+        </div>
+        <div class="war-bar-row">
+          <div class="war-bar-label">巨人</div>
+          <div class="war-bar-bg"><div class="war-bar-fill" style="width:77%;background:linear-gradient(90deg,#6366f1,#818cf8);">4.7</div></div>
+          <div class="war-bar-val">4.7</div>
+        </div>
+        <div class="war-bar-row">
+          <div class="war-bar-label"><strong>ヤクルト</strong></div>
+          <div class="war-bar-bg"><div class="war-bar-fill" style="width:67%;background:linear-gradient(90deg,#0d9488,#14b8a6);"><strong>4.1</strong></div></div>
+          <div class="war-bar-val"><strong>4.1</strong></div>
+        </div>
+        <div class="war-bar-row">
+          <div class="war-bar-label">DeNA</div>
+          <div class="war-bar-bg"><div class="war-bar-fill" style="width:44%;background:linear-gradient(90deg,#0ea5e9,#38bdf8);">2.7</div></div>
+          <div class="war-bar-val">2.7</div>
+        </div>
+        <div class="war-bar-row">
+          <div class="war-bar-label">中日</div>
+          <div class="war-bar-bg"><div class="war-bar-fill" style="width:26%;background:#94a3b8;">1.6</div></div>
+          <div class="war-bar-val">1.6</div>
+        </div>
+        <div class="war-bar-row">
+          <div class="war-bar-label">広島</div>
+          <div class="war-bar-bg"><div class="war-bar-fill" style="width:13%;background:#94a3b8;">0.8</div></div>
+          <div class="war-bar-val">0.8</div>
+        </div>
+      </div>
+
+      <p>大事なのは、ヤクルトを過小評価しすぎないことだ。Team WAR 4.1ある以上、実力ゼロの首位ではない。ちゃんと上位帯の数字は積んでいる。ただし同時に過大評価もしすぎないほうがいい。WARでは3位で、順位は首位争い。<strong>完全なまぐれではないが、順位の見た目ほど圧倒的でもない</strong>のが実態だ。</p>
+
+      <!-- ===== SEC 04 ===== -->
+      <div class="sec-head" id="sec-war-breakdown">
+        <span class="sec-num">04</span>
+        <h2>Team WARの内訳 — 投手主導＋打撃補完型</h2>
+        <span class="sec-head-en">WAR BREAKDOWN</span>
+      </div>
+
+      <table class="data-table">
+        <thead><tr><th>WAR種別</th><th>ヤクルト</th><th>阪神</th><th>巨人</th><th>DeNA</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Bat WAR</strong></td><td>2.1</td><td class="td-top">4.6</td><td>2.1</td><td>2.3</td></tr>
+          <tr><td><strong>Pitch WAR</strong></td><td class="td-top td-hi">2.4</td><td>0.9</td><td>1.4</td><td>1.5</td></tr>
+          <tr><td><strong>Def WAR</strong></td><td class="td-bottom">-0.5</td><td>0.5</td><td class="td-top">1.1</td><td>-1.2</td></tr>
+          <tr><td><strong>Run WAR</strong></td><td>0.1</td><td>0.1</td><td>0.1</td><td>0.1</td></tr>
+          <tr><td><strong>合計</strong></td><td class="td-hi">4.1</td><td class="td-hi">6.1</td><td class="td-hi">4.7</td><td class="td-hi">2.7</td></tr>
+        </tbody>
+      </table>
+
+      <p>最大の勝因が投手だということが一目でわかる。今のヤクルトを「打線のチーム」とだけ見るとかなりズレる。</p>
+
+      <p class="sec-sub">チーム指標</p>
+      <table class="data-table">
+        <thead><tr><th>指標</th><th>値</th><th>評価</th></tr></thead>
+        <tbody>
+          <tr><td>OPS+（打線）</td><td>97</td><td>平均近辺</td></tr>
+          <tr><td>BABIP</td><td>.326</td><td>やや高め</td></tr>
+          <tr><td>wSB（走塁）</td><td>+0.5</td><td>わずかプラス</td></tr>
+          <tr><td>FIP（投手）</td><td>3.47</td><td class="td-top">良い</td></tr>
+          <tr><td>FIP-</td><td>89</td><td class="td-top">良い（100基準）</td></tr>
+          <tr><td>K-BB%</td><td>14.9%</td><td class="td-top">良い</td></tr>
+          <tr><td>WHIP</td><td>1.21</td><td>平均的</td></tr>
+          <tr><td>TZR（守備）</td><td>-5.6</td><td class="td-bottom">まだ弱点</td></tr>
+        </tbody>
+      </table>
+
+      <p>打線は最強ではないが<strong>投手はかなり良い。</strong>阪神が打撃主導、巨人が守備込みの総合力なのに対し、ヤクルトは<strong>投手主導＋打撃補完型</strong>という独自の勝ち方をしている。</p>
+
+      <!-- ===== SEC 05 ===== -->
+      <div class="sec-head" id="sec-position">
+        <span class="sec-num">05</span>
+        <h2>ポジション別の強みと弱み</h2>
+        <span class="sec-head-en">POSITION BREAKDOWN</span>
+      </div>
+
+      <p>今のヤクルトは、全部のポジションが強いわけではない。むしろ、強い場所と弱い場所がかなりはっきりしている。</p>
+
+      <table class="matrix-table">
+        <thead>
+          <tr><th>ポジション</th><th>選手</th><th>OPS+</th><th>TZR</th><th>TOTAL WAR</th><th>評価</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="mx-pos">捕手</td><td>古賀優大</td><td>92</td><td>+0.8</td><td>+0.3</td><td class="mx-B">プラス寄り</td></tr>
+          <tr><td class="mx-pos">一塁</td><td>オスナ</td><td>86</td><td>-0.5</td><td>—</td><td class="mx-D">弱み寄り</td></tr>
+          <tr><td class="mx-pos">二塁</td><td>伊藤琉偉</td><td>106</td><td>-1.7</td><td>0.0</td><td class="mx-C">中立〜やや弱み</td></tr>
+          <tr><td class="mx-pos">三塁</td><td>武岡龍世</td><td>77</td><td>+2.1</td><td>+0.4</td><td class="mx-C">中立（打撃難→守備で耐）</td></tr>
+          <tr><td class="mx-pos">遊撃</td><td>長岡秀樹</td><td>99</td><td>-1.2</td><td>+0.4</td><td class="mx-B">ヤクルト内で強み</td></tr>
+          <tr><td class="mx-pos">外野計</td><td>3人合計</td><td>—</td><td>—</td><td><strong>+1.1</strong></td><td class="mx-A">最大の強み</td></tr>
+        </tbody>
+      </table>
+
+      <p class="sec-sub">外野の内訳（チーム最大の勝ち筋）</p>
+      <table class="data-table">
+        <thead><tr><th>選手</th><th>TOTAL</th><th>Bat</th><th>Run</th><th>Def</th><th>役割</th></tr></thead>
+        <tbody>
+          <tr><td>サンタナ</td><td>+0.3</td><td>+0.8</td><td>-0.1</td><td>-0.4</td><td>中軸・最大火力</td></tr>
+          <tr><td>岩田幸宏</td><td>+0.3</td><td>+0.2</td><td>+0.3</td><td>-0.2</td><td>機動力の起点</td></tr>
+          <tr><td>丸山和郁</td><td>+0.5</td><td>+0.2</td><td>+0.1</td><td>+0.3</td><td>総合型</td></tr>
+          <tr><td><strong>合計</strong></td><td class="td-top"><strong>+1.1</strong></td><td><strong>+1.2</strong></td><td><strong>+0.3</strong></td><td>-0.3</td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <p>村上の穴をサード代役1人が埋めたのではなく、<strong>外野ユニット全体で埋めている構図</strong>だ。遊撃・長岡は17試合すべてでショートを守り、打撃でもマイナスにしていない。この安定感がかなり大きい。捕手・古賀も同様で、大きな穴を作っていない。</p>
+
+      <p>一方で一塁・オスナはOPS+ 86で「打って稼ぐポジション」として物足りない。武岡三塁はOPS+ 77と打撃は苦しいが、TZR+2.1の守備で耐えている状況だ。</p>
+
+      <!-- ===== SEC 06 ===== -->
+      <div class="sec-head" id="sec-players">
+        <span class="sec-num">06</span>
+        <h2>誰が想定以上に効いているのか</h2>
+        <span class="sec-head-en">KEY CONTRIBUTORS</span>
+      </div>
+
+      <p>今のヤクルトの面白さはここにもある。誰か1人が村上の穴を丸ごと埋めているわけではない。</p>
+
+      <p class="sec-sub">野手主力（17試合終了時点）</p>
+      <table class="data-table">
+        <thead><tr><th>選手</th><th>G</th><th>打率</th><th>OPS</th><th>特記</th><th>役割</th></tr></thead>
+        <tbody>
+          <tr><td><strong>サンタナ</strong></td><td>17</td><td>.263</td><td>.909</td><td>4HR / 9打点</td><td>最大火力</td></tr>
+          <tr><td>長岡秀樹</td><td>17</td><td>.275</td><td>.672</td><td>19安打</td><td>上位の接着剤</td></tr>
+          <tr><td>岩田幸宏</td><td>17</td><td>.281</td><td>.626</td><td>8盗塁</td><td>機動力の起点</td></tr>
+          <tr><td>古賀優大</td><td>10</td><td>.316</td><td>.658</td><td>5打点</td><td>捕手の安定枠</td></tr>
+          <tr><td>増田珠</td><td>12</td><td>.242</td><td>.814</td><td>2HR / 7打点</td><td>脇役の長打</td></tr>
+          <tr><td>伊藤琉偉</td><td>17</td><td>.209</td><td>.695</td><td>2HR / 2盗塁</td><td>補完パーツ</td></tr>
+        </tbody>
+      </table>
+
+      <p class="sec-sub">投手主力（先発・救援）</p>
+      <table class="data-table">
+        <thead><tr><th>選手</th><th>IP</th><th>K</th><th>BB</th><th>WHIP</th><th>特記</th></tr></thead>
+        <tbody>
+          <tr><td><strong>山野太一</strong></td><td>20.0</td><td>18</td><td>2</td><td>1.05</td><td>3勝0敗</td></tr>
+          <tr><td><strong>吉村貢司郎</strong></td><td>17.1</td><td>19</td><td>2</td><td>1.04</td><td>K/9 9.87</td></tr>
+          <tr><td>高梨裕稔</td><td>18.1</td><td>16</td><td>4</td><td>0.93</td><td>安定</td></tr>
+          <tr><td>奥川恭伸</td><td>12.0</td><td>11</td><td>1</td><td>0.75</td><td>WHIP抜群</td></tr>
+          <tr><td>キハダ</td><td>7.0</td><td>8</td><td>3</td><td>0.86</td><td><strong>7セーブ</strong></td></tr>
+          <tr><td>星知弥</td><td>7.0</td><td>7</td><td>—</td><td>1.57</td><td>6ホールド</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>"代役のスター1人"ではなく、"役割分担した複数人"</strong>が今のヤクルトを作っている。サンタナの火力、岩田の機動力、長岡のショート固定、古賀の穴のなさ、先発4枚の安定、キハダ・星の終盤処理。この合算が、戦前想定を超える現在地につながっている。</p>
+
+      <!-- ===== SEC 07 ===== -->
+      <div class="sec-head" id="sec-real">
+        <span class="sec-num">07</span>
+        <h2>この好調は本物か、少し勝ちすぎか</h2>
+        <span class="sec-head-en">REAL OR LUCKY?</span>
+      </div>
+
+      <div class="pros-cons-row">
+        <div class="pro-box">
+          <div class="pc-label">▲ 本物の根拠</div>
+          <ul class="pc-list">
+            <li>Pitch WAR 2.4 — セトップクラス</li>
+            <li>FIP- 89 / K-BB% 14.9% と投手指標が良い</li>
+            <li>Bat WAR 2.1 でしっかりプラス</li>
+            <li>外野ユニット TOTAL +1.1</li>
+            <li>長岡・古賀のセンターライン安定</li>
+            <li>Team WAR 4.1 でセ3位の実力帯</li>
+          </ul>
+        </div>
+        <div class="con-box">
+          <div class="pc-label">▼ 不安材料</div>
+          <ul class="pc-list">
+            <li>勝利ギャップ +2.02（勝ちが少し先行）</li>
+            <li>Def WAR -0.5 / TZR -5.6 と守備がマイナス</li>
+            <li>一塁オスナ OPS+ 86 — 物足りない</li>
+            <li>三塁武岡 OPS+ 77 — 打撃は苦しい</li>
+            <li>WAR 3位なのに順位は首位</li>
+            <li>投手・外野への依存度が高い</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>今後見るべきポイントは明確だ。</p>
+      <ul>
+        <li><strong>Pitch WAR 2.4 を維持できるか</strong></li>
+        <li><strong>外野ユニットの価値が落ちないか</strong></li>
+        <li><strong>長岡と古賀の安定が続くか</strong></li>
+        <li><strong>一塁・二塁・三塁で上積みが出るか</strong></li>
+        <li><strong>守備全体のマイナスが広がらないか</strong></li>
+      </ul>
+
+      <p>もし今の強みが維持されれば、ヤクルトは本当に上位定着まで見えてくる。逆に、投手と外野の上振れが止まり、センターラインの安定が崩れれば、一気に苦しくなる可能性もある。</p>
+
+      <!-- ===== SEC 08 ===== -->
+      <div class="sec-head" id="sec-summary-sec">
+        <span class="sec-num">08</span>
+        <h2>まとめ — "中間のリアル"が今年のヤクルト</h2>
+        <span class="sec-head-en">SUMMARY</span>
+      </div>
+
+      <p>ヤクルトは去年、最下位だった。しかも今年の戦前評価も低かった。それでも今、勝っている。この現象をデータで追うと、見えてくる答えはシンプルだ。</p>
+
+      <p><strong>全部が強いから勝っているわけではない。</strong>投手がまず強く、外野・遊撃・捕手で勝ち筋を作り、弱点を薄めながら勝っている。</p>
+
+      <p>当然「まだ4月だし上振れだろ」という見方はある。実際、勝利ギャップはプラスで守備もマイナスだ。だから順位をそのまま「本物の優勝候補」と断定するのは早い。ただ、Team WAR 4.1が積み上がっている以上、全部をただのまぐれで片づけるのも雑だ。<strong>正しい見方は"まぐれ"か"本物"かの二択ではなく、"根拠のある好調だが、まだ不安も大きい"になる。</strong></p>
+
+      <p>今後この勝ち方が続くのか、それとも収束するのか。そこを追うこと自体が、今年のヤクルトを見る最大の楽しみになりそうだ。</p>
+
+      <div class="art-summary">
+        <div class="art-summary-label">3行まとめ</div>
+        <ol>
+          <li>去年最下位・今年も戦前最下位評価だったヤクルトが現在首位争い。Team WAR 4.1でセ3位の実力帯は積んでいる。</li>
+          <li>最大の勝因はPitch WAR 2.4の投手主導。外野ユニット（+1.1）、長岡・古賀のセンターライン安定が土台を作っている。</li>
+          <li>勝利ギャップ+2.02と守備マイナスが不安材料。"理由のない好調"ではないが"完成された最強チーム"でもない。</li>
+        </ol>
+      </div>
+
+      <div class="disclaimer">
+        <strong>ご注意</strong>：本記事のデータは2026年4月18日時点の数字をもとに分析しています。WAR系指標はNPB Basement等の独自算出値を参照。数値は算出方法により差異が生じることがあります。
+      </div>
+
+      <hr class="art-hr">
+
+      <div class="related-head">RELATED ARTICLES</div>
+      <div class="related-list">
+        <a href="../2026-04-18-hanshin-chunichi/" class="related-item">
+          <span class="related-tag">試合分析</span>
+          <span class="related-title">森下翔太の"修正力"が試合を決めた — 阪神4-3中日 2026.04.18</span>
+        </a>
+        <a href="../2026-04-17-morishita-chunichi/" class="related-item">
+          <span class="related-tag">試合分析</span>
+          <span class="related-title">森下の一発で終わらせるな — 阪神2-1中日 本当の分岐点 2026.04.17</span>
+        </a>
+        <a href="../2026-04-16-lucas-giants/" class="related-item">
+          <span class="related-tag">試合分析</span>
+          <span class="related-title">ルーカスの立ち上がり不安と今季初連敗 — 阪神3-4巨人 2026.04.16</span>
+        </a>
+      </div>
+
+    </main>
+
+    <aside class="art-sidebar">
+      <div class="sidebar-toc">
+        <div class="sidebar-toc-label">目次</div>
+        <ul class="toc-list">
+          <li><a href="#sec-weak"><span class="toc-n">01</span>去年の弱さの実態</a></li>
+          <li><a href="#sec-preseason"><span class="toc-n">02</span>今年も低評価だった理由</a></li>
+          <li><a href="#sec-current"><span class="toc-n">03</span>現在地 Team WAR</a></li>
+          <li><a href="#sec-war-breakdown"><span class="toc-n">04</span>Team WAR 内訳</a></li>
+          <li><a href="#sec-position"><span class="toc-n">05</span>ポジション別強みと弱み</a></li>
+          <li><a href="#sec-players"><span class="toc-n">06</span>誰が想定以上か</a></li>
+          <li><a href="#sec-real"><span class="toc-n">07</span>本物か上振れか</a></li>
+          <li><a href="#sec-summary-sec"><span class="toc-n">08</span>まとめ</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-meta">
+        <div class="sidebar-meta-label">TAGS</div>
+        <div class="tag-cloud">
+          <span class="tag-pill">ヤクルト</span>
+          <span class="tag-pill">Team WAR</span>
+          <span class="tag-pill">pWAR</span>
+          <span class="tag-pill">サンタナ</span>
+          <span class="tag-pill">長岡秀樹</span>
+          <span class="tag-pill">山野太一</span>
+          <span class="tag-pill">吉村貢司郎</span>
+          <span class="tag-pill">キハダ</span>
+          <span class="tag-pill">球団分析</span>
+          <span class="tag-pill">データ野球</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-name">AIデータ二刀流ブログ</div>
+        <p>野球・競馬と経済・株式の2軸で、データとAIを活用した分析コンテンツを発信するメディアブログ。</p>
+        <div class="footer-social">
+          <a href="https://www.youtube.com/@AI-economy-radio" target="_blank" rel="noopener" class="social-btn social-yt">▶ 経済ラジオ</a>
+          <a href="https://www.youtube.com/@AI-Baseball-Horse" target="_blank" rel="noopener" class="social-btn social-yt">▶ AI二刀流</a>
+          <a href="https://x.com/AI_yakyu_Keiba" target="_blank" rel="noopener" class="social-btn social-x">𝕏 フォロー</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>コンテンツ</h4>
+        <nav class="footer-nav">
+          <a href="../../hanshin-keiba/">野球・競馬データ分析</a>
+          <a href="../../economy-stocks/">経済・時事・株式分析</a>
+          <a href="../../channels/">YouTubeチャンネル</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>サイト情報</h4>
+        <nav class="footer-nav">
+          <a href="../../profile/">運営について</a>
+          <a href="../../privacy-policy/">プライバシーポリシー</a>
+          <a href="../../contact/">お問い合わせ</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 AIデータ二刀流ブログ. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>
